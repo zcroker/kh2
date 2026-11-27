@@ -42,26 +42,26 @@ struct P22d098 { u8 pad[4]; s16 h4; s16 h6; u8 x8[4]; u8 x12[4]; };
 extern "C" {
 extern S3188 D_0032e020;
 R3188* func_001a80c8(void*, s32);  // table24_find_by_id
-s32 func_001a3018(void*, s32, s32);
-void func_001a32c8(void*, s32);
-void* func_00188fe0(void*, s32);
+s32 YS__ITEM__WhereGet(void*, s32, s32);
+void YS__ITEM__GetBackyard(void*, s32);
+void* YS__SAVERAM_BATTLE__get_partram(void*, s32);
 void func_00188a28(void*, void*);
 void func_00188b68(void*, void*, u8);
 void func_001a39c8(void*);
 // 001a3188: moved to src/anon/unit_001a2a50.cpp
 extern f32 D_00349e10;
-VH func_0016bda8(u8*);
+VH YS__OBJ__get_target_pos(u8*);
 // 001ccc38: moved to src/anon/unit_001cc868.cpp
 void func_0022d000(u32);
 void func_0022d068(u32*);
-s32 func_002282f0(s32);
-s32 func_002282d8(void);  // limit_15000_or_25000
-s32 func_00225b00(s32);  // flag_query_by_index
+s32 sa__EVENT__checkStart(s32);
+s32 sa__EVENT__getEventPriority(void);  // limit_15000_or_25000
+s32 sa__EVENT__isJumpMode(s32);  // flag_query_by_index
 void func_0015c880(f32);
 u8* func_00102c18(s32, s32, void*);
 u32 func_001050c8(void);
 f32* func_001063c0(s32, u32);
 f32 func_00227c78(void*);
 void func_0014f030(void*, f32, f32, f32);  // obj_set_lerp_params
-void func_0022d098(P22d098* p);  // 0022d098: moved to src/sasa/event_layout.cpp (linked unit)
+void sa__EVENT__set_bin_black_fog(P22d098* p);  // 0022d098: moved to src/sasa/event_layout.cpp (linked unit)
 }

@@ -7,11 +7,11 @@ void func_0013d3f8(P*);
 u32 w8019_GetMode(void) asm("_ZN2YS6STATUS7GetModeEv");
 void func_0013ce08(P*, s32);
 void func_0013b838(P*);
-s32 func_001bcf38(u32*);
+s32 YS__COMMAND_MENU__is_shortcut_menu(u32*);
 void func_0013c900(P*, s32, u32*, s32);
 u32 func_0013c878(P*);
-void func_0013cbb8(P*, u32*, u32);
+void dk__COMMAND_DRAW__shortCut(P*, u32*, u32);
 u32 func_0013c888(P*, u32);
-void func_0013c3b8(P*, u32*, s32, u32, u32);
+void dk__COMMAND_DRAW__drawCommandPage(P*, u32*, s32, u32, u32);
 
-void func_0013c938(P* p);  // 0x0013c938: definition moved into src/anon/unit_0013a8b8.cpp
+void dk__COMMAND_DRAW__update(P* p);  // 0x0013c938: definition moved into src/anon/unit_0013a8b8.cpp

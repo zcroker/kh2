@@ -37,7 +37,7 @@ void func_001c9110(void*, Ob*);
 void func_0017f540(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
 void func_0016bd60(Ob*, s32);
-void func_001c92a0(void* x, Ob* o);  // 0x001c92a0: definition moved into src/anon/unit_001c91c8.cpp
+void YS__ACTION_LKDASH__control(void* x, Ob* o);  // 0x001c92a0: definition moved into src/anon/unit_001c91c8.cpp
 }
 namespace w320_c {
 struct V4r { f32 x, y, z, w; } __attribute__((aligned(16)));
@@ -90,8 +90,8 @@ extern u32 D_0035ef64;
 u16* func_0026b850(void);
 s32 func_002813b8(void);
 s32 func_00257118(s32);
-void func_00288d80(u32, s32, u32, u32, u32, s32, s32, s32);
-void func_00288e08(u32, s32, s32, s32);
+void Tz__Select__SetItem(u32, s32, u32, u32, u32, s32, s32, s32);
+void Tz__Select__SetExOffset(u32, s32, s32, s32);
 u8* func_002891b8(u32, s32);
 void func_00139620(u8*);
 void func_001395f8(u8*);
@@ -112,8 +112,8 @@ s32 func_00277708v0(s32 start)
         n++;
         s32 a = func_00257118(0);
         s32 b = func_00257118(1);
-        func_00288d80(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
-        func_00288e08(D_0035f01c, j, 0, -1);
+        Tz__Select__SetItem(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
+        Tz__Select__SetExOffset(D_0035f01c, j, 0, -1);
         func_00139620(func_002891b8(D_0035f01c, j));
         u8* nd = func_002891b8(D_0035f01c, j);
         *(s32*)(nd + 408) = func_00192048(*tbl);
@@ -123,8 +123,8 @@ s32 func_00277708v0(s32 start)
     n++;
     s32 a = func_00257118(0);
     s32 b = func_00257118(1);
-    func_00288d80(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
-    func_00288e08(D_0035f01c, j, 0, -1);
+    Tz__Select__SetItem(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
+    Tz__Select__SetExOffset(D_0035f01c, j, 0, -1);
     func_00139620(func_002891b8(D_0035f01c, j));
     u8* nd = func_002891b8(D_0035f01c, j);
     *(s32*)(nd + 408) = func_00192048(0xb2ec);
@@ -148,8 +148,8 @@ s32 func_00277708v1(s32 start)
         n++;
         s32 a = func_00257118(0);
         s32 b = func_00257118(1);
-        func_00288d80(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
-        func_00288e08(D_0035f01c, j, 0, -1);
+        Tz__Select__SetItem(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
+        Tz__Select__SetExOffset(D_0035f01c, j, 0, -1);
         func_00139620(func_002891b8(D_0035f01c, j));
         u8* nd = func_002891b8(D_0035f01c, j);
         *(s32*)(nd + 408) = func_00192048(*tbl);
@@ -159,8 +159,8 @@ s32 func_00277708v1(s32 start)
     n++;
     s32 a = func_00257118(0);
     s32 b = func_00257118(1);
-    func_00288d80(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
-    func_00288e08(D_0035f01c, j, 0, -1);
+    Tz__Select__SetItem(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
+    Tz__Select__SetExOffset(D_0035f01c, j, 0, -1);
     func_00139620(func_002891b8(D_0035f01c, j));
     u8* nd = func_002891b8(D_0035f01c, j);
     *(s32*)(nd + 408) = func_00192048(0xb2ec);
@@ -184,8 +184,8 @@ s32 func_00277708w0(s32 start)
         n++;
         s32 a = func_00257118(0);
         s32 b = func_00257118(1);
-        func_00288d80(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
-        func_00288e08(D_0035f01c, j, 0, -1);
+        Tz__Select__SetItem(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
+        Tz__Select__SetExOffset(D_0035f01c, j, 0, -1);
         func_00139620(func_002891b8(D_0035f01c, j));
         u8* nd = func_002891b8(D_0035f01c, j);
         *(s32*)(nd + 408) = func_00192048(*tbl);
@@ -195,8 +195,8 @@ s32 func_00277708w0(s32 start)
     n++;
     s32 a = func_00257118(0);
     s32 b = func_00257118(1);
-    func_00288d80(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
-    func_00288e08(D_0035f01c, j, 0, -1);
+    Tz__Select__SetItem(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
+    Tz__Select__SetExOffset(D_0035f01c, j, 0, -1);
     func_00139620(func_002891b8(D_0035f01c, j));
     u8* nd = func_002891b8(D_0035f01c, j);
     *(s32*)(nd + 408) = func_00192048(0xb2ec);
@@ -246,14 +246,14 @@ struct Ctx2bd310 { u32 f0; void* file; u32 f8; void* f12; Heap2bd310* heap; };
 extern "C" {
 void func_002ba298(void*);
 s32 func_001688c8(void*);
-void func_00168388(void*, void*, s32, s32);
-s32 func_00170cd0(void);
+void YS__FILE__ReadBack(void*, void*, s32, s32);
+s32 YS__CACHE_BUFF__IsFlushing(void);
 void func_00102448(Ctx2bd310*, s32);
 void func_002baf48(void*, s32, void*, s32, s32, s32);
 s32 func_002ba200(void);
 void* func_002bd2f0(void*, s32*);
 s32 func_002bd230(s32, u32);
-void func_002bd310(Ctx2bd310* c);  // 0x002bd310: definition moved into src/anon/unit_002bc978.cpp
+void SOUND__readBgmThread(Ctx2bd310* c);  // 0x002bd310: definition moved into src/anon/unit_002bc978.cpp
 
 }
 namespace w320_d {
@@ -291,9 +291,9 @@ struct Ob2 { u8 pad[320]; u8 sub[32]; };
 extern "C" {
 extern Ob2* D_00351068;
 extern f32 D_00349e10;
-void func_0016af58(QWord*);
+void YS__OBJ__get_dir(QWord*);
 s32 func_001b2b58(Ob*);
 void func_0017f540(void*, s32, f32, f32);
-void func_001b2860(void* self, Ob* o);  // 0x001b2860: definition moved into src/anon/unit_001b2780.cpp
+void YS__ACTION_CARPET__control(void* self, Ob* o);  // 0x001b2860: definition moved into src/anon/unit_001b2780.cpp
 }
 }

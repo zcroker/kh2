@@ -217,11 +217,11 @@ extern f32 D_00349e10 asm("D_00349e10");
 extern f32 D_00351fd8 asm("D_00351fd8");
 extern f32 D_00351fe0 asm("D_00351fe0");
 W2023Pl* W2023_current(void) asm("_ZN2Ti8MGPlayer7currentEv");
-s32 W2023_ctarget(W2023Pl*) asm("_Z16ctarget_0019ba60jjjj");
+s32 W2023_ctarget(W2023Pl*) asm("_Z17YS__OBJ__is_existjjjj");
 void W2023_rotateY(W2023M*, f32) asm("_ZN2kn7FMatrix7rotateYEf");
 f32 func_001cbf50(f32) asm("func_001cbf50");
-s32 func_001cab28(W2023Ob* o) asm("func_001cab28");
-s32 func_001cab28(W2023Ob* o)
+s32 YS__PRIZEEFFECT_PO__phase_get(W2023Ob* o) asm("YS__PRIZEEFFECT_PO__phase_get");
+s32 YS__PRIZEEFFECT_PO__phase_get(W2023Ob* o)
 {
     W2023Pl* pl = W2023_current();
     f32 t;
@@ -245,11 +245,11 @@ s32 func_001cab28(W2023Ob* o)
 
 // ---- 001cad40 gap: calls 001cab28 and returns its result
 namespace n001cad40 {
-s32 func_001cab28(void*) asm("func_001cab28");
+s32 YS__PRIZEEFFECT_PO__phase_get(void*) asm("YS__PRIZEEFFECT_PO__phase_get");
 s32 func_001cad40(void* p) asm("func_001cad40");
 s32 func_001cad40(void* p) {
     struct NoTail { ~NoTail() {} } n;
-    return func_001cab28(p);
+    return YS__PRIZEEFFECT_PO__phase_get(p);
 }
 }  // namespace n001cad40
 
@@ -273,7 +273,7 @@ struct Ob1941 { Q1941 pos; u8 pad0[6]; u8 b22; u8 pad1[41]; f32 f64; u8 pad2[44]
 extern f32 D_00349e10 asm("D_00349e10");
 extern f32 D_00351fd8 asm("D_00351fd8");
 Tgt1941* func_002d1260(void) asm("func_002d1260");
-s32 func_0019ba60(Tgt1941*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(Tgt1941*) asm("YS__OBJ__is_exist");
 f32 func_001cbf50(f32) asm("func_001cbf50");
 f32 cosf(f32) asm("cosf");
 f32 sinf(f32) asm("sinf");
@@ -281,7 +281,7 @@ s32 func_001cad60(Ob1941* self) asm("func_001cad60");
 s32 func_001cad60(Ob1941* self) {
     Tgt1941* t = func_002d1260();
     self->f64 -= D_00349e10;
-    if (self->f64 <= 0.0f || !func_0019ba60(t)) return 0;
+    if (self->f64 <= 0.0f || !YS__OBJ__is_exist(t)) return 0;
     self->f160 += self->f168 * D_00349e10;
     f32 k = self->f64 / D_00351fd8;
     f32 a = func_001cbf50(self->f160);
@@ -336,15 +336,15 @@ extern f32 D_00349e10 asm("D_00349e10");
 extern f32 D_00351fd8 asm("D_00351fd8");
 extern f32 D_00351fe0 asm("D_00351fe0");
 Pl1567* func_002d1260(void) asm("func_002d1260");
-s32 func_0019ba60(Pl1567*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(Pl1567*) asm("YS__OBJ__is_exist");
 void func_0011b6a8(QM1567b*) asm("func_0011b6a8");
 void func_0011b768(QM1567b*, f32) asm("func_0011b768");
 f32 func_001cbf50(f32) asm("func_001cbf50");
-s32 uc1567(u8* o, u32, u32, u32) asm("_Z16u_call4_001caf00jjjj");
+s32 uc1567(u8* o, u32, u32, u32) asm("_Z39YS__PRIZEEFFECT_PO__phase_get_po06_falljjjj");
 s32 uc1567(u8* o, u32, u32, u32) {
     Pl1567* pl = func_002d1260();
     *(f32*)(o + 0x40) -= D_00349e10;
-    if (*(f32*)(o + 0x40) <= 0.0f || !func_0019ba60(pl)) return 0;
+    if (*(f32*)(o + 0x40) <= 0.0f || !YS__OBJ__is_exist(pl)) return 0;
     f32 t = *(f32*)(o + 0x40) / D_00351fd8;
     QV1567b v(*(QV1567b*)(o + 0x90));
     v.scale(*(f32*)(o + 0x9c) * t);
@@ -361,11 +361,11 @@ s32 uc1567(u8* o, u32, u32, u32) {
 
 // ---- 001cb088 gap: calls 001caf00 and returns its result
 namespace n001cb088 {
-s32 func_001caf00(void*) asm("_Z16u_call4_001caf00jjjj");
+s32 YS__PRIZEEFFECT_PO__phase_get_po06_fall(void*) asm("_Z39YS__PRIZEEFFECT_PO__phase_get_po06_falljjjj");
 s32 func_001cb088(void* p) asm("func_001cb088");
 s32 func_001cb088(void* p) {
     struct NoTail { ~NoTail() {} } n;
-    return func_001caf00(p);
+    return YS__PRIZEEFFECT_PO__phase_get_po06_fall(p);
 }
 }  // namespace n001cb088
 
@@ -373,7 +373,7 @@ s32 func_001cb088(void* p) {
 namespace n001cb0a8 {
 struct B0a8V { f32 x, y, z, w; } __attribute__((aligned(16)));
 void* b0a8_current(void) asm("_ZN2Ti8MGPlayer7currentEv");
-B0a8V* func_0016c028(void*) asm("func_0016c028");
+B0a8V* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 static inline __attribute__((always_inline)) f32 b0a8_normalize(B0a8V* v) {
     f32 len;
     asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)" : "=f"(len) : "r"(v) : "$8", "memory");
@@ -391,7 +391,7 @@ static inline __attribute__((always_inline)) void sub_B(B0a8V* a, B0a8V* b, B0a8
 bool func_001cb0a8(B0a8V* self) asm("func_001cb0a8");
 bool func_001cb0a8(B0a8V* self) {
     B0a8V d;
-    sub_B(self, func_0016c028(b0a8_current()), &d);
+    sub_B(self, YS__OBJ__get_pos(b0a8_current()), &d);
     f32 len = b0a8_normalize(&d);
     if (len < 15.0f) return 0;
     if (6.0f < len) len = 6.0f;
@@ -403,11 +403,11 @@ bool func_001cb0a8(B0a8V* self) {
 
 // ---- 001cb180 from src/anon/tiny_auto80_fptr4.cpp
 namespace n001cb180 {
-u32 func_001caf00(u32, u32, u32, u32) asm("_Z13func_001caf00jjjj");
+u32 YS__PRIZEEFFECT_PO__phase_get_po06_fall(u32, u32, u32, u32) asm("_Z39YS__PRIZEEFFECT_PO__phase_get_po06_falljjjj");
 u32 func_001cb180(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001cb180jjjj");
 u32 func_001cb180(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call4_001caf00)(u32, u32, u32, u32) = func_001caf00;
+    u32 (*fp_call4_001caf00)(u32, u32, u32, u32) = YS__PRIZEEFFECT_PO__phase_get_po06_fall;
     r2 = fp_call4_001caf00(r4, r5, r6, r7);
     return r2;
 }
@@ -499,8 +499,8 @@ W1985Pl* func_002d1260(void) asm("func_002d1260");
 void func_001ca910(W1985Self*) asm("func_001ca910");
 bool func_001ca9c0(W1985Self*) asm("func_001ca9c0");
 void func_001caee0(void*) asm("func_001caee0");
-u32 u_call4_001cb278(W1985Self* self, u32, u32, u32) asm("_Z16u_call4_001cb278jjjj");
-u32 u_call4_001cb278(W1985Self* self, u32, u32, u32)
+u32 YS__PRIZEEFFECT_PO__phase_move_po06_rot(W1985Self* self, u32, u32, u32) asm("_Z39YS__PRIZEEFFECT_PO__phase_move_po06_rotjjjj");
+u32 YS__PRIZEEFFECT_PO__phase_move_po06_rot(W1985Self* self, u32, u32, u32)
 {
     f32 a;
     if (self->time >= self->t60) {
@@ -636,11 +636,11 @@ s32 func_001cb6c0(void* p) {
 
 // ---- 001cb6e0 from src/anon/tiny_auto80_fptr4.cpp
 namespace n001cb6e0 {
-u32 func_001cb278(u32, u32, u32, u32) asm("_Z13func_001cb278jjjj");
+u32 YS__PRIZEEFFECT_PO__phase_move_po06_rot(u32, u32, u32, u32) asm("_Z39YS__PRIZEEFFECT_PO__phase_move_po06_rotjjjj");
 u32 func_001cb6e0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001cb6e0jjjj");
 u32 func_001cb6e0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2;
-    u32 (*fp_call4_001cb278)(u32, u32, u32, u32) = func_001cb278;
+    u32 (*fp_call4_001cb278)(u32, u32, u32, u32) = YS__PRIZEEFFECT_PO__phase_move_po06_rot;
     r2 = fp_call4_001cb278(r4, r5, r6, r7);
     return r2;
 }
@@ -699,7 +699,7 @@ struct W1944Fx {
 extern f32 D_00349e10 asm("D_00349e10");
 extern f32 D_00351fd8 asm("D_00351fd8");
 W1944Cam* func_002d1260() asm("func_002d1260");
-s32 func_0019ba60(W1944Cam*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(W1944Cam*) asm("YS__OBJ__is_exist");
 f32 func_001cbf50(f32) asm("func_001cbf50");
 f32 cosf(f32) asm("cosf");
 f32 sinf(f32) asm("sinf");
@@ -708,7 +708,7 @@ s32 func_001cb720(W1944Fx* o)
 {
     W1944Cam* cam = func_002d1260();
     o->time -= D_00349e10;
-    if (o->time <= 0.0f || func_0019ba60(cam) == 0) return 0;
+    if (o->time <= 0.0f || YS__OBJ__is_exist(cam) == 0) return 0;
     o->ang += o->angVel * D_00349e10;
     f32 r = o->time / D_00351fd8;
     f32 a = func_001cbf50(o->ang);
@@ -838,7 +838,7 @@ u32 func_001cbab0(Arg* a0) {
     Obj* s0 = (Obj*)func_002d1260(a0);
     u32 t6 = 0;
 
-    if (func_0019ba60((u32)s0) == 0) {
+    if (YS__OBJ__is_exist((u32)s0) == 0) {
         return t6;
     }
 

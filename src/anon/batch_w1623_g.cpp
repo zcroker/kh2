@@ -28,12 +28,12 @@ s32 obj_get_ground(W1623Obj*) asm("_ZN2YS3OBJ10get_groundEv");
 s32 pax_search_id(void*, u64) asm("_ZN3ryj3PAX9search_idEy");
 W1623Vec* effect_pos(void*) asm("_ZN3ryj6EFFECT3posEv");
 W1623Vec* effect_angle(void*) asm("_ZN3ryj6EFFECT5angleEv");
-void* func_001de168(void*, s32, s32, s32, s32, s32);
+void* ryj__PAX__start(void*, s32, s32, s32, s32, s32);
 W1623Vec func_0016b478(f32, W1623Obj*, u32);
-W1623Vec* func_0016c028(W1623Obj*);
+W1623Vec* YS__OBJ__get_pos(W1623Obj*);
 s32 func_001a76c8(W1623Vec*, W1623Vec*, s32);
-W1623Vec func_0017d050(const W1623Vec&);
+W1623Vec YS__MATH__VectorToAngle(const W1623Vec&);
 // Spawns the effect for a map trigger of the given type: even types aim from the 0x8028 point
 // towards 0x802c, odd types from 0x8029 towards 0x802d; any other type uses the object itself.
-void func_001b3748(W1623Obj* obj, u32 type);  // 0x001b3748: definition moved into src/anon/unit_001b2780.cpp
+void YS__OBJ__footprint(W1623Obj* obj, u32 type);  // 0x001b3748: definition moved into src/anon/unit_001b2780.cpp
 }

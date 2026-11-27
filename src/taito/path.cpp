@@ -382,8 +382,8 @@ W2023Q func_002cba88(void* a, const W2023Q& from, const W2023Q& other, f32 t, f3
 // ---- 002cbca0 from src/anon/batch_w50.cpp
 namespace n002cbca0 {
 f32* func_002cba88(f32*, u8*, f32, f32) asm("func_002cba88");
-f32* func_002cbca0(f32* out, u8* p) asm("func_002cbca0");
-f32* func_002cbca0(f32* out, u8* p) {
+f32* Ti__Path__get_next_movement(f32* out, u8* p) asm("Ti__Path__get_next_movement");
+f32* Ti__Path__get_next_movement(f32* out, u8* p) {
     func_002cba88(out, p, *(f32*)(p + 36), 1.0f);
     out[3] = *(f32*)(p + 20);
     return out;
@@ -726,17 +726,17 @@ struct QV_b0a8 {
     QV_b0a8(f32 a, f32 b, f32 c, f32 d) { x = a; y = b; z = c; w = d; }
     QV_b0a8(const QV_b0a8& o) { QCOPY_b0a8(this, &o); }
 } __attribute__((aligned(16)));
-QV_bfa0* func_0016c028(void*) asm("func_0016c028");
+QV_bfa0* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 void func_002ce2a0(Ob_c620*, s32*, f32*, QV_bfa0*) asm("func_002ce2a0");
 QV_bfa0 func_002cda68(Ob_c620*, s32, f32) asm("func_002cda68");
-void func_002cc620(Ob_c620* o, void* a, void* b) asm("func_002cc620");
-void func_002cc620(Ob_c620* o, void* a, void* b) {
+void Ti__Path__reset_leave_way(Ob_c620* o, void* a, void* b) asm("Ti__Path__reset_leave_way");
+void Ti__Path__reset_leave_way(Ob_c620* o, void* a, void* b) {
   if (o->x86) return;
-  QV_bfa0 d = *func_0016c028(a) - *func_0016c028(b);                          
+  QV_bfa0 d = *YS__OBJ__get_pos(a) - *YS__OBJ__get_pos(b);                          
 
   if (normalize_bfa0(&d) < 0.01f) return;
   s32 i; f32 f;
-  func_002ce2a0(o, &i, &f, func_0016c028(a));
+  func_002ce2a0(o, &i, &f, YS__OBJ__get_pos(a));
   QV_bfa0 v = func_002cda68(o, i, f);
   if (normalize_bfa0(&v) < 0.01f) return;
   QV_bfa0 w = v * -1.0f;
@@ -881,7 +881,7 @@ void func_002ccf98(u32 a0) {
 
     u32 t7 = *(u32*)(a0 + 136);
     if (t7 != 0) {
-        if (func_0019ba60(t7) != 0) {
+        if (YS__OBJ__is_exist(t7) != 0) {
             func_002cd3e0(s0, *(u32*)(s0 + 136));
             return;
         }
@@ -990,7 +990,7 @@ W290Cd* func_002cd018(u8* act, W290Dat* d, void* a2, f32 f) {
 namespace n002cd1d8 {
 u8* func_001050d8(u32) asm("func_001050d8");
 void func_002cb5d8(u8*, f32) asm("func_002cb5d8");
-void func_002cd290(u8*, u32, u32) asm("func_002cd290");
+void Ti__Path__reset_active_path(u8*, u32, u32) asm("Ti__Path__reset_active_path");
 u8* func_002cd1d8(u32 a, u32 b) asm("func_002cd1d8");
 u8* func_002cd1d8(u32 a, u32 b) {
     u8* o = func_001050d8(160);
@@ -999,7 +999,7 @@ u8* func_002cd1d8(u32 a, u32 b) {
     *(u32*)(o + 12) = 32;
     *(u8**)(o + 128) = func_001050d8(1024);
     o[135] = 1;
-    func_002cd290(o, a, b);
+    Ti__Path__reset_active_path(o, a, b);
     return o;
 }
 }  // namespace n002cd1d8
@@ -1057,11 +1057,11 @@ static inline void VAdd2cd(QW2cd* d, const QW2cd* a, const QW2cd* b) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(d), "r"(a), "r"(b) : "memory");
 }
 struct O2cd { u8 pad[4]; u32 f4; u32 f8; u8 pad2[12]; u32 f24; f32 f28; u8 pad3[4]; f32 range; u8 pad4[95]; u8 on; u8* target; };
-QW2cd* func_0016c028(u8*) asm("func_0016c028");
+QW2cd* YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 void func_002cd3e0(O2cd*, u8*) asm("func_002cd3e0");
 void func_002cd428(O2cd*, QW2cd*) asm("func_002cd428");
-void func_002cd290(O2cd* o, u8* from, u8* to) asm("func_002cd290");
-void func_002cd290(O2cd* o, u8* from, u8* to) {
+void Ti__Path__reset_active_path(O2cd* o, u8* from, u8* to) asm("Ti__Path__reset_active_path");
+void Ti__Path__reset_active_path(O2cd* o, u8* from, u8* to) {
     if (!o->on) return;
     if (o->target == to) return;
     if (!to) {
@@ -1073,8 +1073,8 @@ void func_002cd290(O2cd* o, u8* from, u8* to) {
     o->f8 = 0;
     o->f28 = -2.0f;
     o->f24 = 0;
-    QW2cd* a = func_0016c028(from);                          
-    QW2cd* b = func_0016c028(to);                          
+    QW2cd* a = YS__OBJ__get_pos(from);                          
+    QW2cd* b = YS__OBJ__get_pos(to);                          
     QW2cd d, p, e;
     VSub2cd(&d, b, a);
     f32 len = VLen2cd(&d);
@@ -1100,11 +1100,11 @@ struct V209 {
         return *this;
     }
 } __attribute__((aligned(16)));
-V209* func_0016c028(u32) asm("func_0016c028");
+V209* YS__OBJ__get_pos(u32) asm("YS__OBJ__get_pos");
 void func_002cd428(u32, V209*) asm("func_002cd428");
 void func_002cd3e0(u32 a, u32 b) asm("func_002cd3e0");
 void func_002cd3e0(u32 a, u32 b) {
-    V209 t(*func_0016c028(b));                          
+    V209 t(*YS__OBJ__get_pos(b));                          
     func_002cd428(a, &t);
 }
 }  // namespace n002cd3e0
@@ -1588,8 +1588,8 @@ typedef struct Path2cdfb0 { u8 pad0[8]; s32 count; u8 pad1[4]; u8 loop; u8 pad1b
 V2cdfb0* func_002cb890(Path2cdfb0*, s32) asm("func_002cb890");
 f32 func_002cdb60(Path2cdfb0*, f32*, V2cdfb0*, V2cdfb0*, V2cdfb0*, f32, f32) asm("func_002cdb60");
 f32 func_002cdcd8(Path2cdfb0*, s32*, f32*, V2cdfb0*, f32) asm("func_002cdcd8");
-f32 func_002cdfb0(Path2cdfb0* p, s32* idx, f32* t, V2cdfb0* pos, f32 maxDist) asm("func_002cdfb0");
-f32 func_002cdfb0(Path2cdfb0* p, s32* idx, f32* t, V2cdfb0* pos, f32 maxDist)
+f32 Ti__Path__search_near_point_from_pre_point(Path2cdfb0* p, s32* idx, f32* t, V2cdfb0* pos, f32 maxDist) asm("Ti__Path__search_near_point_from_pre_point");
+f32 Ti__Path__search_near_point_from_pre_point(Path2cdfb0* p, s32* idx, f32* t, V2cdfb0* pos, f32 maxDist)
 {
     f32 lo, hi, best;
     s32 firstIdx, nextIdx;
@@ -1787,7 +1787,7 @@ struct W1952Path {
     W1952Seg s0;           
     W1952Seg s1;           
 };
-f32 func_002cdfb0(W1952Path*, s32*, f32*, W1952Vec*) asm("func_002cdfb0");
+f32 Ti__Path__search_near_point_from_pre_point(W1952Path*, s32*, f32*, W1952Vec*) asm("Ti__Path__search_near_point_from_pre_point");
 f32 func_002ce2a0(W1952Path*, s32*, f32*, W1952Vec*) asm("func_002ce2a0");
 W1952Seg* func_002cb890(W1952Path*, s32) asm("func_002cb890");
 W1952Vec func_002cd770(W1952Path*, W1952Seg*, W1952Seg*, f32) asm("func_002cd770");
@@ -1796,7 +1796,7 @@ f32 func_002ce6b8(W1952Path* p, W1952Vec* out, f32 lim) {
     s32 i;
     f32 f;
     f32 r = -1.0f;
-    if (p->n >= 3) r = func_002cdfb0(p, &i, &f, out);
+    if (p->n >= 3) r = Ti__Path__search_near_point_from_pre_point(p, &i, &f, out);
     if (r < 0.0f || r >= lim) r = func_002ce2a0(p, &i, &f, out);
     p->s0 = *func_002cb890(p, i);
     p->s1 = *func_002cb890(p, (i + 1) % p->n);

@@ -103,11 +103,11 @@ struct W2043a_Obj {
     u8 p4[0x20];
     f32 bf0;             // bf0
 };
-W2043a_Vq* func_0016c028(W2043a_Obj*) asm("func_0016c028");
+W2043a_Vq* YS__OBJ__get_pos(W2043a_Obj*) asm("YS__OBJ__get_pos");
 void func_00190128(void*) asm("func_00190128");
 s32 func_00190140(W2043a_Hdl*) asm("func_00190140");
 W2043a_Vq func_00190388(W2043a_Hdl*) asm("func_00190388");
-f32 func_001906f0(W2043a_Hdl*, W2043a_Vq*) asm("func_001906f0");
+f32 YS__TARGET__get_dist(W2043a_Hdl*, W2043a_Vq*) asm("YS__TARGET__get_dist");
 void func_00190878(W2043a_Hdl*, u32, s32) asm("func_00190878");
 void func_0010b620(void*, W2043a_Vq*, W2043a_Vq*) asm("func_0010b620");
 s32 func_001917c0(void) asm("func_001917c0");
@@ -116,11 +116,11 @@ s32 func_0010f8d0(W2043a_Obj*) asm("func_0010f8d0");
 void func_0010df18(W2043a_Obj*) asm("func_0010df18");
 s32 func_0010d188(W2043a_Obj*) asm("func_0010d188");
 extern u32 D_00341708 asm("D_00341708");
-s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1) asm("_Z16ctarget_0010e130jjjj");
+s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1) asm("_Z24kn__Friend__updateTargetjjjj");
 /*TARGET 0010e130*/
-s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1) asm("_Z16ctarget_0010e130jjjj");
+s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1) asm("_Z24kn__Friend__updateTargetjjjj");
 s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1) {
-    W2043a_Vq a = *func_0016c028(o);
+    W2043a_Vq a = *YS__OBJ__get_pos(o);
     o->flags &= ~8;
     {
     W2043a_Hdl b;
@@ -144,7 +144,7 @@ s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1) {
             W2043a_Vq c = func_00190388(h);
             func_0010b620(o->bb0, &c, &a);
             c = a;
-            o->bf0 = o->bcc - func_001906f0(h, &c);
+            o->bf0 = o->bcc - YS__TARGET__get_dist(h, &c);
         }
     } else {
         if (a1 || (!func_0010f8d0(o) && !(o->flags & 0x10000))) func_00190128(&o->h);
@@ -221,7 +221,7 @@ struct O10e368 {
 };
 extern V10e368 D_00341720[] asm("D_00341720");
 void func_0010cac8(O10e368*, s32, f32) asm("func_0010cac8");
-V10e368* f10e368_attach(O10e368*) asm("func_0016c028");
+V10e368* f10e368_attach(O10e368*) asm("YS__OBJ__get_pos");
 f32 func_00114328(s32, s32, s32, s32) asm("func_00114328");
 f32 func_001142e0(s32, s32, s32, s32) asm("func_001142e0");
 f32 func_0010e7e0(O10e368*, s32) asm("func_0010e7e0");
@@ -413,13 +413,13 @@ extern Fr10e810* D_00341708 asm("D_00341708");
 extern u8 D_003a9040 asm("D_003a9040");
 s32 f10e810_update(Fr10e810*, const VecSet10e810*) asm("func_0010e368");
 s32 func_001917c0(void) asm("func_001917c0");
-V10e810* f10e810_attach(Fr10e810*) asm("func_0016c028");
+V10e810* f10e810_attach(Fr10e810*) asm("YS__OBJ__get_pos");
 f32 f10e810_hi(Who10e810*, s32, s32, s32) asm("func_00114328");
 f32 f10e810_lo(Who10e810*, s32, s32, s32) asm("func_001142e0");
 f32 f10e810_dist(Fr10e810*, s32) asm("func_0010e7e0");
 s32 func_0010e6e0(Fr10e810*, V10e810*, f32, f32, f32) asm("func_0010e6e0");
 s32 func_00143f28(u16, s32) asm("func_00143f28");
-s32 func_00143ae0(Seg10e810*, V10e810*, V10e810*, s32) asm("func_00143ae0");
+s32 dk__Octree__intersectLineMap_2(Seg10e810*, V10e810*, V10e810*, s32) asm("dk__Octree__intersectLineMap_2");
 void f10e810_warp(Fr10e810*, s32, f32) asm("func_0010cac8");
 void f10e810_followMove(Fr10e810* o, const VecSet10e810* vs) asm("_ZN2kn6Friend10followMoveEPKNS_6VecSetE");
 /*TARGET 0010e810*/
@@ -492,7 +492,7 @@ void f10e810_followMove(Fr10e810* o, const VecSet10e810* vs)
         a.w = 1.0f;
         s.p = p;
         s.q = a;
-        if (func_00143ae0(&s, &b, &out, (s32)(o->bits >> 3) & 0xf)) {
+        if (dk__Octree__intersectLineMap_2(&s, &b, &out, (s32)(o->bits >> 3) & 0xf)) {
             p = *f10e810_attach(o);
             f10e810_warp(o, 3, reach);
         }

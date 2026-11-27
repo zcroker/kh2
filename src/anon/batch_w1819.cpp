@@ -4,7 +4,7 @@ struct B { u8 pad[6]; u16 h; u8 pad2[4]; s32 v; };
 struct A { u8 pad[0xb44]; B* b; };
 extern "C" {
 void func_00178bf0(A*, S2*);
-void func_00178cf8(A*);
+void YS__PLAYER__move_stop(A*);
 void func_00179648(A*, s32);
 void func_001991a8(u32, s32);
 void func_001a6e88(s32, A*, void*);

@@ -11,7 +11,7 @@ extern s32 D_0033caf4;
 extern s8 D_0036d740[8], D_0036d748[8], D_0036d750[8];
 void func_001aabd8(void);
 void func_002fee78(char*, const char*, ...);
-void* func_001b1490(void*);
+void* YS__DATABUFF__ReadBar(void*);
 W1963Res* func_00168b38(void*, s32, s32);
 W1963Res* func_00168b88(void*, s32, s32, s32);
 s32 func_00105c30(void);

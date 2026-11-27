@@ -29,12 +29,12 @@ struct W1967Owner { u8 pad[0x38]; W1967Anim* head; };
 
 extern "C" {
 f32 w1967_GetLockOnRatio(s32*) asm("_ZN2YS6STATUS14GetLockOnRatioEv");
-void w1967_ctarget_0016bda8(W1967V*, W1967Obj*) asm("_Z16ctarget_0016bda8jjjj");
+void w1967_ctarget_0016bda8(W1967V*, W1967Obj*) asm("_Z23YS__OBJ__get_target_posjjjj");
 void func_00190128(s32*);
-W1967Act* w1967_ctarget_001b9bc8(W1967Act*) asm("_Z16ctarget_001b9bc8jjjj");
-s32 func_0019bc38(W1967Act*);
+W1967Act* w1967_ctarget_001b9bc8(W1967Act*) asm("_Z13YS__OBJ__Eachjjjj");
+s32 YS__OBJ__can_lockon(W1967Act*);
 W1967Part* w1967_each_collision(W1967Act*, s32, W1967Part*) asm("_ZN2YS3OBJ14each_collisionEiPKNS_14COLLISION_ELEME");
-void func_0018a818(W1967Info*, W1967Act*, W1967Part*);
+void YS__COLLISION__set(W1967Info*, W1967Act*, W1967Part*);
 void w1967_set_obj(s32*, W1967Act*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
 
 s32 w1967_getType(void*) asm("_Z13func_00132330Pv");
@@ -44,5 +44,5 @@ W1967Anim* w1967_getNext(void*) asm("_ZNK2kn13AnimationWork7getNextEv");
 
 void func_00190b30(s32* self, W1967Obj* obj);  // 0x00190b30: definition moved into src/anon/unit_001900d0.cpp
 
-void func_0011e600(W1967Owner* self, s32 a, s32 b);  // 0x0011e600: definition moved into src/anon/unit_0011c128.cpp
+void kn__ModelObj__synchronizeAnimation(W1967Owner* self, s32 a, s32 b);  // 0x0011e600: definition moved into src/anon/unit_0011c128.cpp
 }

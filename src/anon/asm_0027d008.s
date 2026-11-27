@@ -36,7 +36,7 @@ func_0027d008:
 	sw	$2,16($29)
 	lui	$15,%hi(D_0035f04c)
 	lw	$4,%lo(D_0035f04c)($15)
-	jal	func_0028be78
+	jal	Tz__ScrollBar__SetPos
 	lw	$5,16($29)
 .L0027d068:
 	addiu	$16,$17,13840

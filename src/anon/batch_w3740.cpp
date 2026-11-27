@@ -24,7 +24,7 @@ struct Obj { f32 sx, sy, sz, pad; f32 f10, f14, p18, p1c; QV pos; };
 extern "C" {
 s32 func_002fea18(void);
 s32 func_00106a60(s32);
-void func_00107368(s32, QV*);
+void kn__Camera__getPosition(s32, QV*);
 f32 func_001074b8(s32);
 void func_0011b6a8(QM*);
 void sceVu0RotMatrixZ(QM*, QM*, f32);

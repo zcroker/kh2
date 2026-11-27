@@ -26,11 +26,11 @@ struct W2043a_Obj {
     u8 p4[0x20];
     f32 bf0;             // bf0
 };
-W2043a_Vq* func_0016c028(W2043a_Obj*);
+W2043a_Vq* YS__OBJ__get_pos(W2043a_Obj*);
 void func_00190128(void*);
 s32 func_00190140(W2043a_Hdl*);
 W2043a_Vq func_00190388(W2043a_Hdl*);
-f32 func_001906f0(W2043a_Hdl*, W2043a_Vq*);
+f32 YS__TARGET__get_dist(W2043a_Hdl*, W2043a_Vq*);
 void func_00190878(W2043a_Hdl*, u32, s32);
 void func_0010b620(void*, W2043a_Vq*, W2043a_Vq*);
 s32 func_001917c0(void);
@@ -40,7 +40,7 @@ void func_0010df18(W2043a_Obj*);
 s32 func_0010d188(W2043a_Obj*);
 extern u32 D_00341708;
 
-s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1) asm("_Z16ctarget_0010e130jjjj");
+s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1) asm("_Z24kn__Friend__updateTargetjjjj");
 s32 W2043_ctarget_0010e130(W2043a_Obj* o, u8 a1);  // 0x0010e130: definition moved into src/anon/unit_0010dee8.cpp
 
 
@@ -71,20 +71,20 @@ struct W2043b_Res { W2043b_Vq a; W2043b_Vq b; };
 struct W2043b_Ent { W2043b_Vq v; u8 pad[8]; u32 f18; };
 struct W2043b_Obj { u8 p0[4]; u32 f4; u8 p1[0x620 - 8]; void* f620; s32 f624; };
 void* func_00106a60(s32);
-void func_00107368(void*, W2043b_Vq*);
+void kn__Camera__getPosition(void*, W2043b_Vq*);
 void* func_001050d8(u32);
-void func_0018d238(void*, u32, u32, u32, u32, s32, s32);
+void YS__ATTACK__ATTACK_2(void*, u32, u32, u32, u32, s32, s32);
 void func_00190128(void*);
-void* func_00190730(W2043b_Hdl*, void*);
+void* YS__TARGET__each(W2043b_Hdl*, void*);
 s32 func_00112d90(W2043b_Hdl*);
 s32 func_001901c0(W2043b_Hdl*);
 s32 func_0018d940(void*, W2043b_Tg*);
 s32 func_0019c410(W2043b_Tg*);
 void* func_00112f88(W2043b_Hdl*);
-void func_0018a818(W2043b_Res*, W2043b_Tg*, void*);
-W2043b_Ent* func_0018db38(void*, W2043b_Tg*, u32, u32);
+void YS__COLLISION__set(W2043b_Res*, W2043b_Tg*, void*);
+W2043b_Ent* YS__ATTACK__strike(void*, W2043b_Tg*, u32, u32);
 void func_0018ca10(W2043b_Ent*);
-void func_001a55a8(W2043b_Vq*, s32);
+void YS__PRIZE__Appear(W2043b_Vq*, s32);
 
 void func_00118378(W2043b_Obj* o, s32 a1);  // 0x00118378: definition moved into src/anon/unit_001182d0.cpp
 
@@ -107,6 +107,6 @@ static inline void W2043c_m_scale(W2043c_Mat* m, W2043c_Vq* v) {
     asm volatile("lqc2 $vf4, 0(%1)\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 16(%0)\n\tlqc2 $vf3, 32(%0)\n\tvmulx.wxyz $vf1, $vf1, $vf4x\n\tvmuly.wxyz $vf2, $vf2, $vf4y\n\tvmulz.wxyz $vf3, $vf3, $vf4z\n\tsqc2 $vf1, 0(%0)\n\tsqc2 $vf2, 16(%0)\n\tsqc2 $vf3, 32(%0)" : : "r"(m), "r"(v) : "memory");
 }
 
-s32 func_00131450(W2043c_Obj* o, W2043c_Mat* m, f32 t);  // 0x00131450: definition moved into src/anon/unit_00131418.cpp
+s32 kn__MotionPrototype0__getPosition(W2043c_Obj* o, W2043c_Mat* m, f32 t);  // 0x00131450: definition moved into src/anon/unit_00131418.cpp
 
 }

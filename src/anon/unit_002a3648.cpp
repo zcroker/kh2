@@ -137,10 +137,10 @@ s32 func_002a4430(void) asm("func_002a4430");
 s32 func_002a43f0(void) asm("func_002a43f0");
 W270It* func_001a80c8(u32) asm("func_001a80c8");
 // table24_find_by_id
-void func_0028de08(u32, u8*, s32) asm("func_0028de08");
+void Tz__MenuUtil__MakeQuestionStr(u32, u8*, s32) asm("Tz__MenuUtil__MakeQuestionStr");
 void* W270_tail4(u32) asm("_Z16u_tail4_00192048jjjj");
 void W270_dup(void*, u8*) asm("_ZNK2YS7MESSAGE3dupEPc");
-void W270_ctarget2(u8*, u32, s32) asm("_Z16ctarget_001a3788jjjj");
+void W270_ctarget2(u8*, u32, s32) asm("_Z21YS__ITEM__MakeMessagejjjj");
 void W270_wtarget(u8*, u32, u32) asm("_Z16wtarget_002fde18jjjj");
 /*TARGET 002a3950*/
 void func_002a3950(void) asm("func_002a3950");
@@ -162,8 +162,8 @@ void func_002a3950(void) {
             W270_dup(W270_tail4(func_001a80c8(id)->h8), D_0035f5e8 + 0x982c);  // table24_find_by_id
         }
     } else {
-        if (func_002a4430()) func_0028de08(id, D_0035f5e8 + 0x982c, 64);
-        else func_0028de08(func_001a80c8(id)->h8, D_0035f5e8 + 0x982c, 64);
+        if (func_002a4430()) Tz__MenuUtil__MakeQuestionStr(id, D_0035f5e8 + 0x982c, 64);
+        else Tz__MenuUtil__MakeQuestionStr(func_001a80c8(id)->h8, D_0035f5e8 + 0x982c, 64);
     }
 }
 }  // namespace n002a3950
@@ -191,8 +191,8 @@ void func_002a3318(void) asm("func_002a3318");
 extern u8* D_0035f5e4 asm("D_0035f5e4");
 struct W78Slot8 { u8 a, b, on, done; u8 pad[4]; };
 /*TARGET 002a3aa8*/
-void func_002a3aa8(void) asm("func_002a3aa8");
-void func_002a3aa8(void) {
+void Tz__JmTreasure__UpdateNewMark(void) asm("Tz__JmTreasure__UpdateNewMark");
+void Tz__JmTreasure__UpdateNewMark(void) {
     s32 id = func_002a4990(-1);
     if (func_002a4430()) {
         W78Slot8* e = (W78Slot8*)(id * 8 + (u32)D_0035f5e4 + 4096);

@@ -34,10 +34,10 @@ s32 Alloc(const char*, s32) asm("_ZN2YS10CACHE_BUFF5AllocEPKci");
 Ent* func_00168b38(s32, s32, s32) asm("func_00168b38");
 s32 func_001050c8(void) asm("func_001050c8");
 u8* func_001063c0(u32, s32) asm("func_001063c0");
-void func_002e6fc0(u8*, s32) asm("func_002e6fc0");
+void Ti__Afp__Afp(u8*, s32) asm("Ti__Afp__Afp");
 void func_00102c80(void) asm("func_00102c80");
 void func_002d7630(G*) asm("func_002d7630");
-void func_002cedd0(s32, u8*) asm("func_002cedd0");
+void Ti__MiniGame__create_task(s32, u8*) asm("Ti__MiniGame__create_task");
 void func_002d6f70(G* g, s32 id, s32 arg, s32 a3) asm("func_002d6f70");
 void func_002d6f70(G* g, s32 id, s32 arg, s32 a3)
 {
@@ -69,12 +69,12 @@ void func_002d6f70(G* g, s32 id, s32 arg, s32 a3)
     g->f92 = func_00168b38(bar, 42, g->id + 3)->data;
     g->f148 = func_002e34c8(m);
     u8* o = func_001063c0(12, func_001050c8());
-    func_002e6fc0(o, g->f156);
+    Ti__Afp__Afp(o, g->f156);
     g->f160 = o;
     func_00102c80();
     func_002d7630(g);
     g->f466 = 0;
-    func_002cedd0(3, D_00362570);
+    Ti__MiniGame__create_task(3, D_00362570);
 }
 }  // namespace n002d6f70
 
@@ -95,18 +95,18 @@ void* func_002e34c8(void*) asm("func_002e34c8");
 // obj_get_field8_by_vtable
 void* area_get_allocator(void) asm("_ZN4AREA12GetAllocatorEv");
 void* tz_load_data_alloc(u32, void*) asm("_ZN2Tz13LoadDataAllocEjj");
-void func_002e6fc0(void*, u32) asm("func_002e6fc0");
+void Ti__Afp__Afp(void*, u32) asm("Ti__Afp__Afp");
 char* getFieldMode_(void) asm("_Z12getFieldModev");
 void func_002d7630(void*) asm("func_002d7630");
-void func_002cedd0(s32, void*) asm("func_002cedd0");
+void Ti__MiniGame__create_task(s32, void*) asm("Ti__MiniGame__create_task");
 struct MG_d7128 {
     u32 vt; u8 p0[88]; u32 f5c; void* f60; f32 f64; u32 f68; u8 p1[40]; void* f94; u32 f98; u32 f9c; void* fa0;
     u8 p2[24]; u32 fbc; u8 p3[12]; u32 fcc; u8 p4[256]; u8 f1d0; u8 f1d1; u8 f1d2; u8 p5[9]; u32 f1dc;
 };
-void u_tail4_002d7128(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16u_tail4_002d7128jjjj");
+void Ti__MGHachimitsu__MGHachimitsu(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z30Ti__MGHachimitsu__MGHachimitsujjjj");
 /*TARGET 002d7128*/
-void u_tail4_002d7128(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16u_tail4_002d7128jjjj");
-void u_tail4_002d7128(u32 a0, u32 a1, u32 a2, u32 a3) {
+void Ti__MGHachimitsu__MGHachimitsu(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z30Ti__MGHachimitsu__MGHachimitsujjjj");
+void Ti__MGHachimitsu__MGHachimitsu(u32 a0, u32 a1, u32 a2, u32 a3) {
     MG_d7128* p = (MG_d7128*)a0;
     char buf[64];
     func_002ce958(p, 1, a2, 2048);
@@ -129,12 +129,12 @@ void u_tail4_002d7128(u32 a0, u32 a1, u32 a2, u32 a3) {
     p->f5c = func_00168b38(cb, 42, p->f98 + 3)->data;
     p->f94 = func_002e34c8(&p->fbc);  // obj_get_field8_by_vtable
     void* d = tz_load_data_alloc(12, area_get_allocator());
-    func_002e6fc0(d, p->f9c);
+    Ti__Afp__Afp(d, p->f9c);
     p->fa0 = d;
     getFieldMode_();
     func_002d7630(p);
     p->f1d2 = 0;
-    func_002cedd0(3, D_00362570);
+    Ti__MiniGame__create_task(3, D_00362570);
 }
 }  // namespace n002d7128
 
@@ -237,8 +237,8 @@ u32 func_002d7408(u32 a0, u32 a1, u32 a2, u32 a3) {
 // 002d7420 (was src/anon/auto80_199_queue.cpp)
 namespace n002d7420 {
 /*TARGET 002d7420*/
-void func_002d7420(u32 a0) asm("_Z13func_002d7420j");
-void func_002d7420(u32 a0) {
+void Ti__MGHachimitsu__show_course_bg_group(u32 a0) asm("_Z38Ti__MGHachimitsu__show_course_bg_groupj");
+void Ti__MGHachimitsu__show_course_bg_group(u32 a0) {
     u8* s1 = (u8*)a0;
     u32 s0 = 0;
     while (1) {
@@ -286,12 +286,12 @@ struct O2d_w8024 {
 s32 func_002d1260() asm("func_002d1260");
 R2e_w8024* func_002e34d8(void*) asm("func_002e34d8");
 void func_002d0a78() asm("func_002d0a78");
-void func_001a58f8() asm("func_001a58f8");
-void func_002d7420(O2d_w8024*) asm("func_002d7420");
+void YS__PRIZE__ClearAll() asm("YS__PRIZE__ClearAll");
+void Ti__MGHachimitsu__show_course_bg_group(O2d_w8024*) asm("Ti__MGHachimitsu__show_course_bg_group");
 void func_002da040(s32) asm("func_002da040");
 void func_002cf2d8() asm("func_002cf2d8");
-void func_002cf938(s32) asm("func_002cf938");
-s32 func_002cf308(s32) asm("func_002cf308");
+void Ti__MGObj__reset_all_members(s32) asm("Ti__MGObj__reset_all_members");
+s32 Ti__MGObj__get_prize_count(s32) asm("Ti__MGObj__get_prize_count");
 void func_002d9220(O2d_w8024*, s32) asm("func_002d9220");
 P2d_w8024* func_002d73f0(O2d_w8024*) asm("func_002d73f0");
 void func_001ca8f8(f32, f32) asm("func_001ca8f8");
@@ -310,16 +310,16 @@ void func_002d74c8(O2d_w8024* o, s32 a1, u8 a2)
     o->fac = (f32)r->i0;
     if (a2) {
         func_002d0a78();
-        func_001a58f8();
+        YS__PRIZE__ClearAll();
     }
-    func_002d7420(o);
+    Ti__MGHachimitsu__show_course_bg_group(o);
     a1 = func_002d1260();
     func_002da040(a1);
     func_002cf2d8();
-    func_002cf938(1);
-    o->m6c += func_002cf308(0);
-    o->m70 += func_002cf308(1);
-    o->m74 += func_002cf308(2);
+    Ti__MGObj__reset_all_members(1);
+    o->m6c += Ti__MGObj__get_prize_count(0);
+    o->m70 += Ti__MGObj__get_prize_count(1);
+    o->m74 += Ti__MGObj__get_prize_count(2);
     for (i = 0; i < 3; i++) o->a84[i] = 0;
     o->b1d0 = 1;
     if (o->ma4 == 5) func_002d9220(o, 0);
@@ -449,17 +449,17 @@ struct WTgt {
     WM mat;
 };
 WCam* func_00106a60(s32) asm("func_00106a60");
-void* func_00106a18(void) asm("func_00106a18");
-void func_00106de8(void*, s32, f32) asm("func_00106de8");
-void func_00106c08(void*) asm("func_00106c08");
-void wtarget_002d78a8(u32 a0, u32, u32, u32) asm("_Z16wtarget_002d78a8jjjj");
+void* kn__getProjection(void) asm("kn__getProjection");
+void kn__Projection__setFOV(void*, s32, f32) asm("kn__Projection__setFOV");
+void kn__Projection__calcMatrix(void*) asm("kn__Projection__calcMatrix");
+void Ti__MGHachimitsu__update_camera(u32 a0, u32, u32, u32) asm("_Z31Ti__MGHachimitsu__update_camerajjjj");
 /*TARGET 002d78a8*/
 /* 002d78a8: target matrix update. One variable c holds both call results (camera in the first branch,
    object in the second), which gives the original's saved-register order. */
-void wtarget_002d78a8(u32 a0, u32, u32, u32) asm("_Z16wtarget_002d78a8jjjj");
+void Ti__MGHachimitsu__update_camera(u32 a0, u32, u32, u32) asm("_Z31Ti__MGHachimitsu__update_camerajjjj");
 /* 002d78a8: target matrix update. One variable c holds both call results (camera in the first branch,
    object in the second), which gives the original's saved-register order. */
-void wtarget_002d78a8(u32 a0, u32, u32, u32) {
+void Ti__MGHachimitsu__update_camera(u32 a0, u32, u32, u32) {
     WTgt* t = (WTgt*)a0;
     WM* pm;
     WCam* c;
@@ -470,9 +470,9 @@ void wtarget_002d78a8(u32 a0, u32, u32, u32) {
         *pm = m;
         pm->invOrtho();
     } else {
-        c = (WCam*)func_00106a18();
-        func_00106de8(c, 1, t->f64);
-        func_00106c08(c);
+        c = (WCam*)kn__getProjection();
+        kn__Projection__setFOV(c, 1, t->f64);
+        kn__Projection__calcMatrix(c);
         WM m = t->mat;
         m.invOrtho();
         func_00106a60(1)->WM::operator=(m);
@@ -549,7 +549,7 @@ struct Seg2d7af0 {
     void Set(W2d7af0Vec pa, W2d7af0Vec pb) { a = pa; b = pb; }
 };
 struct X2d7af0 { u8 pad[193]; u8 off; u8 pad2[14]; W2d7af0Mtx base; W2d7af0Mtx cur; u8 pad3[468 - 336]; f32 hi, lo; };
-s32 func_00143dd0(Seg2d7af0*, W2d7af0Vec*, u16*, s32, s32) asm("func_00143dd0");
+s32 dk__Octree__intersectLineMapKind(Seg2d7af0*, W2d7af0Vec*, u16*, s32, s32) asm("dk__Octree__intersectLineMapKind");
 W2d7af0Vec func_00143e50(u16, s32) asm("func_00143e50");
 s32 func_002d8898(X2d7af0*) asm("func_002d8898");
 /*TARGET 002d7af0*/
@@ -557,12 +557,12 @@ s32 func_002d8898(X2d7af0*) asm("func_002d8898");
 // y=-150 to y=+250), rebuild its axes from the hit triangle's normal, store it
 // as the current matrix, then probe left/right (x=-600/+600 at y=-80) and keep
 // the hit points' local x as the lo/hi limits.
-void func_002d7af0(X2d7af0* x) asm("func_002d7af0");
+void Ti__MGHachimitsu__calc_player_center_matrix(X2d7af0* x) asm("Ti__MGHachimitsu__calc_player_center_matrix");
 // Ti minigame camera: drop the base matrix onto the ground (ray test from
 // y=-150 to y=+250), rebuild its axes from the hit triangle's normal, store it
 // as the current matrix, then probe left/right (x=-600/+600 at y=-80) and keep
 // the hit points' local x as the lo/hi limits.
-void func_002d7af0(X2d7af0* x)
+void Ti__MGHachimitsu__calc_player_center_matrix(X2d7af0* x)
 {
     if (x->off) x->cur = x->base;
     W2d7af0Mtx m(x->base);
@@ -575,7 +575,7 @@ void func_002d7af0(X2d7af0* x)
     p0 = m * W2d7af0Vec(0.0f, -150.0f, 0.0f, 1.0f);
     p1 = m * W2d7af0Vec(0.0f, 250.0f, 0.0f, 1.0f);
     seg.Set(p0, p1);
-    if (!func_00143dd0(&seg, &hit, &id, 1, 15)) {
+    if (!dk__Octree__intersectLineMapKind(&seg, &hit, &id, 1, 15)) {
         x->cur = m;
         return;
     }
@@ -598,8 +598,8 @@ void func_002d7af0(X2d7af0* x)
         Seg2d7af0 sr(c, r), sl(c, l);
         W2d7af0Vec hl, hr;
         u16 id2;
-        s32 a = func_00143dd0(&sr, &hr, &id2, 2, 15);
-        s32 b = func_00143dd0(&sl, &hl, &id2, 2, 15);
+        s32 a = dk__Octree__intersectLineMapKind(&sr, &hr, &id2, 2, 15);
+        s32 b = dk__Octree__intersectLineMapKind(&sl, &hl, &id2, 2, 15);
         if (!a && !b) {
             x->hi = 0.0f;
             x->lo = 0.0f;
@@ -619,8 +619,8 @@ void func_002d7af0(X2d7af0* x)
 // 002d8110 (was src/anon/tiny.cpp)
 namespace n002d8110 {
 /*TARGET 002d8110*/
-u32 func_002d8110(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002d8110jjjj");
-u32 func_002d8110(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 Ti__MGHachimitsu__get_current_center_matrix(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z43Ti__MGHachimitsu__get_current_center_matrixjjjj");
+u32 Ti__MGHachimitsu__get_current_center_matrix(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;
     (void)a2;
     (void)a3;
@@ -680,7 +680,7 @@ struct Seg2d8150 {
     void Set(W2d8150Vec pa, W2d8150Vec pb) { a = pa; b = pb; }
 };
 struct X2d8150 { u8 pad[193]; u8 off; u8 pad2[14]; W2d8150Vec r0, r1, r2; u8 pad3[468 - 256]; f32 hi, lo; };
-s32 func_00143dd0(Seg2d8150*, W2d8150Vec*, u16*, s32, s32) asm("func_00143dd0");
+s32 dk__Octree__intersectLineMapKind(Seg2d8150*, W2d8150Vec*, u16*, s32, s32) asm("dk__Octree__intersectLineMapKind");
 W2d8150Mtx c2d8150(X2d8150*, f32*, const W2d8150Mtx&, f32) asm("_Z16ctarget_002d8150jjjj");
 /*TARGET 002d8150*/
 // Camera matrix for the Ti minigame: copy the base matrix, clamp the height *y
@@ -714,7 +714,7 @@ W2d8150Mtx c2d8150(X2d8150* x, f32* y, const W2d8150Mtx& base, f32 h)
     p0 = m * W2d8150Vec(0.0f, -100.0f, 0.0f, 1.0f);
     p1 = m * W2d8150Vec(0.0f, 100.0f, 0.0f, 1.0f);
     seg.Set(p0, p1);
-    if (func_00143dd0(&seg, &hit, &id, 1, 15)) m.r3 = hit;
+    if (dk__Octree__intersectLineMapKind(&seg, &hit, &id, 1, 15)) m.r3 = hit;
     W2d8150Vec t = m * W2d8150Vec(0.0f, h, 0.0f, 0.0f);
     m.r0 = x->r0;
     m.r1 = x->r1;
@@ -769,11 +769,11 @@ void func_002cfb30() asm("func_002cfb30");
 W291R2d* func_002d1260() asm("func_002d1260");
 void func_002d7698(W291O2d*) asm("func_002d7698");
 void func_002da8f0(W291R2d*, s32) asm("func_002da8f0");
-void func_002da958(s32) asm("func_002da958");
+void Ti__MGHachimitsuPlayer__start_special_motion(s32) asm("Ti__MGHachimitsuPlayer__start_special_motion");
 void func_002d9218(W291O2d*) asm("func_002d9218");
 void func_002e7108(s32, f32) asm("func_002e7108");
 W291Mtx2d func_002e71a0(s32, u8, s32) asm("func_002e71a0");
-void func_002d7af0(W291O2d*) asm("func_002d7af0");
+void Ti__MGHachimitsu__calc_player_center_matrix(W291O2d*) asm("Ti__MGHachimitsu__calc_player_center_matrix");
 void func_002d84a8_w(W291O2d* o) asm("_Z13func_002d84a8i");
 /*TARGET 002d84a8*/
 void func_002d84a8_w(W291O2d* o) asm("_Z13func_002d84a8i");
@@ -785,7 +785,7 @@ void func_002d84a8_w(W291O2d* o)
     func_002d7698(o);
     func_002da8f0(r, o->f196);
     if (!o->b480 && o->f164 == 4 && 671.0f <= o->f172) {
-        func_002da958(D_0034e948);
+        Ti__MGHachimitsuPlayer__start_special_motion(D_0034e948);
         o->b480 = 1;
     }
     if (o->b201) {
@@ -794,7 +794,7 @@ void func_002d84a8_w(W291O2d* o)
         func_002e7108(o->f160, o->f172);
         o->m400 = func_002e71a0(o->f160, o->p184->b8, 1);
         o->m208 = func_002e71a0(o->f160, o->p184->b8, 2);
-        func_002d7af0(o);
+        Ti__MGHachimitsu__calc_player_center_matrix(o);
         if (o->b464) {
             o->m336 = o->m272;
             o->b464 = 0;
@@ -902,7 +902,7 @@ namespace n002d88a8 {
 struct S10_w1756 { s16 h[5]; };
 extern S10_w1756 D_0032bae0 asm("D_0032bae0");
 void func_00195750() asm("func_00195750");
-void func_00104f58(S10_w1756*, s32, s32, s32, s32) asm("func_00104f58");
+void AREA__MapJump(S10_w1756*, s32, s32, s32, s32) asm("AREA__MapJump");
 /*TARGET 002d88a8*/
 // 0x002d2070: definition moved into src/anon/unit_002cf260.cpp
 
@@ -913,7 +913,7 @@ void func_002d88a8()
 {
     S10_w1756 x = D_0032bae0;
     func_00195750();
-    func_00104f58(&x, 1, 0, 0, 0);
+    AREA__MapJump(&x, 1, 0, 0, 0);
 }
 }  // namespace n002d88a8
 
@@ -1045,7 +1045,7 @@ struct U23_Ai { u8 pad[448]; U23_W80Vec pos; };
 struct U23_AiTgt { u8 pad[2820]; f32 f2820; };
 struct U23_AiParam { u8 pad[24]; f32 range; };
 extern f32 D_00349e10 asm("D_00349e10");
-U23_W80Vec* w80_pos_vec(void*) asm("func_0016c028");
+U23_W80Vec* w80_pos_vec(void*) asm("YS__OBJ__get_pos");
 U23_AiParam* func_002d73f0(U23_Ai*) asm("func_002d73f0");
 s32 func_002ceef8(U23_Ai*, U23_AiTgt*) asm("func_002ceef8");
 /*TARGET 002d8a78*/
@@ -1092,7 +1092,7 @@ struct V {
 } __attribute__((aligned(16)));
 u8* config(u8*) asm("_ZN2kn7FMatrixaSERKS0_");
 u32 func_002cef80(u8*, u8*) asm("func_002cef80");
-void wt_002cf058(u8*, u8*) asm("_Z16wtarget_002cf058jjjj");
+void wt_002cf058(u8*, u8*) asm("_Z27Ti__MiniGame___prepare_zonejjjj");
 u32 func_002d8b58(u8* o, u8* x) asm("func_002d8b58");
 u32 func_002d8b58(u8* o, u8* x)
 {
@@ -1127,11 +1127,11 @@ void func_002d8cf0(BD_VALUE* bd) { func_002d84a8(bd[1].i); }
 
 // 002d8d08 (was src/anon/tiny_wrappers_more.cpp)
 namespace n002d8d08 {
-u32 func_002d78a8(u32, u32, u32, u32) asm("_Z13func_002d78a8jjjj");
+u32 Ti__MGHachimitsu__update_camera(u32, u32, u32, u32) asm("_Z31Ti__MGHachimitsu__update_camerajjjj");
 /*TARGET 002d8d08*/
 u32 func_002d8d08(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002d8d08jjjj");
 u32 func_002d8d08(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002d78a8(((u32)(*(u32*)((u32)(a0) + 4u))), a1, a2, a3);
+    return Ti__MGHachimitsu__update_camera(((u32)(*(u32*)((u32)(a0) + 4u))), a1, a2, a3);
 }
 }  // namespace n002d8d08
 
@@ -1240,9 +1240,9 @@ void quat_from_mtx(Quat*, Mtx*) asm("func_002e42d8");
 Quat quat_slerp(const Quat&, const Quat&, f32) asm("func_002e47a8");
 Mtx quat_to_mtx(const Quat&) asm("func_002e4588");
 Rgn* func_0016bc20(Obj*, s32, s32) asm("func_0016bc20");
-void func_0018a818(Hit*, Obj*, Rgn*) asm("func_0018a818");
-Obj* func_001b9bc8(Obj*) asm("func_001b9bc8");
-QV* func_0016c028(Obj*) asm("func_0016c028");
+void YS__COLLISION__set(Hit*, Obj*, Rgn*) asm("YS__COLLISION__set");
+Obj* YS__OBJ__Each(Obj*) asm("YS__OBJ__Each");
+QV* YS__OBJ__get_pos(Obj*) asm("YS__OBJ__get_pos");
 s32 func_0018a550(Hit*, Hit*) asm("func_0018a550");
 void func_002cf280(LFlag*, u32, u32) asm("func_002cf280");
 /*TARGET 002d8d68*/
@@ -1259,7 +1259,7 @@ s32 func_002d8d68(void* self, Obj* obj, Mtx* m2, Mtx* m3)
     if (!rg) return 0;
     Mtx mats[5];
     Hit x;
-    func_0018a818(&x, obj, rg);
+    YS__COLLISION__set(&x, obj, rg);
     for (s32 i = 1; i < 5; i++) {
         f32 t = (f32)i / 5.0f;
         mats[i] = quat_to_mtx(quat_slerp(qa, qb, t));
@@ -1275,16 +1275,16 @@ s32 func_002d8d68(void* self, Obj* obj, Mtx* m2, Mtx* m3)
     s32 n = 0;
     Obj* e = 0;
     f32 range = 1000.0f;
-    while ((e = func_001b9bc8(e)) != 0) {
+    while ((e = YS__OBJ__Each(e)) != 0) {
         if (e->kind->kind != 21) continue;
         if (lflag_check(&e->flag, 64)) continue;
-        QV d = *func_0016c028(e) - *func_0016c028(obj);
+        QV d = *YS__OBJ__get_pos(e) - *YS__OBJ__get_pos(obj);
         if (d.Length() > range) continue;
         Rgn* h = func_0016bc20(e, 6, -1);
         if (!h) continue;
         Hit y;
         y.c = 0;
-        func_0018a818(&y, e, h);
+        YS__COLLISION__set(&y, e, h);
         for (s32 j = 1; j < 5; j++) {
             x.v = pts[j];
             if (func_0018a550(&x, &y) && !(e->f7f8 & 4)) {
@@ -1338,8 +1338,8 @@ void o2d9220_stop_voice(Obj2d9220*) asm("_ZN2Ti14MGHachimitsuPo19stop_interval_v
 void o2d9220_detach(Obj2d9220*) asm("_ZN2YS3OBJ6detachEv");
 void o2d9220_0016b070(Obj2d9220*, const V2d9220&) asm("_Z16wtarget_0016b070jjjj");
 void o2d9220_set_pos(Obj2d9220*, const V2d9220&) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
-void o2d9220_001987a8(Obj2d9220*, const char*, s32) asm("_Z16wtarget_001987a8jjjj");
-void func_00180378(void*, void*, s32, f32) asm("func_00180378");
+void o2d9220_001987a8(Obj2d9220*, const char*, s32) asm("_Z24YS__STDOBJ__start_camerajjjj");
+void YS__MOTION__capture(void*, void*, s32, f32) asm("YS__MOTION__capture");
 void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
 void o2d9220_texanm_stop(Obj2d9220*, s32) asm("_ZN2YS3OBJ11texanm_stopEi");
 struct Names2d9220 { const char* n[2]; };
@@ -1367,7 +1367,7 @@ void func_002d9220(O2d9220* o, s32 mode)
     switch (mode) {
     case 0:
         o2d9220_001987a8(a, names.n[0], 0);
-        func_00180378(a->motion, pl, 252, 0.0f);
+        YS__MOTION__capture(a->motion, pl, 252, 0.0f);
         func_0017f488(a->motion, 171, 0.0f, 0.0f);
         func_0017f488(b->motion, 171, 0.0f, 0.0f);
         func_0017f488(c->motion, 161, 0.0f, 0.0f);
@@ -1375,7 +1375,7 @@ void func_002d9220(O2d9220* o, s32 mode)
         break;
     case 1:
         o2d9220_001987a8(a, names.n[1], 0);
-        func_00180378(a->motion, pl, 253, 0.0f);
+        YS__MOTION__capture(a->motion, pl, 253, 0.0f);
         func_0017f488(a->motion, 172, 0.0f, 0.0f);
         func_0017f488(b->motion, 172, 0.0f, 0.0f);
         func_0017f488(c->motion, 170, 0.0f, 0.0f);
@@ -1394,9 +1394,9 @@ s32 w1799_IsExec(void) asm("_ZN2YS5EVENT6IsExecEv");
 f32 w1799_GetRestTime(void) asm("_ZN2YS5EVENT11GetRestTimeEv");
 void w1799_texanm_start(u8* obj, s32 n) asm("_ZN2YS3OBJ12texanm_startEi");
 void w1799_change(u8* mot, s32 n, f32 a, f32 b) asm("_ZN2YS6MOTION6changeEiff");
-void w1799_ut_1c0d38(u8*, s32, s32, s32) asm("_Z16u_tail4_001c0d38jjjj");
+void w1799_ut_1c0d38(u8*, s32, s32, s32) asm("_Z15YS__OBJ__attachjjjj");
 u8* func_0016b740(s32) asm("func_0016b740");
-void func_002db968(u8*, u8) asm("func_002db968");
+void Ti__Afp__calc_local_matrix(u8*, u8) asm("Ti__Afp__calc_local_matrix");
 extern s32 D_0034e948 asm("D_0034e948");
 struct W1799Obj { u8 pad[200]; u8 flag; u8 active; };
 /*TARGET 002d94b8*/
@@ -1411,7 +1411,7 @@ s32 func_002d94b8(W1799Obj* self) {
                 w1799_ut_1c0d38(o, D_0034e948, 67, 0);
                 w1799_change(o + 320, 0, 0.0f, 0.0f);
             }
-            func_002db968(o, self->flag);
+            Ti__Afp__calc_local_matrix(o, self->flag);
             return 1;
         }
     }

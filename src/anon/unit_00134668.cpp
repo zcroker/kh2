@@ -380,7 +380,7 @@ static inline s32 shadowSize(s32 mode) {
 }
 
 // builds the light view and projection matrices of a shadow camera looking at a box of 8 points
-void func_00134df8(V* pos, V* pts, M* view, M* tex, s32 mode) {
+void gm__CONVERT__CreateModel(V* pos, V* pts, M* view, M* tex, s32 mode) {
     static AXIS axes[3] = { AXIS(1.0f, 0.0f, 0.0f, 0.0f), AXIS(0.0f, 1.0f, 0.0f, 0.0f), AXIS(0.0f, 0.0f, 1.0f, 0.0f) };
     V c;
     c = pts[0];

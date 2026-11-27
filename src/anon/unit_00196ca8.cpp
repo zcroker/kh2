@@ -70,7 +70,7 @@ static inline VA14 operator-(const VecD& a, const VecD& b)
                  : : "r"(&a), "r"(&b), "r"(&r) : "memory");
     return r;
 }
-void func_00196ca8(u8*, s32, u32) asm("func_00196ca8");
+void YS__EVENT__EVENT(u8*, s32, u32) asm("YS__EVENT__EVENT");
 void func_0031cc28(u8*) asm("func_0031cc28");
 #define QCOPY_11bfa0(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 struct V11bfa0 {
@@ -93,8 +93,8 @@ static inline void Init196ca8(X196ca8* x, s32 v)
     A196ca8* p = (A196ca8*)((u8*)x - 4);
     p->a = v; p->b = v; p->c = v; x->d = v; x->e = v; x->f = v;
 }
-void func_00196ca8(u8* p, s32 flags, u32 v) asm("func_00196ca8");
-void func_00196ca8(u8* p, s32 flags, u32 v)
+void YS__EVENT__EVENT(u8* p, s32 flags, u32 v) asm("YS__EVENT__EVENT");
+void YS__EVENT__EVENT(u8* p, s32 flags, u32 v)
 {
     O196ca8* o = (O196ca8*)p;
     o->f4.u = v;
@@ -178,8 +178,8 @@ void func_00196e88(u32 a0, u32 a1, u32 a2, f32 a3) {
 namespace n00196e98 {
 int func_00227118(u32) asm("func_00227118");
 void func_001d30f8(u8*, int, int) asm("func_001d30f8");
-void func_00196e98(u8* p, int x) asm("func_00196e98");
-void func_00196e98(u8* p, int x) {
+void YS__EVENT__set_camera_target(u8* p, int x) asm("YS__EVENT__set_camera_target");
+void YS__EVENT__set_camera_target(u8* p, int x) {
     if (!x) return;
     if (func_00227118(*(u32*)(p + 4)) == 2) func_001d30f8(p + 64, 3, x);
     else func_001d30f8(p + 64, 2, x);
@@ -217,8 +217,8 @@ extern P196* D_0035037c asm("D_0035037c");
 extern G196 D_0032b968 asm("D_0032b968");
 extern u8 D_01c61b10 asm("D_01c61b10");
 extern u8 D_01c61b20 asm("D_01c61b20");
-void func_00196f00(P196* p) asm("func_00196f00");
-void func_00196f00(P196* p) {
+void YS__EVENT__start(P196* p) asm("YS__EVENT__start");
+void YS__EVENT__start(P196* p) {
     if (p->f4) func_00226ac0(p->f4, p->f80, p->f68, p->f8, func_00197d40, p->f156, p->f160);
     P196* old = D_0035037c;
     if (old) {
@@ -307,7 +307,7 @@ extern u8 D_01c61b30[] asm("D_01c61b30");
 extern u32 D_0032b96c asm("D_0032b96c");
 u32 func_0014aba8(void) asm("func_0014aba8");
 void func_0014aa58(u32, s32, s32) asm("func_0014aa58");
-void func_0015d540(void) asm("func_0015d540");
+void dk__KeyHoleJumpEffect__out(void) asm("dk__KeyHoleJumpEffect__out");
 void func_002ef8d0(u8*, u32) asm("func_002ef8d0");
 void func_002bc788(void) asm("func_002bc788");
 void func_00196e88(Obj14*, s32, s32, f32) asm("func_00196e88");
@@ -316,7 +316,7 @@ void func_00197148(Obj14* o) {
     switch (o->info->kind) {
     case 1: func_0014aa58(func_0014aba8(), (s32)(o->info->val * 0.5f), 0); break;
     case 2: func_0014aa58(func_0014aba8(), (s32)(o->info->val * 0.5f), 1); break;
-    case 3: func_0015d540(); break;
+    case 3: dk__KeyHoleJumpEffect__out(); break;
     }
     if (G01(o->info)) {
         func_002ef8d0(D_01c61b30, D_0032b96c);
@@ -333,7 +333,7 @@ namespace n00197280 {
 void func_00197280(u32 a0) asm("_Z13func_00197280j");
 void func_00197280(u32 a0) {
     u32 s0 = a0;
-    if (func_00170cd0(a0) != 0) {
+    if (YS__CACHE_BUFF__IsFlushing(a0) != 0) {
         *(u32*)(s0 + 52) = 1;
         return;
     }
@@ -491,7 +491,7 @@ struct St { u8 pad[244]; u8 b244; u8 pad2[7]; s32 f252; };
 extern u8 D_00350379 asm("D_00350379");
 extern u8 D_0032b9dd asm("D_0032b9dd");
 extern u32 D_0032b9e0 asm("D_0032b9e0");
-void func_0014ce60(void) asm("func_0014ce60");
+void dk__Vsync__initGameSpeed(void) asm("dk__Vsync__initGameSpeed");
 void func_00194980(void) asm("func_00194980");
 s32 func_0019f060(u8*) asm("func_0019f060");
 void func_0019f070(u8*, u32) asm("func_0019f070");
@@ -511,7 +511,7 @@ static inline bool B2(Cfg* c) { return c->b2; }
 static inline u8 U0(Cfg* c) { return c->b0; }
 void func_001975a0(Obj* o) asm("func_001975a0");
 void func_001975a0(Obj* o) {
-    func_0014ce60();
+    dk__Vsync__initGameSpeed();
     func_00194980();
     if (!func_0019f060(o->sub)) {
         if (B4(o->cfg)) {
@@ -539,13 +539,13 @@ void func_001975a0(Obj* o) {
 // ---- 00197738 from src/anon/batch_w6.cpp
 namespace n00197738 {
 void ys_prepare_scene(void) asm("_ZN2YS5EVENT12PrepareSceneEv");
-void func_001b9db0(u32) asm("func_001b9db0");
+void YS__OBJ__LeaveAll(u32) asm("YS__OBJ__LeaveAll");
 void func_00197c90(void) asm("func_00197c90");
-void func_001ada38(u32) asm("func_001ada38");
+void YS__RECOV__Exec(u32) asm("YS__RECOV__Exec");
 void ys_prepare_scene(void) {
-    func_001b9db0(2000);
+    YS__OBJ__LeaveAll(2000);
     func_00197c90();
-    func_001ada38(11);
+    YS__RECOV__Exec(11);
 }
 }  // namespace n00197738
 
@@ -645,7 +645,7 @@ struct PoolI {
 struct G197 { u8 pad[60]; u8* o; u8 pad2[80]; f32 f144; };
 union U197 { G197* g; u8** p; };
 extern U197 D_0035037c asm("D_0035037c");
-void func_0014ce60() asm("func_0014ce60");
+void dk__Vsync__initGameSpeed() asm("dk__Vsync__initGameSpeed");
 s32 func_00242ea8() asm("func_00242ea8");
 s32 func_00224e90() asm("func_00224e90");
 void func_00138480(u32) asm("func_00138480");
@@ -657,7 +657,7 @@ static inline u8 b0_197828() { return ((F197*)D_0035037c.g->o)->b0; }
 static inline u8 b5_197828() { return ((F197*)D_0035037c.g->o)->b5; }
 void func_00197828(f32 f) asm("func_00197828");
 void func_00197828(f32 f) {
-    func_0014ce60();
+    dk__Vsync__initGameSpeed();
     if (b0_197828()) {
         if (!func_00242ea8()) func_001c1130(4);
         else {
@@ -695,15 +695,15 @@ namespace n00197930 {
 struct S36 { u32 w[9]; };
 u8* func_001050d8(s32) asm("func_001050d8");
 u32 func_00181c80(u32) asm("func_00181c80");
-void func_00196ca8(u8*, u32, u32) asm("func_00196ca8");
-void func_00196f00(u8*) asm("func_00196f00");
+void YS__EVENT__EVENT(u8*, u32, u32) asm("YS__EVENT__EVENT");
+void YS__EVENT__start(u8*) asm("YS__EVENT__start");
 void func_00197930(u32 a, u32 b, S36* c) asm("func_00197930");
 void func_00197930(u32 a, u32 b, S36* c)
 {
     u8* o = func_001050d8(176);
-    func_00196ca8(o, b, func_00181c80(a));
+    YS__EVENT__EVENT(o, b, func_00181c80(a));
     *(S36*)(o + 12) = *c;
-    func_00196f00(o);
+    YS__EVENT__start(o);
 }
 }  // namespace n00197930
 
@@ -747,13 +747,13 @@ void func_00197a00(void* a) {
 
 // ---- 00197ac0 from src/anon/batch_w1732.cpp
 namespace n00197ac0 {
-void func_001d3148(void*) asm("func_001d3148");
+void YS__EVENT_CAMERA__make_matrix(void*) asm("YS__EVENT_CAMERA__make_matrix");
 void func_001024a8(void*) asm("func_001024a8");
 extern u8* D_0035037c asm("D_0035037c");
 void func_00197ac0(void* a) asm("func_00197ac0");
 void func_00197ac0(void* a) {
     u8* p = D_0035037c;
-    if (p) func_001d3148(p + 64);
+    if (p) YS__EVENT_CAMERA__make_matrix(p + 64);
     else func_001024a8(a);
 }
 }  // namespace n00197ac0
@@ -895,9 +895,9 @@ extern u8* D_0035037c asm("D_0035037c");
 extern u8* D_0034e948 asm("D_0034e948");
 u8* func_0014aba8() asm("func_0014aba8");
 void func_0014aa58(u8*, s32, s32) asm("func_0014aa58");
-void func_00196e98(u8*, u8*) asm("func_00196e98");
+void YS__EVENT__set_camera_target(u8*, u8*) asm("YS__EVENT__set_camera_target");
 void func_001d30f8(u8*, s32, s32) asm("func_001d30f8");
-void func_001d3148(u8*) asm("func_001d3148");
+void YS__EVENT_CAMERA__make_matrix(u8*) asm("YS__EVENT_CAMERA__make_matrix");
 void func_00197d40(s32 m) asm("func_00197d40");
 void func_00197d40(s32 m) {
     switch (m) {
@@ -905,13 +905,13 @@ void func_00197d40(s32 m) {
         if (*(u32*)D_0035037c & 8) func_0014aa58(func_0014aba8(), 15, 0);
         break;
     case 1:
-        func_00196e98(D_0035037c, D_0034e948);
+        YS__EVENT__set_camera_target(D_0035037c, D_0034e948);
         break;
     case 2:
         func_001d30f8(D_0035037c + 64, 4, 0);
         break;
     }
-    func_001d3148(D_0035037c + 64);
+    YS__EVENT_CAMERA__make_matrix(D_0035037c + 64);
 }
 }  // namespace n00197d40
 

@@ -20,8 +20,8 @@ s32* func_00165ef0(s32*) asm("func_00165ef0");
 s32 func_00142b70(s32) asm("func_00142b70");
 void func_00141c18(s32, s32, s32, u32, s32) asm("func_00141c18");
 s32 func_00141ff0(s32, QWord*, QWord*, Ctx*, s32) asm("func_00141ff0");
-s32 func_00165db8(QWord* a0, QWord* out, u16* outId, s32 a3, s32 t0, u8 t1, s32** outP, s32 t3, s32 skip) asm("func_00165db8");
-s32 func_00165db8(QWord* a0, QWord* out, u16* outId, s32 a3, s32 t0, u8 t1, s32** outP, s32 t3, s32 skip) {
+s32 dk__ObjOcc__intersectLine(QWord* a0, QWord* out, u16* outId, s32 a3, s32 t0, u8 t1, s32** outP, s32 t3, s32 skip) asm("dk__ObjOcc__intersectLine");
+s32 dk__ObjOcc__intersectLine(QWord* a0, QWord* out, u16* outId, s32 a3, s32 t0, u8 t1, s32** outP, s32 t3, s32 skip) {
     QWord tmp;
     Ctx c;
     s32* p = 0;

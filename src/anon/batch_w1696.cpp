@@ -68,15 +68,15 @@ extern "C" {
 extern W1696Chan D_0035de90[8];
 extern s32 D_0035de28;
 void func_00140f78(W1696Vec* eye, W1696Vec* at);
-W1696Proj* func_00106a18(s32);
+W1696Proj* kn__getProjection(s32);
 void* func_00106a60(s32);
 f32 func_00106f40(W1696Proj*, f32);
-void func_00107368(void* cam, W1696Vec*);
+void kn__Camera__getPosition(void* cam, W1696Vec*);
 void func_00107478(void* cam, W1696Vec*);
 f32 W1696_getFov(void) asm("_ZN2dk9ObjCamera6getFovEv");
 W1696Player* W1696_GetPlayer(void) asm("_ZN2YS3OBJ9GetPlayerEv");
 f32 W1696_getRoll(void* cam) asm("_ZNK2kn6Camera7getRollEv");
 f32 W1696_getFOV(const W1696Proj* p, s32 worh) asm("_ZNK2kn10Projection6getFOVENS0_4WorHE");
 
-void func_002319c0(s32 frame);  // 0x002319c0: definition moved into src/anon/unit_00231500.cpp
+void sa__EVENT__set_objcamera_event_in(s32 frame);  // 0x002319c0: definition moved into src/anon/unit_00231500.cpp
 }

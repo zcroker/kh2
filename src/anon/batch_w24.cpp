@@ -50,7 +50,7 @@ s32 func_0016ffc8(u8* p);  // 0x0016ffc8: definition moved into src/anon/unit_00
 u8 func_001688b8(void);
 u8 func_002ba200(void);
 u8 func_00170c50(void);
-u8 func_00170cd0(void);  // 0x00170cd0: definition moved into src/anon/unit_0016e8f8.cpp
+u8 YS__CACHE_BUFF__IsFlushing(void);  // 0x00170cd0: definition moved into src/anon/unit_0016e8f8.cpp
 
 // YS::FORMRAM::set_ability: store an ability id into the first free slot (bit 15 = equipped).
 struct FormRam { u8 _0[8]; u16 ab[24]; };
@@ -63,7 +63,7 @@ void func_00102c18(s32, s32, void (*)(void));
 void func_0018d620(void);
 extern W2 D_01c60cd8;
 extern u8 D_01c60ce0;
-void func_0018d738(void);  // 0x0018d738: definition moved into src/anon/unit_0018d050.cpp
+void YS__ATTACK__Init(void);  // 0x0018d738: definition moved into src/anon/unit_0018d050.cpp
 
 void wtarget_00191938(s32, u32, u32, u32) asm("_Z16wtarget_00191938jjjj");
 void func_001c1130(s32);  // copy_record_block_to_table
@@ -85,12 +85,12 @@ s32 func_0019d748(u32* p);  // 0x0019d748: definition moved into src/anon/unit_0
 void func_00239700(u32*);
 s32 func_001ab810(void);  // get_global_1c7cec0
 s32 func_001ab800(void);
-void func_00239988(u32*, s32, s32);
+void YI__SEQUENCE__Init(u32*, s32, s32);
 // 001abb28: moved to src/anon/unit_001abb28.cpp
 
-u8* func_00189200(void*, u32);
+u8* YS__SAVERAM_BATTLE__get_formram(void*, u32);
 void func_001a1cc0(u32, u32, u8);
-void func_001a17c8(u32);
+void YS__SHEET__Free(u32);
 extern u8 D_0032e020;
 void func_001b6ab8(u32* p);  // 0x001b6ab8: definition moved into src/anon/unit_001b6a50.cpp
 
@@ -102,7 +102,7 @@ extern B288 D_0032fb68;
 void u_tail0_001b87b0(void);  // 0x001b87b0: definition moved into src/anon/unit_001b87a0.cpp
 
 // ids 5, 10 and 13..18
-s32 func_001bcf38(s32* p);  // 0x001bcf38: definition moved into src/anon/unit_001bc568.cpp
+s32 YS__COMMAND_MENU__is_shortcut_menu(s32* p);  // 0x001bcf38: definition moved into src/anon/unit_001bc568.cpp
 
 struct N80 { u8 _0[80]; N80* next; };
 extern N80* D_01d49350;
@@ -135,10 +135,10 @@ struct Blk { u32 _0; Bits f; };
 u8* func_001058e8(void);
 void func_00242a90(s32 a);  // 0x00242a90: definition moved into src/anon/unit_00242478.cpp
 
-void func_0026d968(void);
+void Tz__Selector__Init(void);
 void func_00287bd0(s32, s32);
 u32* func_00103eb0(void);
-void func_00102818(u32, s32, s32, void (*)(void), s32);
+void TASK_MANAGER__create_thread(u32, s32, s32, void (*)(void), s32);
 void func_0026dd40(void);
 void func_0026dcb8(void);  // 0x0026dcb8: definition moved into src/anon/unit_0026c450.cpp
 

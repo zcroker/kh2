@@ -14,5 +14,5 @@ void func_001fbab9(T2* a0);
 char* GetImage(void* t, s32 i) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
 struct Sub { u8 pad[0x28]; void* img; };
 struct T3 { u8 pad[0x28]; s32 n; u8 p2[4]; Sub sub; };
-void func_0023ef50(T3* a0);
+void Tz__Layout__SetImageCache(T3* a0);
 }

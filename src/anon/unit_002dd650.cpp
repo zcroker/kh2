@@ -88,8 +88,8 @@ void func_001780d8(u8*) asm("func_001780d8");
 void func_00198860(u8*, u32) asm("func_00198860");
 void func_0017a7d8(u8*) asm("func_0017a7d8");
 /*TARGET 002dd730*/
-void func_002dd730(u8* p) asm("func_002dd730");
-void func_002dd730(u8* p) {
+void Ti__MGJumpPlayer___OVR_initialize(u8* p) asm("Ti__MGJumpPlayer___OVR_initialize");
+void Ti__MGJumpPlayer___OVR_initialize(u8* p) {
     func_001780d8(p);
     func_00198860(p, 8);
     *(Vq*)(p + 3056) = *(Vq*)(p + 1344);
@@ -118,7 +118,7 @@ void func_002dd790(u8* p) {
 // 002dd7d0 (was src/anon/batch_w2484.cpp)
 namespace n002dd7d0 {
 typedef struct V4 { f32 x, y, z, w; } V4;
-void func_001788b8(void*) asm("func_001788b8");
+void YS__PLAYER___OVR_exec(void*) asm("YS__PLAYER___OVR_exec");
 void func_00183768(f32, void*, void*) asm("func_00183768");
 u8* func_002dc7c8(s32) asm("func_002dc7c8");
 f32 func_002dc808(s32) asm("func_002dc808");
@@ -126,10 +126,10 @@ f32 fabsf(f32) asm("fabsf");
 extern s32 D_00361f60 asm("D_00361f60");
 /*TARGET 002dd7d0*/
 // Applies a push along the owner's direction vector, then eases the value at +0xc00 within the param range.
-void func_002dd7d0(u8* p) asm("func_002dd7d0");
+void Ti__MGJumpPlayer___OVR_exec(u8* p) asm("Ti__MGJumpPlayer___OVR_exec");
 // Applies a push along the owner's direction vector, then eases the value at +0xc00 within the param range.
-void func_002dd7d0(u8* p) {
-    func_001788b8(p);
+void Ti__MGJumpPlayer___OVR_exec(u8* p) {
+    YS__PLAYER___OVR_exec(p);
     s32 id = D_00361f60;
     V4 v;
     f32 s = func_002dc808(id) * 10.0f;
@@ -203,7 +203,7 @@ void func_002e7568(void*, s32, void*, f32) asm("func_002e7568");
 void func_002cebc0(u8*) asm("func_002cebc0");
 void func_00199718(u8*, s32, s32) asm("func_00199718");
 void func_00195750(void) asm("func_00195750");
-void func_00104f58(u8*, s32, s32, s32, s32) asm("func_00104f58");
+void AREA__MapJump(u8*, s32, s32, s32, s32) asm("AREA__MapJump");
 u32 init(u32, u32, u32, u32) asm("_Z16wtarget_002e1878jjjj");
 
 struct C { void* vt; s32 f4; s32 f8; f32 f12; f32 f16; f32 f20; u8 pad[32]; s32 f56; };
@@ -245,7 +245,7 @@ void func_002e7568(void*, s32, void*, f32) asm("func_002e7568");
 void func_002cebc0(u8*) asm("func_002cebc0");
 void func_00199718(u8*, s32, s32) asm("func_00199718");
 void func_00195750(void) asm("func_00195750");
-void func_00104f58(u8*, s32, s32, s32, s32) asm("func_00104f58");
+void AREA__MapJump(u8*, s32, s32, s32, s32) asm("AREA__MapJump");
 u32 init(u32, u32, u32, u32) asm("_Z16wtarget_002e1878jjjj");
 
 struct C { void* vt; s32 f4; s32 f8; f32 f12; f32 f16; f32 f20; u8 pad[32]; s32 f56; };
@@ -337,7 +337,7 @@ void func_002e7568(void*, s32, void*, f32) asm("func_002e7568");
 void func_002cebc0(u8*) asm("func_002cebc0");
 void func_00199718(u8*, s32, s32) asm("func_00199718");
 void func_00195750(void) asm("func_00195750");
-void func_00104f58(u8*, s32, s32, s32, s32) asm("func_00104f58");
+void AREA__MapJump(u8*, s32, s32, s32, s32) asm("AREA__MapJump");
 u32 init(u32, u32, u32, u32) asm("_Z16wtarget_002e1878jjjj");
 
 struct C { void* vt; s32 f4; s32 f8; f32 f12; f32 f16; f32 f20; u8 pad[32]; s32 f56; };

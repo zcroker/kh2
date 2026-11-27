@@ -41,11 +41,11 @@ void func_001e02a0(u8*, u8*);
 void func_0010c7f0(void*);
 void func_00320fa8(void*);
 void func_00105110(void*);
-void func_001a1b68(u32, f32);
+void YS__SHEET__add_drive_time(u32, f32);
 u8 func_001d6d00(s32);
 void func_001c8d80(void*, s32);
 void func_001c8d98(void*, s32);
-u8* func_00102818(u32, s32, s32, void*, s32);
+u8* TASK_MANAGER__create_thread(u32, s32, s32, void*, s32);
 void func_001c98f0(f32);
 void func_001d9820(u8);
 void func_0014c9d8(s32);
@@ -62,9 +62,9 @@ u8* func_001050d8(s32);
 u32 func_0016e920(u32);
 void func_00188120(u8*, const char*);
 void func_001880b0(u8*, const char*);
-s32 func_0019ba60(u8*);
+s32 YS__OBJ__is_exist(u8*);
 void func_00102448(u32, s32);
-void func_001c9e50(u32);
+void YS__SACRIFICE__WaitStable(u32);
 void func_001c9b90(void);
 u32 func_0016a070(u8*);
 void func_00198630(void*);
@@ -74,12 +74,12 @@ u64 func_00312db8(u64, u64);
 void func_00102670(u32, u8*);
 u8* func_001d6d58(u8);
 u8* func_001d14a0(void);
-s32 func_00170cd0(void);
+s32 YS__CACHE_BUFF__IsFlushing(void);
 void func_00170320(s32);
 void func_00170888(s32);
 s32 func_0017e6d8(void);
 void func_001a1c90(u8*, s32, s32);
-const Vq* func_0016c028(u8*);
+const Vq* YS__OBJ__get_pos(u8*);
 void func_001dc920(u32);
 void func_001dc840(u32);
 void func_0014f250(void);
@@ -92,7 +92,7 @@ void func_0016ace0(u8*, Vq*);
 }
 
 extern "C" {
-void func_001c7fb8(u8* o, u32 model, void* pos, f32 ang);
+void YS__SUMMON__SUMMON(u8* o, u32 model, void* pos, f32 ang);
 s32 func_001c8788(u32 id, u8* o);
 void func_001c8710(void);
 void func_001c8750(void);
@@ -123,7 +123,7 @@ void func_001c7f10(u8* o, u32 model, void* pos, f32 ang)
     func_0010c7f0(o);
 }
 
-void func_001c7fb8(u8* o, u32 model, void* pos, f32 ang)
+void YS__SUMMON__SUMMON(u8* o, u32 model, void* pos, f32 ang)
 {
     func_0010b978(o);
     *(u32*)o = (u32)D_00351e18;
@@ -195,7 +195,7 @@ u32 func_001c8290(u8* a0, s32 a1)
         f32 f0 = (f32)*(s32*)(obj + 4);
         f12 = f12 * f1;
         f12 = f12 / f0;
-        func_001a1b68(*(u32*)(D_0034e948 + 1164), f12);
+        YS__SHEET__add_drive_time(*(u32*)(D_0034e948 + 1164), f12);
     }
     return *(u32*)(*(u8**)(a0 + 1164) + 4);
 }
@@ -213,7 +213,7 @@ void func_001c8300(u8* o, s32 id)
         D_0032bb30[13607] = func_001c8c38();
     }
     *(u32*)(o + 264) |= 0x104;
-    u8* t = func_00102818(D_00351214, 0, 3, (void*)func_001c83f8, 0x2000);
+    u8* t = TASK_MANAGER__create_thread(D_00351214, 0, 3, (void*)func_001c83f8, 0x2000);
     D_00351e08 = t;
     *(u8**)(t + 48) = (u8*)func_001c86e8;
     func_001c98f0(15.0f);
@@ -231,22 +231,22 @@ void func_001c83f8(u32 th)
     f32 t;
     if (first) t = *(f32*)(D_00352130 + 132);
     else t = *(f32*)(D_00352130 + 136);
-    while (func_00170cd0()) {
+    while (YS__CACHE_BUFF__IsFlushing()) {
         t -= D_00349e10;
         func_00102448(th, 0);
     }
     func_00170320(5000);
     SUMMON_Read(false);
     func_00170888(0);
-    while (func_00170cd0() || 0.0f < t || func_0017e6d8()) {
+    while (YS__CACHE_BUFF__IsFlushing() || 0.0f < t || func_0017e6d8()) {
         t -= D_00349e10;
         func_00102448(th, 0);
     }
     *(u32*)(pl + 264) |= 1;
     func_001a1c90(*(u8**)(pl + 1164), 3, D_0032bb30[13606]);
-    Vq pos = *func_0016c028(D_0034e948);
+    Vq pos = *YS__OBJ__get_pos(D_0034e948);
     u8* o = func_001050d8(3328);
-    func_001c7fb8(o, func_0016e920(*(u32*)(e + 4)), &pos, 0.0f);
+    YS__SUMMON__SUMMON(o, func_0016e920(*(u32*)(e + 4)), &pos, 0.0f);
     if (first) {
         func_001dc920(*(u32*)(pl + 2920));
         *(u32*)(pl + 2920) = 0;
@@ -322,13 +322,13 @@ void SUMMON_Read(bool lock)
 
 extern "C" {
 
-u8* func_001c88a8(V4* pos, f32 ang)
+u8* YS__SUMMON__Appear(V4* pos, f32 ang)
 {
     u8* e = func_001d6d88();
     if (D_01d49960[0]) return 0;
     D_01d49968 = 2;
     u8* o = func_001050d8(3328);
-    func_001c7fb8(o, func_0016e920(*(u32*)(e + 4)), pos, ang);
+    YS__SUMMON__SUMMON(o, func_0016e920(*(u32*)(e + 4)), pos, ang);
     func_00188120(o + 768, "appear_area_start");
     return o;
 }
@@ -341,7 +341,7 @@ void ctarget_001c8948(u32, u32, u32, u32)
     if (SUMMON_GetMode()) {
         D_01d49968 = 3;
         D_0032bb30[13605] = 0;
-        u8* t = func_00102818(D_00351214, 0, 3, (void*)func_001c89a8, 8192);
+        u8* t = TASK_MANAGER__create_thread(D_00351214, 0, 3, (void*)func_001c89a8, 8192);
         *(void**)(t + 48) = (void*)func_001c8a70;
     }
 }
@@ -351,7 +351,7 @@ extern "C" {
 // 0x1c89a8: summon leave thread.
 void func_001c89a8(u32 t)
 {
-    if (func_0019ba60(D_01d49960[0])) {
+    if (YS__OBJ__is_exist(D_01d49960[0])) {
         s32 i;
         func_001880b0(D_01d49960[0] + 768, "leave");
         for (i = 0; i < 2; i++) {
@@ -359,7 +359,7 @@ void func_001c89a8(u32 t)
         }
     }
     func_00102448(t, 2);
-    func_001c9e50(t);
+    YS__SACRIFICE__WaitStable(t);
     func_001c9b90();
 }
 
@@ -403,7 +403,7 @@ u32 SUMMON_GetCurrent(void) asm("_ZN2YS6SUMMON10GetCurrentEv");
 u32 SUMMON_GetCurrent(void)
 {
     if (SUMMON_GetMode() != 0) {
-        if (func_0019ba60(D_01d49960[0]) != 0) return func_0016a070(D_01d49960[0]);
+        if (YS__OBJ__is_exist(D_01d49960[0]) != 0) return func_0016a070(D_01d49960[0]);
     }
     return 0;
 }

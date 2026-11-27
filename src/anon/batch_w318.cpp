@@ -38,18 +38,18 @@ int func_0016b740(s32);
 f32 func_00106558(f32);
 f32 func_001db510(O318*, Q318);
 f32 func_001065a8(f32, f32);
-int func_0018c650(R318c* o, Q318* v, int n, E318c* tab, O318* obj, f32 fa, f32 fb);  // 0x0018c650: definition moved into src/yasui/libys/npc.cpp
+int YS__NPC__RTN_ACTION__lot(R318c* o, Q318* v, int n, E318c* tab, O318* obj, f32 fa, f32 fb);  // 0x0018c650: definition moved into src/yasui/libys/npc.cpp
 
 s32 func_0013dda0(int);
 s32 func_00158290(void*);
 s32 func_0013a7e8(int);
 s32 func_0013d7e0(void);
 int func_00156030(void*);
-s32 func_00155f40(void*);
-s32 func_00155ee8(void*);  // state_dispatch_0_4
+s32 dk__GAUGE_PLAYER__getDriveLoopSqNum(void*);
+s32 dk__GAUGE_PLAYER__getDriveInSqNum(void*);  // state_dispatch_0_4
 s32 func_00155fc0(void*);
-int func_00139c18(void*);
-void func_001386e0(void*, int, s32, s32, int, s32);
+int dk__Obj2D__checkDoubleCreate(void*);
+void dk__Sprite__create(void*, int, s32, s32, int, s32);
 void func_001396b0(void*);
 void func_0031a260(void*, int);
 int func_001396c0(void*);

@@ -1,7 +1,7 @@
 # Whole-function assembly (last step of the README match ladder, w3954 2026-11-10).
 # Transcribed from the retail disassembly; calls and globals with a func_/D_ symbol are referenced
 # through it. Replace with C/C++ after 100%.
-#   func_0020d528: partMng GS packet builder; the middle is one long hand-written VU0 block
+#   pppSnoMdlDttNormDraw: partMng GS packet builder; the middle is one long hand-written VU0 block
 #     (transform/clip per triangle, ctc2/cfc2 flag polling) branching back into compiled code.
 #     Closest C: ~/re/kh2/tmp.w3954/best_0020d528.cpp (= best/0020d528_w3947_nosched.cpp,
 #     ~340 of 559 lines off under _nosched): prologue/schedule order, s-register choice, packet half-buffer locals.
@@ -12,10 +12,10 @@
 	.set nomacro
 
 	.section .text.func_0020d528,"ax",@progbits
-	.globl func_0020d528
-	.type func_0020d528, @function
-	.ent func_0020d528
-func_0020d528:
+	.globl pppSnoMdlDttNormDraw
+	.type pppSnoMdlDttNormDraw, @function
+	.ent pppSnoMdlDttNormDraw
+pppSnoMdlDttNormDraw:
 	addiu	$29,$29,-96
 	sd	$17,24($29)
 	sd	$18,32($29)
@@ -600,6 +600,6 @@ func_0020d528:
 	li	$15,71
 	b	.L0020d5c0
 	lui	$14,0x7
-	.end func_0020d528
-	.size func_0020d528, 2236
+	.end pppSnoMdlDttNormDraw
+	.size pppSnoMdlDttNormDraw, 2236
 

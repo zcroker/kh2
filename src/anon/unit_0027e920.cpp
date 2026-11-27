@@ -98,7 +98,7 @@ struct Obj {
 s32 func_00281100(s32) asm("func_00281100");
 Obj* func_00281180(s32, s32) asm("func_00281180");
 void func_00192cc0(char*, const char*, ...) asm("func_00192cc0");
-void func_00239f18(f32, u8*) asm("func_00239f18");
+void YI__SEQUENCE__SetScaleX(f32, u8*) asm("YI__SEQUENCE__SetScaleX");
 extern s32 D_0035f010 asm("D_0035f010");
 extern Ent* D_0035f248 asm("D_0035f248");
 extern u8 D_0035f24d asm("D_0035f24d");
@@ -106,8 +106,8 @@ extern s8 D_0035f24e asm("D_0035f24e");
 extern char D_00373fd8[] asm("D_00373fd8");
 extern char D_00373fe0[] asm("D_00373fe0");
 /*TARGET 0027eb10*/
-void func_0027eb10(void) asm("func_0027eb10");
-void func_0027eb10(void) {
+void Tz__SimpleStat__UpdateNum(void) asm("Tz__SimpleStat__UpdateNum");
+void Tz__SimpleStat__UpdateNum(void) {
     s32 n = D_0035f24e == 4 ? func_00281100(D_0035f010) : 1;
     s32 i;
     for (i = 0; i < n; i++) {
@@ -119,8 +119,8 @@ void func_0027eb10(void) {
             func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13e4), D_00373fd8, o->sub->lv);
             { s32 hm = o->hpmax; func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13ec), D_00373fe0, o->hp, hm); }
             func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13f4), D_00373fe0, o->mp, o->mpmax);
-            func_00239f18((f32)o->hp / (f32)o->hpmax, D_0035f248[i].g0);
-            func_00239f18((f32)o->mp / (f32)o->mpmax, D_0035f248[i].g1);
+            YI__SEQUENCE__SetScaleX((f32)o->hp / (f32)o->hpmax, D_0035f248[i].g0);
+            YI__SEQUENCE__SetScaleX((f32)o->mp / (f32)o->mpmax, D_0035f248[i].g1);
             break;
         case 1:
             func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13e4), D_00373fd8, o->a188);
@@ -136,7 +136,7 @@ void func_0027eb10(void) {
             break;
         case 5:
             func_00192cc0((char*)(i * 5116 + (u32)D_0035f248 + 0x13e4), D_00373fd8, o->b1b1);
-            func_00239f18((f32)o->b1b0 / 100.0f, D_0035f248[i].g0);
+            YI__SEQUENCE__SetScaleX((f32)o->b1b0 / 100.0f, D_0035f248[i].g0);
             break;
         }
     }

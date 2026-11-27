@@ -44,7 +44,7 @@ extern u8 D_00351ec0[];
 extern u8 D_00351ec8[];
 extern u8* D_00352130;
 extern u16 D_0032bae0;  // room
-s32 func_0019ba60(u8*);
+s32 YS__OBJ__is_exist(u8*);
 s32 func_001b58a8(void);
 s32 func_001a6850(void);
 void func_001c11a8(s32);
@@ -53,10 +53,10 @@ void func_001a3710(void);
 s32 func_00197920(void);
 s32 func_001c8db8(u8*, s32) asm("_Z16ctarget_001c8db8jjjj");
 u8* func_00176b20(s32);
-s32 func_00185ac0(void*);
+s32 YS__WEAPON__is_equip(void*);
 u8* func_00177860(u8*);
-V4* func_0016c028(u8*);  // obj_get_attach_or_alt
-u8* func_00185da8(u8*);
+V4* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
+u8* YS__ENEMY__Each(u8*);
 s32 func_0019c8a8(u8*);
 s32 CanOpenCampMenu_191e40() asm("_ZN2YS8PROGRESS15CanOpenCampMenuEv");
 
@@ -64,7 +64,7 @@ void func_00191938(s32 v);
 void func_00191bf0(f32 x);
 void func_00191c30(f32 a);
 s32 func_001918c8(void);
-void func_00191cd8(void);
+void YS__STATUS__CheckEnemy(void);
 void u_tail0_001917d0(void) asm("_Z16u_tail0_001917d0v");
 
 void func_00191758(void) {
@@ -90,7 +90,7 @@ u32 STATUS::IsBattleMode() { return D_01c61958 != 0; }
 extern "C" {
 
 void u_tail0_001917d0(void) {
-    func_00191cd8();
+    YS__STATUS__CheckEnemy();
     if (D_01c61958 == 2) return;
     s32 n = func_001918c8();
     if (0.0f < D_01c6195c) D_01c6195c -= D_00349e10;
@@ -105,7 +105,7 @@ void u_tail0_001917d0(void) {
 }
 
 s32 func_001918c8(void) {
-    if (!func_0019ba60(D_0034e948)) {
+    if (!YS__OBJ__is_exist(D_0034e948)) {
         D_01c61960 = 0;
         return 0;
     }
@@ -170,11 +170,11 @@ s32 func_00191ab8(void) {
     s32 i, j;
     for (i = 0; i < 3; i++) {
         u8* p = func_00176b20(i);
-        if (!func_0019ba60(p)) continue;
+        if (!YS__OBJ__is_exist(p)) continue;
         void** q = (void**)(p + 2808);
         for (j = 0; j < 2; j++) {
             void* c = *q++;
-            if (func_0019ba60((u8*)c) && !func_00185ac0(c)) return 1;
+            if (YS__OBJ__is_exist((u8*)c) && !YS__WEAPON__is_equip(c)) return 1;
         }
     }
     return 0;
@@ -196,7 +196,7 @@ f32 func_00191b70() {
     do {
         u8* o = func_00176b20(i);
         i++;
-        if (func_0019ba60(o) && *(u32*)(o + 1164)) s += *(f32*)(func_00177860(o) + 100);
+        if (YS__OBJ__is_exist(o) && *(u32*)(o + 1164)) s += *(f32*)(func_00177860(o) + 100);
     } while (i < 3);
     return s;
 }
@@ -243,26 +243,26 @@ u32 func_00191c88(void) {
 }
 
 // Sets flag 0x10000 when an enemy is close to the player (or forces it).
-void func_00191cd8(void) {
+void YS__STATUS__CheckEnemy(void) {
     D_0034f240.bits &= ~0x10000;
     u8* pl = D_0034e948;
-    if (!func_0019ba60(pl)) return;
-    V4 a = *func_0016c028(pl);
+    if (!YS__OBJ__is_exist(pl)) return;
+    V4 a = *YS__OBJ__get_pos(pl);
     u8* e = 0;
-    while ((e = func_00185da8(e)) != 0) {
+    while ((e = YS__ENEMY__Each(e)) != 0) {
         if (*(u32*)(e + 1416) & 0x400) { D_0034f240.bits |= 0x10000; return; }
         if (!IsMode2(e)) continue;
         if (func_0019c8a8(e)) { D_0034f240.bits |= 0x10000; return; }
-        V4 d = *func_0016c028(e) - a;
+        V4 d = *YS__OBJ__get_pos(e) - a;
         d.y = 0.0f;
         if (Length(&d) < 1200.0f) { D_0034f240.bits |= 0x10000; return; }
     }
 }
 
-s32 func_00191e40() {
+s32 YS__STATUS__IsDisableCampMenu() {
     if (func_00191ab8() || func_001c8db8(D_00351ec0, 0) || !CanOpenCampMenu_191e40()) return 1;
     P191e40* p = (P191e40*)D_0034e948;
-    if (!func_0019ba60((u8*)p) || p->state == 12 || (p->flags & 0x4000)) return 1;
+    if (!YS__OBJ__is_exist((u8*)p) || p->state == 12 || (p->flags & 0x4000)) return 1;
     return func_001a6850() != 0;
 }
 

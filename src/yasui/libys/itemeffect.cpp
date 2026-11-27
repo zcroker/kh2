@@ -20,18 +20,18 @@ extern f32 D_00349e10;
 u32 func_0016a070(OBJ*);
 s32 func_001a3888(u32);
 u32 func_001a3a78(void);
-u32 func_001de168(u32, u32, u32, u32, u32, u32);
+u32 ryj__PAX__start(u32, u32, u32, u32, u32, u32);
 void* func_0016bc20(OBJ*, u32, s32);
-void func_0018a818(HIT*, OBJ*, void*);
+void YS__COLLISION__set(HIT*, OBJ*, void*);
 VEC* func_001dc5f8(u32);
-VEC* func_0016c028(OBJ*);
+VEC* YS__OBJ__get_pos(OBJ*);
 u8* func_001a80c8(u32);
 u8* func_00176b20(s32);
-s32 func_0019ba60(void*);
-u32 func_00176b58(u32);
+s32 YS__OBJ__is_exist(void*);
+u32 YS__PARTY__GetByPart(u32);
 void func_001d02c8(OBJ*);
 u8* func_00177860(void*);
-s32 func_001a2a50(u32, u32, s32, s32);
+s32 YS__ITEM__Use(u32, u32, s32, s32);
 void func_001d97c8(void);
 s32 func_00176e78(OBJ*, u32, u32);
 void* func_001050d8(u32);
@@ -64,13 +64,13 @@ ITEM_EFFECT::~ITEM_EFFECT() {
 void ITEM_EFFECT::use(void) {
     HIT h;
     h.n = 0;
-    u32 m = func_001de168(func_001a3a78(), 0, 1, 1, 10002, 0);
+    u32 m = ryj__PAX__start(func_001a3a78(), 0, 1, 1, 10002, 0);
     void* nd = func_0016bc20(obj, 8, -1);
     if (nd) {
-        func_0018a818(&h, obj, nd);
+        YS__COLLISION__set(&h, obj, nd);
         *func_001dc5f8(m) = h.pos;
     } else {
-        *func_001dc5f8(m) = *func_0016c028(obj);
+        *func_001dc5f8(m) = *YS__OBJ__get_pos(obj);
     }
 }
 
@@ -87,7 +87,7 @@ s32 ITEM_EFFECT::exec(void) {
         } else {
             for (s32 i = 0; i < 3; i++) {
                 u8* o = func_00176b20(i);
-                if (func_0019ba60(o) && !(*(u32*)(o + 1416) & 0x400000))
+                if (YS__OBJ__is_exist(o) && !(*(u32*)(o + 1416) & 0x400000))
                     hit(*(u16*)(d + 6), func_0016a070((OBJ*)o));
             }
         }
@@ -98,18 +98,18 @@ s32 ITEM_EFFECT::exec(void) {
 }
 
 void ITEM_EFFECT::hit(u32 item, u32 tgt) {
-    u32 o = func_00176b58(tgt);
+    u32 o = YS__PARTY__GetByPart(tgt);
     if (o == 0) return;
-    func_001de168(func_001a3a78(), item, 1, 1, 10002, o);
+    ryj__PAX__start(func_001a3a78(), item, 1, 1, 10002, o);
 }
 
 void ITEM_EFFECT::end(void) {
     if (!id) return;
     if (kind == 4) { func_001d02c8(obj); id = 0; return; }
     s32 pri = 100;
-    void* o = (void*)func_00176b58(kind);
-    if (func_0019ba60(o)) pri = *(u16*)(func_00177860(o) + 80) + 100;
-    if (func_001a2a50(id, target, kind, pri) && kind == 1) func_001d97c8();
+    void* o = (void*)YS__PARTY__GetByPart(kind);
+    if (YS__OBJ__is_exist(o)) pri = *(u16*)(func_00177860(o) + 80) + 100;
+    if (YS__ITEM__Use(id, target, kind, pri) && kind == 1) func_001d97c8();
     id = 0;
 }
 

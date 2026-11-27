@@ -21,13 +21,13 @@ namespace n001d14e0 {
 extern u8 D_003524b8 asm("D_003524b8");
 extern u8 D_0036e3a8 asm("D_0036e3a8");
 void func_00177dc8(u8*, u32, u32, u32, u32) asm("func_00177dc8");
-void func_001befd8(u32, void*, u32) asm("func_001befd8");
+void YS__FIELD_COMMAND__set_minigame(u32, void*, u32) asm("YS__FIELD_COMMAND__set_minigame");
 void func_001d14e0(u8* o, u32 a, u32 b, u32 c) asm("func_001d14e0");
 void func_001d14e0(u8* o, u32 a, u32 b, u32 c) {
     func_00177dc8(o, a, 8, b, c);
     *(void**)o = &D_003524b8;
     *(u32*)(o + 1416) |= 0x4000000;
-    func_001befd8(*(u32*)(o + 2884), &D_0036e3a8, 2);
+    YS__FIELD_COMMAND__set_minigame(*(u32*)(o + 2884), &D_0036e3a8, 2);
 }
 }  // namespace n001d14e0
 
@@ -35,7 +35,7 @@ void func_001d14e0(u8* o, u32 a, u32 b, u32 c) {
 namespace n001d1540 {
 inline void* operator new(unsigned int, void* p) { return p; }
 void func_00177dc8(void*, void*, s32, void*, void*) asm("func_00177dc8");
-void func_001befd8(void*, void*, s32) asm("func_001befd8");
+void YS__FIELD_COMMAND__set_minigame(void*, void*, s32) asm("YS__FIELD_COMMAND__set_minigame");
 extern u8 D_003524b8[] asm("D_003524b8");
 extern u8 D_0036e3a8[] asm("D_0036e3a8");
 void func_001d1540(u8* o, void* a, void* b, void* c) asm("func_001d1540");
@@ -43,7 +43,7 @@ void func_001d1540(u8* o, void* a, void* b, void* c) {
     func_00177dc8(o, a, 8, b, c);
     *(u8**)o = D_003524b8;
     *(u32*)(o + 1416) |= 0x4000000;
-    func_001befd8(*(void**)(o + 2884), D_0036e3a8, 2);
+    YS__FIELD_COMMAND__set_minigame(*(void**)(o + 2884), D_0036e3a8, 2);
 }
 }  // namespace n001d1540
 
@@ -59,16 +59,16 @@ void func_001d15a0(u8* p) { func_001780d8(p); func_0016bd60(p, 29); }
 namespace g001d15d0 {
 struct Msg { u16 a; u16 id; s16 arg; };
 struct S20 { u32 w[5]; };
-void func_00178ae8(u8*, Msg*) asm("func_00178ae8");
-s32 func_001d2418(u8*, Msg*) asm("func_001d2418");
+void YS__PLAYER___OVR_exec_command_player(u8*, Msg*) asm("YS__PLAYER___OVR_exec_command_player");
+s32 YS__LMPLAYER__swim(u8*, Msg*) asm("YS__LMPLAYER__swim");
 void func_0017f488(u8*, s32, f32, f32) asm("func_0017f488");
 // a message handler: the unhandled messages go to the base class (no tail call: the function
 // returns a value but this path falls off the end)
 s32 func_001d15d0(u8* p, Msg* m) asm("func_001d15d0");
 s32 func_001d15d0(u8* p, Msg* m) {
     switch (m->id) {
-    case 422: return func_001d2418(p, m);
-    default: func_00178ae8(p, m); break;
+    case 422: return YS__LMPLAYER__swim(p, m);
+    default: YS__PLAYER___OVR_exec_command_player(p, m); break;
     case 421: {
         S20* s = (S20*)(*(u8**)(p + 2880) + 4);
         *(S20*)(p + 2548) = *s;
@@ -224,8 +224,8 @@ void func_001d17b0(u32 a0) {
 // ---- 001d1820 from src/anon/batch_w1671.cpp
 namespace n001d1820 {
 void func_002bc1e8(void*) asm("func_002bc1e8");
-void func_001d1820(u8* a0) asm("func_001d1820");
-void func_001d1820(u8* a0) {
+void YS__MISSION2D__set_warning(u8* a0) asm("YS__MISSION2D__set_warning");
+void YS__MISSION2D__set_warning(u8* a0) {
     u32 f = *(u32*)(a0 + 0xc);
     if (!(f & 4)) goto set;
     if (f & 8) goto set;
@@ -261,13 +261,13 @@ void func_001d1878(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 namespace n001d18c0 {
 void func_001d16f8(void*) asm("func_001d16f8");
 void func_0014f688(u32, u32, u32, u32, u32) asm("func_0014f688");
-void func_001d1950(void*, u32) asm("func_001d1950");
+void YS__MISSION_TIMER__start(void*, u32) asm("YS__MISSION_TIMER__start");
 void func_001d18c0(u8* p) asm("func_001d18c0");
 void func_001d18c0(u8* p) {
     func_001d16f8(p);
     u32 t = *(u32*)(p + 4);
     if (t) func_0014f688(t, *(u32*)(p + 8), *(u32*)(p + 32), *(u32*)(p + 36), *(u32*)(p + 28));
-    func_001d1950(p, *(u32*)(p + 20));
+    YS__MISSION_TIMER__start(p, *(u32*)(p + 20));
 }
 }  // namespace n001d18c0
 
@@ -290,8 +290,8 @@ extern "C" void dk_Timer_start_exact_0014c9b8(void) asm("_ZN2dk5Timer5startEv");
 void func_0014c940(...) asm("func_0014c940");
 void func_0014c9f0(...) asm("func_0014c9f0");
 void func_0014c970(u32 a0) asm("_Z13func_0014c970j");
-void func_001d1950(u8* a0, s32 a1) asm("_Z13func_001d1950Phi");
-void func_001d1950(u8* a0, s32 a1) {
+void YS__MISSION_TIMER__start(u8* a0, s32 a1) asm("_Z24YS__MISSION_TIMER__startPhi");
+void YS__MISSION_TIMER__start(u8* a0, s32 a1) {
     u8* t7 = a0;
     if (a1 <= 0) {
         goto L1984;
@@ -319,11 +319,11 @@ void func_001d1998(BD_VALUE* bd) { func_0014ca38(bd); }
 // ---- 001d19b0 gap (never-written function)
 namespace g001d19b0 {
 void func_0014f708() asm("func_0014f708");
-void func_001d1820(u8*) asm("func_001d1820");
+void YS__MISSION2D__set_warning(u8*) asm("YS__MISSION2D__set_warning");
 void func_001d19b0(u8* p) asm("func_001d19b0");
 void func_001d19b0(u8* p) {
     if (*(u32*)(p + 4)) func_0014f708();
-    func_001d1820(p);
+    YS__MISSION2D__set_warning(p);
 }
 }  // namespace g001d19b0
 
@@ -344,8 +344,8 @@ u32 func_001d19e8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 // ---- 001d1a18 from src/anon/tiny_jal_wrappers_flex.cpp
 namespace n001d1a18 {
 u32 func_001d1698(u32, u32, u32, u32) asm("_Z13func_001d1698jjjj");
-u32 func_001d1a18(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001d1a18jjjj");
-u32 func_001d1a18(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 YS__MISSION_COUNT__set_param(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z28YS__MISSION_COUNT__set_paramjjjj");
+u32 YS__MISSION_COUNT__set_param(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u, r17 = 0u;
     r16 = r5;
     r17 = r4;
@@ -397,8 +397,8 @@ void func_001d1a50(u32 a0) {
 namespace n001d1ae8 {
 u32 func_0014f9a8(...) asm("func_0014f9a8");
 u32 func_001d1708(...) asm("func_001d1708");
-u32 func_001d1ae8(u32 a0) asm("_Z13func_001d1ae8j");
-u32 func_001d1ae8(u32 a0) {
+u32 YS__MISSION_COUNT__deactivate(u32 a0) asm("_Z29YS__MISSION_COUNT__deactivatej");
+u32 YS__MISSION_COUNT__deactivate(u32 a0) {
     u32 r4 = a0, r2, r15, r16;
     r16 = r4;
     r15 = *(u32*)((u32)r4 + (s32)(48));
@@ -433,8 +433,8 @@ u32 func_001d1b28(u32 a0) {
 // ---- 001d1b60 from src/anon/auto80_199_queue.cpp
 namespace n001d1b60 {
 void func_001d17b0(u32 a0, s32) asm("func_001d17b0");
-void func_001d1b60(u32 a0, s32 a1) asm("_Z13func_001d1b60ji");
-void func_001d1b60(u32 a0, s32 a1) {
+void YS__MISSION_COUNT__set(u32 a0, s32 a1) asm("_Z22YS__MISSION_COUNT__setji");
+void YS__MISSION_COUNT__set(u32 a0, s32 a1) {
     s32 s0 = a1;
     s32 v = *(s32*)(a0 + 24);
 
@@ -461,20 +461,20 @@ void func_001d1b60(u32 a0, s32 a1) {
 // ---- 001d1bf0 gap (never-written function)
 namespace g001d1bf0 {
 void func_00150578(u8*) asm("func_00150578");
-void func_001d1820(u8*) asm("func_001d1820");
+void YS__MISSION2D__set_warning(u8*) asm("YS__MISSION2D__set_warning");
 void func_001d1bf0(u8* p) asm("func_001d1bf0");
 void func_001d1bf0(u8* p) {
     u8* t = *(u8**)(p + 48);
     if (t) func_00150578(t);
-    func_001d1820(p);
+    YS__MISSION2D__set_warning(p);
 }
 }  // namespace g001d1bf0
 
 // ---- 001d1c28 from src/anon/tiny_auto80_queue.cpp
 namespace n001d1c28 {
 void func_001505b0(...) asm("func_001505b0");
-void func_001d1c28(u8* a0) asm("_Z13func_001d1c28Ph");
-void func_001d1c28(u8* a0) {
+void YS__MISSION_COUNT__reset_warning(u8* a0) asm("_Z32YS__MISSION_COUNT__reset_warningPh");
+void YS__MISSION_COUNT__reset_warning(u8* a0) {
     u8* s0 = a0;
     u8* t7 = *(u8**)(a0 + 48);
     if (t7 != 0) {
@@ -545,7 +545,7 @@ void func_001d1d00(u32 a0) {
     *(f32*)(s0 + 44) = v;
 
     if (*(u32*)(s0 + 4) != 0) {
-        func_001d1ed0(s0);
+        YS__MISSION_GAUGE__destroy(s0);
 
         f32 f = (f32)*(s32*)(s0 + 24);
         *(u32*)(s0 + 48) = func_0014fa48(
@@ -581,8 +581,8 @@ u32 func_001d1d68(u32 a0) {
 namespace n001d1da0 {
 void func_001d1720(u8*, s32) asm("func_001d1720");
 void func_001d17b0(u8*, s32) asm("func_001d17b0");
-void func_001d1da0(u8* p, f32 x) asm("func_001d1da0");
-void func_001d1da0(u8* p, f32 x)
+void YS__MISSION_GAUGE__set(u8* p, f32 x) asm("YS__MISSION_GAUGE__set");
+void YS__MISSION_GAUGE__set(u8* p, f32 x)
 {
     if (x <= 0.0f) {
         if (0.0f < *(f32*)(p + 44)) func_001d1720(p, 136);
@@ -598,25 +598,25 @@ void func_001d1da0(u8* p, f32 x)
 
 // ---- 001d1e50 gap (never-written function)
 namespace g001d1e50 {
-void func_00151b40(u8*) asm("func_00151b40");
-void func_001d1820(u8*) asm("func_001d1820");
+void dk__MISSION_GAUGE__alert(u8*) asm("dk__MISSION_GAUGE__alert");
+void YS__MISSION2D__set_warning(u8*) asm("YS__MISSION2D__set_warning");
 void func_001d1e50(u8* p) asm("func_001d1e50");
 void func_001d1e50(u8* p) {
     u8* t = *(u8**)(p + 48);
-    if (t) func_00151b40(t);
-    func_001d1820(p);
+    if (t) dk__MISSION_GAUGE__alert(t);
+    YS__MISSION2D__set_warning(p);
 }
 }  // namespace g001d1e50
 
 // ---- 001d1e88 from src/anon/tiny_auto80_queue.cpp
 namespace n001d1e88 {
-void func_00151b78(...) asm("func_00151b78");
+void dk__MISSION_GAUGE__releaseAlert(...) asm("dk__MISSION_GAUGE__releaseAlert");
 void func_001d1e88(u8* a0) asm("_Z13func_001d1e88Ph");
 void func_001d1e88(u8* a0) {
     u8* s0 = a0;
     u8* t7 = *(u8**)(a0 + 48);
     if (t7 != 0) {
-        func_00151b78(t7);
+        dk__MISSION_GAUGE__releaseAlert(t7);
     }
     u32 t7v = *(u32*)(s0 + 12);
     u32 t6 = 0xFFFFFFF7;
@@ -628,8 +628,8 @@ void func_001d1e88(u8* a0) {
 // ---- 001d1ed0 from src/anon/tiny_auto80_queue.cpp
 namespace n001d1ed0 {
 u32 func_0014fb60(...) asm("func_0014fb60");
-void func_001d1ed0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001d1ed0jjjjjjjj");
-void func_001d1ed0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+void YS__MISSION_GAUGE__destroy(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z26YS__MISSION_GAUGE__destroyjjjjjjjj");
+void YS__MISSION_GAUGE__destroy(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
     r16 = r4;
     r15 = *(u32*)((u32)r4 + (s32)(48));
@@ -644,8 +644,8 @@ void func_001d1ed0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
 // ---- 001d1f08 from src/anon/tiny_auto80_queue.cpp
 namespace n001d1f08 {
 u32 func_0014fb40(...) asm("func_0014fb40");
-u32 func_001d1f08(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001d1f08jjjjjjjj");
-u32 func_001d1f08(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 YS__MISSION_GAUGE__is_open(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z26YS__MISSION_GAUGE__is_openjjjjjjjj");
+u32 YS__MISSION_GAUGE__is_open(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r2 = 0u;
     r15 = *(u32*)((u32)r4 + (s32)(48));
@@ -665,8 +665,8 @@ void func_001d19e8(void*, s32) asm("func_001d19e8");
 void func_001d16e8(void*, u32, u32) asm("func_001d16e8");
 extern u8 D_003525c8[] asm("D_003525c8");
 extern u8 D_003525e8[] asm("D_003525e8");
-void func_001d1f38(u32* p) asm("func_001d1f38");
-void func_001d1f38(u32* p) {
+void YS__COMBOCOUNTER__COMBOCOUNTER(u32* p) asm("YS__COMBOCOUNTER__COMBOCOUNTER");
+void YS__COMBOCOUNTER__COMBOCOUNTER(u32* p) {
     p[1] = 0;
     p[0] = (u32)D_003525c8;
     p[2] = 0;
@@ -823,8 +823,8 @@ void func_001d2130(u8* p, s32 n, f32 f) {
 // ---- 001d2180 from src/anon/tiny_jal_wrappers_flex.cpp
 namespace n001d2180 {
 u32 func_001d2110(u32, u32, u32, u32) asm("_Z13func_001d2110jjjj");
-u32 func_001d2180(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001d2180jjjj");
-u32 func_001d2180(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 YS__COMBOCOUNTER__reset(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z23YS__COMBOCOUNTER__resetjjjj");
+u32 YS__COMBOCOUNTER__reset(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r14 = 0u, r15 = 0u, r16 = 0u;
     r5 = 0u;
     r16 = r4;
@@ -841,13 +841,13 @@ u32 func_001d2180(u32 a0, u32 a1, u32 a2, u32 a3) {
 // ---- 001d21c0 from src/anon/batch_w27.cpp
 namespace n001d21c0 {
 extern f32 D_00349e10 asm("D_00349e10");
-void func_001d2180(void*) asm("func_001d2180");
+void YS__COMBOCOUNTER__reset(void*) asm("YS__COMBOCOUNTER__reset");
 s32 func_001d21c0(u8* p) asm("func_001d21c0");
 s32 func_001d21c0(u8* p) {
     if (*(f32*)(p + 60) > 0.0f) {
         f32 n = *(f32*)(p + 60) - D_00349e10;
         *(f32*)(p + 60) = n;
-        if (n <= 0.0f) { func_001d2180(p); return 0; }
+        if (n <= 0.0f) { YS__COMBOCOUNTER__reset(p); return 0; }
     }
     return 1;
 }
@@ -912,8 +912,8 @@ struct Ch {
     u8 snd[0x20];
     u32 flags;
 };
-void func_001d22e0(void* a, Ch* c) asm("func_001d22e0");
-void func_001d22e0(void* a, Ch* c) {
+void YS__ACTION_LM__control(void* a, Ch* c) asm("YS__ACTION_LM__control");
+void YS__ACTION_LM__control(void* a, Ch* c) {
     s32 id;
     f32 v = c->f1c;
     if (v > 0.0f) {
@@ -933,9 +933,9 @@ void func_001d22e0(void* a, Ch* c) {
 // ---- 001d2398 gap (never-written function)
 namespace g001d2398 {
 struct Vq { f32 x, y, z, w; Vq& operator=(const Vq& s) { if (this != &s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&s) : "$8", "memory"); return *this; } } __attribute__((aligned(16)));
-Vq func_00184540(u8*, f32, f32) asm("func_00184540");
+Vq kn__MotionPrototype0__calcLimitValue(u8*, f32, f32) asm("kn__MotionPrototype0__calcLimitValue");
 Vq func_001d2398(u32, u8* o) asm("func_001d2398");
-Vq func_001d2398(u32, u8* o) { u8* p = *(u8**)(o + 300); return func_00184540(o, *(f32*)(p + 40), *(f32*)(p + 44)); }
+Vq func_001d2398(u32, u8* o) { u8* p = *(u8**)(o + 300); return kn__MotionPrototype0__calcLimitValue(o, *(f32*)(p + 40), *(f32*)(p + 44)); }
 }  // namespace g001d2398
 
 // ---- 001d23d0 from src/anon/tiny.cpp
@@ -1052,17 +1052,17 @@ struct G1d24 { u8 pad[224]; f32 speed; };
 extern G1d24* D_00352130 asm("D_00352130");
 double func_00313b80(f32) asm("func_00313b80");
 s32 func_003142e0(double, double) asm("func_003142e0");
-V1d24 func_0016af58(O1d24*) asm("func_0016af58");
+V1d24 YS__OBJ__get_dir(O1d24*) asm("YS__OBJ__get_dir");
 void func_0016bd60_1d2418(O1d24*, s32) asm("func_0016bd60");
 void func_0017f488(u8*, s32, f32, f32) asm("func_0017f488");
 void func_0017f5e0(u8*, s32, s32, f32, f32) asm("func_0017f5e0");
-void func_001d2418(O1d24* o) asm("func_001d2418");
-void func_001d2418(O1d24* o)
+void YS__LMPLAYER__swim(O1d24* o) asm("YS__LMPLAYER__swim");
+void YS__LMPLAYER__swim(O1d24* o)
 {
     if (0.0f < o->v16.w && (o->v16.x != 0.0f || func_003142e0(func_00313b80(o->v16.z), 0.0))) {
         o->dir = o->v16;
     } else {
-        o->dir = func_0016af58(o);
+        o->dir = YS__OBJ__get_dir(o);
     }
     o->dir.y = 0.0f;
     Normalize1d24(o->dir);
@@ -1092,7 +1092,7 @@ struct Cfg { u8 p[228]; f32 f228; f32 f232; u8 q[268 - 236]; f32 lo268, hi272, l
 struct Obj1d2 { u8 p0[12]; u8* f12; u8 pp[12]; f32 f28; QW1d2 v32; u8 p1[340 - 48]; s32 f340; u8 rest[2920 - 344]; f32 timer; };
 extern Cfg* D_00352130 asm("D_00352130");
 void func_0016bd60(Obj1d2*, s32) asm("func_0016bd60");
-void func_0016b010(Obj1d2*, QW1d2*) asm("func_0016b010");
+void YS__OBJ__set_wish_dir(Obj1d2*, QW1d2*) asm("YS__OBJ__set_wish_dir");
 void func_001d2578(void*, Obj1d2* o) asm("func_001d2578");
 void func_001d2578(void*, Obj1d2* o) {
     if (o->f340 != 151) {
@@ -1102,7 +1102,7 @@ void func_001d2578(void*, Obj1d2* o) {
     } else {
         if (o->f28 > 0.0f) o->f28 = D_00352130->f228;
         QW1d2 v(o->v32);
-        func_0016b010(o, &v);
+        YS__OBJ__set_wish_dir(o, &v);
     }
 }
 }  // namespace g001d2578
@@ -1122,9 +1122,9 @@ static inline QW1d2 operator*(const QW1d2& a, f32 k) {
 struct Cfg { u8 p[228]; f32 f228; f32 f232; u8 q[268 - 236]; f32 lo268, hi272, lo276; };
 struct Obj1d2 { u8 p0[12]; u8* f12; u8 pp[12]; f32 f28; QW1d2 v32; u8 p1[340 - 48]; s32 f340; u8 rest[2920 - 344]; f32 timer; };
 extern Cfg* D_00352130 asm("D_00352130");
-QW1d2 func_00184540(Obj1d2*, f32, f32) asm("func_00184540");
+QW1d2 kn__MotionPrototype0__calcLimitValue(Obj1d2*, f32, f32) asm("kn__MotionPrototype0__calcLimitValue");
 QW1d2 func_001d2608(void*, Obj1d2* o) asm("func_001d2608");
-QW1d2 func_001d2608(void*, Obj1d2* o) { f32 f = D_00352130->f232; return func_00184540(o, f, f); }
+QW1d2 func_001d2608(void*, Obj1d2* o) { f32 f = D_00352130->f232; return kn__MotionPrototype0__calcLimitValue(o, f, f); }
 }  // namespace g001d2608
 
 // ---- 001d2648 from src/anon/batch_w2.cpp
@@ -1141,14 +1141,14 @@ void func_001d2648(s32* p) {
 
 // ---- 001d2668 from src/anon/tiny_auto80_queue.cpp
 namespace n001d2668 {
-void func_0014f578(...) asm("func_0014f578");
+void dk__INFORMATION__openInformationWindow(...) asm("dk__INFORMATION__openInformationWindow");
 void func_001d2668(u8* a0, u32 a1, f32 a2) asm("_Z13func_001d2668Phjf");
 void func_001d2668(u8* a0, u32 a1, f32 a2) {
     u8* t7 = a0;
     *(u32*)(t7 + 32) = a1;
     *(f32*)(t7 + 36) = a2;
     *(f32*)(t7 + 40) = a2;
-    func_0014f578(a1);
+    dk__INFORMATION__openInformationWindow(a1);
 }
 }  // namespace n001d2668
 
@@ -1169,7 +1169,7 @@ void func_001d2690(RingW55* r, u32 b, f32 f) {
 
 // ---- 001d2710 from src/anon/tiny_auto80_queue.cpp
 namespace n001d2710 {
-u32 func_0014f5d0(...) asm("func_0014f5d0");
+u32 dk__INFORMATION__closeInformationWindow(...) asm("dk__INFORMATION__closeInformationWindow");
 void func_001d2710(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001d2710jjjjjjjj");
 void func_001d2710(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r15, r16;
@@ -1179,7 +1179,7 @@ void func_001d2710(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
     r15 = ((u32*)(u32)r4)[8];
     r4 = r15;
     if (r15 != 0u) {
-        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0014f5d0)(r4, r5, r6, r7, r8, r9, r10, r11);
+        ((void(*)(u32,u32,u32,u32,u32,u32,u32,u32))dk__INFORMATION__closeInformationWindow)(r4, r5, r6, r7, r8, r9, r10, r11);
         ((u32*)(u32)r16)[8] = 0u;
     }
 }
@@ -1193,8 +1193,8 @@ struct Q001d { u32 a; FU001d f; };
 struct S001d { s32 end; s32 cur; Q001d e[3]; u32 cur_a; f32 cur_f; f32 timer; };
 s32 func_00197920(S001d*) asm("func_00197920");
 void func_001d2668(S001d*, u32, f32) asm("func_001d2668");
-void func_001d2750(S001d* a0) asm("func_001d2750");
-void func_001d2750(S001d* a0)
+void YS__INTERVAL_INFO__exec(S001d* a0) asm("YS__INTERVAL_INFO__exec");
+void YS__INTERVAL_INFO__exec(S001d* a0)
 {
     u32 w;
     s32 i;

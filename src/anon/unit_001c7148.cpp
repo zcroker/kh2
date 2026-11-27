@@ -17,7 +17,7 @@ struct Vq {
 } __attribute__((aligned(16)));
 struct M1c7148 { Vq a, b; };
 extern M1c7148 D_01d498d0 asm("D_01d498d0");
-void func_00143928(M1c7148*) asm("func_00143928");
+void dk__Octree__collisionToMap(M1c7148*) asm("dk__Octree__collisionToMap");
 void func_001c7148(u8* p) asm("func_001c7148");
 void func_001c7148(u8* p) {
     M1c7148* m = &D_01d498d0;
@@ -26,7 +26,7 @@ void func_001c7148(u8* p) {
     m->a.w = 1.0f;
     m->b = *(Vq*)(p + 48);
     m->b.w = 1.0f;
-    func_00143928(m);
+    dk__Octree__collisionToMap(m);
 }
 } // n001c7148
 
@@ -228,15 +228,15 @@ static inline QWord MulV(const QMat& m, const QWord& v)
 }
 extern f32 D_01d498c4 asm("D_01d498c4");
 extern f32 D_00349e10 asm("D_00349e10");
-s32 func_0019ba60(u32) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(u32) asm("YS__OBJ__is_exist");
 void func_0011b6a8(QMat*) asm("func_0011b6a8");
 QMat* func_0011b720(QMat*, f32) asm("func_0011b720");
 QWord func_0016be98(u32) asm("func_0016be98");
-s32 func_001c7540(u8* o) asm("func_001c7540");
-s32 func_001c7540(u8* o) {
+s32 YS__PRIZEEFFECT__phase_get(u8* o) asm("YS__PRIZEEFFECT__phase_get");
+s32 YS__PRIZEEFFECT__phase_get(u8* o) {
     f32 t = *(f32*)(o + 64) - D_00349e10;
     *(f32*)(o + 64) = t;
-    if (t <= 0.0f || !func_0019ba60(*(u32*)(o + 72))) return 0;
+    if (t <= 0.0f || !YS__OBJ__is_exist(*(u32*)(o + 72))) return 0;
     f32 w = *(f32*)(o + 60);
     f32 r = *(f32*)(o + 64) / 40.0f;
     QMat m;
@@ -251,12 +251,12 @@ s32 func_001c7540(u8* o) {
 }
 } // n001c7540
 
-// 001c7700 (gap, never written before): step callback, func_001c7540(self).
+// 001c7700 (gap, never written before): step callback, YS__PRIZEEFFECT__phase_get(self).
 namespace n001c7700 {
-u32 func_001c7540(u32, u32, u32, u32) asm("func_001c7540");
+u32 YS__PRIZEEFFECT__phase_get(u32, u32, u32, u32) asm("YS__PRIZEEFFECT__phase_get");
 u32 func_001c7700(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001c7700");
 u32 func_001c7700(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 (*fp)(u32, u32, u32, u32) = func_001c7540;
+    u32 (*fp)(u32, u32, u32, u32) = YS__PRIZEEFFECT__phase_get;
     return fp(a0, a1, a2, a3);
 }
 } // n001c7700
@@ -312,10 +312,10 @@ extern f32 D_01d498c0 asm("D_01d498c0");
 void func_0011b6a8(QM1577*) asm("func_0011b6a8");
 QM1577* func_0011b720(QM1577*, f32) asm("func_0011b720");
 QV1577 func_0016be98(u32) asm("func_0016be98");
-s32 func_0019ba60(u32) asm("func_0019ba60");
-s32 func_001c7720(Obj1c7720* p) asm("func_001c7720");
-s32 func_001c7720(Obj1c7720* p) {
-    if ((p->f40 -= D_00349e10) <= 0.0f || !func_0019ba60(p->p48)) return 0;
+s32 YS__OBJ__is_exist(u32) asm("YS__OBJ__is_exist");
+s32 YS__PRIZEEFFECT__phase_al_get(Obj1c7720* p) asm("YS__PRIZEEFFECT__phase_al_get");
+s32 YS__PRIZEEFFECT__phase_al_get(Obj1c7720* p) {
+    if ((p->f40 -= D_00349e10) <= 0.0f || !YS__OBJ__is_exist(p->p48)) return 0;
     f32 w = p->v30.w;
     f32 t = p->f40 / 80.0f;
     QM1577 m;
@@ -332,12 +332,12 @@ s32 func_001c7720(Obj1c7720* p) {
 }
 } // n001c7720
 
-// 001c78e0 (gap, never written before): step callback, func_001c7720(self).
+// 001c78e0 (gap, never written before): step callback, YS__PRIZEEFFECT__phase_al_get(self).
 namespace n001c78e0 {
-u32 func_001c7720(u32, u32, u32, u32) asm("func_001c7720");
+u32 YS__PRIZEEFFECT__phase_al_get(u32, u32, u32, u32) asm("YS__PRIZEEFFECT__phase_al_get");
 u32 func_001c78e0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001c78e0");
 u32 func_001c78e0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    u32 (*fp)(u32, u32, u32, u32) = func_001c7720;
+    u32 (*fp)(u32, u32, u32, u32) = YS__PRIZEEFFECT__phase_al_get;
     return fp(a0, a1, a2, a3);
 }
 } // n001c78e0
@@ -372,8 +372,8 @@ struct F28 {
     u8 pad[0x28];
     u32 on : 1;
 };
-s32 func_001c7950(u8* p, void* o) asm("func_001c7950");
-s32 func_001c7950(u8* p, void* o) {  // copy_quad_if_flag
+s32 YS__PRIZEEFFECT__can_get(u8* p, void* o) asm("YS__PRIZEEFFECT__can_get");
+s32 YS__PRIZEEFFECT__can_get(u8* p, void* o) {  // copy_quad_if_flag
     if (!((F28*)p)->on) return 0;
     f32 v[4] __attribute__((aligned(16)));
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(v), "r"(p) : "$8", "memory");
@@ -421,8 +421,8 @@ Vq func_0016be98(u32) asm("func_0016be98");
 void func_002bc188(u32, Vq*) asm("func_002bc188");
 void func_001c7700(void) asm("func_001c7700");
 void func_001c78e0(void) asm("func_001c78e0");
-void func_001c79a0(Homing* h, u32 target, s32 mode) asm("func_001c79a0");
-void func_001c79a0(Homing* h, u32 target, s32 mode) {
+void YS__PRIZEEFFECT__get(Homing* h, u32 target, s32 mode) asm("YS__PRIZEEFFECT__get");
+void YS__PRIZEEFFECT__get(Homing* h, u32 target, s32 mode) {
     h->target = target;
     Vq v;
     v = func_0016be98(target);

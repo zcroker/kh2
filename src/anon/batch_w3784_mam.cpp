@@ -4,13 +4,13 @@ struct Ent36 { u8 pad0[8]; u8 name[8]; s8 f10; u8 pad11; u16 f12; u8 pad14[8]; s
 struct VObj { struct VT { u8 pad[24]; void (*f18)(VObj*, s32, u32, s32, s32, s32, s32); }* vt; };
 u8* func_0023ee30(u32);
 void func_0031a838(u8*);
-void func_002369a0(u8*);
-void func_0023c008(u8*);
-void func_0028d7f0(u8*, s32, s32, s32, s32, s32, s32, s32, s32);
-void func_0023ef50(u8*);
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u8*);
+void YI__LAYOUT__LAYOUT(u8*);
+void Tz__MenuUtil__CreateLay(u8*, s32, s32, s32, s32, s32, s32, s32, s32);
+void Tz__Layout__SetImageCache(u8*);
 s32 func_00244938(s32);
-s32 func_002431d0(s32, s32);
-void func_00288d80(void*, s32, s32, s32, u8*, s32, u8*, u8*);
+s32 Tz__SubMenu__isSetNew(s32, s32);
+void Tz__Select__SetItem(void*, s32, s32, s32, u8*, s32, u8*, u8*);
 u8* func_002891b8(void*, s32);
 s32 func_0023aa98(u8*);
 s32 func_0023aa78(u8*);
@@ -20,14 +20,14 @@ void func_001395f8(u8*);
 void func_00139620(u8*);
 s32 func_002892f8(void*);
 void func_00138c68(u8*, s32, s32);
-void func_002891f0(void*, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(void*, s32, s32, s32, s32);
 void func_002449c0(void);
 s32 func_002891e8(void*);
 s32 func_00244ee8(s32);
 void func_002b4070(void*, s32, u8*, u8*, u8*, u8*, u8*, u8*, u8*, s32, Ent36*, s32, s32);
 s32 func_00249480(s32);
 void func_00249180(void);
-void func_00248720(void);
+void Tz__MUMI__LoopAll(void);
 s32 func_001a6d08(s32);
 s32 func_00244a10(void);
 void func_0028af40(void*, s32);
@@ -44,7 +44,7 @@ void func_0023e690(VObj*, s32, s32, s32);
 void func_00287bd0(s32, s32);
 void func_00287cc0(s32);
 s32 func_002887c8(void);
-void func_00243e30(void);
+void Tz__HEFT__LoopAll(void);
 void func_002488f0(void);
 void func_00288750(void (*)(void));
 void func_00244058(void);
@@ -67,8 +67,8 @@ static inline u8* NewLayout(void) {
     *(u8**)o = D_00347f98;
     func_0031a838(o + 12);
     *(u8**)o = D_0035eb98;
-    func_002369a0(o + 24);
-    func_0023c008(o + 48);
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(o + 24);
+    YI__LAYOUT__LAYOUT(o + 48);
     return o;
 }
 
@@ -83,5 +83,5 @@ extern u8 D_00371d80[];
 extern s16 D_00371d40[][3];
 extern u8 D_00371d38[], D_00371d58[], D_00371d60[], D_00371d68[], D_00371d70[], D_00371d78[];
 
-void func_00248060(void);  // 0x00248060: definition moved into src/anon/unit_00247ff0.cpp
+void Tz__MUMI__Setup(void);  // 0x00248060: definition moved into src/anon/unit_00247ff0.cpp
 }

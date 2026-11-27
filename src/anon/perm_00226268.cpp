@@ -42,8 +42,8 @@ void func_00149370(Area *, char *);
 s32 func_001688c8(const char *);
 void func_00170518(const char *, s32, u32);
 void func_00170888(void *);
-const char *func_001921d8(u32);
+const char *YS__MESSAGE__GetFilename(u32);
 void func_00192260(u32, s32);
-void func_00226268(void);  // 0x00226268: definition moved into src/anon/unit_00224780.cpp
+void sa__EVENT__readNextMapFile(void);  // 0x00226268: definition moved into src/anon/unit_00224780.cpp
 
 }

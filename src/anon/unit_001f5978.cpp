@@ -46,13 +46,13 @@ void func_00222730(void*, W2417Vec*, void*) asm("func_00222730");
 // Partial asm (no extra code): the lui/lw of D_01d9e6e8 are single-instruction asms pinned to t7/a1 so
 // sched2 keeps them after the arg setup like the original; the empty asm ties only add sched2 readers
 // (t: idx so idx++ is issued before move v0,zero; a/q inputs place the lui after addiu s0 and before addu t6).
-void func_001f59b0(void* owner, W2417Prm* prm_, W2417Ctx* c) asm("func_001f59b0");
+void pppKeBornRnd(void* owner, W2417Prm* prm_, W2417Ctx* c) asm("pppKeBornRnd");
 // 001f59b0: particle emitter variant (partMng): picks a point index (random or sequential), spawns an
 // object per point, transforms the s16 point pairs by two matrices and stores the result.
 // Partial asm (no extra code): the lui/lw of D_01d9e6e8 are single-instruction asms pinned to t7/a1 so
 // sched2 keeps them after the arg setup like the original; the empty asm ties only add sched2 readers
 // (t: idx so idx++ is issued before move v0,zero; a/q inputs place the lui after addiu s0 and before addu t6).
-void func_001f59b0(void* owner, W2417Prm* prm_, W2417Ctx* c)
+void pppKeBornRnd(void* owner, W2417Prm* prm_, W2417Ctx* c)
 {
     W2417Prm* prm = prm_;
     register s32 r asm("$17");
@@ -152,8 +152,8 @@ void sceVu0SubVector(W1833Vec*, W1833Vec*, void*) asm("sceVu0SubVector");
 void sceVu0Normalize(W1833Vec*, W1833Vec*) asm("sceVu0Normalize");
 void sceVu0ScaleVector(W1833Vec*, W1833Vec*, f32) asm("sceVu0ScaleVector");
 /*TARGET 001f5cc8*/
-void func_001f5cc8(void* owner, W1833Prm* prm, s16* pos) asm("func_001f5cc8");
-void func_001f5cc8(void* owner, W1833Prm* prm, s16* pos) {
+void pppKeBornRnd2_Born(void* owner, W1833Prm* prm, s16* pos) asm("pppKeBornRnd2_Born");
+void pppKeBornRnd2_Born(void* owner, W1833Prm* prm, s16* pos) {
     W1833Ent* e = 0;
     u8* t = D_01d9e6e0->tbl + prm->idx * 16;
     if (t != 0) {
@@ -184,7 +184,7 @@ extern u8* D_01d9e6e0 asm("D_01d9e6e0");
 struct Ev001f { u8 pad[4]; s16 f4; u8 pad2[6]; u8 f12; u8 f13; u8 f14; u8 pad3; s32 f16; s32 f20; s32 f24; };
 s32 func_00222568(void) asm("func_00222568");
 // vu_const_5f_d
-void func_001f5cc8(void) asm("func_001f5cc8");
+void pppKeBornRnd2_Born(void) asm("pppKeBornRnd2_Born");
 void func_0021ee48(u8*, Ev001f*, void*, u8*, s16, u8, u8) asm("func_0021ee48");
 /*TARGET 001f5df8*/
 // 0x001e1d20: definition moved into src/anon/unit_001e0cb8.cpp
@@ -201,7 +201,7 @@ void func_001f5df8(u8* a0, Ev001f* e, u8* a2)
     if ((func_00222568() >> 8) & e->f13) return;
     if (e->f16 == -1) return;
     if (e->f24 == -1) return;
-    func_0021ee48(a0, e, (void*)func_001f5cc8, a0 + **(u32**)(a2 + 12) + 160, e->f4, e->f14, e->f12);
+    func_0021ee48(a0, e, (void*)pppKeBornRnd2_Born, a0 + **(u32**)(a2 + 12) + 160, e->f4, e->f14, e->f12);
 }
 }  // namespace n001f5df8
 
@@ -302,10 +302,10 @@ void sceVu0ScaleVector(void*, void*, f32) asm("sceVu0ScaleVector");
 /*TARGET 001f6148*/
 // Spawns an effect object from the manager table and runs a point through three matrix stages,
 // storing results into three of the object's slots.
-void func_001f6148(s32 a0, A6148* a, s16* pos) asm("func_001f6148");
+void pppKeBornRnd4_Born(s32 a0, A6148* a, s16* pos) asm("pppKeBornRnd4_Born");
 // Spawns an effect object from the manager table and runs a point through three matrix stages,
 // storing results into three of the object's slots.
-void func_001f6148(s32 a0, A6148* a, s16* pos)
+void pppKeBornRnd4_Born(s32 a0, A6148* a, s16* pos)
 {
     St6148* st = D_01d9e6e0;
     u8* e = st->tbl + a->f10 * 16;

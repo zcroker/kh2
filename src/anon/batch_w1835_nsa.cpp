@@ -13,8 +13,8 @@ extern "C" {
 extern u32 D_003638d0;
 extern s32 D_003509a0;
 extern W1835Slot D_01dad9c0[32];
-s32 func_002282f0(s16);
-s32 func_00225b00(s16);
+s32 sa__EVENT__checkStart(s16);
+s32 sa__EVENT__isJumpMode(s16);
 W1835VObj* func_001050d8(s32);
 void func_001ac8b0(W1835VObj*, s16);
 void func_001ac7c8(W1835VObj*, W1835VObj*);

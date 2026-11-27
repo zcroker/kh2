@@ -21,12 +21,12 @@ struct Drw2bf3 { virtual void f0(); virtual void f1(); virtual void f2(); virtua
 extern "C" {
 extern Drw2bf3* D_00361998;
 void func_001024a8(void);
-void func_00236d60(void);
+void YI__IMAGE_CACHE__Clear(void);
 s32 func_002ee040(Drw2bf3*);
 
 /* Destructor body: needs -fno-strict-aliasing for the virtual call argument order. */
 // 001602f8: moved to src/harata/libdk/bgobj.cpp
 
 /* Needs -fno-strict-aliasing so the stack arguments are stored before the object reload. */
-void func_002bf308(void);  // 0x002bf308: definition moved into src/anon/unit_002bebd0.cpp
+void worldmap__RootWindow__execTask(void);  // 0x002bf308: definition moved into src/anon/unit_002bebd0.cpp
 }

@@ -50,7 +50,7 @@ void func_0028d8c0(void*, s32, s32, s32, s32, s32, s32, s32);
 void func_0028d980(void*, s32, s32, s32, s32, s32, s32, s32, s32);
 s32 func_002570a0(s32);
 void func_0027aed8(s32, s32*, s32*);
-void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*);
+void Tz__Select__SetItem(s32, s32, s32, s32, s32, s32, s16*, s16*);
 W1713Obj* func_002891b8(s32, s32);
 void func_00138c10(void*, s32);
 void func_00138c68(void*, s32, s32);
@@ -68,9 +68,9 @@ s32 func_00236ca8(s32, s32);
 void func_00257708(s32);
 s32 func_002570f0(void);
 void func_0028bae0(s32, s32, s32, s32, s32, s32, s32, W1713Menu*, s32);
-void func_0028af90(s32, s32);
+void Tz__Select__SetSelectMax(s32, s32);
 void func_0027c2f8(void);
-void func_0028b218(s32, s32);
+void Tz__Select__SetPageMode(s32, s32);
 void func_0028b248(s32, s32);
 void func_00257050(s32, s32, s32);
 s32 func_0028af88(s32);
@@ -79,9 +79,9 @@ s32 func_0028b040(s32);
 void func_0028af18(s32, s32);
 void func_0028af28(s32, s32);
 s32 func_00283ab8(s32);
-void func_00256cc0(s32, s32, s32);
+void Tz__CmTop__CreatePadHelp(s32, s32, s32);
 void func_0027b0f8(void);
-void func_0027a6d8(void);
+void Tz__CmAbility__UpdateNew(void);
 void func_0027a208(void);
 void func_00287cc0(s32);
 
@@ -90,6 +90,6 @@ static inline __attribute__((always_inline)) void W1713InitIcon(void* p, s32 id,
     func_0028d8c0(p, id, w, h, tex, color, -1, 0);
 }
 
-void func_00277d20(void);  // 0x00277d20: definition moved into src/anon/unit_00277708.cpp
+void Tz__CmAbility__SetupSel(void);  // 0x00277d20: definition moved into src/anon/unit_00277708.cpp
 
 }

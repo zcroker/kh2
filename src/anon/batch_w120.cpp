@@ -4,7 +4,7 @@ struct Res { u32 f0; u32 f4; u32 data; };
 extern void* D_0034ec68;
 extern u32 D_0034ec70[19];
 extern s8 D_0036c600[8], D_0036c608[8], D_0036c610[8], D_0036c618[8], D_0036c620[8], D_0036c628[8];
-void* func_001b1490(void*);
+void* YS__DATABUFF__ReadBar(void*);
 Res* func_00168b38(void*, s32, s32);  // entry_array_find_nth
 Res* func_00168b88(void*, s32, s32, s32);  // find_entry16_by_half_word
 void func_00196608(u32);
@@ -28,14 +28,14 @@ s32 func_00276368(void);
 s32 func_0028acc8(u32);
 s32 func_00276888(void);
 void func_00287f90(s32);
-void func_002a6a18(void);
+void Tz__JmSynthe__LeaveAll(void);
 s32 func_00292630(void);
 void func_00287c30(void);
 void func_0028af18(u32, s32);
 void func_00276690(s32);
 s32 func_00276358(void);
-void func_00276220(s32, s32);
-void func_00274cf0(s32);  // state_dispatch_0_1_2
+void Tz__Jiminy__SetParentSeqNum(s32, s32);
+void Tz__Jiminy__LoadData(s32);  // state_dispatch_0_1_2
 void func_002925c0(void);
 void func_002995e8(void);
 s32 func_00289310(u32);
@@ -47,9 +47,9 @@ s32 func_00242848(s32);
 void func_00287da0(void);
 s32 func_00288040(void);
 void func_00288018(void);  // global_zero_4dwords
-void func_0028f6f0(s32);  // record884_refresh_by_index
+void Tz__SelHist__FadeOut(s32);  // record884_refresh_by_index
 void func_002a6a10(void);
-void func_00276dc0(void);
+void Tz__Jiminy__FadeOutHelp(void);
 void func_00287c00(s32);
 void func_00287cc0(s32);
 s32 func_002891e8(u32);
@@ -57,7 +57,7 @@ s32 func_0028b038(u32);
 void func_002765e8(s32, s32, s32);
 
 // Menu tick: handles the confirm/cancel states of this page.
-void func_002a6be0(void);  // 0x002a6be0: definition moved into src/anon/unit_002a5a90.cpp
+void Tz__JmSynthe__Control(void);  // 0x002a6be0: definition moved into src/anon/unit_002a5a90.cpp
 
 
 extern u32 D_0035f01c;
@@ -67,7 +67,7 @@ s32 func_002938e0(void);
 s32 func_002938f0(void);
 void func_0026c140(void);
 s32 func_00287dc0(void);
-s32 func_0026cda0(void);
+s32 Tz__CmParty__isExistList(void);
 s32 func_00139d78(s32);
 s32 func_0028f930(s32);
 void func_0026cc30(void);
@@ -85,7 +85,7 @@ void func_00287bd0(s32, s32);
 void func_0026c760(void);
 void func_0023d820(s32);
 void func_00288e88(u32);
-void func_00263c60(void);  // sync_global_index_if_changed
+void Tz__CMenuHelp__FadeOut(void);  // sync_global_index_if_changed
 void func_0026cb90(void);
 
 void func_0026c470(void);  // 0x0026c470: definition moved into src/anon/unit_0026c450.cpp
@@ -99,7 +99,7 @@ void func_002a5590(void);
 void func_002a6878(void);
 void func_002a4df0(void);
 
-void func_002a52b0(void);  // 0x002a52b0: definition moved into src/anon/unit_002a52b0.cpp
+void Tz__JmBattle__CtrlTop(void);  // 0x002a52b0: definition moved into src/anon/unit_002a52b0.cpp
 
 
 struct SelState { u32 f0; s8 cur; };
@@ -109,8 +109,8 @@ void func_0029aac0(s32);
 void func_0029b698(void);
 void func_0029ecf0(void);
 void func_0029aa30(void);
-s8 func_0029c9d8(s32);
-s32 func_00295430(s32, s32);
+s8 Tz__JmDic__GetCur2World(s32);
+s32 Tz__JmWorldSel__GetId2WorldName(s32, s32);
 void func_0028fb28(s32, s32);
 
 void func_0029b378(void);  // 0x0029b378: definition moved into src/anon/unit_0029b378.cpp
@@ -128,8 +128,8 @@ void func_0025f588(void);
 s32 func_00233e70(s32);
 s32 func_002348a8(s32, s32);
 void func_00234570(s32, s32);
-void func_002b4dd0(s32);
-void func_002b4c88(s32);
+void Tz__CmSLBase__SetupWarningWin(s32);
+void Tz__CmSLBase__SetupWarningConfirm(s32);
 void func_002b5108(s32, s32);
 void func_0025f610(void);
 void func_002b5558(void);
@@ -138,5 +138,5 @@ s32 func_00241770(s32);
 void func_00241450(s32);
 void func_00287d20(s32);
 
-void func_0025e8a0(void);  // 0x0025e8a0: definition moved into src/anon/unit_0025da20.cpp
+void Tz__CmLoad__CtrlList(void);  // 0x0025e8a0: definition moved into src/anon/unit_0025da20.cpp
 }

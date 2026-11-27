@@ -19,10 +19,10 @@ struct Obj18c {
     u8 p0[2624]; s32 kind; s32 mode; s32 p2632; Obj18c* tgt; QW18c v2640; u8 p1[2688 - 2656]; QW18c v2688;
 };
 extern "C" {
-void func_0016af58(QW18c*, Obj18c*);
-QW18c* func_0016c028(Obj18c*);
+void YS__OBJ__get_dir(QW18c*, Obj18c*);
+QW18c* YS__OBJ__get_pos(Obj18c*);
 s32 func_0018c458(s32*);
-s32 ctarget_0019ba60_18c(Obj18c*) asm("_Z16ctarget_0019ba60jjjj");
+s32 ctarget_0019ba60_18c(Obj18c*) asm("_Z17YS__OBJ__is_existjjjj");
 extern Obj18c* D_0034e948;
-QW18c func_0018c258(Obj18c* o);  // 0x0018c258: definition moved into src/yasui/libys/npc.cpp
+QW18c YS__NPC__get_rtn_action_dir(Obj18c* o);  // 0x0018c258: definition moved into src/yasui/libys/npc.cpp
 }

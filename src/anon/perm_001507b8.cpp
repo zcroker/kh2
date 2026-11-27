@@ -38,7 +38,7 @@ struct O1507b8
 u32 func_0013a7e8(s32);
 u32 func_0013d7e0();
 void func_00138d60(S1507b8 *, s32, u32, u32, s32, s32, s32);
-void func_001386e0(S1507b8 *, s32, u32, u32, s32, s32);
+void dk__Sprite__create(S1507b8 *, s32, u32, u32, s32, s32);
 u32 func_0023aa78(u8 *);
 void func_0014fc40(O1507b8 *, s32, u32, s32, s32, s32);
 void func_001508a0(O1507b8 *, s32);

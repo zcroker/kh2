@@ -651,7 +651,7 @@ void func_0023fd40(u32 a0) {
 
 // 0023fdc0 (was src/anon/tiny_auto80_fptr0.cpp)
 namespace n0023fdc0 {
-u32 func_00240000() asm("_Z13func_00240000v");
+u32 Tz__MCard__End() asm("_Z14Tz__MCard__Endv");
 u32 func_002422f0() asm("_Z13func_002422f0v");
 /*TARGET 0023fdc0*/
 // 0x00236478: definition moved into src/anon/unit_00236180.cpp
@@ -661,7 +661,7 @@ u32 func_0023fdc0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0023fdc0jjjj");
 
 u32 func_0023fdc0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2, r15;
-    u32 (*fp_call0_00240000)() = func_00240000;
+    u32 (*fp_call0_00240000)() = Tz__MCard__End;
     r2 = fp_call0_00240000();
     u32 (*fp_call0_002422f0)() = func_002422f0;
     r2 = fp_call0_002422f0();
@@ -757,10 +757,10 @@ extern void* D_0035ec98 asm("D_0035ec98");
 extern u32 D_0035ec9c asm("D_0035ec9c");
 extern void* D_0035eca0 asm("D_0035eca0");
 extern void* D_0035eca4 asm("D_0035eca4");
-void u_call0_00240000(void) asm("_Z16u_call0_00240000v");
+void Tz__MCard__End(void) asm("_Z14Tz__MCard__Endv");
 /*TARGET 00240000*/
-void u_call0_00240000(void) asm("_Z16u_call0_00240000v");
-void u_call0_00240000(void) {
+void Tz__MCard__End(void) asm("_Z14Tz__MCard__Endv");
+void Tz__MCard__End(void) {
     if (D_0035ec88) { func_00106450(D_0035ec88); D_0035ec88 = 0; }
     if (D_0035ec8c) { func_00106450(D_0035ec8c); D_0035ec8c = 0; }
     if (D_0035ec90) { func_00106450(D_0035ec90); D_0035ec90 = 0; }
@@ -909,8 +909,8 @@ s32 func_00240108(void) asm("func_00240108");
 // get_global_36eb68
 void func_00240118(void*, s32, s32) asm("func_00240118");
 /*TARGET 00240360*/
-void func_00240360(s32 k) asm("func_00240360");
-void func_00240360(s32 k) {
+void Tz__MCard__MakeFname(s32 k) asm("Tz__MCard__MakeFname");
+void Tz__MCard__MakeFname(s32 k) {
     if (k == -5) return;
     if (k == -4) { func_002ff2e8(D_0035ec88, D_003716b8); return; }
     if (k == -3) { func_002ff2e8(D_0035ec88, D_0035ebf8); return; }
@@ -966,7 +966,7 @@ extern u8 D_00371768[] asm("D_00371768");
 extern u8 D_00371798[] asm("D_00371798");
 void func_002fde18(void*, s32, u32) asm("func_002fde18");
 void memcpy(void*, const void*, u32) asm("memcpy");
-void func_002405a8(u8*, s32) asm("func_002405a8");
+void Tz__MCard__MakeTitle(u8*, s32) asm("Tz__MCard__MakeTitle");
 s32 func_00240108(void) asm("func_00240108");
 // get_global_36eb68
 void func_002ff2e8(char*, const char*) asm("func_002ff2e8");
@@ -982,7 +982,7 @@ void func_00240450(u8* p, s32 n) {
     memcpy(p + 80, D_00371738, 48);
     memcpy(p + 128, D_00371768, 48);
     memcpy(p + 176, D_00371798, 16);
-    func_002405a8(p + 192, n + 1);
+    Tz__MCard__MakeTitle(p + 192, n + 1);
     char* s = func_00240108() ? D_0035ec00 : D_0035ebfc;
     func_002ff2e8((char*)p + 260, s);
     func_002ff2e8((char*)p + 324, s);
@@ -993,7 +993,7 @@ void func_00240450(u8* p, s32 n) {
 
 // 002405a8 (was src/anon/batch_w3800.cpp)
 namespace n002405a8 {
-// func_002405a8: build the memory-card save title (Shift-JIS) for slot `slot`:
+// Tz__MCard__MakeTitle: build the memory-card save title (Shift-JIS) for slot `slot`:
 // header text, game level / completion marks, slot number, item count and play time
 // (hours, minutes) added into the template's fullwidth digit characters.
 
@@ -1015,7 +1015,7 @@ s32 func_00240108(void) asm("func_00240108");
 s32 W3800_GetGameLevel(W3800_SaveRam*) asm("_ZN7SAVERAM12GetGameLevelEPv");
 W3800_SaveRam* W3800_getSaveRam(void) asm("_Z10getSaveRamv");
 s32 W3800_isGameComplete(W3800_SaveRam*) asm("_ZN7SAVERAM14isGameCompleteEv");
-W3800_Item* W3800_ctarget(void*, u32) asm("_Z16ctarget_00188fe0jjjj");
+W3800_Item* W3800_ctarget(void*, u32) asm("_Z31YS__SAVERAM_BATTLE__get_partramjjjj");
 void W3800_getPlayTime(u32*, u32*, u32*, u32*) asm("_ZN2dk5Clock18getPlayTimeToHMSMSERjS1_S1_S1_");
 extern W3800_SaveRam D_0032bb30 asm("D_0032bb30");
 extern const char* D_0035ec0c asm("D_0035ec0c");
@@ -1025,8 +1025,8 @@ extern const char* D_0035ec18[] asm("D_0035ec18");
 extern const char* D_0035ec28 asm("D_0035ec28");
 extern const char* D_0035ec2c asm("D_0035ec2c");
 /*TARGET 002405a8*/
-void func_002405a8(char* buf, s32 slot) asm("func_002405a8");
-void func_002405a8(char* buf, s32 slot)
+void Tz__MCard__MakeTitle(char* buf, s32 slot) asm("Tz__MCard__MakeTitle");
+void Tz__MCard__MakeTitle(char* buf, s32 slot)
 {
     W3800_SaveRam* save = &D_0032bb30;
     W3800_memset(buf, 0, 0x40);
@@ -1239,8 +1239,8 @@ void MCard::SetPos(s32 pos) {
 namespace n00240bd0 {
 extern u32 D_0035ec94 asm("D_0035ec94");
 /*TARGET 00240bd0*/
-u32 func_00240bd0(u32 a0,u32 a1,u32 a2,u32 a3) asm("_Z13func_00240bd0jjjj");
-u32 func_00240bd0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 p = D_0035ec94; return (u32)(s32)(*(s8*)((u32)p + (1))); }
+u32 Tz__MCard__GetPos(u32 a0,u32 a1,u32 a2,u32 a3) asm("_Z17Tz__MCard__GetPosjjjj");
+u32 Tz__MCard__GetPos(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a0; (void)a1; (void)a2; (void)a3; u32 p = D_0035ec94; return (u32)(s32)(*(s8*)((u32)p + (1))); }
 }  // namespace n00240bd0
 
 // 00240be0 (was src/tozawa/mcard.cpp)
@@ -1267,7 +1267,7 @@ struct W2397Obj {
 };
 struct W2397Rec { char p[0xf]; u8 cf; };
 s32 func_001058d8(W2397Obj*) asm("func_001058d8");
-W2397Rec* func_00188fe0(void*, s32) asm("func_00188fe0");
+W2397Rec* YS__SAVERAM_BATTLE__get_partram(void*, s32) asm("YS__SAVERAM_BATTLE__get_partram");
 s32 func_0019f880(u8, u8) asm("func_0019f880");
 extern W2397Obj* D_0035ec90 asm("D_0035ec90");
 extern W2397Ent* D_0035ec94 asm("D_0035ec94");
@@ -1286,8 +1286,8 @@ void func_00240c08(s32 i, W2397Obj* o, u32 fl) {
         D_0035ec94[i].s.a = o->v2444;
         D_0035ec94[i].s.b = o->v2440;
         D_0035ec94[i].s.c8 = o->c2498;
-        if ((u8)o->b249c) W2397_ENT(i)->s.set9(func_00188fe0(o->t24f0, 14)->cf);
-        else W2397_ENT(i)->s.set9(func_00188fe0(o->t24f0, 1)->cf);
+        if ((u8)o->b249c) W2397_ENT(i)->s.set9(YS__SAVERAM_BATTLE__get_partram(o->t24f0, 14)->cf);
+        else W2397_ENT(i)->s.set9(YS__SAVERAM_BATTLE__get_partram(o->t24f0, 1)->cf);
         if (o->c0c >= 19) D_0035ec94[i].s.ca = 0xff;
         else D_0035ec94[i].s.ca = o->c0c;
         W2397_ENT(i)->s.setb(o->c419c);
@@ -1311,15 +1311,15 @@ void func_00240df8(s32 i) { *(s32*)(D_0035ec94 + i * 32 + 8) = 0; }
 
 // 00240e10 (was src/anon/batch_w19.cpp)
 namespace n00240e10 {
-void func_00240360(void) asm("func_00240360");
+void Tz__MCard__MakeFname(void) asm("Tz__MCard__MakeFname");
 void func_00234590(s32, u32, s32, u32, s32) asm("func_00234590");
 extern s8* D_0035ec94 asm("D_0035ec94");
 extern u32 D_0035ec9c asm("D_0035ec9c");
 extern u32 D_0035ec88 asm("D_0035ec88");
 /*TARGET 00240e10*/
-void func_00240e10(void) asm("func_00240e10");
-void func_00240e10(void) {
-    func_00240360();
+void Tz__MCard__GetDirInfo(void) asm("Tz__MCard__GetDirInfo");
+void Tz__MCard__GetDirInfo(void) {
+    Tz__MCard__MakeFname();
     func_00234590(*D_0035ec94, D_0035ec9c, 99, D_0035ec88, 0);
 }
 }  // namespace n00240e10
@@ -1357,8 +1357,8 @@ s32 strcmp(const char*, const char*) asm("strcmp");
 s32 strlen(const char*) asm("strlen");
 static inline s32 num2(u8 a, u8 b) { return (a - '0') * 10 + (b - '0'); }
 /*TARGET 00240e50*/
-s32 func_00240e50(void) asm("func_00240e50");
-s32 func_00240e50(void) {
+s32 Tz__MCard__UpdateDirInfo(void) asm("Tz__MCard__UpdateDirInfo");
+s32 Tz__MCard__UpdateDirInfo(void) {
     McDirEnt* ent = D_0035ec9c;
     s32 n = YI_MCARD_GetFileTableMax(D_0035ec94->port, 0);
     s32 i;
@@ -1428,7 +1428,7 @@ extern SaveList* D_0035ec98 asm("D_0035ec98");
 extern DirEnt* D_0035ec9c asm("D_0035ec9c");
 extern char D_003716e0[] asm("D_003716e0");
 extern char D_003716e8[] asm("D_003716e8");
-void func_00240360(s32) asm("func_00240360");
+void Tz__MCard__MakeFname(s32) asm("Tz__MCard__MakeFname");
 s32 func_002349c8(s32, u32) asm("func_002349c8");
 void func_002fde18(void*, s32, u32) asm("func_002fde18");
 s32 strcmp(const char*, const char*) asm("strcmp");
@@ -1436,11 +1436,11 @@ s32 strcmp(const char*, const char*) asm("strcmp");
 void func_002ff2e8(char*, const char*) asm("func_002ff2e8");
 /*TARGET 00241008*/
 // Build the list of save files from the directory listing (skipping "." and "..").
-s32 func_00241008(void) asm("func_00241008");
+s32 Tz__MCard__UpdateLocalInfo(void) asm("Tz__MCard__UpdateLocalInfo");
 // Build the list of save files from the directory listing (skipping "." and "..").
-s32 func_00241008(void) {
+s32 Tz__MCard__UpdateLocalInfo(void) {
     DirEnt* e = D_0035ec9c;
-    func_00240360(D_0035ec94->b);
+    Tz__MCard__MakeFname(D_0035ec94->b);
     s32 n = func_002349c8(D_0035ec94->a, 0);
     func_002fde18(D_0035ec98, 0, 4);
     D_0035ec98->n = n;

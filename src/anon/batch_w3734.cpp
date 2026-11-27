@@ -28,7 +28,7 @@ extern s32 D_003638d8[3][6];   // motion id tables: idle, idle2, stop, turn righ
 s32 func_0016a070(W1634MotObj*);   // YS::OBJ::get_part_num
 f32 fabsf(f32);            // fabsf
 s32 func_002eff58(W1634MotObj*);
-void func_0016af58(W1634Vec*, W1634MotObj*);
+void YS__OBJ__get_dir(W1634Vec*, W1634MotObj*);
 f32 func_002f8aa0(f32);
 f32 func_002efe18(W1634MotObj*, s32, f32);
 void func_0017f488(W1634Motion*, s32, f32, f32);

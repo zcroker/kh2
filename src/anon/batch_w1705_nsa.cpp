@@ -54,11 +54,11 @@ s32 func_001064a8(s32);
 void func_0011b6a8(W1705Mtx*);
 void func_0011b7b0(W1705Mtx*, W1705Vec*);
 void func_0011c4e8(f32, s32, W1705Mtx*, W1705Motion*, s32, s32, s32);
-void func_0011ea40(f32, s32);
+void kn__ModelObj__playAnimation(f32, s32);
 u8 u_call4_00139d78(s32) asm("_Z16u_call4_00139d78jjjj");
 f32 func_0014ce78(void);
 void func_0023d820(W1705Owner*);
 f32 func_0023e700(W1705Owner*);
 
-void func_0023de00(W1705Owner* o);  // 0x0023de00: definition moved into src/anon/unit_0023d260.cpp
+void Tz__MenuObj__update(W1705Owner* o);  // 0x0023de00: definition moved into src/anon/unit_0023d260.cpp
 }

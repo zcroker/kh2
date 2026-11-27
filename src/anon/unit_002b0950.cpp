@@ -37,7 +37,7 @@ void* func_00167f18(s32) asm("func_00167f18");
 void func_00323af8(B1615*, void*) asm("func_00323af8");
 s32 func_00288040(void) asm("func_00288040");
 P1615* func_00288008(void) asm("func_00288008");
-u32* func_002b23e0(s32) asm("func_002b23e0");
+u32* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 /*TARGET 002b0950*/
 s32 func_002b0950(void) asm("func_002b0950");
 s32 func_002b0950(void)
@@ -45,7 +45,7 @@ s32 func_002b0950(void)
     B1615 b;
     s32 r = 0;
     func_00323af8(&b, func_00167f18(0));
-    u32* fp = func_002b23e0(-1);
+    u32* fp = Tz__JmPuzzle__GetImageInfo(-1);
     if (func_00288040()) {
         b.a |= func_00288008()->a;
         b.b |= func_00288008()->b;
@@ -95,7 +95,7 @@ s32 func_002b0950(void)
 namespace n002b0de0 {
 typedef unsigned int u32;
 typedef signed int s32;
-s32 func_002b3c38(void) asm("func_002b3c38");
+s32 Tz__JmPuzzle__GameSelCheck(void) asm("Tz__JmPuzzle__GameSelCheck");
 s32 PlaySE_2b0(s32, s32) asm("_ZN2Tz9MenuSound6PlaySEEib");
 /*TARGET 002b0de0*/
 s32 func_002b0de0(u32 a) asm("func_002b0de0");
@@ -139,7 +139,7 @@ s32 func_002b0de0(u32 a)
       }
     }
   }
-  if (!func_002b3c38())
+  if (!Tz__JmPuzzle__GameSelCheck())
   {
     r = 4;
   }
@@ -156,17 +156,17 @@ namespace n002b0e78 {
 struct G2b0 { u8 p0[28]; s16 a[2]; s16 b[2]; u8 p36[8]; u32 bits[2]; u32 :10; u32 b10:1; u32 b11:1; u32 f12:2; };
 struct Q2b0 { u8 p[9]; s8 c; };
 u8* func_002a9d68(void) asm("func_002a9d68");
-u8* func_002b23e0(s32) asm("func_002b23e0");
+u8* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 u32 func_002b2380(s32, s32) asm("func_002b2380");
-void func_002b1bd0(s32) asm("func_002b1bd0");
+void Tz__JmPuzzle__UpdatePiece(s32) asm("Tz__JmPuzzle__UpdatePiece");
 void func_002b3050(s32) asm("func_002b3050");
 extern G2b0* D_0035f638 asm("D_0035f638");
 /*TARGET 002b0e78*/
-void func_002b0e78(u32 a0) asm("func_002b0e78");
-void func_002b0e78(u32 a0)
+void Tz__JmPuzzle__PieceRot(u32 a0) asm("Tz__JmPuzzle__PieceRot");
+void Tz__JmPuzzle__PieceRot(u32 a0)
 {
     u8* s3 = func_002a9d68();
-    u8* s2 = func_002b23e0(-1);
+    u8* s2 = Tz__JmPuzzle__GetImageInfo(-1);
     u32 v = func_002b2380(D_0035f638->a[D_0035f638->b11], D_0035f638->b[D_0035f638->b11]);
     G2b0* g = D_0035f638;
     if (!g->b11) {
@@ -177,7 +177,7 @@ void func_002b0e78(u32 a0)
         u32* bp = D_0035f638->bits;
         u32* p = bp + (v >> 5);
         *p |= 1 << (v & 31);
-        func_002b1bd0(0);
+        Tz__JmPuzzle__UpdatePiece(0);
     } else {
         s32 x = g->f12;
         x = (a0 & 0x40000) ? x + 5 : x + 3;
@@ -197,12 +197,12 @@ struct W322S3 { u8 b0; u8 b1; u8 b2; };
 union W322GU { W322G* p; u8 c; };
 extern W322GU D_0035f638 asm("D_0035f638");
 W322Sav* func_002a9d68(void) asm("func_002a9d68");
-W322S3* func_002b23e0(s32) asm("func_002b23e0");
+W322S3* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 // list_entry_by_index_checked
 u32 func_002b2380(s32, s32) asm("func_002b2380");
 void func_002b2da8(s32) asm("func_002b2da8");
 void func_002b3050(s32) asm("func_002b3050");
-void func_002b1bd0(s32) asm("func_002b1bd0");
+void Tz__JmPuzzle__UpdatePiece(s32) asm("Tz__JmPuzzle__UpdatePiece");
 void func_002b2f28(s32) asm("func_002b2f28");
 // 0x00281fe0: definition moved into src/anon/unit_00281cf0.cpp
 static inline void w322_setbit(u32* p, u32 n) { p += n >> 5; *p |= 1 << (n & 31); }
@@ -210,7 +210,7 @@ static inline void w322_setbit(u32* p, u32 n) { p += n >> 5; *p |= 1 << (n & 31)
 void func_002b0fc8(u32 fl) asm("func_002b0fc8");
 void func_002b0fc8(u32 fl) {
     W322Sav* sv = func_002a9d68();
-    W322S3* s3 = func_002b23e0(-1);  // list_entry_by_index_checked
+    W322S3* s3 = Tz__JmPuzzle__GetImageInfo(-1);  // list_entry_by_index_checked
     u32 a = func_002b2380(D_0035f638.p->h28, D_0035f638.p->h32);
     if (!D_0035f638.p->b11) {
         D_0035f638.p->h30 = D_0035f638.p->h28;
@@ -228,7 +228,7 @@ void func_002b0fc8(u32 fl) {
             D_0035f638.p->h32 = D_0035f638.p->h34;
             w322_setbit(D_0035f638.p->bits, a);
             w322_setbit(D_0035f638.p->bits, b);
-            func_002b1bd0(0);
+            Tz__JmPuzzle__UpdatePiece(0);
         }
         func_002b2f28(1);
     }
@@ -247,8 +247,8 @@ extern u32* D_0035f630 asm("D_0035f630");
 s32 func_00276608(s32) asm("func_00276608");
 void func_002765e8(s32, s32, s32) asm("func_002765e8");
 /*TARGET 002b1208*/
-void func_002b1208(u32 a) asm("func_002b1208");
-void func_002b1208(u32 a) {
+void Tz__JmPuzzle__ChangeImage(u32 a) asm("Tz__JmPuzzle__ChangeImage");
+void Tz__JmPuzzle__ChangeImage(u32 a) {
     s32 n = 0;
     Ent36* e = (Ent36*)D_0035f630;
     s32 i;
@@ -271,7 +271,7 @@ extern u32 D_0035f148 asm("D_0035f148");
 extern u32 D_0035f210 asm("D_0035f210");
 extern u8* D_0035f638 asm("D_0035f638");
 extern u8 D_00374ce8[] asm("D_00374ce8");
-u16* func_002b23e0(s32) asm("func_002b23e0");
+u16* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 // list_entry_by_index_checked
 u8* func_001a80c8(u32) asm("func_001a80c8");
 // table24_find_by_id
@@ -301,7 +301,7 @@ void func_002b12a0(void) asm("func_002b12a0");
 // Sets up a menu screen: title/background layouts, the selected entry's name and icon.
 void func_002b12a0(void)
 {
-    u16 id = *func_002b23e0(-1);  // list_entry_by_index_checked
+    u16 id = *Tz__JmPuzzle__GetImageInfo(-1);  // list_entry_by_index_checked
     u8* info = func_001a80c8(id);  // table24_find_by_id
     func_00281cf0(*(u16*)(info + 20));
     func_0028d8c0((u8*)D_0035f634 + 21624, 30061, D_0035f14c, D_0035f148, D_0035f210, 125, 126, 0);
@@ -346,9 +346,9 @@ Pad53* func_00167f18(s32) asm("func_00167f18");
 s32 func_00287cd0(void) asm("func_00287cd0");
 void func_00281d48(void) asm("func_00281d48");
 s32 func_002b1660(void) asm("func_002b1660");
-u16* func_002b23e0(s32) asm("func_002b23e0");
+u16* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 // list_entry_by_index_checked
-void func_001a3188(u16, s32, s32) asm("func_001a3188");
+void YS__ITEM__Get(u16, s32, s32) asm("YS__ITEM__Get");
 u32 func_002b1aa0(void) asm("func_002b1aa0");
 u32 func_00192048__83558(u32) asm("func_00192048");
 void func_002b1af0(void) asm("func_002b1af0");
@@ -356,7 +356,7 @@ void func_00139580(u8*) asm("func_00139580");
 void func_002817b8(void) asm("func_002817b8");
 void func_00287c30(void) asm("func_00287c30");
 void func_00287cc0(s32) asm("func_00287cc0");
-void func_002b1a00(void) asm("func_002b1a00");
+void Tz__JmPuzzle__UpdateHelpMess(void) asm("Tz__JmPuzzle__UpdateHelpMess");
 void func_00281e20(void) asm("func_00281e20");
 s32 func_002b16d8(void) asm("func_002b16d8");
 void func_00287c90(s32) asm("func_00287c90");
@@ -373,7 +373,7 @@ void func_002b14f0(void)
     func_00281d48();
     if (st == 2) {
         if (func_002b1660()) return;
-        func_001a3188(*func_002b23e0(-1), 100, 0);
+        YS__ITEM__Get(*Tz__JmPuzzle__GetImageInfo(-1), 100, 0);
         u8* o = D_0035f634__83558 + 22468;
         *(u32*)(o + 408) = func_00192048__83558(func_002b1aa0());
         func_002b1af0();
@@ -381,7 +381,7 @@ void func_002b14f0(void)
         func_002817b8();
         func_00287c30();
         func_00287cc0(1);
-        func_002b1a00();
+        Tz__JmPuzzle__UpdateHelpMess();
         return;
     }
     func_00281e20();
@@ -450,15 +450,15 @@ extern u32 D_00374ca0 asm("D_00374ca0");
 u8* func_002766d0(void) asm("func_002766d0");
 s32 func_002892f8(u8*) asm("func_002892f8");
 u32 func_00192048(u16) asm("func_00192048");
-s32 func_002ac420(s32) asm("func_002ac420");
-s32 func_002ac748(s32) asm("func_002ac748");
+s32 Tz__JmNewInfo__isPuzzlePieceNew(s32) asm("Tz__JmNewInfo__isPuzzlePieceNew");
+s32 Tz__JmNewInfo__isPuzzleInfoNew(s32) asm("Tz__JmNewInfo__isPuzzleInfoNew");
 s32 func_002ac538(s32) asm("func_002ac538");
 s32 func_002ac800(s32) asm("func_002ac800");
 /*TARGET 002b1708*/
 // Resets the item rows, then refreshes the three category rows and their availability marks.
-void func_002b1708(void) asm("func_002b1708");
+void Tz__JmPuzzle__UpdateTopList(void) asm("Tz__JmPuzzle__UpdateTopList");
 // Resets the item rows, then refreshes the three category rows and their availability marks.
-void func_002b1708(void) {
+void Tz__JmPuzzle__UpdateTopList(void) {
     u8* base = func_002766d0();
     s32 n = func_002892f8(D_0035f200);
     s32 i;
@@ -469,8 +469,8 @@ void func_002b1708(void) {
         *(u32*)(it + 408) = func_00192048(D_00374cb0[i][0]);
         if (i == 2) continue;
         s32 a, b;
-        if (i == 0) a = func_002ac420(-1);
-        else a = func_002ac748(-1);
+        if (i == 0) a = Tz__JmNewInfo__isPuzzlePieceNew(-1);
+        else a = Tz__JmNewInfo__isPuzzleInfoNew(-1);
         if (i == 0) b = func_002ac538(-1);
         else b = func_002ac800(-1);
         if (a) func_00138c10(w, b == 0 ? D_00374c9c : D_00374ca0);
@@ -489,7 +489,7 @@ s32 func_002892f8(s32) asm("func_002892f8");
 s32 func_0028afa8(s32) asm("func_0028afa8");
 Res2b1* func_002891b8(s32, s32) asm("func_002891b8");
 void func_00138c10(Item2b1*, s32) asm("func_00138c10");
-s32 func_002ac420(u8) asm("func_002ac420");
+s32 Tz__JmNewInfo__isPuzzlePieceNew(u8) asm("Tz__JmNewInfo__isPuzzlePieceNew");
 s32 func_002ac538(u8) asm("func_002ac538");
 extern s32 D_0035f200 asm("D_0035f200");
 extern Ent2b1* D_0035f630 asm("D_0035f630");
@@ -515,7 +515,7 @@ void func_002b1850(void) {
             }
         }
         if (found < 0) break;
-        if ((D_0035f630[found].flags & 0x3000000) == 0x3000000 && func_002ac420(((u8*)&D_0035f630[found])[2])) {
+        if ((D_0035f630[found].flags & 0x3000000) == 0x3000000 && Tz__JmNewInfo__isPuzzlePieceNew(((u8*)&D_0035f630[found])[2])) {
             s32 a;
             if (func_002ac538(((u8*)&D_0035f630[found])[2])) a = D_00374ca0;
             else a = D_00374c9c;
@@ -533,12 +533,12 @@ s32 func_00287bc0(void) asm("func_00287bc0");
 /* ---- 002b1a00 ---- */
 struct E19 { u16 a; s16 b; };
 extern E19 D_00374c68[] asm("D_00374c68");
-u32* func_002b23e0(s32) asm("func_002b23e0");
+u32* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 // list_entry_by_index_checked
 void func_00276c50(s32, u32) asm("func_00276c50");
 /*TARGET 002b1a00*/
-void func_002b1a00(void) asm("func_002b1a00");
-void func_002b1a00(void) {
+void Tz__JmPuzzle__UpdateHelpMess(void) asm("Tz__JmPuzzle__UpdateHelpMess");
+void Tz__JmPuzzle__UpdateHelpMess(void) {
     s32 r = -1;
     s32 cur = func_00287bc0();
     s32 i;
@@ -546,7 +546,7 @@ void func_002b1a00(void) {
         if (cur == D_00374c68[i].b) { r = D_00374c68[i].a; break; }
     }
     if (r == 20297) {
-        if (*func_002b23e0(-1) & 0x4000000) r = 20696;
+        if (*Tz__JmPuzzle__GetImageInfo(-1) & 0x4000000) r = 20696;
     }
     func_00276c50(r, 0);
 }
@@ -554,7 +554,7 @@ void func_002b1a00(void) {
 
 // 002b1aa0 (was src/anon/batch_w31.cpp)
 namespace n002b1aa0 {
-u32* func_002b23e0(int) asm("func_002b23e0");
+u32* Tz__JmPuzzle__GetImageInfo(int) asm("Tz__JmPuzzle__GetImageInfo");
 // list_entry_by_index_checked
 extern u32 D_00374ca4 asm("D_00374ca4");
 extern u32 D_00374ca8 asm("D_00374ca8");
@@ -565,7 +565,7 @@ u32 func_002b1aa0(void) asm("func_002b1aa0");
 // 0x00295228: definition moved into src/anon/unit_00292e60.cpp
 
 u32 func_002b1aa0(void) {
-    u32 f = *func_002b23e0(-1);  // list_entry_by_index_checked
+    u32 f = *Tz__JmPuzzle__GetImageInfo(-1);  // list_entry_by_index_checked
     if (f & 0x04000000) return 20690;
     if (f & 0x10000000) return D_00374ca4;
     return D_00374ca8;
@@ -585,7 +585,7 @@ void func_0028d980(u8*, s32, u32, u32, u32, s32, s32, s32, s32) asm("func_0028d9
 void func_00139620(u8*) asm("func_00139620");
 void func_0028dcc0(u8*, u32) asm("func_0028dcc0");
 u32 func_00192048(s32) asm("func_00192048");
-u16* func_002b23e0(s32) asm("func_002b23e0");
+u16* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 // list_entry_by_index_checked
 u32 func_001a37e8(u16, s32) asm("func_001a37e8");
 void func_00192e50(u32, u8*, s32, u32) asm("func_00192e50");
@@ -601,7 +601,7 @@ void func_002b1af0(void)
     func_0028dcc0(o, r);
     *(u32*)(o + 432) = 2;
     u32 x = func_00192048(20688);
-    func_00192e50(x, D_0035f638 + 88, 64, func_001a37e8(*func_002b23e0(-1), -1));
+    func_00192e50(x, D_0035f638 + 88, 64, func_001a37e8(*Tz__JmPuzzle__GetImageInfo(-1), -1));
     *(u8**)(o + 408) = D_0035f638 + 88;
 }
 }  // namespace n002b1af0
@@ -618,23 +618,23 @@ extern s16 D_00374cc8[] asm("D_00374cc8");
 extern s8 D_00374cd0[] asm("D_00374cd0");
 extern PzObj* D_0035f634 asm("D_0035f634");
 extern PzBits* D_0035f638 asm("D_0035f638");
-u8* func_002b23e0(s32) asm("func_002b23e0");
+u8* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 PzWork* func_002a9d68(void) asm("func_002a9d68");
 void func_00138c10(void*, s32) asm("func_00138c10");
 void func_002b28b0(u32, s32, s32, PzUV*) asm("func_002b28b0");
-void func_00239558(void*, s16*, s16*) asm("func_00239558");
+void YI__SPRITE__SetDirextUV(void*, s16*, s16*) asm("YI__SPRITE__SetDirextUV");
 /*TARGET 002b1bd0*/
 // Puzzle board refresh: for every piece set in the dirty mask (or all when
 // flag), resize its sprite and set its UVs from the piece table.
-void func_002b1bd0(u8 flag) asm("func_002b1bd0");
+void Tz__JmPuzzle__UpdatePiece(u8 flag) asm("Tz__JmPuzzle__UpdatePiece");
 // Puzzle board refresh: for every piece set in the dirty mask (or all when
 // flag), resize its sprite and set its UVs from the piece table.
-void func_002b1bd0(u8 flag)
+void Tz__JmPuzzle__UpdatePiece(u8 flag)
 {
     s32 row = 0;
     s32 rows;
     s32 cols;
-    u8* info = func_002b23e0(-1);
+    u8* info = Tz__JmPuzzle__GetImageInfo(-1);
     PzWork* work = func_002a9d68();
     u32 kind = (*(u32*)info >> 27) & 1;
     s8* g = &D_00374cd0[kind * 4];
@@ -655,7 +655,7 @@ void func_002b1bd0(u8 flag)
                     if (o->f184 != size) func_00138c10(o, size);
                     PzUV uv;
                     func_002b28b0((*(u32*)info >> 27) & 1, a, b, &uv);
-                    func_00239558(o->m, uv.u, uv.v);
+                    YI__SPRITE__SetDirextUV(o->m, uv.u, uv.v);
                 }
             }
         }

@@ -53,7 +53,7 @@ u32 func_002670a0(s32);
 s32 func_00257070(s32);
 u32 func_00267248();
 s32 func_002671e8(s32);
-s32 func_00286418(s32);
+s32 Tz__CmNewFlg__isStatNew(s32);
 void func_002865d0(s32);
 s32 func_002864f8(s32);
 void func_00138c10(u32, s32);
@@ -61,6 +61,6 @@ extern u32 D_0035f01c;
 extern s32 D_003734f8;
 extern s32 D_003734fc;
 
-void func_00266988(void);  // 0x00266988: definition moved into src/anon/unit_00265580.cpp
+void Tz__CmStat__UpdateNew(void);  // 0x00266988: definition moved into src/anon/unit_00265580.cpp
 
 }

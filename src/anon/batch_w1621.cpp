@@ -47,7 +47,7 @@ extern u8* D_00352130;
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
 u32 func_00112ab8(s32, W1621Rec20*);
-W1621V4 func_0016af58(u8*);
+W1621V4 YS__OBJ__get_dir(u8*);
 f32 func_0016c4e8(u8*);
 f32 func_001773b8(u8*, W1621Rec20*, W1621V4*);
 void func_00177a28(u8*);

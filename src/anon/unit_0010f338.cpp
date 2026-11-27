@@ -107,8 +107,8 @@ struct Of44 {
 };
 struct Af44 { u32 flags; s32 i4; s32 i8; s32 ic; Tf44* t; s32 i14; s32 i18; s32 i1c; };
 u8* getFSR_f44(Of44*) asm("_ZN2kn6Friend16getFriendSaveRamEv");
-s32 ct_10f7b0_f44(Of44*, s32, s32) asm("_Z16ctarget_0010f7b0jjjj");
-s32 uc_1a1de0_f44(Hf44*) asm("_Z16u_call4_001a1de0jjjj");
+s32 ct_10f7b0_f44(Of44*, s32, s32) asm("_Z26kn__Friend__equipedAbilityjjjj");
+s32 uc_1a1de0_f44(Hf44*) asm("_Z21YS__SHEET__is_mpdrivejjjj");
 s32 func_0010cc80(Of44*) asm("func_0010cc80");
 s32 func_0010f340(Of44*, QWf44*, Tf44*, f32) asm("func_0010f340");
 /*TARGET 0010f448*/
@@ -237,8 +237,8 @@ namespace n0010f748 {
 u8* func_0016a070(void) asm("func_0016a070");
 s32 func_001a35f8(u32, u8*) asm("func_001a35f8");
 /*TARGET 0010f748*/
-s32 func_0010f748(u8* p, u32 b) asm("func_0010f748");
-s32 func_0010f748(u8* p, u32 b) {
+s32 kn__Friend__canItemAction(u8* p, u32 b) asm("kn__Friend__canItemAction");
+s32 kn__Friend__canItemAction(u8* p, u32 b) {
     u8* q = *(u8**)(p + 12);
     if (!q) return 0;
     s32 t = *(s32*)(q + 4);
@@ -254,18 +254,18 @@ s32 func_00114620(u32) asm("func_00114620");
 u32 func_0016a070(u32) asm("func_0016a070");
 s32 func_001a35f8(s32, u32) asm("func_001a35f8");
 u8* func_001058e8(void) asm("func_001058e8");
-u8* func_00188fe0(u8*, u32) asm("func_00188fe0");
+u8* YS__SAVERAM_BATTLE__get_partram(u8*, u32) asm("YS__SAVERAM_BATTLE__get_partram");
 struct Entry { u16 id : 15; u16 on : 1; };
-u32 ctarget_0010f7b0(u32, u32, s32, u32) asm("_Z16ctarget_0010f7b0jjjj");
+u32 kn__Friend__equipedAbility(u32, u32, s32, u32) asm("_Z26kn__Friend__equipedAbilityjjjj");
 /*TARGET 0010f7b0*/
-u32 ctarget_0010f7b0(u32 a, u32 b, s32 id, u32 d) asm("_Z16ctarget_0010f7b0jjjj");
-u32 ctarget_0010f7b0(u32 a, u32 b, s32 id, u32 d)
+u32 kn__Friend__equipedAbility(u32 a, u32 b, s32 id, u32 d) asm("_Z26kn__Friend__equipedAbilityjjjj");
+u32 kn__Friend__equipedAbility(u32 a, u32 b, s32 id, u32 d)
 {
     if (id < 0) id = func_00114620(b);
     if (id == 0) return 0;
     if (func_001a35f8(id, func_0016a070(a)) <= 0) return 0;
     u8* base = func_001058e8() + 9456;
-    u8* r = func_00188fe0(base, func_0016a070(a));
+    u8* r = YS__SAVERAM_BATTLE__get_partram(base, func_0016a070(a));
     u16 key = id;
     Entry* p = (Entry*)(r + 84);
     for (s32 i = 0; i < 80; i++) {
@@ -405,10 +405,10 @@ void func_0016bd60(void*, s32) asm("func_0016bd60");
 /*TARGET 0010f960*/
 // 001045b8: moved to src/common/gumimenu.cpp
 
-void func_0010f960(u8* p) asm("func_0010f960");
+void kn__Friend__enableInertia(u8* p) asm("kn__Friend__enableInertia");
 // 001045b8: moved to src/common/gumimenu.cpp
 
-void func_0010f960(u8* p) {
+void kn__Friend__enableInertia(u8* p) {
     if (*(s32*)(*(u8**)(p + 12) + 4) == 31) {
         func_0016bd60(p, 32);
         return;
@@ -470,8 +470,8 @@ void func_0010fa38(u8* p, const Q* v) { *(Q*)(p + 3104) = *v; }
 // 0010fa58 (was src/anon/tiny.cpp)
 namespace n0010fa58 {
 /*TARGET 0010fa58*/
-u32 func_0010fa58(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0010fa58jjjj");
-u32 func_0010fa58(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 kn__Friend__getInertia(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z22kn__Friend__getInertiajjjj");
+u32 kn__Friend__getInertia(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;
     (void)a2;
     (void)a3;

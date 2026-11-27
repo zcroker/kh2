@@ -79,14 +79,14 @@ void func_00281d48(void) {
 namespace n00281e20 {
 extern u16 D_0035f280 asm("D_0035f280");
 extern u8  D_0035f298 asm("D_0035f298");
-void func_002818b8(...) asm("func_002818b8");
+void Tz__ItemPicDraw__Create(...) asm("Tz__ItemPicDraw__Create");
 u32 func_00292a90(...) asm("func_00292a90");
 /*TARGET 00281e20*/
 void func_00281e20() asm("_Z13func_00281e20v");
 void func_00281e20() {
     if (*(u8*)(u32)&D_0035f298 != 0u) {
         if (func_00292a90((u32)(s32)(*(s16*)(u32)&D_0035f280)) != 0u) {
-            func_002818b8((u32)(s32)(*(s16*)(u32)&D_0035f280));
+            Tz__ItemPicDraw__Create((u32)(s32)(*(s16*)(u32)&D_0035f280));
             *(u8*)(u32)&D_0035f298 = 0u;
         }
     }
@@ -228,8 +228,8 @@ s32 func_002811f8(u32, s32) asm("func_002811f8");
 // find_halfword_index
 s32 func_002811b0(u32, s32) asm("func_002811b0");
 /*TARGET 00281fe0*/
-u32 func_00281fe0(u8* o, s32 a1, s32 m) asm("func_00281fe0");
-u32 func_00281fe0(u8* o, s32 a1, s32 m) {
+u32 Tz__ItemInfo__GetItemTypeMask(u8* o, s32 a1, s32 m) asm("Tz__ItemInfo__GetItemTypeMask");
+u32 Tz__ItemInfo__GetItemTypeMask(u8* o, s32 a1, s32 m) {
     u32 r = 0; s32 i;
     if (m == 1 || m == 11 || m == 0) {
         if (a1 == 0) {
@@ -273,9 +273,9 @@ u32 func_00282228(u32 a0, u32 a1, u32 a2) {  // bit_test_idx
 // 00282240 (was src/anon/batch_w1590.cpp)
 namespace n00282240 {
 void func_00281f48(s32, s32, s32) asm("func_00281f48");
-s32 func_00281fe0(s32, s32, s32) asm("func_00281fe0");
+s32 Tz__ItemInfo__GetItemTypeMask(s32, s32, s32) asm("Tz__ItemInfo__GetItemTypeMask");
 void func_002822c0(s32, s32, s32) asm("func_002822c0");
-void func_002823b0(s32, s32, s32) asm("func_002823b0");
+void Tz__ItemInfo__SetEquip(s32, s32, s32) asm("Tz__ItemInfo__SetEquip");
 /*TARGET 00282240*/
 // 0x002589b0: definition moved into src/anon/unit_002588e8.cpp
 
@@ -285,11 +285,11 @@ void func_00282240(s32 a, s32 b, s32 c) asm("func_00282240");
 void func_00282240(s32 a, s32 b, s32 c) {
     s32 r;
     func_00281f48(a, b, c);
-    r = func_00281fe0(a, b, c);
+    r = Tz__ItemInfo__GetItemTypeMask(a, b, c);
     if (b < 5) {
         func_002822c0(a, b, r);
     } else {
-        func_002823b0(a, b, r);
+        Tz__ItemInfo__SetEquip(a, b, r);
     }
 }
 }  // namespace n00282240

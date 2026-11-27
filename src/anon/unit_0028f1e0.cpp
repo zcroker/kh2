@@ -67,8 +67,8 @@ inline Rec0028f280::Rec0028f280() {
         *(u32*)(a + 408) = 0;
         func_0028d140(b);
 }
-void func_0028f280(u32 a, u32 b, u32 c, u16* d, u16* e) asm("func_0028f280");
-void func_0028f280(u32 a, u32 b, u32 c, u16* d, u16* e)
+void Tz__SelHist__Init(u32 a, u32 b, u32 c, u16* d, u16* e) asm("Tz__SelHist__Init");
+void Tz__SelHist__Init(u32 a, u32 b, u32 c, u16* d, u16* e)
 {
     s32 k;
     D_0035f458 = a;
@@ -100,8 +100,8 @@ struct M1b4_28f3e8 { u8 d[884 - 436]; ~M1b4_28f3e8() { func_00323d30(this); } };
 struct C0_28f3e8 : B0_28f3e8 { M1b4_28f3e8 m2; ~C0_28f3e8() {} };
 extern "C" C0_28f3e8* D_0035f480;
 extern C0_28f3e8* D_0035f480_b asm("D_0035f480");
-void func_0028f3e8(void) asm("func_0028f3e8");
-void func_0028f3e8(void) {
+void Tz__SelHist__Exit(void) asm("Tz__SelHist__Exit");
+void Tz__SelHist__Exit(void) {
     D_0035f458 = -1;
     D_0035f45c = -1;
     D_0035f460 = 0;
@@ -149,7 +149,7 @@ s32 yi_GetParamEx(void*) asm("_ZN2YI8SEQUENCE10GetParamExEv");
 void dk_setOffsetPos(void*, s32, s32) asm("_ZN2dk6Sprite12setOffsetPosEii");
 void dk_getSeqPraramXYOff(void*) asm("_ZN2dk5Obj2D17getSeqPraramXYOffEv");
 void tz_SetMsgId(s32, s32) asm("_ZN2Tz7SelHist8SetMsgIdEii");
-void func_0028d1c0(void*, s32, s32, s32, void*, void*, s32) asm("func_0028d1c0");
+void Tz__LightCur__Create(void*, s32, s32, s32, void*, void*, s32) asm("Tz__LightCur__Create");
 void func_0028d660(void*, void*) asm("func_0028d660");
 // record_set_value_refresh
 struct Ent884 { u8 p[436]; u8 sub[444]; u32 f880; };
@@ -169,7 +169,7 @@ void func_0028f4d8(s32 idx, s32 msg, u8 sel) {
     if (msg >= 0) tz_SetMsgId(idx, msg);
     s32 off = idx * 884;
     *(u32*)(e + 408) = ((Ent884*)D_0035f480)[idx].f880;
-    func_0028d1c0(BASE + off + 436, D_0035f3d4 + 1, D_0035f45c, D_0035f458, (void*)D_0035f460, D_0035f478, 0);
+    Tz__LightCur__Create(BASE + off + 436, D_0035f3d4 + 1, D_0035f45c, D_0035f458, (void*)D_0035f460, D_0035f478, 0);
     func_0028d660(BASE + off + 436, e);  // record_set_value_refresh
 }
 }  // namespace n0028f4d8
@@ -202,8 +202,8 @@ s32 func_00139d78_f6f0(u8*) asm("func_00139d78");
 s16* func_0028f690(s32) asm("func_0028f690");
 void func_00138c10_f6f0(u8*, s32) asm("func_00138c10");
 void func_0028d5d0(u8*) asm("func_0028d5d0");
-void func_0028f6f0(s32 i) asm("func_0028f6f0");
-void func_0028f6f0(s32 i) {  // record884_refresh_by_index
+void Tz__SelHist__FadeOut(s32 i) asm("Tz__SelHist__FadeOut");
+void Tz__SelHist__FadeOut(s32 i) {  // record884_refresh_by_index
     if (!D_0035f480.p) return;
     s32 off = i * 884;
     if (!func_00139d78_f6f0(D_0035f480.p + off)) return;
@@ -217,7 +217,7 @@ void func_0028f6f0(s32 i) {  // record884_refresh_by_index
 
 // 0028f7a0 (from src/anon/tiny_auto80_queue.cpp)
 namespace n0028f7a0 {
-extern "C" void func_0028f6f0(...) asm("func_0028f6f0");
+extern "C" void Tz__SelHist__FadeOut(...) asm("Tz__SelHist__FadeOut");
 // 0028eb38: moved to src/anon/unit_0028c878.cpp
 
 void func_0028f7a0() asm("_ZN2Tz7SelHist10FadeOutAllEv");
@@ -226,7 +226,7 @@ void func_0028f7a0() {
     s32 s0 = 0;
     if (*(s32*)(base - 2944) != 0) {
         do {
-            func_0028f6f0((u32)s0);  // record884_refresh_by_index
+            Tz__SelHist__FadeOut((u32)s0);  // record884_refresh_by_index
             s0 = s0 + 1;
         } while (s0 < 4);
     }
@@ -260,8 +260,8 @@ s32 func_00139d78(void*) asm("func_00139d78");
 void func_00139510(void*) asm("func_00139510");
 s32 func_0028d6e8(void*) asm("func_0028d6e8");
 // The exit test inside a for(;;) with break keeps the loop counting up (slti 4).
-void func_0028f878(void*) asm("func_0028f878");
-void func_0028f878(void*) {
+void Tz__SelHist__LeaveAll(void*) asm("Tz__SelHist__LeaveAll");
+void Tz__SelHist__LeaveAll(void*) {
     s32 i;
     if (D_0035f480) {
         for (i = 0;;) {
@@ -494,7 +494,7 @@ static inline VA14 operator-(const VecD& a, const VecD& b)
     return r;
 }
 void func_00290060(u8*, u32, u32, u32) asm("func_00290060");
-void func_001386e0_fe38(u32, u32, u32, u32, s32, u32) asm("func_001386e0");
+void func_001386e0_fe38(u32, u32, u32, u32, s32, u32) asm("dk__Sprite__create");
 void func_00259020(u32, u32, u32, u32, u32, u16*, u32, u32) asm("func_00259020");
 void func_0028ff00(u8*) asm("func_0028ff00");
 union UH28f { u16 h; s32 i; };
@@ -514,9 +514,9 @@ void func_0028fe38_fe38(u8* p, u32 a1, u32 a2, u32 a3) {
 
 // 0028ff00 (from src/anon/tiny.cpp)
 namespace n0028ff00 {
-void func_00258df0(s32) asm("func_00258df0");
+void Tz__CmComm__SetDrawMunnies(s32) asm("Tz__CmComm__SetDrawMunnies");
 void func_0028ff00(BD_VALUE* bd) asm("_ZN2Tz9MunnyDraw6UpdateEv");
-void func_0028ff00(BD_VALUE* bd) { func_00258df0(bd[1].i); }
+void func_0028ff00(BD_VALUE* bd) { Tz__CmComm__SetDrawMunnies(bd[1].i); }
 }  // namespace n0028ff00
 
 // 0028ff18 (from src/anon/batch_w51.cpp)
@@ -722,12 +722,12 @@ void func_00290300(Obj_00290300* self) {
 
 // 00290368 (from src/anon/auto80_199_queue.cpp)
 namespace n00290368 {
-u32 func_001386e0(...) asm("func_001386e0");
+u32 dk__Sprite__create(...) asm("dk__Sprite__create");
 u32 func_001395e8(...) asm("func_001395e8");
 u32 func_00139610(...) asm("func_00139610");
 u32 func_001396b0(...) asm("func_001396b0");
 void func_0028e0d8(u32, u32, u32, u32, u32, u32, u32) asm("func_0028e0d8");
-void func_0028eab8(u32, u32) asm("func_0028eab8");
+void Tz__MultiSeq__setParamXYToOffset(u32, u32) asm("Tz__MultiSeq__setParamXYToOffset");
 void func_0028e710(u32, u32) asm("func_0028e710");
 void func_00139660(u32) asm("func_00139660");
 void func_00139688(u32) asm("func_00139688");
@@ -762,9 +762,9 @@ void func_00259020(
     u32 a6,
     u32 a7
 ) asm("func_00259020");
-void func_00290368(Obj_00290368* self, u32 a1, u32 a2, u32 a3) asm("func_00290368");
-void func_00290368(Obj_00290368* self, u32 a1, u32 a2, u32 a3) {
-    func_001386e0(self->field0, a1, a2, a3, (u32)(s32)self->field8, 0);
+void Tz__TimeDraw__Create(Obj_00290368* self, u32 a1, u32 a2, u32 a3) asm("Tz__TimeDraw__Create");
+void Tz__TimeDraw__Create(Obj_00290368* self, u32 a1, u32 a2, u32 a3) {
+    dk__Sprite__create(self->field0, a1, a2, a3, (u32)(s32)self->field8, 0);
     *(s32*)(self->field0 + 392) = (s32)self->field12;
 
     u16 tmp[9];
@@ -780,9 +780,9 @@ void func_00290368(Obj_00290368* self, u32 a1, u32 a2, u32 a3) {
 
 // 00290420 (from src/anon/tiny.cpp)
 namespace n00290420 {
-void func_00258eb8(s32) asm("func_00258eb8");
+void Tz__CmComm__SetDrawTime(s32) asm("Tz__CmComm__SetDrawTime");
 void func_00290420(BD_VALUE* bd) asm("_ZN2Tz8TimeDraw6UpdateEv");
-void func_00290420(BD_VALUE* bd) { func_00258eb8(bd[1].i); }
+void func_00290420(BD_VALUE* bd) { Tz__CmComm__SetDrawTime(bd[1].i); }
 }  // namespace n00290420
 
 // 00290438 (from src/anon/batch_w52.cpp)
@@ -919,18 +919,18 @@ void func_00290610(u32 self) {
 // 00290668 (from src/anon/batch_w228.cpp)
 namespace n00290668 {
 void func_00290740(u8*) asm("func_00290740");
-void func_002362b0(u8*, u32) asm("func_002362b0");
+void YI__IMAGE__Init(u8*, u32) asm("YI__IMAGE__Init");
 void func_002367c8(u8*) asm("func_002367c8");
-void func_001386e0(u8*, u32, u32, u8*, u32, u32) asm("func_001386e0");
+void dk__Sprite__create(u8*, u32, u32, u8*, u32, u32) asm("dk__Sprite__create");
 // 001843d8: moved to src/anon/unit_00183088.cpp
 
 void Selector_CreateHelpGra(u8* t, u32 a1, u32 a2, u32 a3) asm("_ZN2Tz8Selector13CreateHelpGraEz");
 void Selector_CreateHelpGra(u8* t, u32 a1, u32 a2, u32 a3) {
     func_00290740(t);
     u8* s0 = t + 416;
-    func_002362b0(s0, a2);
+    YI__IMAGE__Init(s0, a2);
     func_002367c8(s0);  // obj_dispatch_bitfield64
-    func_001386e0(t, *(u32*)(t + 408), a1, s0, a3, 0);
+    dk__Sprite__create(t, *(u32*)(t + 408), a1, s0, a3, 0);
     u32* q = (u32*)(t + 24);
     q[46] |= 8;
     t[405] = 1;
@@ -940,15 +940,15 @@ void Selector_CreateHelpGra(u8* t, u32 a1, u32 a2, u32 a3) {
 
 // 00290708 (from src/anon/tiny.cpp)
 namespace n00290708 {
-void func_00138840(void*) asm("func_00138840");
+void dk__Sprite__update(void*) asm("dk__Sprite__update");
 // 0028dac8: moved to src/anon/unit_0028c878.cpp
 void func_00290708(BD_VALUE* bd) asm("func_00290708");
-void func_00290708(BD_VALUE* bd) { func_00138840(bd); }
+void func_00290708(BD_VALUE* bd) { dk__Sprite__update(bd); }
 }  // namespace n00290708
 
 // 00290720 (gap: unwritten in the old code)
 namespace n00290720 {
-void f_138988() asm("func_00138988");
+void f_138988() asm("dk__Sprite__draw");
 void func_00290720() { f_138988(); }
 }  // namespace n00290720
 
@@ -1132,8 +1132,8 @@ u32 func_001708f8(u32, s32) asm("func_001708f8");
 void func_00290960(u8*, u32, u32) asm("func_00290960");
 // 0028e438: moved to src/anon/unit_0028c878.cpp
 
-void func_00290a10(u8* p, u32 a, u32 b) asm("func_00290a10");
-void func_00290a10(u8* p, u32 a, u32 b) {
+void Tz__MenuFile__alloc(u8* p, u32 a, u32 b) asm("Tz__MenuFile__alloc");
+void Tz__MenuFile__alloc(u8* p, u32 a, u32 b) {
     func_00290960(p, func_001708f8(a, -1), b);
     p[16] = 1;
 }

@@ -27,8 +27,8 @@ extern u32 D_0035ef64 asm("D_0035ef64");
 u16* func_0026b850(void) asm("func_0026b850");
 s32 func_002813b8(void) asm("func_002813b8");
 s32 func_00257118(s32) asm("func_00257118");
-void func_00288d80(u32, s32, u32, u32, u32, s32, s32, s32) asm("func_00288d80");
-void func_00288e08(u32, s32, s32, s32) asm("func_00288e08");
+void Tz__Select__SetItem(u32, s32, u32, u32, u32, s32, s32, s32) asm("Tz__Select__SetItem");
+void Tz__Select__SetExOffset(u32, s32, s32, s32) asm("Tz__Select__SetExOffset");
 u8* func_002891b8(u32, s32) asm("func_002891b8");
 void func_00139620(u8*) asm("func_00139620");
 void func_001395f8(u8*) asm("func_001395f8");
@@ -51,8 +51,8 @@ s32 func_00277708(s32 start)
         n++;
         s32 a = func_00257118(0);
         s32 b = func_00257118(1);
-        func_00288d80(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
-        func_00288e08(D_0035f01c, j, 0, -1);
+        Tz__Select__SetItem(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
+        Tz__Select__SetExOffset(D_0035f01c, j, 0, -1);
         func_00139620(func_002891b8(D_0035f01c, j));
         u8* nd = func_002891b8(D_0035f01c, j);
         *(s32*)(nd + 408) = func_00192048(*tbl);
@@ -62,8 +62,8 @@ s32 func_00277708(s32 start)
     n++;
     s32 a = func_00257118(0);
     s32 b = func_00257118(1);
-    func_00288d80(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
-    func_00288e08(D_0035f01c, j, 0, -1);
+    Tz__Select__SetItem(D_0035f01c, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, a, b);
+    Tz__Select__SetExOffset(D_0035f01c, j, 0, -1);
     func_00139620(func_002891b8(D_0035f01c, j));
     u8* nd = func_002891b8(D_0035f01c, j);
     *(s32*)(nd + 408) = func_00192048(0xb2ec);
@@ -88,12 +88,12 @@ s32 func_00289310(s32) asm("func_00289310");
 void func_00287f90(s32) asm("func_00287f90");
 void func_0027a180(void) asm("func_0027a180");
 void func_00256ea8(void) asm("func_00256ea8");
-void func_0028f878(void) asm("func_0028f878");
+void Tz__SelHist__LeaveAll(void) asm("Tz__SelHist__LeaveAll");
 void func_00287c30(void) asm("func_00287c30");
 void func_0028af18(s32, s32) asm("func_0028af18");
 void func_0028f7e8(s32) asm("func_0028f7e8");
 void func_002551b8(void) asm("func_002551b8");
-void func_00277d20(void) asm("func_00277d20");
+void Tz__CmAbility__SetupSel(void) asm("Tz__CmAbility__SetupSel");
 s32 func_002570a0(s32) asm("func_002570a0");
 void func_0027aed8(s32, s32*, s32*) asm("func_0027aed8");
 void func_002677f0(s32, s32) asm("func_002677f0");
@@ -105,14 +105,14 @@ void func_0028fa98(s32) asm("func_0028fa98");
 void func_0027b6b8(void) asm("func_0027b6b8");
 void func_00287c90(s32) asm("func_00287c90");
 s32 func_0028afa8(s32) asm("func_0028afa8");
-void func_0027c3e0(void) asm("func_0027c3e0");
+void Tz__CmAbility__SelCheck(void) asm("Tz__CmAbility__SelCheck");
 s32 func_00287df0(s32, s32, s32, void (*)(void), s32) asm("func_00287df0");
 s32 func_00242848(s32) asm("func_00242848");
 void func_00287da0(void) asm("func_00287da0");
-void func_00263c60(void) asm("func_00263c60");
+void Tz__CMenuHelp__FadeOut(void) asm("Tz__CMenuHelp__FadeOut");
 void func_00256e80(void) asm("func_00256e80");
-void func_0028f6f0(s32) asm("func_0028f6f0");
-void func_0027a108(void) asm("func_0027a108");
+void Tz__SelHist__FadeOut(s32) asm("Tz__SelHist__FadeOut");
+void Tz__CmAbility__FadeOutSelList(void) asm("Tz__CmAbility__FadeOutSelList");
 void func_00287c00(s32) asm("func_00287c00");
 struct W408 { u8 pad[408]; s32 f408; };
 W408* func_002891b8(s32, s32) asm("func_002891b8");
@@ -142,7 +142,7 @@ void func_00277938(void)
                 func_00287f90(0);
                 func_0027a180();
                 if (m == 0) func_00256ea8();
-                if (m < 2u) func_0028f878();
+                if (m < 2u) Tz__SelHist__LeaveAll();
             }
             return;
         }
@@ -152,7 +152,7 @@ void func_00277938(void)
             func_0028f7e8(0);
             func_002551b8();
         } else if (m == 16) {
-            func_00277d20();
+            Tz__CmAbility__SetupSel();
         } else if (m == 1) {
             func_0027aed8(func_002570a0(15), &v, &w);
             if (v) w = 0;
@@ -171,26 +171,26 @@ void func_00277938(void)
         func_00287c90(1);
     }
     s32 n = func_0028afa8(D_0035f01c);
-    if (func_00242848(func_00287df0(r, func_00289310(D_0035f01c), 1, func_0027c3e0, 1)) == 0) {
+    if (func_00242848(func_00287df0(r, func_00289310(D_0035f01c), 1, Tz__CmAbility__SelCheck, 1)) == 0) {
         switch (r) {
         case -4:
             func_00287da0();
             { v = func_00257070(15); if (v != func_002891e8(D_0035f01c)) func_00257050(16, 0, 0); func_00257050(15, func_002891e8(D_0035f01c), 0); }
             break;
         case -5:
-            func_00263c60();
+            Tz__CMenuHelp__FadeOut();
             func_00256e80();
-            func_0028f6f0(0);
-            func_0027a108();
+            Tz__SelHist__FadeOut(0);
+            Tz__CmAbility__FadeOutSelList();
             func_00287c90(1);
             func_00287c00(1);
             { v = func_00257070(15); if (v != func_002891e8(D_0035f01c)) func_00257050(16, 0, 0); func_00257050(15, func_002891e8(D_0035f01c), 0); }
             break;
         case -2:
-            func_00263c60();
+            Tz__CMenuHelp__FadeOut();
             func_00256e80();
-            func_0028f6f0(0);
-            func_0027a108();
+            Tz__SelHist__FadeOut(0);
+            Tz__CmAbility__FadeOutSelList();
             func_00287c90(1);
             func_00287c00(0);
             { v = func_00257070(15); if (v != func_002891e8(D_0035f01c)) func_00257050(16, 0, 0); func_00257050(15, func_002891e8(D_0035f01c), 0); }
@@ -200,8 +200,8 @@ void func_00277938(void)
         default:
             if (r < 0 || r >= n) goto end;
             v = 16;
-            func_00263c60();
-            func_0027a108();
+            Tz__CMenuHelp__FadeOut();
+            Tz__CmAbility__FadeOutSelList();
             func_00287c90(1);
             func_00287c00(v);
             func_0028fb68(1, func_002891b8(D_0035f01c, r)->f408);
@@ -263,7 +263,7 @@ void func_0028d8c0(void*, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0"
 void func_0028d980(void*, s32, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d980");
 s32 func_002570a0(s32) asm("func_002570a0");
 void func_0027aed8(s32, s32*, s32*) asm("func_0027aed8");
-void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("func_00288d80");
+void Tz__Select__SetItem(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("Tz__Select__SetItem");
 W1713Obj* func_002891b8(s32, s32) asm("func_002891b8");
 void func_00138c10(void*, s32) asm("func_00138c10");
 void func_00138c68(void*, s32, s32) asm("func_00138c68");
@@ -281,9 +281,9 @@ s32 func_00236ca8(s32, s32) asm("func_00236ca8");
 void func_00257708(s32) asm("func_00257708");
 s32 func_002570f0(void) asm("func_002570f0");
 void func_0028bae0(s32, s32, s32, s32, s32, s32, s32, W1713Menu*, s32) asm("func_0028bae0");
-void func_0028af90(s32, s32) asm("func_0028af90");
+void Tz__Select__SetSelectMax(s32, s32) asm("Tz__Select__SetSelectMax");
 void func_0027c2f8(void) asm("func_0027c2f8");
-void func_0028b218(s32, s32) asm("func_0028b218");
+void Tz__Select__SetPageMode(s32, s32) asm("Tz__Select__SetPageMode");
 void func_0028b248(s32, s32) asm("func_0028b248");
 void func_00257050(s32, s32, s32) asm("func_00257050");
 s32 func_0028af88(s32) asm("func_0028af88");
@@ -292,9 +292,9 @@ s32 func_0028b040(s32) asm("func_0028b040");
 void func_0028af18(s32, s32) asm("func_0028af18");
 void func_0028af28(s32, s32) asm("func_0028af28");
 s32 func_00283ab8(s32) asm("func_00283ab8");
-void func_00256cc0(s32, s32, s32) asm("func_00256cc0");
+void Tz__CmTop__CreatePadHelp(s32, s32, s32) asm("Tz__CmTop__CreatePadHelp");
 void func_0027b0f8(void) asm("func_0027b0f8");
-void func_0027a6d8(void) asm("func_0027a6d8");
+void Tz__CmAbility__UpdateNew(void) asm("Tz__CmAbility__UpdateNew");
 void func_0027a208(void) asm("func_0027a208");
 void func_00287cc0(s32) asm("func_00287cc0");
 /* The original passes the colour before the shared screen globals. */
@@ -302,8 +302,8 @@ static inline __attribute__((always_inline)) void W1713InitIcon(void* p, s32 id,
     func_0028d8c0(p, id, w, h, tex, color, -1, 0);
 }
 /*TARGET 00277d20*/
-void func_00277d20(void) asm("func_00277d20");
-void func_00277d20(void) {
+void Tz__CmAbility__SetupSel(void) asm("Tz__CmAbility__SetupSel");
+void Tz__CmAbility__SetupSel(void) {
     W1713Menu* menu = func_00257770();
     s32 i;
     s32 j;
@@ -342,7 +342,7 @@ void func_00277d20(void) {
         W1713Item* p;
         W1713Item* q;
         W1713Item2* ic;
-        func_00288d80(D_0035f01c, i, D_0035ef68, D_0035ef64, D_0035f03c, -1, D_01e21ee0[0], D_01e21ee0[1]);
+        Tz__Select__SetItem(D_0035f01c, i, D_0035ef68, D_0035ef64, D_0035f03c, -1, D_01e21ee0[0], D_01e21ee0[1]);
         obj = func_002891b8(D_0035f01c, i);
         func_00138c10(obj, 0xf8);
         w = func_0023aa78(&obj->sub);
@@ -391,9 +391,9 @@ void func_00277d20(void) {
     func_0028bae0(D_0035f04c, base, a, b, func_002570f0(), val, n, menu, 0);
     n = D_0035f230->count;
     if (n == 0) n = 1;
-    func_0028af90(D_0035f01c, n);
+    Tz__Select__SetSelectMax(D_0035f01c, n);
     func_0027c2f8();
-    func_0028b218(D_0035f01c, 1);
+    Tz__Select__SetPageMode(D_0035f01c, 1);
     func_0028b248(D_0035f01c, 9);
     func_00257050(16, 0, 0);
     cur = func_0028af88(D_0035f01c);
@@ -414,14 +414,14 @@ void func_00277d20(void) {
         func_0028af18(D_0035f01c, cur);
     }
     if (func_00258068(0) != 0) {
-        func_00256cc0(0xb373, 0xb61a, val);
+        Tz__CmTop__CreatePadHelp(0xb373, 0xb61a, val);
     } else {
-        func_00256cc0(0xb61a, val, -1);
+        Tz__CmTop__CreatePadHelp(0xb61a, val, -1);
     }
     if (noSave == 0) {
         func_0027b0f8();
     }
-    func_0027a6d8();
+    Tz__CmAbility__UpdateNew();
     func_0027a208();
     func_00287cc0(0);
 }
@@ -444,13 +444,13 @@ void func_00287f90(s32) asm("func_00287f90");
 void func_00256ea8(void) asm("func_00256ea8");
 void func_0027a898(s32) asm("func_0027a898");
 void func_0028f7e8(s32) asm("func_0028f7e8");
-void func_0028f878(void) asm("func_0028f878");
+void Tz__SelHist__LeaveAll(void) asm("Tz__SelHist__LeaveAll");
 void func_00287c30(void) asm("func_00287c30");
 void func_0028af18(s32, s32) asm("func_0028af18");
 void func_00257708(s32) asm("func_00257708");
-void func_002772c8(s32) asm("func_002772c8");
+void Tz__CmAbility__SetupTop(s32) asm("Tz__CmAbility__SetupTop");
 void func_00279040(void) asm("func_00279040");
-void func_00277d20(void) asm("func_00277d20");
+void Tz__CmAbility__SetupSel(void) asm("Tz__CmAbility__SetupSel");
 void func_002788c0(void) asm("func_002788c0");
 s32 func_002570a0(s32) asm("func_002570a0");
 void func_0027aed8(s32, s32*, s32*) asm("func_0027aed8");
@@ -465,7 +465,7 @@ void func_0027b6b8(void) asm("func_0027b6b8");
 void func_00287c90(s32) asm("func_00287c90");
 s32 func_0028afa8(s32) asm("func_0028afa8");
 s32 func_00287df0(s32, s32, s32, void (*)(void), s32) asm("func_00287df0");
-void func_0027c3e0(void) asm("func_0027c3e0");
+void Tz__CmAbility__SelCheck(void) asm("Tz__CmAbility__SelCheck");
 s32 func_00242848(s32) asm("func_00242848");
 void func_00287da0(void) asm("func_00287da0");
 s32 func_002891e8(s32) asm("func_002891e8");
@@ -473,20 +473,20 @@ s32 func_0028b038(s32) asm("func_0028b038");
 s32 func_00288040(void) asm("func_00288040");
 void func_00288018(void) asm("func_00288018");
 void func_0027b548(s32) asm("func_0027b548");
-void func_00263c60(void) asm("func_00263c60");
-void func_0028f6f0(s32) asm("func_0028f6f0");
+void Tz__CMenuHelp__FadeOut(void) asm("Tz__CMenuHelp__FadeOut");
+void Tz__SelHist__FadeOut(s32) asm("Tz__SelHist__FadeOut");
 void func_0027a7e0(s32) asm("func_0027a7e0");
 void func_00287c00(s32) asm("func_00287c00");
 s32 func_00287bc0(void) asm("func_00287bc0");
 void func_00287bd0(s32, s32) asm("func_00287bd0");
 void func_002831e0(s32, s32) asm("func_002831e0");
-void func_0027bf68(void) asm("func_0027bf68");
+void Tz__CmAbility__ChgEquip(void) asm("Tz__CmAbility__ChgEquip");
 void func_002799b0(void) asm("func_002799b0");
-void func_0027a6d8(void) asm("func_0027a6d8");
+void Tz__CmAbility__UpdateNew(void) asm("Tz__CmAbility__UpdateNew");
 void func_0027a208(void) asm("func_0027a208");
 void func_0027b248(s32) asm("func_0027b248");
 void func_00256e80(void) asm("func_00256e80");
-s32 func_0027af58(void) asm("func_0027af58");
+s32 Tz__CmAbility__Cur2AbiltyType(void) asm("Tz__CmAbility__Cur2AbiltyType");
 void func_0028fb28(s32, u16) asm("func_0028fb28");
 s32 func_00258068(s32) asm("func_00258068");
 /*TARGET 00278318*/
@@ -520,7 +520,7 @@ void func_00278318(void) {
                 if (m >= 17 && m <= 19) func_00256ea8();
                 func_0027a898(notA);
                 if (m == 15 || m == 16) func_0028f7e8(1);
-                else if (m == 2) func_0028f878();
+                else if (m == 2) Tz__SelHist__LeaveAll();
             }
         } else {
             func_00287c30();
@@ -528,10 +528,10 @@ void func_00278318(void) {
             func_00257708(0);
             if (m == 15) {
                 func_0028f7e8(1);
-                func_002772c8(-1);
+                Tz__CmAbility__SetupTop(-1);
             } else if (m == 16) {
                 func_00279040();
-                func_00277d20();
+                Tz__CmAbility__SetupSel();
             } else if (m >= 17 && m <= 19) {
                 func_002788c0();
             } else if (m == 2) {
@@ -557,7 +557,7 @@ void func_00278318(void) {
         func_00287c90(1);
     }
     s32 n = func_0028afa8(D_0035f01c);
-    if (func_00242848(func_00287df0(r, func_00289310(D_0035f01c), 1, func_0027c3e0, 1)) == 0) {
+    if (func_00242848(func_00287df0(r, func_00289310(D_0035f01c), 1, Tz__CmAbility__SelCheck, 1)) == 0) {
         switch (r) {
         case -4:
             func_00287da0();
@@ -566,8 +566,8 @@ void func_00278318(void) {
         case -11:
         case -10:
             func_0027b548(r == -10);
-            func_00263c60();
-            func_0028f6f0(1);
+            Tz__CMenuHelp__FadeOut();
+            Tz__SelHist__FadeOut(1);
             func_0027a7e0(1);
             func_00287c90(1);
             func_00287c00(16);
@@ -579,17 +579,17 @@ void func_00278318(void) {
             func_002831e0(2, a);
             break;
         case -6:
-            func_0027bf68();
+            Tz__CmAbility__ChgEquip();
             func_002799b0();
-            func_0027a6d8();
+            Tz__CmAbility__UpdateNew();
             func_0027a208();
             func_0027b248(1);
             func_0027b6b8();
             break;
         case -5:
-            func_00263c60();
-            func_0028f6f0(1);
-            func_0028f6f0(0);
+            Tz__CMenuHelp__FadeOut();
+            Tz__SelHist__FadeOut(1);
+            Tz__SelHist__FadeOut(0);
             func_00256e80();
             func_0027a7e0(1);
             func_00287c90(1);
@@ -599,7 +599,7 @@ void func_00278318(void) {
         default: {
             if (r < 0 || r >= n) break;
             a = 17;
-            s32 v = func_0027af58();
+            s32 v = Tz__CmAbility__Cur2AbiltyType();
             switch (v) {
             case 0: a = 17; break;
             case 1: a = 18; break;
@@ -607,7 +607,7 @@ void func_00278318(void) {
             }
             func_0028fb28(2, D_00373e28[v]);
             func_00256e80();
-            func_00263c60();
+            Tz__CMenuHelp__FadeOut();
             func_0027a7e0(0);
             func_00287c90(1);
             func_00287c00(a);
@@ -615,8 +615,8 @@ void func_00278318(void) {
             break;
         }
         case -2:
-            func_00263c60();
-            func_0028f6f0(1);
+            Tz__CMenuHelp__FadeOut();
+            Tz__SelHist__FadeOut(1);
             func_0027a7e0(1);
             func_00287c90(1);
             func_00287c00(15);

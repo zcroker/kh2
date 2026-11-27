@@ -8,13 +8,13 @@ u32 func_001524e8(u32, u32);
 void func_00152498(u32, u32);
 u32 func_0013e678(void);
 u32 func_0013a7e8(u32);
-void func_001386e0(u32, u32, u32, u32, u32, u32);
+void dk__Sprite__create(u32, u32, u32, u32, u32, u32);
 void func_001396b0(u32);
 void func_0031a260(u32, u32);
 void func_00138c40(u32, u32, u32);
-void func_00239988(u32, u32, u32);
+void YI__SEQUENCE__Init(u32, u32, u32);
 void func_00239bf8(u32, u32);
-void func_00152120(u32);
+void dk__NEXT_EXP__initNumber(u32);
 u32 func_0023aa78(u32);
 void func_0014fc40(u32, u32, u32, u32, u32, u32);
 void func_00139598(u32);
@@ -43,8 +43,8 @@ extern u8 D_0034c6e0[];
 extern u8 D_0034c6c8[];
 extern u8 D_004f3820[];
 u8* func_00186078(u8*);
-s32 func_0019ba60(u8*);
-Q16* func_0016c028(u8*);  // obj_get_attach_or_alt
+s32 YS__OBJ__is_exist(u8*);
+Q16* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 void func_00182980(void*, Q16*);
 extern u8* D_0034ed04;
 extern s32 D_0034ed00;
@@ -101,13 +101,13 @@ extern Item36_w96 D_003719e8[];
 extern u32 D_0035ecec;
 extern u32 D_0035ecf0;
 extern u32 D_0035ed08;
-void func_00288d80(u32, s32, u32, u32, u32, u32, Item36_w96*, u8*);
+void Tz__Select__SetItem(u32, s32, u32, u32, u32, u32, Item36_w96*, u8*);
 u8* func_002891b8(u32, s32);
-void func_00288e08(u32, s32, s32, u32);
+void Tz__Select__SetExOffset(u32, s32, s32, u32);
 u32 func_0028dd90(s32);  // mod10_classify_012
 u32 func_0028ddd8(s32);
 void func_001395f8(u8*);
-void func_002891f0(u32, s32, u32, u32, u32);
+void Tz__Select__SetCurrent(u32, s32, u32, u32, u32);
 void func_002b4388(u32, Item36_w96*, u32);
 typedef u8* (*AllocFn_w96)(void*, u32, u32);
 extern u8* D_00347f80;
@@ -119,7 +119,7 @@ extern char D_01e21ef8[];
 extern char D_003743f8[];
 void func_0023fa90(u32, char*);
 u32 func_0023f988(u32, u32);
-void func_00138650(u8*, u32, u32, u32);
+void dk__SpriteImage__create(u8*, u32, u32, u32);
 static inline u8* heap_alloc_w96(u32 size) {
     void* h = *(void**)(D_00347f80 + 20);
     return (**(AllocFn_w96**)h)(h, size, 0);
@@ -146,8 +146,8 @@ s32 func_00103b38(void);
 u32 func_00103570(void);
 u32 func_00106178(u32, u32);
 s32 func_00293fb0(void);
-void func_00293e00(u32);
-void func_00293fc0(void);
+void Tz__JmInfo__Init(u32);
+void Tz__JmInfo__SetLeadData(void);
 u8* func_001063c0(u32, u32);
 void func_00319a60(u8*);  // clear_fixed_blocks
 u8* func_001063f0(u32, u32);
@@ -160,7 +160,7 @@ extern u8* D_0035f620;
 extern u8* D_0035f624;
 struct Pair_w96 { u32 a; u32 b; };
 u8* func_002a9d68(void);
-u32* func_002b23e0(s32);  // list_entry_by_index_checked
+u32* Tz__JmPuzzle__GetImageInfo(s32);  // list_entry_by_index_checked
 s32 func_002b3ac8(u32);
 void func_002b2f28(u32);
 union EU_w96 { u32 u; u16 h; };
@@ -188,14 +188,14 @@ Bigint_w96* _Balloc(void*, s32);
 void _Bfree(void*, Bigint_w96*);  // push_entry_onto_slot_list
 
 // Builds the widget: icons, 7 child panels, then hands off to the shared init.
-void wtarget_001521c8(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_001521c8jjjj");
-void wtarget_001521c8(u32 self, u32 id, u32, u32);  // 0x001521c8: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__NEXT_EXP__create(u32 a0, u32 a1, u32, u32) asm("_Z20dk__NEXT_EXP__createjjjj");
+void dk__NEXT_EXP__create(u32 self, u32 id, u32, u32);  // 0x001521c8: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 001558b8: moved to src/anon/unit_00153ea0.cpp
 void func_001558b8(u32 self, u32 a1, s32 idx);
 
 // Sets up a row of up to 8 child panels and centres them horizontally.
-void func_0015b368(u32 self, u32 a1, u32 a2, u32 a3);  // 0x0015b368: definition moved into src/anon/unit_0015b100.cpp
+void dk__Exp__create(u32 self, u32 a1, u32 a2, u32 a3);  // 0x0015b368: definition moved into src/anon/unit_0015b100.cpp
 
 // Constructor: vtable + two sprite members, then their draw state.
 // 0015e4e0: moved to src/anon/unit_0015e070.cpp
@@ -223,7 +223,7 @@ void func_001dd568(u32* ids, FU_w96* keys, s32 lo, s32 hi);  // 0x001dd568: defi
 // Quicksort keys (descending) in [lo, hi], permuting the parallel ids array alongside.
 
 // Builds the two-entry choice list and focuses the preselected entry.
-void func_00243cd8(void);  // 0x00243cd8: definition moved into src/anon/unit_00242478.cpp
+void Tz__HEFT__SetupSel(void);  // 0x00243cd8: definition moved into src/anon/unit_00242478.cpp
 
 void func_002874b0(u8* self);  // 0x002874b0: definition moved into src/anon/unit_00286d28.cpp
 

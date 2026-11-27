@@ -81,22 +81,22 @@ struct List1d4 { u8* head; u8* tail; };
 extern List1d4 D_01d48db0;
 s32 objIsLeave(void*) asm("_ZN2YS3OBJ8is_leaveEv");
 s32 objIsDummy(void*) asm("_ZN2YS3OBJ11is_dummyobjEv");
-s32 ctarget(void*) asm("_Z16ctarget_0019c6f0jjjj");
+s32 ctarget(void*) asm("_Z16YS__OBJ__is_stopjjjj");
 void func_001d7a88(void*);
 void func_00194010(void*);
-void func_0017f620(void*, f32);
+void YS__MOTION__add_time(void*, f32);
 void func_0017f938(void*);
-void func_00183088(void*);
-void func_0011ea40(u32, f32);
+void YS__OBJ__move(void*);
+void kn__ModelObj__playAnimation(u32, f32);
 void func_001b9420(u8* self);  // 0x001b9420: definition moved into src/anon/unit_001b87a0.cpp
 #undef FLD
 
 #define FLD(T, o) (*(T*)((u8*)self + (o)))
 extern u8 D_0034a4f0[]; extern u8 D_0034a518[];
-void func_0014fcd8(void*); s32 func_00139d78(void*); void func_001506e0(void*);
+void dk__INFO_BASE__update(void*); s32 func_00139d78(void*); void func_001506e0(void*);
 void func_00138c40(void*, u32, u32); void func_00150260(void*, u32, s32, s32*);
 void func_00138c10(void*, s32); void func_001395a8(void*); void func_00139598(void*);
-void func_00150328(u8* self);  // 0x00150328: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__COUNTER__update(u8* self);  // 0x00150328: definition moved into src/anon/unit_0014ecb8.cpp
 }
 extern "C" {
 extern u8 D_0033cc50;
@@ -112,11 +112,11 @@ struct Cam323 {
 } __attribute__((aligned(16)));
 extern "C" {
 Cam323* func_00106a60(s32);  // buffer_get_by_index
-void func_00147810(u32, u8* o);  // 0x00147810: definition moved into src/anon/unit_00147140.cpp
+void dk__OctDrawFile__calcCameraRelative(u32, u8* o);  // 0x00147810: definition moved into src/anon/unit_00147140.cpp
 }
 extern "C" {
 extern u8* D_00361f60;
-QV323& func_0016c028(void);  // obj_get_attach_or_alt
+QV323& YS__OBJ__get_pos(void);  // obj_get_attach_or_alt
 QV323 func_002d1d30(u8*, const QV323&);
 f32 rnd2d4548(f32, f32) asm("_Z13func_001065a8jjjjjjjj");
 f32 fabsf(f32);  // fabsf

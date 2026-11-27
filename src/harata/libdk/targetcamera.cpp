@@ -107,8 +107,8 @@ f32 D_0034aa88 = 10000.0f;
 
 extern "C" {
 extern f32 D_00349e10;  // frame time
-TcVec* func_0016c028(u32);  // obj_get_attach_or_alt
-u8* func_00106a18(s32);  // buffer_get_256
+TcVec* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
+u8* kn__getProjection(s32);  // buffer_get_256
 u8* func_00106a60(s32);  // buffer_get_by_index
 s32* func_0013a178(void*, M159*);
 s32 func_00158450(TcPad*);
@@ -122,19 +122,19 @@ s32 func_00158548(TcPad*);
 void* func_0019c4d0(u32);
 void func_0013fd90(TcCam*);
 void func_001400b0(f32, TcCam*);
-void func_0013f9e0(void*, void*, void*, u32, u32);
+void dk__ObjCamera__collision_2(void*, void*, void*, u32, u32);
 void func_0013f888(TcCam*, TcVec*, u32);
 void func_0013fca8(TcCam*);
 void func_001904a8(void*, YS::TARGET*);
 u32 func_00167f18(s32);
-void func_00141010(f32);
+void dk__ObjCamera__cancelSubjective(f32);
 u8* func_00140df0(void);
 s32 func_00140dc0(void);
 void func_00140dd0(u8*);
 
 // The player's position, 170 below.
 void func_00159ce0(TcCam* c, TcVec* out) {
-    TcVec* r = func_0016c028(c->target);
+    TcVec* r = YS__OBJ__get_pos(c->target);
     *out = *r;
     out->y -= 170.0f;
 }
@@ -154,7 +154,7 @@ void func_00159d30(TcCam* c, const TcVec* to, TcVec* out, f32 t) {
 // Projects through the current view matrices and returns screen-clip outcode bits.
 u32 dk::TargetCamera::checkVisibleObject(TcVec obj, s32* rc) {
     M159 m;
-    u8* a = func_00106a18(1);
+    u8* a = kn__getProjection(1);
     u8* b = func_00106a60(1);
     mulmat159(&m, a, b ? b + 16 : 0);
     s32* r = func_0013a178(&obj, &m);
@@ -169,7 +169,7 @@ u32 dk::TargetCamera::checkVisibleObject(TcVec obj, s32* rc) {
 
 void func_00159ef8(TcCam* c) {
     TcVec* src = &c->eye;
-    TcVec* v = func_0016c028(c->target);
+    TcVec* v = YS__OBJ__get_pos(c->target);
     TcVec* d = (TcVec*)D_0034aa50;
     *d = *src;
     d++;
@@ -260,7 +260,7 @@ void dk::TargetCamera::updateTargetCamera(TcCam* self, TcVec* target, f32 t) {
     TcVec cur;
     func_00159d30(self, target, &cur, t);
     func_00159ef8(self);
-    TcVec pos = *func_0016c028(self->target);
+    TcVec pos = *YS__OBJ__get_pos(self->target);
     pos.y -= 100.0f;
     s32 id0 = checkVisibleObject(*target, D_0034aa30);
     s32 id1 = checkVisibleObject(pos, D_0034aa30);
@@ -304,7 +304,7 @@ namespace dk {
 void TargetCamera::updateCollision(ObjCamera* o) {
     TcVec p;
     func_00159ce0((TcCam*)o, &p);
-    func_0013f9e0((u8*)o + 112, &p, (u8*)o + 16, 1, 0);
+    dk__ObjCamera__collision_2((u8*)o + 112, &p, (u8*)o + 16, 1, 0);
 }
 
 }  // namespace dk
@@ -333,7 +333,7 @@ void dk::TargetCamera::update(TcCam* c) {
 }
 
 void dk::TargetCamera::create(YS::TARGET* t) {
-    func_00141010(30.0f);
+    dk__ObjCamera__cancelSubjective(30.0f);
     u8* o = func_00140df0();
     o[59] = 1;
     s32 m = func_00140dc0();

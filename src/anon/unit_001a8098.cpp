@@ -66,8 +66,8 @@ void func_001d2298(void*);
 s32 func_001d22a8(u32);
 u32 func_00192048(u32);
 u32 func_0016a070(void*);
-s32 func_001a3018(u32, u32, u32);
-void func_001a3188(u32, s32, u32);
+s32 YS__ITEM__WhereGet(u32, u32, u32);
+void YS__ITEM__Get(u32, s32, u32);
 void func_001b1e80(u32);
 void func_00138190(u32, u32);
 
@@ -102,7 +102,7 @@ s32 func_001a8168(YS::ITEM_TABLE* p) {
     return p - s_item->e;
 }
 
-s32 func_001a8190(u8* p) {
+s32 YS__ITEM_TABLE__get_param(u8* p) {
     switch (p[2]) {
     case 2 ... 13: return func_001d22a8(*(u16*)(p + 6));
     case 14 ... 15: return func_001d22a8(*(u16*)(p + 4));

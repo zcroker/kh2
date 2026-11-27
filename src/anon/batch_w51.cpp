@@ -56,7 +56,7 @@ void func_0013edd0(void*, f32);
 void func_0014b248(void*, u32);
 void func_0013ee38(void*, u32);
 
-void func_0014a6e0(void);  // 0014a6e0: moved to src/anon/unit_00149fa8.cpp
+void dk__Blur__init(void);  // 0014a6e0: moved to src/anon/unit_00149fa8.cpp
 
 u8* func_00168b38(void*, u32, s32);  // entry_array_find_nth
 u32 func_001667d0(u16);  // ilog2
@@ -85,12 +85,12 @@ struct Pad10 {
     Pad10() { u16 m = 0xffff; a = m; b = m; c = m; d = m; e = m; f = m; }
 };
 Pad10 func_00199718(u32, s32);
-void func_00104f58(Pad10*, u32, u32, u32, u32);
+void AREA__MapJump(Pad10*, u32, u32, u32, u32);
 union U32x { u32 u; u16 h; u8 b; };
 
-void func_00173008(U32x* p);  // 0x00173008: definition moved into src/anon/unit_00171e58.cpp
+void YS__trap_area_setjump(U32x* p);  // 0x00173008: definition moved into src/anon/unit_00171e58.cpp
 
-s32 func_0019ba60(u32);
+s32 YS__OBJ__is_exist(u32);
 u32 func_0016a070(void*);
 s32 func_001afe70(u32, u32, u32, u32*);
 void func_00198630(void*, s32, u32);
@@ -111,14 +111,14 @@ extern "C" {
 
 // 00183768: moved to src/anon/unit_00183088.cpp
 
-u32 func_00185da8(u32);
+u32 YS__ENEMY__Each(u32);
 void func_0016c568(u32, u32, f32);
 
 // 00185e20: moved to src/anon/unit_00185d10.cpp
-void func_00185e20(u32 a0);
+void YS__ENEMY__StopStartAll(u32 a0);
 
-void func_001ba028(u32);  // list_contains_ptr
-u32 func_0018db38(u32, void*, u32, u32);
+void YS__OBJ__is_valid(u32);  // list_contains_ptr
+u32 YS__ATTACK__strike(u32, void*, u32, u32);
 void func_0018ca10(u32);  // alloc_from_pool_magic
 
 void func_0018fab0(u32* p);  // 0x0018fab0: definition moved into src/anon/unit_0018f140.cpp
@@ -129,7 +129,7 @@ void func_00198dc0(Slot88*);
 
 // 00198c28: moved to src/anon/unit_00198b88.cpp
 
-u32 func_001b1490(u32);
+u32 YS__DATABUFF__ReadBar(u32);
 extern u32 D_0035043c;
 extern u32 D_01c62148[19];
 
@@ -151,7 +151,7 @@ void func_001b3b70(void*, u32, u32, u32);
 extern u8 D_00351078[];
 extern void* D_00351068;
 
-void func_001b3a90(u8* p, u32 a1, u32 a2);  // 0x001b3a90: definition moved into src/anon/unit_001b2780.cpp
+void YS__BTLNPC__BTLNPC(u8* p, u32 a1, u32 a2);  // 0x001b3a90: definition moved into src/anon/unit_001b2780.cpp
 
 s32 func_0018a550(void*, u32);  // state_dispatch_0_1_3
 
@@ -174,10 +174,10 @@ void func_001c1808(LItem* n);
 
 void func_002beb28(void);
 void func_00188c10(u32, u32);
-u32 func_00188fe0(void*, u32);
+u32 YS__SAVERAM_BATTLE__get_partram(void*, u32);
 extern u8 D_0032e020[];
 
-void func_001d7380(s32 a0);  // 0x001d7380: definition moved into src/anon/unit_001d68e0.cpp
+void YS__MISSION__OptionEnd(s32 a0);  // 0x001d7380: definition moved into src/anon/unit_001d68e0.cpp
 
 s32 func_00105868(void*);
 s32 func_00276fd0(void);
@@ -199,19 +199,19 @@ u32* func_00227a28(u32);
 void func_002ff2e8(void*, u32);
 u32 func_0022e188(u32);
 u32 func_00227870(u32, void*, u32);
-void func_00168388(u32, u32, void*, void*);
+void YS__FILE__ReadBack(u32, u32, void*, void*);
 void func_0022e160(void);
 
-void func_0022e1f8(u32 a0, u32 a1);  // 0x0022e1f8: definition moved into src/anon/unit_0022d358.cpp
+void sa__EVENT__effect_read_set(u32 a0, u32 a1);  // 0x0022e1f8: definition moved into src/anon/unit_0022d358.cpp
 
-u32 func_002282f0(u16);
+u32 sa__EVENT__checkStart(u16);
 u32* func_00227d10(s16);
 u32 func_0016f000(u32, void*, f32);
 void func_00233280(u32);
 
 void func_00233410(u8* p);  // 0x00233410: definition moved into src/anon/unit_00232f08.cpp
 
-void func_00239558(u8* p, u16* a, u16* b);  // 0x00239558: definition moved into src/anon/unit_002384f8.cpp
+void YI__SPRITE__SetDirextUV(u8* p, u16* a, u16* b);  // 0x00239558: definition moved into src/anon/unit_002384f8.cpp
 
 extern u8 D_0032bad8;
 s32 func_00103b38(void);
@@ -269,7 +269,7 @@ void func_0015f548(void);
 void func_001c8e90(void);
 void func_002be9b0(void);
 
-void func_002be0b0(u8* p, s32 i);  // 0x002be0b0: definition moved into src/anon/unit_002be020.cpp
+void worldmap__Libretto__leaveObj(u8* p, s32 i);  // 0x002be0b0: definition moved into src/anon/unit_002be020.cpp
 
 extern f32 D_01e2be10;
 extern f32 D_01e2be14;
@@ -294,7 +294,7 @@ void wtarget_002e1878(u32 a, u32 b, u32, u32);  // 0x002e1878: definition moved 
 
 extern "C" {
 
-s32 func_001b9bc8(u32);
+s32 YS__OBJ__Each(u32);
 
 // Call slot 17 on every other object with the same part number as this one.
 void func_002e8a28(u32** p);  // 0x002e8a28: definition moved into src/anon/unit_002e7b10.cpp

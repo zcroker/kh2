@@ -48,8 +48,8 @@ static inline void W2043c_m_scale(W2043c_Mat* m, W2043c_Vq* v) {
     asm volatile("lqc2 $vf4, 0(%1)\n\tlqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 16(%0)\n\tlqc2 $vf3, 32(%0)\n\tvmulx.wxyz $vf1, $vf1, $vf4x\n\tvmuly.wxyz $vf2, $vf2, $vf4y\n\tvmulz.wxyz $vf3, $vf3, $vf4z\n\tsqc2 $vf1, 0(%0)\n\tsqc2 $vf2, 16(%0)\n\tsqc2 $vf3, 32(%0)" : : "r"(m), "r"(v) : "memory");
 }
 /*TARGET 00131450*/
-s32 func_00131450(W2043c_Obj* o, W2043c_Mat* m, f32 t) asm("func_00131450");
-s32 func_00131450(W2043c_Obj* o, W2043c_Mat* m, f32 t) {
+s32 kn__MotionPrototype0__getPosition(W2043c_Obj* o, W2043c_Mat* m, f32 t) asm("kn__MotionPrototype0__getPosition");
+s32 kn__MotionPrototype0__getPosition(W2043c_Obj* o, W2043c_Mat* m, f32 t) {
     W2043c_Dat* d = o->d;
     s32* s = (s32*)((u8*)d + d->f2c);
     func_0011b6a8(m);
@@ -863,7 +863,7 @@ extern u8 D_00347c30[] asm("D_00347c30");
 // 00106558: moved to src/anon/unit_00106490.cpp
 
 // Constructor: base ctor, vtable, four 144-byte members, cleared tail fields.
-void func_001324b8(u8* p) asm("func_001324b8");
+void kn__TEXAnmWork__TEXAnmWork(u8* p) asm("kn__TEXAnmWork__TEXAnmWork");
 // Frame/system reset sequence.
 // 00104e18: moved to src/common/area.cpp
 
@@ -871,7 +871,7 @@ void func_001324b8(u8* p) asm("func_001324b8");
 // 00106558: moved to src/anon/unit_00106490.cpp
 
 // Constructor: base ctor, vtable, four 144-byte members, cleared tail fields.
-void func_001324b8(u8* p) {
+void kn__TEXAnmWork__TEXAnmWork(u8* p) {
     func_00132270(p);  // obj_ctor_347c00
     *(void**)p = D_00347c30;
     u8* e = p + 48;
@@ -1355,8 +1355,8 @@ u8* func_00132c68(void*, u32) asm("func_00132c68");
 s32 func_001325c8(void*, s32, u32) asm("func_001325c8");
 void func_00132720(void*, u8*) asm("func_00132720");
 /*TARGET 00132e28*/
-void func_00132e28(u8* a, u32 b) asm("func_00132e28");
-void func_00132e28(u8* a, u32 b)
+void kn__TEXAnmWork__set(u8* a, u32 b) asm("kn__TEXAnmWork__set");
+void kn__TEXAnmWork__set(u8* a, u32 b)
 {
     u8* h = func_00132c68(a, b);
     if (h) {

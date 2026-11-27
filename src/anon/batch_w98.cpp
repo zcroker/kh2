@@ -24,7 +24,7 @@ struct M174 { f32 m[4][4]; } __attribute__((aligned(16)));
 struct IV174 { f32 x, y, z; s32 w; };
 union PU174 { IV174* p; f32 f; };
 extern IV174 D_01c5f480;
-u8* func_00106a18(s32);  // buffer_get_256
+u8* kn__getProjection(s32);  // buffer_get_256
 u8* func_00106a60(s32);  // buffer_get_by_index
 void func_002f47d8(void*, void*, void*, u32);  // mat4_transform_perspective
 static inline void mulmat174(M174* d, const void* a, const void* b) {
@@ -43,7 +43,7 @@ void func_00174e38(PU174* pv);  // 0x00174e38: definition moved into src/anon/un
 struct Tmp178 { u8 pad[112]; };
 u8* func_00176fb0(u8*, s32);
 s32 func_001a0920(u8*, u8*);
-void func_001cda88(Tmp178*, u8*, u32);
+void YS__CHOOSE_ATTACK__CHOOSE_ATTACK(Tmp178*, u8*, u32);
 u8* func_001cde58(Tmp178*);
 void func_00177008(u8*, u8*, u32);
 void func_0017f488(u8*, u16, f32, f32);
@@ -83,7 +83,7 @@ u32 func_001708f8(u8*, s32);
 void func_0017ebe8(u8*, u32);
 void func_0017fd30(u8*, u8*);
 u32 func_001762c0(u8*, u32);
-void func_001c0d38(u8*, u8*, u32, s32);
+void YS__OBJ__attach(u8*, u8*, u32, s32);
 extern u32 D_0034ed18[];
 
 // 00185468: moved to src/anon/unit_00183088.cpp
@@ -94,10 +94,10 @@ static inline u32 ActFlags18d(u8* a) {
 }
 s32 func_0018cae0(u8*);
 
-u8* func_0018c8f0(u8*, u8*, u8*);
+u8* YS__DAMAGE__Alloc(u8*, u8*, u8*);
 void func_00198580(u8*, s32);  // check_div1000_500
 s32 func_001de2e0(u32*, u64);
-void func_001877a0(u8*, u32*, s32);
+void YS__BTLOBJ__bind_hitmark(u8*, u32*, s32);
 
 // Applies a hit result and sets the matching reaction bit.
 u8* func_0018da18(u8* o, u8* act, u8* info);  // 0x0018da18: definition moved into src/anon/unit_0018d050.cpp
@@ -111,14 +111,14 @@ void func_001aa558(u8* o);  // 0x001aa558: definition moved into src/anon/unit_0
 
 s32 func_001b5858(u8*);
 s32 func_001b5cb8(u8*);
-u8* func_001b9bc8(u8*);
+u8* YS__OBJ__Each(u8*);
 void func_0016cab8(u8*);
 void func_0016c7d8(u8*);
 void func_001de450(u8*);
 void func_001c9770(void);
 void func_001c9b90(void);
 void func_001d1c70(u8*);
-void func_001d1ed0(u8*);
+void YS__MISSION_GAUGE__destroy(u8*);
 void func_001b57f8(u8*);
 void func_001b5588(u32);
 extern u32 D_01d48cb0;
@@ -155,7 +155,7 @@ void func_001d4078(u32 id);  // 0x001d4078: definition moved into src/anon/unit_
 struct Ent1d4 { u8 pad[2]; u16 id; u8 cnt; u8 kind; u8 pad2[6]; };
 struct List1d4 { u8 pad[8]; s32 n; Ent1d4 e[1]; };
 void func_001bc778(void*);
-void func_001bc780(void*, u16, s32, s32);
+void YS__COMMAND_MENU__add(void*, u16, s32, s32);
 s32 func_001d4420(void);
 s32 func_001b58a8(void);
 s32 func_001d3f80(E1d4*);
@@ -183,10 +183,10 @@ static inline void ScaleRow(f32* row, u32 k) {
 // Builds the camera matrix from rotation/translation/scale channels.
 void func_00200c50(u8* base, u8*, u8* c);  // 0x00200c50: definition moved into src/anon/unit_00200578.cpp
 
-void func_00229430(u8*, s32);  // to_1391c8_arg11
+void sa__MUSICAL_SCORE_BASE__create(u8*, s32);  // to_1391c8_arg11
 u32 func_0022b9e0(void);
 u32 func_0022b720(void);
-void func_001386e0(u8*, s32, u32, u32, s32, s32);
+void dk__Sprite__create(u8*, s32, u32, u32, s32, s32);
 void func_001396b0(u8*);
 void func_0031a260(u8*, s32);
 u32 func_00224910(void);  // get_global_36dac4
@@ -225,7 +225,7 @@ s32 func_00139d78(u8*);
 void func_00276300(void);
 void func_0028f7a0(void);
 void func_0028d5d0(u8*);
-void func_00276dc0(void);
+void Tz__Jiminy__FadeOutHelp(void);
 void func_002945a0(void);
 void func_00295860(void);
 void func_00297008(void);
@@ -266,18 +266,18 @@ extern E248 D_00371e00[];
 extern u8* D_0035ed50;
 extern u32 D_0035ed54;
 extern u32 D_0035ed60;
-void func_00288d80(u8*, s32, s32, s32, u32, u16, E248*, u8*);
+void Tz__Select__SetItem(u8*, s32, s32, s32, u32, u16, E248*, u8*);
 u32 func_0023aa78(u8*);
 u32 func_0023aa98(u8*);
-void func_00288e08(u8*, s32, u32, s32);
+void Tz__Select__SetExOffset(u8*, s32, u32, s32);
 u32 func_0028dd90(u32);  // mod10_classify_012
 u32 func_0028ddd8(u32);
 void func_001395f8(u8*);
-void func_002891f0(u8*, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(u8*, s32, s32, s32, s32);
 void func_002b4388(u32, E248*, s32);
 
 // Builds the two-entry selection list and focuses the active entry.
-void func_002485c8(void);  // 0x002485c8: definition moved into src/anon/unit_00247ff0.cpp
+void Tz__MUMI__SetupSel(void);  // 0x002485c8: definition moved into src/anon/unit_00247ff0.cpp
 
 extern u32* D_0035f2e4;
 u32* func_002859a0(void);
@@ -301,7 +301,7 @@ void func_00289038(u8*, s32, s32, s32, s32, s32, s32);
 
 
 // Closes the open sub-windows and resets the list cursor.
-void func_00280d40(void);  // 0x00280d40: definition moved into src/anon/unit_0027f2b0.cpp
+void Tz__GumiGameOver__Draw(void);  // 0x00280d40: definition moved into src/anon/unit_0027f2b0.cpp
 
 extern u8* D_0035f21c;
 extern u8* D_0035f20c;
@@ -316,7 +316,7 @@ u32 func_0023aa38(u8*);
 void func_00138c68(u8*, u32, u32);
 
 // Opens (or retargets) the info window for id; optionally fills it from the current entry.
-void func_00276c88(u32 id, u8 flag);  // 0x00276c88: definition moved into src/anon/unit_002748a0.cpp
+void Tz__Jiminy__CreateHelp(u32 id, u8 flag);  // 0x00276c88: definition moved into src/anon/unit_002748a0.cpp
 
 extern u16 D_00374cb0[][2];
 extern u32 D_00374c9c;
@@ -324,13 +324,13 @@ extern u32 D_00374ca0;
 u8* func_002766d0(void);
 s32 func_002892f8(u8*);
 u32 func_00192048(u16);
-s32 func_002ac420(s32);
-s32 func_002ac748(s32);
+s32 Tz__JmNewInfo__isPuzzlePieceNew(s32);
+s32 Tz__JmNewInfo__isPuzzleInfoNew(s32);
 s32 func_002ac538(s32);
 s32 func_002ac800(s32);
 
 // Resets the item rows, then refreshes the three category rows and their availability marks.
-void func_002b1708(void);  // 0x002b1708: definition moved into src/anon/unit_002b0950.cpp
+void Tz__JmPuzzle__UpdateTopList(void);  // 0x002b1708: definition moved into src/anon/unit_002b0950.cpp
 
 u8* func_001050d8(u32);
 void func_002bf468(u8*, u8*, u32, f32);
@@ -339,7 +339,7 @@ void func_002c54c8(u8*, u8*, u32, f32);
 u8* func_002c5ed8(u8*, u32, f32);
 
 // Creates the object for the given type (type 2 is built by its own factory).
-u8* func_002be800(u8* d, u32 a, f32 f);  // 0x002be800: definition moved into src/anon/unit_002be020.cpp
+u8* worldmap__Obj__appear(u8* d, u32 a, f32 f);  // 0x002be800: definition moved into src/anon/unit_002be020.cpp
 
 extern E248** D_0035f6cc;
 extern u8* D_0035f64c;
@@ -351,7 +351,7 @@ s32 func_00240ba0(void);
 void func_00287cc0(s32);
 
 // Builds the two-entry list from the current table and focuses the default entry.
-void func_002b4b00(void);  // 0x002b4b00: definition moved into src/anon/unit_002b3ac8.cpp
+void OvlShop__ItemShop__SetupConfirm(void);  // 0x002b4b00: definition moved into src/anon/unit_002b3ac8.cpp
 
 }
 typedef struct { f32 x, y, z, w; } __attribute__((aligned(16))) QW2cd;
@@ -371,11 +371,11 @@ static inline void VAdd2cd(QW2cd* d, const QW2cd* a, const QW2cd* b) {
 }
 struct O2cd { u8 pad[4]; u32 f4; u32 f8; u8 pad2[12]; u32 f24; f32 f28; u8 pad3[4]; f32 range; u8 pad4[95]; u8 on; u8* target; };
 extern "C" {
-QW2cd* func_0016c028(u8*);  // obj_get_attach_or_alt
+QW2cd* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 void func_002cd3e0(O2cd*, u8*);
 void func_002cd428(O2cd*, QW2cd*);
 
 // Retargets the leash: places the midpoint 110 units short of the new target when it is out of range.
-void func_002cd290(O2cd* o, u8* from, u8* to);  // 0x002cd290: definition moved into src/taito/path.cpp
+void Ti__Path__reset_active_path(O2cd* o, u8* from, u8* to);  // 0x002cd290: definition moved into src/taito/path.cpp
 
 }

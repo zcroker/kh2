@@ -18,10 +18,10 @@ extern S_348638 D_00348638;
 static inline void bitclr_w1670(u32* p, u32 n) { u32* w = &p[n >> 5]; *w &= ~(1 << (n & 0x1f)); }
 
 extern "C" {
-void func_001c79a0(u32, void*, u32);
+void YS__PRIZEEFFECT__get(u32, void*, u32);
 void func_001991a8(u32, u32);
 u8* ys_party_get_ability_w1670(u32) asm("_ZN2YS5PARTY11get_abilityEv");
-void func_001d1da0(f32, u8*);
+void YS__MISSION_GAUGE__set(f32, u8*);
 void func_00134408(void);
 void func_00134428(u32, u64);
 void func_00134450(u32);

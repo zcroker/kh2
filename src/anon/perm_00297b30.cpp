@@ -40,12 +40,12 @@ void func_00138c10(s32, s32);
 s32 func_0028b040(s32);
 s8 *func_00276568(void);
 void func_002ac268(s32, s32);
-s32 func_002abff0(s32, s32);
+s32 Tz__JmNewInfo__isStoryNew(s32, s32);
 s32 func_002ac110(s32, s32);
 extern s32 D_0035f200;
 extern Hdr *D_0035f594;
 extern s32 D_00374788;
 extern s32 D_0037478c;
-void func_00297b30(void);  // 0x00297b30: definition moved into src/anon/unit_00295d28.cpp
+void Tz__JmStory__UpdateNewMark(void);  // 0x00297b30: definition moved into src/anon/unit_00295d28.cpp
 
 }

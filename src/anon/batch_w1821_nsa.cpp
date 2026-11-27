@@ -8,5 +8,5 @@ W1821N* func_00109c30();
 void func_00109cc0(s32, W1821N*);
 extern s32 D_0033cca4;
 
-W1821N* func_00109d00(s32 a0, W1821B38* b, W1821Ctx* c, s32 a3, s32 a4);  // 00109d00: moved to src/anon/unit_00109c30.cpp
+W1821N* kn__VU1Draw__draw(s32 a0, W1821B38* b, W1821Ctx* c, s32 a3, s32 a4);  // 00109d00: moved to src/anon/unit_00109c30.cpp
 }

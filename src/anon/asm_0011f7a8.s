@@ -1,17 +1,17 @@
 # Whole-function assembly (last step of the README ladder, 2026-11-10, helper w3913).
 # Both functions were long-standing near misses in C/C++ after several sessions; see attempts.tsv
 # and the best/ADDR_w3913.* drafts. Replace with C/C++ after 100%.
-#   func_0011f7a8: model part draw (single texture); scattered s-reg swaps, operand order and mask/shift forms
+#   kn__ModelBG__drawCommon: model part draw (single texture); scattered s-reg swaps, operand order and mask/shift forms
 # Split out of batch_w3913.s on 2026-11-18 to link it as its own unit.
 	.set noreorder
 	.set noat
 	.set nomacro
 
 	.section .text.func_0011f7a8,"ax",@progbits
-	.globl func_0011f7a8
-	.type func_0011f7a8, @function
-	.ent func_0011f7a8
-func_0011f7a8:
+	.globl kn__ModelBG__drawCommon
+	.type kn__ModelBG__drawCommon, @function
+	.ent kn__ModelBG__drawCommon
+kn__ModelBG__drawCommon:
 	addiu	$29,$29,-208
 	andi	$9,$9,0xff
 	sd	$16,128($29)
@@ -957,5 +957,5 @@ func_0011f7a8:
 	lw	$15,88($29)
 	b	.L0011f8a8
 	nop
-	.end func_0011f7a8
-	.size func_0011f7a8, .-func_0011f7a8
+	.end kn__ModelBG__drawCommon
+	.size kn__ModelBG__drawCommon, .-kn__ModelBG__drawCommon

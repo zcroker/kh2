@@ -151,11 +151,11 @@ void func_002c23f0() asm("_Z13func_002c23f0v");
 void func_002c23f0() {
     u32 v0 = func_00170b30(0x00100000u);
     D_00361c08 = v0;
-    func_001036d0(v0, 0x00100000u);
+    MENU__CreateAllocator_2(v0, 0x00100000u);
     u32 s0 = func_00103570();
     func_00288b18(s0);
-    func_0028c3f0(s0);
-    func_0028c878(s0, 2);
+    Tz__MenuItem__init(s0);
+    Tz__MenuCursor__Init(s0, 2);
     func_00274ee8(s0);
 }
 }  // namespace n002c23f0
@@ -185,27 +185,27 @@ void Menu_exit() {
 // ---- 002c24a8 from src/worldmap/menu.cpp
 namespace n002c24a8 {
 u32 StartJiminy(s32, s32) asm("_ZN2Tz8CampMenu11StartJiminyEii");
-u32 func_002764b0(u32) asm("func_002764b0");
+u32 Tz__Jiminy__AreaWorld2JmWorld(u32) asm("Tz__Jiminy__AreaWorld2JmWorld");
 void Menu_toJiminy(s32 index) asm("_ZN8worldmap4Menu8toJiminyEi");
 void Menu_toJiminy(s32 index) {
     if (index == -1) {
         StartJiminy(0, -1);
     } else {
-        StartJiminy(0, (s32)func_002764b0((u32)index));
+        StartJiminy(0, (s32)Tz__Jiminy__AreaWorld2JmWorld((u32)index));
     }
 }
 }  // namespace n002c24a8
 
 // ---- 002c24e0 from src/anon/tiny_auto80_queue.cpp
 namespace n002c24e0 {
-u32 func_002764b0(...) asm("func_002764b0");
+u32 Tz__Jiminy__AreaWorld2JmWorld(...) asm("Tz__Jiminy__AreaWorld2JmWorld");
 void func_00294288(...) asm("func_00294288");
 u32 func_00192048(...) asm("func_00192048");
 void func_002c24e0(u32 a0) asm("_Z13func_002c24e0j");
 void func_002c24e0(u32 a0) {
     u32 out0;
     u32 out1;
-    u32 v0 = func_002764b0(a0);
+    u32 v0 = Tz__Jiminy__AreaWorld2JmWorld(a0);
     func_00294288(v0, (u32)&out0, (u32)&out1);
     func_00192048(out0);
 }
@@ -213,14 +213,14 @@ void func_002c24e0(u32 a0) {
 
 // ---- 002c2518 from src/anon/tiny_auto80_queue.cpp
 namespace n002c2518 {
-u32 func_002764b0(...) asm("func_002764b0");
+u32 Tz__Jiminy__AreaWorld2JmWorld(...) asm("Tz__Jiminy__AreaWorld2JmWorld");
 void func_00294288(...) asm("func_00294288");
 u32 func_00192048(...) asm("func_00192048");
 void func_002c2518(u32 a0) asm("_Z13func_002c2518j");
 void func_002c2518(u32 a0) {
     u32 out0;
     u32 out1;
-    u32 v0 = func_002764b0(a0);
+    u32 v0 = Tz__Jiminy__AreaWorld2JmWorld(a0);
     func_00294288(v0, (u32)&out0, (u32)&out1);
     func_00192048(out1);
 }
@@ -301,8 +301,8 @@ extern u8 D_00347e40[] asm("D_00347e40");
 extern u8* D_00361c10 asm("D_00361c10");
 void func_0031a838(void*) asm("func_0031a838");
 void func_0031a830(void*) asm("func_0031a830");
-void func_002369a0(void*) asm("func_002369a0");
-void func_0023c008(void*) asm("func_0023c008");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
+void YI__LAYOUT__LAYOUT(void*) asm("YI__LAYOUT__LAYOUT");
 void func_0028d140(void*) asm("func_0028d140");
 void func_00239700(void*) asm("func_00239700");
 void func_002361a0(void*) asm("func_002361a0");
@@ -321,8 +321,8 @@ void func_002c26f8(u8* t)
     *(u32*)(t + 24) = 0;
     func_0031a838(t + 40);
     *(u32*)(t + 28) = (u32)D_0035eb98;
-    func_002369a0(t + 52);
-    func_0023c008(t + 76);
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(t + 52);
+    YI__LAYOUT__LAYOUT(t + 76);
     u32* s1 = (u32*)(t + 188);
     for (s32 i = 8; i != -1; i--) {
         s1[3] = 0;
@@ -394,8 +394,8 @@ extern u8 D_00347e40[] asm("D_00347e40");
 extern u8* D_00361c10 asm("D_00361c10");
 void func_0031a838(void*) asm("func_0031a838");
 void func_0031a830(void*) asm("func_0031a830");
-void func_002369a0(void*) asm("func_002369a0");
-void func_0023c008(void*) asm("func_0023c008");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
+void YI__LAYOUT__LAYOUT(void*) asm("YI__LAYOUT__LAYOUT");
 void func_0028d140(void*) asm("func_0028d140");
 void func_00239700(void*) asm("func_00239700");
 void func_002361a0(void*) asm("func_002361a0");
@@ -405,8 +405,8 @@ void func_00167f38(s32) asm("func_00167f38");
 void func_002c5f48(void) asm("func_002c5f48");
 struct Id3b2c29d8 { u8 a, b, c; void Fill(s32 v) { a = v; b = v; c = v; } };
 struct Id3h2c29d8 { u16 a, b, c; void Fill(s32 v) { a = v; b = v; c = v; } };
-void func_002c29d8(u8* t) asm("func_002c29d8");
-void func_002c29d8(u8* t)
+void dk__WM_LANDING__WM_LANDING(u8* t) asm("dk__WM_LANDING__WM_LANDING");
+void dk__WM_LANDING__WM_LANDING(u8* t)
 {
     *(u32*)(t + 28) = (u32)D_00347f98;
     *(u32*)(t + 0) = (u32)D_00361c20;
@@ -414,8 +414,8 @@ void func_002c29d8(u8* t)
     *(u32*)(t + 24) = 0;
     func_0031a838(t + 40);
     *(u32*)(t + 28) = (u32)D_0035eb98;
-    func_002369a0(t + 52);
-    func_0023c008(t + 76);
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(t + 52);
+    YI__LAYOUT__LAYOUT(t + 76);
     u32* s1 = (u32*)(t + 188);
     for (s32 i = 8; i != -1; i--) {
         s1[3] = 0;

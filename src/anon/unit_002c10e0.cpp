@@ -219,7 +219,7 @@ void wm_total_info_fadeout(void* self) {
 
 // ---- 002c14e8 from src/anon/batch_w109.cpp
 namespace n002c14e8 {
-void func_00236d60(u8*) asm("func_00236d60");
+void YI__IMAGE_CACHE__Clear(u8*) asm("YI__IMAGE_CACHE__Clear");
 s32 func_00139d78(u8*) asm("func_00139d78");
 void func_00139510(u8*) asm("func_00139510");
 s32 func_00139538(u8*) asm("func_00139538");
@@ -240,7 +240,7 @@ void func_002c14e8(u8* self) {
     s32 ids[3];
     s32 ids2[2];
     s32 a, b, c, d;
-    func_00236d60(self);
+    YI__IMAGE_CACHE__Clear(self);
     if (((F2c14e8*)(self + 24))->f) {
         if (func_00139d78(self + 28)) func_00139510(self + 28);
         (*(VFn2c14e8*)(*(u8**)self + 20))(self);
@@ -302,7 +302,7 @@ void func_002c16e8(u8* self) {
 namespace n002c1750 {
 extern u32 func_00361a90 asm("func_00361a90");
 extern u32 D_00347f80 asm("D_00347f80");
-void func_002c0ca0(...) asm("func_002c0ca0");
+void dk__WM_TOTAL_INFO__WM_TOTAL_INFO(...) asm("dk__WM_TOTAL_INFO__WM_TOTAL_INFO");
 void func_002c1750() asm("_Z13func_002c1750v");
 void func_002c1750() {
     if (func_00361a90 != 0) {
@@ -312,7 +312,7 @@ void func_002c1750() {
     u32 a0 = *(u32*)(t6 + 20);
     u32 t7 = *(u32*)a0;
     u32 v0 = ((u32(*)(u32, u32, u32))(*(u32*)t7))(a0, 3052, 0);
-    func_002c0ca0(v0);
+    dk__WM_TOTAL_INFO__WM_TOTAL_INFO(v0);
 }
 }  // namespace n002c1750
 
@@ -334,8 +334,8 @@ void wm_exit() {
 namespace n002c17d8 {
 void func_0017f488(u8*, u32, f32, f32) asm("func_0017f488");
 void func_0017f5e0(u8*, u32, u32, f32, f32) asm("func_0017f5e0");
-void func_002c17d8(u32, u8* p) asm("func_002c17d8");
-void func_002c17d8(u32, u8* p) {
+void worldmap__ActionWarp__start(u32, u8* p) asm("worldmap__ActionWarp__start");
+void worldmap__ActionWarp__start(u32, u8* p) {
     *(u32*)(p + 264) |= 2;
     asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(p + 32) : "memory");
     f32 z = 0.0f;
@@ -356,13 +356,13 @@ void func_002c1848(u32, u8* p) {
 // ---- 002c1860 from src/anon/batch_w42.cpp
 namespace n002c1860 {
 void change_action(void*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
-void func_002c7060(void*) asm("func_002c7060");
+void worldmap__Warp__exec(void*) asm("worldmap__Warp__exec");
 static inline bool positive(f32 x) { return 0.0f < x; }
 void func_002c1860(u32, u8* obj) asm("func_002c1860");
 void func_002c1860(u32, u8* obj)
 {
     u8* s = obj + 2928;
-    func_002c7060(s);
+    worldmap__Warp__exec(s);
     if (!positive(*(f32*)(s + 84))) change_action(obj, 47);
 }
 }  // namespace n002c1860
@@ -398,8 +398,8 @@ void func_002c18e0(u32, u8* p) {
 namespace n002c1950 {
 void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
 u32 func_002c5fa0(u32) asm("func_002c5fa0");
-u32 func_002c1950(u32 a, u32 b) asm("func_002c1950");
-u32 func_002c1950(u32 a, u32 b) {
+u32 worldmap__ActionDash__end(u32 a, u32 b) asm("worldmap__ActionDash__end");
+u32 worldmap__ActionDash__end(u32 a, u32 b) {
     func_0017f488((void*)(b + 320), 0, 8.0f, 0.0f);
     return func_002c5fa0(b);
 }
@@ -430,9 +430,9 @@ void func_002c19b0(u32, u8* o) {
 
 // ---- 002c1a18 from src/anon/batch_wlit.cpp
 namespace n002c1a18 {
-void func_00184540(u8* p, u32 a, f32 x, f32 y) asm("func_00184540");
+void kn__MotionPrototype0__calcLimitValue(u8* p, u32 a, f32 x, f32 y) asm("kn__MotionPrototype0__calcLimitValue");
 u8* func_002c1a18(u8* p, u32 a, u32 b) asm("func_002c1a18");
-u8* func_002c1a18(u8* p, u32 a, u32 b) { f32 f = 0.95f; func_00184540(p, b, f, f); return p; }
+u8* func_002c1a18(u8* p, u32 a, u32 b) { f32 f = 0.95f; kn__MotionPrototype0__calcLimitValue(p, b, f, f); return p; }
 }  // namespace n002c1a18
 
 // .rodata tables of this file, emitted in place: worldmap::Gumi::getCourseName message ids
@@ -481,12 +481,12 @@ struct B3 { u8 b[3]; };
 extern B3 D_00375518[] asm("D_00375518");
 u32 func_001c2b58(s32) asm("func_001c2b58");
 void func_002c1b60(void*, u32) asm("func_002c1b60");
-void func_00198450(void*) asm("func_00198450");
-void func_002c1ae8(u8* p) asm("func_002c1ae8");
-void func_002c1ae8(u8* p) {
+void YS__STDOBJ___OVR_initialize(void*) asm("YS__STDOBJ___OVR_initialize");
+void worldmap__Gumi___OVR_initialize(u8* p) asm("worldmap__Gumi___OVR_initialize");
+void worldmap__Gumi___OVR_initialize(u8* p) {
     *(B3**)(p + 2788) = &D_00375518[func_002c1b48(p) - 1];
     func_002c1b60(p, func_001c2b58(func_002c1b48(p)));
-    func_00198450(p);
+    YS__STDOBJ___OVR_initialize(p);
 }
 }  // namespace n002c1ae8
 
@@ -585,7 +585,7 @@ void func_002c1cb0(u8* c, s32 mode) {
 
 // ---- 002c1d48 (gap, never written): find the Gumi object of a course
 namespace n002c1d48 {
-u8* nextObj(u8*) asm("_Z16ctarget_001b9bc8jjjj");
+u8* nextObj(u8*) asm("_Z13YS__OBJ__Eachjjjj");
 u32 getCourse(u8*) asm("_ZN8worldmap4Gumi9getCourseEv");
 u8* func_002c1d48(u32 course) asm("func_002c1d48");
 u8* func_002c1d48(u32 course) {

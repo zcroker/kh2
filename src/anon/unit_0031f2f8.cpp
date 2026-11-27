@@ -19,7 +19,7 @@
 
 // 0031f2f8 (gap; copy of 0x002cff98, was src/anon/unit_002cf260.cpp)
 namespace n0031f2f8 {
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 u8 func_00319fb0(void*) asm("func_00319fb0");
@@ -36,7 +36,7 @@ u8 func_0031f2f8(u8* o) asm("func_0031f2f8");
 
 u8 func_0031f2f8(u8* o) {
     *(u8**)o = D_0034ee08;
-    func_0019f9a8(o + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(o + 2568);  // array8_free_slots
     func_001c0248(o + 2640);
     return func_00319fb0(o);  // big_obj_dtor
 }
@@ -48,7 +48,7 @@ void func_00105110(void*) asm("func_00105110");
 // 002ceaa8: moved to src/taito/minigame_base.cpp (linked unit)
 
 extern u32 D_0034ee08 asm("D_0034ee08");
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 void func_00319fb0(void*) asm("func_00319fb0");
@@ -56,7 +56,7 @@ void func_00319fb0(void*) asm("func_00319fb0");
 void func_0031f340(u8* p) asm("func_0031f340");
 void func_0031f340(u8* p) {
     *(void**)p = &D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
     func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
@@ -461,8 +461,8 @@ void func_0031f908(u32 a0, u32 a1, u32 a2, u32 a3) {
 // 0031f910 (was src/anon/tiny_auto80.cpp)
 namespace n0031f910 {
 /*TARGET 0031f910*/
-void func_0031f910(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0031f910jjjj");
-void func_0031f910(u32 a0, u32 a1, u32 a2, u32 a3) {
+void YS__WINDOW_OBJ2D__destroy(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z25YS__WINDOW_OBJ2D__destroyjjjj");
+void YS__WINDOW_OBJ2D__destroy(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r14, r15;
     if (r4 != 0u) {
         r15 = *(u32*)((u32)r4 + (s32)(0));
@@ -478,8 +478,8 @@ namespace n0031f940 {
 
 typedef void (*VFn)(void*);
 /*TARGET 0031f940*/
-void func_0031f940(u8* p) asm("func_0031f940");
-void func_0031f940(u8* p) {
+void YS__WINDOW_OBJ2D__draw(u8* p) asm("YS__WINDOW_OBJ2D__draw");
+void YS__WINDOW_OBJ2D__draw(u8* p) {
     void* o = *(void**)(p + 24);
     (*(VFn*)((*(u8**)o) + 16))(o);
 }
@@ -598,8 +598,8 @@ done:
 namespace n0031fb60 {
 u32 func_001abd10(u32, u32, u32, u32) asm("_Z13func_001abd10jjjj");
 /*TARGET 0031fb60*/
-u32 func_0031fb60(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0031fb60jjjj");
-u32 func_0031fb60(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 YS__WINDOW_BASE__set_select(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z27YS__WINDOW_BASE__set_selectjjjj");
+u32 YS__WINDOW_BASE__set_select(u32 a0, u32 a1, u32 a2, u32 a3) {
     return func_001abd10(((u32)(a0) + 828u), a1, a2, a3);
 }
 }  // namespace n0031fb60
@@ -720,11 +720,11 @@ u32 func_0031fd60(u32 a0, u32 a1, u32 a2, u32 a3) {
 namespace n0031fd78 {
 // 0x002fb900: definition moved into src/newlib/libm/sf_copysign.c
 
-void func_001acd78(void*) asm("func_001acd78");
+void YS__WINDOW_BASE__page_end(void*) asm("YS__WINDOW_BASE__page_end");
 /*TARGET 0031fd78*/
 void func_0031fd78(void* p) asm("func_0031fd78");
 void func_0031fd78(void* p) {
-    func_001acd78(p);
+    YS__WINDOW_BASE__page_end(p);
     (*(void (**)(void*))((*(u8**)p) + 32))(p);
 }
 }  // namespace n0031fd78
@@ -823,7 +823,7 @@ void func_0031fec0(u32 self) asm("_Z13func_0031fec0j");
 void func_0031fec0(u32 self) {
     u32 s18 = self;
     *(u32*)s18 = addr_D_0034ee08();
-    func_0019f9a8(s18 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s18 + 2568);  // array8_free_slots
     func_001c0248(s18 + 2640);
 
     *(u32*)s18 = addr_D_003503e0();
@@ -886,7 +886,7 @@ void func_0031ffc0(u32 self) asm("_Z13func_0031ffc0j");
 void func_0031ffc0(u32 self) {
     u32 s18 = self;
     *(u32*)s18 = addr_D_0034ee08();
-    func_0019f9a8(s18 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s18 + 2568);  // array8_free_slots
     func_001c0248(s18 + 2640);
 
     *(u32*)s18 = addr_D_003503e0();
@@ -992,7 +992,7 @@ void func_00320118(u8* p) {
 
 // 00320150 (gap; copy of 0x002cff98, was src/anon/unit_002cf260.cpp)
 namespace n00320150 {
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 u8 func_00319fb0(void*) asm("func_00319fb0");
@@ -1009,7 +1009,7 @@ u8 func_00320150(u8* o) asm("func_00320150");
 
 u8 func_00320150(u8* o) {
     *(u8**)o = D_0034ee08;
-    func_0019f9a8(o + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(o + 2568);  // array8_free_slots
     func_001c0248(o + 2640);
     return func_00319fb0(o);  // big_obj_dtor
 }
@@ -1017,7 +1017,7 @@ u8 func_00320150(u8* o) {
 
 // 00320198 (was src/anon/batch_w28.cpp)
 namespace n00320198 {
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 void func_00319fb0(void*) asm("func_00319fb0");
@@ -1028,7 +1028,7 @@ extern u8 D_0034ee08[] asm("D_0034ee08");
 void func_00320198(u8* p) asm("func_00320198");
 void func_00320198(u8* p) {
     *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 0xa08);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(p + 0xa08);  // array8_free_slots
     func_001c0248(p + 0xa50);
     func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
@@ -1085,7 +1085,7 @@ void func_003201e8(u32 a0, u32 a1) { UNLINK_BODY(24) }
 
 // 00320248 (gap; copy of 0x002cff98, was src/anon/unit_002cf260.cpp)
 namespace n00320248 {
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 u8 func_00319fb0(void*) asm("func_00319fb0");
@@ -1102,7 +1102,7 @@ u8 func_00320248(u8* o) asm("func_00320248");
 
 u8 func_00320248(u8* o) {
     *(u8**)o = D_0034ee08;
-    func_0019f9a8(o + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(o + 2568);  // array8_free_slots
     func_001c0248(o + 2640);
     return func_00319fb0(o);  // big_obj_dtor
 }
@@ -1110,7 +1110,7 @@ u8 func_00320248(u8* o) {
 
 // 00320290 (was src/anon/batch_w29.cpp)
 namespace n00320290 {
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 void func_00319fb0(void*) asm("func_00319fb0");
@@ -1125,7 +1125,7 @@ void func_00320290(u8* p) asm("func_00320290");
 
 void func_00320290(u8* p) {
     *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
     func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
@@ -1139,7 +1139,7 @@ void func_003202d8(u32 self) asm("_Z13func_003202d8j");
 void func_003202d8(u32 self) {
     u32 s18 = self;
     *(u32*)s18 = addr_D_0034ee08();
-    func_0019f9a8(s18 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s18 + 2568);  // array8_free_slots
     func_001c0248(s18 + 2640);
 
     *(u32*)s18 = addr_D_003503e0();
@@ -1169,7 +1169,7 @@ void func_00320368(u32 self) asm("_Z13func_00320368j");
 void func_00320368(u32 self) {
     u32 s18 = self;
     *(u32*)s18 = addr_D_0034ee08();
-    func_0019f9a8(s18 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s18 + 2568);  // array8_free_slots
     func_001c0248(s18 + 2640);
 
     *(u32*)s18 = addr_D_003503e0();

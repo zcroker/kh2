@@ -14,6 +14,6 @@ static inline Node_18f070* next_18f070(Node_18f070* p) {
     return p->next;
 }
 
-int func_0018f070(Node_18f070* a);  // 0x0018f070: definition moved into src/anon/unit_0018d050.cpp
+int YS__ATTACK__is_exist(Node_18f070* a);  // 0x0018f070: definition moved into src/anon/unit_0018d050.cpp
 
 }

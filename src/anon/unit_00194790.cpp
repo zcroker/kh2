@@ -236,7 +236,7 @@ struct V2e8d08 {
     V2e8d08& operator=(const V2e8d08& o) { if (this != &o) QCOPY(this, &o); return *this; }
 } __attribute__((aligned(16)));
 struct BarEnt194a30 { u32 f0; u32 f4; void* data; };
-void* func_001b1490__194a30(void*) asm("func_001b1490");
+void* func_001b1490__194a30(void*) asm("YS__DATABUFF__ReadBar");
 BarEnt194a30* func_00168b88__194a30(void*, s32, s32, s32) asm("func_00168b88");
 BarEnt194a30* func_00168b38__194a30(void*, s32, s32) asm("func_00168b38");
 void func_00264318__194a30(void*) asm("func_00264318");
@@ -264,7 +264,7 @@ void func_001c0c70__194a30(void*) asm("func_001c0c70");
 void func_001c20d8__194a30(void*) asm("func_001c20d8");
 void func_001c2d38__194a30(void*) asm("func_001c2d38");
 void func_001c2d78__194a30(void*) asm("func_001c2d78");
-void func_001ce1a0__194a30(void*) asm("func_001ce1a0");
+void func_001ce1a0__194a30(void*) asm("YS__PREF__Init");
 void func_001d23d0__194a30(void*) asm("func_001d23d0");
 void func_001d30b0__194a30(void*) asm("func_001d30b0");
 void func_001d3c08__194a30(void*) asm("func_001d3c08");
@@ -305,8 +305,8 @@ extern char D_0036d000[] asm("D_0036d000");
 extern char D_0036d008[] asm("D_0036d008");
 extern char D_0036d010[] asm("D_0036d010");
 static inline s32 Tag194a30(char* s) { return s[0] | (s[1] << 8) | (s[2] << 16) | (s[3] << 24); }
-void func_00194a30(void) asm("func_00194a30");
-void func_00194a30(void)
+void YS__BATTLE__SysInit(void) asm("YS__BATTLE__SysInit");
+void YS__BATTLE__SysInit(void)
 {
     void* b;
     BarEnt194a30* e;
@@ -700,8 +700,8 @@ struct W1618Req { u32 f0; s32 handle; s32 id; s32 slot; void* alloc; };
 extern W1618Cfg* D_00352130 asm("D_00352130");
 void W1618Box_init(W1618Box*) asm("_ZN2dk6Aabbox4initEv");
 void W1618Box_set(W1618Box*, f32, f32, f32, f32, f32, f32) asm("_ZN2dk6Aabbox3setEffffff");
-W1618V* func_0016c028(W1618Obj*) asm("func_0016c028");
-W1618V func_0016af58(W1618Obj*) asm("func_0016af58");
+W1618V* YS__OBJ__get_pos(W1618Obj*) asm("YS__OBJ__get_pos");
+W1618V YS__OBJ__get_dir(W1618Obj*) asm("YS__OBJ__get_dir");
 s32 func_00143470(W1618V*, W1618Box*, W1618V*, W1618V*, W1618V*, W1618V*, u8*) asm("func_00143470");
 f32 W1618_get_step_height(W1618Obj*) asm("_ZN2YS3OBJ15get_step_heightEv");
 bool func_0019bfd0(W1618Obj*, const W1618V&) asm("func_0019bfd0");
@@ -709,8 +709,8 @@ void W1618_set_dir(W1618Obj*, const W1618V&) asm("_ZN2YS3OBJ7set_dirERKN2kn7FVec
 void W1618_set_pos(W1618Obj*, const W1618V&) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
 void W1618_change_action(W1618Obj*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
 inline W1618Box::W1618Box() { W1618Box_init(this); }
-bool func_001958d0(W1618Obj* o) asm("func_001958d0");
-bool func_001958d0(W1618Obj* o) {
+bool YS__ACTION_HANG__Check(W1618Obj* o) asm("YS__ACTION_HANG__Check");
+bool YS__ACTION_HANG__Check(W1618Obj* o) {
     W1618V pos;
     W1618V hit;
     W1618V d;
@@ -723,11 +723,11 @@ bool func_001958d0(W1618Obj* o) {
     f32 drop = l->drop;
     W1618Body* b = &o->body;
     f32 r = b->radius + D_00352130->margin;
-    pos = *func_0016c028(o);
+    pos = *YS__OBJ__get_pos(o);
     pos.y -= drop;
     W1618Box_set(&box, pos.x - r, pos.y - D_00352130->below, pos.z - r,
                  pos.x + r, pos.y + D_00352130->above, pos.z + r);
-    dir = func_0016af58(o);
+    dir = YS__OBJ__get_dir(o);
     if (!func_00143470(&pos, &box, &hit, &ea, &eb, &dir, o->colB34)) return 0;
     if (hit.y < box.mn[1] || box.mx[1] < hit.y) return 0;
     if (o->canStep()) {
@@ -755,20 +755,20 @@ bool func_001958d0(W1618Obj* o) {
 // ---- 00195c08 gap
 namespace n00195c08 {
 void func_0017f488(u8*, u32, f32, f32) asm("func_0017f488");
-void func_00158f40() asm("func_00158f40");
+void dk__DangleCamera__create() asm("dk__DangleCamera__create");
 void func_00195c08(u8*, u8* o) asm("func_00195c08");
 void func_00195c08(u8*, u8* o) {
     func_0017f488(o + 320, 7, 0.0f, 0.0f);
-    if (*(u32*)(o + 1416) & 0x80) func_00158f40();
+    if (*(u32*)(o + 1416) & 0x80) dk__DangleCamera__create();
 }
 }  // namespace n00195c08
 
 // ---- 00195c58 from src/anon/batch_w1727.cpp
 namespace n00195c58 {
-void func_00158f90(void*) asm("func_00158f90");
-void func_00195c58(void* a0, u8* a1) asm("func_00195c58");
-void func_00195c58(void* a0, u8* a1) {
-    if (*(u32*)(a1 + 0x588) & 0x80) func_00158f90(a0);
+void dk__DangleCamera__destroy(void*) asm("dk__DangleCamera__destroy");
+void YS__ACTION_HANG__end(void* a0, u8* a1) asm("YS__ACTION_HANG__end");
+void YS__ACTION_HANG__end(void* a0, u8* a1) {
+    if (*(u32*)(a1 + 0x588) & 0x80) dk__DangleCamera__destroy(a0);
 }
 }  // namespace n00195c58
 

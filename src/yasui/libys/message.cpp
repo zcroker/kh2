@@ -63,7 +63,7 @@ extern s32 D_0033caf4;
 void func_00170518(char*, s32, s32);
 u32 func_001708f8(char*, s32);
 void func_00170950(void*);
-void* func_001b1490(const char*);
+void* YS__DATABUFF__ReadBar(const char*);
 s32 func_001aae80(MsgFont*, s32);       // glyph width
 s32 func_001aae90(u8);
 s32 func_001ab820(MsgFont*);
@@ -139,7 +139,7 @@ static inline const char* nm(s32 a) {
     }
     return func_00105ee8();
 }
-char* func_001921d8(s32 a) {
+char* YS__MESSAGE__GetFilename(s32 a) {
     register const char* s asm("$7") = nm(a);
     func_002fee78(s_path, "msg/%s/%s.bar", D_0033caf4, s);
     return s_path;
@@ -149,11 +149,11 @@ char* func_001921d8(s32 a) {
 namespace YS {
 
 void MESSAGE::Read(int id, int arg) {
-    func_00170518(func_001921d8(id), arg, 0);
+    func_00170518(YS__MESSAGE__GetFilename(id), arg, 0);
 }
 
 void MESSAGE::Init(int id, int slot) {
-    func_00191f78(slot, (void*)func_001708f8(func_001921d8(id), -1));
+    func_00191f78(slot, (void*)func_001708f8(YS__MESSAGE__GetFilename(id), -1));
 }
 
 }  // namespace YS
@@ -167,11 +167,11 @@ void func_001922c8(s32 i) {
     }
 }
 
-void func_00192320(void) {
+void YS__MESSAGE__SysInit(void) {
     char buf[48];
     for (s32 i = 0; i < 3; i++) s_files[i].file = 0;
     func_002fee78(buf, "msg/%s/sys.bar", D_0033caf4);
-    func_00191f78(1, func_001b1490(buf));
+    func_00191f78(1, YS__DATABUFF__ReadBar(buf));
 }
 
 static const u8 s_codelen[32] = {

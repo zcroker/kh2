@@ -2,6 +2,6 @@
 
 typedef struct T8 { u8 pad[0x2c]; s32 w2c; } T8;
 f32 f_powf(f32, f32);
-void _Z16wtarget_001d1b60jjjj(T8*, s32);
+void _Z22YS__MISSION_COUNT__setjjjj(T8*, s32);
 
 void func_001d4f40(T8* a0, s32 a1, s32 a2);  // 0x001d4f40: definition moved into src/anon/unit_001d4f40.cpp

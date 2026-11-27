@@ -23,5 +23,5 @@ void func_00138c10(u8*, s32);
 
 // Builds the 18 menu tiles: a base sprite plus two overlays per tile, laid out
 // two per row.
-void func_00271900(void);  // 0x00271900: definition moved into src/anon/unit_00271900.cpp
+void Tz__CmCustom__CreateTopList(void);  // 0x00271900: definition moved into src/anon/unit_00271900.cpp
 }

@@ -17,9 +17,9 @@ s32 w1799_IsExec(void) asm("_ZN2YS5EVENT6IsExecEv");
 f32 w1799_GetRestTime(void) asm("_ZN2YS5EVENT11GetRestTimeEv");
 void w1799_texanm_start(u8* obj, s32 n) asm("_ZN2YS3OBJ12texanm_startEi");
 void w1799_change(u8* mot, s32 n, f32 a, f32 b) asm("_ZN2YS6MOTION6changeEiff");
-void w1799_ut_1c0d38(u8*, s32, s32, s32) asm("_Z16u_tail4_001c0d38jjjj");
+void w1799_ut_1c0d38(u8*, s32, s32, s32) asm("_Z15YS__OBJ__attachjjjj");
 u8* func_0016b740(s32);
-void func_002db968(u8*, u8);
+void Ti__Afp__calc_local_matrix(u8*, u8);
 extern s32 D_0034e948;
 struct W1799Obj { u8 pad[200]; u8 flag; u8 active; };
 

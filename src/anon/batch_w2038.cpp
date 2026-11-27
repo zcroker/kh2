@@ -43,8 +43,8 @@ struct EObj { EObjVt* vt; };
 
 extern "C" {
 s32 func_002eb3b8(EActor*);
-EV* func_0016c028(EActor*);
-EVR func_0016af58(EActor*);
+EV* YS__OBJ__get_pos(EActor*);
+EVR YS__OBJ__get_dir(EActor*);
 EVR func_002cba88(s32, const EV&, const EVR&, f32, f32);
 void e_set_dir(EActor*, const EV&) asm("_ZN2YS3OBJ7set_dirERKN2kn7FVectorE");
 void func_002eda90(f32, s32, s32);

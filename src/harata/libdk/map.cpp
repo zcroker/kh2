@@ -25,16 +25,16 @@ struct A15eba8 { AV15eba8* vt; };
 extern "C" {
 extern A15eba8* D_0034c738;
 void func_0015f288();
-void func_001612b8(u8*, u8*);
-void func_00142c90(u8*, u8*, u8, u64);
+void dk__BgObj__init(u8*, u8*);
+void dk__Octree__create(u8*, u8*, u8, u64);
 void func_0015f8d8(void*, s32, V15eba8*, V15eba8*, V15eba8*, s32, s32);
 void func_0015c2a0(s32, u64);
 u32 func_001492e0(u8*) asm("_Z13func_001492e0Pv");
-void func_001dddd0(void*, u32) asm("_Z16wtarget_001dddd0jjjj");
-void func_001de228(void*, s32, s32, s32, s32, s32);
+void ryj__PAX__init(void*, u32) asm("_Z14ryj__PAX__initjjjj");
+void ryj__PAX__start_group(void*, s32, s32, s32, s32, s32);
 s32 func_001de568(void*) asm("_ZN3ryj3PAX11ThisIsValidEPS0_");
-void func_001dde40(void*);
-void func_00142f50(void);
+void ryj__PAX__ensure(void*);
+void dk__Octree__destroy(void);
 void func_00143060(void);
 void func_001538d8(u8);
 void func_0015c4a0(u32);
@@ -46,12 +46,12 @@ u32 func_00143318(u32);
 void func_0011e9a8(u32, u32, u32, u32, f32) asm("_Z16wtarget_0011e9a8jjjj");
 void func_00161248(u32, f32);
 
-void func_0015eba8(u8* o, u8* x, u8 flag, u64 mask)
+void dk__Map__create(u8* o, u8* x, u8 flag, u64 mask)
 {
     func_0015f288();
     D_0034c710 = mask;
-    func_001612b8(x, o);
-    func_00142c90(o, x, flag, mask);
+    dk__BgObj__init(x, o);
+    dk__Octree__create(o, x, flag, mask);
     V15eba8 a, b, c;
     Unit15eba8(&a);
     Unit15eba8(&b);
@@ -74,11 +74,11 @@ void func_0015eba8(u8* o, u8* x, u8 flag, u64 mask)
     func_0015c2a0(n0 + n1, mask);
     D_0034c70c = 0;
     if (func_001492e0(o)) {
-        func_001dddd0(&D_0034c6f0, func_001492e0(o));
+        ryj__PAX__init(&D_0034c6f0, func_001492e0(o));
         D_0034c70c = 1;
         u64 one = 1;
         for (s32 i = 0; i < 64; i++) {
-            if (mask & (one << i)) func_001de228(&D_0034c6f0, i, 1, 2, 0, 0);
+            if (mask & (one << i)) ryj__PAX__start_group(&D_0034c6f0, i, 1, 2, 0, 0);
         }
     }
 }
@@ -86,10 +86,10 @@ void func_0015eba8(u8* o, u8* x, u8 flag, u64 mask)
 void func_0015edb8(void)
 {
     if (D_0034c70c == 1) {
-        if (func_001de568(&D_0034c6f0)) func_001dde40(&D_0034c6f0);
+        if (func_001de568(&D_0034c6f0)) ryj__PAX__ensure(&D_0034c6f0);
     }
     D_0034c70c = 0;
-    func_00142f50();
+    dk__Octree__destroy();
 }
 }
 
@@ -111,7 +111,7 @@ void Map::setVisibleGroup(u32 g)
     func_00143110(g);
     func_00153948(g);
     func_0015c450(g);
-    if (D_0034c70c == 1) func_001de228(&D_0034c6f0, g, 1, 2, 0, 0);
+    if (D_0034c70c == 1) ryj__PAX__start_group(&D_0034c6f0, g, 1, 2, 0, 0);
 }
 
 u32 Map::isPaxExist() { return D_0034c70c; }

@@ -34,7 +34,7 @@ struct CurSt278 { u32 pad:27; u32 bit:1; u32 pad2:4; };
 extern "C" {
 extern CurOwn278* D_0035f634;
 extern CurTbl278 D_00374cd8[];
-CurSt278* func_002b23e0(s32);  // list_entry_by_index_checked
+CurSt278* Tz__JmPuzzle__GetImageInfo(s32);  // list_entry_by_index_checked
 void Call4_278(CurItem278*) asm("_Z16u_call4_00139d78jjjj");
 s32 IsHide278(CurItem278*) asm("_ZN2dk5Obj2D6isHideEv");
 void Show278(CurItem278*) asm("_ZN2dk5Obj2D4showEv");

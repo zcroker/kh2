@@ -43,7 +43,7 @@ void func_001b74b8(Buf1d5d80*);
 void func_001b74c8(Buf1d5d80*, s32);
 s32 func_001d5ec0(void*, s32, void*, s32);
 void func_001b7538(Buf1d5d80*, s32);
-void func_001a3188(s32, s32, s32);
+void YS__ITEM__Get(s32, s32, s32);
 void func_001b76c8(Buf1d5d80*, void*, s32);
 void func_001a1460(Sub1d5d80*);
 void func_001d7778(void);
@@ -78,11 +78,11 @@ struct S1d2e68 { f32 a, b, c; s32 d; V1d2e68 pos; u8 pad[16]; };
 struct O1d2e68 { u8 p0[2548]; u8 tgt[4]; };
 extern u8 D_00352130[];
 s32 func_00190140(void*) asm("_ZNK2YS6TARGET8is_existEv");
-void func_001902a8(void*, S1d2e68*);
-V1d2e68 func_0016bda8(O1d2e68*) asm("_Z16ctarget_0016bda8jjjj");
-V1d2e68 func_0017d538(V1d2e68*, f32);
-V1d2e68 func_0016af58(O1d2e68*);
-V1d2e68 func_001d2e68(void* self, O1d2e68* o);  // 0x001d2e68: definition moved into src/anon/unit_001d2810.cpp
+void YS__TARGET__make_collision(void*, S1d2e68*);
+V1d2e68 YS__OBJ__get_target_pos(O1d2e68*) asm("_Z23YS__OBJ__get_target_posjjjj");
+V1d2e68 YS__MATH__VectorRotY(V1d2e68*, f32);
+V1d2e68 YS__OBJ__get_dir(O1d2e68*);
+V1d2e68 YS__ACTION_LM_DOLPHIN__GetNearVector(void* self, O1d2e68* o);  // 0x001d2e68: definition moved into src/anon/unit_001d2810.cpp
 }
 
 // 001eb668: the h8 store goes through a byte-offset cast. As a plain field store it

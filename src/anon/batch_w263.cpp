@@ -1,13 +1,13 @@
 #include "../common/types.h"
 extern "C" {
 extern u8 D_0032e020[];
-void* func_00189200(void*, u8);
-void* func_00188fe0(void*, u8);
-void func_00188958(void*, u8);
+void* YS__SAVERAM_BATTLE__get_formram(void*, u8);
+void* YS__SAVERAM_BATTLE__get_partram(void*, u8);
+void YS__PARTRAM__set_item_max(void*, u8);
 void func_001891b8(void*, u16);
-void func_001a3188(u32, u8, u32);
+void YS__ITEM__Get(u32, u8, u32);
 
-void func_001c2d88(u8* p);  // 0x001c2d88: definition moved into src/anon/unit_001c2b58.cpp
+void YS__PLAYERPARAM__apply(u8* p);  // 0x001c2d88: definition moved into src/anon/unit_001c2b58.cpp
 
 extern u8 D_00347e60[];
 extern u8 D_00347f98[];

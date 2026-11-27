@@ -15,16 +15,16 @@ public:
 
 // 00180378 (src/anon/batch_wcx2.cpp): the motion capture helper
 namespace g40 {
-void func_0017f380(u8*) asm("func_0017f380");  // obj_walk_children
-u32 func_0017ec98(u8*, u32) asm("func_0017ec98");
+void YS__MOTION__clear_queue(u8*) asm("YS__MOTION__clear_queue");  // obj_walk_children
+u32 YS__MOTION__id_to_num(u8*, u32) asm("YS__MOTION__id_to_num");
 u32 func_0017edf0(u8*, u32) asm("func_0017edf0");
-void func_001801b0(u32, u32, u32, u8*, u32, f32) asm("func_001801b0");
-void func_00180378(u8* p, u8* a1, u32 a2, f32 x) asm("_Z13func_00180378PhPhjf");
-void func_00180378(u8* p, u8* a1, u32 a2, f32 x) {
-    func_0017f380(a1 + 320);  // obj_walk_children
-    u32 r = func_0017edf0(p, func_0017ec98(p, a2));
+void YS__MOTION___Capture(u32, u32, u32, u8*, u32, f32) asm("YS__MOTION___Capture");
+void YS__MOTION__capture(u8* p, u8* a1, u32 a2, f32 x) asm("_Z19YS__MOTION__capturePhPhjf");
+void YS__MOTION__capture(u8* p, u8* a1, u32 a2, f32 x) {
+    YS__MOTION__clear_queue(a1 + 320);  // obj_walk_children
+    u32 r = func_0017edf0(p, YS__MOTION__id_to_num(p, a2));
     u32 o = *(u32*)(p + 8);
-    func_001801b0(o, r, *(u32*)(p + 240), a1, o + 1160, x);
+    YS__MOTION___Capture(o, r, *(u32*)(p + 240), a1, o + 1160, x);
     *(u32*)(a1 + 340) = a2;
     *(u8**)(a1 + 576) = *(u8**)p;
 }
@@ -51,7 +51,7 @@ struct VObjVt { void* a; void* b; s32 (*get)(struct VObj*); };
 struct VObj { struct VObjVt* vt; };
 struct Obj180 { u8 pad[0x14]; s32 mode; u8 pad2[0x14]; f32 div; f32 base; };
 extern f32 D_00349e10 asm("D_00349e10");
-s32 func_0017ec98(struct Obj180*, s32) asm("func_0017ec98");
+s32 YS__MOTION__id_to_num(struct Obj180*, s32) asm("YS__MOTION__id_to_num");
 s32 func_0017edf0(struct Obj180*, s32) asm("func_0017edf0");
 struct VObj* func_00180408(struct Obj180*, s32) asm("func_00180408");
 f32 func_002f8b00(f32, f32) asm("func_002f8b00");
@@ -60,7 +60,7 @@ f32 func_00180448(struct Obj180* o, s32 n, f32 x, f32 y) {
     s32 ok = (u32)(n - 1) < 2;
     if ((u32)(o->mode - 1) < 2 && ok) {
         f32 t = (o->base + D_00349e10 + x) / o->div;
-        struct VObj* v = func_00180408(o, func_0017edf0(o, func_0017ec98(o, n)));
+        struct VObj* v = func_00180408(o, func_0017edf0(o, YS__MOTION__id_to_num(o, n)));
         f32 c = v->vt->get(v);
         return func_002f8b00(c * t, c);
     }
@@ -84,7 +84,7 @@ struct Obj {
 
 };
 typedef void (*VCall4)(Obj*, u32);
-u32 func_0017ec98(...) asm("func_0017ec98");
+u32 YS__MOTION__id_to_num(...) asm("YS__MOTION__id_to_num");
 u32 func_0017edf0(u32 a0, u32 a1) asm("func_0017edf0");
 u32 func_00180408(u32 a0, u32 a1) asm("func_00180408");
 struct Vtbl_00180510 {
@@ -154,7 +154,7 @@ typedef void (*FnMgr)(u32, u32);
 u32 func_00180510(u32 a0) {
     u32 s1 = 0;
 
-    u32 v0 = func_0017ec98(a0);
+    u32 v0 = YS__MOTION__id_to_num(a0);
     v0 = func_0017edf0(a0, v0);
 
     Obj_00180510 *s0 = (Obj_00180510 *)func_00180408(a0, v0);
@@ -173,7 +173,7 @@ u32 func_00180510(u32 a0) {
 // 001805a8 (src/anon/batch_w14.cpp)
 namespace gX {
 void func_0014d358(void*, s32, void (*)(void), s32) asm("func_0014d358");
-s32 func_0017ec98(void*, s32) asm("func_0017ec98");
+s32 YS__MOTION__id_to_num(void*, s32) asm("YS__MOTION__id_to_num");
 s32 func_0017edf0(void*, s32) asm("func_0017edf0");
 s32 func_00180408(void*, s32) asm("func_00180408");
 void* func_00102c18(s32, s32, void (*)(void)) asm("func_00102c18");
@@ -185,7 +185,7 @@ void u_call4_001d2210(u32, u32, u32, u32) asm("_Z16u_call4_001d2210jjjj");
 void u_call4_00139d78(u32) asm("_Z16u_call4_00139d78jjjj");
 
 s32 MOTION_is_exist(void* m, s32 i) {
-    return func_00180408(m, func_0017edf0(m, func_0017ec98(m, i))) != 0;
+    return func_00180408(m, func_0017edf0(m, YS__MOTION__id_to_num(m, i))) != 0;
 }
 }  // namespace gX
 
@@ -226,7 +226,7 @@ struct HeapW55;
 void* operator new[](unsigned int, HeapW55*) asm("func_001063f0");
 typedef void (*CbW55)(u8*, u32);
 void func_0016bd60(u32, s32) asm("func_0016bd60");
-u32 func_001b9bc8(u32) asm("func_001b9bc8");
+u32 YS__OBJ__Each(u32) asm("YS__OBJ__Each");
 s32 func_0016a040(u32) asm("func_0016a040");
 void func_0016c568(u32, u32, f32) asm("func_0016c568");
 extern s8 D_01c60500 asm("D_01c60500");
@@ -270,7 +270,7 @@ struct Obj {
     u32* vtbl;
 
 };
-u32 func_0017ec98(...) asm("func_0017ec98");
+u32 YS__MOTION__id_to_num(...) asm("YS__MOTION__id_to_num");
 u32 func_0017edf0(u32 a0, u32 a1) asm("func_0017edf0");
 u32 func_00180408(u32 a0, u32 a1) asm("func_00180408");
 u32 func_00180698(u32 a0, u32 a1) asm("func_00180698");
@@ -289,7 +289,7 @@ typedef u32 (*Method1)(u32);
 u32 func_00180698(u32 a0, s32 a1) {
     if (a1 >= 0) {
         if ((u32)a1 != *(u32 *)(a0 + 20)) {
-            u32 v0 = func_0017ec98(a0, (u32)a1);
+            u32 v0 = YS__MOTION__id_to_num(a0, (u32)a1);
             v0 = func_0017edf0(a0, v0);
             return func_00180408(a0, v0);
         }
@@ -314,7 +314,7 @@ struct Obj {
 
 };
 typedef void (*VCall4)(Obj*, u32);
-u32 func_0017ec98(...) asm("func_0017ec98");
+u32 YS__MOTION__id_to_num(...) asm("YS__MOTION__id_to_num");
 u32 func_0017edf0(u32 a0, u32 a1) asm("func_0017edf0");
 u32 func_00180408(u32 a0, u32 a1) asm("func_00180408");
 u32 func_00180698(u32 a0, u32 a1) asm("func_00180698");
@@ -378,7 +378,7 @@ typedef void (*Fn_00322b10_dtor)(u32);
 typedef void (*Fn_00322b10_mgr)(u32, u32);
 typedef void (*FnMgr)(u32, u32);
 
-float func_001806f8(u32 a0, s32 a1) {
+float YS__MOTION__get_length(u32 a0, s32 a1) {
     if (a1 < 0 || (u32)a1 == *(u32 *)(a0 + 20)) {
         return *(float *)(a0 + 44);
     }
@@ -509,7 +509,7 @@ void func_0011c148(Slot180*, u32, u16, s32, s32, f32) asm("func_0011c148");
 void func_0011c210(Slot180*) asm("func_0011c210");
 
 // Fills buf with one slot per type-10 then type-11 child of the body, then terminates the list.
-void func_001808c0(Obj180* o, Slot180* buf) {
+void YS__MOTION__make_ik_adjust(Obj180* o, Slot180* buf) {
     if (!o->active || (*(u32*)(o->body + 264) & 0x40000000)
         || (!func_0019bad8(o->body) && !(*(u32*)(o->body + 1416) & 0x20))) {
         func_0011c210(buf);
@@ -621,20 +621,20 @@ struct Slot { void* p; u32 a; };
 struct Grp { u32 a, b; Slot slots[8]; };
 struct Obj6 { u8 pad[8]; s32 id; u8 pad2[0x100 - 12]; Grp g; };
 extern "C" {
-Vec* func_0016c028(s32);
-s32 func_0019c6f0(s32);
+Vec* YS__OBJ__get_pos(s32);
+s32 YS__OBJ__is_stop(s32);
 void func_002bc398(void*, Vec*);
 void func_002bc3f0(void*, Vec*);
 s32 func_002bc420(void*);
 void func_00180b98(Obj6* o) {
     Vec v;
-    v = *func_0016c028(o->id);
+    v = *YS__OBJ__get_pos(o->id);
     Grp* g = &o->g;
     for (s32 i = 0; i < 8; i++) {
         Slot* s = &g->slots[i];
         if (s->p != 0) {
             if (func_002bc420(s->p)) {
-                s32 c = func_0019c6f0(o->id);
+                s32 c = YS__OBJ__is_stop(o->id);
                 register Vec* pv asm("$5") = &v;
                 if (c) {
                     func_002bc3f0(s->p, pv);
@@ -688,7 +688,7 @@ void MISSION_Activate2d(void*) asm("_ZN2YS7MISSION10Activate2dEv");
 void EFFECT_kill(void*) asm("_ZN3ryj6EFFECT4killEv");
 u32 wtarget_002342f0(u32, u32, u32, u32) asm("_Z16wtarget_002342f0jjjj");
 void Layout_setNum(void*, s32, s32) asm("_ZN2Tz6Layout6setNumEii");
-void u_tail4_002e2d88(u32, u32, u32, u32) asm("_Z16u_tail4_002e2d88jjjj");
+void Ti__MG_EHSidecar__PlayPath(u32, u32, u32, u32) asm("_Z26Ti__MG_EHSidecar__PlayPathjjjj");
 void func_001802d8(u32, u32, u32, u32, u32, u32) asm("func_001802d8");
 
 void func_00180c88(u8* p, u32 a, f32 x) {
@@ -737,7 +737,7 @@ void wtarget_002eda40(u32 a, u32 b, u32 c, u32 d) asm("_Z16wtarget_002eda40jjjj"
 typedef void (*VFn)(void);
 void func_001022c0(void*, void*, int, int, void*) asm("func_001022c0");
 void func_00102528(void*, void*) asm("func_00102528");
-void* func_001b9bc8p(void*) asm("func_001b9bc8");
+void* func_001b9bc8p(void*) asm("YS__OBJ__Each");
 void func_002fd188(void (*)(void)) asm("func_002fd188");  // pool_alloc_block
 struct T180 { u8 pad[332]; s32 t[16]; };
 

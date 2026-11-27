@@ -195,7 +195,7 @@ u32 func_0023d438(void* a0, u32 a1) {
     func_0014c050(s2 + 0x11a0);
 
     *(u32*)(s2 + 0xb6c) = a1;
-    return func_0023d5b8(s2);
+    return Tz__MenuObj__Init(s2);
 }
 }  // namespace n0023d438
 
@@ -230,7 +230,7 @@ u32 func_0023d4f8(void* a0, u32 a1) {
     func_0014c050(s2 + 0x11a0);
 
     *(u32*)(s2 + 0xb6c) = a1;
-    return func_0023d5b8(s2);
+    return Tz__MenuObj__Init(s2);
 }
 }  // namespace n0023d4f8
 
@@ -270,9 +270,9 @@ struct Work {
 };
 /*TARGET 0023d5b8*/
 // Resets the four slots and sets up the three GS draw contexts.
-void func_0023d5b8(Work* w) asm("func_0023d5b8");
+void Tz__MenuObj__Init(Work* w) asm("Tz__MenuObj__Init");
 // Resets the four slots and sets up the three GS draw contexts.
-void func_0023d5b8(Work* w) {
+void Tz__MenuObj__Init(Work* w) {
     s32 i;
     for (i = 0; i < w->count; i++) {
         Slot* s = &w->slot[i];
@@ -361,7 +361,7 @@ typedef void (*VRel11)(u8*, u32, u8*);
 s32 func_00139d78(u8*) asm("func_00139d78");
 u32 func_00103580(void) asm("func_00103580");
 void func_001dc920(u32) asm("func_001dc920");
-void func_001dde40(u32*) asm("func_001dde40");
+void ryj__PAX__ensure(u32*) asm("ryj__PAX__ensure");
 void func_001a9350(u8*) asm("func_001a9350");
 void func_00106420(u8*) asm("func_00106420");
 void func_0023e738(Mgr11*, s32, s32, s32) asm("func_0023e738");
@@ -392,7 +392,7 @@ void func_0023d820(Mgr11* p) {
                 }
             }
             u32* q = &s->f192;
-            if (*q) func_001dde40(q);
+            if (*q) ryj__PAX__ensure(q);
             u8* o = s->obj;
             if (o) {
                 func_001a9350(o);
@@ -484,20 +484,20 @@ void func_00107360(void*, f32) asm("func_00107360");
 void func_00107118(void*) asm("func_00107118");
 s32 func_0013a1d8() asm("func_0013a1d8");
 void* func_001063c0(s32, s32) asm("func_001063c0");
-void func_001a91f8(void*) asm("func_001a91f8");
+void YS__OBJDATA__clear(void*) asm("YS__OBJDATA__clear");
 void func_001a92d8(void*, s32, s32) asm("func_001a92d8");
 s32 func_00103580() asm("func_00103580");
 Res23da00* func_001a93e8(void*) asm("func_001a93e8");
-Mot23da00* func_001a9458(void*, s32, s32) asm("func_001a9458");
+Mot23da00* YS__OBJDATA__get_kna(void*, s32, s32) asm("YS__OBJDATA__get_kna");
 void* func_001a9420(void*) asm("func_001a9420");
 void func_0011e260(s32, void*) asm("func_0011e260");
 f32 func_0023e700(Mgr23da00*) asm("func_0023e700");
 void* func_001a9528(void*) asm("func_001a9528");
-void func_001dddd0(void*, void*) asm("func_001dddd0");
-void func_001a9560(void*, Obj23da00*, void*, s32*) asm("func_001a9560");
+void ryj__PAX__init(void*, void*) asm("ryj__PAX__init");
+void YS__OBJDATA__start_model_effect(void*, Obj23da00*, void*, s32*) asm("YS__OBJDATA__start_model_effect");
 /*TARGET 0023da00*/
-void func_0023da00(Mgr23da00* m, s32 idx, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2) asm("func_0023da00");
-void func_0023da00(Mgr23da00* m, s32 idx, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2)
+void Tz__MenuObj__CreateObj(Mgr23da00* m, s32 idx, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2) asm("Tz__MenuObj__CreateObj");
+void Tz__MenuObj__CreateObj(Mgr23da00* m, s32 idx, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2)
 {
     u8* cam = (u8*)m + idx * 400 + 288;
     s32 sl = m->slot[idx] * 320; asm("" : "+r"(sl) : "r"(a3));
@@ -513,7 +513,7 @@ void func_0023da00(Mgr23da00* m, s32 idx, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2
     o->pos = V23da00(0.0f, 0.0f, 0.0f, 0.0f);
     o->scl = V23da00(1.0f, 1.0f, 1.0f, 1.0f);
     void* p = func_001063c0(24, func_0013a1d8());
-    func_001a91f8(p);
+    YS__OBJDATA__clear(p);
     func_001a92d8(p, a2, 0);
     o->mdl = p;
     o->a2 = a2;
@@ -522,7 +522,7 @@ void func_0023da00(Mgr23da00* m, s32 idx, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2
     o->w48 = 0;
     s32 v = func_00103580();
     o->w48 = func_001a93e8(o->mdl)->get(v);
-    if (a3 >= 0) o->mot = func_001a9458(o->mdl, a3, t0);
+    if (a3 >= 0) o->mot = YS__OBJDATA__get_kna(o->mdl, a3, t0);
     else o->mot = 0;
     o->w120 = 0;
     o->w124 = 0;
@@ -544,8 +544,8 @@ void func_0023da00(Mgr23da00* m, s32 idx, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2
     for (s32 i = 0; i < 16; i++) o->w220[i] = 0;
     void* x = func_001a9528(o->mdl);
     if (x) {
-        func_001dddd0(o->m192, x);
-        func_001a9560(o->mdl, o, o->m192, o->w220);
+        ryj__PAX__init(o->m192, x);
+        YS__OBJDATA__start_model_effect(o->mdl, o, o->m192, o->w220);
     }
     m->count++;
 }
@@ -556,16 +556,16 @@ namespace n0023dd28 {
 // 0x002378c8: definition moved into src/anon/unit_00237068.cpp
 
 // ---- 0x23dd28 ----
-void func_00106d40(void*, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32) asm("func_00106d40");
-void func_00106de8(void*, s32, f32) asm("func_00106de8");
-void func_00106c08(void*) asm("func_00106c08");
+void kn__Projection__set(void*, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32) asm("kn__Projection__set");
+void kn__Projection__setFOV(void*, s32, f32) asm("kn__Projection__setFOV");
+void kn__Projection__calcMatrix(void*) asm("kn__Projection__calcMatrix");
 /*TARGET 0023dd28*/
 void func_0023dd28(u8* p, s32 i, s32 x, s32 y) asm("func_0023dd28");
 void func_0023dd28(u8* p, s32 i, s32 x, s32 y) {
     u8* o = p + i * 400 + 32;
-    func_00106d40(o, 512.0f, 0.7999999523162842f, 0.8666666150093079f, (f32)(x + 2048), (f32)(y + 2048), 1.0f, 16770000.0f, 1.0f, 4000000.0f, 256.0f, 208.0f);
-    func_00106de8(o, 0, 0.6981316804885864f);
-    func_00106c08(o);
+    kn__Projection__set(o, 512.0f, 0.7999999523162842f, 0.8666666150093079f, (f32)(x + 2048), (f32)(y + 2048), 1.0f, 16770000.0f, 1.0f, 4000000.0f, 256.0f, 208.0f);
+    kn__Projection__setFOV(o, 0, 0.6981316804885864f);
+    kn__Projection__calcMatrix(o);
 }
 }  // namespace n0023dd28
 
@@ -620,14 +620,14 @@ s32 func_001064a8(s32) asm("func_001064a8");
 void func_0011b6a8(W1705Mtx*) asm("func_0011b6a8");
 void func_0011b7b0(W1705Mtx*, W1705Vec*) asm("func_0011b7b0");
 void func_0011c4e8(f32, s32, W1705Mtx*, W1705Motion*, s32, s32, s32) asm("func_0011c4e8");
-void func_0011ea40(f32, s32) asm("func_0011ea40");
+void kn__ModelObj__playAnimation(f32, s32) asm("kn__ModelObj__playAnimation");
 u8 u_call4_00139d78(s32) asm("_Z16u_call4_00139d78jjjj");
 f32 func_0014ce78(void) asm("func_0014ce78");
 void func_0023d820(W1705Owner*) asm("func_0023d820");
 f32 func_0023e700(W1705Owner*) asm("func_0023e700");
 /*TARGET 0023de00*/
-void func_0023de00(W1705Owner* o) asm("func_0023de00");
-void func_0023de00(W1705Owner* o)
+void Tz__MenuObj__update(W1705Owner* o) asm("Tz__MenuObj__update");
+void Tz__MenuObj__update(W1705Owner* o)
 {
     s32 i;
     for (i = 0; i < o->count; i++) {
@@ -684,7 +684,7 @@ void func_0023de00(W1705Owner* o)
                          "sqc2 $vf1, 0(%0)\n\tsqc2 $vf2, 16(%0)\n\tsqc2 $vf3, 32(%0)"
                          : : "r"(mtx), "r"(&p->scale) : "memory");
             func_0011c4e8(p->time, p->model, mtx, m, 0, 0, 0);
-            func_0011ea40(dt, p->model);
+            kn__ModelObj__playAnimation(dt, p->model);
         }
     }
 }

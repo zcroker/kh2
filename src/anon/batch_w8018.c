@@ -17,6 +17,6 @@ H* func_00294000(s32);
 s32 func_002944d0(E8*);
 s32 func_00276c18(void);
 
-void func_00279860(void);  // 0x00279860: definition moved into src/anon/unit_002793b0.cpp
+void Tz__CmAbility__GetFriendAbilityAI(void);  // 0x00279860: definition moved into src/anon/unit_002793b0.cpp
 
 s32 func_002a6500(void);  // 0x002a6500: definition moved into src/anon/unit_002a5a90.cpp

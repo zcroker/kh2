@@ -41,8 +41,8 @@ u32 func_00155d58(u8*, int) asm("func_00155d58");  // table_word_indexed_by_3
 void func_00138c10(u8*, u32) asm("func_00138c10");
 void func_00154408(u8*, u32) asm("func_00154408");
 
-void func_001576e8(u8* p) asm("func_001576e8");
-void func_001576e8(u8* p) {
+void dk__GAUGE_PLAYER__setFace(u8* p) asm("dk__GAUGE_PLAYER__setFace");
+void dk__GAUGE_PLAYER__setFace(u8* p) {
     func_00138c10(p + 6704, func_00155d58(p, 0));
     func_00138c10(p + 7116, func_00155d58(p, 1));
     func_00138c10(p + 8352, func_00155d58(p, 2));
@@ -58,7 +58,7 @@ void func_002ba390(void) asm("func_002ba390");
 u32 func_00166cc8(u32) asm("func_00166cc8");
 u32 func_00166cf0(u32) asm("func_00166cf0");
 u32 func_001396c0(u32) asm("func_001396c0");
-void func_001576e8(u32) asm("func_001576e8");
+void dk__GAUGE_PLAYER__setFace(u32) asm("dk__GAUGE_PLAYER__setFace");
 
 void func_00157758(u32 a0) asm("func_00157758");
 void func_00157758(u32 a0) {
@@ -72,13 +72,13 @@ void func_00157758(u32 a0) {
         if (func_00166cc8(*(u32*)(s0 + 52)) == 0) {
             return;
         }
-        return func_001576e8(s0);
+        return dk__GAUGE_PLAYER__setFace(s0);
     }
 
     if (func_00166cc8(*(u32*)(s0 + 52)) != 0) {
         return;
     }
-    return func_001576e8(s0);
+    return dk__GAUGE_PLAYER__setFace(s0);
 }
 
 void func_001577c8(u32 a0) asm("func_001577c8");
@@ -117,7 +117,7 @@ L_854:
         return;
     }
     func_002ba390();
-    return func_001576e8(s0);
+    return dk__GAUGE_PLAYER__setFace(s0);
 }
 
 void func_00157880(u32 a0) asm("_ZN2dk12GAUGE_PLAYER13checkAlertOffEv");
@@ -140,7 +140,7 @@ void func_00157880(u32 a0) {
 namespace g3 {
 s32 func_0013c7d0(void) asm("func_0013c7d0");
 s32 func_00155d58(u8*, s32) asm("func_00155d58");  // table_word_indexed_by_3
-s32 func_00155f40(u8*) asm("func_00155f40");
+s32 dk__GAUGE_PLAYER__getDriveLoopSqNum(u8*) asm("dk__GAUGE_PLAYER__getDriveLoopSqNum");
 s32 func_00155fc0(u8*) asm("func_00155fc0");
 void func_00157aa0(u8*) asm("func_00157aa0");
 u8 u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
@@ -153,7 +153,7 @@ void func_001578d8(u8* p)
     if (func_0013c7d0()) {
         u8* s = p + 12060;
         func_00138c10(p + 6704, func_00155d58(p, 0));
-        func_00138c10(p + 11648, func_00155f40(p));
+        func_00138c10(p + 11648, dk__GAUGE_PLAYER__getDriveLoopSqNum(p));
         if (u_call4_00139d78(s)) func_00138c10(s, func_00155fc0(p));
         func_00157aa0(p);
         p[32] = 1;
@@ -228,12 +228,12 @@ void func_00157a00(u32 a0) {
 
 // 157aa0
 namespace g6 {
-s32 func_001a1de0(void*) asm("_Z16u_call4_001a1de0jjjj");
+s32 YS__SHEET__is_mpdrive(void*) asm("_Z21YS__SHEET__is_mpdrivejjjj");
 void func_00138c10(void*, s32) asm("func_00138c10");
 
 void func_00157aa0(u8* p) asm("func_00157aa0");
 void func_00157aa0(u8* p) {
-    if (!func_001a1de0(*(void**)(*(u8**)(p + 52) + 1164))) func_00138c10(p + 10000, 117);
+    if (!YS__SHEET__is_mpdrive(*(void**)(*(u8**)(p + 52) + 1164))) func_00138c10(p + 10000, 117);
     else func_00138c10(p + 10000, 111);
 }
 }  // namespace g6
@@ -242,10 +242,10 @@ void func_00157aa0(u8* p) {
 namespace g7 {
 struct Cfg { u8 pad[384]; u32 f384, f388; };
 struct Wk { u8 pad[1164]; Cfg* cfg; };
-s32 func_001a1de0(Cfg*) asm("_Z16u_call4_001a1de0jjjj");
+s32 YS__SHEET__is_mpdrive(Cfg*) asm("_Z21YS__SHEET__is_mpdrivejjjj");
 f32 func_001a1e00(Cfg*) asm("func_001a1e00");
 s32 func_00158250(u8*) asm("func_00158250");
-s32 func_00155f40(u8*) asm("func_00155f40");
+s32 dk__GAUGE_PLAYER__getDriveLoopSqNum(u8*) asm("dk__GAUGE_PLAYER__getDriveLoopSqNum");
 void func_00138c10(u8*, s32) asm("func_00138c10");
 void func_001565a8(u8*) asm("func_001565a8");
 void func_00156540(u8*) asm("func_00156540");
@@ -255,11 +255,11 @@ void func_001395a8(u8*) asm("func_001395a8");
 
 void func_00157ae0(u8* o) asm("func_00157ae0");
 void func_00157ae0(u8* o) {
-    if (func_001a1de0((*(Wk**)(o + 52))->cfg) == 0) {
+    if (YS__SHEET__is_mpdrive((*(Wk**)(o + 52))->cfg) == 0) {
         Cfg* c;
         u32 b;
         if (func_00158250(o)) {
-            func_00138c10(o + 11648, func_00155f40(o));
+            func_00138c10(o + 11648, dk__GAUGE_PLAYER__getDriveLoopSqNum(o));
             u8* s = o + 10000;
             func_00138c10(s, 116);
             func_00138c10(o + 10412, 119);
@@ -276,7 +276,7 @@ void func_00157ae0(u8* o) {
     } else {
         f32 v;
         if (func_00158250(o)) {
-            func_00138c10(o + 11648, func_00155f40(o));
+            func_00138c10(o + 11648, dk__GAUGE_PLAYER__getDriveLoopSqNum(o));
             u8* s = o + 10000;
             func_00138c10(s, 110);
             func_00138c10(o + 10412, 113);
@@ -284,7 +284,7 @@ void func_00157ae0(u8* o) {
             func_00138c10(o + 11236, 114);
             *(u32*)(s + 392) = 111;
             func_00156540(o);
-        } else if (func_00155f40(o) == 26) func_001395a8(o + 1324);
+        } else if (dk__GAUGE_PLAYER__getDriveLoopSqNum(o) == 26) func_001395a8(o + 1324);
         v = func_001a1e00((*(Wk**)(o + 52))->cfg);
         func_00155b58(o, 9, 1.0f);
         func_00155b58(o, 10, v);
@@ -302,20 +302,20 @@ s32 func_00156058(u8*) asm("func_00156058");  // state_code_is_2
 s32 func_00156080(u8*) asm("func_00156080");  // state_code_is_3
 void func_00155d80(u8*) asm("func_00155d80");
 void func_001560a8(u8*, s32*, s32*) asm("func_001560a8");
-void func_00155cb0(u8*, s32, s32) asm("func_00155cb0");
-s32 func_00155e30(u8*) asm("func_00155e30");
+void dk__GAUGE_PLAYER__createDriveTimeCircle(u8*, s32, s32) asm("dk__GAUGE_PLAYER__createDriveTimeCircle");
+s32 dk__GAUGE_PLAYER__getDriveCounter(u8*) asm("dk__GAUGE_PLAYER__getDriveCounter");
 void func_00138c10(u8*, s32) asm("func_00138c10");
 void func_00139598(u8*) asm("func_00139598");
-void func_00155bf0(u8*, u8) asm("func_00155bf0");
+void dk__GAUGE_PLAYER__createDriveCircle(u8*, u8) asm("dk__GAUGE_PLAYER__createDriveCircle");
 s32 func_00105300(void) asm("func_00105300");
 void func_002ba2e8(s32, s32) asm("func_002ba2e8");
 void func_001395a8(u8*) asm("func_001395a8");
 u32 func_00158290(u8*) asm("func_00158290");
 u32 func_0013a7e8(s32) asm("func_0013a7e8");
 u32 func_0013d7e0(void) asm("func_0013d7e0");
-s32 func_00139c18(u8*) asm("func_00139c18");
+s32 dk__Obj2D__checkDoubleCreate(u8*) asm("dk__Obj2D__checkDoubleCreate");
 s32 func_00139d78(Sub4*) asm("func_00139d78");
-void func_001386e0(Sub4*, s32, u32, u32, s32, u32) asm("func_001386e0");
+void dk__Sprite__create(Sub4*, s32, u32, u32, s32, u32) asm("dk__Sprite__create");
 void func_001396b0(Sub4*) asm("func_001396b0");
 void func_0031a260(Sub4*, s32) asm("func_0031a260");
 
@@ -330,13 +330,13 @@ void func_00157c88(u8* p)
             s32 b = 0;
             func_00155d80(p);
             func_001560a8(p, &a, &b);
-            func_00155cb0(p, a, b);
+            dk__GAUGE_PLAYER__createDriveTimeCircle(p, a, b);
             if (p[15607] == 1) {
                 p[15607] = 0;
-                func_00138c10(p + 12472, func_00155e30(p));
+                func_00138c10(p + 12472, dk__GAUGE_PLAYER__getDriveCounter(p));
             }
         } else {
-            func_00155bf0(p, (*(u8**)(*(u8**)(p + 52) + 1164))[432]);
+            dk__GAUGE_PLAYER__createDriveCircle(p, (*(u8**)(*(u8**)(p + 52) + 1164))[432]);
             func_00155d80(p);
             u8* q = *(u8**)(*(u8**)(p + 52) + 1164);
             bool full = q[433] >= q[434];
@@ -354,15 +354,15 @@ void func_00157c88(u8* p)
             u8 f = p[15606];
             if (f != 1) return;
             p[15606] = 0;
-            func_00138c10(p + 12472, func_00155e30(p));
+            func_00138c10(p + 12472, dk__GAUGE_PLAYER__getDriveCounter(p));
             if (p[15608] != f) return;
             if (!p[15609]) func_002ba2e8(32, 0);
             u32 c = func_00158290(p);
             u32 h = func_0013a7e8(1);
             u32 w = func_0013d7e0();
-            Sub4* s = (Sub4*)(p + func_00139c18(p + 2548) * 408 + 2548);
+            Sub4* s = (Sub4*)(p + dk__Obj2D__checkDoubleCreate(p + 2548) * 408 + 2548);
             if (!func_00139d78(s)) {
-                func_001386e0(s, 7000, h, w, 22, c);
+                dk__Sprite__create(s, 7000, h, w, 22, c);
                 s->owner = p + 11648;
                 func_001396b0(s);
                 if (s->owner) {

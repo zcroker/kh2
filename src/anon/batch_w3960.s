@@ -1,7 +1,7 @@
 # Whole-function assembly (last step of the README match ladder, w3960 2026-11-11).
 # Transcribed from the retail disassembly; calls and globals with a func_/D_ symbol are referenced
 # through it. Replace with C/C++ after 100%.
-#   func_00121cc8: model part draw (per-part GS state, textures, optional matrix/scissor packets).
+#   kn__ModelSKL__drawNormal: model part draw (per-part GS state, textures, optional matrix/scissor packets).
 #     Closest C: ~/re/kh2/tmp.w3960/best_00121cc8_nsa.cpp (_nsa, = best/00121cc8_w3870_nsa.cpp,
 #     opcode ratio 0.921, 1282 vs 1308 insns): frame 368 vs 384 (original caller-saves a value with sq/lq
 #     at 288(sp) around the func_00133bb8 call), part-loop latch/return block placement, TBW/PSM and-form.
@@ -12,10 +12,10 @@
 	.set nomacro
 	.section .text.func_00121cc8,"ax",@progbits
 	.align 2
-	.globl func_00121cc8
-	.type func_00121cc8, @function
-	.ent func_00121cc8
-func_00121cc8:
+	.globl kn__ModelSKL__drawNormal
+	.type kn__ModelSKL__drawNormal, @function
+	.ent kn__ModelSKL__drawNormal
+kn__ModelSKL__drawNormal:
 	addiu	$29,$29,-384
 	andi	$10,$10,0xff
 	sd	$16,304($29)
@@ -556,7 +556,7 @@ func_00121cc8:
 	move	$6,$0
 	ori	$8,$8,0xd
 .L00122484:
-	jal	func_00108c00
+	jal	kn__VU1DrawContext__setPacket
 	move	$10,$0
 .L0012248c:
 	lw	$15,200($29)
@@ -1459,5 +1459,5 @@ func_00121cc8:
 	lw	$5,220($29)
 	b	.L00121ef4
 	addiu	$2,$16,80
-	.end func_00121cc8
-	.size func_00121cc8, 5232
+	.end kn__ModelSKL__drawNormal
+	.size kn__ModelSKL__drawNormal, 5232

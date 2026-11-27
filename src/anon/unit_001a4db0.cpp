@@ -87,7 +87,7 @@ extern const f32 D_0036d4ac asm("D_0036d4ac") = 30.0f;
 // 001a4ff8 (from anon/batch_w96.cpp)
 namespace n001a4ff8 {
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
-Q16* func_0016c028(u8*) asm("func_0016c028");
+Q16* YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 struct Vq_w96 {
     f32 x, y, z, w;
     Vq_w96& operator=(const Vq_w96& o) {
@@ -120,7 +120,7 @@ s32 func_001a4ff8(u8* o, Vq_w96* p, f32 r, f32 h) {
     }
     if (*(u8**)(o + 1164)) r = r + *(f32*)(*(u8**)(o + 1164) + 452);
     if (h <= 0.0f) h = 30.0f;
-    d = vsubn_w96(*p, *(Vq_w96*)func_0016c028(o));  // obj_get_attach_or_alt
+    d = vsubn_w96(*p, *(Vq_w96*)YS__OBJ__get_pos(o));  // obj_get_attach_or_alt
     if (h < fabsf(d.y)) return 0;
     d.y = 0.0f;
     if (vlen_w96(d) <= r) return 1;
@@ -131,24 +131,24 @@ s32 func_001a4ff8(u8* o, Vq_w96* p, f32 r, f32 h) {
 // 001a5140 (from anon/batch_wcx2.cpp)
 namespace n001a5140 {
 extern u8* D_0034e948 asm("D_0034e948");
-s32 func_0019ba60(u8*) asm("_Z16ctarget_0019ba60jjjj");
+s32 YS__OBJ__is_exist(u8*) asm("_Z17YS__OBJ__is_existjjjj");
 u8* func_00176b20(s32) asm("_ZN2YS5PARTY3GetEi");
-s32 func_0019ba60(u8*) asm("_Z16ctarget_0019ba60jjjj");
-s32 func_0019ba60(u8*) asm("_Z16ctarget_0019ba60jjjj");
-s32 func_0019ba60(u8*) asm("_Z16ctarget_0019ba60jjjj");
+s32 YS__OBJ__is_exist(u8*) asm("_Z17YS__OBJ__is_existjjjj");
+s32 YS__OBJ__is_exist(u8*) asm("_Z17YS__OBJ__is_existjjjj");
+s32 YS__OBJ__is_exist(u8*) asm("_Z17YS__OBJ__is_existjjjj");
 struct Act40 { u8 pad[20]; u8 kind; u8 pad2[19]; u32 fl; u8 pad3[24]; u8 lv; };
 extern u8* D_0034e948 asm("D_0034e948");
 s32 func_001919f8(void) asm("func_001919f8");
 s32 func_001919d0(void) asm("func_001919d0");
 void func_001a5380(u8*, u8*, Act40*) asm("func_001a5380");
 u8* func_00176b20(s32) asm("_ZN2YS5PARTY3GetEi");
-s32 func_0019ba60(u8*) asm("_Z16ctarget_0019ba60jjjj");
-s32 func_001c7950(Act40*, u8*, f32, f32) asm("func_001c7950");
+s32 YS__OBJ__is_exist(u8*) asm("_Z17YS__OBJ__is_existjjjj");
+s32 YS__PRIZEEFFECT__can_get(Act40*, u8*, f32, f32) asm("YS__PRIZEEFFECT__can_get");
 static inline bool Is40(u8* e) { return *(s32*)(e + 2896) == 6; }
 struct Vec4x { f32 a,b,c,d; } __attribute__((aligned(16)));
 struct NoTail40 { Vec4x v; ~NoTail40() {} };
-void func_001a5140(u8* o, Act40* a) asm("func_001a5140");
-void func_001a5140(u8* o, Act40* a)
+void YS__PRIZE___OVR_check_get(u8* o, Act40* a) asm("YS__PRIZE___OVR_check_get");
+void YS__PRIZE___OVR_check_get(u8* o, Act40* a)
 {
     NoTail40 nt;
     if (func_001919f8()) a->fl |= 8;
@@ -159,14 +159,14 @@ void func_001a5140(u8* o, Act40* a)
     if ((a->fl & 8) && a->lv >= 3) func_001a5380(o, D_0034e948, a);
     for (s32 i = 0; i < 3; i++) {
         u8* e = func_00176b20(i);
-        if (!func_0019ba60(e)) continue;
+        if (!YS__OBJ__is_exist(e)) continue;
         if (*(u32*)(e + 2040) & 4) continue;
         if (*(u32*)(e + 1416) & 0x80) {
             if (Is40(e) && a->kind < 2) continue;
         } else {
             if ((u32)(a->kind - 7) < 2) continue;
         }
-        if (func_001c7950(a, e, 0.0f, 0.0f)) {  // copy_quad_if_flag
+        if (YS__PRIZEEFFECT__can_get(a, e, 0.0f, 0.0f)) {  // copy_quad_if_flag
             func_001a5380(o, e, a);
             return;
         }
@@ -179,20 +179,20 @@ namespace n001a52a8 {
 struct E1a5 { f32 f; u8 b4, b5, b6, b7; };
 typedef s32 (*VF4)(void*, u8, s32, s32);
 extern struct E1a5 D_0036d578[] asm("D_0036d578");
-void func_00176be0(void*, f32) asm("func_00176be0");
-void func_00187650(void*, u8, s32) asm("_Z16ctarget_00187650jjjj");
-void func_00179a68(void*, f32) asm("func_00179a68");
+void YS__PARTY__prize_recov(void*, f32) asm("YS__PARTY__prize_recov");
+void YS__BTLOBJ__add_mp(void*, u8, s32) asm("_Z18YS__BTLOBJ__add_mpjjjj");
+void YS__PLAYER__add_drive(void*, f32) asm("YS__PLAYER__add_drive");
 void func_001d6110(u8, void*) asm("_ZN2YS10FORM_LEVEL11CheckMasterEiPNS_6PLAYERE");
 void func_0014f668(u8) asm("func_0014f668");
 void func_00242500(u8) asm("_ZN2Tz5Munny3AddEj");
 void func_001a52a8(void* a0, void** o, u8* c) asm("func_001a52a8");
 void func_001a52a8(void* a0, void** o, u8* c) {
     struct E1a5* e = &D_0036d578[c[20]];
-    if (e->f > 0.0f) func_00176be0(o, e->f);
+    if (e->f > 0.0f) YS__PARTY__prize_recov(o, e->f);
     if (e->b4) (*(VF4*)((u8*)*o + 120))(o, e->b4, 0, 0);
-    if (e->b5) func_00187650(o, e->b5, 0);
+    if (e->b5) YS__BTLOBJ__add_mp(o, e->b5, 0);
     if (e->b6) {
-        func_00179a68(o, e->b6);
+        YS__PLAYER__add_drive(o, e->b6);
         func_001d6110(e->b6, o);
     }
     if (e->b7) {
@@ -205,22 +205,22 @@ void func_001a52a8(void* a0, void** o, u8* c) {
 // 001a5380 (from anon/batch_w54.cpp)
 namespace n001a5380 {
 extern void (*D_0032ba34)(void);
-void func_001c79a0(void*, void*, s32) asm("func_001c79a0");
+void YS__PRIZEEFFECT__get(void*, void*, s32) asm("YS__PRIZEEFFECT__get");
 void func_001a52a8(void*, void*, void*) asm("func_001a52a8");
 void func_001a5380(void* a0, void* a1, void* a2) asm("func_001a5380");
 void func_001a5380(void* a0, void* a1, void* a2) {
-    func_001c79a0(a2, a1, 0);
+    YS__PRIZEEFFECT__get(a2, a1, 0);
     func_001a52a8(a0, a1, a2);
 }
 }  // namespace n001a5380
 
 // 001a53d0 (from anon/batch_w55.cpp)
 namespace n001a53d0 {
-void func_001c79a0(u32, u32, s32) asm("func_001c79a0");
+void YS__PRIZEEFFECT__get(u32, u32, s32) asm("YS__PRIZEEFFECT__get");
 void func_001a52a8(u32, u32, u32) asm("func_001a52a8");
 void func_001a53d0(u32 a, u32 b, u32 c) asm("func_001a53d0");
 void func_001a53d0(u32 a, u32 b, u32 c) {
-    func_001c79a0(c, b, 1);
+    YS__PRIZEEFFECT__get(c, b, 1);
     func_001a52a8(a, b, c);
 }
 }  // namespace n001a53d0
@@ -255,17 +255,17 @@ struct W1687PrizeDrop { u16 item; u16 rate; };
 struct W1687PrizeTable { u8 pad[0xc]; W1687PrizeDrop drop[3]; };
 W1687Party* party_Get(s32) asm("_ZN2YS5PARTY3GetEi");
 W1687Ability* party_get_ability(W1687Party*) asm("_ZN2YS5PARTY11get_abilityEv");
-s32 ctarget_0019ba60(W1687Party*) asm("_Z16ctarget_0019ba60jjjj");
+s32 YS__OBJ__is_exist(W1687Party*) asm("_Z17YS__OBJ__is_existjjjj");
 W1687PrizeTable* prizetable_Get(s32) asm("_ZN2YS10PRIZETABLE3GetEi");
 s32 status_GetPrizeRatio(W1687PrizeTable*, s32, f32) asm("_ZN2YS6STATUS13GetPrizeRatioEv");
 f32 func_00191b70(void) asm("_ZNK2YS10PRIZETABLE7get_numEif");
 s32 func_001d0820(void) asm("func_001d0820");
 s32 func_001a5af0(s32) asm("func_001a5af0");
 void func_001a5880(u32, s32, s32) asm("func_001a5880");
-void func_001bf620(u32, u32) asm("func_001bf620");
-void func_001c7ca8(u32, W1687PrizeTable*) asm("func_001c7ca8");
+void YS__PRIZEBOX__Appear(u32, u32) asm("YS__PRIZEBOX__Appear");
+void YS__PRIZE_MU__AppearTable(u32, W1687PrizeTable*) asm("YS__PRIZE_MU__AppearTable");
 void func_001ca758(u32, W1687PrizeTable*) asm("func_001ca758");
-void func_001d7538(u32, W1687PrizeTable*) asm("func_001d7538");
+void YS__PRIZE_COLOSSEUM__AppearTable(u32, W1687PrizeTable*) asm("YS__PRIZE_COLOSSEUM__AppearTable");
 extern s32 D_00350790 asm("D_00350790");
 extern u32 D_0034f240 asm("D_0034f240");
 extern u32 D_003638d0 asm("D_003638d0");
@@ -273,7 +273,7 @@ static inline f32 party_prize_rate() {
     f32 r = 1.0f;
     for (s32 i = 0; i < 3; i++) {
         W1687Party* p = party_Get(i);
-        if (ctarget_0019ba60(p) && p->active)
+        if (YS__OBJ__is_exist(p) && p->active)
             r *= party_get_ability(p)->prizeRate;
     }
     return r;
@@ -282,7 +282,7 @@ static inline f32 party_luck() {
     f32 r = 1.0f;
     for (s32 i = 0; i < 3; i++) {
         W1687Party* p = party_Get(i);
-        if (ctarget_0019ba60(p) && p->active)
+        if (YS__OBJ__is_exist(p) && p->active)
             r += party_get_ability(p)->luck;
     }
     return r;
@@ -295,12 +295,12 @@ static inline void drop_items(u32 obj, W1687PrizeTable* t, f32 luck) {
     for (s32 i = 0; i < 3; i++) {
         f32 th = t->drop[i].rate * luck;
         if (frand(100.0f) < th)
-            func_001bf620(t->drop[i].item, obj);
+            YS__PRIZEBOX__Appear(t->drop[i].item, obj);
     }
 }
 struct W1687NoTail { ~W1687NoTail() {} } __attribute__((aligned(16)));
-void func_001a55a8(u32 obj, s32 id) asm("func_001a55a8");
-void func_001a55a8(u32 obj, s32 id)
+void YS__PRIZE__Appear(u32 obj, s32 id) asm("YS__PRIZE__Appear");
+void YS__PRIZE__Appear(u32 obj, s32 id)
 {
     W1687NoTail nt;
     W1687PrizeTable* t;
@@ -327,9 +327,9 @@ void func_001a55a8(u32 obj, s32 id)
             }
         }
         if (!flag) {
-            func_001c7ca8(obj, t);
+            YS__PRIZE_MU__AppearTable(obj, t);
             func_001ca758(obj, t);
-            func_001d7538(obj, t);
+            YS__PRIZE_COLOSSEUM__AppearTable(obj, t);
         }
     }
 }
@@ -350,9 +350,9 @@ void func_001a5880(u32 a, s32 k, s32 n) {
 // 001a58f8 (from anon/tiny_auto80_queue.cpp)
 namespace n001a58f8 {
 extern u32 func_001c1708(...) asm("func_001c1708");
-extern u32 func_001c7ee0(...) asm("func_001c7ee0");
-u32 func_001a58f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("func_001a58f8");
-u32 func_001a58f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+extern u32 YS__PRIZE_MU__ClearAll(...) asm("YS__PRIZE_MU__ClearAll");
+u32 YS__PRIZE__ClearAll(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("YS__PRIZE__ClearAll");
+u32 YS__PRIZE__ClearAll(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
     r15 = (u32)(0x0035u << 16);
     r15 = ((u32*)(u32)r15)[484];
@@ -360,7 +360,7 @@ u32 func_001a58f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
         r4 = ((u32*)(u32)r15)[637];
         r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_001c1708)(r4, r5, r6, r7, r8, r9, r10, r11);
     }
-    return ((u32(*)())func_001c7ee0)();
+    return ((u32(*)())YS__PRIZE_MU__ClearAll)();
 }
 }  // namespace n001a58f8
 
@@ -370,8 +370,8 @@ void* W1578_AREA_Alloc(u32) asm("_ZN4AREA5AllocEj");
 void func_001c70e8(void) asm("func_001c70e8");
 void* W1578_JmInfo_GetCharaData(u32) asm("_ZN2Tz6JmInfo12GetCharaDataEj");
 void func_001a4df0(void*, void*, s32, s32) asm("func_001a4df0");
-void func_001a5928(void) asm("func_001a5928");
-void func_001a5928(void) {
+void YS__PRIZE__Init(void) asm("YS__PRIZE__Init");
+void YS__PRIZE__Init(void) {
     func_001c70e8();
     void* p = W1578_AREA_Alloc(0xa00);
     func_001a4df0(p, W1578_JmInfo_GetCharaData(0x5c3), 0x100, 0x60);
@@ -380,33 +380,33 @@ void func_001a5928(void) {
 
 // 001a5970 (from anon/tiny_wrappers_more.cpp)
 namespace n001a5970 {
-u32 func_0016ed50(u32, u32, u32, u32) asm("_Z16wtarget_0016ed50jjjj");
-u32 func_001a5970(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_001a5970");
-u32 func_001a5970(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0016ed50(0x000005c3u, 0x000003fcu, 0x0000001eu, a3);
+u32 YS__OBJENTRY__ReadRequest(u32, u32, u32, u32) asm("_Z25YS__OBJENTRY__ReadRequestjjjj");
+u32 YS__PRIZE__Read(u32 a0, u32 a1, u32 a2, u32 a3) asm("YS__PRIZE__Read");
+u32 YS__PRIZE__Read(u32 a0, u32 a1, u32 a2, u32 a3) {
+    return YS__OBJENTRY__ReadRequest(0x000005c3u, 0x000003fcu, 0x0000001eu, a3);
 }
 }  // namespace n001a5970
 
 // 001a5990 (from anon/auto80_199_queue.cpp)
 namespace n001a5990 {
 extern u32 D_0034e948 asm("D_0034e948");
-u32 func_0019ba60(...) asm("func_0019ba60");
-u32 func_001c7950(...) asm("func_001c7950");
-u32 func_001c79a0(...) asm("func_001c79a0");
+u32 YS__OBJ__is_exist(...) asm("YS__OBJ__is_exist");
+u32 YS__PRIZEEFFECT__can_get(...) asm("YS__PRIZEEFFECT__can_get");
+u32 YS__PRIZEEFFECT__get(...) asm("YS__PRIZEEFFECT__get");
 void func_001d8d08(u32 a0, f32 a1) asm("func_001d8d08");
 void func_001a5990(u32 a0, u32 a1, f32 a2) asm("func_001a5990");
 void func_001a5990(u32 a0, u32 a1, f32 a2) {
     u32 s0 = D_0034e948;
-    if (func_0019ba60(s0) == 0) {
+    if (YS__OBJ__is_exist(s0) == 0) {
         return;
     }
     if ((*(u32*)(a0 + 40) & 1) == 0) {
         return;
     }
-    if (((u32(*)(u32, u32, f32, f32))func_001c7950)(a0, s0, 0.0f, 0.0f) == 0) {
+    if (((u32(*)(u32, u32, f32, f32))YS__PRIZEEFFECT__can_get)(a0, s0, 0.0f, 0.0f) == 0) {
         return;
     }
-    func_001c79a0(a0, s0, 0);
+    YS__PRIZEEFFECT__get(a0, s0, 0);
     func_001d8d08(a1, a2);
 }
 }  // namespace n001a5990

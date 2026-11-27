@@ -28,8 +28,8 @@ u32 func_00108068(u32 a0, u32 a1, u32 a2, u32 a3) {
 // 00108080 (from src/anon/batch_owner1021b.cpp)
 namespace n00108080 {
 void func_00112568(void) asm("func_00112568");
-void func_00108080(void) asm("func_00108080");
-void func_00108080(void) { func_00112568(); }
+void kn__GSEnv__GSEnv(void) asm("kn__GSEnv__GSEnv");
+void kn__GSEnv__GSEnv(void) { func_00112568(); }
 }  // namespace n00108080
 
 // 00108098 (from src/anon/batch_w1897_nsa.cpp)

@@ -15,6 +15,6 @@ void func_00170188(W2383CacheEnt*);
 
 // Finds the cache entry for (name, id); otherwise reuses a free entry (id >= 10000) or
 // allocates a new header whose size is the file size rounded up to 2048, then 128 bytes.
-W2383CacheEnt* wtarget_00170400(u32 name, u32 id, u32 size, u32 d) asm("_Z16wtarget_00170400jjjj");
-W2383CacheEnt* wtarget_00170400(u32 name, u32 id, u32 size, u32 d);  // 0x00170400: definition moved into src/anon/unit_0016e8f8.cpp
+W2383CacheEnt* YS__CACHE_BUFF__ReadRequestSub(u32 name, u32 id, u32 size, u32 d) asm("_Z30YS__CACHE_BUFF__ReadRequestSubjjjj");
+W2383CacheEnt* YS__CACHE_BUFF__ReadRequestSub(u32 name, u32 id, u32 size, u32 d);  // 0x00170400: definition moved into src/anon/unit_0016e8f8.cpp
 }

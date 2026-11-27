@@ -83,7 +83,7 @@ static inline Node1399c0* nextNode(Node1399c0* o) {
 void func_001399c0(void* owner);  // 0x001399c0: definition moved into src/anon/unit_001393c8.cpp
 
 void func_0015a850(void);
-void func_00153c80(void);
+void dk__Layout__exit(void);
 void func_0014f148(void);
 void func_0014f220(void);
 void func_0014f1e0(void);
@@ -142,7 +142,7 @@ extern Pair192320 D_01c61970[3];
 extern u32 D_0033caf4;
 extern const char D_0036cda0[];
 void func_002fee78(char*, const char*, u32);
-u32 func_001b1490(const char*);
+u32 YS__DATABUFF__ReadBar(const char*);
 void func_00191f78(s32, u32);
 // 00192320: moved to src/yasui/libys/message.cpp
 
@@ -165,13 +165,13 @@ extern const char D_0036e598[];
 extern u32 D_0035276c;
 u8* func_00168b88(u32, s32, u32, s32);  // find_entry16_by_half_word
 void func_001c10b8(u32);
-void func_001d53e8(void);  // 0x001d53e8: definition moved into src/anon/unit_001d4f40.cpp
+void YS__MISSION_TABLE__Init(void);  // 0x001d53e8: definition moved into src/anon/unit_001d4f40.cpp
 
 struct Item1d59b0 { u8 d[60]; };
 struct Tbl1d59b0 { u32 f0; s32 count; Item1d59b0 items[1]; };
 extern Tbl1d59b0* D_01d5ba6c;
 void func_001d5960(void*);
-void func_001d59b0(void);  // 0x001d59b0: definition moved into src/anon/unit_001d4f40.cpp
+void YS__LINK_FLAG__Check(void);  // 0x001d59b0: definition moved into src/anon/unit_001d4f40.cpp
 
 s32 func_001db200(void*, s32);
 s32 func_001db250(void*);
@@ -215,8 +215,8 @@ void func_00139688(void*);
 void func_0031a260(void*, s32);
 // 0028dcc0: moved to src/anon/unit_0028c878.cpp
 
-u8* func_002bc158_0(void) asm("func_002bc158");
-u8* func_002bc158_1(u32) asm("func_002bc158");
+u8* func_002bc158_0(void) asm("SOUND__allocSe");
+u8* func_002bc158_1(u32) asm("SOUND__allocSe");
 void func_002bb1c8(void*, u32, u32);
 void func_002bb310(void*, u32, u32, u32);
 u32 func_002bc188(u32 a, u32 b);  // 0x002bc188: definition moved into src/anon/unit_002bb8b0.cpp
@@ -224,7 +224,7 @@ u32 func_002bc188(u32 a, u32 b);  // 0x002bc188: definition moved into src/anon/
 u32 func_002bc2e8(u32 a, u32 b, u32 c);  // 0x002bc2e8: definition moved into src/anon/unit_002bb8b0.cpp
 
 void func_001dc978(void*, f32);
-void* func_001de168(u32, u32, s32, s32, s32, void*);  // scan_list_by_half
+void* ryj__PAX__start(u32, u32, s32, s32, s32, void*);  // scan_list_by_half
 void func_002c5658(u8* p, u32 a, u32 b);  // 0x002c5658: definition moved into src/anon/unit_002c53c8.cpp
 
 // Pushes a 16-byte value into a ring buffer, overwriting the oldest when full.
@@ -232,9 +232,9 @@ struct Ent2cb828 { Q128 v; u8 pad[16]; };
 struct Ring2cb828 { u32 f0; s32 head; s32 cnt; s32 cap; u8 pad[112]; Ent2cb828* buf; };
 Ent2cb828* func_002cb828(Ring2cb828* r, Q128* src);  // 0x002cb828: definition moved into src/taito/path.cpp
 
-void func_00110500(u8*);
+void kn__Friend__followPlayer(u8*);
 Q128* func_0010fa28(u8*);  // ptr_add3072
-Q128* func_0010fa58(u8*);
+Q128* kn__Friend__getInertia(u8*);
 // 002f0af0: moved to src/naka/libkn/trapfunctions.cpp
 
 extern void* D_0034a800[];
@@ -258,6 +258,6 @@ void func_001fbb20(u8* p, In1fbb20* q, u8* r);  // 0x001fbb20: definition moved 
 void* func_001d9e30(void*);  // record_range_check_or_first
 s32 func_001d9d48(void*);
 s32 func_00276c18(void);
-s32 func_002b3ae8(void);  // 0x002b3ae8: definition moved into src/anon/unit_002b3ac8.cpp
+s32 Tz__JmPuzzle__isEnable(void);  // 0x002b3ae8: definition moved into src/anon/unit_002b3ac8.cpp
 
 }

@@ -30,12 +30,12 @@ static inline f32 Dot10ce(const V10ce& a, const V10ce& b)
 extern "C" {
 extern u8* D_00341708;
 V10ce func_00190388(u8*);  // vec4_from_arg
-V10ce* func_0016c028(u8*);  // obj_get_attach_or_alt
+V10ce* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 f32 func_001142d0(u32);  // get_float_at_ptr108
 f32 func_00114380(u32);
 f32 func_00114390(u32);
 
-s32 func_0010cef0(u8* o);  // 0x0010cef0: definition moved into src/anon/unit_0010ce78.cpp
+s32 kn__Friend__checkLostTarget_near(u8* o);  // 0x0010cef0: definition moved into src/anon/unit_0010ce78.cpp
 }
 
 // ---- 001136b8
@@ -71,7 +71,7 @@ u8** func_001a84b0(void);
 void func_001b1e80(u8*);
 void func_002361a0(u8*);
 u32 func_0013a7d0(s32);
-void func_00138650(u8*, s32, u32, s32);
+void dk__SpriteImage__create(u8*, s32, u32, s32);
 void func_0031a838(u8*);
 void func_00239700(u8*);
 void func_00137890(u8*, u8*, u8*, u8*);
@@ -79,7 +79,7 @@ void func_002ba2e8(s32, s32);
 
 static inline u8* Alloc1382n(u32 n) { Alloc1382* h = D_00347f80->heap; return h->vt->alloc(h, n, 0); }
 
-void func_001382e0(void);  // 0x001382e0: definition moved into src/anon/unit_001374c8.cpp
+void dk__TREASURE_INFO__createEventInfo(void);  // 0x001382e0: definition moved into src/anon/unit_001374c8.cpp
 }
 
 // ---- 0013f6e8
@@ -223,7 +223,7 @@ void func_00176168(u8*, u32, s32);
 // ---- 00180058
 extern "C" {
 u8* func_00168b88(u32, s32, s32, s32);  // find_entry16_by_half_word
-void func_0017efa0(u8*, u32, f32, f32);
+void YS__MOTION__start_motion(u8*, u32, f32, f32);
 void func_00180800(u8*, s32);
 
 // 00180058: moved to src/yasui/libys/motion.cpp
@@ -264,7 +264,7 @@ struct Buf1b72 { u8 b[80]; };
 void func_001b74b8(Buf1b72*);
 void func_001b7508(Buf1b72*, s32, s32);
 s32 func_001b73e8(u8*, u32);  // compute_avg_state
-void func_001a3188(u16, u32, s32);
+void YS__ITEM__Get(u16, u32, s32);
 void func_001b7538(Buf1b72*, u16);
 u32 func_001a8bd0(s32);
 s32 func_001a9080(u32, u32);
@@ -283,8 +283,8 @@ u8* func_001c0648(u32);
 s32 func_001c09c0(u32);
 u32 func_001a1658(u8, s32);  // state_dispatch_0_1_14
 void func_001c0690(u8*, u32);
-void func_001a17c8(u32);
-void func_00181670(void);
+void YS__SHEET__Free(u32);
+void YS__PROGRESS__CheckLM(void);
 void bonuslevel_up(u32) asm("_ZN2YS10BONUSLEVEL2UpEi");
 
 // YS::BONUSLEVEL::Up(int): marks bonus level `id` as obtained and applies its entries.
@@ -324,12 +324,12 @@ struct G1d24 { u8 pad[224]; f32 speed; };
 extern G1d24* D_00352130;
 double func_00313b80(f32);  // float_to_double
 s32 func_003142e0(double, double);  // double_compare
-V1d24 func_0016af58(O1d24*);
+V1d24 YS__OBJ__get_dir(O1d24*);
 void func_0016bd60_1d2418(O1d24*, s32) asm("func_0016bd60");
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
 
-void func_001d2418(O1d24* o);  // 0x001d2418: definition moved into src/anon/unit_001d14e0.cpp
+void YS__LMPLAYER__swim(O1d24* o);  // 0x001d2418: definition moved into src/anon/unit_001d14e0.cpp
 }
 
 // ---- 00200e80
@@ -364,10 +364,10 @@ struct C2221 { H2221* head; u32 a; void* b; N2221* list; u32 c; u32 d; };
 struct W2221 { u8 pad[64]; N2221* node; u32 a; u32 l; void* b; };
 void sceVu0UnitMatrix(W2221*);  // vu_store_w_splat
 void func_002226b8(void*, u32);  // vec3_copy
-void func_00221348(W2221*);
+void KeThBP_Update(W2221*);
 void func_00221ed0(N2221*);
 
-void func_00222170(C2221* c);  // 0x00222170: definition moved into src/anon/unit_00221e28.cpp
+void KeThCp_Update(C2221* c);  // 0x00222170: definition moved into src/anon/unit_00221e28.cpp
 }
 
 // ---- 002418b8
@@ -417,10 +417,10 @@ void func_0023f070(u32, s16, s32);
 void func_002493c8(void);
 s32 func_0028d008(u32);
 u32 func_002891d0(u32);
-void func_0028cf28(u32, u32);  // record408_set_and_refresh
+void Tz__MenuCursor__SetParent(u32, u32);  // record408_set_and_refresh
 void func_002b4388(u32, S36_248*, s32);
 
-void func_00248f50(u32 obj, s32 mode, u32 w);  // 0x00248f50: definition moved into src/anon/unit_00247ff0.cpp
+void Tz__MUMI__DrawSelector(u32 obj, s32 mode, u32 w);  // 0x00248f50: definition moved into src/anon/unit_00247ff0.cpp
 }
 
 // ---- 00249ef0
@@ -430,36 +430,36 @@ extern E249e D_00371f58[];
 extern u32 D_0035ed74;
 extern u32 D_0035ed78;
 extern u32 D_0035ed90;
-void func_00288d80(u32, s32, s32, s32, u32, u16, E249e*, void*);
+void Tz__Select__SetItem(u32, s32, s32, s32, u32, u16, E249e*, void*);
 u8* func_002891b8(u32, s32);
 u32 func_0023aa78(void*);
 u32 func_0023aa98(void*);
-void func_00288e08(u32, s32, u32, s32);
+void Tz__Select__SetExOffset(u32, s32, u32, s32);
 u32 func_0028dd90(u32);  // mod10_classify_012
 u32 func_0028ddd8(u32);
 void func_001395f8(u8*);
-void func_002891f0(u32, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32);
 void func_002b4388_249ef0(u32, E249e*, s32) asm("func_002b4388");
 
-void func_00249ef0(void);  // 0x00249ef0: definition moved into src/anon/unit_00249ef0.cpp
+void Tz__TRTE__SetupSel(void);  // 0x00249ef0: definition moved into src/anon/unit_00249ef0.cpp
 }
 
 // ---- 00254648
 extern "C" {
 extern u8 D_0035f05c;
 extern u32 D_0035f010;
-void func_002593b8(s32, u32);
+void Tz__CmComm__DataLoadWait(s32, u32);
 void func_00256b40(void);
 void func_00274ea0(void);
 void func_00170888(u32);
 u32 func_00103570(void);
 void func_00274ee8(u32);
-void func_002a9ce8(void);
-u8 func_002acc98(void);
+void Tz__JmNewInfo__Init(void);
+u8 Tz__JmNewInfo__isAnyNew(void);
 void func_002a9d30(void);
 void func_00274f50(void);
 void func_00102448(u32, s32);
-void func_00254770(void);
+void Tz__CmTop__Setup(void);
 void func_00242618(s32, s32);
 s32 func_00293ba0(void);
 s32 func_002938e0(void);
@@ -467,8 +467,8 @@ s32 func_002938f0(void);
 u32 func_00293bc0(void);
 void func_002810c8(u32, u32);
 void func_00293bb0(void);
-void func_00236d60(void);  // clear_64_entries_24
-void func_00293520(void);
+void YI__IMAGE_CACHE__Clear(void);  // clear_64_entries_24
+void Tz__ChgWeapon__Update(void);
 s32 func_00255588(void);
 void func_00255df0(void);
 
@@ -508,7 +508,7 @@ s32 func_00276c18(void);
 static inline bool Ge2a7d(u8 v) { return !(v < 2); }
 
 // Builds the grouped index list for table 7.
-void func_002a7dc8(void);  // 0x002a7dc8: definition moved into src/anon/unit_002a7308.cpp
+void Tz__JmMiniGame__ChkMGameInfo(void);  // 0x002a7dc8: definition moved into src/anon/unit_002a7308.cpp
 }
 
 // ---- 002ac420
@@ -520,7 +520,7 @@ s32 func_002b3ac8(s8);
 extern u8* D_0035f610;
 
 // Returns 1 if any flag bit is set for the matching entries of table 9.
-s32 func_002ac420(s32 id);  // 0x002ac420: definition moved into src/anon/unit_002a99c8.cpp
+s32 Tz__JmNewInfo__isPuzzlePieceNew(s32 id);  // 0x002ac420: definition moved into src/anon/unit_002a99c8.cpp
 }
 
 // ---- 002cd770
@@ -555,7 +555,7 @@ extern E2cf6* D_00361fa4;
 s32 func_002cf270(void*, s32);
 
 // Scans the slot table; returns the index just past the last busy slot once n free slots were seen, or -1.
-s32 func_002cf638(s32 n);  // 0x002cf638: definition moved into src/anon/unit_002cf260.cpp
+s32 Ti__MGObj__find_free_member_buffer(s32 n);  // 0x002cf638: definition moved into src/anon/unit_002cf260.cpp
 }
 
 // ---- 002d8670
@@ -606,10 +606,10 @@ struct P2dfb {
 extern u32 D_00361f60;
 f32 func_002dd250(u32, s32);
 void func_002deb18(P2dfb*, u8*);
-V2dfb* func_0016c028_2dfba8(u8*) asm("func_0016c028");
+V2dfb* func_0016c028_2dfba8(u8*) asm("YS__OBJ__get_pos");
 f32* func_002dc7c8(u32);
 
-void func_002dfba8(P2dfb* p, u8* o);  // 0x002dfba8: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__ACTION_PO_JUMP_PLAYER__start(P2dfb* p, u8* o);  // 0x002dfba8: definition moved into src/anon/unit_002de3c8.cpp
 }
 
 // ---- 002e0d28
@@ -627,12 +627,12 @@ u8* func_00168b38(u8*, s32, s32);  // entry_array_find_nth
 void func_002e34c0(u8*, u32);
 u32 func_001050c8(void);
 u8* func_001063c0(u32, u32);
-void func_002e6fc0(u8*, u32);
+void Ti__Afp__Afp(u8*, u32);
 void func_00102c80(void);
 void func_002e1020(u8*);
-void func_002cedd0(s32, void*);
+void Ti__MiniGame__create_task(s32, void*);
 void func_0016bd60(u8*, s32);
 u8* func_0016b740(s32);
 
-void func_002e0d28(u8* p, u32 a);  // 0x002e0d28: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__MG_ALEscape__MG_ALEscape(u8* p, u32 a);  // 0x002e0d28: definition moved into src/anon/unit_002de3c8.cpp
 }

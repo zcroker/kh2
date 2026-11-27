@@ -35,7 +35,7 @@ void func_002aecf0(s32 a) asm("func_002aecf0");
 void func_00287c30(void) asm("func_00287c30");
 void func_0028af18_f748(void* s, u32 a) asm("func_0028af18");
 s32 func_00276358(void) asm("func_00276358");
-void func_00276220(s32 a, s32 b) asm("func_00276220");
+void Tz__Jiminy__SetParentSeqNum(s32 a, s32 b) asm("Tz__Jiminy__SetParentSeqNum");
 void func_002aed60(void) asm("func_002aed60");
 void func_002afaf0(void) asm("func_002afaf0");
 void func_002b01d8(void) asm("func_002b01d8");
@@ -47,10 +47,10 @@ void func_00287c90(s32 a) asm("func_00287c90");
 void func_002b3b78_x5147(void) asm("func_002b3b78");
 s32 func_00287df0_f748(s32 a, s32 b, s32 c, void (*d)(void), s32 e) asm("func_00287df0");
 s32 func_00242848(s32 a) asm("func_00242848");
-void func_0028f6f0(s32 a) asm("func_0028f6f0");
+void Tz__SelHist__FadeOut(s32 a) asm("Tz__SelHist__FadeOut");
 // record884_refresh_by_index
 void func_002aece8(void) asm("func_002aece8");
-void func_00276dc0(void) asm("func_00276dc0");
+void Tz__Jiminy__FadeOutHelp(void) asm("Tz__Jiminy__FadeOutHelp");
 void func_00287c00(s32 m) asm("func_00287c00");
 void func_00287cc0(s32 s) asm("func_00287cc0");
 s32 func_002891e8_f748(void* s) asm("func_002891e8");
@@ -58,16 +58,16 @@ s32 func_0028b038(void* s) asm("func_0028b038");
 void func_002765e8(s32 a, s32 b, s32 c) asm("func_002765e8");
 void func_00287da0(void) asm("func_00287da0");
 s32 func_002b2338(s32 a) asm("func_002b2338");
-void func_002b2428(s32 a) asm("func_002b2428");
+void Tz__JmPuzzle__RequestGraLoad(s32 a) asm("Tz__JmPuzzle__RequestGraLoad");
 s32 func_00288040(void) asm("func_00288040");
 void func_00288018(void) asm("func_00288018");
 /*TARGET 002af748*/
 // global_zero_4dwords
 
-void func_002af748(void) asm("func_002af748");
+void Tz__JmPuzzle__CtrlSel(void) asm("Tz__JmPuzzle__CtrlSel");
 // global_zero_4dwords
 
-void func_002af748(void) {
+void Tz__JmPuzzle__CtrlSel(void) {
     Win2af* w = func_002a9d68();
     s32 cur = func_00289380(D_0035f200);
     s32 st = func_00287cd0();
@@ -84,7 +84,7 @@ void func_002af748(void) {
         func_00287c30();
         s32 mode = func_00287bc0();
         func_0028af18_f748(D_0035f200, 115);
-        func_00276220(func_00276358(), 0);
+        Tz__Jiminy__SetParentSeqNum(func_00276358(), 0);
         switch (mode) {
         case 27: func_002aed60(); break;
         case 29: func_002afaf0(); break;
@@ -94,7 +94,7 @@ void func_002af748(void) {
     }
     if (cur != -1 || func_00289310_f748(D_0035f200)) {
         if (!func_00276398()) {  // state_is_150
-            func_00276220(0, 2);
+            Tz__Jiminy__SetParentSeqNum(0, 2);
             func_00275b60();
         }
     }
@@ -102,10 +102,10 @@ void func_002af748(void) {
     if (!func_00242848(func_00287df0_f748(cur, func_00289310_f748(D_0035f200), 1, func_002b3b78_x5147, 1))) {
         switch (cur) {
         case -2: {
-            func_0028f6f0(1);  // record884_refresh_by_index
+            Tz__SelHist__FadeOut(1);  // record884_refresh_by_index
             func_002aece8();
-            func_00276dc0();
-            func_00276220(1, 1);
+            Tz__Jiminy__FadeOutHelp();
+            Tz__Jiminy__SetParentSeqNum(1, 1);
             func_00287c00(27);
             func_00287cc0(2);
             s32 m = func_00287bc0();
@@ -124,15 +124,15 @@ void func_002af748(void) {
             break;
         default: {
             func_002aece8();
-            func_00276dc0();
-            func_00276220(0, 1);
+            Tz__Jiminy__FadeOutHelp();
+            Tz__Jiminy__SetParentSeqNum(0, 1);
             func_00287cc0(2);
             s32 m = func_00287bc0();
             s32 a = func_002891e8_f748(D_0035f200);
             func_002765e8(m, a, func_0028b038(D_0035f200));
             if (w->flags & 1) {
                 func_00287c00(29);
-                func_002b2428(func_002b2338(func_002891e8_f748(D_0035f200)));
+                Tz__JmPuzzle__RequestGraLoad(func_002b2338(func_002891e8_f748(D_0035f200)));
             } else {
                 func_00287c00(30);
             }
@@ -151,9 +151,9 @@ struct Obj { union { u32 w; s16 h; }; u8 sub[4]; };
 union U638 { S638* p; s16 h; u32 w; u8 c; };
 s32 func_00276348(void) asm("func_00276348");
 s32 func_002766d0(void) asm("func_002766d0");
-Obj* func_002b23e0(s32) asm("func_002b23e0");
+Obj* Tz__JmPuzzle__GetImageInfo(s32) asm("Tz__JmPuzzle__GetImageInfo");
 void func_002b3420(s32) asm("func_002b3420");
-void func_00276e78(void) asm("func_00276e78");
+void Tz__Jiminy__CreateCover(void) asm("Tz__Jiminy__CreateCover");
 void func_0028d8c0(s32, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0");
 void func_0028d980(s32, s32, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d980");
 void func_00139620(s32) asm("func_00139620");
@@ -165,7 +165,7 @@ s32 func_002b1aa0(void) asm("func_002b1aa0");
 s32 func_00192048(s32) asm("func_00192048");
 void func_002b1af0(void) asm("func_002b1af0");
 void func_002b24c8(void) asm("func_002b24c8");
-void func_002b1a00(void) asm("func_002b1a00");
+void Tz__JmPuzzle__UpdateHelpMess(void) asm("Tz__JmPuzzle__UpdateHelpMess");
 void func_002766b0(s32) asm("func_002766b0");
 void func_00287cc0(s32) asm("func_00287cc0");
 extern s32 D_0035f3d4 asm("D_0035f3d4");
@@ -183,7 +183,7 @@ void func_002afaf0(void) {
     Obj* o;
     a = func_00276348();
     b = func_002766d0();
-    o = func_002b23e0(-1);
+    o = Tz__JmPuzzle__GetImageInfo(-1);
     func_002b3420(-1);
     for (i = 0; i < 2; i++) {
         D_0035f638.p->a[i] = 0;
@@ -197,7 +197,7 @@ void func_002afaf0(void) {
     D_0035f638.p->flags &= ~0x3000;
     { S638* p = D_0035f638.p; p->f44 = 0; p->f48 = 0; }
     n = D_0035f3d4;
-    func_00276e78();
+    Tz__Jiminy__CreateCover();
     n1 = n - 1;
     func_0028d8c0(b, n1, D_0035f14c, D_0035f148, D_0035f210, 112, -1, 0);
     n1 = n + 1;
@@ -226,7 +226,7 @@ void func_002afaf0(void) {
     *(s32*)(r + 0x198) = func_00192048(func_002b1aa0());
     if (o->w & 0x4000000) func_002b1af0();
     func_002b24c8();
-    func_002b1a00();
+    Tz__JmPuzzle__UpdateHelpMess();
     func_002766b0(1);
     func_00287cc0(0);
 }
@@ -239,14 +239,14 @@ extern s32 D_0035f200 asm("D_0035f200");
 // 0x002acc98: definition moved into src/anon/unit_002a99c8.cpp
 s32 func_00242848(s32) asm("func_00242848");
 s32 func_00275b60() asm("func_00275b60");
-s32 func_00276220(s32, s32) asm("func_00276220");
+s32 Tz__Jiminy__SetParentSeqNum(s32, s32) asm("Tz__Jiminy__SetParentSeqNum");
 s32 func_00276358() asm("func_00276358");
 s32 func_00276368() asm("func_00276368");
 s32 func_00276398() asm("func_00276398");
 s32 func_002765e8(s32, s32, s32) asm("func_002765e8");
 s32 func_00276608(s32) asm("func_00276608");
 s32 func_00276888() asm("func_00276888");
-s32 func_00276dc0() asm("func_00276dc0");
+s32 Tz__Jiminy__FadeOutHelp() asm("Tz__Jiminy__FadeOutHelp");
 s32 func_00287bc0() asm("func_00287bc0");
 s32 func_00287bd0(s32, s32) asm("func_00287bd0");
 s32 func_00287c00(s32) asm("func_00287c00");
@@ -266,15 +266,15 @@ s32 func_002afaf0() asm("func_002afaf0");
 s32 func_002b01d8() asm("func_002b01d8");
 s32 func_002b0950() asm("func_002b0950");
 s32 func_002b0de0(s32) asm("func_002b0de0");
-s32 func_002b0e78(s32) asm("func_002b0e78");
+s32 Tz__JmPuzzle__PieceRot(s32) asm("Tz__JmPuzzle__PieceRot");
 s32 func_002b0fc8(s32) asm("func_002b0fc8");
-s32 func_002b1208(s32) asm("func_002b1208");
+s32 Tz__JmPuzzle__ChangeImage(s32) asm("Tz__JmPuzzle__ChangeImage");
 s32 func_002b12a0() asm("func_002b12a0");
 s32 func_002b2220() asm("func_002b2220");
 s32 func_002b2338(s32) asm("func_002b2338");
-s32 func_002b2428(s32) asm("func_002b2428");
+s32 Tz__JmPuzzle__RequestGraLoad(s32) asm("Tz__JmPuzzle__RequestGraLoad");
 s32 func_002b24c8() asm("func_002b24c8");
-s32 func_002b2840() asm("func_002b2840");
+s32 Tz__JmPuzzle__LeaveAll() asm("Tz__JmPuzzle__LeaveAll");
 s32 func_002b2c80() asm("func_002b2c80");
 s32 func_002b2d48() asm("func_002b2d48");
 s32 func_002b3050(s32) asm("func_002b3050");
@@ -297,13 +297,13 @@ void func_002afe18(void) {
         func_002aecf0(1);
         func_00287c30();
         s32 m = func_00287bc0();
-        func_002b2840();
-        func_00276220(func_00276358(), 0);
+        Tz__JmPuzzle__LeaveAll();
+        Tz__Jiminy__SetParentSeqNum(func_00276358(), 0);
         switch (m) {
         case 28: func_002af418(); return;
         case 30: func_002b01d8(); return;
         case 29:
-            func_002b2428(func_002b2338(func_00276608(28)));
+            Tz__JmPuzzle__RequestGraLoad(func_002b2338(func_00276608(28)));
             func_002afaf0();
             return;
         }
@@ -311,7 +311,7 @@ void func_002afe18(void) {
     }
     func_002b24c8();
     if (f && !func_00276398()) {
-        func_00276220(0, 2);
+        Tz__Jiminy__SetParentSeqNum(0, 2);
         func_00275b60();
     }
     if (st == 0 && func_00276398()) func_00287c90(1);
@@ -320,7 +320,7 @@ void func_002afe18(void) {
         if (f & 0xf0) {
             func_002b3050(0);
         } else if (f & 0xc0000) {
-            func_002b0e78(f);
+            Tz__JmPuzzle__PieceRot(f);
         } else if (f & 0x100) {
             s32 a = func_00287bc0();
             s32 b = func_002891e8(D_0035f200);
@@ -334,13 +334,13 @@ void func_002afe18(void) {
                 func_002aece8();
                 func_002b2c80();
                 if (e) {
-                    func_00276dc0();
-                    func_00276220(1, 1);
+                    Tz__Jiminy__FadeOutHelp();
+                    Tz__Jiminy__SetParentSeqNum(1, 1);
                     func_00287c00(28);
                     func_00287cc0(2);
                 } else {
-                    func_002b1208(f);
-                    func_00276220(((f >> 16) ^ 1) & 1, 1);
+                    Tz__JmPuzzle__ChangeImage(f);
+                    Tz__Jiminy__SetParentSeqNum(((f >> 16) ^ 1) & 1, 1);
                     func_00287c00(func_00287bc0());
                     func_00287cc0(2);
                 }
@@ -349,8 +349,8 @@ void func_002afe18(void) {
             if (f & 0x2000) {
                 func_002aece8();
                 func_002b2c80();
-                func_00276dc0();
-                func_00276220(0, 1);
+                Tz__Jiminy__FadeOutHelp();
+                Tz__Jiminy__SetParentSeqNum(0, 1);
                 func_00287c00(30);
                 func_00287cc0(2);
             } else if (f & 4) {
@@ -376,39 +376,39 @@ s32 mb_mode(void) asm("_ZN2Tz8MenuBase7GetModeEv");
 s32 func_0028f930(s32) asm("func_0028f930");
 s32 func_002b3b60(s32) asm("func_002b3b60");
 void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
-void func_00276e78(void) asm("func_00276e78");
+void Tz__Jiminy__CreateCover(void) asm("Tz__Jiminy__CreateCover");
 void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz5Pause16CreateFadeObjectEz");
 void mc_create(void*, s32, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz10MenuCursor6CreateEz");
 void obj_xyoff(void*) asm("_ZN2dk5Obj2D17getSeqPraramXYOffEv");
 void mc_as(void*, void*) asm("_ZN2Tz10MenuCursor12AttachSpriteEz");
 s32 yi_cr(void*) asm("_ZN2YI8SEQUENCE10GetParamCrEv");
 void reset_alpha(void*) asm("_ZN2dk5Obj2D17resetSeqAlphaOnlyEv");
-void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("func_00288d80");
+void Tz__Select__SetItem(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("Tz__Select__SetItem");
 struct Obj { u8 pad[408]; s32 x198; u8 pad2[8]; s32 x1a4; u8 pad3[4]; s32 x1ac; s32 x1b0; s32 x1b4; };
 Obj* sel_item(s32, s32) asm("_ZN2Tz6Select10GetItemPtrEi");
 s32 u_tail4(s32) asm("_Z16u_tail4_00192048jjjj");
 s32 func_00192b80(s32) asm("func_00192b80");
-void func_0028af90(s32, s32) asm("func_0028af90");
-void func_002891f0(s32, s32, s32, s32, s32) asm("func_002891f0");
+void Tz__Select__SetSelectMax(s32, s32) asm("Tz__Select__SetSelectMax");
+void Tz__Select__SetCurrent(s32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
 void func_0028afd0(s32, s32) asm("func_0028afd0");
 void* lay_get(s32) asm("_ZN2Tz6Layout9getLayoutEv");
 s32 yi_unit(void*, s32) asm("_ZN2YI6LAYOUT15GetSequenceUnitEi");
 s32 yi_img(void*, s32) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
 u8* jm_scrbar(void) asm("_ZN2Tz6Jiminy15GetScrBarSeqTblEv");
 void func_0028bae0(s32, s32, s32, s32, void*, s32, s32, s32, s32) asm("func_0028bae0");
-void func_0028be78(s32, s32) asm("func_0028be78");
+void Tz__ScrollBar__SetPos(s32, s32) asm("Tz__ScrollBar__SetPos");
 struct Sram { u8 pad[486]; u16 flags; };
 Sram* jm_sram(void) asm("_ZN2Tz9JmNewInfo7GetSramEv");
 u32 sel_getbtn(s32) asm("_ZN2Tz6Select15GetEnableButtonEv");
 void sel_setbtn(s32, u32) asm("_ZN2Tz6Select15SetEnableButtonEj");
-void func_0028b218(s32, s32) asm("func_0028b218");
+void Tz__Select__SetPageMode(s32, s32) asm("Tz__Select__SetPageMode");
 void func_0028b248(s32, s32) asm("func_0028b248");
 void sel_loop(s32, s32) asm("_ZN2Tz6Select15SetSelectorLoopEb");
-void func_002b1a00(void) asm("func_002b1a00");
+void Tz__JmPuzzle__UpdateHelpMess(void) asm("Tz__JmPuzzle__UpdateHelpMess");
 void jm_hide(s32) asm("_ZN2Tz6Jiminy13SetHideCursorEb");
 void jm_hidel(s32) asm("_ZN2Tz6Jiminy18SetHideLightCursorEb");
 void sel_set(s32) asm("_ZN2Tz8Selector8SetStateEi");
-void func_002b31c0(void) asm("func_002b31c0");
+void Tz__JmPuzzle__DrawMess(void) asm("Tz__JmPuzzle__DrawMess");
 extern s32 D_0035f3d4 asm("D_0035f3d4");
 extern s32 D_0035f14c asm("D_0035f14c");
 extern s32 D_0035f148 asm("D_0035f148");
@@ -432,7 +432,7 @@ void func_002b01d8(void) {
     v = 1;
     n = D_0035f3d4;
     m = n - 1;
-    func_00276e78();
+    Tz__Jiminy__CreateCover();
     pz_cfo(seq, m, D_0035f14c, D_0035f148, D_0035f210, 97, -1, 0);
     obj_xyoff(seq);
     mc_as(seq, par);
@@ -442,7 +442,7 @@ void func_002b01d8(void) {
     mc_as(c, par);
     for (i = 0; i < 1; i++) {
         bf = 3u << 29;
-        func_00288d80(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, h[0], h[1]);
+        Tz__Select__SetItem(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, h[0], h[1]);
         bf |= 8;
         r = sel_item(D_0035f200, i);
         obj_xyoff(r);
@@ -450,7 +450,7 @@ void func_002b01d8(void) {
         r->x1a4 = bf;
         r->x1ac = 3;
         reset_alpha(r);
-        r->x1b4 = (s32)func_002b31c0;
+        r->x1b4 = (s32)Tz__JmPuzzle__DrawMess;
     }
     q = (Obj*)(D_0035f634 + 22032);
     mc_create(q, n, D_0035f14c, D_0035f148, D_0035f210, 98, -1, -1, 0);
@@ -464,22 +464,22 @@ void func_002b01d8(void) {
     D_0035f638->a = yi_cr(seq + 24);
     D_0035f638->b = func_00192b80(u_tail4(20298));
     if (D_0035f638->b >= 10) v = D_0035f638->b - 8;
-    func_0028af90(D_0035f200, v);
-    func_002891f0(D_0035f200, 0, 0, -1, -1);
+    Tz__Select__SetSelectMax(D_0035f200, v);
+    Tz__Select__SetCurrent(D_0035f200, 0, 0, -1, -1);
     func_0028afd0(D_0035f200, 0);
     m = D_0035f3d4;
     r1 = yi_unit(lay_get(D_0035f210), D_0035f14c);
     r2 = yi_img(*(void**)((u8*)lay_get(D_0035f210) + 40), D_0035f148);
     func_0028bae0(D_0035f214, m, r1, r2, jm_scrbar(), D_0035f638->b, 9, (s32)c, 0);
-    func_0028be78(D_0035f214, 0);
+    Tz__ScrollBar__SetPos(D_0035f214, 0);
     sr = jm_sram();
     if (mode == 31 || (sr->flags & 1)) sel_setbtn(D_0035f200, sel_getbtn(D_0035f200) & ~0x10);
     if (v >= 2) {
-        func_0028b218(D_0035f200, 1);
+        Tz__Select__SetPageMode(D_0035f200, 1);
         func_0028b248(D_0035f200, 9);
     }
     sel_loop(D_0035f200, 0);
-    func_002b1a00();
+    Tz__JmPuzzle__UpdateHelpMess();
     jm_hide(1);
     jm_hidel(1);
     sel_set(0);

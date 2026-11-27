@@ -36,10 +36,10 @@ namespace n00137560 {
 void func_00139598(u8*) asm("func_00139598");
 void func_002ba2e8(s32, s32) asm("func_002ba2e8");
 void func_001395a8(u8*) asm("func_001395a8");
-void func_00138840(u8*) asm("func_00138840");
+void dk__Sprite__update(u8*) asm("dk__Sprite__update");
 extern f32 D_00349e14 asm("D_00349e14");
-void func_00137560(u8* p) asm("func_00137560");
-void func_00137560(u8* p) {
+void dk__TREASURE_INFO_BASE__update(u8* p) asm("dk__TREASURE_INFO_BASE__update");
+void dk__TREASURE_INFO_BASE__update(u8* p) {
     if (0.0f < *(f32*)(p + 436)) {
         *(f32*)(p + 436) = *(f32*)(p + 436) - D_00349e14;
         func_00139598(p);
@@ -51,7 +51,7 @@ void func_00137560(u8* p) {
         *(f32*)(p + 436) = lim;
     }
     func_001395a8(p);
-    func_00138840(p);
+    dk__Sprite__update(p);
 }
 }  // namespace n00137560
 
@@ -71,8 +71,8 @@ s32 func_00139d78(void*) asm("func_00139d78");
 void func_00139510(void*) asm("func_00139510");
 void func_001b2028(u32) asm("func_001b2028");
 void func_001991a8(s32, s32) asm("func_001991a8");
-void func_00137630(u8* p) asm("func_00137630");
-void func_00137630(u8* p) {
+void dk__TREASURE_BOX_INFO__destroy(u8* p) asm("dk__TREASURE_BOX_INFO__destroy");
+void dk__TREASURE_BOX_INFO__destroy(u8* p) {
     if (*(u32*)(p + 1304)) {
         if (func_00139d78(p + 448)) func_00139510(p + 448);
         if (func_00139d78(p + 896)) func_00139510(p + 896);
@@ -115,8 +115,8 @@ void func_00139598(u8*) asm("func_00139598");
 s32 func_001b1fc8(s32) asm("func_001b1fc8");
 u32 func_001b1ff0(s32) asm("func_001b1ff0");
 u32 func_001b1e70(void) asm("func_001b1e70");
-void func_00138650(u8*, s32, u32, s32) asm("func_00138650");
-void func_001386e0(Sub4*, s32, u32, u8*, s32, s32) asm("func_001386e0");
+void dk__SpriteImage__create(u8*, s32, u32, s32) asm("dk__SpriteImage__create");
+void dk__Sprite__create(Sub4*, s32, u32, u8*, s32, s32) asm("dk__Sprite__create");
 void func_00236410(u8*, s32) asm("func_00236410");
 void func_00236428(u8*, s32) asm("func_00236428");
 void func_002367c8(u8*) asm("func_002367c8");
@@ -124,9 +124,9 @@ void func_001396b0(Sub4*) asm("func_001396b0");
 void func_0031a260(Sub4*, s32) asm("func_0031a260");
 void func_002ba2e8(s32, s32) asm("func_002ba2e8");
 void func_001395a8(u8*) asm("func_001395a8");
-void func_00138840__43679(u8*) asm("func_00138840");
-void func_001376b8(u8* p) asm("func_001376b8");
-void func_001376b8(u8* p)
+void func_00138840__43679(u8*) asm("dk__Sprite__update");
+void dk__TREASURE_BOX_INFO__update(u8* p) asm("dk__TREASURE_BOX_INFO__update");
+void dk__TREASURE_BOX_INFO__update(u8* p)
 {
     if (0.0f < *(f32*)(p + 436)) {
         *(f32*)(p + 436) -= D_00349e14;
@@ -141,8 +141,8 @@ void func_001376b8(u8* p)
         u8* w = p + 480;
         *(u32*)(p + 1304) = func_001b1ff0(*(s32*)(p + 440));
         u32 h = func_001b1e70();
-        func_00138650(p + 448, 11100, *(u32*)(p + 1304), 0);
-        func_001386e0((Sub4*)(p + 896), 11100, h, w, 6, 0);
+        dk__SpriteImage__create(p + 448, 11100, *(u32*)(p + 1304), 0);
+        dk__Sprite__create((Sub4*)(p + 896), 11100, h, w, 6, 0);
         func_00236410(w, 14080);
         func_00236428(w, 10752);
         func_002367c8(w);
@@ -208,8 +208,8 @@ extern VObj* D_00347d5c asm("D_00347d5c");
 extern s32 D_00347d58 asm("D_00347d58");
 extern u32 D_00347d60 asm("D_00347d60");
 void func_001b2028(u32) asm("func_001b2028");
-void func_00137930(u8* p) asm("func_00137930");
-void func_00137930(u8* p) {
+void dk__TREASURE_EVENT_INFO__destroy(u8* p) asm("dk__TREASURE_EVENT_INFO__destroy");
+void dk__TREASURE_EVENT_INFO__destroy(u8* p) {
     u8* b = p + 896;
     u8* a = p + 448;
     if (*(u32*)(p + 1304)) {
@@ -239,20 +239,20 @@ void func_0031a260(u8*, s32) asm("func_0031a260");
 s32 func_001b1fc8(s32) asm("func_001b1fc8");
 u32 func_001b1ff0(s32) asm("func_001b1ff0");
 u32 func_001b1e70(void) asm("func_001b1e70");
-void func_00138650(u8*, s32, u32, s32) asm("func_00138650");
-void func_001386e0(u8*, s32, u32, u8*, s32, s32) asm("func_001386e0");
+void dk__SpriteImage__create(u8*, s32, u32, s32) asm("dk__SpriteImage__create");
+void dk__Sprite__create(u8*, s32, u32, u8*, s32, s32) asm("dk__Sprite__create");
 void func_00236410(u8*, s32) asm("func_00236410");
 void func_00236428(u8*, s32) asm("func_00236428");
 void func_002367c8(u8*) asm("func_002367c8");
 void func_00139598(u8*) asm("func_00139598");
 void func_001395a8(u8*) asm("func_001395a8");
-void func_00138840(u8*) asm("func_00138840");
+void dk__Sprite__update(u8*) asm("dk__Sprite__update");
 u8* func_00167f18(s32) asm("func_00167f18");
 void func_002ba2e8(s32, s32) asm("func_002ba2e8");
 void func_00138c10(u8*, u32) asm("func_00138c10");
-void func_001379e0(u8* p) asm("func_001379e0");
-void func_001379e0(u8* p) asm("func_001379e0");
-void func_001379e0(u8* p) {
+void dk__TREASURE_EVENT_INFO__update(u8* p) asm("dk__TREASURE_EVENT_INFO__update");
+void dk__TREASURE_EVENT_INFO__update(u8* p) asm("dk__TREASURE_EVENT_INFO__update");
+void dk__TREASURE_EVENT_INFO__update(u8* p) {
     if (*(s32*)(p + 440) != -1) {
         if (*(u32*)(p + 1304) == 0) {
             if (func_001b1fc8(*(s32*)(p + 440)) == 0) {
@@ -262,9 +262,9 @@ void func_001379e0(u8* p) {
             u8* m = p + 480;
             *(u32*)(p + 1304) = func_001b1ff0(*(s32*)(p + 440));
             u32 t = func_001b1e70();
-            func_00138650(p + 448, 11100, *(u32*)(p + 1304), 0);
+            dk__SpriteImage__create(p + 448, 11100, *(u32*)(p + 1304), 0);
             u8* q = p + 896;
-            func_001386e0(q, 11100, t, m, 2, 0);
+            dk__Sprite__create(q, 11100, t, m, 2, 0);
             func_00236410(m, 14080);
             func_00236428(m, 10752);
             func_002367c8(m);
@@ -286,26 +286,26 @@ void func_001379e0(u8* p) {
         }
     }
     func_001395a8(p);
-    func_00138840(p);
+    dk__Sprite__update(p);
 }
 }  // namespace n001379e0
 
 // ---- 00137b88 gap: draw slot of the vtable at 0x347d88
 namespace n00137b88 {
 struct Printer137 { u8 b[96]; };
-void func_00138988(u8*) asm("func_00138988");
-u32 func_00138de0(u8*) asm("func_00138de0");
+void dk__Sprite__draw(u8*) asm("dk__Sprite__draw");
+u32 dk__SpriteMessage__drawMessage(u8*) asm("dk__SpriteMessage__drawMessage");
 void getSeqActiveXY137(u8*, s32*, s32*) asm("_ZN2dk6Sprite14getSeqActiveXYERiS1_");
 s32 GetParamX137(u8*) asm("_ZN2YI8SEQUENCE9GetParamXEv");
 s32 GetParamY137(u8*) asm("_ZN2YI8SEQUENCE9GetParamYEv");
 s32 GetParamEx137(u8*) asm("_ZN2YI8SEQUENCE10GetParamExEv");
-void func_001a98e8_137(Printer137*, s32, u32, s32, s32) asm("func_001a98e8");
-void print137(Printer137*, s32, s32, u32) asm("_Z16wtarget_001a9ae8jjjj");
+void func_001a98e8_137(Printer137*, s32, u32, s32, s32) asm("YS__MESSAGEDRAW__MESSAGEDRAW");
+void print137(Printer137*, s32, s32, u32) asm("_Z21YS__MESSAGEDRAW__drawjjjj");
 void func_00137b88(u8* p) asm("func_00137b88");
 void func_00137b88(u8* p) {
     u8* seq = p + 24;
-    func_00138988(p);
-    u32 color = func_00138de0(p);
+    dk__Sprite__draw(p);
+    u32 color = dk__SpriteMessage__drawMessage(p);
     s32 x = 0, y = 0;
     getSeqActiveXY137(p, &x, &y);
     x += GetParamX137(seq);
@@ -320,8 +320,8 @@ void func_00137b88(u8* p) {
 // ---- 00137c50 from src/anon/batch_w14.cpp
 namespace n00137c50 {
 void func_001391c8(void*, s32, s32) asm("func_001391c8");
-void func_00137c50(u8* p) asm("func_00137c50");
-void func_00137c50(u8* p) {
+void dk__TREASURE_INFO__create(u8* p) asm("dk__TREASURE_INFO__create");
+void dk__TREASURE_INFO__create(u8* p) {
     *(s32*)(p + 10696) = 0;
     *(s32*)(p + 32) = 1;
     *(s32*)(p + 48) = 0;
@@ -429,7 +429,7 @@ void func_0031a830(void*) asm("func_0031a830");
 void func_0031a838(void*) asm("func_0031a838");
 void func_0031a350(void*) asm("func_0031a350");
 void func_00239700(void*) asm("func_00239700");
-void func_00137c50(void*) asm("func_00137c50");
+void dk__TREASURE_INFO__create(void*) asm("dk__TREASURE_INFO__create");
 extern u8* D_00347f80 asm("D_00347f80");
 extern u32 D_00347d70[] asm("D_00347d70");
 extern u32 D_00347f98[] asm("D_00347f98");
@@ -467,7 +467,7 @@ void u_call0_00137fb8(void) {
     r2[0] = 0;
     r2[1] = 0;
     D_00347d64 = p;
-    func_00137c50(D_00347d64);
+    dk__TREASURE_INFO__create(D_00347d64);
 }
 }  // namespace n00137fb8
 
@@ -500,8 +500,8 @@ void func_001397d8(u32) asm("func_001397d8");
 struct G347 { u8 pad[0x20]; u32 f20; u8 p2[0xc]; u32 f30; u32 f34; u8 p3[0x29c0 - 0x38]; u32 f29c0; u32 f29c4; u32 f29c8; };
 union G347Ptr { G347* p; u32 w; };
 extern G347Ptr D_00347d64 asm("D_00347d64");
-void func_00138140(void) asm("func_00138140");
-void func_00138140(void) {
+void dk__TREASURE_INFO__off(void) asm("dk__TREASURE_INFO__off");
+void dk__TREASURE_INFO__off(void) {
     func_001398d0(13);
     func_001397d8(13);
     G347* p = D_00347d64.p;
@@ -566,8 +566,8 @@ namespace n00138210 {
 extern u8* D_00347d64 asm("D_00347d64");
 void func_00192c90(u32, void*) asm("func_00192c90");
 void func_00192b30(u32) asm("func_00192b30");
-void func_00138210(u32 a) asm("func_00138210");
-void func_00138210(u32 a) {
+void dk__TREASURE_INFO__openPrizeInfo(u32 a) asm("dk__TREASURE_INFO__openPrizeInfo");
+void dk__TREASURE_INFO__openPrizeInfo(u32 a) {
     u8* q = D_00347d64 + 10692;
     s32 h = *(s32*)q;
     s32 d = h - *(s32*)(q + 4);
@@ -583,14 +583,14 @@ void func_00138210(u32 a) {
 // ---- 001382b8 from src/harata/libdk/treasure_info.cpp
 namespace n001382b8 {
 extern u32 D_00347d58 asm("D_00347d58");
-u32 func_00253180(u32, u32) asm("func_00253180");
+u32 Tz__CampMenu__Start(u32, u32) asm("Tz__CampMenu__Start");
 }  // namespace n001382b8
 namespace dk {
-u32 TREASURE_INFO::openEventInfo(s32 a0) { using namespace ::n001382b8; using ::n001382b8::D_00347d58; using ::n001382b8::func_00253180;
+u32 TREASURE_INFO::openEventInfo(s32 a0) { using namespace ::n001382b8; using ::n001382b8::D_00347d58; using ::n001382b8::Tz__CampMenu__Start;
     u32 r4 = (u32)a0, r5 = (u32)-1;
     *(u32*)((u32)&D_00347d58 + (s32)(0)) = r4;
     r4 = 7u;
-    return func_00253180(r4, r5);
+    return Tz__CampMenu__Start(r4, r5);
 }
 }  // namespace dk
 
@@ -609,7 +609,7 @@ u8** func_001a84b0(void) asm("func_001a84b0");
 void func_001b1e80(u8*) asm("func_001b1e80");
 void func_002361a0(u8*) asm("func_002361a0");
 u32 func_0013a7d0(s32) asm("func_0013a7d0");
-void func_00138650(u8*, s32, u32, s32) asm("func_00138650");
+void dk__SpriteImage__create(u8*, s32, u32, s32) asm("dk__SpriteImage__create");
 void func_0031a838(u8*) asm("func_0031a838");
 void func_00239700(u8*) asm("func_00239700");
 void func_00137890(u8*, u8*, u8*, u8*) asm("func_00137890");
@@ -617,8 +617,8 @@ void func_002ba2e8(s32, s32) asm("func_002ba2e8");
 
 static inline u8* Alloc1382n(u32 n) { Alloc1382* h = D_00347f80->heap; return h->vt->alloc(h, n, 0); }
 
-void func_001382e0(void) asm("func_001382e0");
-void func_001382e0(void)
+void dk__TREASURE_INFO__createEventInfo(void) asm("dk__TREASURE_INFO__createEventInfo");
+void dk__TREASURE_INFO__createEventInfo(void)
 {
     u8** cfg = func_001a84b0();
     func_001b1e80(cfg[2]);
@@ -628,7 +628,7 @@ void func_001382e0(void)
     *(u8**)a = D_00347e80;
     func_002361a0(a + 32);
     D_00347d5c = a;
-    func_00138650(D_00347d5c, 6000, func_0013a7d0(1), 0);
+    dk__SpriteImage__create(D_00347d5c, 6000, func_0013a7d0(1), 0);
     u8* b = Alloc1382n(1312);
     *(u8**)b = D_00347f98;
     func_0031a838(b + 12);

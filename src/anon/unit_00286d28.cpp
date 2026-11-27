@@ -29,8 +29,8 @@ s32 func_00258108(void) asm("func_00258108");
 s32 func_002811b0(s32, s32) asm("func_002811b0");
 s32 func_001b7818(s32) asm("func_001b7818");
 /*TARGET 00286d28*/
-s32 func_00286d28(s32 a, s32 b) asm("func_00286d28");
-s32 func_00286d28(s32 a, s32 b) {
+s32 Tz__CmNewFlg__isAbilityNewMember(s32 a, s32 b) asm("Tz__CmNewFlg__isAbilityNewMember");
+s32 Tz__CmNewFlg__isAbilityNewMember(s32 a, s32 b) {
     s32 r = 0;
     s32 ctx = func_00258108();
     s32 i;
@@ -75,8 +75,8 @@ s32 func_002812e0(void) asm("func_002812e0");
 static inline bool TestBit(u32* a, u32 b) { return (a[b >> 5] & (1 << (b & 31))) != 0; }
 static inline s32 IsOffI(s32 f, s32 i) { return (u8)!((f >> i) & 1); }
 /*TARGET 00286ec8*/
-s32 func_00286ec8(s32 sel, s32 n) asm("func_00286ec8");
-s32 func_00286ec8(s32 sel, s32 n) {
+s32 Tz__CmNewFlg__isAbilityNewForm(s32 sel, s32 n) asm("Tz__CmNewFlg__isAbilityNewForm");
+s32 Tz__CmNewFlg__isAbilityNewForm(s32 sel, s32 n) {
     s32 res = 0;
     s32 flags = func_002813b8();
     if (func_0027aa78()) flags |= 0x80;
@@ -110,11 +110,11 @@ static inline s32 bit(const u32* b, u32 i) { return (b[i >> 5] & (1 << (i & 31))
 // 00287028: checks that every flag set in D_0035f2e4's bitsets is also set in the
 // save data (first set: 80 bits or the one bit 'id'; second: 48 bits per entry
 // for entries 1..3 or just entry 'mode'). Returns 1 when all are set, else 0.
-s32 func_00287028(s32 mode_, s32 id) asm("func_00287028");
+s32 Tz__CmNewFlg__isAbilityHistMember(s32 mode_, s32 id) asm("Tz__CmNewFlg__isAbilityHistMember");
 // 00287028: checks that every flag set in D_0035f2e4's bitsets is also set in the
 // save data (first set: 80 bits or the one bit 'id'; second: 48 bits per entry
 // for entries 1..3 or just entry 'mode'). Returns 1 when all are set, else 0.
-s32 func_00287028(s32 mode_, s32 id)
+s32 Tz__CmNewFlg__isAbilityHistMember(s32 mode_, s32 id)
 {
     // register pin: without it gcc gives r the lower saved register (s2) and mode s3
     register s32 mode asm("$18") = mode_;
@@ -222,8 +222,8 @@ void* func_00258108(void) asm("func_00258108");
 void* func_002811b0(void*, s32) asm("func_002811b0");
 s32 func_001b7818(void*) asm("func_001b7818");
 /*TARGET 00287358*/
-void func_00287358(s32 mode, u32 id) asm("func_00287358");
-void func_00287358(s32 mode, u32 id)
+void Tz__CmNewFlg__SetAbilityFlgMember(s32 mode, u32 id) asm("Tz__CmNewFlg__SetAbilityFlgMember");
+void Tz__CmNewFlg__SetAbilityFlgMember(s32 mode, u32 id)
 {
     Save* s = func_002859a0();
     void* v = func_00258108();
@@ -268,7 +268,7 @@ extern char D_01e21ef8[] asm("D_01e21ef8");
 extern char D_003743f8[] asm("D_003743f8");
 void func_0023fa90(u32, char*) asm("func_0023fa90");
 u32 func_0023f988(u32, u32) asm("func_0023f988");
-void func_00138650(u8*, u32, u32, u32) asm("func_00138650");
+void dk__SpriteImage__create(u8*, u32, u32, u32) asm("dk__SpriteImage__create");
 static inline u8* heap_alloc_w96(u32 size) {
     void* h = *(void**)(D_00347f80 + 20);
     return (**(AllocFn_w96**)h)(h, size, 0);
@@ -293,7 +293,7 @@ void func_002874b0(u8* self) {
     }
     func_002fee78(D_01e21ef8, D_003743f8, D_0033caf4);
     func_0023fa90((u32)self + 12, D_01e21ef8);
-    func_00138650(*(u8**)self, 26000, func_0023f988((u32)self + 12, 0), 0);
+    dk__SpriteImage__create(*(u8**)self, 26000, func_0023f988((u32)self + 12, 0), 0);
 }
 }  // namespace n002874b0
 
@@ -315,10 +315,10 @@ void func_00239700(u8*) asm("func_00239700");
 void func_002fee78(char*, char*, u32) asm("func_002fee78");
 void func_0023fa90(u8*, char*) asm("func_0023fa90");
 u32 func_0023f988(u8*, s32) asm("func_0023f988");
-void func_00138650(u8*, s32, u32, s32) asm("func_00138650");
+void dk__SpriteImage__create(u8*, s32, u32, s32) asm("dk__SpriteImage__create");
 /*TARGET 002875e8*/
-void func_002875e8(u8** o) asm("func_002875e8");
-void func_002875e8(u8** o) {
+void Tz__Mg2DTron__Mg2DTron(u8** o) asm("Tz__Mg2DTron__Mg2DTron");
+void Tz__Mg2DTron__Mg2DTron(u8** o) {
     Alloc287* a = D_00347f80->alloc;
     u8* v = a->vt[0](a, 448, 0);
     *(u32*)(v + 12) = 0;
@@ -337,7 +337,7 @@ void func_002875e8(u8** o) {
     }
     func_002fee78(D_01e21ef8, D_003743f8, D_0033caf4);
     func_0023fa90((u8*)(o + 3), D_01e21ef8);
-    func_00138650(o[0], 26000, func_0023f988((u8*)(o + 3), 0), 0);
+    dk__SpriteImage__create(o[0], 26000, func_0023f988((u8*)(o + 3), 0), 0);
 }
 }  // namespace n002875e8
 
@@ -380,17 +380,17 @@ s32 func_00139d78(void*) asm("func_00139d78");
 void func_00138c10(u8*, u32) asm("func_00138c10");
 extern s16 D_00374410[][5] asm("D_00374410");
 u32 func_0023f9c8(u8*, s32) asm("func_0023f9c8");
-void func_001386e0(u32, s32, u32, u32, s32, s32) asm("func_001386e0");
+void dk__Sprite__create(u32, s32, u32, u32, s32, s32) asm("dk__Sprite__create");
 /*TARGET 002877a0*/
-void func_002877a0(u8* a0, s32 a1, s32 a2) asm("func_002877a0");
-void func_002877a0(u8* a0, s32 a1, s32 a2)
+void Tz__Mg2DTron__CreateSeq(u8* a0, s32 a1, s32 a2) asm("Tz__Mg2DTron__CreateSeq");
+void Tz__Mg2DTron__CreateSeq(u8* a0, s32 a1, s32 a2)
 {
     u32* slot = (u32*)(a1 * 4 + (u32)a0);
     if (func_00139d78((void*)slot[1])) {
         func_00138c10((u8*)slot[1], D_00374410[a1][a2]);
         return;
     }
-    func_001386e0(slot[1], 26006, func_0023f9c8(a0 + 12, 0), *(u32*)a0 + 32, D_00374410[a1][a2], 0);
+    dk__Sprite__create(slot[1], 26006, func_0023f9c8(a0 + 12, 0), *(u32*)a0 + 32, D_00374410[a1][a2], 0);
 }
 }  // namespace n002877a0
 
@@ -453,7 +453,7 @@ u32 func_00103570(void) asm("func_00103570");
 void func_00139e00(u32, u8) asm("func_00139e00");
 void func_0023edb0(u32) asm("func_0023edb0");
 void func_00288b18(u32) asm("func_00288b18");
-void func_00236d60(void) asm("func_00236d60");
+void YI__IMAGE_CACHE__Clear(void) asm("YI__IMAGE_CACHE__Clear");
 // clear_64_entries_24
 void func_00287b30(void) asm("func_00287b30");
 void func_00287d08(void) asm("func_00287d08");
@@ -461,15 +461,15 @@ void func_0023ed00(u32) asm("func_0023ed00");
 void func_0023d4f8(void*, u32) asm("func_0023d4f8");
 void func_00287c20(void) asm("func_00287c20");
 // clear_global_flag_return_m1
-void func_0028c3f0(u32) asm("func_0028c3f0");
-void func_00287ed8(u32) asm("func_00287ed8");
+void Tz__MenuItem__init(u32) asm("Tz__MenuItem__init");
+void Tz__MenuBase__SavePadInit(u32) asm("Tz__MenuBase__SavePadInit");
 /*TARGET 00287910*/
 void func_00287910(u32 a, u32 b, u8 c) asm("func_00287910");
 void func_00287910(u32 a, u32 b, u8 c) {
     func_00139e00(func_00103570(), c);
     func_0023edb0(func_00103570());
     func_00288b18(func_00103570());
-    func_00236d60();  // clear_64_entries_24
+    YI__IMAGE_CACHE__Clear();  // clear_64_entries_24
     func_00287b30();
     func_00287d08();
     func_0023ed00(7);
@@ -483,10 +483,10 @@ void func_00287910(u32 a, u32 b, u8 c) {
     }
     D_0035f314 = 0;
     func_00287c20();  // clear_global_flag_return_m1
-    func_0028c3f0(func_00103570());
+    Tz__MenuItem__init(func_00103570());
     D_0035f2e8 = 0;
     D_0035f320 = 0;
-    func_00287ed8(func_00103570());
+    Tz__MenuBase__SavePadInit(func_00103570());
 }
 }  // namespace n00287910
 
@@ -509,8 +509,8 @@ extern s32 D_0035f2f4 asm("D_0035f2f4");
 extern VObj* D_0035f31c asm("D_0035f31c");
 extern void* D_0035f2e8 asm("D_0035f2e8");
 /*TARGET 00287a28*/
-void func_00287a28(void) asm("func_00287a28");
-void func_00287a28(void) {
+void Tz__MenuBase__Exit(void) asm("Tz__MenuBase__Exit");
+void Tz__MenuBase__Exit(void) {
     func_0028c4f8();
     func_0023ede8();
     func_00288b78();
@@ -802,8 +802,8 @@ extern s32 D_0035f308 asm("D_0035f308");
 extern s32 D_0035f30c asm("D_0035f30c");
 extern s32 D_0035f310 asm("D_0035f310");
 /*TARGET 00287d68*/
-void func_00287d68(void) asm("func_00287d68");
-void func_00287d68(void) {  // copy_globals_3words
+void Tz__MenuBase__SaveMode(void) asm("Tz__MenuBase__SaveMode");
+void Tz__MenuBase__SaveMode(void) {  // copy_globals_3words
     D_0035f2fc = D_0035f2f8;
     D_0035f308 = D_0035f304;
     D_0035f310 = D_0035f30c;
@@ -920,8 +920,8 @@ void func_00167658(void*, s32) asm("func_00167658");
 void func_00288018() asm("func_00288018");
 void* func_001063c0_x10951(s32, s32) asm("func_001063c0");
 /*TARGET 00287ed8*/
-void func_00287ed8(s32 a) asm("func_00287ed8");
-void func_00287ed8(s32 a) {
+void Tz__MenuBase__SavePadInit(s32 a) asm("Tz__MenuBase__SavePadInit");
+void Tz__MenuBase__SavePadInit(s32 a) {
     if (!D_0035f324) {
         void* p = func_001063c0_x10951(80, a);
         func_00167658(p, 0);
@@ -1043,8 +1043,8 @@ end:
 namespace n00288088 {
 u8* func_00167f18(u32) asm("func_00167f18");
 /*TARGET 00288088*/
-s32 func_00288088(void) asm("func_00288088");
-s32 func_00288088(void) {
+s32 Tz__MenuBase__isPressAnyKey(void) asm("Tz__MenuBase__isPressAnyKey");
+s32 Tz__MenuBase__isPressAnyKey(void) {
     return *(u64*)(func_00167f18(0) + 8) != 0;
 }
 }  // namespace n00288088

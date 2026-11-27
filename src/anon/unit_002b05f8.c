@@ -19,7 +19,7 @@ void func_00287c30(void);
 void func_0028af18(void*, s32);
 void func_00276690(s32);
 s32 func_00276358(void);
-void func_00276220(s32, s32);
+void Tz__Jiminy__SetParentSeqNum(s32, s32);
 void func_002aed60(void);
 void func_002afaf0(void);
 s32 func_00289310(void*);
@@ -30,12 +30,12 @@ s32 func_00287df0(s32, s32, s32, void*, s32);
 void func_002b3b78(void);
 s32 func_00242848(s32);
 s32 func_0028b038(void*);
-void func_0028be78(void*, s32);
+void Tz__ScrollBar__SetPos(void*, s32);
 void func_002aece8(void);
-void func_00276dc0(void);
+void Tz__Jiminy__FadeOutHelp(void);
 s32 func_00276608(s32);
 s32 func_002b2338(s32);
-void func_002b2428(s32);
+void Tz__JmPuzzle__RequestGraLoad(s32);
 void func_00287c00(s32);
 void func_00287cc0(s32);
 s32 func_00288040(void);
@@ -44,7 +44,7 @@ s32 func_002891e8(void*);
 void func_002765e8(s32, s32, s32);
 void func_00287da0(void);
 
-void func_002b05f8(void) {
+void Tz__JmPuzzle__CtrlTutorial(void) {
     s32 r = func_00289380(D_0035f200);
     s32 st = func_00287cd0();
     s32 m = func_00287bc0();
@@ -63,7 +63,7 @@ void func_002b05f8(void) {
         m = func_00287bc0();
         func_0028af18(D_0035f200, 115);
         func_00276690(0);
-        func_00276220(func_00276358(), 0);
+        Tz__Jiminy__SetParentSeqNum(func_00276358(), 0);
         switch (m) {
         case 29: func_002afaf0(); return;
         case 27: func_002aed60(); return;
@@ -72,13 +72,13 @@ void func_002b05f8(void) {
     }
     if (r != -1 || func_00289310(D_0035f200)) {
         if (!func_00276398()) {
-            func_00276220(0, 2);
+            Tz__Jiminy__SetParentSeqNum(0, 2);
             func_00275b60();
         }
     }
     if (st == 0 && func_00276398()) func_00287c90(1);
     if (!func_00242848(func_00287df0(r, func_00289310(D_0035f200), 1, (void*)func_002b3b78, 1))) {
-        if (func_00289310(D_0035f200)) func_0028be78(D_0035f214, func_0028b038(D_0035f200));
+        if (func_00289310(D_0035f200)) Tz__ScrollBar__SetPos(D_0035f214, func_0028b038(D_0035f200));
         switch (r) {
         case -4:
             if (!f->h486.b0) f->h486.b0 = 1;
@@ -95,16 +95,16 @@ void func_002b05f8(void) {
         default: {
         s32 v = 1;
         func_002aece8();
-        func_00276dc0();
+        Tz__Jiminy__FadeOutHelp();
         if (!f->h486.b0) {
             f->h486.b0 = 1;
             v = m != 30;
         }
-        func_00276220(v, 1);
+        Tz__Jiminy__SetParentSeqNum(v, 1);
         v = 27;
         if (m == 30) {
             v = 29;
-            func_002b2428(func_002b2338(func_00276608(28)));
+            Tz__JmPuzzle__RequestGraLoad(func_002b2338(func_00276608(28)));
         }
         func_00287c00(v);
         func_00287cc0(2);

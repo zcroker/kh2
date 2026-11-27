@@ -63,16 +63,16 @@ void func_00107360(void*, f32);
 void func_00107118(void*);
 s32 func_0013a1d8();
 void* func_001063c0(s32, s32);
-void func_001a91f8(void*);
+void YS__OBJDATA__clear(void*);
 void func_001a92d8(void*, s32, s32);
 s32 func_00103580();
 Res23da00* func_001a93e8(void*);
-Mot23da00* func_001a9458(void*, s32, s32);
+Mot23da00* YS__OBJDATA__get_kna(void*, s32, s32);
 void* func_001a9420(void*);
 void func_0011e260(s32, void*);
 f32 func_0023e700(Mgr23da00*);
 void* func_001a9528(void*);
-void func_001dddd0(void*, void*);
-void func_001a9560(void*, Obj23da00*, void*, s32*);
-void func_0023da00(Mgr23da00* m, s32 idx, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2);  // 0x0023da00: definition moved into src/anon/unit_0023d260.cpp
+void ryj__PAX__init(void*, void*);
+void YS__OBJDATA__start_model_effect(void*, Obj23da00*, void*, s32*);
+void Tz__MenuObj__CreateObj(Mgr23da00* m, s32 idx, s32 a2, s32 a3, s32 t0, s32 t1, s32 t2);  // 0x0023da00: definition moved into src/anon/unit_0023d260.cpp
 }

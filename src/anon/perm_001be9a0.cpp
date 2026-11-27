@@ -61,8 +61,8 @@ typedef struct Obj
 void _ZN2YS12COMMAND_MENU5clearEv(Tbl *);
 PR *_ZN2YS5PARTY11get_partramEv(void *);
 R* func_001a80c8(u32);
-void func_001bc780(Tbl *, u32, s32, s32);
+void YS__COMMAND_MENU__add(Tbl *, u32, s32, s32);
 void func_001bce00(Tbl *);
-void func_001be9a0(Obj *o);  // 0x001be9a0: definition moved into src/anon/unit_001bc568.cpp
+void YS__FIELD_COMMAND__make_item(Obj *o);  // 0x001be9a0: definition moved into src/anon/unit_001bc568.cpp
 
 }

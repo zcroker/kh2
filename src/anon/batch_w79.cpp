@@ -84,13 +84,13 @@ u32 func_001050c8(void);
 void func_00139f38(u32);
 extern u32 D_0034b278;
 void func_00153c60(void);
-void func_001385c0(void);
+void dk__Pause__init(void);
 void func_00109e18(void);
 void func_0015df68(void);
 void func_00140ce8(void);
 void func_00161ee8(void);
 void func_001618f0(void);
-void func_001618b8(void);
+void dk__Camera__createEffectDestroyTask(void);
 void func_0015a810(void);
 extern u8 D_00348d68[];
 void func_0014f268(void*);
@@ -101,7 +101,7 @@ void func_0013d7d0(void);
 extern char D_0032bae0[];
 extern char D_0032bb10[];
 s32 func_001051a0(const char*, const char*);
-s32 func_001bc130(void);
+s32 YS__MISSION__IsActivate2d(void);
 void func_0015b2d0(void);
 void func_0013d7c0(void);
 void func_00192290(u8, s32);
@@ -115,28 +115,28 @@ void func_00185d98(void);
 void func_001aeae0(void);
 void func_00196a40(void);
 void func_001a0bc0(void);
-void func_0018d738(void);
+void YS__ATTACK__Init(void);
 void func_001a5f50(void);
 void func_00199548(void);
 void func_001a6a10(void);
 void func_001b14d8(void);
-void func_0019ec20(void);
-void func_001b4300(void);
+void YS__BLUR__Init(void);
+void YS__LIMIT__Init(void);
 void func_00179be8(void);
 void func_001c8a90(void);
 void func_001d3b60(void);
 void func_001d5a48(void);
 void func_001a3a88(void);
 void func_001ba718(void);
-void func_001a5928(void);
+void YS__PRIZE__Init(void);
 void func_001b24c0(void);
-void func_00182b18(void);
-s32 func_00143d10(Q16Pair*, Q16*, void*, s32*);
-Q16* func_0016c028(void*);  // obj_get_attach_or_alt
+void YS__UNIT__ActivateAll(void);
+s32 dk__Octree__intersectLineCamera(Q16Pair*, Q16*, void*, s32*);
+Q16* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 s32 func_0019b3d0(void*, Q16*);
 void func_0018c438(void*);
 s32 func_0019b308(void*);
-void func_0018c650(void*, Q16*, u32, s32, s32, f32, f32);
+void YS__NPC__RTN_ACTION__lot(void*, Q16*, u32, s32, s32, f32, f32);
 extern s32 D_0035037c;
 s32 func_00197028(s32);
 void func_00196e00(void*);
@@ -145,9 +145,9 @@ extern s32 D_01c61b40;
 s32 func_001991a8(s32, s32);
 void func_001024a8(void*);
 extern struct E1a5 D_0036d578[];
-void func_00176be0(void*, f32);
-void func_00187650(void*, u8, s32);
-void func_00179a68(void*, f32);
+void YS__PARTY__prize_recov(void*, f32);
+void YS__BTLOBJ__add_mp(void*, u8, s32);
+void YS__PLAYER__add_drive(void*, f32);
 void func_001d6110(u8, void*);
 void func_0014f668(u8);
 void func_00242500(u8);
@@ -178,11 +178,11 @@ s32 func_00257070(s32);
 s32 func_00257088(s32);
 s32 func_0028afa8(u32);
 s32 func_002892f8(u32);
-void func_002891f0(u32, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32);
 void func_0028afd0(u32, s32);  // obj_set_signed18
 extern u32 D_0035f01c;
-void func_00178cf8(void*, void*);  // clear_vecs_three
-void func_00178cf8_1(void*) asm("func_00178cf8");
+void YS__PLAYER__move_stop(void*, void*);  // clear_vecs_three
+void func_00178cf8_1(void*) asm("YS__PLAYER__move_stop");
 u32 func_0016a020(u32);
 s32 func_002c5d38(void*, u32);
 void func_002c8648(void);
@@ -197,8 +197,8 @@ void func_00187750(void*);
 extern f32 D_00349e10;
 f32 fabsf(f32);  // fabsf
 void func_00144450(f32*);
-void func_001b7c80(void*, f32*);
-void func_0016af58(Q16*, void*);
+void YS__OBJCLSN__calc_bounding_box(void*, f32*);
+void YS__OBJ__get_dir(Q16*, void*);
 s32 func_00180cd0(void*);
 f32 func_002f8ad0(f32, f32);
 extern u8* D_00347f80;
@@ -216,8 +216,8 @@ extern s32 D_0035de64;
 extern s32 D_0035f680[];
 extern struct Rec40* D_0035f660;
 u32* func_002b6118(u32);
-void func_001a98e8(void*, s32, u32, s32, u32);
-void func_001a9ae8(void*, s32, s32, s32);
+void YS__MESSAGEDRAW__MESSAGEDRAW(void*, s32, u32, s32, u32);
+void YS__MESSAGEDRAW__draw(void*, s32, s32, s32);
 extern u8 D_0035e238[];
 void func_00239870(void*);
 void func_0031a840(void*);
@@ -230,11 +230,11 @@ void func_002bc358(u32, s32);
 extern s32 D_0034dcc0[];
 extern s32 D_0034dcc8[];
 s32 func_0016ffc8(void*);
-u8* func_00189200(void*, s32);
-s32 func_001d62b0(void*, void*);
+u8* YS__SAVERAM_BATTLE__get_formram(void*, s32);
+s32 YS__ANTI_FORM__IsAnti(void*, void*);
 s32 func_001917c0(void);
-s32 func_001d63a8(void*);
-void func_001a32c8(s32, s32);
+s32 YS__ANTI_FORM__IsFinal(void*);
+void YS__ITEM__GetBackyard(s32, s32);
 extern u8* D_00352130;
 extern u8 D_0032e020[];
 struct T294* func_00294000(s32);
@@ -307,7 +307,7 @@ void func_00169210(void);  // 0x00169210: definition moved into src/anon/unit_00
 
 // 00159240: moved to src/anon/unit_00159240.cpp
 
-void func_0018b7f8(u8* p);  // 0x0018b7f8: definition moved into src/yasui/libys/npc.cpp
+void YS__NPC__check_in_zone(u8* p);  // 0x0018b7f8: definition moved into src/yasui/libys/npc.cpp
 
 void func_00197a00(void* a);  // 0x00197a00: definition moved into src/anon/unit_00195d00.cpp
 
@@ -322,7 +322,7 @@ void func_0027c2f8(void);  // 0x0027c2f8: definition moved into src/anon/unit_00
 void func_002c5c50(void* a, u32* b);  // 0x002c5c50: definition moved into src/anon/unit_002c53c8.cpp
 
 // Interpolates between two keys by the current time.
-f32 func_002d60e8(u8* p);  // 0x002d60e8: definition moved into src/anon/unit_002d4548.cpp
+f32 Ti__MGOarashiPo__get_separate_speed(u8* p);  // 0x002d60e8: definition moved into src/anon/unit_002d4548.cpp
 
 void func_002daee8(u8* p);  // 0x002daee8: definition moved into src/anon/unit_002da040.cpp
 
@@ -335,9 +335,9 @@ Q16* func_0018d840(Q16* out, u8* o, void* a);  // 0x0018d840: definition moved i
 
 void func_001c2f90(struct S1c2* p, u32 a);  // 0x001c2f90: definition moved into src/anon/unit_001c2b58.cpp
 
-void func_00228e58(void);  // 00228e58: moved to src/anon/unit_00228618.cpp (linked unit)
+void sa__MUSICAL_GAUGE3__init(void);  // 00228e58: moved to src/anon/unit_00228618.cpp (linked unit)
 
-void func_0022c108(void);  // 0022c108: moved to src/sasa/event_countdown.cpp (linked unit)
+void sa__EVENT__last_countdown(void);  // 0022c108: moved to src/sasa/event_countdown.cpp (linked unit)
 
 void func_002b6138(s32 x, s32 y, s32 a2, s32 a3, s32 key);  // 0x002b6138: definition moved into src/anon/unit_002b60e8.cpp
 
@@ -348,7 +348,7 @@ void func_002bbbc8(struct S2bb* p);  // 0x002bbbc8: definition moved into src/an
 
 void func_00170018(u8* p);  // 0x00170018: definition moved into src/anon/unit_0016e8f8.cpp
 
-s32 func_001d61b8(void* a, s32 b);  // 0x001d61b8: definition moved into src/anon/unit_001d4f40.cpp
+s32 YS__ANTI_FORM__CheckForm(void* a, s32 b);  // 0x001d61b8: definition moved into src/anon/unit_001d4f40.cpp
 
 s32 func_002952f8(s32 id);  // 0x002952f8: definition moved into src/anon/unit_00292e60.cpp
 

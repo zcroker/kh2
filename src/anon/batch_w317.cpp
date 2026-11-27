@@ -28,14 +28,14 @@ void func_00222730(void*, void*, void*);
 void func_001fc320(u8* self, W317P* p, W317Q* q);  // 0x001fc320: definition moved into src/anon/unit_001fb350.cpp
 
 s32 func_0013cb90(void);
-u32 func_001b8e88(u32);
+u32 YS__COMMAND_ELEM__Get(u32);
 s32 func_0013b988(u8*, W317H*, u32, s32, s32, s32);  // table_by_arg_flags
 u32 func_00192048(u32);
 void func_0013b5d0(u8*, s32, s32, void*, u32, s32, s32, u32, f32, u32, s32);
 void func_0013c820(u8*, s32);
 void func_0013ce08(u8*, s32);
 extern s32 D_00348520[][5];
-void func_0013cbb8(u8* self, W317H* h, u8 a2);  // 0x0013cbb8: definition moved into src/anon/unit_0013a8b8.cpp
+void dk__COMMAND_DRAW__shortCut(u8* self, W317H* h, u8 a2);  // 0x0013cbb8: definition moved into src/anon/unit_0013a8b8.cpp
 
 s32 func_00139d78(W317Obj*);
 extern W317G* D_0035ed40;

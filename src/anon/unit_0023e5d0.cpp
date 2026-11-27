@@ -26,7 +26,7 @@
 namespace n0023e5d0 {
 // 0x0011ea98: definition moved into src/anon/unit_0011c128.cpp
 
-void func_0011eb08(u32 a0, u32 a1) asm("_Z13func_0011eb08jj");
+void kn__ModelObj__setDefaultTexanm(u32 a0, u32 a1) asm("_Z30kn__ModelObj__setDefaultTexanmjj");
 /*TARGET 0023e5d0*/
 void func_0023e5d0(void* a0, u32 a1, void* a2) asm("_Z13func_0023e5d0PvjS_");
 void func_0023e5d0(void* a0, u32 a1, void* a2) {
@@ -57,13 +57,13 @@ void func_0023e5d0(void* a0, u32 a1, void* a2) {
     *(u8*)(s0 + 0x13c) = 1;
     *(u32*)(s0 + 0x128) = 0;
 
-    return func_0011eb08(*(u32*)(s0 + 0x30), 10);
+    return kn__ModelObj__setDefaultTexanm(*(u32*)(s0 + 0x30), 10);
 }
 }  // namespace n0023e5d0
 
 // 0023e660 (was src/anon/tiny_auto80_solver.cpp)
 namespace n0023e660 {
-u32 func_0011eb08(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_0011eb08jjjjjjjj");
+u32 kn__ModelObj__setDefaultTexanm(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z30kn__ModelObj__setDefaultTexanmjjjjjjjj");
 /*TARGET 0023e660*/
 u32 func_0023e660(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0023e660jjjjjjjj");
 u32 func_0023e660(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
@@ -74,13 +74,13 @@ u32 func_0023e660(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     a1 = a2;
     a0 += idx;
     a0 = *(u32*)(a0 + 1680);
-    return func_0011eb08(a0, a1, a2, a3, a4, a5, a6, a7);
+    return kn__ModelObj__setDefaultTexanm(a0, a1, a2, a3, a4, a5, a6, a7);
 }
 }  // namespace n0023e660
 
 // 0023e690 (was src/tozawa/menu_obj.cpp)
 namespace Tz { // method 0023e690
-u32 func_001a9458(...) asm("func_001a9458");
+u32 YS__OBJDATA__get_kna(...) asm("YS__OBJDATA__get_kna");
 /*TARGET 0023e690*/
 void MenuObj::SetAction(s32 a1, s32 a2, s32 a3) {
     u8* s1;
@@ -90,9 +90,9 @@ void MenuObj::SetAction(s32 a1, s32 a2, s32 a3) {
     idx = *(u8*)((u32)a1 + 0xb64);
     s1 = (u8*)this + ((u32)idx * 0x140) + 0x660;
 
-    *(u32*)(s1 + 0x78) = func_001a9458(*(u32*)(s1 + 0x70), (u32)a2, *(u32*)(s1 + 0x124));
+    *(u32*)(s1 + 0x78) = YS__OBJDATA__get_kna(*(u32*)(s1 + 0x70), (u32)a2, *(u32*)(s1 + 0x124));
     if (a3 >= 0) {
-        *(u32*)(s1 + 0x7c) = func_001a9458(*(u32*)(s1 + 0x70), (u32)a3, *(u32*)(s1 + 0x124));
+        *(u32*)(s1 + 0x7c) = YS__OBJDATA__get_kna(*(u32*)(s1 + 0x70), (u32)a3, *(u32*)(s1 + 0x124));
     }
 }
 }  // Tz
@@ -394,8 +394,8 @@ u8 func_0023ead0(u8* p, s32 i) { return *(u8*)(i + (u32)p + 2912); }
 // 0023eae0 (was src/anon/auto80_199_queue.cpp)
 namespace n0023eae0 {
 /*TARGET 0023eae0*/
-void func_0023eae0(void* a0, u32 a1, s32 a2, s32 a3) asm("_Z13func_0023eae0Pvjii");
-void func_0023eae0(void* a0, u32 a1, s32 a2, s32 a3) {
+void Tz__MenuObj__SetHidePartAll(void* a0, u32 a1, s32 a2, s32 a3) asm("_Z27Tz__MenuObj__SetHidePartAllPvjii");
+void Tz__MenuObj__SetHidePartAll(void* a0, u32 a1, s32 a2, s32 a3) {
     u8* s1;
     u8 idx;
     s32 s0;
@@ -420,8 +420,8 @@ void func_0023eae0(void* a0, u32 a1, s32 a2, s32 a3) {
 // 0023eb50 (was src/anon/auto80_199_queue.cpp)
 namespace n0023eb50 {
 /*TARGET 0023eb50*/
-void func_0023eb50(void* a0, u32 a1, s32 a2) asm("_Z13func_0023eb50Pvji");
-void func_0023eb50(void* a0, u32 a1, s32 a2) {
+void Tz__MenuObj__SetHidePart(void* a0, u32 a1, s32 a2) asm("_Z24Tz__MenuObj__SetHidePartPvji");
+void Tz__MenuObj__SetHidePart(void* a0, u32 a1, s32 a2) {
     u8* s2;
     s32 s0;
     s32 s1;
@@ -675,8 +675,8 @@ void func_0023c100(u8*, u32, u8*, u32) asm("func_0023c100");
 void func_0023f070(u8*, u32, s32) asm("func_0023f070");
 void func_0023f168(u8*) asm("func_0023f168");
 /*TARGET 0023eea0*/
-void func_0023eea0(u8* p, u32 a, u32 b, u32 c, u32 d, u32 e) asm("func_0023eea0");
-void func_0023eea0(u8* p, u32 a, u32 b, u32 c, u32 d, u32 e)
+void Tz__Layout__create(u8* p, u32 a, u32 b, u32 c, u32 d, u32 e) asm("Tz__Layout__create");
+void Tz__Layout__create(u8* p, u32 a, u32 b, u32 c, u32 d, u32 e)
 {
     func_001391c8(p, a, e);
     u8* q = p + 24;
@@ -696,8 +696,8 @@ char* GetImage_w1517(void* t, s32 i) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
 struct ImgSub_w1517 { u8 pad[0x28]; void* img; char* Get(s32 i) { return GetImage_w1517(img, i); } };
 struct T_0023ef50 { u8 pad[0x28]; s32 n; u8 p2[4]; ImgSub_w1517 sub; };
 /*TARGET 0023ef50*/
-void func_0023ef50(T_0023ef50* a0) asm("func_0023ef50");
-void func_0023ef50(T_0023ef50* a0) {  // list_enable_all
+void Tz__Layout__SetImageCache(T_0023ef50* a0) asm("Tz__Layout__SetImageCache");
+void Tz__Layout__SetImageCache(T_0023ef50* a0) {  // list_enable_all
     s32 n = a0->n;
     for (s32 i = 0; i < n; i++) {
         a0->sub.Get(i)[400] = 1;
@@ -708,7 +708,7 @@ void func_0023ef50(T_0023ef50* a0) {  // list_enable_all
 // 0023efb8 (was src/anon/batch_wcx.cpp)
 namespace n0023efb8 {
 void func_0023f168(u8*) asm("func_0023f168");
-void func_0023ca80(u8*) asm("func_0023ca80");
+void YI__LAYOUT__Control(u8*) asm("YI__LAYOUT__Control");
 s32 func_0023c900(u8*) asm("func_0023c900");
 void func_0023f108(u8*) asm("func_0023f108");
 typedef void (*VFn)(u8*);
@@ -718,13 +718,13 @@ void func_0023efb8(u8* p)
 {
     func_0023f168(p);
     u8* q = p + 48;
-    func_0023ca80(q);
+    YI__LAYOUT__Control(q);
     if (p[148]) p[148] = 0;
     if (func_0023c900(q)) return;
     if (*(s32*)(p + 144) != -1) {
         func_0023f108(p);
         func_0023f168(p);
-        func_0023ca80(q);
+        YI__LAYOUT__Control(q);
         p[148] = 1;
     } else {
         (*(VFn*)(*(u8**)p + 20))(p);
@@ -734,9 +734,9 @@ void func_0023efb8(u8* p)
 
 // 0023f058 (was gap)
 namespace n0023f058 {
-void func_0023cc18(u8* p) asm("func_0023cc18");
+void YI__LAYOUT__Draw(u8* p) asm("YI__LAYOUT__Draw");
 void func_0023f058(u8* p) asm("func_0023f058");
-void func_0023f058(u8* p) { func_0023cc18(p + 48); }
+void func_0023f058(u8* p) { YI__LAYOUT__Draw(p + 48); }
 }  // namespace n0023f058
 
 // 0023f070 (was src/anon/batch_w34.cpp)
@@ -873,7 +873,7 @@ void func_0023f778(Snd23*, u32) asm("func_0023f778");
 void func_0023f7a8(Snd23*, u32) asm("func_0023f7a8");
 // copy_3halfwords_50
 u8* func_0023f1b0(u32) asm("func_0023f1b0");
-u32 func_0023c3e0(u8*, s16, s32) asm("func_0023c3e0");
+u32 YI__LAYOUT__SearchSequence(u8*, s16, s32) asm("YI__LAYOUT__SearchSequence");
 void func_0023f5b8(Snd23*, u32, u32) asm("func_0023f5b8");
 s32 func_0023aa58(u32) asm("func_0023aa58");
 void func_0023f6c0(Snd23*, s32) asm("func_0023f6c0");
@@ -883,8 +883,8 @@ void func_001395e8(Snd23*) asm("func_001395e8");
 void func_00139610(Snd23*) asm("func_00139610");
 void func_00139638(Snd23*) asm("func_00139638");
 /*TARGET 0023f1e0*/
-void func_0023f1e0(Snd23* p, u32 a1, u32 bank, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3) asm("func_0023f1e0");
-void func_0023f1e0(Snd23* p, u32 a1, u32 bank, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3)
+void Tz__LayMsg__create(Snd23* p, u32 a1, u32 bank, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3) asm("Tz__LayMsg__create");
+void Tz__LayMsg__create(Snd23* p, u32 a1, u32 bank, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3)
 {
     func_001391c8(p, a1, t3);
     p->bank = bank;
@@ -893,7 +893,7 @@ void func_0023f1e0(Snd23* p, u32 a1, u32 bank, u32 a3, u32 t0, u32 t1, u32 t2, u
     s32 id = *(s32*)(func_0023f1b0(p->bank) + 76);
     p->voice = 0;
     for (s32 i = 0; i < 3; i++) {
-        if (id == p->ids[i]) p->voice = func_0023c3e0(func_0023f1b0(p->bank), p->sel[i], 0);
+        if (id == p->ids[i]) p->voice = YI__LAYOUT__SearchSequence(func_0023f1b0(p->bank), p->sel[i], 0);
     }
     p->cur = id;
     p->f36 = -1;
@@ -935,7 +935,7 @@ struct LM {
 };
 s32 func_00139d78(u32) asm("func_00139d78");
 u8* func_0023f1b0(u32) asm("func_0023f1b0");
-u32 func_0023c3e0(u8*, s16, s32) asm("func_0023c3e0");
+u32 YI__LAYOUT__SearchSequence(u8*, s16, s32) asm("YI__LAYOUT__SearchSequence");
 u32 func_0023aa78(u32) asm("func_0023aa78");
 void func_0023f740(LM*, u32) asm("func_0023f740");
 void func_0023f340(LM* p) asm("func_0023f340");
@@ -950,7 +950,7 @@ void func_0023f340(LM* p) {
     if (id == p->cur) return;
     for (s32 i = 0; i < 3; i++) {
         if (id == p->ids[i]) {
-            u32 m = func_0023c3e0(func_0023f1b0(p->bank), p->sel[i], 0);
+            u32 m = YI__LAYOUT__SearchSequence(func_0023f1b0(p->bank), p->sel[i], 0);
             p->voice = m;
             func_0023f740(p, func_0023aa78(m));
             return;
@@ -963,9 +963,9 @@ s32 func_0023aa18(u32) asm("func_0023aa18");
 s32 func_0023aa38(u32) asm("func_0023aa38");
 u32 func_0023a918(u32) asm("func_0023a918");
 struct SPR { u8 b[96]; };
-void func_001a98e8(SPR*, u32, u32, s32, u32) asm("func_001a98e8");
-void func_001aa6d0(SPR*, u32) asm("func_001aa6d0");
-void func_001a9ae8(SPR*, s32, s32, u32) asm("func_001a9ae8");
+void YS__MESSAGEDRAW__MESSAGEDRAW(SPR*, u32, u32, s32, u32) asm("YS__MESSAGEDRAW__MESSAGEDRAW");
+void YS__MESSAGEDRAW__set_line_space(SPR*, u32) asm("YS__MESSAGEDRAW__set_line_space");
+void YS__MESSAGEDRAW__draw(SPR*, s32, s32, u32) asm("YS__MESSAGEDRAW__draw");
 void func_0023f418(LM* p) asm("func_0023f418");
 void func_0023f418(LM* p) {
     u32 m = 0;
@@ -973,7 +973,7 @@ void func_0023f418(LM* p) {
     if (func_00139d78(p->bank) == 0) return;
     for (s32 i = 0; i < 3; i++) {
         if (*(s32*)(func_0023f1b0(p->bank) + 76) == p->ids[i]) {
-            m = func_0023c3e0(func_0023f1b0(p->bank), p->sel[i], 0);
+            m = YI__LAYOUT__SearchSequence(func_0023f1b0(p->bank), p->sel[i], 0);
             break;
         }
     }
@@ -994,8 +994,8 @@ void func_0023f418(LM* p) {
         else color = v;
     }
     SPR s;
-    func_001a98e8(&s, p->f40, p->f32_, p->len, p->f72);
-    func_001aa6d0(&s, p->f68);
-    func_001a9ae8(&s, x, y, color);
+    YS__MESSAGEDRAW__MESSAGEDRAW(&s, p->f40, p->f32_, p->len, p->f72);
+    YS__MESSAGEDRAW__set_line_space(&s, p->f68);
+    YS__MESSAGEDRAW__draw(&s, x, y, color);
 }
 }  // namespace n0023f340

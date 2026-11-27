@@ -24,7 +24,7 @@ void func_00324808(u32 self) asm("_Z13func_00324808j");
 void func_00324808(u32 self) {
     u32 s2 = self;
     *(u32*)s2 = addr_D_0034ee08();
-    func_0019f9a8(s2 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s2 + 2568);  // array8_free_slots
     func_001c0248(s2 + 2640);
     *(u32*)s2 = addr_D_003503e0();
 
@@ -54,7 +54,7 @@ u32 func_00324898(u32 self) asm("_Z13func_00324898j");
 u32 func_00324898(u32 self) {
     u32 s2 = self;
     *(u32*)s2 = addr_D_0034ee08();
-    func_0019f9a8(s2 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s2 + 2568);  // array8_free_slots
     func_001c0248(s2 + 2640);
     *(u32*)s2 = addr_D_003503e0();
 
@@ -92,7 +92,7 @@ void func_00324930(u32 a0, u32 a1, u32 a2, u32 a3) {
 namespace n00324938 {
 // set_vtbl_36eac8_then_call
 extern u8 D_0034ee08[] asm("D_0034ee08");
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 u8 func_00319fb0(void*) asm("func_00319fb0");
@@ -100,7 +100,7 @@ u8 func_00319fb0(void*) asm("func_00319fb0");
 s32 func_00324938(void** p) asm("func_00324938");
 s32 func_00324938(void** p) {
     p[0] = D_0034ee08;
-    func_0019f9a8((u8*)p + 0xa08);  // array8_free_slots
+    YS__OBJ_ATTACK__clear((u8*)p + 0xa08);  // array8_free_slots
     func_001c0248((u8*)p + 0xa50);
     return func_00319fb0(p);  // big_obj_dtor
 }
@@ -110,7 +110,7 @@ s32 func_00324938(void** p) {
 namespace n00324980 {
 void func_00105110(void*) asm("func_00105110");
 extern void* D_0034ee08[] asm("D_0034ee08");
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 void func_00319fb0(void*) asm("func_00319fb0");
@@ -120,7 +120,7 @@ void func_00324980(u8* p) asm("func_00324980");
 // big_obj_dtor
 void func_00324980(u8* p) {
     *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
     func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
@@ -174,7 +174,7 @@ void func_00324a30(O324a30* p) {
 
 // 00324ac0 (gap; copy of 0x002cff98, was src/anon/unit_002cf260.cpp)
 namespace n00324ac0 {
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 u8 func_00319fb0(void*) asm("func_00319fb0");
@@ -191,7 +191,7 @@ u8 func_00324ac0(u8* o) asm("func_00324ac0");
 
 u8 func_00324ac0(u8* o) {
     *(u8**)o = D_0034ee08;
-    func_0019f9a8(o + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(o + 2568);  // array8_free_slots
     func_001c0248(o + 2640);
     return func_00319fb0(o);  // big_obj_dtor
 }
@@ -199,7 +199,7 @@ u8 func_00324ac0(u8* o) {
 
 // 00324b08 (was src/anon/batch_w34.cpp)
 namespace n00324b08 {
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 void func_00319fb0(void*) asm("func_00319fb0");
@@ -210,7 +210,7 @@ extern void* D_0034ee08[] asm("D_0034ee08");
 void func_00324b08(void** p) asm("func_00324b08");
 void func_00324b08(void** p) {
     *p = D_0034ee08;
-    func_0019f9a8((u8*)p + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear((u8*)p + 2568);  // array8_free_slots
     func_001c0248((u8*)p + 2640);
     func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
@@ -583,7 +583,7 @@ extern u32 D_00361d00 asm("D_00361d00");
 extern u32 D_0034e8b8 asm("D_0034e8b8");
 extern u32 D_0034ee08 asm("D_0034ee08");
 void func_00319f88(void*) asm("func_00319f88");
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 void func_001c0248(void*) asm("func_001c0248");
 void func_00319fb0(void*) asm("func_00319fb0");
 /*TARGET 003250c8*/
@@ -595,7 +595,7 @@ void func_003250c8(u8* p) {
     *(u32**)p = &D_0034e8b8;
     func_00319f88(p + 0xb08);
     *(u32**)p = &D_0034ee08;
-    func_0019f9a8(p + 0xa08);
+    YS__OBJ_ATTACK__clear(p + 0xa08);
     func_001c0248(p + 0xa50);
     func_00319fb0(p);
     u32 t = (u32)p;
@@ -613,7 +613,7 @@ extern u32 D_00361d00 asm("D_00361d00");
 extern u32 D_0034e8b8 asm("D_0034e8b8");
 extern u32 D_0034ee08 asm("D_0034ee08");
 void func_00319f88(void*) asm("func_00319f88");
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 void func_001c0248(void*) asm("func_001c0248");
 void func_00319fb0(void*) asm("func_00319fb0");
 void AREA_Free_25158(void*) asm("_ZN4AREA4FreeEPv");
@@ -625,7 +625,7 @@ void func_00325158(u8* p) {
     *(u32**)p = &D_0034e8b8;
     func_00319f88(p + 0xb08);
     *(u32**)p = &D_0034ee08;
-    func_0019f9a8(p + 0xa08);
+    YS__OBJ_ATTACK__clear(p + 0xa08);
     func_001c0248(p + 0xa50);
     func_00319fb0(p);
     AREA_Free_25158(p);
@@ -1474,8 +1474,8 @@ extern u8 D_003637e0[] asm("D_003637e0");
 void func_00239870(void*) asm("func_00239870");
 void func_002361d0(void*) asm("func_002361d0");
 /*TARGET 00325b80*/
-void func_00325b80(void** p) asm("func_00325b80");
-void func_00325b80(void** p) {
+void Tz__CmTutorial__Exit(void** p) asm("Tz__CmTutorial__Exit");
+void Tz__CmTutorial__Exit(void** p) {
     p[0] = D_003638a8;
     func_00239870((u8*)p + 0x1d4);
     func_002361d0((u8*)p + 48);

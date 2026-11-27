@@ -50,7 +50,7 @@ static inline void w1972_addto(W1972Vec& a, const W1972Vec& b) {
 
 extern "C" {
 W1972Vec func_0016be98(W1972Obj*);
-W1972Vec func_0017d538(f32, const W1972Vec&);
+W1972Vec YS__MATH__VectorRotY(f32, const W1972Vec&);
 
 W1972Vec w1972_ctarget(W1972Obj* self) asm("_Z16ctarget_001c1df8jjjj");
 // 001c1df8: moved to src/anon/unit_001c0638.cpp

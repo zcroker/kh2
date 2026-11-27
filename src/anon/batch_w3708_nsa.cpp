@@ -21,8 +21,8 @@ extern void* D_003637d0;
 void func_002eda90(void*, s32, f32);
 Vec func_0017c030(Obj*, Vec*, u8);
 Vec func_0017c030b(Obj*, const Vec&, u8) asm("func_0017c030");
-void func_0017c4c8(Obj*, Vec);
-void func_0017c4c8c(Obj*, Vec*) asm("func_0017c4c8");
+void YS__OBJ__prepare_jump(Obj*, Vec);
+void func_0017c4c8c(Obj*, Vec*) asm("YS__OBJ__prepare_jump");
 void func_002eb778(Obj*, s32, s32, f32);
 void fx0017c030(Vec*, Obj*, Vec*, u32) asm("func_0017c030");
 static inline Vec get2ebf50(Obj* o, u8 k) { Vec t; Vec r; register Vec* a0 asm("$4") = &r; register Obj* a1 asm("$5") = o; register u32 a3 asm("$7") = k; register Vec* a2 asm("$6"); asm("la %0,%1" : "=r"(a2) : "m"(t), "r"(a0), "r"(a1), "r"(a3)); fx0017c030(a0, a1, a2, a3); return r; }

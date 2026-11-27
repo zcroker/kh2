@@ -124,4 +124,4 @@ typedef struct { u8 pad0[20]; ShapeEnt20a090* shapes; } Res20a090;
 extern Res20a090* D_01d9e6e4_20a090 asm("D_01d9e6e4"); /* same global as D_01d9e6e4, typed for this function */
 s8 func_0020a000(u8);
 f32 func_00209fb8(void);
-void func_0020a090(Src20a090* s, Dst20a090* d, f32* pos);  // 0x0020a090: definition moved into src/anon/unit_0020a090.c
+void birth(Src20a090* s, Dst20a090* d, f32* pos);  // 0x0020a090: definition moved into src/anon/unit_0020a090.c

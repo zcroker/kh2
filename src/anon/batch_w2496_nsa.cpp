@@ -14,7 +14,7 @@ void func_001a5db8(TASK*);
 Data1a5f50* func_001a6658(s32);
 s32 t1a5f50_Alloc(const char*, s32) asm("_ZN2YS10CACHE_BUFF5AllocEPKci");
 Res1a5f50* func_00168b38(s32, s32, s32);
-void t1a5f50_001dddd0(void*, s32) asm("_Z16wtarget_001dddd0jjjj");
+void t1a5f50_001dddd0(void*, s32) asm("_Z14ryj__PAX__initjjjj");
 static inline bool Has1a5f50(Res1a5f50* r) { return r && r->val != 0; }
 
 // YS::MAGIC init: create the magic task, then load each of the 6 magic entries' cache/resources.

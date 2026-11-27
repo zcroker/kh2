@@ -16,7 +16,7 @@ void func_00190a28(void*, void*);
 void func_00190a80(void*, void*);
 void func_00190b30(void*, void*);
 void func_00191218(void*, void*, f32);
-void func_00190f80(void*, void*, f32);
+void YS__TARGET__search_auto_lockon(void*, void*, f32);
 void w920_set_obj(void*, void*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
 f32 w920_lockon(void*) asm("_ZN2YS6STATUS14GetLockOnRatioEv");
 extern void* D_0034e948;

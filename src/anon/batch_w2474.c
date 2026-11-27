@@ -26,7 +26,7 @@ f32 func_0020b410(void);
 void sceVu0RotMatrix(M20bef8*, M20bef8*, V20bef8*);
 void sceVu0ApplyMatrix(V20bef8*, M20bef8*, V20bef8*);
 void sceVu0ScaleVector(V20bef8*, V20bef8*, f32);
-void func_0020b4e8(Src20bef8*, Dst20bef8*, f32*);
+void birth_2(Src20bef8*, Dst20bef8*, f32*);
 void func_0020bef8(void* unused, Src20bef8* s, Dst20bef8* d, void* unused2, Cf20bef8* cf)
 {
     V20bef8 v;
@@ -130,7 +130,7 @@ void func_0020bef8(void* unused, Src20bef8* s, Dst20bef8* d, void* unused2, Cf20
             sceVu0ScaleVector(&t, &t, -far);
             sceVu0AddVector(&d->pos, &D_01d9e7f0, &t);
             d->pos.w = 1.0f;
-            func_0020b4e8(s, d, (f32*)cf);
+            birth_2(s, d, (f32*)cf);
         }
     }
 }

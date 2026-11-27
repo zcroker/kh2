@@ -17,9 +17,9 @@ void func_00287da0(void) asm("func_00287da0");
 void func_00287f90(s32) asm("func_00287f90");
 void func_00288018(void) asm("func_00288018");
 s32 func_00288040(void) asm("func_00288040");
-void func_0028f6f0(s32) asm("func_0028f6f0");
+void Tz__SelHist__FadeOut(s32) asm("Tz__SelHist__FadeOut");
 extern s32 D_0035f01c asm("D_0035f01c");
-void func_0027c3e0(void) asm("func_0027c3e0");
+void Tz__CmAbility__SelCheck(void) asm("Tz__CmAbility__SelCheck");
 s32 func_00289380(s32) asm("func_00289380");
 s32 func_00287c10(void) asm("func_00287c10");
 s32 func_0027ad80(void) asm("func_0027ad80");
@@ -28,7 +28,7 @@ s32 func_00256ef0(void) asm("func_00256ef0");
 s32 func_00289310(s32) asm("func_00289310");
 void func_0027acf8(void) asm("func_0027acf8");
 void func_00279040(void) asm("func_00279040");
-void func_00277d20(void) asm("func_00277d20");
+void Tz__CmAbility__SetupSel(void) asm("Tz__CmAbility__SetupSel");
 s32 func_0027a990(void) asm("func_0027a990");
 void func_0027aa10(void) asm("func_0027aa10");
 void func_0028fa98(s32) asm("func_0028fa98");
@@ -37,10 +37,10 @@ void func_00287c90(s32) asm("func_00287c90");
 s32 func_0028afa8(s32) asm("func_0028afa8");
 s32 func_00287df0(s32, s32, s32, void (*)(void), s32) asm("func_00287df0");
 s32 func_00242848(s32) asm("func_00242848");
-void func_0027c1c0(void) asm("func_0027c1c0");
-void func_00263c60(void) asm("func_00263c60");
+void Tz__CmAbility__ChgEquipAbility(void) asm("Tz__CmAbility__ChgEquipAbility");
+void Tz__CMenuHelp__FadeOut(void) asm("Tz__CMenuHelp__FadeOut");
 void func_00256e80(void) asm("func_00256e80");
-void func_0027ac38(void) asm("func_0027ac38");
+void Tz__CmAbility__FadeOutAbilityList(void) asm("Tz__CmAbility__FadeOutAbilityList");
 void func_00287bd0(s32, s32) asm("func_00287bd0");
 void func_002831e0(s32, s32) asm("func_002831e0");
 /*TARGET 00278dd0*/
@@ -59,7 +59,7 @@ void func_00278dd0(void) {
             func_00287c30();
             if (m == 16) {
                 func_00279040();
-                func_00277d20();
+                Tz__CmAbility__SetupSel();
             }
         }
         return;
@@ -74,18 +74,18 @@ void func_00278dd0(void) {
     }
     {
         s32 n = func_0028afa8(D_0035f01c);
-        if (func_00242848(func_00287df0(r, func_00289310(D_0035f01c), 1, func_0027c3e0, 1)) == 0) {
+        if (func_00242848(func_00287df0(r, func_00289310(D_0035f01c), 1, Tz__CmAbility__SelCheck, 1)) == 0) {
             switch (r) {
             case -1:
                 break;
             default:
                 if (r < 0 || r >= n) break;
-                func_0027c1c0();
+                Tz__CmAbility__ChgEquipAbility();
             case -2:
-                func_00263c60();
+                Tz__CMenuHelp__FadeOut();
                 func_00256e80();
-                func_0028f6f0(2);
-                func_0027ac38();
+                Tz__SelHist__FadeOut(2);
+                Tz__CmAbility__FadeOutAbilityList();
                 func_00287c90(1);
                 func_00287c00(16);
                 break;
@@ -120,9 +120,9 @@ s32 func_002811b0(u32, s32) asm("func_002811b0");
 s32 func_001b7818(s32) asm("func_001b7818");
 void func_00279620(void) asm("func_00279620");
 void func_002793b0(void) asm("func_002793b0");
-void func_00279860(void) asm("func_00279860");
+void Tz__CmAbility__GetFriendAbilityAI(void) asm("Tz__CmAbility__GetFriendAbilityAI");
 void func_002799b0(void) asm("func_002799b0");
-void func_00279a10(void) asm("func_00279a10");
+void Tz__CmAbility__SortAbilityInfo(void) asm("Tz__CmAbility__SortAbilityInfo");
 typedef struct Ent_00279040 { u16 id; u8 hi; u8 idx; s8 cat; u8 b5; s8 b6; s8 pos; } Ent_00279040;
 typedef struct Hdr_00279040 { u16 h0; u16 h2; u8 pad4[3]; s8 count; u8 cnt[4]; Ent_00279040 e[1]; } Hdr_00279040;
 extern Hdr_00279040* D_0035f230 asm("D_0035f230");
@@ -187,11 +187,11 @@ void func_00279040(void) {
     D_0035f230->count = n;
     func_00279620();
     func_002793b0();
-    func_00279860();
+    Tz__CmAbility__GetFriendAbilityAI();
     func_002799b0();
     for (i = 0; i < 4; i++) D_0035f230->cnt[i] = 0;
     for (i = 0; i < D_0035f230->count; i++) D_0035f230->cnt[D_0035f230->e[i].cat]++;
-    func_00279a10();
+    Tz__CmAbility__SortAbilityInfo();
 }
 }  // namespace n00279040
 

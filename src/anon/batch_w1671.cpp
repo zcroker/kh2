@@ -1,7 +1,7 @@
 #include "../common/types.h"
 
 extern "C" {
-void func_00141010(float);
+void dk__ObjCamera__cancelSubjective(float);
 void* func_00140df0(void);
 void func_00140dc0(void);
 extern u8 D_0034a9e8;
@@ -20,7 +20,7 @@ extern RE_w1671 D_01dadc00[];
 s32 func_00234240(s32 a0, s32 a1, s32 a2);  // 0x00234240: definition moved into src/anon/unit_002335e8.cpp
 
 void func_002bc1e8(void*);
-void func_001d1820(u8* a0);  // 0x001d1820: definition moved into src/anon/unit_001d14e0.cpp
+void YS__MISSION2D__set_warning(u8* a0);  // 0x001d1820: definition moved into src/anon/unit_001d14e0.cpp
 
 extern s32 D_0035de5c;
 extern u8 D_0035de54;

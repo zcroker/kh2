@@ -15,16 +15,16 @@ extern "C" {
 extern GG* D_0035f638;
 extern u8* D_0035f634;
 GSav* func_002a9d68(void);
-GS3U* func_002b23e0(s32);
+GS3U* Tz__JmPuzzle__GetImageInfo(s32);
 s32 func_002b2380(s32, s32);
 void func_0028dcc0(u8*, u8*);
 void func_002b28b0(u32 a0, s32 idx, s32 mode, UV55* out);
-void func_00239558(u8* p, s16* a, s16* b);
+void YI__SPRITE__SetDirextUV(u8* p, s16* a, s16* b);
 }
 
 // Getter wrapper; the call has to go through an inline for the
 // register allocation of q to match.
-static inline GS3U* GetCur(s32 i) { return func_002b23e0(i); }
+static inline GS3U* GetCur(s32 i) { return Tz__JmPuzzle__GetImageInfo(i); }
 
 extern "C" {
 

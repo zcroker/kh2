@@ -11,18 +11,18 @@ extern "C" {
 void func_0013efe8(void);
 void* c8006_getFieldMode(void) asm("_Z12getFieldModev");
 void* c8006_create_task(void*, int, int, void*) asm("_ZN12TASK_MANAGER11create_taskEiiPFvP4TASKE");
-void func_00102818(s32, s32, s32, void (*)(), s32);
+void TASK_MANAGER__create_thread(s32, s32, s32, void (*)(), s32);
 void c8006_clear(void) asm("_ZN2dk20clearDrawFrameEnableEv");
 s32 c8006_getAllFade(void) asm("_ZN2dk10getAllFadeEv");
 s32 c8006_getImd(int) asm("_ZN2dk8Field2DD6getImdEi");
 s32 c8006_getSqd(int) asm("_ZN2dk8Field2DD6getSqdEi");
 void c8006_239bf8(void*, u32) asm("_Z16wtarget_00239bf8jjjj");
 void func_0015d4e8(void);
-void func_0015d5d0(void);
+void dk__KeyHoleJumpEffect__jumpEffectIn_task(void);
 void func_0014aa80(s32, s32, s32);
-void func_002362b0(void*, s32);
+void YI__IMAGE__Init(void*, s32);
 /* Declared as returning s32: this gives the original a2, a0, a1 argument move order. */
-s32 func_00239988(void*, s32, void*);
+s32 YI__SEQUENCE__Init(void*, s32, void*);
 extern u8 D_0034af40[];
 extern u8 D_0034b0e0[];
 extern O161030* D_004f3b38;

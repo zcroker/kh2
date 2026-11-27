@@ -20,7 +20,7 @@ void func_001b1be0(u32, f32);
 void func_001cc9c8(u32, f32);
 void func_00153e28(u32, f32, f32);
 void func_001a6490(u32, f32);
-u32 func_001b1448(u32);
+u32 YS__DATABUFF__Read(u32);
 void func_002bea60(void);
 void func_0021fbc0(void*);
 void func_00220070(void*);
@@ -28,9 +28,9 @@ void* func_00257770(void);
 void func_0028da70(void*, s32);
 void* func_002766d0(void);
 u8 func_00139d78(void*);
-void func_00104f58(u32, u32, u32, u32, u32);
+void AREA__MapJump(u32, u32, u32, u32, u32);
 void func_002e9cb8(u32, u32, u32);
-void func_002e9b58(u32, u32, u32);
+void Ts__TARGET_SEARCHER__add(u32, u32, u32);
 void func_003053e0(void);
 
 extern u32 D_00347ce0;
@@ -69,7 +69,7 @@ void func_001391a8(u8* p, void* src);  // 0x001391a8: definition moved into src/
 
 // 00159700: moved to src/anon/unit_00159240.cpp
 
-void func_0015b780(void);  // 0x0015b780: definition moved into src/anon/unit_0015b100.cpp
+void dk__Exp__on(void);  // 0x0015b780: definition moved into src/anon/unit_0015b100.cpp
 
 // 0015cea0: moved to src/anon/unit_0015cdb0.cpp
 
@@ -155,7 +155,7 @@ s32 func_00305dd8(u32 a, u8* p);  // 0x00305dd8: definition moved into src/sdk/g
 
 void iEnableDmac(void);  // 0x003062e0: definition moved into src/sdk/libkernl_00306058.c
 
-void func_0028af90(u8* p, s32 a);  // 0x0028af90: definition moved into src/anon/unit_00288b00.cpp
+void Tz__Select__SetSelectMax(u8* p, s32 a);  // 0x0028af90: definition moved into src/anon/unit_00288b00.cpp
 
 // Tests bit `bit` of the mask at +0x20.
 u32 func_0028b1c0(u8* p, s32 bit);  // 0x0028b1c0: definition moved into src/anon/unit_00288b00.cpp
@@ -177,8 +177,8 @@ public:
 };
 }  // namespace dk
 
-extern "C" void func_00138988(dk::SpriteMessage*);
-extern "C" void func_00138de0(dk::SpriteMessage*);
+extern "C" void dk__Sprite__draw(dk::SpriteMessage*);
+extern "C" void dk__SpriteMessage__drawMessage(dk::SpriteMessage*);
 extern "C" void func_0014a9a0(dk::Fade*, u32);
 
 // 0x001390c0: dk::SpriteMessage::draw moved into src/anon/unit_00138480.cpp

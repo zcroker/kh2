@@ -37,7 +37,7 @@ void CmComm_FontIcon(s32, char*, bool) asm("_ZN2Tz6CmComm8FontIconEiPcb");
 s32 CmComm_GetIconMsgSize(void) asm("_ZN2Tz6CmComm14GetIconMsgSizeEv");
 u8* CmComm_CopyMessage(char*, u8*) asm("_ZN2Tz6CmComm11CopyMessageEPcPKN2YS7MESSAGEE");
 s32 MESSAGE_get_size(u8*) asm("_ZNK2YS7MESSAGE8get_sizeEv");
-void func_00275f68(s32 a, s32 b);  // 0x00275f68: definition moved into src/anon/unit_002748a0.cpp
+void Tz__Jiminy__SetMainFrameLRMess(s32 a, s32 b);  // 0x00275f68: definition moved into src/anon/unit_002748a0.cpp
 void w_memset(void*, s32, u32) asm("_Z16wtarget_002fde18jjjj");
 u8* AREA_Alloc(u32) asm("_ZN4AREA5AllocEj");
 s32 ATTACK_CHECK_NewComboGroup(void) asm("_ZN2YS12ATTACK_CHECK13NewComboGroupEv");
@@ -47,7 +47,7 @@ struct O17 {
     u8* x3524; u8* x3528; s32 x3532; u32 x3536; u32 x3540; u32 x3544; u32 x3548; u32 x3552;
     u8 pad2[3568 - 3556]; s32 x3568; u8 pad3[3584 - 3572]; s32 x3584;
 };
-void func_001e17b8(O17* p);  // 0x001e17b8: definition moved into src/anon/unit_001e0cb8.cpp
+void ryj__LAST_XEMNUS_LASER__init(O17* p);  // 0x001e17b8: definition moved into src/anon/unit_001e0cb8.cpp
 
 extern u8 D_00361aa0[];
 extern u8* D_00361a90;
@@ -63,9 +63,9 @@ void func_002c1200(u8* p);  // 0x002c1200: definition moved into src/anon/unit_0
 
 void Aabbox_init(Box3w258*) asm("_ZN2dk6Aabbox4initEv");
 void func_0016ac38(u8*, s32, s32, s32, s32);
-void func_001b7c80(void*, Box3w258*);
-V4w258* func_0016c028(u8*);  // obj_get_attach_or_alt
-void func_002de500(u8*, V4w258*);
+void YS__OBJCLSN__calc_bounding_box(void*, Box3w258*);
+V4w258* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
+void Ti__MGJumpGimObj__appear_prize(u8*, V4w258*);
 void wtarget_002cf280(u8*, s32, s32) asm("_Z16wtarget_002cf280jjjj");
 void func_002de3e0(u8* p);  // 0x002de3e0: definition moved into src/anon/unit_002de3c8.cpp
 

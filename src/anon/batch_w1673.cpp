@@ -7,18 +7,18 @@ struct P_de0a0 { u8 pad[0x38]; f32 f; };
 extern "C" {
 Res_de0a0* eff_create_001dcff0(f32, void*, u16) asm("_ZN3ryj6EFFECT6CreateERNS_11EFFECT_DATAEjjjif");
 Node_de0a0* func_001de948(s32);
-void func_001dec78(f32, Node_de0a0*, Res_de0a0*, u16*, P_de0a0*);
+void ryj__PAX__MANAGER__MANAGER_2(f32, Node_de0a0*, Res_de0a0*, u16*, P_de0a0*);
 Res_de0a0* func_001de0a0(Obj_de0a0* a0, u16* a1, s32 a2, s32 a3, s32 t0, P_de0a0* p);  // 0x001de0a0: definition moved into src/anon/unit_001ddcf0.cpp
 }
 struct S5a48b { u8 pad[4]; u8 v; };
 struct S5a48 { u8 pad[0x588]; s32 a; u32 b; u8 pad2[0xaf8-0x590]; S5a48b* p; };
 extern "C" {
-s32 func_0019ba60(S5a48*);
+s32 YS__OBJ__is_exist(S5a48*);
 s32 func_002bfdf8();
 s32 func_002c1b48(S5a48*);
 void func_002c85c8(s32);
 void func_002c8648();
-void func_002ca010(s32);
+void dk__WM_GLANDING_INFO__start(s32);
 void func_002ca0a8();
 void func_002c5a48(void* self, S5a48* o);  // 0x002c5a48: definition moved into src/anon/unit_002c53c8.cpp
 }
@@ -90,7 +90,7 @@ struct M20bdb0 { u8 pad[0xb8]; f32 x, y, z; u8 pad2[0xd8 - 0xc4]; f32 r0, r1; };
 extern u8 D_01d9e7b0[];
 extern "C" {
 f32 func_0020b410();
-void func_0020b4e8(M20bdb0*, I20bdb0*, u8*);
+void birth_2(M20bdb0*, I20bdb0*, u8*);
 void sceVu0ApplyMatrix(void*, void*, void*);
 void sceVu0Normalize(void*, void*);
 void func_002fde18(void*, s32, u32);
@@ -101,6 +101,6 @@ struct I20a510 { V20a510 pos; V20a510 q; };
 struct M20a510 { u8 pad[0x7c]; f32 x, y, z; u8 pad2[0x9c - 0x88]; f32 r0, r1; };
 extern "C" {
 f32 func_00209fb8();
-void func_0020a090(M20a510*, I20a510*, u8*);
+void birth(M20a510*, I20a510*, u8*);
 void func_0020a510(void* self, void* mv, void* itv, u8* buf);  // 0x0020a510: definition moved into src/anon/unit_0020a510.cpp
 }

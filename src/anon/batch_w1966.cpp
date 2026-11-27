@@ -72,14 +72,14 @@ extern s32 D_0035de20;
 extern s32 D_0035de28;
 extern u32 D_0035de60;
 void func_00170888(s32);
-void func_00226268(void);
+void sa__EVENT__readNextMapFile(void);
 void func_0022c508(void*);
-void func_0022e1f8(void*, s32);
+void sa__EVENT__effect_read_set(void*, s32);
 void func_0022f5a0(void*, s32, s32);
-void func_00232510(void*, s32);
+void sa__EVENT__audio_read_set(void*, s32);
 void func_002331a0(void*, s32, s32, s32, s32);
 
-void func_00226090(void);  // 0x00226090: definition moved into src/anon/unit_00224780.cpp
+void sa__EVENT__read_ctrl(void);  // 0x00226090: definition moved into src/anon/unit_00224780.cpp
 
 // 001065d8: moved to src/naka/libkn/camera.cpp
 

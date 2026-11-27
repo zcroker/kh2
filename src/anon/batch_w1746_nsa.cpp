@@ -15,5 +15,5 @@ static inline W1746Node* w1746_next(W1746Node* p) {
     return p->next;
 }
 
-void func_002bbf18(void);  // 0x002bbf18: definition moved into src/anon/unit_002bb8b0.cpp
+void SOUND__silentBgSeOff(void);  // 0x002bbf18: definition moved into src/anon/unit_002bb8b0.cpp
 }

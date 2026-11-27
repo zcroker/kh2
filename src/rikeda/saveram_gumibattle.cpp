@@ -6,9 +6,9 @@
 extern "C" {
 u32 func_00190128(...);              // YS::TARGET::TARGET
 u32 func_00190878(...);              // YS::TARGET::set_obj
-void func_001902a8(u32 a0, u32 a1);
+void YS__TARGET__make_collision(u32 a0, u32 a1);
 void wtarget_0016b070(void*, s32) asm("_Z16wtarget_0016b070jjjj");
-void func_001e29e0(void*);
+void ryj__LAST_XEMNUS_LASER__Start(void*);
 void func_001e2a50(BD_VALUE*);
 void func_001e2a78(BD_VALUE*);
 void func_001e2aa0(BD_VALUE*);
@@ -101,7 +101,7 @@ void trap_obj_target_radius(BD_VALUE* bd) {
     func_00190128((u32)&spv[0]);
     func_00190878((u32)&spv[0], s0, 0);
     *(u32*)(&spv[44]) = 0;
-    func_001902a8((u32)&spv[0], (u32)&spv[32]);
+    YS__TARGET__make_collision((u32)&spv[0], (u32)&spv[32]);
     f32 f0 = *(f32*)(&spv[36]);
     *(f32*)(s1 + 0) = f0;
 }
@@ -116,7 +116,7 @@ static void trap_1e0b40(BD_VALUE* bd) {
 }
 
 void trap_player_push_ability_button(BD_VALUE* bd) {
-    func_001e29e0(*(void**)((char*)bd[0].p + 4));
+    ryj__LAST_XEMNUS_LASER__Start(*(void**)((char*)bd[0].p + 4));
 }
 
 static void trap_1e0b80(BD_VALUE* bd) { func_001e2aa0(bd); }

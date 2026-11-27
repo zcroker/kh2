@@ -21,8 +21,8 @@ extern "C" {
 u8* GetImage294(void*, s32) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
 void wtarget294_00239bf8(void*, s32) asm("_Z16wtarget_00239bf8jjjj");
 s32 func_0023c5a0(Obj*, s32);
-void func_00239988(Item*, u8*, u8*);
-u8 func_0023c978(Obj*);
+void YI__SEQUENCE__Init(Item*, u8*, u8*);
+u8 YI__LAYOUT__GetLoopMode(Obj*);
 void func_0023c728(Obj* o, s32 idx);  // 0x0023c728: definition moved into src/anon/unit_0023bc58.cpp
 }
 }
@@ -38,15 +38,15 @@ struct W { s32 v; };
 extern W D_0035f3d4;
 extern s32 D_003725c0[];
 void func_0028d8c0(Sc*, s32, s32, s32, s32, s32, s32, s32);
-void func_00288d80(void*, s32, s32, s32, s32, s32, s16*, s16*);
+void Tz__Select__SetItem(void*, s32, s32, s32, s32, s32, s16*, s16*);
 u8* func_002891b8(void*, s32);
 s32 func_0023aa78(u8*);
-void func_00288e08(void*, s32, s32, s32);
+void Tz__Select__SetExOffset(void*, s32, s32, s32);
 void func_00139620(u8*);
 void func_0028dcc0(u8*, Sc*);
-void func_002891f0(void*, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(void*, s32, s32, s32, s32);
 void func_0028af28(void*, s32);
 void func_00287cc0(s32);
-void func_002515a0(void);  // 0x002515a0: definition moved into src/anon/unit_00250fb8.cpp
+void Tz__CANA__SetupSel(void);  // 0x002515a0: definition moved into src/anon/unit_00250fb8.cpp
 }
 }

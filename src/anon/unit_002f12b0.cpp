@@ -5,14 +5,14 @@
 // The VU0 vector code uses Sony-style inline asm (lq/sq, lqc2/vadd/vmul*), as before.
 
 extern "C" {
-void func_0016af58(void*, u32);
+void YS__OBJ__get_dir(void*, u32);
 f32 func_0017ce10(f32);
 f32 func_002f8ad0(f32, f32);
-s32 func_001ba028(u32);
+s32 YS__OBJ__is_valid(u32);
 void func_0016aeb8(u32, f32);
 s32 func_002fea18(void);
 s32 func_00106a60(s32);
-void func_00107368(s32, void*);
+void kn__Camera__getPosition(s32, void*);
 f32 func_001074b8(s32);
 void func_0011b6a8(void*);
 void sceVu0RotMatrixZ(void*, void*, f32);
@@ -21,10 +21,10 @@ void func_00102448(void*, u32);
 u8* func_00167f18(u32);
 void func_001039f8(void);
 u8* func_00103eb0(void);
-void* func_00102818(u32, u32, u32, void (*)(void*), u32);
+void* TASK_MANAGER__create_thread(u32, u32, u32, void (*)(void*), u32);
 extern f32 D_00349e10;
 
-void func_002f12b0(void* s, f32 deg, u32 h, f32 t, s32 flag);
+void dk__Turn__start(void* s, f32 deg, u32 h, f32 t, s32 flag);
 s32 func_002f13b0(void* o);
 void func_002f1460(u32* a0, u32 a1, f32 f12, f32 f13, f32 f14, f32 f15);
 s32 func_002f1480(void* o, f32 s);
@@ -36,12 +36,12 @@ void func_002f17a8(void);
 // --- 002f12b0: start a timed turn towards an angle (degrees) around an object
 struct W1816Turn { bool rev; u32 h; f32 time; f32 dst; f32 speed; f32 val; };
 struct W1816Q { f32 x, y, z, w; };
-void func_002f12b0(void* sv, f32 deg, u32 h, f32 t, s32 flag) {
+void dk__Turn__start(void* sv, f32 deg, u32 h, f32 t, s32 flag) {
     W1816Turn* s = (W1816Turn*)sv;
     s->rev = flag != 0;
     s->h = h; s->time = t;
     s->dst = 3.1415927f - deg * 0.017453292f;
-    W1816Q v; func_0016af58(&v, h);
+    W1816Q v; YS__OBJ__get_dir(&v, h);
     s->val = func_002f8ad0(v.x, v.z);
     s->val = func_0017ce10(s->val);
     s->dst = func_0017ce10(s->dst);
@@ -58,7 +58,7 @@ struct O21 { u32 f0; u32 h; f32 time; f32 dflt; f32 speed; f32 val; };
 extern F25 D_00349e10_u asm("D_00349e10");
 s32 func_002f13b0(void* ov) {
     O21* o = (O21*)ov;
-    if (!func_001ba028(o->h)) return 0;
+    if (!YS__OBJ__is_valid(o->h)) return 0;
     o->val += o->speed * D_00349e10_u.f;
     o->val = func_0017ce10(o->val);
     o->time -= D_00349e10_u.f;
@@ -116,7 +116,7 @@ s32 func_002f1480(void* ov, f32 s)
     f32 z = (f32)func_002fea18() / k * o->sz - o->sz / 2.0f;
     z = z * s;
     s32 cam = func_00106a60(1);
-    func_00107368(cam, &c);
+    kn__Camera__getPosition(cam, &c);
     f32 a = func_001074b8(cam);
     asm("" : "+r"(o) : "f"(x), "f"(y));
     v.x = x;
@@ -169,5 +169,5 @@ void func_002f1758(void* t) {
 
 // --- 002f17a8: start that task (2000, 4 KB stack).
 void func_002f17a8(void) {
-    func_00102818(*(u32*)(func_00103eb0() + 4), 0, 2000, func_002f1758, 0x1000);
+    TASK_MANAGER__create_thread(*(u32*)(func_00103eb0() + 4), 0, 2000, func_002f1758, 0x1000);
 }

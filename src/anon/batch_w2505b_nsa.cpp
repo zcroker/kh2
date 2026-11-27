@@ -26,5 +26,5 @@ static inline __attribute__((always_inline)) void L408(u8* q)
 {
     s32 i = 31; do { *(u32*)(q + 12) = 0; *(volatile u32*)q = (u32)D_00347e60; func_00239700(q + 24); i--; q += 408; } while (i != -1);
 }
-void func_00323540(u8* p);  // 0x00323540: definition moved into src/anon/unit_00321728.cpp
+void dk__INFORMATION__init(u8* p);  // 0x00323540: definition moved into src/anon/unit_00321728.cpp
 }

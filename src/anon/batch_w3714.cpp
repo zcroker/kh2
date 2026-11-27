@@ -12,6 +12,6 @@ extern u8 D_00372610[][8];
 extern u16 D_003725d8[];
 extern const s16 D_00372638[];
 s32 func_001a6d08(u32);
-void func_0028b300(W2446Obj*, s32, s32, s32, u32, u8*, u8*, s32, s32);
+void Tz__LaySeq__create(W2446Obj*, s32, s32, s32, u32, u8*, u8*, s32, s32);
 void func_00252320(void);  // 0x00252320: definition moved into src/anon/unit_00250fb8.cpp
 }

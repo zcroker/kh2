@@ -73,8 +73,8 @@ extern "C" {
 extern W1618Cfg* D_00352130;
 void W1618Box_init(W1618Box*) asm("_ZN2dk6Aabbox4initEv");
 void W1618Box_set(W1618Box*, f32, f32, f32, f32, f32, f32) asm("_ZN2dk6Aabbox3setEffffff");
-W1618V* func_0016c028(W1618Obj*);
-W1618V func_0016af58(W1618Obj*);
+W1618V* YS__OBJ__get_pos(W1618Obj*);
+W1618V YS__OBJ__get_dir(W1618Obj*);
 s32 func_00143470(W1618V*, W1618Box*, W1618V*, W1618V*, W1618V*, W1618V*, u8*);
 f32 W1618_get_step_height(W1618Obj*) asm("_ZN2YS3OBJ15get_step_heightEv");
 bool func_0019bfd0(W1618Obj*, const W1618V&);
@@ -85,7 +85,7 @@ inline W1618Box::W1618Box() { W1618Box_init(this); }
 
 // Ledge grab test: sweeps a box around the object down to the ledge; on a hit,
 // faces the wall, snaps onto the edge and switches to action 2. Returns 1 on grab.
-bool func_001958d0(W1618Obj* o);  // 0x001958d0: definition moved into src/anon/unit_00194790.cpp
+bool YS__ACTION_HANG__Check(W1618Obj* o);  // 0x001958d0: definition moved into src/anon/unit_00194790.cpp
 
 // ---- BGM slot restart ----
 extern W1618Bgm D_00347d30[2];
@@ -94,7 +94,7 @@ extern s32 D_00347d40;
 void func_00136cc8(W1618Req*, s32);
 s32 func_002bd260(s32);
 void* W1618_GetAllocator(void) asm("_ZN4AREA12GetAllocatorEv");
-void func_002bd310(W1618Req*);
+void SOUND__readBgmThread(W1618Req*);
 void func_002ba220(s32, s32, s32, s32, s32, s32);
 void func_00136b78(s32, s32);
 s32 func_00136b90(s32);

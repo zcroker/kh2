@@ -157,10 +157,10 @@ struct OBJ {
     u8 pad292[1132];
     CB coll;          // 1424
 };
-V* obj_pos(void*) asm("func_0016c028");
-void coll_update(COLL*) asm("func_00143928");
+V* obj_pos(void*) asm("YS__OBJ__get_pos");
+void coll_update(COLL*) asm("dk__Octree__collisionToMap");
 s32 coll_ray(V*, V*, V*, s32) asm("func_001a7588");
-u32* oc_attr(u32, u32) asm("_Z16ctarget_00143ee8jjjj");
+u32* oc_attr(u32, u32) asm("_Z19dk__Octree__getAttrjjjj");
 V oc_get_normal(u16, bool) asm("_ZN2dk6Octree9getNormalEtb");
 void* get_player() asm("_ZN2YS3OBJ9GetPlayerEv");
 V turn_toward(f32, V, V) asm("func_002ea360");

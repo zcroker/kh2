@@ -21,7 +21,7 @@ void func_00154b18(W1632Menu*);
 void func_0014fc40(W1632Menu*, u32, s32, u32, u32, s32);
 u32 func_0013a7e8(s32);
 u32 func_0013d7e0(void);
-void func_001386e0(W1632Sprite*, u32, u32, u32, u32, u32);
+void dk__Sprite__create(W1632Sprite*, u32, u32, u32, u32, u32);
 void func_001396b0(W1632Sprite*);
 void func_0031a260(W1632Sprite*, u32);
 void func_00138c68(W1632Sprite*, s32, s32);

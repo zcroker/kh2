@@ -17,27 +17,27 @@
 
 // 00120520 (gap function, not written before)
 namespace g00120520 {
-u32 func_0011f7a8(u32, u32, u32, u32, u32, u8, u32) asm("func_0011f7a8");
+u32 kn__ModelBG__drawCommon(u32, u32, u32, u32, u32, u8, u32) asm("kn__ModelBG__drawCommon");
 u32 func_00120520(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u8 a6, u32 a7) asm("func_00120520");
 struct NoTail { ~NoTail() {} };
 u32 func_00120520(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u8 a6, u32 a7) {
     NoTail nt;
-    return func_0011f7a8(a0, a1, a3, a4, a5, a6, a7);
+    return kn__ModelBG__drawCommon(a0, a1, a3, a4, a5, a6, a7);
 }
 }  // namespace g00120520
 
 // 00120550 (was src/anon/tiny_auto80_solver.cpp)
 namespace n00120550 {
-u32 func_0011f7a8(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_0011f7a8jjjjjjjj");
+u32 kn__ModelBG__drawCommon(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z23kn__ModelBG__drawCommonjjjjjjjj");
 /*TARGET 00120550*/
-u32 func_00120550(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00120550jjjjjjjj");
-u32 func_00120550(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 kn__ModelBG__drawOnShadow(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z25kn__ModelBG__drawOnShadowjjjjjjjj");
+u32 kn__ModelBG__drawOnShadow(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2;
     r6 = r7;
     r7 = r8;
     r9 = (u32)(r9 & 0x00ffu);
     r8 = 0u;
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0011f7a8)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))kn__ModelBG__drawCommon)(r4, r5, r6, r7, r8, r9, r10, r11);
     if (r2 != 0) {
         return r2;
     }
@@ -278,9 +278,9 @@ static inline __attribute__((always_inline)) s32 tableSize(u8* p) {
 }
 /*TARGET 001208f8*/
 // Total size of the object's main table plus its optional second table.
-s32 func_001208f8(void* a0) asm("func_001208f8");
+s32 kn__ModelSKL__getDMATagBufferSize(void* a0) asm("kn__ModelSKL__getDMATagBufferSize");
 // Total size of the object's main table plus its optional second table.
-s32 func_001208f8(void* a0) {
+s32 kn__ModelSKL__getDMATagBufferSize(void* a0) {
     u8* s = *(u8**)((u8*)a0 + 4);
     s32 o = func_00120800(a0);
     s32 r = tableSize(s);
@@ -621,10 +621,10 @@ TB1213c0* func_00120800(u8*) asm("func_00120800");
 /*TARGET 001213c0*/
 // obj_get_sub_ptr_by12
 // Mark every entry of the given kind (-1 = all) in both tables as state 1.
-void func_001213c0(u8* p, F1213c0* fl, s32 kind) asm("func_001213c0");
+void kn__ModelSKL__showPart(u8* p, F1213c0* fl, s32 kind) asm("kn__ModelSKL__showPart");
 // obj_get_sub_ptr_by12
 // Mark every entry of the given kind (-1 = all) in both tables as state 1.
-void func_001213c0(u8* p, F1213c0* fl, s32 kind) {
+void kn__ModelSKL__showPart(u8* p, F1213c0* fl, s32 kind) {
     TA1213c0* t = *(TA1213c0**)(p + 4);
     TB1213c0* b = func_00120800(p);  // obj_get_sub_ptr_by12
     for (s32 i = 0; i < t->n; i++) {
@@ -647,9 +647,9 @@ struct U0_Obj { u32 f0; U0_Hdr* h; };
 U0_Hdr* func_00120800(U0_Obj*) asm("func_00120800");
 /*TARGET 001214c0*/
 // clear the low two flag bits of every entry matching id (-1 = all)
-void func_001214c0(U0_Obj* p, u8* flags, s32 id) asm("func_001214c0");
+void kn__ModelSKL__hidePart(U0_Obj* p, u8* flags, s32 id) asm("kn__ModelSKL__hidePart");
 // clear the low two flag bits of every entry matching id (-1 = all)
-void func_001214c0(U0_Obj* p, u8* flags, s32 id) {
+void kn__ModelSKL__hidePart(U0_Obj* p, u8* flags, s32 id) {
     U0_Hdr* h = p->h;
     U0_Hdr* h2 = func_00120800(p);  // obj_get_sub_ptr_by12
     s32 i;
@@ -673,9 +673,9 @@ namespace n001215b8 {
 u8* func_00120800(u8*) asm("func_00120800");
 /*TARGET 001215b8*/
 // obj_get_sub_ptr_by12
-void func_001215b8(u8* p, u8* flags, s32 id) asm("func_001215b8");
+void kn__ModelSKL__setStealth(u8* p, u8* flags, s32 id) asm("kn__ModelSKL__setStealth");
 // obj_get_sub_ptr_by12
-void func_001215b8(u8* p, u8* flags, s32 id) {
+void kn__ModelSKL__setStealth(u8* p, u8* flags, s32 id) {
     u8* q = *(u8**)(p + 4);
     u8* r = func_00120800(p);  // obj_get_sub_ptr_by12
     s32 i;
@@ -699,9 +699,9 @@ struct Own216 { u32 a; Tbl216* t; };
 Tbl216* func_00120800(Own216*) asm("func_00120800");
 /*TARGET 001216a8*/
 // obj_get_sub_ptr_by12
-void func_001216a8(Own216* o, u8* flags, s32 id) asm("func_001216a8");
+void kn__ModelSKL__resetStealth(Own216* o, u8* flags, s32 id) asm("kn__ModelSKL__resetStealth");
 // obj_get_sub_ptr_by12
-void func_001216a8(Own216* o, u8* flags, s32 id) {
+void kn__ModelSKL__resetStealth(Own216* o, u8* flags, s32 id) {
     Tbl216* t = o->t;
     Tbl216* t2 = func_00120800(o);  // obj_get_sub_ptr_by12
     s32 i;
@@ -738,8 +738,8 @@ void func_001097e8(s32, s32, s32, s32, s32, s32, s32, s32, s32) asm("func_001097
 void func_00133c60(void*, void*, s32, s32, s32) asm("func_00133c60");
 void func_001094e0(void*, s32) asm("func_001094e0");
 /*TARGET 001217a0*/
-void func_001217a0(W2024a_Obj* o, void* ctx, s32 n, void* a3, W2024a_Hdr* h) asm("func_001217a0");
-void func_001217a0(W2024a_Obj* o, void* ctx, s32 n, void* a3, W2024a_Hdr* h) {
+void kn__ModelSKL__setTexture(W2024a_Obj* o, void* ctx, s32 n, void* a3, W2024a_Hdr* h) asm("kn__ModelSKL__setTexture");
+void kn__ModelSKL__setTexture(W2024a_Obj* o, void* ctx, s32 n, void* a3, W2024a_Hdr* h) {
     W2024a_Ent* e = (W2024a_Ent*)(n * 32 + (u32)o->ents);
     s32 k = e->idx;
     u8* base = (u8*)h;
@@ -780,7 +780,7 @@ void func_001217a0(W2024a_Obj* o, void* ctx, s32 n, void* a3, W2024a_Hdr* h) {
 // 001219b8 (was src/anon/batch_wcx2.cpp)
 namespace n001219b8 {
 // ---- 001219b8
-void func_001217a0(u8*, u32, u32, u32, u32) asm("func_001217a0");
+void kn__ModelSKL__setTexture(u8*, u32, u32, u32, u32) asm("kn__ModelSKL__setTexture");
 void func_00134408(void) asm("func_00134408");
 void func_00134428(s32, u64) asm("func_00134428");
 void func_00134450(s32) asm("func_00134450");
@@ -788,13 +788,13 @@ u32 func_00109f58(s32, u32, u8) asm("func_00109f58");
 u32 func_00109ea8(s32, u32, u8) asm("func_00109ea8");
 u32 func_0010ae90(void) asm("func_0010ae90");
 // get_table_34ed8
-void func_00108ae0(u32, s32, u64, u64, u32, u32, s32, s32) asm("func_00108ae0");
+void kn__VU1DrawContext__setPacketForce(u32, s32, u64, u64, u32, u32, s32, s32) asm("kn__VU1DrawContext__setPacketForce");
 void func_00109670(void) asm("func_00109670");
 /*TARGET 001219b8*/
 void func_001219b8(u8* p, u32 a1, u32 a2, u8* q, u32 a4, u8 flag, u32 a6, u32 a7) asm("func_001219b8");
 void func_001219b8(u8* p, u32 a1, u32 a2, u8* q, u32 a4, u8 flag, u32 a6, u32 a7)
 {
-    func_001217a0(p, a1, a2, a4, a6);
+    kn__ModelSKL__setTexture(p, a1, a2, a4, a6);
     func_00134408();
     func_00134428(76, 0x40140);
     func_00134428(78, *(u64*)(q + 24) | (1ull << 32));
@@ -810,7 +810,7 @@ void func_001219b8(u8* p, u32 a1, u32 a2, u8* q, u32 a4, u8 flag, u32 a6, u32 a7
     func_00134428(2, 0x3f8000003f800000ull);
     func_00134428(5, (17ull << 27) | 0x8800);
     func_00134450(1);
-    func_001217a0(p, a1, a2, a4, a7);
+    kn__ModelSKL__setTexture(p, a1, a2, a4, a7);
     func_00134408();
     func_00134428(76, 0xff00000000040140ull);
     func_00134428(8, 5);
@@ -827,11 +827,11 @@ void func_001219b8(u8* p, u32 a1, u32 a2, u8* q, u32 a4, u8 flag, u32 a6, u32 a7
     if (!flag) {
         u32 x = func_00109f58(7, *(u32*)(*(u8**)(p + 4) + 4), q[7]);
         u32 y = func_00109ea8(7, *(u32*)(*(u8**)(p + 4) + 4), q[7]);
-        func_00108ae0(func_0010ae90(), 15, *(u64*)(q + 16), *(u64*)(q + 24) & ~(1ull << 32), y, x, 0, 0);
+        kn__VU1DrawContext__setPacketForce(func_0010ae90(), 15, *(u64*)(q + 16), *(u64*)(q + 24) & ~(1ull << 32), y, x, 0, 0);
     } else {
         u32 x = func_00109f58(11, *(u32*)(*(u8**)(p + 4) + 4), q[7]);
         u32 y = func_00109ea8(11, *(u32*)(*(u8**)(p + 4) + 4), q[7]);
-        func_00108ae0(func_0010ae90(), 15, *(u64*)(q + 16) | (0xffull << 56), *(u64*)(q + 24) | (1ull << 32), y, x, 0, 0);
+        kn__VU1DrawContext__setPacketForce(func_0010ae90(), 15, *(u64*)(q + 16) | (0xffull << 56), *(u64*)(q + 24) | (1ull << 32), y, x, 0, 0);
     }
     func_00109670();
 }

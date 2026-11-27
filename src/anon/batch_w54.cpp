@@ -89,7 +89,7 @@ void func_0011ed90(Link64* p, s32 n);  // 0x0011ed90: definition moved into src/
 
 typedef s32 (*VFn124)(void*, s32, s32, s32, s32, s32, u8, s32);
 void* func_00124748(void*, s32);  // list_nth_node_rel
-s32 func_00124618(void* a0, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1, u8 t2, s32 t3);  // 0x00124618: definition moved into src/anon/unit_00123990.cpp
+s32 kn__ModelMulti__drawSilhouette(void* a0, s32 a1, s32 a2, s32 a3, s32 t0, s32 t1, u8 t2, s32 t3);  // 0x00124618: definition moved into src/anon/unit_00123990.cpp
 
 struct Snd132 {
     u8 pad[2];
@@ -108,7 +108,7 @@ struct Obj132 {
 u32 func_00106520(u32, u32);
 void func_00132720(Obj132* p, Snd132* s);  // 0x00132720: definition moved into src/anon/unit_00131418.cpp
 
-s32 func_00143d10(Q16Pair*, Q16*, void*, s32*);
+s32 dk__Octree__intersectLineCamera(Q16Pair*, Q16*, void*, s32*);
 void func_00140480(Q16* p);  // 0x00140480: definition moved into src/anon/unit_0013fca8.cpp
 
 void func_001391c8(void*, s32, s32);
@@ -154,7 +154,7 @@ extern Pair8 D_00350338[8];
 void func_0016cce8(void*, void*, s32, s32, s32);
 void func_00196aa0(void* a0, s32 a1, s32 a2);  // 0x00196aa0: definition moved into src/anon/unit_00195d00.cpp
 
-void func_001c79a0(void*, void*, s32);
+void YS__PRIZEEFFECT__get(void*, void*, s32);
 void func_001a52a8(void*, void*, void*);
 // 001a5380: moved to src/anon/unit_001a4db0.cpp
 
@@ -215,8 +215,8 @@ char* func_00232498(void*);
 char* func_002ff2e8(char*, const char*);
 u32 func_00227870(char*, void*, void*);
 void func_00226030(void);
-void func_00168388(char*, u32, void*, void*);
-void func_00232510(void* a0, void* a1);  // 0x00232510: definition moved into src/anon/unit_00231500.cpp
+void YS__FILE__ReadBack(char*, u32, void*, void*);
+void sa__EVENT__audio_read_set(void* a0, void* a1);  // 0x00232510: definition moved into src/anon/unit_00231500.cpp
 
 s32 func_0024dfe0(void);
 s32 func_00139d78(void*);
@@ -231,7 +231,7 @@ extern u8* D_0035ee18[5];
 void func_00138c10(void*, s32);
 void func_0024eac0(void);  // 0x0024eac0: definition moved into src/anon/unit_0024e7e8.cpp
 
-u8* func_002632d0(void);
+u8* Tz__CmItem__isSoraOnly(void);
 s32 func_002635d8(void);  // 0x002635d8: definition moved into src/anon/unit_002632d0.cpp
 
 extern u8* D_0035f480;
@@ -272,9 +272,9 @@ void func_002d00a0(void*);
 s32 func_00181500(s32);
 void func_0016bd60(void*, s32);
 void func_0016b070(void*, void*);
-void func_002db968(void*, s32);
+void Ti__Afp__calc_local_matrix(void*, s32);
 extern u8 D_003628f0[];
-void func_002dba40(u8* p);  // 0x002dba40: definition moved into src/anon/unit_002da040.cpp
+void Ti__MGHachimitsuPo___OVR_initialize(u8* p);  // 0x002dba40: definition moved into src/anon/unit_002da040.cpp
 
 // wrap an angle into [-pi, pi]
 f32 func_002de968(f32 a);  // 0x002de968: definition moved into src/anon/unit_002de3c8.cpp

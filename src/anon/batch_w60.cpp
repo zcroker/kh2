@@ -46,11 +46,11 @@ extern s32 D_01e3c770;
 
 void func_0016adc8(void*, void*);
 void func_00176a60(void*, f32);
-void func_001169e8(void*);
+void kn__Stitch__calc_move_target(void*);
 void func_0017f540(void*, s32, f32, f32);
 void* func_001144e8(void*, u64);
 void func_0010eed8(void*, void*, s32);
-u32 func_00112740(void*);  // get_field2940
+u32 kn__Friend__getFlag(void*);  // get_field2940
 void func_00112730(void*, u32);
 s32 func_001dc5f0(s32);
 void func_0013f608(void*);
@@ -58,13 +58,13 @@ s32 func_001466b0(void*);  // mat4_transform_vecs
 s32 func_00146cb0(void*, void*);
 void func_002bc358(s32, s32);
 void* func_00192cc0(void*, const char*, u32);
-void func_001a98e8(void*, s32, void*, u32, s32);
-void func_001a9ae8(void*, void*, void*, void*);
+void YS__MESSAGEDRAW__MESSAGEDRAW(void*, s32, void*, u32, s32);
+void YS__MESSAGEDRAW__draw(void*, void*, void*, void*);
 s32 func_00162098(void);
 void func_00162058(f32);  // to_161f48_arg1
 void func_00144908(void*, void*);
 void* func_0016b0d0(void);
-f32* func_0016c028(void*);  // obj_get_attach_or_alt
+f32* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 void func_00167658(void*, s32);
 u64 func_00167cd0(void*);
 void func_001676b0(void*, u64);
@@ -73,16 +73,16 @@ void func_0017f488(void*, s32, f32, f32);
 s32 func_00187920(void*);
 s32 func_00197e40(void);
 void* func_001a3a78(void);
-s32 func_001de168(void*, s32, s32, s32, s32, void*);  // scan_list_by_half
-s32 func_0019ba60(void*);
+s32 ryj__PAX__start(void*, s32, s32, s32, s32, void*);  // scan_list_by_half
+s32 YS__OBJ__is_exist(void*);
 void func_0019d358(void*);
-s32 func_00187300(void*, void*, f32);
+s32 YS__BTLOBJ___turn_to_target_range(void*, void*, f32);
 s32 func_0018d940(void*, void*, s32, void*);
-void* func_001c0320(void*, void*, void*);
+void* YS__ATTACK_CHECK__hit(void*, void*, void*);
 u8* func_0018da18(void*, void*, void*, void*);
 void func_001903d0(void*, void*);
-void func_0016ed50(s32, s32, s32);
-void func_0016bda8(void*, void*);
+void YS__OBJENTRY__ReadRequest(s32, s32, s32);
+void YS__OBJ__get_target_pos(void*, void*);
 void func_0016f000(s32, void*, f32);
 void func_001991a8(s32, s32);
 void func_001dc978(void*, f32);
@@ -91,11 +91,11 @@ void* func_0016a070(void*);
 s32 func_001c9958(void*, void*);  // state_pair_check
 void func_001c9780(void*, f32);
 u8* func_001c16f0(void*, void*);
-void func_001c79a0(void*, void*, s32);
-s32 func_001d5868(void*);
+void YS__PRIZEEFFECT__get(void*, void*, s32);
+s32 YS__LINK_FLAG__is_ok(void*);
 s32 func_001d58f0(void*);
 void func_001d5800(void*);
-void func_001a3188(u16, s32, s32);
+void YS__ITEM__Get(u16, s32, s32);
 f32 sceVu0InnerProduct(void*);  // vec3_dot
 void sceVu0Normalize(void*, void*);  // vec4_normalize
 void func_0021fe08(void*, u32);
@@ -105,7 +105,7 @@ u8* func_002859a0(void);
 s32 func_002938f0(void);
 void func_00170320(s32);
 u8* func_00103eb0(void);
-void func_00102818(u32, s32, u32, void (*)(), s32);
+void TASK_MANAGER__create_thread(u32, s32, u32, void (*)(), s32);
 void func_00293848();
 s32 func_00139d78(void*);
 s32 func_0028acc8(void*);
@@ -117,7 +117,7 @@ void func_002bbf68(void*, s32);
 u8* func_00102788(u32, s32, u32, void (*)());
 void func_002c53c8();
 void func_0017c030(void*, void*, void*, u8);
-void func_0017c4c8(void*, void*);
+void YS__OBJ__prepare_jump(void*, void*);
 u32 func_0023a918(void*);
 s32 DIntr(void);
 void EIntr(void);  // ee_intr_get_enable
@@ -146,7 +146,7 @@ s32 func_00143fc8(void* a, void* b);  // 0x00143fc8: definition moved into src/a
 
 void func_0014eda8(void);  // 0x0014eda8: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_00152688(u8* a, void* b, void* c, void* d);  // 0x00152688: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__LEVEL_UP_SUMMON__draw(u8* a, void* b, void* c, void* d);  // 0x00152688: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00159308: moved to src/anon/unit_00159240.cpp
 
@@ -157,7 +157,7 @@ static inline bool flagA167(u8* p) { return ((Flags167*)(p + 72))->a; }
 // 00167d68: moved to src/anon/unit_00167358.cpp
 
 struct Args172 { u8** a; void* pos; f32 c; f32 d; s32 e; f32 f; s32 g; };
-void func_00172260(Args172* s);  // 0x00172260: definition moved into src/anon/unit_00171e58.cpp
+void YS__trap_obj_hop(Args172* s);  // 0x00172260: definition moved into src/anon/unit_00171e58.cpp
 
 // 00176a90: moved to src/yasui/libys/party.cpp
 
@@ -167,21 +167,21 @@ void func_00172260(Args172* s);  // 0x00172260: definition moved into src/anon/u
 // 001814b8: moved to src/yasui/libys/progress.cpp
 
 // 001874a0: moved to src/anon/unit_00185d10.cpp
-s32 func_001874a0(void* a, f32 f);
+s32 YS__BTLOBJ__turn_to_lockon_range(void* a, f32 f);
 
-u8* func_0018db38(void* a, u8* b, s32 c, void* d);  // 0x0018db38: definition moved into src/anon/unit_0018d050.cpp
+u8* YS__ATTACK__strike(void* a, u8* b, s32 c, void* d);  // 0x0018db38: definition moved into src/anon/unit_0018d050.cpp
 
 struct Out1904 { u32 a[3]; u32 z; QWord q; };
 QWord func_001904a8(void* x);  // 0x001904a8: definition moved into src/anon/unit_001900d0.cpp
 
-void func_001bfbd8(void);  // 0x001bfbd8: definition moved into src/anon/unit_001bc568.cpp
+void YS__PRIZEBOX__Read(void);  // 0x001bfbd8: definition moved into src/anon/unit_001bc568.cpp
 
-void func_001bfcc8(u8* p, s32 n);  // 0x001bfcc8: definition moved into src/anon/unit_001bc568.cpp
+void YS__PRIZEBOX__DropNmPresent(u8* p, s32 n);  // 0x001bfcc8: definition moved into src/anon/unit_001bc568.cpp
 
 // 8-entry ring: releases the oldest entry and stores x in its slot.
-void func_001c2c00(void* x);  // 0x001c2c00: definition moved into src/anon/unit_001c2b58.cpp
+void YS__HITMARK__Add(void* x);  // 0x001c2c00: definition moved into src/anon/unit_001c2b58.cpp
 
-void func_001c9860(void* p);  // 0x001c9860: definition moved into src/yasui/libys/sacrifice.cpp
+void YS__SACRIFICE__StartForm(void* p);  // 0x001c9860: definition moved into src/yasui/libys/sacrifice.cpp
 
 void PrizeTrGetAll(void* o) asm("_ZN2YS8PRIZE_TR6GetAllEPNS_6BTLOBJE");
 void PrizeTrGetAll(void* o);  // 0x001d29c8: definition moved into src/anon/unit_001d2810.cpp
@@ -222,7 +222,7 @@ void func_002bc708(s32 id);  // 0x002bc708: definition moved into src/anon/unit_
 
 void func_002c5418(u32 x);  // 0x002c5418: definition moved into src/anon/unit_002c53c8.cpp
 
-void func_002eabe8(void* self, u8* o, u8 c);  // 002eabe8: moved to src/anon/unit_002eaa68.cpp
+void Ts__ACTION_DICE__party_jump(void* self, u8* o, u8 c);  // 002eabe8: moved to src/anon/unit_002eaa68.cpp
 
 // Unpacks a 32-bit RGBA value into bytes.
 // 002ef660: moved to src/anon/unit_002ef1f8.cpp

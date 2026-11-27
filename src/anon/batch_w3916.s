@@ -1,5 +1,5 @@
 # Kept as assembly (whole function, last step of the match ladder, helper w3916 2026-11-10).
-# func_0026ee78: creates up to four menu entry objects (one per active slot) and, for slot 0, a linked label.
+# Tz__CmCustom__SetupTop: creates up to four menu entry objects (one per active slot) and, for slot 0, a linked label.
 #   Closest C: best/0026ee78_w3916.cpp under -fmove-all-movables (20 lines off): the original copies the
 #   func_00257770 result s0 -> s5 before the loop and puts o in s1 / the 0x87d0 pointer in s0; giv, copy and
 #   asm-copy forms did not reproduce it.

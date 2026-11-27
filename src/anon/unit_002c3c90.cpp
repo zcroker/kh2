@@ -108,7 +108,7 @@ struct PoolI {
 } __attribute__((aligned(16)));
 typedef void (*VFn58)(void*);
 #define VCALL5_e58(o) ((VFn58)(*(void***)(o))[5])(o)
-void func_00236d60(void) asm("func_00236d60");
+void YI__IMAGE_CACHE__Clear(void) asm("YI__IMAGE_CACHE__Clear");
 void func_002c3368_3e58(u8*) asm("func_002c3368");
 void func_002c34d0_3e58(u8*) asm("func_002c34d0");
 s32 func_00139d78_3e58(u8*) asm("func_00139d78");
@@ -122,10 +122,10 @@ s32 func_0023f0c0_3e58(u8*) asm("func_0023f0c0");
 s32 func_002c3240(u8*, s32) asm("func_002c3240");
 void func_002c3638(u8*) asm("func_002c3638");
 void func_002c3c90(u8*) asm("func_002c3c90");
-void func_002c3e58(u8* p) asm("func_002c3e58");
-void func_002c3e58(u8* p)
+void dk__WM_LANDING__update(u8* p) asm("dk__WM_LANDING__update");
+void dk__WM_LANDING__update(u8* p)
 {
-    func_00236d60();                        
+    YI__IMAGE_CACHE__Clear();                        
     switch (*(s32*)(p + 8260)) {
     case 1:
         func_002c3368_3e58(p);
@@ -189,33 +189,33 @@ struct V86 {
 } __attribute__((aligned(16)));
 struct Obj98 { u8 pad[28]; u8 pos[844]; u32 lst; u8 m[4]; };
 s32 func_0028d008_116312(s32) asm("func_0028d008");
-void func_0028cc78(s32, s32, s32, u8*, s32, s32) asm("func_0028cc78");
+void Tz__MenuCursor__Create(s32, s32, s32, u8*, s32, s32) asm("Tz__MenuCursor__Create");
 u32 func_002891d0(u32) asm("func_002891d0");
-void func_0028cf28(s32, u32) asm("func_0028cf28");
+void Tz__MenuCursor__SetParent(s32, u32) asm("Tz__MenuCursor__SetParent");
 s32 func_00289310(u32) asm("func_00289310");
 s32 func_002891e8(u32) asm("func_002891e8");
 void func_002890e0(u32, s32, s32, s32, s32) asm("func_002890e0");
 void func_00289038(u32, s32, s32, s32, s32, s32, s32) asm("func_00289038");
 void func_0028d660(u8*, u32) asm("func_0028d660");
 void func_001396b0_116312(u8*) asm("func_001396b0");
-void func_002c40d8(Obj98* o) asm("func_002c40d8");
-void func_002c40d8(Obj98* o)
+void dk__WM_LANDING__drawList(Obj98* o) asm("dk__WM_LANDING__drawList");
+void dk__WM_LANDING__drawList(Obj98* o)
 {
     u32 lst = o->lst;
     if (!func_0028d008_116312(0)) {
-        func_0028cc78(0, 1, 1, o->pos, 54, 54);
-        func_0028cf28(0, func_002891d0(lst));                              
+        Tz__MenuCursor__Create(0, 1, 1, o->pos, 54, 54);
+        Tz__MenuCursor__SetParent(0, func_002891d0(lst));                              
     }
     if (!func_0028d008_116312(1)) {
-        func_0028cc78(1, 1, 1, o->pos, 13, 13);
-        func_0028cf28(1, func_002891d0(lst));                              
+        Tz__MenuCursor__Create(1, 1, 1, o->pos, 13, 13);
+        Tz__MenuCursor__SetParent(1, func_002891d0(lst));                              
     }
     if (!func_00289310(lst)) return;
     s32 k = func_002891e8(lst);
     func_002890e0(lst, 1, 2, 0, -1);
     func_00289038(lst, k, 1, 1, 2, 0, -1);
-    func_0028cf28(0, func_002891d0(lst));                              
-    func_0028cf28(1, func_002891d0(lst));                              
+    Tz__MenuCursor__SetParent(0, func_002891d0(lst));                              
+    Tz__MenuCursor__SetParent(1, func_002891d0(lst));                              
     func_0028d660(o->m, func_002891d0(lst));                             
     func_001396b0_116312(o->m);
 }
@@ -254,7 +254,7 @@ void func_002c42f8(u8* self) {
         return;
     }
     if (func_002c5120(self) != 0) {
-        func_002c40d8(self);
+        dk__WM_LANDING__drawList(self);
         return;
     }
     func_002c4240(self);
@@ -265,13 +265,13 @@ void func_002c42f8(u8* self) {
 namespace n002c4390 {
 struct Obj2c1832 { u8 pad[0x18]; u8 sub[0x174]; void* f18c; };
 void func_00138cb8(void*, s32*, s32*) asm("func_00138cb8");
-void func_001aa728(s32, s32, s32, s32, s32, s32, s32) asm("func_001aa728");
+void YS__MESSAGEDRAW__Draw(s32, s32, s32, s32, s32, s32, s32) asm("YS__MESSAGEDRAW__Draw");
 s32 func_0023aa18(void*) asm("func_0023aa18");
 s32 func_0023aa38(void*) asm("func_0023aa38");
 s32 func_0023aa58(void*) asm("func_0023aa58");
 s32 func_0023aa98(void*) asm("func_0023aa98");
 s32 func_0028b040(s32) asm("func_0028b040");
-s32 func_0028b160(s32, Obj2c1832*) asm("func_0028b160");
+s32 Tz__Select__GetPtr2Idx(s32, Obj2c1832*) asm("Tz__Select__GetPtr2Idx");
 s32 func_002c2610(s32, s32) asm("func_002c2610");
 extern s32 D_00361c0c asm("D_00361c0c");
 extern s32 D_01e2bd10 asm("D_01e2bd10");
@@ -284,11 +284,11 @@ void func_002c4390(s32 en, s32 a1, s32 a2, s32 a3, Obj2c1832* o) {
         func_00138cb8(o->f18c, &px, &py);
         func_00138cb8(o, &qx, &qy);
         qx = qx + px + func_0023aa18(sub);
-        qy = qy + ((func_0028b160(D_00361c0c, o) * func_0023aa98(sub)) + (func_0023aa38(sub) + py));
+        qy = qy + ((Tz__Select__GetPtr2Idx(D_00361c0c, o) * func_0023aa98(sub)) + (func_0023aa38(sub) + py));
         m = func_0023aa58(sub);
-        n = func_0028b160(D_00361c0c, o);
+        n = Tz__Select__GetPtr2Idx(D_00361c0c, o);
         n = n + func_0028b040(D_00361c0c);
-        func_001aa728(0, func_002c2610(D_01e2bd10, n), qx, qy, a2, m, 0);
+        YS__MESSAGEDRAW__Draw(0, func_002c2610(D_01e2bd10, n), qx, qy, a2, m, 0);
     }
 }
 }  // namespace n002c4390

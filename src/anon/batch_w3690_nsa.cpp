@@ -64,7 +64,7 @@ void func_00159768(void);
 void func_002fd188(void (*)(void));
 u8* func_00167f18(s32);
 void func_00159308(u8*);
-V159368* func_0016c028(Obj159368*);
+V159368* YS__OBJ__get_pos(Obj159368*);
 void func_00159240(V159368*, V159368*);
 void func_0013f648(Cam159368*);
 // Camera follow. The three offset vectors are function-local statics

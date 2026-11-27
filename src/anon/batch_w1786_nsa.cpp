@@ -11,7 +11,7 @@ s32 func_002f7dc8();
 extern W1786S350 D_00350cb0;
 void func_001adc48(s32 x);  // 0x001adc48: definition moved into src/anon/unit_001ada38.cpp
 
-void func_001fa668(u8*, s32, void*);
+void pppKeLnsLpDraw(u8*, s32, void*);
 void W1786_wtarget(W1786Vn*, void*, W1786Vn*) asm("_Z17sceVu0ApplyMatrixjjjj");
 void sceVu0ScaleVector(void*, W1786Vn*, f32);
 void func_001faea8(void*, s32, s32);

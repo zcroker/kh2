@@ -508,8 +508,8 @@ struct Path { u8 pad0[3]; u8 flags; s32 count; f32 start; u32 padc; PathKey key[
 static inline QV conv(const KV& p) { return QV(p.x, -p.y, -p.z, 0.0f); }
 void path_seek(Path* p, s32* idx, f32* frac, f32 t) asm("func_002e66f0");
 /*TARGET 002e6ab0*/
-void func_002e6ab0(Path* p, Mtx* m, f32 t) asm("func_002e6ab0");
-void func_002e6ab0(Path* p, Mtx* m, f32 t)
+void Ti__Afp__Data__calc_matrix(Path* p, Mtx* m, f32 t) asm("Ti__Afp__Data__calc_matrix");
+void Ti__Afp__Data__calc_matrix(Path* p, Mtx* m, f32 t)
 {
     s32 idx;
     f32 frac;
@@ -574,8 +574,8 @@ void gap_002e6f28(u32* p, u32 b) {
     p[1] = (u32) new (func_001050c8()) ElemW55[n];
 }
 /*TARGET 002e6fc0*/
-void func_002e6fc0(u32* p, u32 b) asm("func_002e6fc0");
-void func_002e6fc0(u32* p, u32 b) {
+void Ti__Afp__Afp(u32* p, u32 b) asm("Ti__Afp__Afp");
+void Ti__Afp__Afp(u32* p, u32 b) {
     p[0] = b;
     p[1] = 0;
     u32 n = func_002e64b0(b);
@@ -618,7 +618,7 @@ namespace n002e7108 {
 struct List64 { u32 f0; u8* arr; s32 n; };
 u32 func_002e64b8(s32, u32) asm("func_002e64b8");
 // list_advance_count
-void func_002e6ab0(u32, u8*, f32) asm("func_002e6ab0");
+void Ti__Afp__Data__calc_matrix(u32, u8*, f32) asm("Ti__Afp__Data__calc_matrix");
 /*TARGET 002e7108*/
 // 0x002dea00: definition moved into src/anon/unit_002de3c8.cpp
 
@@ -629,7 +629,7 @@ void func_002e7108(List64* l, f32 x) {
     s32 n = l->n;
     for (s32 i = 0; i < n; i++) {
         u8* e = l->arr + i * 64;
-        func_002e6ab0(func_002e64b8(i, l->f0), e, x);
+        Ti__Afp__Data__calc_matrix(func_002e64b8(i, l->f0), e, x);
     }
 }
 }  // namespace n002e7108

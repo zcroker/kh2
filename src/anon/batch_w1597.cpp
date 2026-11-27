@@ -23,10 +23,10 @@ W1597It* func_001a80c8(s32);
 void func_00259570(u8, s32, u8, s32);
 void func_002595b8(s32, s32, s32);
 s32 func_001a3820(u16);
-W1597Rec* func_001b8e88(s32);
+W1597Rec* YS__COMMAND_ELEM__Get(s32);
 s32 func_002595e0();
 u32 func_00192048(u32);
 u32 func_002595e8(u32, u32);
-s32 func_00271710(s32 a0, u32 a1, u8 a2, u8 a3, s32 t0);  // 0x00271710: definition moved into src/anon/unit_002713c8.cpp
+s32 Tz__CmCustom__MakeItemMess(s32 a0, u32 a1, u8 a2, u8 a3, s32 t0);  // 0x00271710: definition moved into src/anon/unit_002713c8.cpp
 
 }

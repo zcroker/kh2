@@ -21,7 +21,7 @@
 
 // ---- 0013fca8 from src/anon/tiny_auto80_solver.cpp
 namespace n0013fca8 {
-u32 func_0013f9e0(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_0013f9e0jjjjjjjj");
+u32 dk__ObjCamera__collision_2(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z26dk__ObjCamera__collision_2jjjjjjjj");
 u32 func_0013fca8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0013fca8jjjjjjjj");
 u32 func_0013fca8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     a1 = a0;
@@ -30,7 +30,7 @@ u32 func_0013fca8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     a0 = a0 + 112;
     a1 = a1 + 128;
     a4 = 0;
-    return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_0013f9e0)(a0, a1, a2, a3, a4, a5, a6, a7);
+    return ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))dk__ObjCamera__collision_2)(a0, a1, a2, a3, a4, a5, a6, a7);
 }
 }  // namespace n0013fca8
 
@@ -58,12 +58,12 @@ struct Vq {
         return *this;
     }
 } __attribute__((aligned(16)));
-Vq func_0016af58(u32) asm("func_0016af58");
+Vq YS__OBJ__get_dir(u32) asm("YS__OBJ__get_dir");
 void func_0013fcd8(void*, Vq) asm("func_0013fcd8");
 void func_0013fd10(u8* o) asm("func_0013fd10");
 void func_0013fd10(u8* o) {
     Vq v;
-    v = func_0016af58(*(u32*)(o + 68));
+    v = YS__OBJ__get_dir(*(u32*)(o + 68));
     func_0013fcd8(o, v);
 }
 }  // namespace n0013fd10
@@ -360,7 +360,7 @@ struct Q16 {
 struct Q16Pair {
     Q16 v[2];
 };
-s32 func_00143d10(Q16Pair*, Q16*, void*, s32*) asm("func_00143d10");
+s32 dk__Octree__intersectLineCamera(Q16Pair*, Q16*, void*, s32*) asm("dk__Octree__intersectLineCamera");
 void func_00140480(Q16* p) asm("func_00140480");
 void func_00140480(Q16* p) {
     Q16Pair in;
@@ -374,7 +374,7 @@ void func_00140480(Q16* p) {
     y = 0;
     Q16* po = &out;
     s32* px = &x;
-    if (func_00143d10(&in, po, px, &y)) *p = *po;
+    if (dk__Octree__intersectLineCamera(&in, po, px, &y)) *p = *po;
 }
 }  // namespace n00140480
 
@@ -403,8 +403,8 @@ static inline void addv(V4* out, V4* a, V4* b) {
                  : : "r"(&t), "r"(a), "r"(b) : "memory");
     qcopy(out, &t);
 }
-void func_00140500(u8* p) asm("func_00140500");
-void func_00140500(u8* p) {
+void dk__ObjCamera__calcSubjective(u8* p) asm("dk__ObjCamera__calcSubjective");
+void dk__ObjCamera__calcSubjective(u8* p) {
     *(f32*)(p + 192) = func_0017ce10(*(f32*)(p + 192));
     f32 v = func_0017ce10(*(f32*)(p + 196));
     *(f32*)(p + 196) = v;
@@ -434,19 +434,19 @@ struct V140 {
 struct In140 { u64 f0; u64 f8; u8 pad[20]; f32 f36; u32 pad2; f32 f44; };
 s32 func_0019c498(u32) asm("func_0019c498");
 s32 func_0019c4d0(u32) asm("func_0019c4d0");
-void func_00141010(f32) asm("func_00141010");
+void dk__ObjCamera__cancelSubjective(f32) asm("dk__ObjCamera__cancelSubjective");
 f32 func_0013fd10(u8*) asm("func_0013fd10");
 void func_0013f828(u8*) asm("func_0013f828");
 void func_0013f888(u8*, u8*, s32) asm("func_0013f888");
 void func_0013fd88(u8*) asm("func_0013fd88");
 V140 func_0016c508(u32) asm("func_0016c508");
-void func_00140500(u8*) asm("func_00140500");
+void dk__ObjCamera__calcSubjective(u8*) asm("dk__ObjCamera__calcSubjective");
 extern f32 D_004573ec asm("D_004573ec");
 extern f32 D_00349e10 asm("D_00349e10");
 void func_00140618(u8* p, In140* in) asm("func_00140618");
 void func_00140618(u8* p, In140* in) {
     if (!func_0019c498(*(u32*)(p + 68)) || (in->f8 & 0x400000)) {
-        func_00141010(30.0f);
+        dk__ObjCamera__cancelSubjective(30.0f);
         *(f32*)(p + 76) = *(f32*)(p + 80) = func_0013fd10(p);
         func_0013f828(p);
         func_0013f888(p, p + 128, 0);
@@ -462,7 +462,7 @@ void func_00140618(u8* p, In140* in) {
     if (!func_0019c4d0(*(u32*)(p + 68)) && (in->f0 & 0xc0000)) {
         *(f32*)(p + 196) -= in->f36 * in->f44 * D_004573ec * k;
     }
-    func_00140500(p);
+    dk__ObjCamera__calcSubjective(p);
 }
 }  // namespace n00140618
 
@@ -555,11 +555,11 @@ struct W1625Cam {
     W1625V4 upVel;           
 };
 void Spring_13f6e8(W1625V4* out, W1625V4* pos, W1625V4* goal, W1625V4* vel, f32 dt, f32 k, f32 damp, f32 rest) asm("func_0013f6e8");
-u8 func_0013f9e0(W1625V4*, W1625Cam*, W1625V4*, s32, s32) asm("func_0013f9e0");
+u8 dk__ObjCamera__collision_2(W1625V4*, W1625Cam*, W1625V4*, s32, s32) asm("dk__ObjCamera__collision_2");
 void func_00140480(W1625Cam*) asm("func_00140480");
 void func_0015a4e0(W1625Cam*) asm("func_0015a4e0");
-u8* func_00106a18(s32) asm("func_00106a18");
-void func_00106de8(u8*, s32, f32) asm("func_00106de8");
+u8* kn__getProjection(s32) asm("kn__getProjection");
+void kn__Projection__setFOV(u8*, s32, f32) asm("kn__Projection__setFOV");
 u8* func_00106a60(s32) asm("func_00106a60");
 void func_00107300(u8*, W1625V4*, W1625Cam*, f32) asm("func_00107300");
 void func_001408a0(W1625Cam* c, u8 noUpdate) asm("func_001408a0");
@@ -580,7 +580,7 @@ void func_001408a0(W1625Cam* c, u8 noUpdate)
     if (noUpdate) return;
     switch (c->mode) {
     case 0: case 3: case 6: case 8:
-        if (func_0013f9e0(&c->at3, c, &c->at, 1, 0)) c->at2 = c->at;
+        if (dk__ObjCamera__collision_2(&c->at3, c, &c->at, 1, 0)) c->at2 = c->at;
         break;
     case 2:
         func_0015a4e0(c);
@@ -591,7 +591,7 @@ void func_001408a0(W1625Cam* c, u8 noUpdate)
     case 11:
         break;
     }
-    func_00106de8(func_00106a18(1), 0, c->up.x);
+    kn__Projection__setFOV(kn__getProjection(1), 0, c->up.x);
     func_00107300(func_00106a60(1), &c->at, c, c->up.y);
 }
 }  // namespace n001408a0
@@ -629,13 +629,13 @@ void func_0015a5a8(u8*) asm("func_0015a5a8");
 void func_00159070_x8002(u8*) asm("func_00159070");
 void func_00159b00(u8*) asm("func_00159b00");
 void func_00159368(u8*) asm("func_00159368");
-void func_00158dc0(u8*) asm("func_00158dc0");
+void dk__DangleCamera__update(u8*) asm("dk__DangleCamera__update");
 void func_00158708(u8*) asm("func_00158708");
 void func_00158658(u8*) asm("func_00158658");
 void func_0014e8b8(u8*) asm("func_0014e8b8");
 void func_001589d0(u8*) asm("func_001589d0");
-void wtarget_00140b68(u8* p, u8 flag) asm("_Z16wtarget_00140b68jjjj");
-void wtarget_00140b68(u8* p, u8 flag) {
+void dk__ObjCamera__update(u8* p, u8 flag) asm("_Z21dk__ObjCamera__updatejjjj");
+void dk__ObjCamera__update(u8* p, u8 flag) {
     if (*(u32*)(p + 68) == 0) return;
     if (flag == 0 && func_001069e8() != 0) return;
     func_00140850(p);
@@ -646,7 +646,7 @@ void wtarget_00140b68(u8* p, u8 flag) {
     case 3: func_00159070_x8002(p); break;
     case 4: func_00159b00(p); break;
     case 5: func_00159368(p); break;
-    case 6: func_00158dc0(p); break;
+    case 6: dk__DangleCamera__update(p); break;
     case 7: func_00158708(p); break;
     case 8: func_00158658(p); break;
     case 9: func_0014e8b8(p); break;
@@ -662,11 +662,11 @@ void wtarget_00140b68(u8* p, u8 flag) {
 
 // ---- 00140cc8 from src/anon/tiny_wrappers_more80_reloc.cpp
 namespace n00140cc8 {
-u32 func_00140b68(u32, u32, u32, u32) asm("_Z13func_00140b68jjjj");
+u32 dk__ObjCamera__update(u32, u32, u32, u32) asm("_Z21dk__ObjCamera__updatejjjj");
 extern u8 D_00348710 asm("D_00348710");
 u32 func_00140cc8(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_00140cc8jjjj");
 u32 func_00140cc8(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_00140b68((u32)&D_00348710, 0x00000000u, a2, a3);
+    return dk__ObjCamera__update((u32)&D_00348710, 0x00000000u, a2, a3);
 }
 }  // namespace n00140cc8
 
@@ -844,7 +844,7 @@ u32 func_00140dc0(void) asm("func_00140dc0");
 extern u8 D_00348710[] asm("D_00348710");
 void func_0013fd78(u8*) asm("func_0013fd78");
 void func_0013f558(u8*) asm("func_0013f558");
-void func_00140b68(u8*, u32) asm("func_00140b68");
+void dk__ObjCamera__update(u8*, u32) asm("dk__ObjCamera__update");
 void func_00140f78(u8* a, u8* b) asm("func_00140f78");
 void func_00140f78(u8* a, u8* b) {
     u32 v = func_00140dc0();
@@ -852,7 +852,7 @@ void func_00140f78(u8* a, u8* b) {
     *(u32*)(g + 64) = 0;
     func_0013fd78(g);
     func_0013f558(g);
-    func_00140b68(g, 1);
+    dk__ObjCamera__update(g, 1);
     if (a != g + 16) QCOPY(a, g + 16);
     if (b != g) QCOPY(b, g);
     *(u32*)(g + 64) = v;
@@ -865,8 +865,8 @@ s32 func_00141080(f32) asm("func_00141080");
 void func_001ad990(u32, f32, f32, f32) asm("func_001ad990");
 struct S348710 { u8 pad[64]; u32 f64; u32 f68; };
 extern S348710 D_00348710 asm("D_00348710");
-void func_00141010(f32 x) asm("func_00141010");
-void func_00141010(f32 x) {
+void dk__ObjCamera__cancelSubjective(f32 x) asm("dk__ObjCamera__cancelSubjective");
+void dk__ObjCamera__cancelSubjective(f32 x) {
     if (func_00141080(x)) {
         S348710* s = &D_00348710;
         if (s->f68) {

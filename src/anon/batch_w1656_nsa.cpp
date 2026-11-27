@@ -57,9 +57,9 @@ void func_001ca8f8(f32 a, f32 b);
 void Afp_getCount_W1656(s32 a) asm("_ZN2Ti3Afp8getCountEPv");
 s32 func_002e64b8(s32 a, s32 b);
 void getFieldMode_W1656(void) asm("_Z12getFieldModev");
-void func_002e6ab0(s32 afp, W1656Mtx* m, f32 t);
+void Ti__Afp__Data__calc_matrix(s32 afp, W1656Mtx* m, f32 t);
 void func_001069b8(s32 a);
-void func_002cedd0(s32 a, u8* b);
-void func_002cf938(s32 a);
+void Ti__MiniGame__create_task(s32 a, u8* b);
+void Ti__MGObj__reset_all_members(s32 a);
 void func_002d12b0(W1656Oarashi* p, s32 id, s32 b);  // 0x002d12b0: definition moved into src/anon/unit_002cf260.cpp
 }

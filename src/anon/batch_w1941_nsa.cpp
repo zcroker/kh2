@@ -81,7 +81,7 @@ s32 func_00162560(Poly1941* o, V1941* p, V1941* nrm);  // 0x00162560: definition
 // --- 0017fba0: build 16 work entries and run the timed or the plain update on them
 s32 func_00180cd0(Obj1941*);
 void func_0011c4b0(void*);
-void func_001808c0(Obj1941*, E1941*);
+void YS__MOTION__make_ik_adjust(Obj1941*, E1941*);
 void func_00180a10(Obj1941*, E1941*);
 s32 func_001b0580(void*);
 void func_0011c6a8(f32, void*, s32, s32, s32, s32, E1941*, s32);
@@ -92,7 +92,7 @@ void func_0011c4e8(f32, void*, s32, s32, s32, E1941*, s32);
 extern f32 D_00349e10;
 extern f32 D_00351fd8;
 Tgt1941* func_002d1260(void);
-s32 func_0019ba60(Tgt1941*);
+s32 YS__OBJ__is_exist(Tgt1941*);
 f32 func_001cbf50(f32);
 f32 cosf(f32);
 f32 sinf(f32);

@@ -18,5 +18,5 @@ s32 func_00276c18();
 extern W1595List* D_0035f5ac;
 void func_002ac678(s32 idx);  // 0x002ac678: definition moved into src/anon/unit_002a99c8.cpp
 
-void func_0029ca50(void);  // 0x0029ca50: definition moved into src/anon/unit_0029ba88.cpp
+void Tz__JmDic__GetCharaIdx(void);  // 0x0029ca50: definition moved into src/anon/unit_0029ba88.cpp
 }

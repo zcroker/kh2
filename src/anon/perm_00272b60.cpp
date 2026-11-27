@@ -22,6 +22,6 @@ s32 func_00257070(s32) asm("_ZN2Tz5CmTop9GetCurPosEi");
 void func_002713a0(s32, s8 **, s32 *);
 s32 func_00272c20(s32);
 extern s8 *D_01e21edc;
-s32 func_00272b60(s32 n);  // 0x00272b60: definition moved into src/anon/unit_00271e08.cpp
+s32 Tz__CmCustom__CurPos2CustomType(s32 n);  // 0x00272b60: definition moved into src/anon/unit_00271e08.cpp
 
 }

@@ -252,11 +252,11 @@ void sceVu0UnitMatrix(W2221*) asm("sceVu0UnitMatrix");
 // vu_store_w_splat
 void func_002226b8(void*, u32) asm("func_002226b8");
 // vec3_copy
-void func_00221348(W2221*) asm("func_00221348");
+void KeThBP_Update(W2221*) asm("KeThBP_Update");
 void func_00221ed0(N2221*) asm("func_00221ed0");
 /*TARGET 00222170*/
-void func_00222170(C2221* c) asm("func_00222170");
-void func_00222170(C2221* c)
+void KeThCp_Update(C2221* c) asm("KeThCp_Update");
+void KeThCp_Update(C2221* c)
 {
     H2221* h = c->head;
     s32 fl = 0;
@@ -277,7 +277,7 @@ void func_00222170(C2221* c)
         }
         if (n->flags & 0x100) n->flags = fl | n->flags;
         w.node = n;
-        func_00221348(&w);
+        KeThBP_Update(&w);
         if (n->flags & 0x10) {
             N2221* cur = n;
             n = n->next;

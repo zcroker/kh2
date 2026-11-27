@@ -29,15 +29,15 @@ extern u8 D_00351ec0[] asm("D_00351ec0");
 extern u32 D_0034f240 asm("D_0034f240");
 s32 elem_is_menu(E1bc*) asm("_ZNK2YS12COMMAND_ELEM7is_menuEv");
 s32 func_001c8db8(void*, s32) asm("func_001c8db8");
-s32 func_0019ba60(B1bc*) asm("func_0019ba60");
-s32 func_001c9b38(E1bc*) asm("func_001c9b38");
+s32 YS__OBJ__is_exist(B1bc*) asm("YS__OBJ__is_exist");
+s32 YS__SACRIFICE__GetCommandStatus(E1bc*) asm("YS__SACRIFICE__GetCommandStatus");
 s32 func_001bbf40(void) asm("func_001bbf40");
 s32 func_001bc568(E1bc* e, B1bc* b) asm("func_001bc568");
 s32 func_001bc568(E1bc* e, B1bc* b) {
     if (elem_is_menu(e)) return 1;
     if (func_001c8db8(D_00351eb8, 0) || func_001c8db8(D_00351ec0, 0)) return 0;
-    if (func_0019ba60(b) == 0 || (b->f588 & 0x1000000) == 0) return 0;
-    if (func_001c9b38(e) || (b->t->f8 & 0x20)) return 0;
+    if (YS__OBJ__is_exist(b) == 0 || (b->f588 & 0x1000000) == 0) return 0;
+    if (YS__SACRIFICE__GetCommandStatus(e) || (b->t->f8 & 0x20)) return 0;
     switch (b->mode) { case 7: case 12: return 0; }
     if (e->h4 == 3) {
         if (func_001bbf40()) return 0;
@@ -65,12 +65,12 @@ void slot_clear(COMMAND_SLOT* self) {
 // ---- 001bc6a8 from src/anon/batch_w25.cpp
 namespace n001bc6a8 {
 struct O1bc { u16 f0; u16 f2; u8 f4; u8 f5; u16 pad; u32 f8; };
-u8 func_001bc2a8(u16*, u32, u32) asm("func_001bc2a8");
-void func_001bc6a8(O1bc* o, u16* a, u32 b, u32 c, u32 d) asm("func_001bc6a8");
-void func_001bc6a8(O1bc* o, u16* a, u32 b, u32 c, u32 d) {
+u8 YS__COMMAND_SLOT__GetStatus(u16*, u32, u32) asm("YS__COMMAND_SLOT__GetStatus");
+void YS__COMMAND_SLOT__set(O1bc* o, u16* a, u32 b, u32 c, u32 d) asm("YS__COMMAND_SLOT__set");
+void YS__COMMAND_SLOT__set(O1bc* o, u16* a, u32 b, u32 c, u32 d) {
     o->f2 = *a;
     o->f4 = d;
-    o->f5 = func_001bc2a8(a, b, c);
+    o->f5 = YS__COMMAND_SLOT__GetStatus(a, b, c);
     o->f8 = c;
     o->f0 = 0;
 }
@@ -131,18 +131,18 @@ struct Ent1c { u16 flags; u8 pad[3]; u8 state; u8 pad2[6]; };
 struct Slot1c { u8 pad[8]; s32 busy; };
 struct Owner1c { u8 pad[2528]; void* res; };
 struct Mgr1c { u8 pad[4]; Owner1c* owner; s32 n; Ent1c ent[1]; };
-Data1c* func_001b8e88(u32) asm("func_001b8e88");
-void func_0019ba60(void*) asm("func_0019ba60");
+Data1c* YS__COMMAND_ELEM__Get(u32) asm("YS__COMMAND_ELEM__Get");
+void YS__OBJ__is_exist(void*) asm("YS__OBJ__is_exist");
 Src1c* func_001bd570(Owner1c*, s32) asm("func_001bd570");
-void func_001bc6a8(Ent1c*, Data1c*, void*, void*, u32) asm("func_001bc6a8");
+void YS__COMMAND_SLOT__set(Ent1c*, Data1c*, void*, void*, u32) asm("YS__COMMAND_SLOT__set");
 s32 func_001bc948(Slot1c*) asm("func_001bc948");
-Ent1c* func_001bc780(Mgr1c* o, u32 id, void* body, u32 b) asm("func_001bc780");
-Ent1c* func_001bc780(Mgr1c* o, u32 id, void* body, u32 b)
+Ent1c* YS__COMMAND_MENU__add(Mgr1c* o, u32 id, void* body, u32 b) asm("YS__COMMAND_MENU__add");
+Ent1c* YS__COMMAND_MENU__add(Mgr1c* o, u32 id, void* body, u32 b)
 {
     Src1c* s = 0;
     s32 linked = 0;
-    Data1c* d = func_001b8e88(id);
-    func_0019ba60(o->owner->res);
+    Data1c* d = YS__COMMAND_ELEM__Get(id);
+    YS__OBJ__is_exist(o->owner->res);
     if (d->b7 == 1) s = func_001bd570(o->owner, 0);
     else if (d->h0 == 81) s = func_001bd570(o->owner, 2);
     if (s) {
@@ -150,9 +150,9 @@ Ent1c* func_001bc780(Mgr1c* o, u32 id, void* body, u32 b)
         b = s->b4;
         linked = 1;
         id = s->id;
-        d = func_001b8e88(id);
+        d = YS__COMMAND_ELEM__Get(id);
     }
-    func_001bc6a8(&o->ent[o->n], d, o->owner->res, body, b);
+    YS__COMMAND_SLOT__set(&o->ent[o->n], d, o->owner->res, body, b);
     if (linked) { Ent1c* e = &o->ent[o->n]; e->flags |= 1; }
     if (d->kind == 3 && b == 0) o->ent[o->n].state = 6;
     s32 v = d->slot;
@@ -181,8 +181,8 @@ s32 func_001bc948(S1bc* s) {
 
 // ---- 001bc990 from src/anon/auto80_199_queue.cpp
 namespace n001bc990 {
-void func_001bc990(u32 a0, u32 a1) asm("_Z13func_001bc990jj");
-void func_001bc990(u32 a0, u32 a1) {
+void YS__COMMAND_MENU__make(u32 a0, u32 a1) asm("_Z22YS__COMMAND_MENU__makejj");
+void YS__COMMAND_MENU__make(u32 a0, u32 a1) {
     u32 s0 = a1;
     u32 s1 = a0;
     u32 v1 = *(u16*)(s0 + 0);
@@ -192,7 +192,7 @@ void func_001bc990(u32 a0, u32 a1) {
     }
 
     while (1) {
-        func_001bc780(s1, v1, 0, 1);
+        YS__COMMAND_MENU__add(s1, v1, 0, 1);
         v1 = *(u16*)(s0 + 0);
         s0 += 2;
         if (v1 == 0) {
@@ -205,36 +205,36 @@ void func_001bc990(u32 a0, u32 a1) {
 // ---- 001bc9e8 from src/anon/batch_w2045.cpp
 namespace n001bc9e8 {
 s32 func_001818e8() asm("func_001818e8");
-u8* func_001b8e88(u16) asm("func_001b8e88");
+u8* YS__COMMAND_ELEM__Get(u16) asm("YS__COMMAND_ELEM__Get");
 void func_001bc720(void*) asm("func_001bc720");
 void func_001bc730(u8*, s32) asm("func_001bc730");
 void func_001bcc28(u8*) asm("func_001bcc28");
-s32 func_001bcd08(u8*) asm("func_001bcd08");
+s32 YS__COMMAND_MENU__check_close(u8*) asm("YS__COMMAND_MENU__check_close");
 void func_001bce00(u8*) asm("func_001bce00");
 s32 func_001bcf18(void*) asm("func_001bcf18");
-s32 func_001bcf38(void*) asm("func_001bcf38");
+s32 YS__COMMAND_MENU__is_shortcut_menu(void*) asm("YS__COMMAND_MENU__is_shortcut_menu");
 void func_001bd5b0(void*, s32, s32) asm("func_001bd5b0");
 void func_001bd618(void*, s32) asm("func_001bd618");
-void func_001bd988(void*) asm("func_001bd988");
+void YS__PLAYER_COMMAND__decide(void*) asm("YS__PLAYER_COMMAND__decide");
 void func_002ba2e8(s32, s32) asm("func_002ba2e8");
 struct W2045_S2240 { u8 pad[2240]; void** sp; };
 struct W2045_Elem { u8 a[2]; u16 id; u8 b; u8 kind; u8 c[6]; };
 struct W2045_Menu { u8 pad[4]; u8* o; s32 n; W2045_Elem e[8]; };
 static inline bool w2045_entry_busy(void* e) {
     bool b = false;
-    if (func_001bcf18(e) || func_001bcf38(e)) b = true;
+    if (func_001bcf18(e) || YS__COMMAND_MENU__is_shortcut_menu(e)) b = true;
     return b;
 }
 static inline bool w2045_kind_ok(W2045_Elem* e) { return e->kind < 4; }
 s32 func_001bc9e8(u8* p) asm("func_001bc9e8");
 s32 func_001bc9e8(u8* p) {
     u8* s1 = *(u8**)(*(u8**)(p + 4) + 2532);
-    if (func_001bcd08(p)) return 0;
-    if (func_001bcf38(p)) { func_001bcc28(p); return 0; }
+    if (YS__COMMAND_MENU__check_close(p)) return 0;
+    if (YS__COMMAND_MENU__is_shortcut_menu(p)) { func_001bcc28(p); return 0; }
     if (!func_001bcf18(p)) func_001bce00(p);
     u64 f = *(u64*)(s1 + 8);
     if (f & 0x200000004ULL) {
-        func_001bd988(*(void**)(p + 4));
+        YS__PLAYER_COMMAND__decide(*(void**)(p + 4));
     } else if (f & 8) {
         if (func_001bcf18(*(*(W2045_S2240**)(p + 4))->sp)) {
             *(u32*)(*(u8**)(p + 4) + 8) |= 2;
@@ -259,7 +259,7 @@ s32 func_001bc9e8(u8* p) {
         } else if (f & 0x10000000) {
             W2045_Elem* e = &((W2045_Menu*)p)->e[*(s32*)(p + 108)];
             if (w2045_kind_ok(e)) {
-                s32 b = (s8)func_001b8e88(e->id)[6];
+                s32 b = (s8)YS__COMMAND_ELEM__Get(e->id)[6];
                 if (b >= 0) func_001bd5b0(*(void**)(p + 4), b, 1);
             }
         }
@@ -270,7 +270,7 @@ s32 func_001bc9e8(u8* p) {
 
 // ---- 001bcc28 from src/anon/batch_w88.cpp
 namespace n001bcc28 {
-void func_001bd988(u32) asm("func_001bd988");
+void YS__PLAYER_COMMAND__decide(u32) asm("YS__PLAYER_COMMAND__decide");
 extern u64 D_0036dc48[] asm("D_0036dc48");
 struct E1bcc28 { u16 pad; u16 id; u8 pad2[2]; u8 kind; u8 pad3[5]; };
 struct T1bcc28 { u32 pad; u32 owner; s32 n; E1bcc28 e[8]; s32 sel; };
@@ -289,7 +289,7 @@ void func_001bcc28(T1bcc28* p) {
         u16 v = e[idx].id;
         if (v != 0) {
             if (v == 454) { *(u32*)(t1 + 8) |= 2; return; }
-            func_001bd988(p->owner);
+            YS__PLAYER_COMMAND__decide(p->owner);
             return;
         }
     }
@@ -302,18 +302,18 @@ void func_001bcc28(T1bcc28* p) {
 // ---- 001bcd08 from src/anon/batch_w87.cpp
 namespace n001bcd08 {
 s32 func_001bcf18(void*) asm("func_001bcf18");
-s32 func_001bcf38(void*) asm("func_001bcf38");
+s32 YS__COMMAND_MENU__is_shortcut_menu(void*) asm("YS__COMMAND_MENU__is_shortcut_menu");
 void func_001bc720(void*) asm("func_001bc720");
 void func_001bd618(void*, s32) asm("func_001bd618");
 void func_002ba2e8(s32, s32) asm("func_002ba2e8");
 struct S2240 { u8 pad[2240]; void** sp; };
 static inline bool entry_busy(void* e) {
     bool b = false;
-    if (func_001bcf18(e) || func_001bcf38(e)) b = true;
+    if (func_001bcf18(e) || YS__COMMAND_MENU__is_shortcut_menu(e)) b = true;
     return b;
 }
-s32 func_001bcd08(u8* p) asm("func_001bcd08");
-s32 func_001bcd08(u8* p) {
+s32 YS__COMMAND_MENU__check_close(u8* p) asm("YS__COMMAND_MENU__check_close");
+s32 YS__COMMAND_MENU__check_close(u8* p) {
     void** s = (*(S2240**)(p + 4))->sp;
     while (!entry_busy(*s)) {
         if (*(s32*)((u8*)*s + 8) == 0) {
@@ -366,12 +366,12 @@ void func_001bce00(u8* p)
 namespace n001bce90 {
 struct Ent4 { u16 id; u8 b; u8 pad; };
 void func_001bc778(u32) asm("func_001bc778");
-u8* func_001bc780(u32, u32, u32, s32) asm("func_001bc780");
+u8* YS__COMMAND_MENU__add(u32, u32, u32, s32) asm("YS__COMMAND_MENU__add");
 void func_001bce90(u32 a, Ent4* e, u32 n, u32 c) asm("func_001bce90");
 void func_001bce90(u32 a, Ent4* e, u32 n, u32 c) {
     u32 i;
     func_001bc778(a);
-    for (i = 0; i < n; i++, e++) func_001bc780(a, e->id, c, 1)[6] = e->b;
+    for (i = 0; i < n; i++, e++) YS__COMMAND_MENU__add(a, e->id, c, 1)[6] = e->b;
 }
 }  // namespace n001bce90
 
@@ -398,8 +398,8 @@ out:
 
 // ---- 001bcf38 from src/anon/batch_w24.cpp
 namespace n001bcf38 {
-s32 func_001bcf38(s32* p) asm("func_001bcf38");
-s32 func_001bcf38(s32* p) {
+s32 YS__COMMAND_MENU__is_shortcut_menu(s32* p) asm("YS__COMMAND_MENU__is_shortcut_menu");
+s32 YS__COMMAND_MENU__is_shortcut_menu(s32* p) {
     switch (*p) {
     case 5: case 10: case 13: case 14: case 15: case 16: case 17: case 18:
         return 1;
@@ -413,18 +413,18 @@ namespace n001bcf80 {
 inline void* operator new(unsigned int, void* p) { return p; }
 struct W1573_Z12 { s32 a, b, c; W1573_Z12() { a = 0; b = 0; c = 0; } };
 void func_00190128(void*) asm("func_00190128");
-void func_0017bf40(void*) asm("func_0017bf40");
-void func_001bde58(void*) asm("func_001bde58");
+void YS__COMMAND__clear(void*) asm("YS__COMMAND__clear");
+void YS__PLAYER_COMMAND__clear_override(void*) asm("YS__PLAYER_COMMAND__clear_override");
 void func_00320730(void*) asm("func_00320730");
-void func_0019d4f8(void*) asm("func_0019d4f8");
+void YS__RECOM__init(void*) asm("YS__RECOM__init");
 void func_001bd370(void*) asm("func_001bd370");
 void func_001bd3a0(void*) asm("func_001bd3a0");
 void slot_clear(void*) asm("_ZN2YS12COMMAND_SLOT5clearEv");
 void menu_clear(void*) asm("_ZN2YS12COMMAND_MENU5clearEv");
 void menu_reset(void*) asm("_ZN2YS12COMMAND_MENU12reset_cursorEv");
 extern u8 D_00351228[] asm("D_00351228");
-void func_001bcf80(u8* p) asm("func_001bcf80");
-void func_001bcf80(u8* p) {
+void YS__PLAYER_COMMAND__PLAYER_COMMAND(u8* p) asm("YS__PLAYER_COMMAND__PLAYER_COMMAND");
+void YS__PLAYER_COMMAND__PLAYER_COMMAND(u8* p) {
     u8* m;
     s32 n;
     u8* s;
@@ -433,7 +433,7 @@ void func_001bcf80(u8* p) {
     s32* t;
     u8* q;
     func_00190128(p + 12);
-    func_0017bf40(p + 4);
+    YS__COMMAND__clear(p + 4);
     *(s32*)(p + 32) = 0;
     *(void**)p = D_00351228;
     m = p + 36;
@@ -458,7 +458,7 @@ void func_001bcf80(u8* p) {
         *(u16*)s = 0;
         slot_clear(s);
         func_00190128(s + 12);
-        func_001bde58(s);
+        YS__PLAYER_COMMAND__clear_override(s);
         k--;
         s += 36;
     } while (k != -1);
@@ -472,9 +472,9 @@ void func_001bcf80(u8* p) {
     *(s32*)(p + 2584) = 0;
     func_00320730(p + 2588);
     slot_clear(p + 2588);
-    func_0019d4f8(q);
+    YS__RECOM__init(q);
     *(f32*)(p + 2624) = 1.0f;
-    func_0017bf40(p + 4);
+    YS__COMMAND__clear(p + 4);
     i = 0;
     m = p;
     for (; i < 19; i++) {
@@ -494,10 +494,10 @@ namespace n001bd128 {
 inline void* operator new(unsigned int, void* p) { return p; }
 struct W1573_Z12 { s32 a, b, c; W1573_Z12() { a = 0; b = 0; c = 0; } };
 void func_00190128(void*) asm("func_00190128");
-void func_0017bf40(void*) asm("func_0017bf40");
-void func_001bde58(void*) asm("func_001bde58");
+void YS__COMMAND__clear(void*) asm("YS__COMMAND__clear");
+void YS__PLAYER_COMMAND__clear_override(void*) asm("YS__PLAYER_COMMAND__clear_override");
 void func_00320730(void*) asm("func_00320730");
-void func_0019d4f8(void*) asm("func_0019d4f8");
+void YS__RECOM__init(void*) asm("YS__RECOM__init");
 void func_001bd370(void*) asm("func_001bd370");
 void func_001bd3a0(void*) asm("func_001bd3a0");
 void slot_clear(void*) asm("_ZN2YS12COMMAND_SLOT5clearEv");
@@ -514,7 +514,7 @@ void func_001bd128(u8* p) {
     s32* t;
     u8* q;
     func_00190128(p + 12);
-    func_0017bf40(p + 4);
+    YS__COMMAND__clear(p + 4);
     *(s32*)(p + 32) = 0;
     *(void**)p = D_00351228;
     m = p + 36;
@@ -539,7 +539,7 @@ void func_001bd128(u8* p) {
         *(u16*)s = 0;
         slot_clear(s);
         func_00190128(s + 12);
-        func_001bde58(s);
+        YS__PLAYER_COMMAND__clear_override(s);
         k--;
         s += 36;
     } while (k != -1);
@@ -553,9 +553,9 @@ void func_001bd128(u8* p) {
     *(s32*)(p + 2584) = 0;
     func_00320730(p + 2588);
     slot_clear(p + 2588);
-    func_0019d4f8(q);
+    YS__RECOM__init(q);
     *(f32*)(p + 2624) = 1.0f;
-    func_0017bf40(p + 4);
+    YS__COMMAND__clear(p + 4);
     i = 0;
     m = p;
     for (; i < 19; i++) {
@@ -581,7 +581,7 @@ void func_001bd2d0(u32 a0, u32 a1, u32 a2) {
     u32 s1 = a0;
 
     func_001bc778(s0);
-    func_001bc780(s0, 439, 0, 1);
+    YS__COMMAND_MENU__add(s0, 439, 0, 1);
     func_001bd668(s1);
 
     u32 vt = *(u32*)(s1 + 0);
@@ -614,13 +614,13 @@ void func_001bd370(u8* a0) {
 
 // ---- 001bd3a0 from src/anon/tiny_auto80_queue.cpp
 namespace n001bd3a0 {
-u32 func_001bde58(...) asm("func_001bde58");
+u32 YS__PLAYER_COMMAND__clear_override(...) asm("YS__PLAYER_COMMAND__clear_override");
 void func_001bd3a0(u8* a0) asm("_Z13func_001bd3a0Ph");
 void func_001bd3a0(u8* a0) {
     u8* s0 = a0 + 2244;
     s32 s1 = 6;
     do {
-        func_001bde58(s0);
+        YS__PLAYER_COMMAND__clear_override(s0);
         s1 = s1 - 1;
         s0 = s0 + 36;
     } while (s1 >= 0);
@@ -653,16 +653,16 @@ struct W78VecC { f32 x,y,z,w; W78VecC(const W78VecC& o) { asm volatile("lq $8, 0
 static inline W78Vec operator-(const W78Vec& a, const W78Vec& b) { W78Vec r; vsub(&r, &a, &b); return r; }
 struct W78Five { u32 w[5]; };
 struct W78Slot { u16 x0; u16 cnt; u8 pad[8]; W78Five v; u8 lvl; u8 pad2[3]; };
-u32 func_001b8e88(u32) asm("func_001b8e88");
-void func_001bc6a8(W78Slot*, u32, u32, W78Five*, u32) asm("func_001bc6a8");
+u32 YS__COMMAND_ELEM__Get(u32) asm("YS__COMMAND_ELEM__Get");
+void YS__COMMAND_SLOT__set(W78Slot*, u32, u32, W78Five*, u32) asm("YS__COMMAND_SLOT__set");
 W78Slot* func_001bd418(u8* o, s32 idx, u32 key, W78Five* src, u32 arg, s32 lvl) asm("func_001bd418");
 W78Slot* func_001bd418(u8* o, s32 idx, u32 key, W78Five* src, u32 arg, s32 lvl) {
     u8* base = o + idx * 36;
     W78Slot* e = (W78Slot*)(base + 2244);
     if (e->cnt != 0 && lvl < e->lvl) return 0;
-    u32 v = func_001b8e88(key);
+    u32 v = YS__COMMAND_ELEM__Get(key);
     e->v = *src;
-    func_001bc6a8(e, v, *(u32*)(o + 2528), (W78Five*)(base + 2256), arg);
+    YS__COMMAND_SLOT__set(e, v, *(u32*)(o + 2528), (W78Five*)(base + 2256), arg);
     e->lvl = lvl;
     return e;
 }
@@ -805,14 +805,14 @@ struct W1975Self {
 };
 s32 W1975_Slot_is_exist(W1975Slot*) asm("_ZN2YS12COMMAND_SLOT8is_existEv");
 s32 W1975_Slot_is_beep(const W1975Slot*) asm("_ZNK2YS12COMMAND_SLOT7is_beepEv");
-s32 W1975_u_call4_001b8e88(u32) asm("_Z16u_call4_001b8e88jjjj");
+s32 W1975_u_call4_001b8e88(u32) asm("_Z21YS__COMMAND_ELEM__Getjjjj");
 s32 W1975_ctarget_001c8db8(void*, u32) asm("_Z16ctarget_001c8db8jjjj");
 void W1975_systemSePlay(s32, s32) asm("_ZN5SOUND12systemSePlayEii");
 typedef void (*W1975VFn)(W1975Self*);
 typedef s32 (*W1975AFn)(W1975Ai*);
 extern u8 D_00351ec8 asm("D_00351ec8");
-void func_0017bf40(u8*) asm("func_0017bf40");
-void func_0019d790(u8*) asm("func_0019d790");
+void YS__COMMAND__clear(u8*) asm("YS__COMMAND__clear");
+void YS__RECOM__exec(u8*) asm("YS__RECOM__exec");
 void func_001bdd50(W1975Self*) asm("func_001bdd50");
 void func_001bd3a0(W1975Self*) asm("func_001bd3a0");
 s32 func_001bd918(W1975Self*, s32, s32) asm("func_001bd918");
@@ -821,9 +821,9 @@ void func_001bd6a8(W1975Self* self) asm("func_001bd6a8");
 void func_001bd6a8(W1975Self* self) {
     if (self->ai == 0) return;
     if (self->wk == 0) return;
-    func_0017bf40(self->sub4);
+    YS__COMMAND__clear(self->sub4);
     ((W1975VFn)self->vt[3])(self);
-    func_0019d790(self->sub2552);
+    YS__RECOM__exec(self->sub2552);
     func_001bdd50(self);
     if (((W1975AFn)self->ai->vt[16])(self->ai) == 0 || self->isB0() || W1975_ctarget_001c8db8(&D_00351ec8, 0) != 0) {
         func_001bd3a0(self);
@@ -864,14 +864,14 @@ void func_001bd898(u8* p) {
 // ---- 001bd8c8 from src/anon/batch_w58.cpp
 namespace n001bd8c8 {
 struct NoTail { ~NoTail() {} };
-u32 func_001b8e88(u16) asm("func_001b8e88");
+u32 YS__COMMAND_ELEM__Get(u16) asm("YS__COMMAND_ELEM__Get");
 void func_001bd918(u8*, u32, s32) asm("func_001bd918");
-void func_001bd8c8(u8* p) asm("func_001bd8c8");
-void func_001bd8c8(u8* p) {
+void YS__PLAYER_COMMAND___decide(u8* p) asm("YS__PLAYER_COMMAND___decide");
+void YS__PLAYER_COMMAND___decide(u8* p) {
     NoTail g;
     u8* t = **(u8***)(p + 2240);
     s32 off = *(s32*)(t + 108) * 12;
-    func_001bd918(p, func_001b8e88(*(u16*)(t + off + 14)), 0);
+    func_001bd918(p, YS__COMMAND_ELEM__Get(*(u16*)(t + off + 14)), 0);
 }
 }  // namespace n001bd8c8
 
@@ -885,7 +885,7 @@ u32 func_001bd918(u32 a0, u32 a1, u32 a2) {
     u32 v0 = func_001b8f10(s2, *(u32*)(a0 + 2528));
     u32 t6 = 0;
     if (v0 != 0) {
-        func_0017bfa0(s1 + 4, *(u16*)(s2 + 0), s0, 0);
+        YS__COMMAND__set(s1 + 4, *(u16*)(s2 + 0), s0, 0);
         *(u8*)(s1 + 9) = *(u8*)(s2 + 28);
         t6 = 1;
     }
@@ -903,16 +903,16 @@ static inline bool IsWait18(Ent18* e) { return e->kind < 4; }
 s32 func_001bc710(Ent18*) asm("func_001bc710");
 void func_002ba2e8(s32, s32) asm("func_002ba2e8");
 s32 func_001bcf18(Hdr18*) asm("func_001bcf18");
-s32 func_001bcf38(Hdr18*) asm("func_001bcf38");
+s32 YS__COMMAND_MENU__is_shortcut_menu(Hdr18*) asm("YS__COMMAND_MENU__is_shortcut_menu");
 void func_001bc730(Hdr18*, s32) asm("func_001bc730");
 void func_001bd618(Obj18*, s32) asm("func_001bd618");
 static inline bool Done18(Hdr18* h) {
     bool r = false;
-    if (func_001bcf18(h) || func_001bcf38(h)) r = true;
+    if (func_001bcf18(h) || YS__COMMAND_MENU__is_shortcut_menu(h)) r = true;
     return r;
 }
-void func_001bd988(Obj18* o) asm("func_001bd988");
-void func_001bd988(Obj18* o) {
+void YS__PLAYER_COMMAND__decide(Obj18* o) asm("YS__PLAYER_COMMAND__decide");
+void YS__PLAYER_COMMAND__decide(Obj18* o) {
     Ent18* e = Cur18(*o->seq);
     if (!IsWait18(e)) {
         if (func_001bc710(e) && !(o->flags & 8)) func_002ba2e8(5, 0);
@@ -981,8 +981,8 @@ void func_001bd668(u8*) asm("func_001bd668");
 void func_001d4818(u8*, u32, u32, u32, u32) asm("func_001d4818");
 void func_001d48e8(u8*, u32, u8*) asm("func_001d48e8");
 void func_001bd5b0(u8*, s32, s32) asm("func_001bd5b0");
-void func_001bdb70(u8* p, u32 a, u32 b, u32 c, u32 d) asm("func_001bdb70");
-void func_001bdb70(u8* p, u32 a, u32 b, u32 c, u32 d)
+void YS__PLAYER_COMMAND__set_special_command(u8* p, u32 a, u32 b, u32 c, u32 d) asm("YS__PLAYER_COMMAND__set_special_command");
+void YS__PLAYER_COMMAND__set_special_command(u8* p, u32 a, u32 b, u32 c, u32 d)
 {
     func_001bd668(p);
     u8* q = p + 2496;
@@ -1057,8 +1057,8 @@ s32 func_001bdd20(u8* p) {
 
 // ---- 001bdd50 from src/anon/batch_w90.cpp
 namespace n001bdd50 {
-void func_0016bda8(void*, void*) asm("func_0016bda8");
-void func_0017cf00(void*, void*) asm("func_0017cf00");
+void YS__OBJ__get_target_pos(void*, void*) asm("YS__OBJ__get_target_pos");
+void YS__MATH__GetScreenPos(void*, void*) asm("YS__MATH__GetScreenPos");
 void func_0013b2b8(f32) asm("func_0013b2b8");
 void func_001bdd50(u8* self) asm("func_001bdd50");
 void func_001bdd50(u8* self)
@@ -1070,8 +1070,8 @@ void func_001bdd50(u8* self)
     if (*(u32*)(*(u8**)(t + 12) + 8) & 0x10000) {
         f32 a[4];
         f32 b[4];
-        func_0016bda8(b, t);
-        func_0017cf00(a, b);
+        YS__OBJ__get_target_pos(b, t);
+        YS__MATH__GetScreenPos(a, b);
         if (a[0] < 1984.0f && 2080.0f < a[1]) v = *(f32*)(self + 2624) - step;
     }
     f32 r = v < 0.5f ? 0.5f : (1.0f < v ? 1.0f : v);
@@ -1084,8 +1084,8 @@ void func_001bdd50(u8* self)
 namespace n001bde58 {
 void func_001bc688(u8*) asm("func_001bc688");
 void func_00190128(u8*) asm("func_00190128");
-void func_001bde58(u8* p) asm("func_001bde58");
-void func_001bde58(u8* p) {
+void YS__PLAYER_COMMAND__clear_override(u8* p) asm("YS__PLAYER_COMMAND__clear_override");
+void YS__PLAYER_COMMAND__clear_override(u8* p) {
     func_001bc688(p);
     func_00190128(p + 12);
 }
@@ -1094,8 +1094,8 @@ void func_001bde58(u8* p) {
 // ---- 001bde88 from src/anon/tiny_auto80_queue.cpp
 namespace n001bde88 {
 void func_001bc720(...) asm("func_001bc720");
-void func_001bde88(u8* a0) asm("_Z13func_001bde88Ph");
-void func_001bde88(u8* a0) {
+void YS__FIELD_COMMAND__init_field(u8* a0) asm("_Z29YS__FIELD_COMMAND__init_fieldPh");
+void YS__FIELD_COMMAND__init_field(u8* a0) {
     u8* s0 = a0 + 36;
     s32 s1 = 18;
     u8* s2 = a0;
@@ -1114,17 +1114,17 @@ void func_001bd370(u8*) asm("func_001bd370");
 void func_001bc720(u8*) asm("func_001bc720");
 void func_001bd3a0(u8*) asm("func_001bd3a0");
 void func_001bdf68(u8*) asm("func_001bdf68");
-void func_001bdff0(void) asm("func_001bdff0");
+void YS__FIELD_COMMAND__InitShortcut(void) asm("YS__FIELD_COMMAND__InitShortcut");
 void func_001d6da8(u8*) asm("func_001d6da8");
-void func_001bded8(u8* p) asm("func_001bded8");
-void func_001bded8(u8* p) {
+void YS__FIELD_COMMAND__init_area(u8* p) asm("YS__FIELD_COMMAND__init_area");
+void YS__FIELD_COMMAND__init_area(u8* p) {
     func_001bd370(p);
     func_001bc720(p + 36);
     func_001bc720(p + 732);
     *(u32*)(p + 2528) = 0;
     func_001bd3a0(p);
     func_001bdf68(p);
-    func_001bdff0();
+    YS__FIELD_COMMAND__InitShortcut();
     func_001d6da8(p + 2642);
     *(u32*)(p + 2728) = 0;
     *(u32*)(p + 2736) = 0;
@@ -1135,8 +1135,8 @@ void func_001bded8(u8* p) {
 namespace n001bdf38 {
 void func_001bd2d0(void*) asm("func_001bd2d0");
 void func_001bd5b0(void*, u32, u32) asm("func_001bd5b0");
-void func_001bdf38(u8* p) asm("func_001bdf38");
-void func_001bdf38(u8* p) {
+void YS__FIELD_COMMAND__initialize(u8* p) asm("YS__FIELD_COMMAND__initialize");
+void YS__FIELD_COMMAND__initialize(u8* p) {
     func_001bd2d0(p);
     func_001bd5b0(p, *(u32*)(p + 2724), 0);
 }
@@ -1180,12 +1180,12 @@ u32 func_001bdfe0(u32 a0,u32 a1,u32 a2,u32 a3) { (void)a1; (void)a2; (void)a3; r
 namespace n001bdff0 {
 struct G32bb30 { u8 pad[13606]; u8 n; u8 pad2[14052 - 13607]; s32 total; u8 pad3[8]; u8 pad4[8]; u16 cur[4]; };
 extern G32bb30 D_0032bb30 asm("D_0032bb30");
-u8* func_001b8e88(u32) asm("func_001b8e88");
+u8* YS__COMMAND_ELEM__Get(u32) asm("YS__COMMAND_ELEM__Get");
 u16 func_001a67b0(s32) asm("func_001a67b0");
-void func_001bdff0(void) asm("func_001bdff0");
-void func_001bdff0(void) {
+void YS__FIELD_COMMAND__InitShortcut(void) asm("YS__FIELD_COMMAND__InitShortcut");
+void YS__FIELD_COMMAND__InitShortcut(void) {
     for (s32 i = 0; i < 4; i++) {
-        u8* e = func_001b8e88(D_0032bb30.cur[i]);
+        u8* e = YS__COMMAND_ELEM__Get(D_0032bb30.cur[i]);
         if (*(u16*)(e + 2) == 2) D_0032bb30.cur[i] = func_001a67b0(*(s16*)(e + 4));
     }
 }
@@ -1229,7 +1229,7 @@ struct TG {
     TG() { tgt_ctor(this); }
 };
 struct E12 { u8 b[12]; };
-u8* elem_get(u32) asm("_Z16u_call4_001b8e88jjjj");
+u8* elem_get(u32) asm("_Z21YS__COMMAND_ELEM__Getjjjj");
 s32 func_001bd918(u8*, u8*, TG*) asm("_Z13func_001bd918jjj");
 void func_001bd5b0(u8*, s32, s32) asm("func_001bd5b0");
 static inline E12* cur(u8* m) { return (E12*)m + *(s32*)(m + 108); }
@@ -1286,13 +1286,13 @@ void func_001bce90(u8*, u32, u32, u32) asm("func_001bce90");
 void func_001bec68(u8*) asm("func_001bec68");
 void func_001bee78(u8*) asm("func_001bee78");
 void func_001be900(u8*) asm("func_001be900");
-void func_001be9a0(u8*) asm("func_001be9a0");
+void YS__FIELD_COMMAND__make_item(u8*) asm("YS__FIELD_COMMAND__make_item");
 void func_001beb00(u8*) asm("func_001beb00");
 void func_001bed30(u8*) asm("func_001bed30");
 void func_001be940(u8*) asm("func_001be940");
 void func_001be5f0(u8*) asm("func_001be5f0");
 void func_001be778(u8*) asm("func_001be778");
-void func_001bed48(u8*) asm("func_001bed48");
+void YS__FIELD_COMMAND__make_shortcut(u8*) asm("YS__FIELD_COMMAND__make_shortcut");
 void func_001be358(u8* p) asm("func_001be358");
 void func_001be358(u8* p) {
     u8* q = p + 1196;
@@ -1305,13 +1305,13 @@ void func_001be358(u8* p) {
     func_001bec68(p);
     func_001bee78(p);
     func_001be900(p);
-    func_001be9a0(p);
+    YS__FIELD_COMMAND__make_item(p);
     func_001beb00(p);
     func_001bed30(p);
     func_001be940(p);
     func_001be5f0(p);
     func_001be778(p);
-    func_001bed48(p);
+    YS__FIELD_COMMAND__make_shortcut(p);
 }
 }  // namespace n001be358
 
@@ -1377,16 +1377,16 @@ namespace n001be540 {
 extern u8 D_0032bae0 asm("D_0032bae0");
 s32 func_001818a0(void*) asm("func_001818a0");
 s32 func_00177870(void*) asm("func_00177870");
-void func_001bc780(void*, s32, s32, s32) asm("func_001bc780");
+void YS__COMMAND_MENU__add(void*, s32, s32, s32) asm("YS__COMMAND_MENU__add");
 void func_001be540(u8* o, void* x) asm("func_001be540");
 void func_001be540(u8* o, void* x)
 {
-    if (!func_001818a0(o)) { func_001bc780(x, 104, 0, 1); return; }
-    if (D_0032bae0 == 9) { func_001bc780(x, 136, 0, 1); return; }
+    if (!func_001818a0(o)) { YS__COMMAND_MENU__add(x, 104, 0, 1); return; }
+    if (D_0032bae0 == 9) { YS__COMMAND_MENU__add(x, 136, 0, 1); return; }
     u8* t = *(u8**)(o + 2528);
-    if (*(s32*)(t + 2896) == 2) { func_001bc780(x, 365, 0, 1); return; }
-    if (func_00177870(t)) func_001bc780(x, 541, 0, 1);
-    else func_001bc780(x, 1, 0, 1);
+    if (*(s32*)(t + 2896) == 2) { YS__COMMAND_MENU__add(x, 365, 0, 1); return; }
+    if (func_00177870(t)) YS__COMMAND_MENU__add(x, 541, 0, 1);
+    else YS__COMMAND_MENU__add(x, 1, 0, 1);
 }
 }  // namespace n001be540
 
@@ -1419,9 +1419,9 @@ void func_001bc778(u8*) asm("func_001bc778");
 void func_001be540(Obj63*, u8*) asm("func_001be540");
 void func_001bf0c8(Obj63*) asm("func_001bf0c8");
 s32 func_001bdfe0(Obj63*) asm("func_001bdfe0");
-Snd63* func_001bc780(u8*, s32, s32, s32) asm("func_001bc780");
+Snd63* YS__COMMAND_MENU__add(u8*, s32, s32, s32) asm("YS__COMMAND_MENU__add");
 s32 func_001bdd20(Obj63*) asm("func_001bdd20");
-s32 func_0017a538(u8*) asm("func_0017a538");
+s32 YS__PLAYER__is_changing(u8*) asm("YS__PLAYER__is_changing");
 s32 func_001917c0(void) asm("func_001917c0");
 static inline bool Is63(u8* p) { return *(s32*)(p + 2896) == 6; }
 void func_001be5f0(Obj63* o) asm("func_001be5f0");
@@ -1436,22 +1436,22 @@ void func_001be5f0(Obj63* o)
     func_001be540(o, m);
     if (*(s32*)(o->pl + 2896) == 3) {
         func_001bf0c8(o);
-        func_001bc780(m, 707, 0, 1);
+        YS__COMMAND_MENU__add(m, 707, 0, 1);
     } else {
-        func_001bc780(m, func_001bdfe0(o) ? 2 : 104, 0, 1);
+        YS__COMMAND_MENU__add(m, func_001bdfe0(o) ? 2 : 104, 0, 1);
     }
-    if (func_001bdd20(o)) func_001bc780(m, 104, 0, 1);
-    else func_001bc780(m, 3, 0, 1);
+    if (func_001bdd20(o)) YS__COMMAND_MENU__add(m, 104, 0, 1);
+    else YS__COMMAND_MENU__add(m, 3, 0, 1);
     u8 pri = 5;
     if (o->fl & 0x20) {
-        func_001bc780(m, 104, 0, 1);
+        YS__COMMAND_MENU__add(m, 104, 0, 1);
         return;
     }
-    if (func_0017a538(o->pl)) {
-        Snd63* s = func_001bc780(m, 5, 0, 1);
+    if (YS__PLAYER__is_changing(o->pl)) {
+        Snd63* s = YS__COMMAND_MENU__add(m, 5, 0, 1);
         if (Is63(o->pl) && func_001917c0()) s->pri = pri;
     } else {
-        Snd63* s = func_001bc780(m, 4, 0, 1);
+        Snd63* s = YS__COMMAND_MENU__add(m, 4, 0, 1);
         if (*(s32*)(o->pl + 2896)) s->pri = pri;
     }
 }
@@ -1470,7 +1470,7 @@ s32 func_00181a18() asm("func_00181a18");
 void func_001be890(W22PC*, W22Menu*) asm("func_001be890");
 void func_001bf010(W22PC*) asm("func_001bf010");
 void func_001be540(W22PC*, W22Menu*) asm("func_001be540");
-void func_001bc780(W22Menu*, s32, s32, s32) asm("func_001bc780");
+void YS__COMMAND_MENU__add(W22Menu*, s32, s32, s32) asm("YS__COMMAND_MENU__add");
 void func_001be778(W22PC* p) asm("func_001be778");
 void func_001be778(W22PC* p)
 {
@@ -1479,16 +1479,16 @@ void func_001be778(W22PC* p)
     Menu_clear(m);
     func_001be540(p, m);
     if (Summon_GetMode() == 0) {
-        if (p->f358 > 0) func_001bc780(m, 0x48, 0, 1);
-        else func_001bc780(m, 0x68, 0, 1);
-    } else func_001bc780(m, 0x13c, 0, 1);
+        if (p->f358 > 0) YS__COMMAND_MENU__add(m, 0x48, 0, 1);
+        else YS__COMMAND_MENU__add(m, 0x68, 0, 1);
+    } else YS__COMMAND_MENU__add(m, 0x13c, 0, 1);
     if (Summon_GetMode() == 2 && Summon_GetCurrent() == 201) {
         func_001bf010(p);
-        func_001bc780(m, 0x25d, 0, 1);
+        YS__COMMAND_MENU__add(m, 0x25d, 0, 1);
     } else {
-        func_001bc780(m, func_001819c0() ? 0x49 : 0x68, 0, 1);
+        YS__COMMAND_MENU__add(m, func_001819c0() ? 0x49 : 0x68, 0, 1);
     }
-    func_001bc780(m, func_00181a18() ? 0x51 : 0x68, 0, 1);
+    YS__COMMAND_MENU__add(m, func_00181a18() ? 0x51 : 0x68, 0, 1);
 }
 }  // namespace n001be778
 
@@ -1496,13 +1496,13 @@ void func_001be778(W22PC* p)
 namespace n001be890 {
 void func_001bc778(void*) asm("func_001bc778");
 u8* func_001bd570(void*, s32) asm("func_001bd570");
-void func_001bc780(void*, u32, void*, u32) asm("func_001bc780");
+void YS__COMMAND_MENU__add(void*, u32, void*, u32) asm("YS__COMMAND_MENU__add");
 void func_001be890(void* o, void* b) asm("func_001be890");
 void func_001be890(void* o, void* b) {
     func_001bc778(b);
     for (s32 i = 0; i < 4; i++) {
         u8* e = func_001bd570(o, i + 3);
-        func_001bc780(b, *(u16*)(e + 2), e + 12, *(u8*)(e + 4));
+        YS__COMMAND_MENU__add(b, *(u16*)(e + 2), e + 12, *(u8*)(e + 4));
     }
 }
 }  // namespace n001be890
@@ -1510,26 +1510,26 @@ void func_001be890(void* o, void* b) {
 // ---- 001be900 from src/anon/batch_w21.cpp
 namespace n001be900 {
 void func_001bc778(void*) asm("func_001bc778");
-void func_001bc990(void*, void*) asm("func_001bc990");
+void YS__COMMAND_MENU__make(void*, void*) asm("YS__COMMAND_MENU__make");
 void func_001be900(u8* p) asm("func_001be900");
 void func_001be900(u8* p) {
     func_001bc778(p + 152);
-    func_001bc990(p + 152, p + 2628);
+    YS__COMMAND_MENU__make(p + 152, p + 2628);
 }
 }  // namespace n001be900
 
 // ---- 001be940 from src/anon/batch_w42.cpp
 namespace n001be940 {
 void command_menu_clear(void*) asm("_ZN2YS12COMMAND_MENU5clearEv");
-s32 func_001b9d40(u32) asm("func_001b9d40");
+s32 YS__OBJ__can_control(u32) asm("YS__OBJ__can_control");
 void func_001d6da8(void*) asm("func_001d6da8");
-void func_001bc990(void*, void*) asm("func_001bc990");
+void YS__COMMAND_MENU__make(void*, void*) asm("YS__COMMAND_MENU__make");
 void func_001be940(u8* p) asm("func_001be940");
 void func_001be940(u8* p)
 {
-    if (func_001b9d40(*(u32*)(p + 2528))) func_001d6da8(p + 2642);
+    if (YS__OBJ__can_control(*(u32*)(p + 2528))) func_001d6da8(p + 2642);
     command_menu_clear(p + 848);
-    func_001bc990(p + 848, p + 2642);
+    YS__COMMAND_MENU__make(p + 848, p + 2642);
 }
 }  // namespace n001be940
 
@@ -1577,10 +1577,10 @@ typedef struct Obj
 void _ZN2YS12COMMAND_MENU5clearEv(Tbl *) asm("_ZN2YS12COMMAND_MENU5clearEv");
 PR *_ZN2YS5PARTY11get_partramEv(void *) asm("_ZN2YS5PARTY11get_partramEv");
 R* func_001a80c8(u32) asm("func_001a80c8");
-void func_001bc780(Tbl *, u32, s32, s32) asm("func_001bc780");
+void YS__COMMAND_MENU__add(Tbl *, u32, s32, s32) asm("YS__COMMAND_MENU__add");
 void func_001bce00(Tbl *) asm("func_001bce00");
-void func_001be9a0(Obj *o) asm("func_001be9a0");
-void func_001be9a0(Obj *o)
+void YS__FIELD_COMMAND__make_item(Obj *o) asm("YS__FIELD_COMMAND__make_item");
+void YS__FIELD_COMMAND__make_item(Obj *o)
 {
   unsigned int new_var;
   Tbl *t = &o->t;
@@ -1620,7 +1620,7 @@ void func_001be9a0(Obj *o)
         {
           goto next;
         }
-        func_001bc780(t, r->id, 0, 1);
+        YS__COMMAND_MENU__add(t, r->id, 0, 1);
         if (p->a[k] == 0)
         {
           ((t->e + t->count) - 1)->cnt = 0;
@@ -1669,8 +1669,8 @@ s32 func_001bbf40(void) asm("func_001bbf40");
 s32 func_001a36e0(s32) asm("func_001a36e0");
 s32 func_001a3570(s32) asm("func_001a3570");
 u16* func_001a3868(s32) asm("func_001a3868");
-s32 func_001c9b38(u16*) asm("func_001c9b38");
-Snd64* func_001bc780__91789(u8*, s32, s32, s32) asm("func_001bc780");
+s32 YS__SACRIFICE__GetCommandStatus(u16*) asm("YS__SACRIFICE__GetCommandStatus");
+Snd64* func_001bc780__91789(u8*, s32, s32, s32) asm("YS__COMMAND_MENU__add");
 void func_001beb00(Obj64* o) asm("func_001beb00");
 void func_001beb00(Obj64* o)
 {
@@ -1686,7 +1686,7 @@ void func_001beb00(Obj64* o)
         s32 x = func_001a36e0(i);
         if (func_001a3570(x) <= 0) continue;
         u16* it = func_001a3868(x);
-        s32 k = func_001c9b38(it);
+        s32 k = YS__SACRIFICE__GetCommandStatus(it);
         if (k != 2) {
             Snd64* s = func_001bc780__91789(m, *it, 0, 1);
             if (k == 1) s->pri = 5;
@@ -1700,10 +1700,10 @@ void func_001beb00(Obj64* o)
 namespace n001bec68 {
 void func_001bc778(u8*) asm("func_001bc778");
 u8* func_00176b20(s32) asm("func_00176b20");
-s32 func_0019ba60(u8*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(u8*) asm("YS__OBJ__is_exist");
 u32 func_0016a070(u8*) asm("func_0016a070");
 u32 func_001b77e8(u32) asm("func_001b77e8");
-void func_001bc780(u8*, u32, s32, s32) asm("func_001bc780");
+void YS__COMMAND_MENU__add(u8*, u32, s32, s32) asm("YS__COMMAND_MENU__add");
 void func_001bec68(u8* p) asm("func_001bec68");
 void func_001bec68(u8* p)
 {
@@ -1711,11 +1711,11 @@ void func_001bec68(u8* p)
     func_001bc778(q);
     for (s32 i = 0; i < 3; i++) {
         u8* e = func_00176b20(i);
-        if (!func_0019ba60(e)) continue;
+        if (!YS__OBJ__is_exist(e)) continue;
         if (*(u32*)(e + 1416) & 0x400000) continue;
         if (!*(u32*)(e + 1164)) continue;
         *(u8**)(p + *(s32*)(q + 8) * 4 + 2652) = e;
-        func_001bc780(q, func_001b77e8(func_0016a070(e)), 0, 1);
+        YS__COMMAND_MENU__add(q, func_001b77e8(func_0016a070(e)), 0, 1);
     }
 }
 }  // namespace n001bec68
@@ -1743,11 +1743,11 @@ struct W1835Tbl { u8 pad[0x36f8]; u16 ids[4]; };
 extern W1835Tbl D_0032bb30 asm("D_0032bb30");
 extern u16 D_0036dc88[4] asm("D_0036dc88");
 void func_001bc778(void*) asm("func_001bc778");
-W1835Res* func_001bc780(void*, u16, s32, s32) asm("func_001bc780");
-W1835Ent* func_001b8e88(u16) asm("func_001b8e88");
+W1835Res* YS__COMMAND_MENU__add(void*, u16, s32, s32) asm("YS__COMMAND_MENU__add");
+W1835Ent* YS__COMMAND_ELEM__Get(u16) asm("YS__COMMAND_ELEM__Get");
 W1835Ctx* func_00177850(W1835Mode*) asm("func_00177850");
-void func_001bed48(W1835Self* self) asm("func_001bed48");
-void func_001bed48(W1835Self* self) {
+void YS__FIELD_COMMAND__make_shortcut(W1835Self* self) asm("YS__FIELD_COMMAND__make_shortcut");
+void YS__FIELD_COMMAND__make_shortcut(W1835Self* self) {
     void* sub = self->sub;
     s32 i = 0;
     func_001bc778(sub);
@@ -1756,7 +1756,7 @@ void func_001bed48(W1835Self* self) {
     u16* ids = t->ids;
     do {
         u16 id = *ids;
-        W1835Ent* e = func_001b8e88(id);
+        W1835Ent* e = YS__COMMAND_ELEM__Get(id);
         s32 cnt;
         if (e->type == 3) {
             W1835Ctx* c = func_00177850(self->o);
@@ -1771,7 +1771,7 @@ void func_001bed48(W1835Self* self) {
         }
         ids++;
         alt++;
-        func_001bc780(sub, id, 0, cnt)->idx = i + 1;
+        YS__COMMAND_MENU__add(sub, id, 0, cnt)->idx = i + 1;
         i++;
     } while (i < 4);
 }
@@ -1779,31 +1779,31 @@ void func_001bed48(W1835Self* self) {
 
 // ---- 001bee78 from src/anon/batch_w97.cpp
 namespace n001bee78 {
-s32 func_001b6070(u8*) asm("func_001b6070");
+s32 YS__CHANGEIN__CanExec(u8*) asm("YS__CHANGEIN__CanExec");
 void func_001bc778(u8*) asm("func_001bc778");
 u32 func_001a8bd0(s32) asm("func_001a8bd0");
 u32 func_001a8c10(u32, s32) asm("func_001a8c10");
 u32 func_0017e668(u32) asm("func_0017e668");
-s32 func_0019ba60(u32) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(u32) asm("YS__OBJ__is_exist");
 void func_00190878(u8*, u32, s32) asm("func_00190878");
 u32 func_001b7800(u32) asm("func_001b7800");
-void func_001bc780(u8*, u32, u8*, s32) asm("func_001bc780");
+void YS__COMMAND_MENU__add(u8*, u32, u8*, s32) asm("YS__COMMAND_MENU__add");
 s32 func_0017e358(u32) asm("func_0017e358");
 void func_001bee78(u8* p) asm("func_001bee78");
 void func_001bee78(u8* p) {
     u8* list = p + 964;
-    s32 flag = func_001b6070(p);
+    s32 flag = YS__CHANGEIN__CanExec(p);
     func_001bc778(list);
     u32 grp = func_001a8bd0(-1);
     for (s32 i = 1; i < 3; i++) {
         u32 m = func_001a8c10(grp, i);
         if (!m) continue;
         u32 c = func_0017e668(m);
-        if (!func_0019ba60(c)) continue;
+        if (!YS__OBJ__is_exist(c)) continue;
         s32 n = *(s32*)(list + 8);
         u8* e = p + n * 20 + 2664;
         func_00190878(e, c, 0);
-        func_001bc780(list, func_001b7800(m), e, 1);
+        YS__COMMAND_MENU__add(list, func_001b7800(m), e, 1);
         if (flag && func_0017e358(c)) continue;
         list[n * 12 + 17] = 5;
     }
@@ -1814,8 +1814,8 @@ void func_001bee78(u8* p) {
 namespace n001befa8 {
 void func_001bdc18(void*) asm("func_001bdc18");
 void func_001bd5b0(void*, u32, s32) asm("func_001bd5b0");
-void func_001befa8(u8* p) asm("func_001befa8");
-void func_001befa8(u8* p) {
+void YS__FIELD_COMMAND__reset_special_command(u8* p) asm("YS__FIELD_COMMAND__reset_special_command");
+void YS__FIELD_COMMAND__reset_special_command(u8* p) {
     func_001bdc18(p);
     func_001bd5b0(p, *(u32*)(p + 2724), 0);
 }
@@ -1826,8 +1826,8 @@ namespace n001befd8 {
 struct P1be { u8 pad[2728]; u32 a; u32 b; };
 void func_001bd668(void*) asm("func_001bd668");
 void func_001bd5b0(void*, s32, s32) asm("func_001bd5b0");
-void func_001befd8(P1be* p, u32 a, u32 b) asm("func_001befd8");
-void func_001befd8(P1be* p, u32 a, u32 b) {
+void YS__FIELD_COMMAND__set_minigame(P1be* p, u32 a, u32 b) asm("YS__FIELD_COMMAND__set_minigame");
+void YS__FIELD_COMMAND__set_minigame(P1be* p, u32 a, u32 b) {
     p->a = a;
     p->b = b;
     func_001bd668(p);
@@ -1838,23 +1838,23 @@ void func_001befd8(P1be* p, u32 a, u32 b) {
 // ---- 001bf010 from src/anon/batch_wcx.cpp
 namespace n001bf010 {
 u8* func_0016b800(s32) asm("func_0016b800");
-s32 func_0019ba60(u8*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(u8*) asm("YS__OBJ__is_exist");
 void func_00190878(u8*, u8*, s32) asm("func_00190878");
 void func_001bc778(u8*) asm("func_001bc778");
 s32 func_001c8bb8(s8*) asm("func_001c8bb8");
 u32 func_001c8cc0(s8) asm("func_001c8cc0");
-void func_001bc780(u8*, u32, u8*, s32) asm("func_001bc780");
+void YS__COMMAND_MENU__add(u8*, u32, u8*, s32) asm("YS__COMMAND_MENU__add");
 u8* func_001bf010(u8* p) asm("func_001bf010");
 u8* func_001bf010(u8* p)
 {
     u8* o = func_0016b800(201);
-    func_0019ba60(o);
+    YS__OBJ__is_exist(o);
     func_00190878(p + 2704, o, 0);
     u8* q = p + 384;
     func_001bc778(q);
     s8 buf[16];
     s32 n = func_001c8bb8(buf);
-    for (s32 i = 0; i < n; i++) func_001bc780(q, func_001c8cc0(buf[i]), p + 2704, 1);
+    for (s32 i = 0; i < n; i++) YS__COMMAND_MENU__add(q, func_001c8cc0(buf[i]), p + 2704, 1);
     return q;
 }
 }  // namespace n001bf010
@@ -1862,12 +1862,12 @@ u8* func_001bf010(u8* p)
 // ---- 001bf0c8 from src/anon/batch_w21.cpp
 namespace n001bf0c8 {
 void func_001bc778(void*) asm("func_001bc778");
-void func_001bc990(void*, void*) asm("func_001bc990");
+void YS__COMMAND_MENU__make(void*, void*) asm("YS__COMMAND_MENU__make");
 extern u8 D_00351248[] asm("D_00351248");
 void func_001bf0c8(u8* p) asm("func_001bf0c8");
 void func_001bf0c8(u8* p) {
     func_001bc778(p + 1428);
-    func_001bc990(p + 1428, D_00351248);
+    YS__COMMAND_MENU__make(p + 1428, D_00351248);
 }
 }  // namespace n001bf0c8
 
@@ -1971,12 +1971,12 @@ static inline V7e operator-(const V7e& a, const V7e& b) {
 }
 s32 func_001bfca0(void*) asm("func_001bfca0");
 void func_001991a8(s32, s32) asm("func_001991a8");
-V7e* func_0016c028(void*) asm("func_0016c028");
+V7e* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 V7e func_0016be98(void*) asm("func_0016be98");
 void func_0016bd60(void*, s32) asm("func_0016bd60");
 void* func_0016a070(void*) asm("func_0016a070");
-void* func_001a3018(void*, void*, s32) asm("func_001a3018");
-void func_001a3188(void*, void*, s32) asm("func_001a3188");
+void* YS__ITEM__WhereGet(void*, void*, s32) asm("YS__ITEM__WhereGet");
+void YS__ITEM__Get(void*, void*, s32) asm("YS__ITEM__Get");
 void func_001bf378(u8* p, u8* t) asm("func_001bf378");
 void func_001bf378(u8* p, u8* t) {
     *(u8**)(p + 2536) = t;
@@ -1984,12 +1984,12 @@ void func_001bf378(u8* p, u8* t) {
         if (*(u32*)(*(u8**)(p + 2536) + 1416) & 0x80) func_001991a8(81, 1);
         (*(s32*)(*(u8**)(p + 2536) + 2764))++;
     } else {
-        void* r = func_001a3018(*(void**)(p + 2484), func_0016a070(*(void**)(p + 2536)), 1);
-        if (r) func_001a3188(*(void**)(p + 2484), r, 0);
+        void* r = YS__ITEM__WhereGet(*(void**)(p + 2484), func_0016a070(*(void**)(p + 2536)), 1);
+        if (r) YS__ITEM__Get(*(void**)(p + 2484), r, 0);
     }
     *(u32*)(p + 2528) |= 4;
     V7e* d = (V7e*)(p + 2512);
-    *d = *func_0016c028(p) - func_0016be98(*(void**)(p + 2536));
+    *d = *YS__OBJ__get_pos(p) - func_0016be98(*(void**)(p + 2536));
     f32 l = d->len() * 0.05f;
     l = l < 30.0f ? 30.0f : (l > 60.0f ? 60.0f : l);
     *(f32*)(p + 2496) = l;
@@ -2001,26 +2001,26 @@ void func_001bf378(u8* p, u8* t) {
 // ---- 001bf4e8 gap
 namespace n001bf4e8 {
 extern u8* D_0034e948 asm("D_0034e948");
-s32 func_0019ba60(u8*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(u8*) asm("YS__OBJ__is_exist");
 s32 func_0019bb18(u8*) asm("func_0019bb18");
-u32 func_0016c028(u8*) asm("func_0016c028");
+u32 YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 s32 func_001a4ff8(u8*, u32, f32, f32) asm("func_001a4ff8");
 s32 func_001bfca0(u8*) asm("func_001bfca0");
-u8* func_00185da8(u8*) asm("func_00185da8");
+u8* YS__ENEMY__Each(u8*) asm("YS__ENEMY__Each");
 s32 func_001919d0(void) asm("func_001919d0");
 s32 func_001919f8(void) asm("func_001919f8");
 void func_001bf378(u8*, u8*) asm("func_001bf378");
-static inline s32 hit(u8* o, u8* p) { return func_001a4ff8(o, func_0016c028(p), 0.0f, 0.0f); }
+static inline s32 hit(u8* o, u8* p) { return func_001a4ff8(o, YS__OBJ__get_pos(p), 0.0f, 0.0f); }
 void func_001bf4e8(u8* p) asm("func_001bf4e8");
 void func_001bf4e8(u8* p) {
     u8* o = D_0034e948;
-    if (!func_0019ba60(o)) return;
+    if (!YS__OBJ__is_exist(o)) return;
     if (*(u32*)(o + 1416) & 0x2000000) return;
     if (*(u32*)(p + 2528) & 4) return;
     if (!func_0019bb18(p)) return;
     if (!hit(o, p)) {
         if (func_001bfca0(p)) {
-            for (o = 0; (o = func_00185da8(o)) != 0;) {
+            for (o = 0; (o = YS__ENEMY__Each(o)) != 0;) {
                 if (hit(o, p)) { func_001bf378(p, o); return; }
             }
             return;
@@ -2039,8 +2039,8 @@ u8* func_001a80c8(u32) asm("func_001a80c8");
 extern EntW55 D_0036dcf8[] asm("D_0036dcf8");
 void* func_001050d8(u32) asm("func_001050d8");
 void func_001bf270(void*, u8*, u32, u32, f32) asm("func_001bf270");
-void* func_001bf620(u32 a, u32 b) asm("func_001bf620");
-void* func_001bf620(u32 a, u32 b) {
+void* YS__PRIZEBOX__Appear(u32 a, u32 b) asm("YS__PRIZEBOX__Appear");
+void* YS__PRIZEBOX__Appear(u32 a, u32 b) {
     EntW55* e = &D_0036dcf8[func_001a80c8(a)[22]];
     void* m = func_001050d8(2544);
     func_001bf270(m, func_0016e920(e->id), b, a, e->f);
@@ -2050,12 +2050,12 @@ void* func_001bf620(u32 a, u32 b) {
 
 // ---- 001bf6a8 from src/anon/batch_w49.cpp
 namespace n001bf6a8 {
-u8* func_001b9bc8(u8*) asm("func_001b9bc8");
+u8* YS__OBJ__Each(u8*) asm("YS__OBJ__Each");
 typedef void (*Fn1bf6a8)(u8*);
 void func_001bf6a8(void) asm("func_001bf6a8");
 void func_001bf6a8(void) {
     u8* n = 0;
-    while ((n = func_001b9bc8(n)) != 0)
+    while ((n = YS__OBJ__Each(n)) != 0)
         if (*(u32*)(n + 1416) & 0x40000) (*(Fn1bf6a8*)(*(u8**)n + 40))(n);
 }
 }  // namespace n001bf6a8
@@ -2071,10 +2071,10 @@ static inline f32 frand(void) {
 static inline f32 rrange(f32 lo, f32 hi) {
     return lo + frand() * (hi - lo);
 }
-void func_0017c578(u8*, u8*) asm("func_0017c578");
+void YS__ACTION_JUMP__start(u8*, u8*) asm("YS__ACTION_JUMP__start");
 void func_001bf710(u8* a, u8* o) asm("func_001bf710");
 void func_001bf710(u8* a, u8* o) {
-    func_0017c578(a, o);
+    YS__ACTION_JUMP__start(a, o);
     *(f32*)(o + 32) = rrange(-5.0f, 5.0f);
     *(f32*)(o + 40) = rrange(-5.0f, 5.0f);
     *(f32*)(o + 36) = rrange(-15.0f, -10.0f);
@@ -2114,7 +2114,7 @@ QV func_001bf890(u32, u8* o) {
 
 // ---- 001bf930 from src/anon/batch_w66.cpp
 namespace n001bf930 {
-u32 func_0016c028(u8*) asm("func_0016c028");
+u32 YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 void func_002bc188(s32, u32) asm("func_002bc188");
 void func_001bf930(u32, u8* p) asm("func_001bf930");
 void func_001bf930(u32, u8* p) {
@@ -2123,7 +2123,7 @@ void func_001bf930(u32, u8* p) {
         *(f32*)(p + 36) = v * -0.8f;
         s32 c = *(s32*)(p + 2532);
         if (c < 2) {
-            func_002bc188(14, func_0016c028(p));
+            func_002bc188(14, YS__OBJ__get_pos(p));
             c = *(s32*)(p + 2532);
         }
         *(s32*)(p + 2532) = c + 1;
@@ -2137,12 +2137,12 @@ void func_001bf930(u32, u8* p) {
 
 // ---- 001bf9d8 gap
 namespace n001bf9d8 {
-u32 func_0016c028(u8*) asm("func_0016c028");
+u32 YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 void func_002bc188(s32, u32) asm("func_002bc188");
 void func_001bf9d8(u32, u8* p) asm("func_001bf9d8");
 void func_001bf9d8(u32, u8* p) {
     *(u32*)(p + 264) |= 3;
-    func_002bc188(18, func_0016c028(p));
+    func_002bc188(18, YS__OBJ__get_pos(p));
 }
 }  // namespace n001bf9d8
 
@@ -2169,21 +2169,21 @@ static inline void AddTo(QWord* r, const QWord& a, const QWord& b)
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(r), "r"(&a), "r"(&b) : "memory");
 }
 extern f32 D_00349e10 asm("D_00349e10");
-s32 func_0019ba60(u32) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(u32) asm("YS__OBJ__is_exist");
 f32 sinf(f32) asm("sinf");
-void func_0016af58(QWord*, u8*) asm("func_0016af58");
+void YS__OBJ__get_dir(QWord*, u8*) asm("YS__OBJ__get_dir");
 void func_0016aeb8(u8*, f32) asm("func_0016aeb8");
 void func_0016be98(QWord*, u32) asm("func_0016be98");
 void func_0016ace0(u8*, QWord*) asm("func_0016ace0");
 u32 func_001a37e8(u32, s32) asm("func_001a37e8");
-void func_00138210(u32) asm("func_00138210");
+void dk__TREASURE_INFO__openPrizeInfo(u32) asm("dk__TREASURE_INFO__openPrizeInfo");
 typedef void (*VF8)(u8*);
-void func_001bfa08(u8* a0, u8* p) asm("func_001bfa08");
-void func_001bfa08(u8* a0, u8* p)
+void YS__ACTION_PRIZEBOX_GET__control(u8* a0, u8* p) asm("YS__ACTION_PRIZEBOX_GET__control");
+void YS__ACTION_PRIZEBOX_GET__control(u8* a0, u8* p)
 {
     *(f32*)(p + 2492) -= D_00349e10;
     f32 r;
-    if (func_0019ba60(*(u32*)(p + 2536)) && 0.0f < (r = *(f32*)(p + 2492))) {
+    if (YS__OBJ__is_exist(*(u32*)(p + 2536)) && 0.0f < (r = *(f32*)(p + 2492))) {
         f32 t = r / *(f32*)(p + 2496);
         f32 one = 1.0f;
         f32 pi = 3.14159274f;
@@ -2192,7 +2192,7 @@ void func_001bfa08(u8* a0, u8* p)
         ScaleTo(&s, *(QWord*)(p + 2512), t);
         v = s;
         v.v[1] -= sinf(t * pi) * 50.0f;
-        func_0016af58(&s, p);
+        YS__OBJ__get_dir(&s, p);
         func_0016aeb8(p, s.v[3] + (one - t) * 0.52359873f);
         func_0016be98(&w, *(u32*)(p + 2536));
         AddTo(&s, w, v);
@@ -2204,7 +2204,7 @@ void func_001bfa08(u8* a0, u8* p)
         return;
     }
     u32 h = *(u32*)(p + 2484);
-    if (h) func_00138210(func_001a37e8(h, -1));
+    if (h) dk__TREASURE_INFO__openPrizeInfo(func_001a37e8(h, -1));
     ((VF8)(*(void***)p)[8])(p);
 }
 }  // namespace n001bfa08
@@ -2220,26 +2220,26 @@ extern const R_EntW55 R_0036dcf8[12] asm("D_0036dcf8") = {
 
 // ---- 001bfbd8 from src/anon/batch_w60.cpp
 namespace n001bfbd8 {
-void func_0016ed50(s32, s32, s32) asm("func_0016ed50");
-void func_001bfbd8(void) asm("func_001bfbd8");
-void func_001bfbd8(void) {
-    func_0016ed50(952, -1, 30);
-    func_0016ed50(953, -1, 30);
-    func_0016ed50(954, -1, 30);
-    func_0016ed50(955, -1, 30);
+void YS__OBJENTRY__ReadRequest(s32, s32, s32) asm("YS__OBJENTRY__ReadRequest");
+void YS__PRIZEBOX__Read(void) asm("YS__PRIZEBOX__Read");
+void YS__PRIZEBOX__Read(void) {
+    YS__OBJENTRY__ReadRequest(952, -1, 30);
+    YS__OBJENTRY__ReadRequest(953, -1, 30);
+    YS__OBJENTRY__ReadRequest(954, -1, 30);
+    YS__OBJENTRY__ReadRequest(955, -1, 30);
 }
 }  // namespace n001bfbd8
 
 // ---- 001bfc28 from src/anon/batch_w49.cpp
 namespace n001bfc28 {
 void ttarget0_001bfc28(void) asm("_Z17ttarget0_001bfc28v");
-u8* func_001b9bc8(u8*) asm("func_001b9bc8");
+u8* YS__OBJ__Each(u8*) asm("YS__OBJ__Each");
 extern u32 D_0034e948 asm("D_0034e948");
 void func_001bf378(u8*, u32) asm("func_001bf378");
 void ttarget0_001bfc28(void) {
     u32 v = D_0034e948;
     u8* n = 0;
-    while ((n = func_001b9bc8(n)) != 0)
+    while ((n = YS__OBJ__Each(n)) != 0)
         if (*(u32*)(n + 1416) & 0x40000) func_001bf378(n, v);
 }
 }  // namespace n001bfc28
@@ -2259,15 +2259,15 @@ u32 func_001bfca0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // ---- 001bfcc8 from src/anon/batch_w60.cpp
 namespace n001bfcc8 {
-void func_0016bda8(void*, void*) asm("func_0016bda8");
+void YS__OBJ__get_target_pos(void*, void*) asm("YS__OBJ__get_target_pos");
 void func_0016f000(s32, void*, f32) asm("func_0016f000");
 void func_001991a8(s32, s32) asm("func_001991a8");
-void func_001bfcc8(u8* p, s32 n) asm("func_001bfcc8");
-void func_001bfcc8(u8* p, s32 n) {
+void YS__PRIZEBOX__DropNmPresent(u8* p, s32 n) asm("YS__PRIZEBOX__DropNmPresent");
+void YS__PRIZEBOX__DropNmPresent(u8* p, s32 n) {
     u8 buf[16];
     s32 i;
     if (!n) return;
-    func_0016bda8(buf, p);
+    YS__OBJ__get_target_pos(buf, p);
     if (*(s32*)(p + 2764) < n) n = *(s32*)(p + 2764);
     for (i = 0; i < n; i++) func_0016f000(2179, buf, 0.0f);
     *(s32*)(p + 2764) -= n;

@@ -27,7 +27,7 @@ extern "C" {
 // Is b inside the ellipse around a (radii from the y/z sums)?
 s32 func_0018a250(W1795Ob* a, W1795Ob* b);  // 0x0018a250: definition moved into src/anon/unit_00189d38.cpp
 
-s32 func_0019c218(s32, W1795Ob2*);
-s32 W1795_ctarget(s32) asm("_Z16ctarget_0019ba60jjjj");
+s32 YS__OBJ__can_decide(s32, W1795Ob2*);
+s32 W1795_ctarget(s32) asm("_Z17YS__OBJ__is_existjjjj");
 s32 func_001b8f10(W1795Ob2* o, s32 a, s32* p);  // 0x001b8f10: definition moved into src/anon/unit_001b87a0.cpp
 }

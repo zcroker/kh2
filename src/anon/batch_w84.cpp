@@ -130,11 +130,11 @@ struct Cfg {
     f32 f120;
 };
 extern Cfg* D_00352130;
-s32 func_001a1de0(void*);
+s32 YS__SHEET__is_mpdrive(void*);
 Cfg* func_00177860(void*);
 f32 func_001bbfd0(void);
-void func_001a1aa0(void*, s32);  // ring_buffer_index
-void func_001a1b68(void*, f32);
+void YS__SHEET__add_drive(void*, s32);  // ring_buffer_index
+void YS__SHEET__add_drive_time(void*, f32);
 static inline bool Is12(u8* p) { return *(s32*)(p + 2896) == 12; }
 // 00179a68: moved to src/yasui/libys/player.cpp
 
@@ -164,7 +164,7 @@ static inline __attribute__((always_inline)) LNode* LNext(LOwner* o, LNode* n) {
 s32 func_001dc9d0(void*);
 // 00180e28: moved to src/anon/unit_00180408.cpp
 
-u8* func_001b9bc8(u8*);
+u8* YS__OBJ__Each(u8*);
 s32 func_0019bb18(u8*);  // obj_is_blocked
 s32 func_00144d10(u8*, u8*);
 s32 func_002cf1f8(u8*, u8*);
@@ -183,17 +183,17 @@ static inline void SetBit(u32* bits, u32 k) {
     u32* w = bits + (k >> 5);
     *w |= 1 << (k & 31);
 }
-u8* func_001c0320(u8* a, u8* b, u8* out);  // 0x001c0320: definition moved into src/anon/unit_001bff88.cpp
+u8* YS__ATTACK_CHECK__hit(u8* a, u8* b, u8* out);  // 0x001c0320: definition moved into src/anon/unit_001bff88.cpp
 
 void func_001980d0x(void*, u32, s32, void*, f32) asm("func_001980d0");
 extern u8 D_01d49520[];
 extern void* D_00351408[];
-u32 func_001de168(void*, u32, s32, s32, s32, s32);  // scan_list_by_half
+u32 ryj__PAX__start(void*, u32, s32, s32, s32, s32);  // scan_list_by_half
 void func_001dcc00(u32, u32);  // to_1e34e0_field28
 void* func_001050d8(u32);
-void func_001c1308(void*, u32, u32, u32, u32);
+void YS__MASSEFFECT__MANAGER__MANAGER(void*, u32, u32, u32, u32);
 // 001c2490: moved to src/anon/unit_001c0638.cpp
-void func_001c2490(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6);
+void YS__MASSOBJ__MASSOBJ(u8* p, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6);
 
 // Converts a radian rotation to fixed angles and applies it.
 struct V3 { f32 x, y, z; };
@@ -210,7 +210,7 @@ void sceVu0MulMatrix(void*, void*, void*);
 void sceVu0ScaleVector(void*, void*, f32);  // vec_scale_by_f12
 void sceVu0ApplyMatrix(void*, void*, void*);
 void sceVu0CopyMatrix(void*, void*);
-void func_00209ed0(u8* a, u32, u8* c);  // 0x00209ed0: definition moved into src/anon/unit_00209d68.cpp
+void pppRyjDrawDrawMatrixWorldDttFr(u8* a, u32, u8* c);  // 0x00209ed0: definition moved into src/anon/unit_00209d68.cpp
 
 s32 func_00289310(u32);
 u32 func_002891e8(u32);
@@ -218,11 +218,11 @@ void func_002890e0(u32, s32, s32, s32, s32);
 void func_00289038(u32, u32, s32, s32, s32, s32, s32);
 s32 func_0028d008(u32);
 u32 func_002891d0(u32);
-void func_0028cf28(u32, u32);  // record408_set_and_refresh
+void Tz__MenuCursor__SetParent(u32, u32);  // record408_set_and_refresh
 s32 func_0028d6e8(u32);
 void func_0028d660(u32, u32);  // record_set_value_refresh
 extern u32 D_0035f110;
-void func_0026eae8(u32 a);  // 0x0026eae8: definition moved into src/anon/unit_0026c450.cpp
+void Title__BootMcChk__SelDraw(u32 a);  // 0x0026eae8: definition moved into src/anon/unit_0026c450.cpp
 
 // Creates the manager object and a 4-element array of 5116-byte entries.
 struct Heap20 { u8 _0[20]; VObj* a; };
@@ -238,7 +238,7 @@ u32 func_00103570(void);
 u8* func_001063f0(u32, u32);
 void func_003237e0(void*);
 typedef u8* (*AllocFn)(void*, u32, u32);
-void func_0027dc40(void);  // 0x0027dc40: definition moved into src/anon/unit_0027d2e8.cpp
+void Tz__SimpleStat__Init(void);  // 0x0027dc40: definition moved into src/anon/unit_0027d2e8.cpp
 
 u32 func_00316e00(void);  // get_367918
 s32* func_00316e10(void);  // get_data_369928
@@ -322,7 +322,7 @@ extern GP D_0035f4d4;
 void func_002fde18(void*, s32, u32);
 void func_00292998(void);  // 00292998: moved to src/anon/unit_00292998.cpp
 
-s32 func_0019ba60(u32);
+s32 YS__OBJ__is_exist(u32);
 extern s32 D_0032dfc8;
 s32 func_001a2108(u8* a, s32 v, u8* b);  // 0x001a2108: definition moved into src/anon/unit_0019fb70.cpp
 
@@ -336,19 +336,19 @@ s32 func_001860b0(u8*, Mv*);
 void func_0016aef0(u8*, Vq*);
 void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
-void func_00186a90(u8*, Mv*, f32);
+void YS__BTLOBJ__set_hitback(u8*, Mv*, f32);
 // 00186988: moved to src/anon/unit_00185d10.cpp
-void func_00186988(u8* p, Mv* m, f32 f);
+void YS__BTLOBJ__exec_damage_large(u8* p, Mv* m, f32 f);
 
 s32 func_002e9a38(u8*, u32, s32);
 u8* func_0016bba8(u32, s32, u8*);
 void func_002e9b10(u8*);
-void wt3_2e9b58(u32, u32, u32) asm("_Z16wtarget_002e9b58jjjj");
+void wt3_2e9b58(u32, u32, u32) asm("_Z24Ts__TARGET_SEARCHER__addjjjj");
 extern u32 D_0035f620;
 extern u32 D_0035f62c;
 extern u32 D_0035f628;
 void func_002acda8(void);
-void func_002acf48(void);
+void Tz__JmComplete__CheckAll(void);
 void func_002ae280(u32*, u32*);
 void func_002aceb0(void);
 u64 func_00312db8(u64, u64);
@@ -395,15 +395,15 @@ u32 func_00257140(s32);
 u32 func_00192048(u16);
 s32 func_00257070(s32);
 extern u16 D_00373a88[];
-void func_00272938(void);  // 0x00272938: definition moved into src/anon/unit_00271e08.cpp
+void Tz__CmCustom__UpdateItemList(void);  // 0x00272938: definition moved into src/anon/unit_00271e08.cpp
 
 
-W84Ev* func_001db440(u16* p);  // 0x001db440: definition moved into src/anon/unit_001d9d00.cpp
+W84Ev* YS__ZONE__Create(u16* p);  // 0x001db440: definition moved into src/anon/unit_001d9d00.cpp
 
 }
 
 // Recursively registers o (or all its children when k < 0).
-void wtarget_002e9b58(u32 a0, u32 o, u32 k, u32);  // 002e9b58: moved to src/anon/unit_002e9a00.cpp
+void Ts__TARGET_SEARCHER__add(u32 a0, u32 o, u32 k, u32);  // 002e9b58: moved to src/anon/unit_002e9a00.cpp
 
 // Accumulates two counters and returns their ratio as a percentage.
 s32 wtarget_002ad018(u32, u32, u32, u32);  // 0x002ad018: definition moved into src/anon/unit_002a99c8.cpp

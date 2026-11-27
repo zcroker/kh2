@@ -17,8 +17,8 @@ void func_002b9ab8(s32);
 void func_002b9ed0(void);
 void func_002ba040(void);
 u32 func_002bc288(u32, u32);
-void func_00168388(u32, u32, u32, u32);
-s32 func_00170cd0(void);
+void YS__FILE__ReadBack(u32, u32, u32, u32);
+s32 YS__CACHE_BUFF__IsFlushing(void);
 void* func_00170b30(u32);
 }
 void SOUND_setReverb(s32) asm("_ZN5SOUND9setReverbEi");
@@ -135,8 +135,8 @@ void dk::BGSE::free(void* p) { YS_CACHE_BUFF_FixFree(p); }
 
 extern "C" {
 void func_001367e0(u32 p, u32 a, u32 b) {
-    func_00168388(a, b, 0, 0);
-    while (func_00170cd0()) TaskYield(p, 0);
+    YS__FILE__ReadBack(a, b, 0, 0);
+    while (YS__CACHE_BUFF__IsFlushing()) TaskYield(p, 0);
 }
 
 void func_00136840(void) {

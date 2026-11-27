@@ -41,13 +41,13 @@ u8* DATABUFF::Alloc(const char* name, int) {
 
 extern "C" {
 
-u8* func_001b1448(const char* name, int x) {
+u8* YS__DATABUFF__Read(const char* name, int x) {
     u8* p = YS::DATABUFF::Alloc(name, x);
     if (p) func_001682b8(name, p);
     return p;
 }
 
-u8* func_001b1490(const char* name, int x) {
+u8* YS__DATABUFF__ReadBar(const char* name, int x) {
     u8* p = YS::DATABUFF::Alloc(name, x);
     if (p) YS::FILE::ReadBar(name, p);
     return p;

@@ -58,7 +58,7 @@ u64 func_00313b80(f32);
 u64 func_00313f40(u64, u64);
 f32 __truncdfsf2(u64);
 f32 sinf(f32);
-W1840Vec* func_0016c028(W1840PathOwner*);
+W1840Vec* YS__OBJ__get_pos(W1840PathOwner*);
 
 // 002ecb90: moved to src/anon/unit_002ec5f8.cpp
 }

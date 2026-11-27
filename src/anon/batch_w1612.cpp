@@ -55,7 +55,7 @@ void func_00288b00(void*);
 void func_00288c20(void*);
 void func_002b3fb0(void*);
 // Frees the module's globals; the big object's destructor and the array delete are inlined.
-void func_002450c8(void);  // 0x002450c8: definition moved into src/anon/unit_00242478.cpp
+void Tz__HECO__Exit(void);  // 0x002450c8: definition moved into src/anon/unit_00242478.cpp
 }
 }
 namespace n0027f4a8 {
@@ -74,7 +74,7 @@ extern u16 D_00374130[];
 extern u16 D_00374158[][2];
 extern s8 D_00374168[];
 void func_0028d8c0(void*, s32, s32, s32, s32, s32, s32, s32);
-void func_00288d80(void*, s32, s32, s32, s32, s32, u16*, u16*);
+void Tz__Select__SetItem(void*, s32, s32, s32, s32, s32, u16*, u16*);
 E* func_002891b8(void*, s32);
 void func_00139620(void*);
 s32 func_0023aa18(void*);
@@ -89,7 +89,7 @@ void func_0028af28(void*, s32);
 s32 func_001041c0(void);
 void func_0028b1b0(void*, s32);
 void func_0027fd38(void);
-void func_002891f0(void*, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(void*, s32, s32, s32, s32);
 void func_00287bd0(s32, s32);
 
 // Builds the menu window and its 9 rows, then the per-row sub-items.
@@ -114,8 +114,8 @@ void func_0028f4d8(s32, s32, s32);
 s32 func_00281180(void*, s32);
 s32 func_00281140(void*, s32);
 s32 func_00257100(s32);
-void func_00288d80(void*, s32, s32, s32, s32, s32, s32, s32);
-void func_00288e08(void*, s32, s32, s32);
+void Tz__Select__SetItem(void*, s32, s32, s32, s32, s32, s32, s32);
+void Tz__Select__SetExOffset(void*, s32, s32, s32);
 E* func_002891b8(void*, s32);
 void func_00139620(void*);
 void func_001395f8(void*);
@@ -129,7 +129,7 @@ s32 func_0023aa38(void*);
 void func_00138c68(void*, s32, s32);
 s32 func_00257070(s32);
 void func_00257050(s32, s32, s32);
-void func_002891f0(void*, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(void*, s32, s32, s32, s32);
 u32 func_0028af88(void*);
 s32 func_00258068(s32);
 void func_0028af18(void*, u32);
@@ -137,7 +137,7 @@ void func_0025f7d8(void);
 void func_00261b30(void);
 void func_00261d48(void);
 void func_00262af8(void);
-void func_00256cc0(s32, s32, s32);
+void Tz__CmTop__CreatePadHelp(s32, s32, s32);
 void func_00287cc0(s32);
 
 void func_0025f7f0(s32 sel);  // 0x0025f7f0: definition moved into src/anon/unit_0025f6b8.cpp

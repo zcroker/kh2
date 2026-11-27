@@ -8,17 +8,17 @@
 // ---- 002c6420: base Init (from batch_w46.cpp)
 namespace n002c6420 {
 u8* func_00106a60(u32) asm("func_00106a60");  // buffer_get_by_index
-void func_00107368(u8*, u8*) asm("func_00107368");  // vec_copy_at80_if_diff
+void kn__Camera__getPosition(u8*, u8*) asm("kn__Camera__getPosition");  // vec_copy_at80_if_diff
 void func_00107478(u8*, u8*) asm("func_00107478");  // vec_copy_at96_if_diff
-u8* func_00106a18(u32) asm("func_00106a18");  // buffer_get_256
+u8* kn__getProjection(u32) asm("kn__getProjection");  // buffer_get_256
 f32 func_00106f30(u8*, u32) asm("func_00106f30");
-void func_002c6420(u8* p) asm("func_002c6420");
-void func_002c6420(u8* p) {
+void worldmap__Camera__initialize(u8* p) asm("worldmap__Camera__initialize");
+void worldmap__Camera__initialize(u8* p) {
     *(u32*)(p + 84) = 0;
     u8* v = func_00106a60(1);  // buffer_get_by_index
-    func_00107368(v, p + 16);  // vec_copy_at80_if_diff
+    kn__Camera__getPosition(v, p + 16);  // vec_copy_at80_if_diff
     func_00107478(v, p + 32);  // vec_copy_at96_if_diff
-    f32 f = func_00106f30(func_00106a18(1), 0);
+    f32 f = func_00106f30(kn__getProjection(1), 0);
     *(f32*)(p + 80) = f;
     *(u32*)(p + 88) = 0;
 }
@@ -50,15 +50,15 @@ struct C6490 {
 };
 void* func_00106a60(s32) asm("func_00106a60");  // buffer_get_by_index
 extern f32 D_00349e10 asm("D_00349e10");
-void func_002c6420(C6490*) asm("func_002c6420");
+void worldmap__Camera__initialize(C6490*) asm("worldmap__Camera__initialize");
 f32 sinf(f32) asm("sinf");
-void* func_00106a18(s32) asm("func_00106a18");  // buffer_get_256
+void* kn__getProjection(s32) asm("kn__getProjection");  // buffer_get_256
 void func_00107300(void*, V4*, V4*, f32) asm("func_00107300");  // copy_blocks_and_store_float
-void func_00106de8(void*, s32, f32) asm("func_00106de8");
-s32 func_002c6490(C6490* p) asm("func_002c6490");
-s32 func_002c6490(C6490* p) {
+void kn__Projection__setFOV(void*, s32, f32) asm("kn__Projection__setFOV");
+s32 worldmap__Camera__update(C6490* p) asm("worldmap__Camera__update");
+s32 worldmap__Camera__update(C6490* p) {
     u32 m = p->flags & 1;
-    if (m == 0) func_002c6420(p);
+    if (m == 0) worldmap__Camera__initialize(p);
     V4 a = p->a1;
     V4 b = p->b1;
     if (p->t < p->dur) {
@@ -70,7 +70,7 @@ s32 func_002c6490(C6490* p) {
         }
     }
     func_00107300(func_00106a60(1), &a, &b, 0.0f);  // copy_blocks_and_store_float
-    func_00106de8(func_00106a18(1), 0, p->f80);
+    kn__Projection__setFOV(kn__getProjection(1), 0, p->f80);
     p->flags |= 1;
     return 1;
 }
@@ -131,14 +131,14 @@ extern u8 D_01e2bdd0[] asm("D_01e2bdd0");
 extern u8 D_01e2bdc0[] asm("D_01e2bdc0");
 extern PU82 D_00361db8 asm("D_00361db8");
 static inline void QCopy82(void* d, const void* s) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory"); }
-void func_002c6420(u8*) asm("func_002c6420");
+void worldmap__Camera__initialize(u8*) asm("worldmap__Camera__initialize");
 void func_002c66b8(u8* a0, u32 a1, u32 a2) asm("func_002c66b8");
 void func_002c66b8(u8* a0, u32 a1, u32 a2)
 {
     *(u32*)(a0 + 84) = 0;
     *(u32*)a0 = (u32)D_00361da8;
     *(u32*)(a0 + 92) = 0;
-    func_002c6420(a0);
+    worldmap__Camera__initialize(a0);
     *(u32*)(a0 + 96) = a1;
     *(u32*)a0 = (u32)D_00361dc8;
     *(u32*)(a0 + 100) = a2;
@@ -157,7 +157,7 @@ namespace n002c6780 {
 #define QCOPYS_2c6780(d, s) asm volatile("lq $8, 0(%0)\n\tsq $8, 0(%1)" : : "r"(s), "r"(d) : "$8", "memory")
 union UA_002c6780 { u32 i; f32 f; u8* p; };
 void func_0031cc28(u8*) asm("_Z13func_0031cc28Ph");
-void func_002c6420(u8*) asm("func_002c6420");
+void worldmap__Camera__initialize(u8*) asm("worldmap__Camera__initialize");
 extern u8 D_00361da8[] asm("D_00361da8");
 extern u8 D_00361dc8[] asm("D_00361dc8");
 extern UA_002c6780 D_00361db8 asm("D_00361db8");
@@ -168,7 +168,7 @@ void func_002c6780(u8* p, u32 a1, u32 a2) {
     *(u32*)p = (u32)D_00361da8;
     func_0031cc28(p + 84);
     ((UA_002c6780*)(p + 92))->i = 0;
-    func_002c6420(p);
+    worldmap__Camera__initialize(p);
     *(u32*)p = (u32)D_00361dc8;
     ((UA_002c6780*)(p + 96))->i = a1;
     ((UA_002c6780*)(p + 100))->i = a2;
@@ -258,29 +258,29 @@ extern W1636V4 D_01e2bdd0 asm("D_01e2bdd0");
 extern W1636V4 D_01e2bde0 asm("D_01e2bde0");
 extern W1636V4 D_01e2bdf0 asm("D_01e2bdf0");
 extern W1636V4 D_01e2be00 asm("D_01e2be00");
-s32 func_0019ba60(void*) asm("func_0019ba60");
-W1636V4* func_0016c028(void*) asm("func_0016c028");  // obj_get_attach_or_alt
+s32 YS__OBJ__is_exist(void*) asm("YS__OBJ__is_exist");
+W1636V4* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");  // obj_get_attach_or_alt
 W1636Flags* func_001b6d70(s32) asm("func_001b6d70");  // table_entry_ptr_b
 void* func_0016b740(s32) asm("func_0016b740");
 f32 sinf(f32) asm("sinf");
-s32 func_002c6490(W1636Cam*) asm("func_002c6490");
+s32 worldmap__Camera__update(W1636Cam*) asm("worldmap__Camera__update");
 
 // Worldmap camera target update (blends the a/b offsets by distance to object 1110 and by depth).
 // Register pins: p in s1, an unused s0 kept live (the original saves s0 but never uses it),
 // the VU0 length result in $f2 and the clamp floor in $f0.
-s32 func_002c68f0(W1636Cam* pp) asm("func_002c68f0");
-s32 func_002c68f0(W1636Cam* pp)
+s32 worldmap__ObjCamera__update(W1636Cam* pp) asm("worldmap__ObjCamera__update");
+s32 worldmap__ObjCamera__update(W1636Cam* pp)
 {
     register W1636Cam* p asm("$17") = pp;
     register s32 ph asm("$16");
-    if (!func_0019ba60(pp->obj)) return 0;
+    if (!YS__OBJ__is_exist(pp->obj)) return 0;
 
-    W1636V4 pos = *func_0016c028(p->obj);
+    W1636V4 pos = *YS__OBJ__get_pos(p->obj);
     if (pos.z < -14000.0f) pos.z = -14000.0f;
     W1636V4 a;
     W1636V4 b;
     if (W1636Ready(func_001b6d70(18))) {
-        W1636V4 d = *func_0016c028(func_0016b740(1110)) - pos;
+        W1636V4 d = *YS__OBJ__get_pos(func_0016b740(1110)) - pos;
         d.y = 0.0f;
         f32 len;
         asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tvsqrt Q, $vf1x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tmtc1 $8, %0" : "=f"(len) : "r"(&d) : "$8", "memory");
@@ -303,7 +303,7 @@ s32 func_002c68f0(W1636Cam* pp)
     p->a1 = pos + a;
     p->b1 = pos + b;
     p->f80 = p->f144 * 0.017453292f;
-    func_002c6490(p);
+    worldmap__Camera__update(p);
     asm("" : : "r"(ph));
     return 1;
 }

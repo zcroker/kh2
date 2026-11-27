@@ -102,7 +102,7 @@ extern u32 D_0032b968;
 
 extern u32 D_0032ba48;
 
-void func_001021f0(void);
+void GAME_MODE__enable(void);
 
 u32 func_001cd168(void);
 
@@ -126,7 +126,7 @@ u32 func_001050c8(void);
 
 void func_001de7d8(u32, u32, u32);
 
-void func_001e06b8(void);
+void ryj__SHAKE__Init(void);
 
 void func_00149c40(u64);
 
@@ -154,13 +154,13 @@ extern u8 D_0034ecc0;
 
 void func_002bd260(u32);
 
-void func_002bd310(u32);
+void SOUND__readBgmThread(u32);
 
 void func_002ba220(u32, u32, u32, u32, u32, u32);
 
 void func_00106048(void);
 
-void func_00105fc8(void);
+void WORLDMAP__gumiToWorldMap(void);
 
 void func_002bd788(u32);
 

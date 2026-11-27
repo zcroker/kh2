@@ -253,8 +253,8 @@ void func_002c9f20(u32 a0) {
 namespace n002c9f60 {
 
 
-void func_002c9f60(u8* a0) asm("func_002c9f60");
-void func_002c9f60(u8* a0) {
+void dk__WM_GLANDING_INFO__update(u8* a0) asm("dk__WM_GLANDING_INFO__update");
+void dk__WM_GLANDING_INFO__update(u8* a0) {
     u8* s1 = a0;
     u8* t6 = a0 + 188;
     u8* s0;
@@ -282,7 +282,7 @@ void func_002c9f60(u8* a0) {
     return;
 
 L_fail:
-    func_00236d60();  // clear_64_entries_24
+    YI__IMAGE_CACHE__Clear();  // clear_64_entries_24
 }
 }  // namespace n002c9f60
 
@@ -300,11 +300,11 @@ extern u8* D_00361e00 asm("D_00361e00");
 extern u8* D_00347f80 asm("D_00347f80");
 u32 func_002cab58(u32) asm("func_002cab58");
 void func_002c9f20(u8*) asm("func_002c9f20");
-void func_002c90c8(void*, u32) asm("func_002c90c8");
+void dk__WM_GLANDING_INFO__WM_GLANDING_INFO(void*, u32) asm("dk__WM_GLANDING_INFO__WM_GLANDING_INFO");
 
 
-void func_002ca010(u32 a) asm("func_002ca010");
-void func_002ca010(u32 a) {
+void dk__WM_GLANDING_INFO__start(u32 a) asm("dk__WM_GLANDING_INFO__start");
+void dk__WM_GLANDING_INFO__start(u32 a) {
     if (func_002cab58(a)) return;
     u8* c = D_00361e00;
     if (c) {
@@ -314,7 +314,7 @@ void func_002ca010(u32 a) {
     }
     u8* al = *(u8**)(D_00347f80 + 20);
     void* m = (**(AllocFn**)al)(al, 9616, 0);
-    func_002c90c8(m, a);
+    dk__WM_GLANDING_INFO__WM_GLANDING_INFO(m, a);
 }
 }  // namespace n002ca010
 

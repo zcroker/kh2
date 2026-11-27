@@ -22,7 +22,7 @@ void func_00149448(u8*);
 u32 func_001492c8(u8*);
 void func_0015c228(u32);
 u32 func_001050c8(void);
-void func_0015eba8(u8*, u32, u32, u32);
+void dk__Map__create(u8*, u32, u32, u32);
 extern f32 D_0034a780;
 extern f32 D_0034a784;
 extern f32 D_0034a788;
@@ -34,7 +34,7 @@ extern f32 D_00349e14;
 s32 func_001ad938(void);
 struct Flags34f240 { u32 b0 : 1; };
 extern Flags34f240 D_0034f240;
-void func_00138840(u8*);
+void dk__Sprite__update(u8*);
 s32 func_0017e310(u32);
 u32 func_001a8bd0(s32);
 u32 func_0016a070(u32);
@@ -42,7 +42,7 @@ s32 func_001a90a8(u32, u32);
 void func_001d7cd0(u8*);
 extern u8 D_0034ed78[];
 s32 func_0016a090(u8*);  // get_byte74
-u32 func_0016c028(void);  // obj_get_attach_or_alt
+u32 YS__OBJ__get_pos(void);  // obj_get_attach_or_alt
 u32 func_0018c490(u8*, u32);
 void func_0018c480(u8*, u32);
 u8* func_001b58f0(u32, u32, u32, u32);
@@ -65,7 +65,7 @@ void func_00239700(u8*);
 void func_001abb28(u8*);
 u32 func_001ab810(void);  // get_global_1c7cec0
 u32 func_001ab800(void);
-void func_00239988(u8*, u32, u32);
+void YI__SEQUENCE__Init(u8*, u32, u32);
 u8* func_001c10f8(void);  // request_pool_block64
 extern Blk64 D_01d49388[];
 
@@ -81,9 +81,9 @@ f32 func_00153610(f32 x);  // 0x00153610: definition moved into src/anon/unit_00
 // 001542c8: moved to src/anon/unit_00153ea0.cpp
 void func_001542c8(u8* p, u32 a, u32 b);
 
-void func_0015aaf8(u8* p);  // 0x0015aaf8: definition moved into src/anon/unit_0015a810.cpp
+void dk__BILLBOARD_BASE__update(u8* p);  // 0x0015aaf8: definition moved into src/anon/unit_0015a810.cpp
 
-void func_0015ac68(u8* p);  // 0x0015ac68: definition moved into src/anon/unit_0015a810.cpp
+void dk__BILLBOARD_PLACE__update(u8* p);  // 0x0015ac68: definition moved into src/anon/unit_0015a810.cpp
 
 // Which side of a plane: (b - a) . n
 s32 func_00163828(const f32* a, const f32* b, const f32* n);  // 0x00163828: definition moved into src/anon/unit_001614e8.cpp
@@ -140,7 +140,7 @@ struct Fn18 { u8 pad[16]; s32 (*f)(Fn18*); u8 pad2[3]; u8 b23; u32 pad3; u32* f2
 s32 func_001c18d0(Fn18* p);
 
 // 001c1d90: moved to src/anon/unit_001c0638.cpp
-void func_001c1d90(u32, u8* p);
+void YS__ACTION_FLYTORNADO__control(u32, u8* p);
 
 void func_001c9b90(void);  // 0x001c9b90: definition moved into src/yasui/libys/sacrifice.cpp
 
@@ -154,7 +154,7 @@ struct Mgr { u8 pad[100]; s32 n; u8 pad2[16]; Comp** c; };
 // Runs every component's optional update hook.
 void func_001e7878(Mgr* p);  // 0x001e7878: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_00232590(void);  // 0x00232590: definition moved into src/anon/unit_00231500.cpp
+void sa__EVENT__set_audio_data(void);  // 0x00232590: definition moved into src/anon/unit_00231500.cpp
 
 // Queues an event record in a 64-entry ring; returns its serial number.
 s32 func_00234348(s32 a, s32 b, s32 c, s32 d, s32 e, s32 f);  // 0x00234348: definition moved into src/anon/unit_002335e8.cpp
@@ -216,7 +216,7 @@ extern u8* D_01e2bfa0;
 void func_002e93a0(u8*);  // clear_fields_28_48_60
 extern f32 D_01e2c048;
 void func_001d14b0(u8*, u32);
-void func_0017c578(u32, u8*);
+void YS__ACTION_JUMP__start(u32, u8*);
 u32 func_002f3588(u32);
 void func_002f3490(u32*);
 s32 DIntr(void);

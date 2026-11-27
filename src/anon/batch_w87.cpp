@@ -49,7 +49,7 @@ u8* func_0013bb58(void* a0, u8* a1, s32 a2, s32 a3, u8 b, s32 c, s32 d);  // 0x0
 void func_0023a9c0(void*, s32*, s32*);
 u32 func_0023a918(void*);
 s32 func_0023aa98(void*);
-void func_00152820(u8* p, s32* x, s32* y, s32* r, s32* b, u32* fl);  // 0x00152820: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__LEVEL_UP__calcPos(u8* p, s32* x, s32* y, s32* r, s32* b, u32* fl);  // 0x00152820: definition moved into src/anon/unit_0014ecb8.cpp
 
 // ---- 0x154c10 ----
 void func_00138c10(void*, s32);
@@ -86,27 +86,27 @@ void func_00196540(s32 id);  // 0x00196540: definition moved into src/anon/unit_
 
 // ---- 0x1b90f0 ----
 s32 func_0016a080(void*);
-s32 func_001b90f0(u8* o, u8* p);  // 0x001b90f0: definition moved into src/anon/unit_001b87a0.cpp
+s32 YS__COMMAND_ELEM__can_use(u8* o, u8* p);  // 0x001b90f0: definition moved into src/anon/unit_001b87a0.cpp
 
 // ---- 0x1bcd08: unwinds a stack of entries once none are busy ----
 s32 func_001bcf18(void*);
-s32 func_001bcf38(void*);  // state_in_set_5_10_13to18
+s32 YS__COMMAND_MENU__is_shortcut_menu(void*);  // state_in_set_5_10_13to18
 void func_001bc720(void*);
 void func_001bd618(void*, s32);
 void func_002ba2e8(s32, s32);
 struct S2240 { u8 pad[2240]; void** sp; };
 static inline bool entry_busy(void* e) {
     bool b = false;
-    if (func_001bcf18(e) || func_001bcf38(e)) b = true;
+    if (func_001bcf18(e) || YS__COMMAND_MENU__is_shortcut_menu(e)) b = true;
     return b;
 }
-s32 func_001bcd08(u8* p);  // 0x001bcd08: definition moved into src/anon/unit_001bc568.cpp
+s32 YS__COMMAND_MENU__check_close(u8* p);  // 0x001bcd08: definition moved into src/anon/unit_001bc568.cpp
 
 // ---- 0x1c91c8 ----
 void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, s32, f32, f32);
 extern u8* D_00352130;
-void func_001c91c8(void* unused, u8* p);  // 0x001c91c8: definition moved into src/anon/unit_001c91c8.cpp
+void YS__ACTION_LKDASH__start(void* unused, u8* p);  // 0x001c91c8: definition moved into src/anon/unit_001c91c8.cpp
 
 // ---- 0x222080: allocates a node and links it at the head of a list ----
 u8* func_00221f98(u8*);
@@ -121,9 +121,9 @@ f32 cosf(f32);
 void func_002378c8(f32* p, f32 z);  // 0x002378c8: definition moved into src/anon/unit_00237068.cpp
 
 // ---- 0x23dd28 ----
-void func_00106d40(void*, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32);
-void func_00106de8(void*, s32, f32);
-void func_00106c08(void*);
+void kn__Projection__set(void*, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32);
+void kn__Projection__setFOV(void*, s32, f32);
+void kn__Projection__calcMatrix(void*);
 void func_0023dd28(u8* p, s32 i, s32 x, s32 y);  // 0x0023dd28: definition moved into src/anon/unit_0023d260.cpp
 
 // ---- 0x240360 ----
@@ -135,7 +135,7 @@ extern char* D_0035ec00;
 void func_002ff2e8(void*, const char*);
 s32 func_00240108(void);  // get_global_36eb68
 void func_00240118(void*, s32, s32);
-void func_00240360(s32 k);  // 0x00240360: definition moved into src/anon/unit_0023f5b8.cpp
+void Tz__MCard__MakeFname(s32 k);  // 0x00240360: definition moved into src/anon/unit_0023f5b8.cpp
 
 // ---- 0x247c20 ----
 extern void* D_0035ed20;
@@ -160,7 +160,7 @@ s32 func_0023f0c0(void*);
 void func_0023f070(void*, s32, s32);
 s32 func_0028acc8(void*);
 void func_0028ab20(void*);
-void func_0024bbb0(void);  // 0x0024bbb0: definition moved into src/anon/unit_0024ba58.cpp
+void Tz__HBTE__LoopAll(void);  // 0x0024bbb0: definition moved into src/anon/unit_0024ba58.cpp
 
 // ---- 0x24e9c0 ----
 s32 func_001a6d08(s32);
@@ -168,7 +168,7 @@ union UP { u8* p; s32 i; };
 extern s32 D_00372308[];
 extern UP D_0035ee18[];
 extern s32 D_0035ee08;
-u8* func_0028c198(s32, s32, s32, s32, s32, s32);
+u8* Tz__MenuItem__start(s32, s32, s32, s32, s32, s32);
 s32 func_0024efc0(s32);  // to_28dbf8_entry6
 void func_001396b0(void*);
 void func_0031ac78(void*, s32);
@@ -188,24 +188,24 @@ extern void* D_0035f290;
 extern void* D_0035f29c;
 void func_002816f0(void);  // 0x002816f0: definition moved into src/anon/unit_0027f2b0.cpp
 // ---- 0x284ef0 ----
-void func_00287d68(void);  // copy_globals_3words
+void Tz__MenuBase__SaveMode(void);  // copy_globals_3words
 s32 func_00287db0(void);
 extern s32 D_0035f2d4;
 extern u8 D_0035f2d0;
 s32 func_00284538(void);
 u8* func_0014aba8(void);
-void func_002843e8(void);
+void Tz__Ending__LeaveAll(void);
 void func_001039f8(void);
 s32 func_00287bc0(void);
 void func_00285070(void);
 void func_00284fd8(void);
-s32 func_00284ef0(void);  // 0x00284ef0: definition moved into src/anon/unit_00284220.cpp
+s32 Tz__Ending__Control(void);  // 0x00284ef0: definition moved into src/anon/unit_00284220.cpp
 // ---- 0x286418 / 0x2864f8: flag-bit queries ----
 struct Flags { u8 pad[200]; u32 bits[2]; };
 struct Flags2 { u8 pad[204]; u32 bits[2]; };
 extern Flags* D_0035f2e4;
 s32 func_002812e0(void);
-s32 func_00286418(s32 n);  // 0x00286418: definition moved into src/anon/unit_002853b8.cpp
+s32 Tz__CmNewFlg__isStatNew(s32 n);  // 0x00286418: definition moved into src/anon/unit_002853b8.cpp
 Flags2* func_002859a0(void);
 s32 func_002864f8(s32 n);  // 0x002864f8: definition moved into src/anon/unit_002853b8.cpp
 
@@ -218,7 +218,7 @@ void func_00287bd0(s32, s32);
 void func_0029dd00(void);
 void func_002765e8(s32, s32, s32);
 void func_0029be08(void);
-void func_0029c880(s8* p, s32 k);  // 0x0029c880: definition moved into src/anon/unit_0029ba88.cpp
+void Tz__JmDic__SetupDiagramCharaInfo(s8* p, s32 k);  // 0x0029c880: definition moved into src/anon/unit_0029ba88.cpp
 
 // ---- 0x2b3df8: allocates one object, an array of three, and one more ----
 typedef void* (*AllocFn)(void*, s32, s32);
@@ -275,11 +275,11 @@ void func_00287df0(s32, s32, s32, s32, s32);
 void func_002cac40(s32);
 void func_002ca5b8(void*);
 void func_002ca0a8(void);
-void func_002ca4c0(u8* p);  // 0x2ca4c0: moved to src/anon/unit_002ca0e0.cpp
+void dk__WM_GLANDING__select(u8* p);  // 0x2ca4c0: moved to src/anon/unit_002ca0e0.cpp
 
 // ---- 0x1c3060: re-registers flagged ids (high bit set) from two slot tables ----
 void* func_001a80c8(u16);  // table24_find_by_id
-void func_001c3150(void*, u16);
+void YS__ABILITY__set_item(void*, u16);
 void func_001c35a0(void*);
 struct O40 { u8 pad[580]; u8* a; u16* b; };
 static inline __attribute__((always_inline)) void slots_a(u8* p, u8* a, u16* b) {
@@ -289,7 +289,7 @@ static inline __attribute__((always_inline)) void slots_a(u8* p, u8* a, u16* b) 
         for (i = 0, e = (u16*)(a + 80); i < 80; i++, e++) {
             if (((u32)e[2] & 0xffff) >> 15) {
                 u8* r = (u8*)func_001a80c8(e[2] & 0x7fff);  // table24_find_by_id
-                if (!r[6] || !b) func_001c3150(p, e[2] & 0x7fff);
+                if (!r[6] || !b) YS__ABILITY__set_item(p, e[2] & 0x7fff);
             }
         }
     }
@@ -299,11 +299,11 @@ static inline __attribute__((always_inline)) void slots_b(u8* p, u16* b) {
         u16* e;
         s32 i;
         for (i = 0, e = b + 4; i < 24; i++) {
-            if (((u32)*e & 0xffff) >> 15) func_001c3150(p, *e & 0x7fff);
+            if (((u32)*e & 0xffff) >> 15) YS__ABILITY__set_item(p, *e & 0x7fff);
             e++;
         }
     }
 }
-void func_001c3060(u8* p);  // 0x001c3060: definition moved into src/anon/unit_001c2b58.cpp
+void YS__ABILITY__check(u8* p);  // 0x001c3060: definition moved into src/anon/unit_001c2b58.cpp
 
 }

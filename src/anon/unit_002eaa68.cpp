@@ -38,7 +38,7 @@ u32 func_002eaa70(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 002eaab0 (from src/anon/batch_w16.cpp)
 namespace n002eaab0 {
-void func_0017c4c8(u32, void*) asm("func_0017c4c8");
+void YS__OBJ__prepare_jump(u32, void*) asm("YS__OBJ__prepare_jump");
 void func_0016bd60(u32, u32) asm("func_0016bd60");
 // 0x001d9ca0: definition moved into src/anon/unit_001d7458.cpp
 
@@ -46,7 +46,7 @@ void wtarget_002eaab0(u32 a0, u32 a1, u32, u32) asm("_Z16wtarget_002eaab0jjjj");
 void wtarget_002eaab0(u32 a0, u32 a1, u32, u32) {
     u32 tmp[4] __attribute__((aligned(16)));
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(tmp), "r"(a1) : "$8", "memory");
-    func_0017c4c8(a0, tmp);
+    YS__OBJ__prepare_jump(a0, tmp);
     func_0016bd60(a0, 44);
 }
 }  // namespace n002eaab0
@@ -54,12 +54,12 @@ void wtarget_002eaab0(u32 a0, u32 a1, u32, u32) {
 // 002eaaf0 (from src/anon/batch_w12.cpp)
 namespace n002eaaf0 {
 void func_0016bd60(u32, s32) asm("func_0016bd60");
-void func_0017c430(void*) asm("func_0017c430");
+void YS__OBJ__prepare_jump_height(void*) asm("YS__OBJ__prepare_jump_height");
 // 002e2dd8: moved to src/anon/unit_002e2d18.cpp
 
 void func_002eaaf0(void* p) asm("func_002eaaf0");
 void func_002eaaf0(void* p) {
-    func_0017c430(p);
+    YS__OBJ__prepare_jump_height(p);
     func_0016bd60((u32)p, 44);
 }
 }  // namespace n002eaaf0
@@ -136,18 +136,18 @@ namespace n002eabe8 {
 extern f32 D_00363450 asm("D_00363450");
 void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
 void func_0017c030(void*, void*, void*, u8) asm("func_0017c030");
-void func_0017c4c8(void*, void*) asm("func_0017c4c8");
+void YS__OBJ__prepare_jump(void*, void*) asm("YS__OBJ__prepare_jump");
 // 0x002c5418: definition moved into src/anon/unit_002c53c8.cpp
 
-void func_002eabe8(void* self, u8* o, u8 c) asm("func_002eabe8");
-void func_002eabe8(void* self, u8* o, u8 c) {
+void Ts__ACTION_DICE__party_jump(void* self, u8* o, u8 c) asm("Ts__ACTION_DICE__party_jump");
+void Ts__ACTION_DICE__party_jump(void* self, u8* o, u8 c) {
     f32 v[4] __attribute__((aligned(16)));
     f32 w[4] __attribute__((aligned(16)));
     s32 k;
     func_0017c030(v, o, &k, c);
     v[3] *= D_00363450;
     QCOPY(w, v);
-    func_0017c4c8(o, w);
+    YS__OBJ__prepare_jump(o, w);
     o[1300] = 7;
     func_0017f488(o + 320, k, 0.0f, 0.0f);
     *(s32*)(o + 256) = 4;
@@ -187,10 +187,10 @@ void func_002eacb8(void*, u8* o) { func_002eaaf0(o); }
 
 // 002eacd0 (from src/anon/tiny_wrappers_more.cpp)
 namespace n002eacd0 {
-u32 func_0017cc30(u32, u32, u32, u32) asm("func_0017cc30");
+u32 YS__ACTION_JUMP___land(u32, u32, u32, u32) asm("YS__ACTION_JUMP___land");
 u32 func_002eacd0(u32 a0, u32 a1, u32 a2, u32 a3) asm("func_002eacd0");
 u32 func_002eacd0(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0017cc30(a0, a1, 0x0000002bu, a3);
+    return YS__ACTION_JUMP___land(a0, a1, 0x0000002bu, a3);
 }
 }  // namespace n002eacd0
 

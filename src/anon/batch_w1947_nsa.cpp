@@ -33,11 +33,11 @@ void func_00239700(void*);
 void func_0028d068(s32, s32);
 Ret7cf0* func_00103eb0(void);
 void func_00247ff0(void);
-void func_00102818(s32, s32, s32, void (*)(void), s32);
-void func_00247cf0(void);  // 0x00247cf0: definition moved into src/anon/unit_00242478.cpp
+void TASK_MANAGER__create_thread(s32, s32, s32, void (*)(void), s32);
+void Tz__MUMI__Init(void);  // 0x00247cf0: definition moved into src/anon/unit_00242478.cpp
 
 struct O16fc10 { u8 f0; u8 f1; u8 p2[2]; u8 sub[0x20]; u32 flags; s32 f28; s32 size; u32 start; u32 cur; u32 f38; O16fc10* next; };
-void func_001684c0(void*, u32, void*, void*);
+void YS__FILE__ReadBarBack(void*, u32, void*, void*);
 void func_00168d08(u32);
 void func_00168e30(u32);
 void func_0016fda8(O16fc10*);
@@ -51,7 +51,7 @@ static inline u8 ovl16fc10(O16fc10* o, O16fc10* a) {
     if (o->cur < a->start + a->size) ov = a->start < o->cur + o->size;
     return ov;
 }
-void func_0016fc10(O16fc10* a);  // 0x0016fc10: definition moved into src/anon/unit_0016e8f8.cpp
+void YS__CACHE_BUFF__HEADER__flush(O16fc10* a);  // 0x0016fc10: definition moved into src/anon/unit_0016e8f8.cpp
 
 void func_0031cc28(void*) asm("_Z13func_0031cc28Pv");
 void func_00144490(f32, f32, f32, f32, f32, f32, void*);

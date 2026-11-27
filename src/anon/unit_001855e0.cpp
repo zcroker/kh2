@@ -9,16 +9,16 @@ namespace r_gap {
 s32 func_001c0cd8(u8*) asm("func_001c0cd8");
 void func_001c0e60(u8*) asm("func_001c0e60");
 void func_0017fd60(u8*, u8*) asm("func_0017fd60");
-void func_0016b668(u8*) asm("func_0016b668");
+void YS__OBJ___OVR_leave(u8*) asm("YS__OBJ___OVR_leave");
 void func_0017ebf0(u8*) asm("func_0017ebf0");
 void func_001984b8(u8*) asm("func_001984b8");
 u32 motion_is_no_motion(u8*) asm("_ZN2YS6MOTION12is_no_motionEv");
 void func_001940b8(u8*, s32, s32, s32, f32, f32) asm("func_001940b8");
-void func_001775f8(u8*) asm("func_001775f8");
+void YS__PARTY__show_hilt(u8*) asm("YS__PARTY__show_hilt");
 s32 func_0019c5d0(u8*) asm("func_0019c5d0");
 void func_00185770(u8*) asm("func_00185770");
 void func_0016a9a0(u8*) asm("func_0016a9a0");
-void func_00185988(u8*) asm("func_00185988");
+void YS__WEAPON__locus(u8*) asm("YS__WEAPON__locus");
 struct Flags72 { u16 lo : 7; u16 b7 : 1; u16 hi : 8; };
 static inline u8 B7(u8* p) { return ((Flags72*)p)->b7; }
 
@@ -30,7 +30,7 @@ void func_001855e0(u8* o) {
         func_0017fd60(*(u8**)(o + 2548) + 320, m);
     }
     ((u32*)(*(u8**)(o + 2548) + 2808))[*(s32*)(o + 2556)] = 0;
-    func_0016b668(o);
+    YS__OBJ___OVR_leave(o);
 }
 
 void func_00185658(u8* o) asm("func_00185658");
@@ -44,7 +44,7 @@ void func_00185688(u8* o) {
     if (motion_is_no_motion(o + 320)) {
         func_001940b8(o, 255, 255, 255, 1.0f, 0.0f);
         ((void (*)(u8*))(*(void***)o)[17])(o);
-        if (B7(*(u8**)(o + 8) + 72)) func_001775f8(*(u8**)(o + 2548));
+        if (B7(*(u8**)(o + 8) + 72)) YS__PARTY__show_hilt(*(u8**)(o + 2548));
     } else if (func_001c0cd8(o)) {
         s32 t = *(s32*)(*(u8**)(o + 1392) + 348);
         if (t == 0 || t == 3) {
@@ -53,7 +53,7 @@ void func_00185688(u8* o) {
     } else {
         func_0016a9a0(o);
     }
-    func_00185988(o);
+    YS__WEAPON__locus(o);
 }
 }  // namespace r_gap
 
@@ -150,7 +150,7 @@ s32 func_0019c5d0(u8*) asm("func_0019c5d0");
 s32 func_001dc9e0(u32) asm("func_001dc9e0");
 void func_001dc818(u32) asm("func_001dc818");
 
-void func_00185988(u8* p)
+void YS__WEAPON__locus(u8* p)
 {
     u32 h = *(u32*)(p + 2552);
     if (!h) {
@@ -204,7 +204,7 @@ namespace r9 {
 typedef u32  (*Fn_002cf1b8)(u32, u32);
 extern "C" u32 func_001c0cd8(...) asm("func_001c0cd8");
 
-u32 func_00185ac0(u32 a0) {
+u32 YS__WEAPON__is_equip(u32 a0) {
     s32 s0 = (u32)0u;
     if (*(u32*)((u32)a0 + (s32)(320)) == 0u) goto L1;
     if (func_001c0cd8() == 0u) goto L0;
@@ -377,12 +377,12 @@ void func_00185c48(u8* p)
 
 // 00185cb8 (never written before; OBJ vtable entry)
 namespace r_cb8 {
-void func_001d6020(u8*, u8*) asm("func_001d6020");
+void YS__FORM_LEVEL__CheckBrave(u8*, u8*) asm("YS__FORM_LEVEL__CheckBrave");
 void func_001b3d00(u8*, u8*) asm("func_001b3d00");
 void func_00185cb8(u8* o, u8* b) asm("func_00185cb8");
 void func_00185cb8(u8* o, u8* b) {
     *(f32*)(o + 2800) += (f32)*(u8*)(*(u8**)(b + 32) + 42);
-    func_001d6020(o, b);
+    YS__FORM_LEVEL__CheckBrave(o, b);
     func_001b3d00(o, b);
 }
 }  // namespace r_cb8

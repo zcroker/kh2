@@ -33,6 +33,6 @@ static inline void SY(u8 a, u8 b) { D_0035f620->y[a].Set(b); }
 extern "C" {
 // Rebuilds the seen/collected bit tables and their counters (D_0035f628 total, D_0035f62c set).
 // The unused i++ in the second loop gives it one latch, which matches the original block frequencies.
-void func_002ae320(void);  // 0x002ae320: definition moved into src/anon/unit_002a99c8.cpp
+void Tz__JmComplete__CheckPuzzle(void);  // 0x002ae320: definition moved into src/anon/unit_002a99c8.cpp
 }
 }

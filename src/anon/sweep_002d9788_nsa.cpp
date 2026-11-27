@@ -8,4 +8,4 @@ void func_0016bd60(O4*, s32);
 void func_0016b070(O4*, V4*);
 void func_0017a7d8(O4*);
 static inline void vset(V4* v, f32 x, f32 y, f32 z, f32 w) { v->x = x; v->y = y; v->z = z; v->w = w; }
-void func_002d9788(O4* p);  // 0x002d9788: definition moved into src/anon/unit_002d96d8.cpp
+void Ti__MGHachimitsuPlayer___OVR_initialize(O4* p);  // 0x002d9788: definition moved into src/anon/unit_002d96d8.cpp

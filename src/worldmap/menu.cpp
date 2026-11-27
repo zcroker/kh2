@@ -29,7 +29,7 @@ void FixFree(void*);
 }
 
 namespace worldmap {
-extern "C" u32 func_002764b0(u32);
+extern "C" u32 Tz__Jiminy__AreaWorld2JmWorld(u32);
 
 // 0x002c24a8: definition moved into src/anon/unit_002c2228.cpp
 

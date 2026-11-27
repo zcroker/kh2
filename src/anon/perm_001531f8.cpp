@@ -57,6 +57,6 @@ inline int inline_fn(s32 arg0, Q *arg1)
   return ((arg0 - arg1->tail) + 16) % 16;
 }
 
-void func_001531f8(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);  // 0x001531f8: definition moved into src/anon/unit_00153158.cpp
+void dk__LEVELUP_INFO__openChara(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);  // 0x001531f8: definition moved into src/anon/unit_00153158.cpp
 
 }

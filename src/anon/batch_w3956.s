@@ -1,7 +1,7 @@
 # Whole-function assembly (last step of the README match ladder, w3956 2026-11-11).
 # Transcribed from the retail disassembly; calls with a func_ symbol are referenced through it.
 # Replace with C/C++ after 100%.
-#   func_00221348: trail (ribbon) emitter update: advances the ring of trail points behind a moving source,
+#   KeThBP_Update: trail (ribbon) emitter update: advances the ring of trail points behind a moving source,
 #     bends the direction towards the current target point with random jitter (rotation callbacks from the
 #     table at 0x0035da20), and spawns child trails.
 #     Closest C: ~/re/kh2/tmp.w3956/best_00221348.c (_nsa, = best/00221348_w3819_nsa.c, ~490 lines off):
@@ -14,10 +14,10 @@
 	.set nomacro
 	.section .text.func_00221348,"ax",@progbits
 	.align 2
-	.globl func_00221348
-	.type func_00221348, @function
-	.ent func_00221348
-func_00221348:
+	.globl KeThBP_Update
+	.type KeThBP_Update, @function
+	.ent KeThBP_Update
+KeThBP_Update:
 	addiu	$29,$29,-368
 	sd	$16,272($29)
 	sd	$17,280($29)
@@ -770,5 +770,5 @@ func_00221348:
 	move	$22,$0
 	b	.L002214f0
 	andi	$5,$12,0x20
-	.end func_00221348
-	.size func_00221348, 2780
+	.end KeThBP_Update
+	.size KeThBP_Update, 2780

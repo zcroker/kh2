@@ -40,19 +40,19 @@ extern "C" {
 extern f32 D_00349e10;
 s32 func_00225e48(void);
 W1636Ent* func_00227d10(s32);
-s32 func_001ba028(u32);  // list_contains_ptr
+s32 YS__OBJ__is_valid(u32);  // list_contains_ptr
 W1636Vec func_0016b478(f32, u32, u32);
-void* func_0022af48(W1636Vec*);
-void func_0022b028(s32);
+void* sa__MUSICAL_INPUT__BadPrint(W1636Vec*);
+void sa__MUSICAL_INPUT__BadScore(s32);
 void func_00105110(void*);
 void func_001024a8(void*);
 W1636Pad* func_00167f18(s32);
 void func_0022afe8(s32);
-u32 func_0022aef0(W1636Vec*);
+u32 sa__MUSICAL_INPUT__GoodPrint(W1636Vec*);
 void func_0022afa0(s32);
-u32 func_0022ae98(W1636Vec*);
+u32 sa__MUSICAL_INPUT__ExcellentPrint(W1636Vec*);
 void func_00224950(s32);
 void func_001391a8(W1636Sprite*, W1636Vec);  // vec_copy_at416_if_diff
 
-void func_00229e58(W1636Task* t);  // 00229e58: moved to src/sasa/musical_input.cpp (linked unit)
+void sa__MUSICAL_COMBO__printTask(W1636Task* t);  // 00229e58: moved to src/sasa/musical_input.cpp (linked unit)
 }

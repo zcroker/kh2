@@ -9,12 +9,12 @@ extern u8 D_0032ba1c;
 extern s32 D_0032ba64;
 void func_00103a40(void);
 s32 func_001033d8(s32);
-void func_002530f0(s32);
+void Tz__CampMenu__Exit(s32);
 void func_00242fc8(s32);
 void func_00103748(void);
 s32 func_00103c90(void);  // get_hook_ptr
 void func_00103ca0(void);
-void func_00253180(s32, s32);
+void Tz__CampMenu__Start(s32, s32);
 void func_00243020(s32);
 void func_0014c9f0(s32);
 void func_00167ee0(void);
@@ -65,8 +65,8 @@ void func_0023f070(u32, s32, s32);
 void func_0024b0e8(void);
 s32 func_0028d008(void*);
 s32 func_002891d0(void*);
-void func_0028cf28(void*, s32);  // record408_set_and_refresh
-s32 func_0024ac88(void);
+void Tz__MenuCursor__SetParent(void*, s32);  // record408_set_and_refresh
+s32 Tz__TRTE__GetSeqInfo(void);
 void func_002b4388(u32, void*, s32);
 s32 func_001a6d08(s32);
 void func_00139858(s32);
@@ -100,7 +100,7 @@ struct Ctx2cf {
 };
 extern Ctx2cf* D_00361f60;
 extern s32 D_00361fa8;
-u8* func_001b9bc8(u8*);
+u8* YS__OBJ__Each(u8*);
 s32 func_0016a020(u8*);
 s32 func_0019c768(u8*);
 s32 func_002cf270(u8*, s32);
@@ -145,7 +145,7 @@ void func_00138c68(u8*, s32, s32);
 s32 func_0028b040(u32);
 void func_00256bb0(u8*);
 
-void func_0026a3b8(void* target, u8 follow);  // 0x0026a3b8: definition moved into src/anon/unit_00269a60.cpp
+void Tz__CmEquip__UpdateTopSelActive(void* target, u8 follow);  // 0x0026a3b8: definition moved into src/anon/unit_00269a60.cpp
 }
 
 extern "C" {
@@ -178,7 +178,7 @@ void func_00139510(void*);
 void func_00276a18(void);
 void func_00276b10(void);
 
-void func_002766e0(void);  // 0x002766e0: definition moved into src/anon/unit_002748a0.cpp
+void Tz__Jiminy__LeaveSeqTbl(void);  // 0x002766e0: definition moved into src/anon/unit_002748a0.cpp
 }
 
 extern "C" {
@@ -222,26 +222,26 @@ extern u8 D_00372608;
 extern u8 D_00372630;
 u8* func_0023ee30(s32);
 void func_0031a838(u8*);
-void func_002369a0(u8*);  // obj_ctor_36eac8
-void func_0023c008(u8*);  // obj_ctor_36eae8
-void func_0028d7f0(u8*, s32, s32, s32, s32, s32, s32, s32, s32);
-void func_0023ef50(u8*);
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u8*);  // obj_ctor_36eac8
+void YI__LAYOUT__LAYOUT(u8*);  // obj_ctor_36eae8
+void Tz__MenuUtil__CreateLay(u8*, s32, s32, s32, s32, s32, s32, s32, s32);
+void Tz__Layout__SetImageCache(u8*);
 s32 func_00252098(s32);
 void func_00288ce0(u32, s32, s32, s32, s32);
-void func_0023f1e0(u8*, s32, u8*, void*, void*, s32, s32, s32);
+void Tz__LayMsg__create(u8*, s32, u8*, void*, void*, s32, s32, s32);
 void func_0023f6c0(u8*, s32);
 void func_00252180(void);
 s32 func_00252428(void);
 void func_00252320(void);
 void func_00252208(void);
 s32 func_00252148(s32);
-void func_002891f0(u32, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32);
 s32 func_00252110(s32);
-void func_00252660(s32);
+void Tz__CANA__SetNewFlag(s32);
 void func_00287bd0(s32, s32);
 void func_00287cc0(s32);
 
-void func_00251148(void);  // 0x00251148: definition moved into src/anon/unit_00250fb8.cpp
+void Tz__CANA__Setup(void);  // 0x00251148: definition moved into src/anon/unit_00250fb8.cpp
 }
 
 extern "C" {
@@ -258,7 +258,7 @@ s32 func_001d3f38(u32);  // type_is_282_344_484
 void func_0016bd60(u8*, s32);
 u8* func_0017e668(u32);
 void func_001b4d70(u8*, f32);
-void func_001b4a00(u8*);
+void YS__LIMIT__setup(u8*);
 s32 func_001b5858(u8*);
 void func_001b4d10(u8*);
 void func_001c8d80(void*, s32);
@@ -280,5 +280,5 @@ struct Sub168 {
     u32 f48;
 };
 // Constructor-style init: sets up the sub-objects and spawns up to three child entities from data[1..3].
-void func_001b47d8(u8* self, u8* data, u8* owner, f32 scale);  // 0x001b47d8: definition moved into src/anon/unit_001b2780.cpp
+void YS__LIMIT__LIMIT(u8* self, u8* data, u8* owner, f32 scale);  // 0x001b47d8: definition moved into src/anon/unit_001b2780.cpp
 }

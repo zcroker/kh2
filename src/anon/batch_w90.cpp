@@ -18,7 +18,7 @@ void* func_00132068(void*, s32);  // entry_get_by_index
 void* func_00132018(void*);  // entry_ptr_from_header
 void func_0011e410(void*, void*);
 void func_0011e450(void*, void*);
-void func_0011e600(void*, void*, void*);
+void kn__ModelObj__synchronizeAnimation(void*, void*, void*);
 struct ChunkList { s16 tag; s16 pad; u32 n; };
 struct ChunkUser { u8 pad[52]; ChunkList* list; };
 static inline void* ChunkAt(ChunkList* c, s32 i) { return func_00132018(func_00132068(c, i)); }
@@ -55,10 +55,10 @@ void func_001403b0(u8* self);  // 0x001403b0: definition moved into src/anon/uni
 // 00143b88: two-stage lookup; the second stage overrides the first on success.
 union Word { void* p; u32 w; u16 h; };
 extern Word D_00348804;
-s32 func_00165db8(u32, u32, u16*, u32, u32, u32, u32*, u32, u32);
+s32 dk__ObjOcc__intersectLine(u32, u32, u16*, u32, u32, u32, u32*, u32, u32);
 void func_00141c18(void*, u32, u32, u32, u32);
 s32 func_00141ff0(void*, u32, u32, u16*, u32);
-s32 func_00143b88(u32 a0, u32 a1, u16* out, Word* flag, u32 a4);  // 0x00143b88: definition moved into src/anon/unit_00142c90.cpp
+s32 dk__Octree__intersectLine(u32 a0, u32 a1, u16* out, Word* flag, u32 a4);  // 0x00143b88: definition moved into src/anon/unit_00142c90.cpp
 
 // 00146128
 s32 func_00146730(void*, void*);
@@ -68,7 +68,7 @@ void func_00146128(u8* self, s32* cnt, s16 idx);  // 0x00146128: definition move
 // 0014ca80: split a 60 Hz frame counter into hours/minutes/seconds/hundredths.
 u32 func_0014ca78(u32);
 s32 __fixunssfsi(f32);
-void func_0014ca80(u32 a0, u32* h, u32* m, u32* s, s32* cs);  // 0x0014ca80: definition moved into src/anon/unit_0014c7f0.cpp
+void dk__Clock__vCountToHMSMS(u32 a0, u32* h, u32* m, u32* s, s32* cs);  // 0x0014ca80: definition moved into src/anon/unit_0014c7f0.cpp
 
 // 0015d5d0
 s32 func_0013ef80(u32);  // get_global_byte_358700
@@ -82,7 +82,7 @@ s32 func_00239d30(void*, u32);
 s32 func_00239d10(void*);
 u8* func_0014aba8(void);
 void func_0023acd8(void*);
-void func_0023ade0(void*);
+void YI__SEQUENCE__Draw(void*);
 // 0015d5d0: moved to src/anon/unit_0015d440.cpp
 
 // 0017e138
@@ -107,31 +107,31 @@ static inline bool Mask2(BonusMask* q) { return q->b2; }
 s32 func_001a2340(u32 unused, s32 dmg, BonusSrc* p, BonusMask* q);  // 0x001a2340: definition moved into src/anon/unit_0019fb70.cpp
 
 // 001b6b10
-s32 func_0019ba60(void*);
+s32 YS__OBJ__is_exist(void*);
 u8* func_001050d8(s32);
 void func_001b6298(void*, void*, s32, s32);
 void func_0016bd60(void*, s32);
-void func_001c9860(s32);
+void YS__SACRIFICE__StartForm(s32);
 extern u8 D_0032f054;
 extern u8 D_0032bb30[];
 void func_001b6b10(u8* self, s32 id);  // 0x001b6b10: definition moved into src/anon/unit_001b6a50.cpp
 
 // 001bdd50: nudge a scale value by 1/8, clamped to [0.5, 1].
-void func_0016bda8(void*, void*);
-void func_0017cf00(void*, void*);
+void YS__OBJ__get_target_pos(void*, void*);
+void YS__MATH__GetScreenPos(void*, void*);
 void func_0013b2b8(f32);
 void func_001bdd50(u8* self);  // 0x001bdd50: definition moved into src/anon/unit_001bc568.cpp
 
 // 001c3ba8
 f32 func_00184a90(void*);
-f32* func_0016c028(void*);  // obj_get_attach_or_alt
+f32* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
-#define HEIGHT(o) (func_00184a90(o) - func_0016c028(o)[1])
+#define HEIGHT(o) (func_00184a90(o) - YS__OBJ__get_pos(o)[1])
 struct RangeParam { u8 pad[36]; f32 k; f32 off; f32 max; };
 struct RangeObj { u8 pad[240]; RangeParam* p; };
 static inline f32 Above(RangeObj* o) { f32 t = MAX(HEIGHT(o), 0.0f); return t - o->p->off; }
-f32 func_001c3ba8(u32 unused, RangeObj* o);  // 0x001c3ba8: definition moved into src/anon/unit_001c2b58.cpp
+f32 YS__ACTION_GLIDEHOVER__calc_movement_y(u32 unused, RangeObj* o);  // 0x001c3ba8: definition moved into src/anon/unit_001c2b58.cpp
 
 // 001c7440: fade-in alpha while timer < 12, otherwise tick a countdown and call a hook.
 struct NoTail { ~NoTail() {} };
@@ -153,23 +153,23 @@ u32 func_001d3f98(void*);
 s32 func_00170978(u32);
 s32 func_001a9758(u32, s32);
 u32 func_0017df58(s32);
-s32 func_0017e280(u32);
-u8* func_00176b58(u8);
+s32 YS__FRIEND__can_sacrifice_leave(u32);
+u8* YS__PARTY__GetByPart(u8);
 s32 func_0017e310(void*);
 s32 func_001d3e40(u8* self);  // 0x001d3e40: definition moved into src/anon/unit_001d3c08.cpp
 
 // 001d5f30: add points and level up while the next threshold is reached.
-s32 func_001bbb28(void*);
+s32 YS__MISSION__IsNoExp(void*);
 struct Level { u32 a; s32 v; };
 extern u8 D_0032e020[];
-Level* func_00189200(void*, u32);
+Level* YS__SAVERAM_BATTLE__get_formram(void*, u32);
 Level* func_001d5c10(u32, Level*);
 void func_001d5d80(void*, u32);
-void func_001b7468(void*);
+void YS__LEVELUP__ShowEffectDrive(void*);
 void func_001d5f30(u8* self, s32 add);  // 0x001d5f30: definition moved into src/anon/unit_001d4f40.cpp
 
 // 001e2130
-void func_001e0e50(void*);
+void ryj__LASER__attack(void*);
 void func_001e2130(u8* self);  // 0x001e2130: definition moved into src/anon/unit_001e0cb8.cpp
 
 // 001fb5b8: scale an RGBA byte colour by the global colour multipliers.
@@ -181,7 +181,7 @@ void func_001fb5b8(u8* base, u8* c, u8* a2);  // 0x001fb5b8: definition moved in
 
 // 00248900
 s32 func_00287bc0(void);
-void func_00287d68(void);  // copy_globals_3words
+void Tz__MenuBase__SaveMode(void);  // copy_globals_3words
 s32 func_00287db0(void);
 s32 func_0028acc8(void*);
 s32 func_00139d78(void*);
@@ -205,13 +205,13 @@ void func_00256f18(void);  // 0x00256f18: definition moved into src/anon/unit_00
 
 // 0025d918: create the menu object and set up its layers.
 u8* func_0023ee30(u32);
-void func_002369a0(void*);  // obj_ctor_36eac8
-void func_0023c008(void*);  // obj_ctor_36eae8
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*);  // obj_ctor_36eac8
+void YI__LAYOUT__LAYOUT(void*);  // obj_ctor_36eae8
 s32 func_0023f948(void*, s32);
-void func_0028d7f0(void*, s32, s32, s32, s32, s32, s32, s32, s32);
-void func_0023ef50(void*);
-void func_0028f280(s32, s32, void*, void*, void*);
-void func_00263960(s32, s32, void*, void*, void*);  // store_globals_and_init
+void Tz__MenuUtil__CreateLay(void*, s32, s32, s32, s32, s32, s32, s32, s32);
+void Tz__Layout__SetImageCache(void*);
+void Tz__SelHist__Init(s32, s32, void*, void*, void*);
+void Tz__CMenuHelp__Init(s32, s32, void*, void*, void*);  // store_globals_and_init
 void func_0023d2e0(u32*);  // store_global_test_result
 void func_00240b90(u32);
 void func_00287bd0(s32, s32);
@@ -224,7 +224,7 @@ extern u8 D_00373100[];
 extern u8 D_00373108[];
 extern u8 D_00373130[];
 extern u8 D_00373138[];
-void func_0025d918(void);  // 0x0025d918: definition moved into src/anon/unit_002588e8.cpp
+void Tz__CmLoad__Setup(void);  // 0x0025d918: definition moved into src/anon/unit_002588e8.cpp
 
 // 00265ab8: stop every active effect slot.
 typedef void (*VoidFn)(void*);
@@ -243,7 +243,7 @@ void func_0028ab20(void*);
 void func_00287df0(s32, s32, s32, s32, s32);
 extern void* D_0035f2dc;
 extern void* D_0035f2d8;
-s32 func_00285760(void);  // 0x00285760: definition moved into src/anon/unit_002853b8.cpp
+s32 Tz__Ending__SelCtrl(void);  // 0x00285760: definition moved into src/anon/unit_002853b8.cpp
 
 // 00290098
 union HeapRef { u8* p; u32 w; };
@@ -290,7 +290,7 @@ s32 func_002ab368(s32 id);  // 0x002ab368: definition moved into src/anon/unit_0
 void func_002d00a0(void*);
 s32 func_00181500(s32);
 u32 func_002d1260(void);
-void func_001c0d38(void*, u32, s32, s32);
+void YS__OBJ__attach(void*, u32, s32, s32);
 u8* func_002d1878(void*);
 void func_002e7340(void*, void*, s32, void*, f32, f32);
 extern u8 D_00362380[];
@@ -301,7 +301,7 @@ void func_002d5e50(u8* self);  // 0x002d5e50: definition moved into src/anon/uni
 
 // 002ed738
 s32 func_00190140(void*);
-f32 func_001906f0(void*, void*);
+f32 YS__TARGET__get_dist(void*, void*);
 double func_00313b80(f32);  // float_to_double
 s32 func_003142e0(double, double);  // double_compare
 void func_002ed630(void*);
@@ -309,8 +309,8 @@ void func_002ed720(void*);
 u32 func_002ed830(void*);
 void func_002ed8c0(void);
 struct Fx { u32 pos[4]; u32 cb; u8 cur; u8 pad[63]; u8 src; u8 pad2[3]; f32 t; u8 pad3[8]; u8 trk[20]; struct { u32 on : 1; } fl; };
-u32 u_call4_002ed738(Fx* self, u32, u32, u32) asm("_Z16u_call4_002ed738jjjj");
-u32 u_call4_002ed738(Fx* self, u32, u32, u32);  // 0x002ed738: definition moved into src/anon/unit_002ecdb0.cpp
+u32 Ts__TRINITY_SHOT_EFFECT__main(Fx* self, u32, u32, u32) asm("_Z29Ts__TRINITY_SHOT_EFFECT__mainjjjj");
+u32 Ts__TRINITY_SHOT_EFFECT__main(Fx* self, u32, u32, u32);  // 0x002ed738: definition moved into src/anon/unit_002ecdb0.cpp
 
 // 00322228: destructor body (member arrays destroyed back to front, then the base part).
 struct NoTail2 { ~NoTail2() {} };

@@ -153,13 +153,13 @@ struct W1649Mgr {
 };
 s32 func_00106a08(void) asm("func_00106a08");
 void* func_00106a60(s32) asm("func_00106a60");
-void func_00107368(void*, W1649Pos*) asm("func_00107368");
+void kn__Camera__getPosition(void*, W1649Pos*) asm("kn__Camera__getPosition");
 void func_00148598(W1649Mgr*, void*) asm("func_00148598");
 void func_001b81e8(void) asm("func_001b81e8");
 void func_001b8218(void) asm("func_001b8218");
 void func_00148a30(W1649Mgr*) asm("func_00148a30");
 void func_00148ac0(W1649Mgr*) asm("func_00148ac0");
-void func_00147810(W1649Mgr*, W1649Ob*) asm("func_00147810");
+void dk__OctDrawFile__calcCameraRelative(W1649Mgr*, W1649Ob*) asm("dk__OctDrawFile__calcCameraRelative");
 f32 func_00148890(W1649Mgr*, W1649Ob*, W1649Pos*) asm("func_00148890");
 void func_001472b8(void*, void*, s32, s32) asm("func_001472b8");
 void func_00148e40(W1649Mgr*, W1649Ob*, W1649Ob** out, s32* n) asm("func_00148e40");
@@ -176,11 +176,11 @@ union W1649FI { f32 f; W1649Ent* e; };
 // Built with -fno-strict-aliasing (_nsa file).
 // Per-frame update of all entries: measures their distance to the camera, sorts the visible ones
 // (nearest first, in scratchpad), fades out far ones, and updates them (by group when grouped).
-void func_001473e8(W1649Mgr* m) asm("func_001473e8");
+void dk__OctDrawFile__drawObjectAll(W1649Mgr* m) asm("dk__OctDrawFile__drawObjectAll");
 // Built with -fno-strict-aliasing (_nsa file).
 // Per-frame update of all entries: measures their distance to the camera, sorts the visible ones
 // (nearest first, in scratchpad), fades out far ones, and updates them (by group when grouped).
-void func_001473e8(W1649Mgr* m)
+void dk__OctDrawFile__drawObjectAll(W1649Mgr* m)
 {
     W1649Pos cam;
     W1649Ob* buf[32];
@@ -203,13 +203,13 @@ void func_001473e8(W1649Mgr* m)
     m->effCount[m->slot] = 0;
     func_001b81e8();
     func_00148a30(m);
-    func_00107368(func_00106a60(1), &cam);
+    kn__Camera__getPosition(func_00106a60(1), &cam);
     n = m->entCount;
     {
         for (s32 i = 0; i < n; i++) {
             W1649Ent* e = &m->ents[i];
             W1649Ob* o = e->obj;
-            func_00147810(m, o);
+            dk__OctDrawFile__calcCameraRelative(m, o);
             f32 r = func_00148890(m, o, &cam);
             W1649_DIST[i] = r;
             if (o->flags & 4) {
@@ -361,9 +361,9 @@ struct Cam323 {
 Cam323* func_00106a60(s32) asm("func_00106a60");
 /*TARGET 00147810*/
 // buffer_get_by_index
-void func_00147810(u32, u8* o) asm("func_00147810");
+void dk__OctDrawFile__calcCameraRelative(u32, u8* o) asm("dk__OctDrawFile__calcCameraRelative");
 // buffer_get_by_index
-void func_00147810(u32, u8* o) {
+void dk__OctDrawFile__calcCameraRelative(u32, u8* o) {
     if (!(*(u32*)(o + 248) & 0x1000)) return;
     if (*(u32*)(o + 288)) return;
     QM323 w;
@@ -416,7 +416,7 @@ void func_001349a8(u32, u8*, u32) asm("func_001349a8");
 s32 func_00147240(Mgr*, Ob*, f32) asm("func_00147240");
 void func_00147ca0(Mgr*, Ob*, f32) asm("func_00147ca0");
 void func_00147d80(Mgr*, Ob*, f32) asm("func_00147d80");
-void func_00148470(Mgr*, Ob*) asm("func_00148470");
+void dk__OctDrawFile__drawModel(Mgr*, Ob*) asm("dk__OctDrawFile__drawModel");
 /*TARGET 00147aa8*/
 // Per-frame update of an entry: refreshes it, then queues it (bounded at 16 per slot) by state.
 void func_00147aa8(Mgr* m, Ob* o, f32 t) asm("func_00147aa8");
@@ -444,7 +444,7 @@ void func_00147aa8(Mgr* m, Ob* o, f32 t) {
         func_00147d80(m, o, t);
         m->cnt[m->idx]++;
     }
-    func_00148470(m, o);
+    dk__OctDrawFile__drawModel(m, o);
 }
 }  // namespace n00147aa8
 
@@ -738,7 +738,7 @@ struct W3701Pkt { u8 pad0[20]; u32 xy; u8 pad24[56]; void* cb0; void* cb1; };
 extern "C" {
 void func_00147c78(W3701Mgr*, W3701Ob*);
 void func_00106fe8(W3701Proj*, f32);
-void func_00106c08(W3701Proj*);
+void kn__Projection__calcMatrix(W3701Proj*);
 W3701Pkt* func_0011ca20(s32, void*, W3701Mtx*, void*, u8);
 void func_00147e80(void);
 void func_00147ed0(void);
@@ -773,7 +773,7 @@ void func_00147f08(W3701Mgr* m, W3701Ob* o)
             M.r[2].w = 0.0f;
             W3701Proj cam(m->proj, m);
             func_00106fe8(&cam, s);
-            func_00106c08(&cam);
+            kn__Projection__calcMatrix(&cam);
             *pp = *pt;
             *pp += *pw;
             cam.view.apply(*ps, *pp);
@@ -825,10 +825,10 @@ void func_00147f08(W1790Mgr*, W1790Node*) asm("func_00147f08");
 /*TARGET 00148470*/
 // 0x0013aba8: definition moved into src/anon/unit_0013a8b8.cpp
 
-void func_00148470(W1790Mgr* g, W1790Node* n) asm("func_00148470");
+void dk__OctDrawFile__drawModel(W1790Mgr* g, W1790Node* n) asm("dk__OctDrawFile__drawModel");
 // 0x0013aba8: definition moved into src/anon/unit_0013a8b8.cpp
 
-void func_00148470(W1790Mgr* g, W1790Node* n) {
+void dk__OctDrawFile__drawModel(W1790Mgr* g, W1790Node* n) {
     u16 i = n->h11c;
     if (n->eb && (n->f8 & 4)) {
         if (w1790_tst((u8*)g->tbl, i * 8)) {
@@ -836,7 +836,7 @@ void func_00148470(W1790Mgr* g, W1790Node* n) {
         }
     }
     W1790Node* c = 0;
-    while ((c = w1790_next(n, c)) != 0) func_00148470(g, c);
+    while ((c = w1790_next(n, c)) != 0) dk__OctDrawFile__drawModel(g, c);
 }
 }  // namespace n00148470
 
@@ -944,10 +944,10 @@ void func_0011c7f8(void*, s32) asm("func_0011c7f8");
 /*TARGET 00148690*/
 /* Sets the alpha of three elements from t against three [low, high] ranges:
    0 above high, 0x80 below low, fading in between. One shared ratio variable. */
-void func_00148690(void* self, W2398Own* p, f32 t) asm("func_00148690");
+void dk__OctDrawFile__calcPartsLOD(void* self, W2398Own* p, f32 t) asm("dk__OctDrawFile__calcPartsLOD");
 /* Sets the alpha of three elements from t against three [low, high] ranges:
    0 above high, 0x80 below low, fading in between. One shared ratio variable. */
-void func_00148690(void* self, W2398Own* p, f32 t)
+void dk__OctDrawFile__calcPartsLOD(void* self, W2398Own* p, f32 t)
 {
     if (p->el == 0) return;
     f32 ratio;
@@ -1016,7 +1016,7 @@ struct V34 {
 } __attribute__((aligned(16)));
 struct Ent34 { u8 pad[192]; V34 pos; u8 pad2[40]; u32 fl; };
 void func_00148638(f32) asm("func_00148638");
-void func_00148690(u8*, Ent34*, f32) asm("func_00148690");
+void dk__OctDrawFile__calcPartsLOD(u8*, Ent34*, f32) asm("dk__OctDrawFile__calcPartsLOD");
 #define DIST34(r, p, q) { a = p; b = q; r = Dist34(a, b, c); }
 static inline f32 Dist34(V34& a, V34& b, V34& c)
 {
@@ -1045,7 +1045,7 @@ f32 func_00148890(u8* o, Ent34* e, const V34* q)
     }
     if (e->fl & 0x100) {
         if (d == 0.0f) DIST34(d, e->pos, *q);
-        func_00148690(o, e, d);
+        dk__OctDrawFile__calcPartsLOD(o, e, d);
     }
     return p.z;
 }

@@ -34,7 +34,7 @@ void func_002249f8(void);  // 0x002249f8: definition moved into src/anon/unit_00
 
 
 W1821Vec func_0017c030(W1821Obj*, s32*, u8);
-void func_0017c4c8(W1821Obj*, W1821Vec);
+void YS__OBJ__prepare_jump(W1821Obj*, W1821Vec);
 void func_002eb778(W1821Obj*, u32, s32, f32);
 
 // 002ec850: moved to src/anon/unit_002ec5f8.cpp

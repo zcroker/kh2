@@ -109,8 +109,8 @@ static inline u8* getp_w1970(Mgr_w1970* m, s32 a, X_w1970* x) {
     return (u8*)v + x->off + 0xa0;
 }
 /*TARGET 001f6c58*/
-void func_001f6c58(s32 a, X_w1970* x, Y_w1970* y) asm("func_001f6c58");
-void func_001f6c58(s32 a, X_w1970* x, Y_w1970* y) {
+void KeBornPtCmlp(s32 a, X_w1970* x, Y_w1970* y) asm("KeBornPtCmlp");
+void KeBornPtCmlp(s32 a, X_w1970* x, Y_w1970* y) {
     u8* s3 = getp_w1970(D_01d9e6e0, a, x);
     func_002226b8(s3, (u8*)a + y->c->o4 + 0xa0);
     Sl_w1970* s = (Sl_w1970*)((u8*)a + y->c->o0 + 0xa0);
@@ -139,14 +139,14 @@ struct Mgr { u8 pad[0xa8]; u64 flags; };
 struct In { u8 pad[8]; s32 a; u8 p2[4]; s32 b; };
 extern s32 D_01d9ea9c asm("D_01d9ea9c");
 extern Mgr* D_01d9e6e0 asm("D_01d9e6e0");
-void func_001f6c58(u8*, In*, u8*) asm("func_001f6c58");
+void KeBornPtCmlp(u8*, In*, u8*) asm("KeBornPtCmlp");
 void func_001f6e38(u8* o, In* in, u8* c) asm("func_001f6e38");
 void func_001f6e38(u8* o, In* in, u8* c) {
     if (D_01d9ea9c != 0) return;
     if (D_01d9e6e0->flags & 0xff0000ff00ULL) return;
     if (in->a == -1) return;
     if (in->b == -1) return;
-    func_001f6c58(o, in, c);
+    KeBornPtCmlp(o, in, c);
 }
 }  // namespace n001f6e38
 

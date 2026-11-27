@@ -18,11 +18,11 @@ void func_00282b00(u8*, s32, s32);
 // Runs 00281f70, then one of two handlers depending on the flag at +4104.
 // Register pins only (no asm): this in s2 and the call arguments set up before the branch,
 // as the original does.
-void func_002827f0(u8* a, s32 b, s32 c);  // 0x002827f0: definition moved into src/anon/unit_00282620.cpp
+void Tz__ItemInfo__MakeMsgTbl(u8* a, s32 b, s32 c);  // 0x002827f0: definition moved into src/anon/unit_00282620.cpp
 
 // Applies table entries whose type bit is in mask: entry types 7/8/2 are gated by checks on y and x->a,
 // then entry byte [x->idx] (if not 255) is stored to x->o.
 // 001c20e8: moved to src/anon/unit_001c0638.cpp
-void func_001c20e8(u32 mask, X* x, Y* y);
+void YS__PATTERN__Convert(u32 mask, X* x, Y* y);
 
 }

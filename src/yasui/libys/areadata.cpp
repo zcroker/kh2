@@ -59,7 +59,7 @@ s32 func_00105140(const char*, s32) asm("func_00105140");
 void func_002fee78(char*, const char*, ...) asm("func_002fee78");
 s32 func_001688c8(const char*) asm("func_001688c8");
 void* func_00170b30(s32) asm("func_00170b30");  // alloc_align128
-void func_001684c0(const char*, void*, s32, s32) asm("func_001684c0");
+void YS__FILE__ReadBarBack(const char*, void*, s32, s32) asm("YS__FILE__ReadBarBack");
 
 // Load a named file into a 2 KB-aligned buffer unless it is already loaded.
 void func_00181ad0(const char* name) asm("func_00181ad0");
@@ -69,7 +69,7 @@ void func_00181ad0(const char* name) {
     if (D_0034ecf4) func_00170c00(D_0034ecf4);
     func_002fee78(buf, D_0036c7b8, func_00105140(name, 0));
     D_0034ecf4 = func_00170b30((func_001688c8(buf) + 2047) & ~2047);  // alloc_align128
-    func_001684c0(buf, D_0034ecf4, 0, 0);
+    YS__FILE__ReadBarBack(buf, D_0034ecf4, 0, 0);
     D_01c60530 = *(const Name10*)name;
 }
 }  // namespace g0
@@ -187,7 +187,7 @@ void func_00181cc0(s16* base, s32 id) {  // chunk_find
 
 // 181d30 YS::AREADATA::SETINDEX::parse
 namespace g5 {
-u32 func_00181da0(u32 a0, u32 a1) asm("func_00181da0");
+u32 YS__AREADATA__SETINDEX__parse_code(u32 a0, u32 a1) asm("YS__AREADATA__SETINDEX__parse_code");
 
 void func_00181d30(u32 a0, u32 a1, u32 a2) asm("_ZNK2YS8AREADATA8SETINDEX5parseEPKNS0_4CODEES4_");
 void func_00181d30(u32 a0, u32 a1, u32 a2) {
@@ -197,7 +197,7 @@ void func_00181d30(u32 a0, u32 a1, u32 a2) {
 
     if (s0 < s1) {
         do {
-            if (func_00181da0(s2, s0) == 0) {
+            if (YS__AREADATA__SETINDEX__parse_code(s2, s0) == 0) {
                 return;
             }
             s16 off = *(s16 *)(s0 + 2);
@@ -256,11 +256,11 @@ void func_00170518(char*, s32, s32) asm("func_00170518");
 s32 W1639_CheckFlag(s32) asm("_ZN2YS8PROGRESS9CheckFlagEi");
 void W1639_SetFlag(s32) asm("_ZN2YS8PROGRESS7SetFlagEi");
 void W1639_ParseIndex(void*, s32*, W1639Code*) asm("_ZNK2YS8AREADATA8SETINDEX5parseEPKNS0_4CODEES4_");
-void func_001ada38(s32) asm("func_001ada38");
+void YS__RECOV__Exec(s32) asm("YS__RECOV__Exec");
 s32 func_001d9b40(u8*) asm("func_001d9b40");
 
-s32 func_00181da0(void* self, W1639Code* code) asm("func_00181da0");
-s32 func_00181da0(void* self, W1639Code* code)
+s32 YS__AREADATA__SETINDEX__parse_code(void* self, W1639Code* code) asm("YS__AREADATA__SETINDEX__parse_code");
+s32 YS__AREADATA__SETINDEX__parse_code(void* self, W1639Code* code)
 {
     s32 i;
     switch (code->op) {
@@ -373,7 +373,7 @@ s32 func_00181da0(void* self, W1639Code* code)
             W1639_ParseIndex(self, &code->arg[1], (W1639Code*)&code->arg[code->n]);
         break;
     case 29:
-        for (i = 0; i < code->n; i++) func_001ada38(code->arg[i]);
+        for (i = 0; i < code->n; i++) YS__RECOV__Exec(code->arg[i]);
         break;
     case 30:
         D_01c60558 = code->arg[0];
@@ -525,12 +525,12 @@ void func_001823d0(u16* p)
 
 // 182690 YS::AREADATA::CanAddCost
 namespace g9 {
-f32 func_001826e0() asm("func_001826e0");
+f32 YS__AREADATA__GetCostRest() asm("YS__AREADATA__GetCostRest");
 
 u32 func_00182690(f32 f12) asm("_ZN2YS8AREADATA10CanAddCostEf");
 u32 func_00182690(f32 f12) {
     f32 f20 = f12;
-    if (f20 <= func_001826e0()) {  // global_float_diff
+    if (f20 <= YS__AREADATA__GetCostRest()) {  // global_float_diff
         return 1u;
     }
     return 0u;
@@ -554,8 +554,8 @@ namespace g11 {
 extern f32 D_01c6053c asm("D_01c6053c");
 extern f32 D_01c60540 asm("D_01c60540");
 
-f32 func_001826e0() asm("func_001826e0");
-f32 func_001826e0() {  // global_float_diff
+f32 YS__AREADATA__GetCostRest() asm("YS__AREADATA__GetCostRest");
+f32 YS__AREADATA__GetCostRest() {  // global_float_diff
     return D_01c6053c - D_01c60540;
 }
 

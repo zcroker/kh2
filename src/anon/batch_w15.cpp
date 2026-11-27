@@ -38,10 +38,10 @@ void func_001450e8(void*, int, u32);
 void func_00142900(u8* p, u32 a, u32 b);  // 0x00142900: definition moved into src/anon/unit_00141458.cpp
 
 int func_00139d78(void*);
-void func_00151528(void*);
+void dk__TIMER__close(void*);
 void func_0014f830(void* p);  // 0x0014f830: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_001386e0(u8*, u32, u32, u32, u32, u32);
+void dk__Sprite__create(u8*, u32, u32, u32, u32, u32);
 // 00158050: moved to src/anon/unit_00158050.cpp
 
 void func_00144450(void*);
@@ -74,8 +74,8 @@ void func_0016bd60(void*, u32);
 // 001a2a18: moved to src/anon/unit_001a28f8.cpp
 
 void* func_001a3a78(void*);
-void func_001de168(void*, u32, u32, u32, u32, void*);  // scan_list_by_half
-void func_001b7428(void* p);  // 0x001b7428: definition moved into src/anon/unit_001b6a50.cpp
+void ryj__PAX__start(void*, u32, u32, u32, u32, void*);  // scan_list_by_half
+void YS__LEVELUP__ShowEffect(void* p);  // 0x001b7428: definition moved into src/anon/unit_001b6a50.cpp
 
 extern u32 D_003511bc;
 extern u8 D_003511c2;
@@ -110,7 +110,7 @@ struct W2 { u32 a; u32 b; };
 extern W2 D_01d9e348;
 void wtarget_impl(u32 a, u32 b, u32, u32);  // 0x001e0348: definition moved into src/anon/unit_001deb58.cpp
 
-void func_001e1988(void*);
+void ryj__LAST_XEMNUS_LASER__setup(void*);
 void func_001e1ce0(u8* p);  // 0x001e1ce0: definition moved into src/anon/unit_001e0cb8.cpp
 
 void sceGsSyncPath(u32, u32);
@@ -167,13 +167,13 @@ u8 func_002d2a08(void*);
 u8 func_002d47a8(void** self);  // 0x002d47a8: definition moved into src/anon/unit_002d4548.cpp
 
 void func_0016a9a0(void*);  // to_16a950
-void func_002db610(void*, s32);
+void Ti__MGHachimitsuPod__set_run_effect(void*, s32);
 void func_002db7d0(u8* p);  // 0x002db7d0: definition moved into src/anon/unit_002da040.cpp
 
 void func_002e9fe0(u32, u32, void*);
 void func_002e8038(u32* p);  // 0x002e8038: definition moved into src/anon/unit_002e7b10.cpp
 
-u8 func_0019bc38(void*);
+u8 YS__OBJ__can_lockon(void*);
 u8 func_002e9c58(u8* a, u8* b);  // 002e9c58: moved to src/anon/unit_002e9a00.cpp
 
 extern u8 D_00367860;

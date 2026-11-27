@@ -42,7 +42,7 @@ void func_00305640(s32);
 
 struct W41S20 { u32 w[5]; };
 extern W41S20 D_0034a9f0;
-void func_00141010(f32);
+void dk__ObjCamera__cancelSubjective(f32);
 u8* func_00140df0(void);
 
 struct W41Ent16 { u16 id; u16 pad; s32 val; u32 x, y; };
@@ -147,9 +147,9 @@ void func_001bd370(u8*);  // clear_4words_plus2240
 void func_001bc720(u8*);
 void func_001bd3a0(u8*);
 void func_001bdf68(u8*);
-void func_001bdff0(void);
+void YS__FIELD_COMMAND__InitShortcut(void);
 void func_001d6da8(u8*);
-void func_001bded8(u8* p);  // 0x001bded8: definition moved into src/anon/unit_001bc568.cpp
+void YS__FIELD_COMMAND__init_area(u8* p);  // 0x001bded8: definition moved into src/anon/unit_001bc568.cpp
 
 }
 
@@ -172,8 +172,8 @@ static inline u32 w41Create(u32 a, u32 b, u32 c) {
 u32 func_001db9a8(u32 a, u32 b, u32 c);  // 0x001db9a8: definition moved into src/anon/unit_001d9d00.cpp
 
 extern u32 D_0034e948;
-u32 func_0019ba60(u32);
-u128* func_0016c028(u32);  // obj_get_attach_or_alt
+u32 YS__OBJ__is_exist(u32);
+u128* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
 extern u128 D_01d5bab0;
 extern f32 D_00352ad0;
 extern f32 D_00349e10;
@@ -193,8 +193,8 @@ extern char D_00370c10[];
 void func_00223448(u32 a, u32 b, u32 c, u32 d);  // 0x00223448: definition moved into src/anon/unit_00222aa8.cpp
 
 u32 func_0022b9e0(u8*, u32, u32);
-void func_001386e0(u8*, u32, u32, u32, u32, u32);
-void func_0022b558(u8* p, u32 a, u32 b);  // 0022b558: moved to src/sasa/musical_target.cpp (linked unit)
+void dk__Sprite__create(u8*, u32, u32, u32, u32, u32);
+void sa__MUSICAL_TARGET__start(u8* p, u32 a, u32 b);  // 0022b558: moved to src/sasa/musical_target.cpp (linked unit)
 
 u32 func_002416d8(u32, u32, u32);
 void func_002346f0(s32, u32, u32, u32, u32);
@@ -219,7 +219,7 @@ s32 func_0028acc8(u32);
 s32 func_0028acb8(u32);
 void func_0028aa40(u32);
 extern u32 D_0035f01c;
-void func_0027a108(void);  // 0x0027a108: definition moved into src/anon/unit_0027a108.cpp
+void Tz__CmAbility__FadeOutSelList(void);  // 0x0027a108: definition moved into src/anon/unit_0027a108.cpp
 
 struct W41VA { u32 (**vt)(W41VA*, u32, u32); };
 struct W41SysA { u8 pad[0x14]; W41VA* alloc; };
@@ -238,7 +238,7 @@ void func_0028cdb8(s32);  // record408_alloc_init
 // 0028ce38: moved to src/anon/unit_0028c878.cpp
 
 u8* func_00103eb0(void);
-u32* func_00102818(u32, u32, u32, void (*)(void), u32);
+u32* TASK_MANAGER__create_thread(u32, u32, u32, void (*)(void), u32);
 void func_002933b8(void);
 void func_00293350(u32 a, u32 b, u32 c);  // 0x00293350: definition moved into src/anon/unit_00292e60.cpp
 
@@ -249,7 +249,7 @@ void func_002b691c(u32);
 void func_002bbde0(void);
 void func_002bacc0(void);
 void func_002b9ad0(void);
-void func_002b9c80(void);
+void SOUND__initCommonSe(void);
 void func_002bd538(void);
 void func_00102788(u32, u32, u32, void (*)(void));
 void func_002b9c60(void);
@@ -260,7 +260,7 @@ void wtarget_002b9bd0(u32, u32, u32, u32);  // 0x002b9bd0: definition moved into
 extern "C" {
 
 void func_0017f5e0(u8*, u32, u32, f32, f32);
-void func_002c17d8(u32, u8* p);  // 0x002c17d8: definition moved into src/anon/unit_002c10e0.cpp
+void worldmap__ActionWarp__start(u32, u8* p);  // 0x002c17d8: definition moved into src/anon/unit_002c10e0.cpp
 
 struct W41S24 { u32 w[6]; };
 u32 func_002cec08(u32, W41S24*);
@@ -272,7 +272,7 @@ extern void* D_0034ee08[];
 extern void* D_00362050;
 void func_00182f28(u32);  // store_global_35ed04
 void func_00319f88(u8*);
-void func_0019f9a8(u8*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(u8*);  // array8_free_slots
 void func_001c0248(u8*);
 void func_00319fb0(u8*);  // big_obj_dtor
 void func_002d0fb0(u8* p);  // 0x002d0fb0: definition moved into src/anon/unit_002cf260.cpp

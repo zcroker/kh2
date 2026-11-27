@@ -13,8 +13,8 @@ extern const s16 D_00372640[];
 extern const s16 D_00372648[];
 s32 func_001a6d08(u32);
 s32 func_00181500(u32);
-void func_0028b300(Obj30*, s32, s32, s32, u32, u8*, u8*, s32, s32);
+void Tz__LaySeq__create(Obj30*, s32, s32, s32, u32, u8*, u8*, s32, s32);
 
-// Picks the value of the first table entry whose key func_00181500 accepts, then calls func_0028b300 with it.
+// Picks the value of the first table entry whose key func_00181500 accepts, then calls Tz__LaySeq__create with it.
 s32 func_00252428(void);  // 0x00252428: definition moved into src/anon/unit_00250fb8.cpp
 }

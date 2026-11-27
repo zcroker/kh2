@@ -66,9 +66,9 @@ void m2c3638_sprSetNum(void*, s32) asm("_ZN2dk6Sprite6setNumEi");
 s32 m2c3638_GetCurrent(s32) asm("_ZN2Tz6Select10GetCurrentEv");
 s32 func_00289380(s32);
 s32 m2c3638_isCursorMove(s32) asm("_ZN2Tz6Select12isCursorMoveEv");
-void func_002891f0(s32, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(s32, s32, s32, s32, s32);
 s32 func_0028b040(s32);
-void func_0028be78(void*, s32);
+void Tz__ScrollBar__SetPos(void*, s32);
 u32 func_002c2598(u32, s32);
 u8 func_002c2688(u32, s32);
 s32 m2c3638_00192048(s32) asm("_Z16u_tail4_00192048jjjj");
@@ -158,7 +158,7 @@ void func_002c3638(M2c3638* m)
             }
             cur = i;
             if (prev != cur) m2c3638_sePlay(1);
-            func_002891f0(m->list, cur, 1, 0, 2);
+            Tz__Select__SetCurrent(m->list, cur, 1, 0, 2);
         }
         if (act) {
             switch (ret) {
@@ -210,8 +210,8 @@ void func_002c3638(M2c3638* m)
     s32 top = func_0028b040(m->list2);
     if (moved) m2c3638_sePlay(1);
     if (!m2c3638_isCursorMove(m->list2)) return;
-    func_002891f0(m->list2, top, 1, 0, 2);
-    func_0028be78(m->obj12308, top);
+    Tz__Select__SetCurrent(m->list2, top, 1, 0, 2);
+    Tz__ScrollBar__SetPos(m->obj12308, top);
     for (i = 0; i < m->nRows; i++) {
         s32 idx = top + i;
         if (idx < 0) return;

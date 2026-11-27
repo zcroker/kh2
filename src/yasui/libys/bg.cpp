@@ -97,11 +97,11 @@ struct SEARCH {
 };
 extern "C" {
 extern u32 D_003638d0;   // random seed
-void* func_001d35e0(void*, void*, u32);
-s32 func_001d35e0_hit(W1788Hit*, W1788V4*, W1788V4*, u32) asm("func_001d35e0");
-s32 func_001d35e0_4(void*, u32, u32, u32) asm("func_001d35e0");
+void* YS__BGHIT__check_line(void*, void*, u32);
+s32 func_001d35e0_hit(W1788Hit*, W1788V4*, W1788V4*, u32) asm("YS__BGHIT__check_line");
+s32 func_001d35e0_4(void*, u32, u32, u32) asm("YS__BGHIT__check_line");
 u32 func_00143a48(Seg91*);
-u8* func_00106a18(s32);
+u8* kn__getProjection(s32);
 Mc* func_00106ad0(u8*);
 u8* func_00106a60(s32);
 void func_00146680(Ob64*, Mc*);
@@ -164,7 +164,7 @@ extern "C" {
 
 u32 func_001a7588(void* p, u32 a1, Q16* out) {
     u32 tmp[8] __attribute__((aligned(16)));
-    if (func_001d35e0(tmp, p, a1)) {
+    if (YS__BGHIT__check_line(tmp, p, a1)) {
         if (out != (Q16*)tmp) { QCOPY(out, tmp); }
     }
     return tmp[5];
@@ -206,9 +206,9 @@ u32 func_001a76c8(Vk* a, Vk* out) {
     return 0;
 }
 
-u32 func_001a7790(u8* a) {
+u32 YS__BG__IsCulling(u8* a) {
     Ob64 ob;
-    Mc m(*func_00106ad0(func_00106a18(1)));
+    Mc m(*func_00106ad0(kn__getProjection(1)));
     u8* t = func_00106a60(1);  // buffer_get_by_index
     Mc* n = t ? (Mc*)(t + 16) : 0;
     Mc r;

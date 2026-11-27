@@ -19,5 +19,5 @@ s32 func_00142b70(s32);
 void func_00141c18(s32, s32, s32, u32, s32);
 s32 func_00141ff0(s32, QWord*, QWord*, Ctx*, s32);
 
-s32 func_00165db8(QWord* a0, QWord* out, u16* outId, s32 a3, s32 t0, u8 t1, s32** outP, s32 t3, s32 skip);  // 0x00165db8: definition moved into src/anon/unit_00165db8.cpp
+s32 dk__ObjOcc__intersectLine(QWord* a0, QWord* out, u16* outId, s32 a3, s32 t0, u8 t1, s32** outP, s32 t3, s32 skip);  // 0x00165db8: definition moved into src/anon/unit_00165db8.cpp
 }

@@ -58,13 +58,13 @@ typedef void (*VFn)(void*);
 
 extern "C" {
 
-void func_0017c4c8(void*, Vec4);
+void YS__OBJ__prepare_jump(void*, Vec4);
 void func_0017f488(void*, s32, f32, f32);
 
 static inline bool stateIsOne(u8* c) { return *(s32*)(c + 4) == 1; }
 
 // 0010c940
-void func_0010c940(u8* p, s32 n, f32 t);  // 0x0010c940: definition moved into src/anon/unit_0010b978.cpp
+void kn__Friend__jump(u8* p, s32 n, f32 t);  // 0x0010c940: definition moved into src/anon/unit_0010b978.cpp
 
 // 00124b10: obj->matrix = m * obj->matrix (VU0)
 void func_00124b10(u8* p, Mtx* m);  // 0x00124b10: definition moved into src/anon/unit_00123990.cpp
@@ -84,7 +84,7 @@ extern u32 D_00347d20;
 // 001366b8
 // 001366b8: moved to src/harata/libdk/bgse.cpp
 
-s32 func_00165db8(s32, s32, s32*, s32, s32, s32, s32*, s32, s32);
+s32 dk__ObjOcc__intersectLine(s32, s32, s32*, s32, s32, s32, s32*, s32, s32);
 void func_00141c18(u32, s32, s32, s32, s32);
 s32 func_00141ff0(u32, s32, s32, s32*, s32);
 extern u32 D_00348804;
@@ -104,13 +104,13 @@ f32 func_001ef398(u8 a);  // 0x001ef398: definition moved into src/anon/unit_001
 // 001ef5a0: negative random float, averaged with a second one when asked
 f32 func_001ef5a0(u8 a);  // 0x001ef5a0: definition moved into src/anon/unit_001ec098.cpp
 
-s32 func_0016c028(void*);  // obj_get_attach_or_alt
+s32 YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 void func_002bc188(s32, s32);
 
 // 00198580: moved to src/anon/unit_00197fe0.cpp
 
 extern f32 D_00349e10;
-Vec4 func_00184540(u8*, f32, f32);
+Vec4 kn__MotionPrototype0__calcLimitValue(u8*, f32, f32);
 
 // 001b2170
 // 001b2170: moved to src/anon/unit_001b1d20.cpp
@@ -125,7 +125,7 @@ void func_001be410(u8* o);  // 0x001be410: definition moved into src/anon/unit_0
 
 s32 func_001818a0(void*);
 s32 func_00177870(void*);
-void func_001bc780(void*, s32, s32, s32);
+void YS__COMMAND_MENU__add(void*, s32, s32, s32);
 
 // 001be540
 void func_001be540(u8* o, void* x);  // 0x001be540: definition moved into src/anon/unit_001bc568.cpp
@@ -148,7 +148,7 @@ void func_0024ab00(void);  // 0x0024ab00: definition moved into src/anon/unit_00
 void* func_00257770(void);
 s32 func_00287bc0(void);
 s32 func_002570a0(s32);
-s32 func_00272b60(s32);
+s32 Tz__CmCustom__CurPos2CustomType(s32);
 void func_0028dac8(void*, s32);
 s32 func_0028be58(u32);
 void func_0028bdb8(u32);
@@ -168,7 +168,7 @@ extern u8 D_00347e60[];
 extern u8 D_00347e40[];
 
 // 002a8948: allocate the work buffers (ten 436-byte objects)
-void func_002a8948(void);  // 0x002a8948: definition moved into src/anon/unit_002a8748.cpp
+void Tz__JmQuest__Init(void);  // 0x002a8948: definition moved into src/anon/unit_002a8748.cpp
 
 f32 __kernel_cosf(f32, f32);  // float_to_int_b
 f32 func_002fb460(f32, f32, s32);  // float_to_int
@@ -272,13 +272,13 @@ void func_0031f590(u8* o);  // 0x0031f590: definition moved into src/anon/unit_0
 void func_002d0718(void*);
 void func_0011b6a8(Mtx*);
 void func_0011b720(Mtx*, f32);
-void func_001449a8(void*, Mtx*);
+void dk__Aabbox__mulMatrix(void*, Mtx*);
 s32 func_002cec08(void*, void*);
 
 // 002cee58
 s32 func_002cee58(void* a, u8* o);  // 002cee58: moved to src/taito/minigame_base.cpp (linked unit)
 
-Vec4 func_0016af58(u8*);
+Vec4 YS__OBJ__get_dir(u8*);
 Vec4 func_002cba88(u32, s32, const Vec4&, f32, f32);
 extern Vec4 D_01e2be20;
 
@@ -289,14 +289,14 @@ s32 func_00253918(void);
 s32 func_002537c8(s32);
 void func_00236c38(u32);
 void func_00236a58(u32, s32, s32);
-void func_002805d0(void);
+void Tz__GumiPause__CreateAdviceGra(void);
 struct State280 { s32 v; s8 pad[2]; s8 b6; s8 b7; };
 union StatePtr { State280* p; u8 c; };
 extern StatePtr D_0035f260;
 extern u32 D_0035f264;
 
 // 00280528
-void func_00280528(void);  // 0x00280528: definition moved into src/anon/unit_0027f2b0.cpp
+void Tz__GumiPause__UpdateAdviceGra(void);  // 0x00280528: definition moved into src/anon/unit_0027f2b0.cpp
 
 void func_0010b978(void*);
 void func_001e02a0(u8*, u8*);
@@ -316,9 +316,9 @@ void func_002dd9e0(u8* o, Word* p, s32 c);  // 0x002dd9e0: definition moved into
 extern s32 D_01e2bfb0;
 extern u8 D_01e2bfc0[];
 extern void* D_0034e948;
-s32 func_0019ba60(void*);
+s32 YS__OBJ__is_exist(void*);
 void* func_0016bba8(void*, s32, void*);
-void func_0018a818(u8*, void*, void*);
+void YS__COLLISION__set(u8*, void*, void*);
 
 // 002e9248: collect the list entries into 32-byte records
 // 002e9248: moved to src/sugi/flare.cpp
@@ -326,9 +326,9 @@ void func_0018a818(u8*, void*, void*);
 Vec4 func_0017c030(u8*, s32*, u8);
 
 // 001c96c8
-void func_001c96c8(void* a, u8* o, u8 f);  // 0x001c96c8: definition moved into src/anon/unit_001c91c8.cpp
+void YS__ACTION_LKDASH__party_jump(void* a, u8* o, u8 f);  // 0x001c96c8: definition moved into src/anon/unit_001c91c8.cpp
 
-s32 func_002282f0(s16);
+s32 sa__EVENT__checkStart(s16);
 void func_0014a768(u8);
 void func_0014a788(u16, u16);
 f32 func_00227c78(u8*);
@@ -337,6 +337,6 @@ void func_0014a7e8(s32);
 void func_0014a7f8(s32);
 
 // 0022cd48
-void func_0022cd48(u8* o);  // 0022cd48: moved to src/sasa/event_layout.cpp (linked unit)
+void sa__EVENT__set_bin_seq_blur(u8* o);  // 0022cd48: moved to src/sasa/event_layout.cpp (linked unit)
 
 }

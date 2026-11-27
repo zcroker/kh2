@@ -1,4 +1,4 @@
-// func_00118da0 (helper w2404, 2026-10-26): plain -O2. The add+set tail is written out in loop 1 and crossjump merges it;
+// kn__Stitch__set_target (helper w2404, 2026-10-26): plain -O2. The add+set tail is written out in loop 1 and crossjump merges it;
 // this raises obs's block frequency so obs (s2) is allocated before the loop end k+n (s3).
 #include "../common/types.h"
 extern "C" {
@@ -9,13 +9,13 @@ struct W2404Tgt {
 void func_00190128(W2404Tgt*);
 s32 w2404_is_exist(W2404Tgt*) asm("_ZNK2YS6TARGET8is_existEv");
 s32 w2404_can_attack(W2404Tgt*) asm("_ZNK2YS6TARGET10can_attackEv");
-s32 func_00190730(W2404Tgt*, s32);
+s32 YS__TARGET__each(W2404Tgt*, s32);
 s32 func_00135c88(void*, W2404Obj*);
 void func_00135bd0(void*, W2404Obj*);
 s32 w2404_entry_num(void*) asm("_ZN2kn11ObjObserver11getEntryNumEv");
 W2404Obj* func_00135d00(void*, s32);
 s32 w2404_is_culling(W2404Obj*) asm("_ZN2YS3OBJ10is_cullingEv");
-void func_00112df0(W2404Obj*, W2404Tgt*, s32, f32);
+void kn__Friend__setAttackTarget(W2404Obj*, W2404Tgt*, s32, f32);
 struct W2404Party { u8 pad[0xb40]; struct W2404PC* pc; };
 struct W2404PC { s32 x; W2404Tgt tgt; };
 struct W2404Friend { u8 pad[0x9f4]; W2404Tgt tgt; };
@@ -37,5 +37,5 @@ static inline s32 w2404_first(void* obs, W2404Obj* cur) {
     }
     return v;
 }
-void func_00118da0(W2404Self* self);  // 0x00118da0: definition moved into src/anon/unit_00118958.cpp
+void kn__Stitch__set_target(W2404Self* self);  // 0x00118da0: definition moved into src/anon/unit_00118958.cpp
 }

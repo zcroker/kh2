@@ -24,7 +24,7 @@ struct S10 { u8 a, b, c; u16 d, e, f; };
 void func_001991a8(s32, s32) asm("func_001991a8");
 u8* func_001058e8(void) asm("func_001058e8");
 u8 func_00149fa8_b(s32) asm("func_00149fa8");
-void func_00104f58(S10*, u32, s32, s32, s32) asm("func_00104f58");
+void AREA__MapJump(S10*, u32, s32, s32, s32) asm("AREA__MapJump");
 
 // 00149fe0: dk::Field::WorldMapStart
 void func_00149fe0(s32 a, u32 b) asm("func_00149fe0");
@@ -45,7 +45,7 @@ void func_00149fe0(s32 a, u32 b) {
     u8 r = func_00149fa8_b(a);
     g[14] = r;
     s.c = r;
-    func_00104f58(&s, b | 1, 0, 0, 0);
+    AREA__MapJump(&s, b | 1, 0, 0, 0);
 }
 
 void func_0014df88(void) asm("func_0014df88");
@@ -57,8 +57,8 @@ u8* func_00103070(void) asm("func_00103070");
 
 // 0014a0a0: dk::Field::execTitle_task
 static inline bool ready_14a0a0() { return *(u32*)(func_0014aba8() + 252) == 4; }
-void func_0014a0a0(u8* p) asm("func_0014a0a0");
-void func_0014a0a0(u8* p) {
+void dk__Field__execTitle_task(u8* p) asm("dk__Field__execTitle_task");
+void dk__Field__execTitle_task(u8* p) {
     if (*(u8*)(p + 4) == 0) {
         func_0014df88();
         func_0014e0d8();
@@ -69,13 +69,13 @@ void func_0014a0a0(u8* p) {
     (**(Fn0**)o)(o);
 }
 
-u8* func_00102818(u32, s32, u32, void*, s32) asm("func_00102818");
+u8* TASK_MANAGER__create_thread(u32, s32, u32, void*, s32) asm("TASK_MANAGER__create_thread");
 extern u32 D_0032b96c asm("D_0032b96c");
 
 // 0014a138: dk::Field::TitleStart
 void TitleStart(bool flag) asm("_ZN2dk5Field10TitleStartEb");
 void TitleStart(bool flag) {
-    u8* t = func_00102818(D_0032b96c, 0, 0x493e0, (void*)func_0014a0a0, 4096);
+    u8* t = TASK_MANAGER__create_thread(D_0032b96c, 0, 0x493e0, (void*)dk__Field__execTitle_task, 4096);
     t[4] = flag;
 }
 
@@ -84,7 +84,7 @@ u8* func_00102c18(u32, u32, void*) asm("func_00102c18");
 void func_0014a830(u8* p) asm("_ZN2dk4Blur9blur_taskEP4TASK");
 void func_0014ae10(void) asm("func_0014ae10");
 void func_0013a9e8(u32) asm("func_0013a9e8");
-void func_002bea00(void) asm("func_002bea00");
+void worldmap__Manager__readPackEnable(void) asm("worldmap__Manager__readPackEnable");
 
 // 0014a188: dk::Field::init
 void func_0014a188(void) asm("func_0014a188");
@@ -94,7 +94,7 @@ void func_0014a188(void) {
     r[4] = 0;
     func_0014ae10();
     func_0013a9e8(1);
-    func_002bea00();
+    worldmap__Manager__readPackEnable();
 }
 
 // ---- LoopDemo / soft reset flags ----
@@ -158,7 +158,7 @@ void func_0014a2f0(void) {
 }
 
 s32 func_0014ca10(void) asm("func_0014ca10");
-void func_00242740(s32) asm("func_00242740");
+void Tz__MenuSound__SetPause(s32) asm("Tz__MenuSound__SetPause");
 void func_0014c9d8(s32) asm("func_0014c9d8");
 void func_0014c9f0(s32) asm("func_0014c9f0");
 void func_002ef7f0(s32) asm("func_002ef7f0");
@@ -177,7 +177,7 @@ void func_0014a310(void) {
         if (func_0014a290()) reset = 0;
         if (!paused && reset == 1) {
             r = func_0014ca10();
-            func_00242740(1);
+            Tz__MenuSound__SetPause(1);
             if (!r) {
                 func_0014c9d8(1);
                 func_0014c9d8(1);
@@ -256,8 +256,8 @@ void f14a500_storeImage(void) asm("_ZN2dk10storeImageEv");
 f32 f14a500_FixRadian(f32) asm("_ZN2YS4MATH9FixRadianEf");
 
 // 0014a500: dk::Blur::update
-void func_0014a500(void) asm("func_0014a500");
-void func_0014a500(void)
+void dk__Blur__update(void) asm("dk__Blur__update");
+void dk__Blur__update(void)
 {
     if (!D_0034939c) {
         D_0034939e = 1;
@@ -299,8 +299,8 @@ void func_0014b248(u8*, s32) asm("func_0014b248");
 void func_0013ee38(u8*, s32) asm("func_0013ee38");
 
 // 0014a6e0: dk::Blur::init
-void func_0014a6e0(void) asm("func_0014a6e0");
-void func_0014a6e0(void) {
+void dk__Blur__init(void) asm("dk__Blur__init");
+void dk__Blur__init(void) {
     D_00349394 = 1;
     D_0034939d = 0;
     D_00349390 = 0;
@@ -343,10 +343,10 @@ void func_0014a7f8(u8 f) {
 // 0014a830: dk::Blur::blur_task
 void func_0014a830(u8* p) {
     if (p[4] == 0) {
-        func_0014a6e0();
+        dk__Blur__init();
         p[4] = 1;
     }
-    func_0014a500();
+    dk__Blur__update();
 }
 
 void func_0013ee88(void*) asm("func_0013ee88");

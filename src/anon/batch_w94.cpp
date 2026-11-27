@@ -1,7 +1,7 @@
 #include "../common/types.h"
 // ---- 00103590
 extern "C" {
-void func_001036d0(void*, u32);
+void MENU__CreateAllocator_2(void*, u32);
 void* func_00106178(void*, u32);
 void* func_00104288(void);
 u8* func_00170b30(u32);  // alloc_align128
@@ -30,7 +30,7 @@ static inline f32 vlen(void* v) {
     return r;
 }
 
-void func_00110500(u8* p);  // 0x00110500: definition moved into src/anon/unit_0010fea0.cpp
+void kn__Friend__followPlayer(u8* p);  // 0x00110500: definition moved into src/anon/unit_0010fea0.cpp
 }
 // ---- 00136560
 extern "C" {
@@ -52,7 +52,7 @@ void func_0031a830(void*);
 void func_0031a838(void*);
 void func_0031a350(void*);
 void func_00239700(void*);
-void func_00137c50(void*);
+void dk__TREASURE_INFO__create(void*);
 extern u8* D_00347f80;
 extern u32 D_00347d70[];
 extern u32 D_00347f98[];
@@ -92,18 +92,18 @@ static inline void addv(V4* out, V4* a, V4* b) {
 }
 
 extern "C" {
-void func_00140500(u8* p);  // 0x00140500: definition moved into src/anon/unit_0013fca8.cpp
+void dk__ObjCamera__calcSubjective(u8* p);  // 0x00140500: definition moved into src/anon/unit_0013fca8.cpp
 }
 // ---- 00156d20
 extern "C" {
 u32 func_00158290(u8*);
 u32 func_0013a7e8(s32);
 u32 func_0013d7e0(void);
-u32 func_00155f40(u8*);
+u32 dk__GAUGE_PLAYER__getDriveLoopSqNum(u8*);
 u32 func_00155fc0(u8*);
 void func_00138c10(u8*, u32);
-s32 func_00139c18(u8*);
-void func_001386e0(u8*, s32, u32, u32, s32, u32);
+s32 dk__Obj2D__checkDoubleCreate(u8*);
+void dk__Sprite__create(u8*, s32, u32, u32, s32, u32);
 void func_001396b0(u8*);
 void func_0031a260(u8*, s32);
 
@@ -122,10 +122,10 @@ extern "C" {
 u32 func_00177860(u8*);
 s32 func_001c3618(u32, s32);
 s32 func_0019c090(u8*);  // obj_is_enabled
-s32 func_001b9d40(u8*);  // vtable_call_slot64_flags
+s32 YS__OBJ__can_control(u8*);  // vtable_call_slot64_flags
 u8* func_001ce300(s32);  // to_1ce2a0_index_minus1
 f32 func_00184a90(u8*);
-u8* func_0016c028(u8*);  // obj_get_attach_or_alt
+u8* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 void func_0016bd60(u8*, s32);
 
 static inline u8 busy(u8* p) {
@@ -208,7 +208,7 @@ static inline u8 busy2(u8* p) {
 #define p ((u8*)self)
 #define owner ((u8*)own)
 // 001c0d38: moved to src/anon/unit_001c0638.cpp
-u8* u_tail4_001c0d38(u32 self, u32 own, u32 a, u32 b);
+u8* YS__OBJ__attach(u32 self, u32 own, u32 a, u32 b);
 #undef p
 #undef owner
 // ---- 001f04a8
@@ -223,7 +223,7 @@ void func_001f04a8(u8* self, u8* ent, u8* desc);  // 0x001f04a8: definition move
 }
 // ---- 00225898
 extern "C" {
-s32 func_002282f0(s32);
+s32 sa__EVENT__checkStart(s32);
 s32 func_002b7148(s32);
 void func_002ba298(s32);
 u32 func_002bd260(s16);
@@ -263,18 +263,18 @@ s32 func_00226ac0(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g);  // 0x00226a
 }
 // ---- 0022ea28
 extern "C" {
-s32 func_002282f0(s32);
-u32 func_002282d8(void);  // limit_15000_or_25000
+s32 sa__EVENT__checkStart(s32);
+u32 sa__EVENT__getEventPriority(void);  // limit_15000_or_25000
 u8* func_00227d10(s16);
-void func_001ba028(u32);  // list_contains_ptr
-s32 func_00225b00(s16);  // flag_query_by_index
+void YS__OBJ__is_valid(u32);  // list_contains_ptr
+s32 sa__EVENT__isJumpMode(s16);  // flag_query_by_index
 void func_0022e998(void);
 void func_0022e9f8(void);
 u8* func_00102c18(s32, u32, void (*)(void));
 u32 func_001050c8(void);
 u8* func_001063c0(s32, u32);
 f32 func_00227c78(u8*);
-void func_002f12b0(u8*, u32, s32, f32, f32);
+void dk__Turn__start(u8*, u32, s32, f32, f32);
 void func_0016aeb8(u32, f32);
 
 union Slot { u8* p; s16 h; };
@@ -300,7 +300,7 @@ extern void* D_0035ece8;
 struct Ent243 { s16 a, b, mot; };
 extern Ent243 D_00371968[];
 
-void func_00243e30(void);  // 0x00243e30: definition moved into src/anon/unit_00242478.cpp
+void Tz__HEFT__LoopAll(void);  // 0x00243e30: definition moved into src/anon/unit_00242478.cpp
 }
 // ---- 00243f48
 extern "C" {
@@ -328,8 +328,8 @@ extern "C" {
 u8* func_00257770(void);
 s32 func_00287bc0(void);
 u32 func_002570a0(s32);
-u32 func_0026a178(u32, s32);
-u16* func_001a8190(u32);
+u32 Tz__CmEquip__GetItemTbl(u32, s32);
+u16* YS__ITEM_TABLE__get_param(u32);
 u16* func_001a80c8(u16);  // table24_find_by_id
 u32 func_00257140(s32);
 void func_0028d980(u8*, s32, u32, u32, u32, u32, s32, s32, s32);
@@ -401,12 +401,12 @@ void func_002a4470(void);  // 0x002a4470: definition moved into src/anon/unit_00
 // ---- 002eaf48
 extern "C" {
 void func_002cbf08(void*, u32);
-void func_0016af58(void*, u8*);
+void YS__OBJ__get_dir(void*, u8*);
 double func_00313b80(f32);  // float_to_double
 s32 func_003142e0(double, double);  // double_compare
 void* func_002cb8b8(u32);
 void* func_002cb8e0(u32);
-u8* func_0016c028(u8*);  // obj_get_attach_or_alt
+u8* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 void func_002cb7a0(u32, s32, void*);
 }
 struct V4e { f32 x, y, z, w; } __attribute__((aligned(16)));

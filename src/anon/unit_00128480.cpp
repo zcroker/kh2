@@ -214,8 +214,8 @@ struct Out128b38 { u8 pad[0x1c]; V4w1992* a; V4w1992* b; V4w1992* c; };
 void func_001285f8(Obj128b38*, s32*, s32*) asm("func_001285f8");
 f32 func_00128750(Obj128b38*, Key128b38*, s32, s32, f32) asm("func_00128750");
 /*TARGET 00128b38*/
-void func_00128b38(Obj128b38* o, Out128b38* out, f32 t) asm("func_00128b38");
-void func_00128b38(Obj128b38* o, Out128b38* out, f32 t) {
+void kn__MotionPrototype0__setFcurveValue(Obj128b38* o, Out128b38* out, f32 t) asm("kn__MotionPrototype0__setFcurveValue");
+void kn__MotionPrototype0__setFcurveValue(Obj128b38* o, Out128b38* out, f32 t) {
     s32 s0, s1;
     func_001285f8(o, &s0, &s1);
     Hdr128b38* h = o->h;
@@ -481,8 +481,8 @@ void func_0011bac8(MotMtx*, MotVec*) asm("func_0011bac8");
 void func_001285f8(MotCtx*, f32, s32*, s32*) asm("func_001285f8");
 f32 func_00128750(MotCtx*, MotKey*, s32, s32, f32) asm("func_00128750");
 /*TARGET 00129060*/
-f32 func_00129060(MotCtx* ctx, MotPose* pose, u16 idx) asm("func_00129060");
-f32 func_00129060(MotCtx* ctx, MotPose* pose, u16 idx) {
+f32 kn__MotionPrototype0__evalExpression(MotCtx* ctx, MotPose* pose, u16 idx) asm("kn__MotionPrototype0__evalExpression");
+f32 kn__MotionPrototype0__evalExpression(MotCtx* ctx, MotPose* pose, u16 idx) {
     MotHeader* hdr = ctx->mot;
     f32 r;
     if (idx >= hdr->nodeCount) return 0.0f;
@@ -490,29 +490,29 @@ f32 func_00129060(MotCtx* ctx, MotPose* pose, u16 idx) {
         MotNode* nodes = (MotNode*)((u8*)hdr + hdr->nodeOff);
         MotNode* n = &nodes[idx];
         switch (n->op) {
-        case 0: return sinf(func_00129060(ctx, pose, n->a) * 0.017453292f);
-        case 1: return cosf(func_00129060(ctx, pose, n->a) * 0.017453292f);
-        case 2: return func_002f8a18(func_00129060(ctx, pose, n->a) * 0.017453292f);
-        case 3: return func_002f8ab8(func_00129060(ctx, pose, n->a)) * 57.295776f;
-        case 4: return acos_2f8aa0(func_00129060(ctx, pose, n->a)) * 57.295776f;
-        case 5: return atanf(func_00129060(ctx, pose, n->a)) * 57.295776f;
-        case 6: return func_002f8b18(func_00129060(ctx, pose, n->a));
-        case 7: return func_002f8ae8(func_00129060(ctx, pose, n->a));
-        case 8: return fabsf(func_00129060(ctx, pose, n->a));
+        case 0: return sinf(kn__MotionPrototype0__evalExpression(ctx, pose, n->a) * 0.017453292f);
+        case 1: return cosf(kn__MotionPrototype0__evalExpression(ctx, pose, n->a) * 0.017453292f);
+        case 2: return func_002f8a18(kn__MotionPrototype0__evalExpression(ctx, pose, n->a) * 0.017453292f);
+        case 3: return func_002f8ab8(kn__MotionPrototype0__evalExpression(ctx, pose, n->a)) * 57.295776f;
+        case 4: return acos_2f8aa0(kn__MotionPrototype0__evalExpression(ctx, pose, n->a)) * 57.295776f;
+        case 5: return atanf(kn__MotionPrototype0__evalExpression(ctx, pose, n->a)) * 57.295776f;
+        case 6: return func_002f8b18(kn__MotionPrototype0__evalExpression(ctx, pose, n->a));
+        case 7: return func_002f8ae8(kn__MotionPrototype0__evalExpression(ctx, pose, n->a));
+        case 8: return fabsf(kn__MotionPrototype0__evalExpression(ctx, pose, n->a));
         case 9: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            return f_powf(a, func_00129060(ctx, pose, n->b));
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return f_powf(a, kn__MotionPrototype0__evalExpression(ctx, pose, n->b));
         }
-        case 10: return __builtin_sqrtf(func_00129060(ctx, pose, n->a));
+        case 10: return __builtin_sqrtf(kn__MotionPrototype0__evalExpression(ctx, pose, n->a));
         case 11: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            r = func_00129060(ctx, pose, n->b);
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            r = kn__MotionPrototype0__evalExpression(ctx, pose, n->b);
             if (a < r) return a;
             return r;
         }
         case 12: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            f32 b = func_00129060(ctx, pose, n->b);
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            f32 b = kn__MotionPrototype0__evalExpression(ctx, pose, n->b);
             if (b < a) return a;
             return b;
         }
@@ -521,19 +521,19 @@ f32 func_00129060(MotCtx* ctx, MotPose* pose, u16 idx) {
             f32 sum = 0.0f;
             s32 cnt = 0;
             while (p->a < hdr->nodeCount) {
-                sum += func_00129060(ctx, pose, p->a);
+                sum += kn__MotionPrototype0__evalExpression(ctx, pose, p->a);
                 cnt++;
                 p = &nodes[p->b];
             }
             return sum / cnt;
         }
         case 14:
-            if (func_00129060(ctx, pose, nodes[n->a].a) != 0.0f)
-                return func_00129060(ctx, pose, nodes[nodes[n->a].b].a);
-            return func_00129060(ctx, pose, nodes[nodes[nodes[n->a].b].b].a);
+            if (kn__MotionPrototype0__evalExpression(ctx, pose, nodes[n->a].a) != 0.0f)
+                return kn__MotionPrototype0__evalExpression(ctx, pose, nodes[nodes[n->a].b].a);
+            return kn__MotionPrototype0__evalExpression(ctx, pose, nodes[nodes[nodes[n->a].b].b].a);
         case 15: case 43: {
             s32 lo, hi;
-            f32 t = func_00129060(ctx, pose, n->a) * 60.0f / hdr->frameRate;
+            f32 t = kn__MotionPrototype0__evalExpression(ctx, pose, n->a) * 60.0f / hdr->frameRate;
             func_001285f8(ctx, t, &lo, &hi);
             MotKey* k;
             if (n->b >= hdr->keyCountA) k = (MotKey*)((u8*)hdr + hdr->keyOffB) + (n->b - hdr->keyCountA);
@@ -545,53 +545,53 @@ f32 func_00129060(MotCtx* ctx, MotPose* pose, u16 idx) {
         case 16:
             return (motWorld(ctx, pose, n->a)->r[3] - motWorld(ctx, pose, n->b)->r[3]).length();
         case 17: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            return func_002f8b00(a, func_00129060(ctx, pose, n->b));
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return func_002f8b00(a, kn__MotionPrototype0__evalExpression(ctx, pose, n->b));
         }
         case 18: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            return a + func_00129060(ctx, pose, n->b);
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return a + kn__MotionPrototype0__evalExpression(ctx, pose, n->b);
         }
         case 19: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            return a - func_00129060(ctx, pose, n->b);
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return a - kn__MotionPrototype0__evalExpression(ctx, pose, n->b);
         }
         case 20: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            return a * func_00129060(ctx, pose, n->b);
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return a * kn__MotionPrototype0__evalExpression(ctx, pose, n->b);
         }
         case 21: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            return a / func_00129060(ctx, pose, n->b);
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return a / kn__MotionPrototype0__evalExpression(ctx, pose, n->b);
         }
         case 22: {
-            s32 a = (s32)func_00129060(ctx, pose, n->a);
-            return (f32)(a % (s32)func_00129060(ctx, pose, n->b));
+            s32 a = (s32)kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return (f32)(a % (s32)kn__MotionPrototype0__evalExpression(ctx, pose, n->b));
         }
         case 23: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            return a == func_00129060(ctx, pose, n->b) ? 1.0f : 0.0f;
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return a == kn__MotionPrototype0__evalExpression(ctx, pose, n->b) ? 1.0f : 0.0f;
         }
         case 24: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            return a > func_00129060(ctx, pose, n->b) ? 1.0f : 0.0f;
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return a > kn__MotionPrototype0__evalExpression(ctx, pose, n->b) ? 1.0f : 0.0f;
         }
         case 25: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            return a >= func_00129060(ctx, pose, n->b) ? 1.0f : 0.0f;
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return a >= kn__MotionPrototype0__evalExpression(ctx, pose, n->b) ? 1.0f : 0.0f;
         }
         case 26: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            return a < func_00129060(ctx, pose, n->b) ? 1.0f : 0.0f;
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return a < kn__MotionPrototype0__evalExpression(ctx, pose, n->b) ? 1.0f : 0.0f;
         }
         case 27: {
-            f32 a = func_00129060(ctx, pose, n->a);
-            return a <= func_00129060(ctx, pose, n->b) ? 1.0f : 0.0f;
+            f32 a = kn__MotionPrototype0__evalExpression(ctx, pose, n->a);
+            return a <= kn__MotionPrototype0__evalExpression(ctx, pose, n->b) ? 1.0f : 0.0f;
         }
         case 28:
-            return (func_00129060(ctx, pose, n->a) != 0.0f && func_00129060(ctx, pose, n->b) != 0.0f) ? 1.0f : 0.0f;
+            return (kn__MotionPrototype0__evalExpression(ctx, pose, n->a) != 0.0f && kn__MotionPrototype0__evalExpression(ctx, pose, n->b) != 0.0f) ? 1.0f : 0.0f;
         case 29:
-            r = (func_00129060(ctx, pose, n->a) != 0.0f || func_00129060(ctx, pose, n->b) != 0.0f) ? 1.0f : 0.0f;
+            r = (kn__MotionPrototype0__evalExpression(ctx, pose, n->a) != 0.0f || kn__MotionPrototype0__evalExpression(ctx, pose, n->b) != 0.0f) ? 1.0f : 0.0f;
             return r;
         case 30: return D_00347b70;
         case 31: return n->value;
@@ -940,12 +940,12 @@ void func_0011b6a8(MotMtx*) asm("func_0011b6a8");
 u32 FMatrix_rotateX(MotMtx*, f32) asm("_ZN2kn7FMatrix7rotateXEf");
 void FMatrix_rotateXYZ(MotMtx*, MotVec*) asm("_ZN2kn7FMatrix9rotateXYZERKNS_7FVectorE");
 void func_0011bac8(MotMtx*, MotVec*) asm("func_0011bac8");
-void func_00124ca8(MotVec*, MotVec*, s32, f32, f32, MotMtx*, MotMtx*, f32, f32, MotVec*) asm("func_00124ca8");
+void gm__GRID__draw(MotVec*, MotVec*, s32, f32, f32, MotMtx*, MotMtx*, f32, f32, MotVec*) asm("gm__GRID__draw");
 void func_00128040(MotCtx*, void*, MotVec*, MotVec*) asm("func_00128040");
 void func_00128d40(MotVec*, MotVec*, MotMtx*) asm("func_00128d40");
 void func_00128e98(MotCtx*, MotPose*, u32, u32, MotVec*, MotMtx*, MotVec*) asm("func_00128e98");
 void func_00129008(MotCtx*, MotPose*, MotConstraint*, MotVec*, MotMtx*, MotVec*) asm("func_00129008");
-f32 func_00129060(MotCtx*, MotPose*, u16) asm("func_00129060");
+f32 kn__MotionPrototype0__evalExpression(MotCtx*, MotPose*, u16) asm("kn__MotionPrototype0__evalExpression");
 void func_00129960(MotMtx*, MotMtx*) asm("func_00129960");
 s32 func_00143c68(MotVec*, MotVec*) asm("func_00143c68");
 static inline MotBone* motRest(MotHeader* m, s32 i) {
@@ -986,10 +986,10 @@ static inline MotMtx* motWorld(MotCtx* ctx, MotPose* pose, s32 i) {
 static inline void motSetRot(MotMtx* m, MotVec* r) { func_0011bac8(m, r); }
 static inline void motRotXYZ(MotMtx* m, MotVec* r) { FMatrix_rotateXYZ(m, r); }
 static inline void motIK2(MotVec* a, MotVec* b, f32 l1, f32 l2, MotMtx* m1, MotMtx* m2, f32& r1, f32& r2, s32 type, MotVec* pole) {
-    func_00124ca8(a, b, type, l1, l2, m1, m2, r1, r2, pole);
+    gm__GRID__draw(a, b, type, l1, l2, m1, m2, r1, r2, pole);
 }
 static inline void motIK1(MotVec* a, MotVec* b, f32 l1, MotMtx* m1, f32& r1, MotVec* pole) {
-    func_00124ca8(a, b, 0, l1, 0.0f, m1, 0, r1, 0.0f, pole);
+    gm__GRID__draw(a, b, 0, l1, 0.0f, m1, 0, r1, 0.0f, pole);
 }
 static inline void motLimit(MotCtx* ctx, void* lim, MotVec v, MotVec* io) { func_00128040(ctx, lim, &v, io); }
 static inline bool motIsEndType(s32 t) {
@@ -1032,7 +1032,7 @@ void func_00129c38(MotCtx* ctx, MotPose* pose, MotMtx* base, MotTarget* tgt, Mot
         s32 parent = motBone(ctx, pose, idx)->parent;
 
         while (expr != exprEnd && expr->joint == (u16)idx) {
-                f32 v = func_00129060(ctx, pose, expr->node);
+                f32 v = kn__MotionPrototype0__evalExpression(ctx, pose, expr->node);
                 switch (expr->channel) {
                 case 0: case 1: case 2:
                     (*motScl(ctx, pose, idx))[expr->channel] = v;
@@ -1609,12 +1609,12 @@ void func_0011b6a8(MotMtx*) asm("func_0011b6a8");
 u32 FMatrix_rotateX(MotMtx*, f32) asm("_ZN2kn7FMatrix7rotateXEf");
 void FMatrix_rotateXYZ(MotMtx*, MotVec*) asm("_ZN2kn7FMatrix9rotateXYZERKNS_7FVectorE");
 void func_0011bac8(MotMtx*, MotVec*) asm("func_0011bac8");
-void func_00124ca8(MotVec*, MotVec*, s32, f32, f32, MotMtx*, MotMtx*, f32, f32, MotVec*) asm("func_00124ca8");
+void gm__GRID__draw(MotVec*, MotVec*, s32, f32, f32, MotMtx*, MotMtx*, f32, f32, MotVec*) asm("gm__GRID__draw");
 void func_00128040(MotCtx*, void*, MotVec*, MotVec*) asm("func_00128040");
 void func_00128d40(MotVec*, MotVec*, MotMtx*) asm("func_00128d40");
 void func_00128e98(MotCtx*, MotPose*, u32, u32, MotVec*, MotMtx*, MotVec*) asm("func_00128e98");
 void func_00129008(MotCtx*, MotPose*, MotConstraint*, MotVec*, MotMtx*, MotVec*) asm("func_00129008");
-f32 func_00129060(MotCtx*, MotPose*, u16) asm("func_00129060");
+f32 kn__MotionPrototype0__evalExpression(MotCtx*, MotPose*, u16) asm("kn__MotionPrototype0__evalExpression");
 void func_00129960(MotMtx*, MotMtx*) asm("func_00129960");
 s32 func_00143c68(MotVec*, MotVec*) asm("func_00143c68");
 static inline MotBone* motRest(MotHeader* m, s32 i) {
@@ -1648,10 +1648,10 @@ static inline MotMtx* motWorld(MotCtx* ctx, MotPose* pose, s32 i) {
 static inline void motSetRot(MotMtx* m, MotVec* r) { func_0011bac8(m, r); }
 static inline void motRotXYZ(MotMtx* m, MotVec* r) { FMatrix_rotateXYZ(m, r); }
 static inline void motIK2(MotVec* a, MotVec* b, f32& l1, f32& l2, MotMtx* m1, MotMtx* m2, f32& r1, f32& r2, s32 type, MotVec* pole) {
-    func_00124ca8(a, b, type, l1, l2, m1, m2, r1, r2, pole);
+    gm__GRID__draw(a, b, type, l1, l2, m1, m2, r1, r2, pole);
 }
 static inline void motIK1(MotVec* a, MotVec* b, f32& l1, MotMtx* m1, f32& r1, MotVec* pole) {
-    func_00124ca8(a, b, 0, l1, 0.0f, m1, 0, r1, 0.0f, pole);
+    gm__GRID__draw(a, b, 0, l1, 0.0f, m1, 0, r1, 0.0f, pole);
 }
 static inline void motLimit(MotCtx* ctx, void* lim, MotVec v, MotVec* io) { func_00128040(ctx, lim, &v, io); }
 static inline bool motIsEndType(s32 t) {
@@ -1694,7 +1694,7 @@ void func_0012d728(MotCtx* ctx, MotPose* pose, MotMtx* base, MotTarget* tgt, Mot
         s32 parent = motBone(ctx, pose, idx)->parent;
 
         while (expr != exprEnd && expr->joint == (u16)idx) {
-                f32 v = func_00129060(ctx, pose, expr->node);
+                f32 v = kn__MotionPrototype0__evalExpression(ctx, pose, expr->node);
                 switch (expr->channel) {
                 case 6: case 7: case 8:
                     (*motTrans(ctx, pose, idx))[expr->channel - 6] = v;

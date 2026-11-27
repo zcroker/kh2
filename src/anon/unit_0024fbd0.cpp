@@ -25,34 +25,34 @@ extern Opt28 D_00372548[] asm("D_00372548");
 extern u32 D_0035ee38 asm("D_0035ee38");
 extern u32 D_0035ee3c asm("D_0035ee3c");
 extern u32 D_0035ee4c asm("D_0035ee4c");
-void func_00288d80(u32, s32, s32, s32, u32, u16, Opt28*, u8*) asm("func_00288d80");
+void Tz__Select__SetItem(u32, s32, s32, s32, u32, u16, Opt28*, u8*) asm("Tz__Select__SetItem");
 u8* func_002891b8(u32, s32) asm("func_002891b8");
 u32 func_0023aa78(u8*) asm("func_0023aa78");
 u32 func_0023aa98(u8*) asm("func_0023aa98");
-void func_00288e08(u32, s32, u32, s32) asm("func_00288e08");
+void Tz__Select__SetExOffset(u32, s32, u32, s32) asm("Tz__Select__SetExOffset");
 u32 func_0028dd90(u32) asm("func_0028dd90");
 // mod10_classify_012
 u32 func_0028ddd8(u32) asm("func_0028ddd8");
 void func_001395f8(u8*) asm("func_001395f8");
-void func_002891f0(u32, s32, s32, s32, s32) asm("func_002891f0");
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
 void func_002b4388(u32, Opt28*, s32) asm("func_002b4388");
 /*TARGET 0024fbd0*/
-void func_0024fbd0(void) asm("func_0024fbd0");
-void func_0024fbd0(void)
+void Tz__LMMU__SetupSel(void) asm("Tz__LMMU__SetupSel");
+void Tz__LMMU__SetupSel(void)
 {
     s32 sel = 0;
     for (s32 i = 0; i < 2; i++) {
         Opt28* e = (Opt28*)((u8*)(i * 36) + (u32)D_00372548);
         if (e->def) sel = i;
-        func_00288d80(D_0035ee38, i, 0, 0, D_0035ee3c, e->id, e, (u8*)(i * 36) + (u32)D_00372548[0].text);
+        Tz__Select__SetItem(D_0035ee38, i, 0, 0, D_0035ee3c, e->id, e, (u8*)(i * 36) + (u32)D_00372548[0].text);
         u8* o = func_002891b8(D_0035ee38, i);
-        func_00288e08(D_0035ee38, i, func_0023aa78(o + 24), 0);
+        Tz__Select__SetExOffset(D_0035ee38, i, func_0023aa78(o + 24), 0);
         u32 x = func_0023aa98(o + 24);
         *(u32*)(o + 432) = func_0028dd90(x);
         *(u32*)(o + 428) = func_0028ddd8(x);
         func_001395f8(o);
     }
-    func_002891f0(D_0035ee38, sel, 1, 0, 2);
+    Tz__Select__SetCurrent(D_0035ee38, sel, 1, 0, 2);
     func_002b4388(D_0035ee4c, &D_00372548[sel], 0);
 }
 }  // namespace n0024fbd0
@@ -72,8 +72,8 @@ s32 func_0023f0c0(void*) asm("func_0023f0c0");
 void func_0023f070(void*, s32, s32) asm("func_0023f070");
 void func_0028ab20(void*) asm("func_0028ab20");
 /*TARGET 0024fd28*/
-void func_0024fd28(void) asm("func_0024fd28");
-void func_0024fd28(void) {
+void Tz__LMMU__LoopAll(void) asm("Tz__LMMU__LoopAll");
+void Tz__LMMU__LoopAll(void) {
     if (func_00139d78(D_0035ee3c)) {
         if (func_0023f0c0(D_0035ee3c) != 32) func_0023f070(D_0035ee3c, 32, -1);
     }
@@ -135,7 +135,7 @@ s32 func_0028acc8(void*) asm("func_0028acc8");
 void func_0024ffe0() asm("func_0024ffe0");
 void func_00250130() asm("func_00250130");
 s32 func_00287bc0() asm("func_00287bc0");
-void func_00287d68() asm("func_00287d68");
+void Tz__MenuBase__SaveMode() asm("Tz__MenuBase__SaveMode");
 s32 func_00287db0() asm("func_00287db0");
 extern void* D_0035ee34 asm("D_0035ee34");
 extern void* D_0035ee38 asm("D_0035ee38");
@@ -144,11 +144,11 @@ extern void* D_0035ee40 asm("D_0035ee40");
 extern void* D_0035ee44 asm("D_0035ee44");
 /*TARGET 0024ff08*/
 // The || chain with a single "return 0" keeps the result in v0 (separate returns put it in t7).
-s32 func_0024ff08(void) asm("func_0024ff08");
+s32 Tz__LMMU__Control(void) asm("Tz__LMMU__Control");
 // The || chain with a single "return 0" keeps the result in v0 (separate returns put it in t7).
-s32 func_0024ff08(void) {
+s32 Tz__LMMU__Control(void) {
     s32 s = func_00287bc0();
-    func_00287d68();
+    Tz__MenuBase__SaveMode();
     if (func_00287db0()) {
         if (func_0028acc8(D_0035ee34) || func_0028acc8(D_0035ee38) || func_00139d78(D_0035ee3c)
             || func_00139d78(D_0035ee40) || func_00139d78(D_0035ee44)) return 0;
@@ -186,8 +186,8 @@ s32 func_00289380_x8859(s32) asm("func_00289380");
 s32 func_00289310_x8860(s32) asm("func_00289310");
 s32 func_0028ae28_x8861(s32, s32) asm("func_0028ae28");
 void func_002426a0(s32) asm("func_002426a0");
-void func_0024fd28() asm("func_0024fd28");
-void func_0024fbd0() asm("func_0024fbd0");
+void Tz__LMMU__LoopAll() asm("Tz__LMMU__LoopAll");
+void Tz__LMMU__SetupSel() asm("Tz__LMMU__SetupSel");
 void func_00287c90(s32) asm("func_00287c90");
 void func_002507a0() asm("func_002507a0");
 void func_00287df0_x8867(s32, s32, s32, s32, s32) asm("func_00287df0");
@@ -203,7 +203,7 @@ void func_0024ffe0() {
     if (r != -1 || func_00289310_x8860(D_0035ee34)) {
         if (!func_0028ae28_x8861(D_0035ee34, 0)) {
             func_002426a0(0);
-            func_0024fd28();
+            Tz__LMMU__LoopAll();
         }
     }
     if (!a && func_0028ae28_x8861(D_0035ee34, 0)) {
@@ -218,7 +218,7 @@ void func_0024ffe0() {
         func_00287da0();
         break;
     case 0: case 1: case 2: case 3: case 4:
-        func_0024fbd0();
+        Tz__LMMU__SetupSel();
         func_00287bd0(1, 0);
         func_00287cc0(0);
         break;
@@ -329,17 +329,17 @@ void func_0028ce38(void) asm("func_0028ce38");
 void func_00250928(void) asm("func_00250928");
 void func_00250698(void) asm("func_00250698");
 s32 func_0028d008(s32) asm("func_0028d008");
-void func_0028cc78(s32, s32, s32, s32, s32, s32) asm("func_0028cc78");
+void Tz__MenuCursor__Create(s32, s32, s32, s32, s32, s32) asm("Tz__MenuCursor__Create");
 s32 func_002891d0(s32) asm("func_002891d0");
-void func_0028cf28(s32, s32) asm("func_0028cf28");
+void Tz__MenuCursor__SetParent(s32, s32) asm("Tz__MenuCursor__SetParent");
 void func_0028cdb8(s32) asm("func_0028cdb8");
 s32 func_00287c50(void) asm("func_00287c50");
-void func_0028ce98(s32, s32) asm("func_0028ce98");
-void func_00250550(s32, s32, s32) asm("func_00250550");
+void Tz__MenuCursor__SetType(s32, s32) asm("Tz__MenuCursor__SetType");
+void Tz__LMMU__DrawSelector(s32, s32, s32) asm("Tz__LMMU__DrawSelector");
 struct NoTail0328 { ~NoTail0328() {} };
 /*TARGET 00250328*/
-void func_00250328(void) asm("func_00250328");
-void func_00250328(void) {
+void Tz__LMMU__Draw(void) asm("Tz__LMMU__Draw");
+void Tz__LMMU__Draw(void) {
     NoTail0328 nt;
     s32 mode = func_00287bc0();
     s32 sub = func_00287cd0();
@@ -367,16 +367,16 @@ void func_00250328(void) {
         s32 side = mode != 0;
         if (func_0028acc8(obj) != 0 && sub == 1) {
             if (func_0028d008(side) == 0) {
-                func_0028cc78(side, 0, 0, D_0035ee3c, 15, 14);
-                func_0028cf28(side, func_002891d0(obj));
+                Tz__MenuCursor__Create(side, 0, 0, D_0035ee3c, 15, 14);
+                Tz__MenuCursor__SetParent(side, func_002891d0(obj));
             }
         } else if (sub == 2 && func_0028d008(side) != 0) {
             func_0028cdb8(side);
         }
         if (func_00287c50() != 0 && func_0028d008(0) != 0) {
-            func_0028ce98(0, side);
+            Tz__MenuCursor__SetType(0, side);
         }
-        func_00250550(obj, mode, side);
+        Tz__LMMU__DrawSelector(obj, mode, side);
     }
 }
 }  // namespace n00250328
@@ -391,7 +391,7 @@ extern void func_00289038(void*, s32, s32, s32, s32, s32, s32) asm("func_0028903
 extern void func_0023f070(void*, s32, s32) asm("func_0023f070");
 extern s32 func_0028d008(s32) asm("func_0028d008");
 extern s32 func_002891d0(void*) asm("func_002891d0");
-extern void func_0028cf28(s32, s32) asm("func_0028cf28");
+extern void Tz__MenuCursor__SetParent(s32, s32) asm("Tz__MenuCursor__SetParent");
 // record408_set_and_refresh
 extern void func_002b4388(void*, void*, s32) asm("func_002b4388");
 struct W268E6 { s16 a, b, c; };
@@ -405,10 +405,10 @@ extern W268E36 D_00372548[] asm("D_00372548");
 /*TARGET 00250550*/
 // 0x0024c420: definition moved into src/anon/unit_0024ba58.cpp
 
-void func_00250550(void* a0, s32 a1, s32 a2) asm("func_00250550");
+void Tz__LMMU__DrawSelector(void* a0, s32 a1, s32 a2) asm("Tz__LMMU__DrawSelector");
 // 0x0024c420: definition moved into src/anon/unit_0024ba58.cpp
 
-void func_00250550(void* a0, s32 a1, s32 a2)
+void Tz__LMMU__DrawSelector(void* a0, s32 a1, s32 a2)
 {
     s32 cur;
     if (func_00287cd0(a0) != 1) return;
@@ -420,7 +420,7 @@ void func_00250550(void* a0, s32 a1, s32 a2)
         func_0023f070(D_0035ee44, D_00372448[cur].c, -1);
         func_00250998();
     }
-    if (func_0028d008(a2)) func_0028cf28(a2, func_002891d0(a0));
+    if (func_0028d008(a2)) Tz__MenuCursor__SetParent(a2, func_002891d0(a0));
     func_002b4388(D_0035ee4c, a1 == 0 ? &D_00372490[cur] : &D_00372548[cur], 0);
 }
 }  // namespace n00250550
@@ -610,13 +610,13 @@ void* func_00288be8(s32) asm("func_00288be8");
 void func_002889f0(void*, s32, s32) asm("func_002889f0");
 void func_00288f48(void*, s32, s32, s32, s32) asm("func_00288f48");
 R* func_00103eb0(void) asm("func_00103eb0");
-void func_00102818(s32, s32, s32, void*, s32) asm("func_00102818");
+void TASK_MANAGER__create_thread(s32, s32, s32, void*, s32) asm("TASK_MANAGER__create_thread");
 void func_002510d0(void) asm("func_002510d0");
 /*TARGET 00250a50*/
 // Sets up two work buffers, then allocates and constructs the module objects.
-void func_00250a50(void) asm("func_00250a50");
+void Tz__CANA__Init(void) asm("Tz__CANA__Init");
 // Sets up two work buffers, then allocates and constructs the module objects.
-void func_00250a50(void) {
+void Tz__CANA__Init(void) {
     void* p;
     func_00287b18(4, 3);
     p = func_00288be8(56);
@@ -638,7 +638,7 @@ void func_00250a50(void) {
     D_0035ee78 = new Y;
     D_0035ee7c = new Z;
     D_0035ee80 = new Z;
-    func_00102818(func_00103eb0()->f4, 0, 2000, (void*)func_002510d0, 4096);
+    TASK_MANAGER__create_thread(func_00103eb0()->f4, 0, 2000, (void*)func_002510d0, 4096);
 }
 }  // namespace n00250a50
 

@@ -9,12 +9,12 @@ extern u8 D_003a7b00;
 extern u32 D_0032b96c;
 void func_001052a8(void);
 void func_00104a48(void);
-void func_00102818(u32, u32, u32, void (*)(void), u32);
+void TASK_MANAGER__create_thread(u32, u32, u32, void (*)(void), u32);
 void GUMIMENU_CreateThread(int, int, void (*)(TASK*), int) asm("_ZN8GUMIMENU12CreateThreadEiiPFvP4TASKEi");
 // 00104da0: moved to src/common/area.cpp
 
 // --- 0010c7f0
-void func_0017dbb8(void*);
+void YS__FRIEND___OVR_initialize(void*);
 struct VObj { void (**vt)(VObj*); };
 typedef void (*VFn)(void*);
 void func_0010c7f0(u8* p);  // 0x0010c7f0: definition moved into src/anon/unit_0010b978.cpp
@@ -53,7 +53,7 @@ void func_00154450(u32, u32, u32);
 void func_00154b40(u32 a, u32 b);
 
 // --- 00157068
-u32 func_00155f40(void*);
+u32 dk__GAUGE_PLAYER__getDriveLoopSqNum(void*);
 void func_00138c10(void*, u32);
 void func_00156408(void*);
 void GAUGE_PLAYER_update(u8*) asm("_ZN2dk12GAUGE_PLAYER6updateEv");
@@ -77,12 +77,12 @@ struct T173 { u32 pad; f32 a; f32 b; };
 void func_00173518(f32* p);  // 0x00173518: definition moved into src/anon/unit_00171e58.cpp
 
 // --- 0017a1c8
-void func_001762f8(void*);
+void YS__PARTY___OVR_exec_damage(void*);
 void func_00112ab8(u32, void*);
 // 0017a1c8: moved to src/yasui/libys/player.cpp
 
 // --- 00192290
-u32 func_001921d8(void);
+u32 YS__MESSAGE__GetFilename(void);
 u32 func_001708f8(u32, s32);
 void func_00191f78(int, u32);
 void MESSAGE_Init(int, int) asm("_ZN2YS7MESSAGE4InitEii");
@@ -103,7 +103,7 @@ void func_001aae28(S1aae28* s, u32 a, u32 b, u32 c, u32 d, u32 e, u32 f, u32 g, 
 
 // --- 001af328
 void* func_001050d8(u32);
-void func_001aedf8(void*, u32, u32);
+void YS__GAMEOVER__GAMEOVER(void*, u32, u32);
 void func_001af328(u32 a);  // 0x001af328: definition moved into src/anon/unit_001ada38.cpp
 
 // --- 001b6d00
@@ -145,8 +145,8 @@ void func_001c1708(u8* p);
 
 // --- 001d7e78
 void func_0019aa00(u32, void*);
-void func_001b40e0(void*);
-void func_001d7e78(u8* p);  // 0x001d7e78: definition moved into src/anon/unit_001d7458.cpp
+void YS__PIERROT___OVR__dead(void*);
+void YS__ENEMYBASE___OVR__dead(u8* p);  // 0x001d7e78: definition moved into src/anon/unit_001d7458.cpp
 
 // --- 001d9688
 // Increment a [n][3] byte counter, capped at 99.
@@ -189,7 +189,7 @@ E243* func_00243150(s32 id);  // 0x00243150: definition moved into src/anon/unit
 // --- 00276c50
 // Tz JmReport DrawMessage
 u32 func_00192048(u32);
-u32 func_00276c88(u32, u8);
+u32 Tz__Jiminy__CreateHelp(u32, u8);
 u32 JmReport_DrawMessage(s32, u8) asm("_ZN2Tz8JmReport11DrawMessageEjj");
 u32 JmReport_DrawMessage(s32 a, u8 b);  // 0x00276c50: definition moved into src/anon/unit_002748a0.cpp
 

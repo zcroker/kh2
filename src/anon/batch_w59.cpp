@@ -48,16 +48,16 @@ void func_00109140(void);  // 00109140: moved to src/anon/unit_001085a8.cpp
 
 // --- 0010cce0
 // Advance the object iterator until an object passing the check is found.
-void* func_001b9bc8p(void*) asm("func_001b9bc8");
+void* func_001b9bc8p(void*) asm("YS__OBJ__Each");
 bool func_00112d28(void*);
 void* func_0010cce0(void* p);  // 0x0010cce0: definition moved into src/anon/unit_0010b978.cpp
 
 // --- 0013e2d8
 u32 func_0013a7e8(u32);
-void func_001386e0(u8*, u32, u32, u32, u32, u32);
+void dk__Sprite__create(u8*, u32, u32, u32, u32, u32);
 void func_00139598(u8*);
 void func_00139708(u8*);
-void func_0013e2d8(u8* p, u32 a, u32 b);  // 0x0013e2d8: definition moved into src/anon/unit_0013dfb8.cpp
+void dk__LockOn__start(u8* p, u32 a, u32 b);  // 0x0013e2d8: definition moved into src/anon/unit_0013dfb8.cpp
 
 // --- 00141850
 // Clear every entry's flag, then apply each bit set in the 64-bit mask.
@@ -113,8 +113,8 @@ void func_0016e880(void);
 
 // --- 00173f68
 f32 func_00184a90(u32);
-f32* func_0016c028(u32);  // obj_get_attach_or_alt
-void func_00173f68(u8* p);  // 0x00173f68: definition moved into src/anon/unit_00171e58.cpp
+f32* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
+void YS__trap_obj_float_height(u8* p);  // 0x00173f68: definition moved into src/anon/unit_00171e58.cpp
 
 // --- 00176b58
 u32 func_00176b20(s32);
@@ -135,15 +135,15 @@ void func_00188ac8(S188* p);  // 0x00188ac8: definition moved into src/anon/unit
 
 // --- 00190388
 struct Buf190 { u32 a, b, c, d; Vec4c v; };
-void func_001902a8(u32, Buf190*);
+void YS__TARGET__make_collision(u32, Buf190*);
 Vec4c func_00190388(u32 a);  // 0x00190388: definition moved into src/anon/unit_001900d0.cpp
 
 // --- 001b55e8
-u32 func_0016f7d0(u32, u32);
+u32 YS__OBJENTRY__GetCacheBuffStatus(u32, u32);
 u32 func_001d1ca8(u8*);
-u32 func_001d1f08(u8*);
+u32 YS__MISSION_GAUGE__is_open(u8*);
 u32 func_001c9df8(void);
-u32 func_001b55e8(u8* p);  // 0x001b55e8: definition moved into src/anon/unit_001b2780.cpp
+u32 YS__LIMIT__can_end(u8* p);  // 0x001b55e8: definition moved into src/anon/unit_001b2780.cpp
 
 // --- 001b9ee8
 extern u8* D_01d48da0;
@@ -163,7 +163,7 @@ void func_001780d8(u8*);
 void func_00198860(u8*, u32);
 void func_0017f488(u8*, u32, f32, f32);
 void func_0017f5e0(u8*, u32, u32, f32, f32);
-void func_001987a8(u8*, void*, u8*);
+void YS__STDOBJ__start_camera(u8*, void*, u8*);
 extern u8 D_0036e368[];
 void func_001cffe0(u8* p);  // 0x001cffe0: definition moved into src/anon/unit_001cf0b0.cpp
 
@@ -174,7 +174,7 @@ extern u8 D_00321790[];
 extern u32 D_00352768;
 u8* func_002fd248(u32, u8*, u32, u32, void*);
 u8* func_00168b38(u32, u32, u8);  // entry_array_find_nth
-void func_0023cde8(u32);
+void YI__VIBRATION__Create(u32);
 void func_001d5068(u32 key);  // 0x001d5068: definition moved into src/anon/unit_001d4f40.cpp
 
 // --- 001d6d00
@@ -188,7 +188,7 @@ s32 func_001d6d00(u32 id);  // 0x001d6d00: definition moved into src/anon/unit_0
 // --- 001d8ad8
 u8* func_001bbcb0(void);
 u32 func_001bb4a0(void);
-void func_001d8ad8(s32 idx, u8 flag);  // 0x001d8ad8: definition moved into src/anon/unit_001d7458.cpp
+void YS__MISSION__WarningCount(s32 idx, u8 flag);  // 0x001d8ad8: definition moved into src/anon/unit_001d7458.cpp
 
 // --- 001da458
 struct P1da { u32 a; u32 b; u32 cur; };
@@ -227,7 +227,7 @@ extern u8 D_0035f360[];
 extern u32* volatile D_0035f0dc;
 void func_00263bb0(u32, u32);
 void func_00239700(u32*);
-void func_00263960(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x00263960: definition moved into src/anon/unit_002632d0.cpp
+void Tz__CMenuHelp__Init(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x00263960: definition moved into src/anon/unit_002632d0.cpp
 
 // --- 0027db58
 u8* func_00167f18(u32);
@@ -270,7 +270,7 @@ void func_001991a8(u32, u32);
 void wtarget_002eda40(u32 a, u32 b, u32 c, u32 d);  // 0x002eda40: definition moved into src/anon/unit_002ecdb0.cpp
 
 // --- 002edca0
-u32 func_001b9bc8(u32);
+u32 YS__OBJ__Each(u32);
 u32 func_001c0cd8(u32);
 void func_001c1020(u32, u32);
 void func_002edca0(u32 key, u32 arg);  // 0x002edca0: definition moved into src/anon/unit_002ecdb0.cpp

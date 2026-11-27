@@ -25,7 +25,7 @@ void func_002759e8(s32);
 void func_0028d620(u32);
 void func_0028cdb8(s32);
 s32 func_0028d6e8(u32);
-void func_002756f8(void*, u32, s32);
+void OvlShop__ItemShop__DrawSelector(void*, u32, s32);
 struct VObj { void (**vt)(VObj*); };
 extern void* D_0035f200;
 extern VObj* D_0035f208;

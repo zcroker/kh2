@@ -41,26 +41,26 @@ struct W1816Buf { f32 v[8]; };
 #define W1816F(o, off, T) (*(T*)((u8*)(o) + (off)))
 
 extern "C" {
-void func_0016af58(W1816Q*, u32);
+void YS__OBJ__get_dir(W1816Q*, u32);
 f32 func_0017ce10(f32);
 f32 func_002f8ad0(f32, f32);
-void func_002f12b0(W1816Turn* s, f32 deg, u32 h, f32 t, s32 flag);  // 0x002f12b0: definition moved into src/anon/unit_002f12b0.cpp
+void dk__Turn__start(W1816Turn* s, f32 deg, u32 h, f32 t, s32 flag);  // 0x002f12b0: definition moved into src/anon/unit_002f12b0.cpp
 
 s32 func_00190180(W1816Tg*);
 void func_00190388(W1816V*, W1816Tg*);
-W1816V* func_0016c028(W1816Ob*);
-void func_00184ad0(W1816Ob*, W1816V*, f32);
+W1816V* YS__OBJ__get_pos(W1816Ob*);
+void YS__OBJ__turn_to_dir(W1816Ob*, W1816V*, f32);
 }
 static inline W1816V W1816Pos(W1816Tg* t) { W1816V r; func_00190388(&r, t); return r; }
 extern "C" {
-s32 u_call4_00187300(W1816Ob* self, W1816Tg* t, f32 r) asm("_Z16u_call4_00187300jjjj");
+s32 YS__BTLOBJ___turn_to_target_range(W1816Ob* self, W1816Tg* t, f32 r) asm("_Z33YS__BTLOBJ___turn_to_target_rangejjjj");
 // 00187300: moved to src/anon/unit_00185d10.cpp
 
 extern W1816Act* D_0034e948;
-s32 func_0019ba60(W1816Act*);
+s32 YS__OBJ__is_exist(W1816Act*);
 void func_00190128(W1816Buf*);
 void func_00190878(W1816Buf*, W1816Act*, s32);
 s32 func_001bd418(s32, s32, s32, W1816Buf*, s32, s32);
 s32 func_001bd3e0(s32, s32, s32, W1816Buf*, s32, s32);
-void func_00189e18(W1816Act* self, s32 a, s32 b);  // 0x00189e18: definition moved into src/anon/unit_00189d38.cpp
+void YS__ANMATR__ReactionCommand(W1816Act* self, s32 a, s32 b);  // 0x00189e18: definition moved into src/anon/unit_00189d38.cpp
 }

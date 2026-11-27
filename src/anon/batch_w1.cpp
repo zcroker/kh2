@@ -1,16 +1,16 @@
 #include "../common/types.h"
 
 extern "C" {
-void func_00143b88(u32, u32, u32*, u32*, u32);
+void dk__Octree__intersectLine(u32, u32, u32*, u32*, u32);
 void func_00150e00(void*, u32, u32, u32, u32, s32);
 void func_001399c0(s32);
 void func_00139b28(s32);
 void func_00179f10(void*);
 void func_001781a8(void*);
-void func_00186a90(void*, s32, f32);
+void YS__BTLOBJ__set_hitback(void*, s32, f32);
 void func_00186378(void*, s32, f32);
 void func_001b0700(void*, f32);
-void func_00188958(s32, s32);
+void YS__PARTRAM__set_item_max(s32, s32);
 void func_001a48c0(s32, s32);
 u32* func_001a84b0(void);
 void func_00138190(u32, u32);
@@ -95,7 +95,7 @@ void func_002226a0(f32* d, f32* s);  // 0x002226a0: definition moved into src/an
 // VU0: d.xy = a.xy - b.xy (zw kept).
 void func_00222770(f32* d, f32* a, f32* b);  // 0x00222770: definition moved into src/anon/unit_00222548.cpp
 
-s32 func_002282d8(void);  // 0x002282d8: definition moved into src/anon/unit_00224780.cpp
+s32 sa__EVENT__getEventPriority(void);  // 0x002282d8: definition moved into src/anon/unit_00224780.cpp
 
 void func_0023cdb8(void);  // 0x0023cdb8: definition moved into src/anon/unit_0023c968.cpp
 

@@ -26,7 +26,7 @@ void wtarget_00146730(u32 a, u32 b) asm("_Z16wtarget_00146730jjjj");
 u32 progress_CheckFlag(s32 f) asm("_ZN2YS8PROGRESS9CheckFlagEi");
 u8* ctarget_00198bd0(s32 a, s32 b) asm("_Z16ctarget_00198bd0jjjj");
 LimitEntry* GetLimitEntry(s32 id) asm("_ZN2Tz6JmInfo13GetLimitEntryEz");
-u32 ctarget_001d9228(s32 i) asm("_Z16ctarget_001d9228jjjj");
+u32 YS__MISSION__GetComboCounter(s32 i) asm("_Z28YS__MISSION__GetComboCounterjjjj");
 void ctarget_001db8f8(u8* p, u32 a, u32 b, u32 c) asm("_Z16ctarget_001db8f8jjjj");
 void ItemStat_ctor(u32* p) asm("_ZN2Tz8ItemStatC1Ev");
 s32 SelCheck(s32 i) asm("_ZN2Tz10JmWorldSel8SelCheckEi");
@@ -42,7 +42,7 @@ void func_00139858(u32);
 void func_00139ab0(u32);
 void func_00144b38(u32, E16*);
 void func_001466b0(u32, E16*);  // mat4_transform_vecs
-void func_0016bda8(Q16*, u32);
+void YS__OBJ__get_target_pos(Q16*, u32);
 void func_0013dad0(void*);
 void func_00192f78(void*);  // obj_init_float_const
 void func_001ab750(u32, void*);
@@ -62,7 +62,7 @@ u32 func_00139d78(u32);
 void func_00239700(void*);
 void func_0028d188(void*);
 u8* func_00294000(u32);
-s32 func_00295158(s32);
+s32 Tz__JmWorldSel__GetCur2Idx(s32);
 u8 func_002941a8(u8*);
 void func_00292630(void);
 void func_0029e430(void);
@@ -79,13 +79,13 @@ void func_002cf280(void*, u32, u32);
 void func_002e70b0(void*);
 void func_00106420(void*);
 u8 func_002cea28(void*);
-void func_0017c4c8(void*, Q16*);
+void YS__OBJ__prepare_jump(void*, Q16*);
 void func_0016bd60(void*, s32);
 u32 __sfvwrite(u32, u32*);
 void func_003147a0(void*, void*);
 void* func_003141e8(void*, void*);
 u64 func_003146c8(void*);
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 void func_00319fb0(void*);  // big_obj_dtor
 void func_00105110(void*);
@@ -116,13 +116,13 @@ extern u8 D_00362dc8[];
 extern u8 D_0034ee08[];
 
 // Calls a virtual method (slot 5) with t on every animation work in o's list.
-void func_0011ea40(u8* o, f32 t);  // 0x0011ea40: definition moved into src/anon/unit_0011c128.cpp
+void kn__ModelObj__playAnimation(u8* o, f32 t);  // 0x0011ea40: definition moved into src/anon/unit_0011c128.cpp
 
 void createTask(void);  // 0x00140ce8: definition moved into src/anon/unit_0013fca8.cpp
 
 void wtarget_00146730(u32 a, u32 b);  // 0x00146730: definition moved into src/anon/unit_00145600.cpp
 
-void func_0014f4d8(void);  // 0x0014f4d8: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__INFORMATION__on(void);  // 0x0014f4d8: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00154ee8: moved to src/anon/unit_00153ea0.cpp
 u32 func_00154ee8(u8* p);
@@ -155,7 +155,7 @@ void func_001c2ce8(u8* p);  // 0x001c2ce8: definition moved into src/anon/unit_0
 
 // 0x001d44d8 GetLimitEntry: definition moved into src/anon/unit_001d3c08.cpp
 
-u32 ctarget_001d9228(s32 i);  // 0x001d9228: definition moved into src/anon/unit_001d7458.cpp
+u32 YS__MISSION__GetComboCounter(s32 i);  // 0x001d9228: definition moved into src/anon/unit_001d7458.cpp
 
 void ctarget_001db8f8(u8* p, u32 a, u32 b, u32 c);  // 0x001db8f8: definition moved into src/anon/unit_001d9d00.cpp
 
@@ -164,7 +164,7 @@ void func_001e01e8(u8* list, u32 a, u32 b);  // 0x001e01e8: definition moved int
 
 void func_0020cf60(u32 a, u8* e);  // 0x0020cf60: definition moved into src/anon/unit_0020c580.cpp
 
-u32 func_0022aef0(Q16* q);  // 0022aef0: moved to src/sasa/musical_input.cpp (linked unit)
+u32 sa__MUSICAL_INPUT__GoodPrint(Q16* q);  // 0022aef0: moved to src/sasa/musical_input.cpp (linked unit)
 
 // Any of the 99 32-byte entries has flag 0x10 set.
 u32 func_00241a00(void);  // 0x00241a00: definition moved into src/anon/unit_0023f5b8.cpp
@@ -183,7 +183,7 @@ void func_0029e3e0(u32 a);  // 0x0029e3e0: definition moved into src/anon/unit_0
 // Sets bit n in the bitset at +136 (only if not already set).
 void func_002ab258(u32 n);  // 0x002ab258: definition moved into src/anon/unit_002a99c8.cpp
 
-void func_002bfd48(u32* p, u32 a);  // 0x002bfd48: definition moved into src/anon/unit_002bebd0.cpp
+void worldmap__Event__execLibretto(u32* p, u32 a);  // 0x002bfd48: definition moved into src/anon/unit_002bebd0.cpp
 
 void ctarget_002cf3f8(void);  // 0x002cf3f8: definition moved into src/anon/unit_002cf260.cpp
 

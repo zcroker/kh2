@@ -11,7 +11,7 @@ struct Gauge { u8 pad[0x14]; s32 max; u32 p18; s32 cur; };
 using namespace w2362;
 
 extern "C" {
-void* func_001de168(void*, s32, s32, s32, s32, void*);  // scan_list_by_half
+void* ryj__PAX__start(void*, s32, s32, s32, s32, void*);  // scan_list_by_half
 Res* func_00168b38(void*, s32, s32);
 
 // Starts effect id on the object's effect set; owner defaults to the object itself.

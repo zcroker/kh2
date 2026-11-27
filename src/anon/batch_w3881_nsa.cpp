@@ -76,6 +76,6 @@ void func_001b7f30(W1700Pkt*);
 u32 func_00233708(u32, s32);
 u32 func_002338a8(f32, u32);
 
-void func_00238c90(W1700Sprite* s, s32 x, s32 y, s32 ox, s32 oy);  // 0x00238c90: definition moved into src/anon/unit_002384f8.cpp
+void YI__SPRITE___Draw2(W1700Sprite* s, s32 x, s32 y, s32 ox, s32 oy);  // 0x00238c90: definition moved into src/anon/unit_002384f8.cpp
 
 }

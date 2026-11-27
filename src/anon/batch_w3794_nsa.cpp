@@ -35,7 +35,7 @@ struct Seg2d8150 {
     void Set(W2d8150Vec pa, W2d8150Vec pb) { a = pa; b = pb; }
 };
 struct X2d8150 { u8 pad[193]; u8 off; u8 pad2[14]; W2d8150Vec r0, r1, r2; u8 pad3[468 - 256]; f32 hi, lo; };
-s32 func_00143dd0(Seg2d8150*, W2d8150Vec*, u16*, s32, s32);
+s32 dk__Octree__intersectLineMapKind(Seg2d8150*, W2d8150Vec*, u16*, s32, s32);
 W2d8150Mtx c2d8150(X2d8150*, f32*, const W2d8150Mtx&, f32) asm("_Z16ctarget_002d8150jjjj");
 
 // Camera matrix for the Ti minigame: copy the base matrix, clamp the height *y

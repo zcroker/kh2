@@ -43,7 +43,7 @@ extern f32 D_01d498c0;
 void func_0011b6a8(QM1577*);
 QM1577* func_0011b720(QM1577*, f32);
 QV1577 func_0016be98(u32);
-s32 func_0019ba60(u32);
+s32 YS__OBJ__is_exist(u32);
 
 }
 

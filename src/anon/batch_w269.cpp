@@ -121,13 +121,13 @@ void func_0011b558(f32* m, const QV269* a);  // 0x0011b558: definition moved int
 f32 func_0011bdc0(M269*, s32, s32);
 f32 func_0011be50(M269* m);  // 0x0011be50: definition moved into src/anon/unit_0011b3f8.cpp
 
-u16* func_001b8e88(s32);
-s32 func_001b90f0(u16*, s32);
+u16* YS__COMMAND_ELEM__Get(s32);
+s32 YS__COMMAND_ELEM__can_use(u16*, s32);
 s32 func_001c11e0(void);
 s32 func_00190140(u32*);
-s32 func_0019c4f8(u32);
-void func_0019da68(u8*, u16*, u32*, s32, s32);
-s32 func_0019dbc0(u8* a0, s32 a1, u32* a2, s32 a3, s32 a4);  // 0x0019dbc0: definition moved into src/anon/unit_0019ba60.cpp
+s32 YS__OBJ__is_disable_rc(u32);
+void YS__RC_SEARCHER__set(u8*, u16*, u32*, s32, s32);
+s32 YS__RC_SEARCHER__check_set(u8* a0, s32 a1, u32* a2, s32 a3, s32 a4);  // 0x0019dbc0: definition moved into src/anon/unit_0019ba60.cpp
 
 extern PU269 D_0035f230;
 extern s32 D_0035f010;
@@ -135,7 +135,7 @@ u8* func_002570e0(void);
 void func_0028fb28(s32, u16);
 void func_00257050(s32, s32, s32);
 s32 func_00257070(s32);
-void func_002772c8(s32);
+void Tz__CmAbility__SetupTop(s32);
 u16 func_002813b8(void);
 s32 func_0027ae20(void);
 s32 func_00281100(s32);
@@ -143,7 +143,7 @@ s32 func_0027aa78(void);
 s32 func_00281140(s32, s32);
 void func_0028fb68(s32, s32);
 void func_00279040(void);
-void func_00277d20(void);
+void Tz__CmAbility__SetupSel(void);
 void func_00277178(s32 a0, s32 a1);  // 0x00277178: definition moved into src/anon/unit_002748a0.cpp
 
 extern u8* D_0035f2c8;
@@ -154,7 +154,7 @@ s32 func_00139d78(u8*);
 void func_00139510(u8*);
 s32 func_0028acc8(u8*);
 void func_0028abe0(u8*);
-void func_002843e8(void);  // 0x002843e8: definition moved into src/anon/unit_00284220.cpp
+void Tz__Ending__LeaveAll(void);  // 0x002843e8: definition moved into src/anon/unit_00284220.cpp
 
 extern u8* D_0035f5ac;
 extern u8* D_0035f5b0;
@@ -171,7 +171,7 @@ void func_00239870(u8*);
 void func_0031a840(u8*);
 void func_0029a8e0(void);  // 0x0029a8e0: definition moved into src/anon/unit_00299920.cpp
 
-void func_002d0bd8(LO269*, const LM269*);
+void Ti__MGObj__set_matrix_2(LO269*, const LM269*);
 void func_002da520(LO269* a0, const LM269* a1);  // 0x002da520: definition moved into src/anon/unit_002da040.cpp
 
 extern f32 D_00349e10;

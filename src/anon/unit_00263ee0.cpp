@@ -31,8 +31,8 @@ void func_001a6c90(s32) asm("func_001a6c90");
 void func_002641c8(Out14*, u8*, u32, u32) asm("func_002641c8");
 void func_002640a8(s32 a0, u16 a1, Out14* a2) asm("func_002640a8");
 /*TARGET 00263ee0*/
-void func_00263ee0(s32 a0, Out14* o) asm("func_00263ee0");
-void func_00263ee0(s32 a0, Out14* o) {
+void Tz__IShopInfo__GetShopTbl(s32 a0, Out14* o) asm("Tz__IShopInfo__GetShopTbl");
+void Tz__IShopInfo__GetShopTbl(s32 a0, Out14* o) {
     s32 i;
     H16* h = func_00263ea8();
     func_00263eb8(h);

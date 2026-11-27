@@ -524,9 +524,9 @@ u32 func_0031c028(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0031c068 (was src/anon/batch_w12.cpp)
 namespace n0031c068 {
-void func_00138988(void*) asm("func_00138988");
+void dk__Sprite__draw(void*) asm("dk__Sprite__draw");
 void func_0014b9a8(void*) asm("func_0014b9a8");
-void func_00138de0(void*) asm("func_00138de0");
+void dk__SpriteMessage__drawMessage(void*) asm("dk__SpriteMessage__drawMessage");
 void ScisSpriteMessage_draw(u8*) asm("_ZN2dk17ScisSpriteMessage4drawEv");
 /*TARGET 0031c068*/
 // 002eaaf0: moved to src/anon/unit_002eaa68.cpp
@@ -535,9 +535,9 @@ void ScisSpriteMessage_draw(u8* self) asm("_ZN2dk17ScisSpriteMessage4drawEv");
 // 002eaaf0: moved to src/anon/unit_002eaa68.cpp
 
 void ScisSpriteMessage_draw(u8* self) {
-    func_00138988(self);
+    dk__Sprite__draw(self);
     func_0014b9a8(self + 448);
-    func_00138de0(self);
+    dk__SpriteMessage__drawMessage(self);
     func_0014b9a8(self + 480);
 }
 }  // namespace n0031c068

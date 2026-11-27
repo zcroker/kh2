@@ -73,6 +73,6 @@ struct O1dec78
   u32 f92;
 };
 N1dec78 *func_001e0188(s32);
-void func_001dec78(O1dec78 *o, u32 a, u32 b, f32 f, D1dec78 *d);  // 0x001dec78: definition moved into src/anon/unit_001deb58.cpp
+void ryj__PAX__MANAGER__MANAGER_2(O1dec78 *o, u32 a, u32 b, f32 f, D1dec78 *d);  // 0x001dec78: definition moved into src/anon/unit_001deb58.cpp
 
 }

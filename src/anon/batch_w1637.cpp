@@ -91,9 +91,9 @@ extern f32 D_00349e10;
 extern W1637Mtx D_003511d0;
 s32 W1637_is_attach(W1637Obj2*) asm("_ZN2YS3OBJ9is_attachEv");
 void W1637_detach(W1637Obj2*) asm("_ZN2YS3OBJ6detachEv");
-s32 W1637_ctarget_0019ba60(W1637Obj2*) asm("_Z16ctarget_0019ba60jjjj");
-W1637Vec* W1637_get_pos(W1637Obj2*) asm("func_0016c028");
+s32 W1637_ctarget_0019ba60(W1637Obj2*) asm("_Z17YS__OBJ__is_existjjjj");
+W1637Vec* W1637_get_pos(W1637Obj2*) asm("YS__OBJ__get_pos");
 W1637Cam* func_00106a60(s32);
 
-void func_0016a5b0(W1637Obj2* o);  // 0x0016a5b0: definition moved into src/anon/unit_00169f98.cpp
+void YS__OBJ___OVR_pre_exec(W1637Obj2* o);  // 0x0016a5b0: definition moved into src/anon/unit_00169f98.cpp
 }

@@ -21,20 +21,20 @@
 namespace n00189d38 {
 struct Msg189d38 { s32 a; s32 b; s32 c; };
 s32 func_00180dc0(void*, u16) asm("func_00180dc0");
-s32 func_001de168(s32*, u16, s32, s32, s32, void*) asm("func_001de168");
-s32 func_001b5918(s32*, void*, u16, s32) asm("func_001b5918");
+s32 ryj__PAX__start(s32*, u16, s32, s32, s32, void*) asm("ryj__PAX__start");
+s32 YS__LIMIT__AnmatrEffect(s32*, void*, u16, s32) asm("YS__LIMIT__AnmatrEffect");
 void func_0016cce8(s32, s32, Msg189d38*, s32, s32) asm("func_0016cce8");
 struct Obj189d38 { u8 pad0[8]; u8* owner; u8 pad[0xf0-12]; s32* list; u8 pad2[8]; u8* alt; };
 struct Arg189d38 { s32 x; u16 id; };
-void func_00189d38(Obj189d38* self, Arg189d38* arg) asm("func_00189d38");
-void func_00189d38(Obj189d38* self, Arg189d38* arg) {
+void YS__ANMATR__TriggerEffect(Obj189d38* self, Arg189d38* arg) asm("YS__ANMATR__TriggerEffect");
+void YS__ANMATR__TriggerEffect(Obj189d38* self, Arg189d38* arg) {
     u8* owner = self->owner;
     if (func_00180dc0(self, arg->id) == 0) {
         s32 r;
-        if (*self->list != 0) r = func_001de168(self->list, arg->id, 1, 1, 0, owner);
+        if (*self->list != 0) r = ryj__PAX__start(self->list, arg->id, 1, 1, 0, owner);
         else r = 0;
         u8* t = self->alt ?: owner;
-        if (func_001b5918(self->list, owner, arg->id, r) == 0 && *(s32*)(t + 0x484) != 0) {
+        if (YS__LIMIT__AnmatrEffect(self->list, owner, arg->id, r) == 0 && *(s32*)(t + 0x484) != 0) {
             Msg189d38 m;
             m.a = (s32)owner;
             m.b = arg->id;
@@ -73,15 +73,15 @@ struct W1816Act { u8 p0[320]; W1816Sub sub; };
 struct W1816Buf { f32 v[8]; };
 #define W1816F(o, off, T) (*(T*)((u8*)(o) + (off)))
 extern W1816Act* D_0034e948 asm("D_0034e948");
-s32 func_0019ba60(W1816Act*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(W1816Act*) asm("YS__OBJ__is_exist");
 void func_00190128(W1816Buf*) asm("func_00190128");
 void func_00190878(W1816Buf*, W1816Act*, s32) asm("func_00190878");
 s32 func_001bd418(s32, s32, s32, W1816Buf*, s32, s32) asm("func_001bd418");
 s32 func_001bd3e0(s32, s32, s32, W1816Buf*, s32, s32) asm("func_001bd3e0");
-void func_00189e18(W1816Act* self, s32 a, s32 b) asm("func_00189e18");
-void func_00189e18(W1816Act* self, s32 a, s32 b) {
+void YS__ANMATR__ReactionCommand(W1816Act* self, s32 a, s32 b) asm("YS__ANMATR__ReactionCommand");
+void YS__ANMATR__ReactionCommand(W1816Act* self, s32 a, s32 b) {
     W1816Act* pl = D_0034e948;
-    if (!func_0019ba60(pl)) return;
+    if (!YS__OBJ__is_exist(pl)) return;
     W1816Buf v; func_00190128(&v);
     if (W1816F(self, 0x588, u32) & 0x80) {
         W1816Sub* s = &self->sub;
@@ -470,9 +470,9 @@ static inline W1878Q W1878MulMV(const W1878Mtx& m, const W1878Q& v)
 struct W1878Src { u8 pad[5]; u8 b5; u16 flags; s16 x, y, z, dy, px, py; };
 struct W1878Dst { s32 f0; f32 f4, f8; W1878Src* src; W1878Q pos; };
 struct W1878Ctx { u8 pad[0x7f8]; s32 f7f8; };
-void func_0016b0e0(W1878Ctx*, s32, W1878Mtx*) asm("func_0016b0e0");
-void func_0018a818(W1878Dst* o, W1878Ctx* c, W1878Src* s) asm("func_0018a818");
-void func_0018a818(W1878Dst* o, W1878Ctx* c, W1878Src* s) {
+void YS__OBJ__get_bone_matrix(W1878Ctx*, s32, W1878Mtx*) asm("YS__OBJ__get_bone_matrix");
+void YS__COLLISION__set(W1878Dst* o, W1878Ctx* c, W1878Src* s) asm("YS__COLLISION__set");
+void YS__COLLISION__set(W1878Dst* o, W1878Ctx* c, W1878Src* s) {
     W1878Mtx m;
     W1878Q v;
     W1878Q* pv = &v;
@@ -485,7 +485,7 @@ void func_0018a818(W1878Dst* o, W1878Ctx* c, W1878Src* s) {
     if ((s->flags & 0x4000) || (c->f7f8 & 0x400)) {
         o->f4 = s->px;
         o->f8 = s->py;
-        func_0016b0e0(c, s->flags, &m);
+        YS__OBJ__get_bone_matrix(c, s->flags, &m);
         o->pos = W1878MulMV(m, *pv);
         o->pos.v[1] -= s->dy;
     } else {

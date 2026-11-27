@@ -32,7 +32,7 @@ struct W1633Hud {
     s8 b3cf4, b3cf5, b3cf6, b3cf7, b3cf8, b3cf9, b3cfa, b3cfb;
 };
 void func_0013e0f8(W1633Gauge*, u32, u32, u32);
-void func_00158050(W1633Sprite*, u32, u32, u32, u32, u32, u32);
+void dk__GAUGE_ONE__create(W1633Sprite*, u32, u32, u32, u32, u32, u32);
 void func_00139d78(void*);
 void func_0014b200(void*, u32);
 void func_00139598(void*);

@@ -55,7 +55,7 @@ u32 func_00103b38(...);
 
 u32 func_002ee530();
 
-void func_001ada38(u32);
+void YS__RECOV__Exec(u32);
 
 void func_00104e18();
 
@@ -150,7 +150,7 @@ u32 func_0010cc80(void*);
 
 void func_00110618(void*);
 
-void func_00110500(void*);
+void kn__Friend__followPlayer(void*);
 
 void func_00177760(void*, u32, u32, u32);
 
@@ -218,7 +218,7 @@ u32 func_0011eea8(u32 a0, u32 a1);
 
 u32 func_00132350(u32 a0);
 
-void func_00132e28(u32 a0, u32 a1);
+void kn__TEXAnmWork__set(u32 a0, u32 a1);
 
 typedef u32 (*Fn4)(u32, u32, u32, u32);
 
@@ -330,7 +330,7 @@ extern u8 D_00347d56;
 
 u32 func_0023a9c0(...);
 
-u32 func_001386e0(...);
+u32 dk__Sprite__create(...);
 
 s32 func_0023aa58(u32 a0);
 
@@ -342,7 +342,7 @@ void func_00139638(u32 a0);
 
 u32 func_0013a178(u32 a0, u32 a1);
 
-void func_00138840(u32 a0);
+void dk__Sprite__update(u32 a0);
 
 extern u32 D_00347f80;
 
@@ -364,9 +364,9 @@ void func_0013b258(u32 a0, u32 a1);
 
 void func_0013b570(void);
 
-void func_0013ad20(void);
+void dk__COMMAND_ONE__init(void);
 
-void func_0013b088(u32 a0);
+void dk__COMMAND_DRAW__COMMAND_DRAW(u32 a0);
 
 void func_0013b260(u32 a0, u32 a1);
 
@@ -382,9 +382,9 @@ void func_0013d2d0(u32 a0);
 
 void func_0013b1a0(u32 a0);
 
-void func_0013b4b0(void);
+void dk__COMMAND_DRAW__on(void);
 
-void func_0013b538(void);
+void dk__COMMAND_DRAW__leaveAll(void);
 
 void func_0013aed8(void);
 
@@ -451,9 +451,9 @@ u32 func_0014e0d8(u32);
 u32 func_0014e098(void);
 
 
-u32 func_0013f230(void);
+u32 dk__JumpEffect__out(void);
 
-void func_0015d540(void);
+void dk__KeyHoleJumpEffect__out(void);
 
 u32 func_0013f378(void);
 
@@ -516,7 +516,7 @@ u32 func_00146d68(u32);
 
 u32 func_0011c4b0(u32);
 
-u32 func_0011ea40(u32, f32);
+u32 kn__ModelObj__playAnimation(u32, f32);
 
 u32 func_001422a0(u32, u32, u32);
 
@@ -532,7 +532,7 @@ u32 func_00148b40(u32, u32);
 
 u32 func_001058e8(...);
 
-u32 func_0014ca80(u32, u32, u32, u32, u32);
+u32 dk__Clock__vCountToHMSMS(u32, u32, u32, u32, u32);
 
 u32 func_0014d8d0(u32);
 
@@ -542,21 +542,21 @@ u32 func_00150de0(u32, u32, u32, u32, u32, u32);
 
 extern char D_0036b228[];
 
-u32 func_001a98e8(...);
+u32 YS__MESSAGEDRAW__MESSAGEDRAW(...);
 
 u32 func_0023aa18(u32);
 
 u32 func_0023aa38(u32);
 
-u32 func_001a9ae8(...);
+u32 YS__MESSAGEDRAW__draw(...);
 
 void func_001390c0(u32);
 
-u32 func_00152820(u32, u32, u32, u32, u32, u32);
+u32 dk__LEVEL_UP__calcPos(u32, u32, u32, u32, u32, u32);
 
 void func_001527b8(u32, u32, u32, u32);
 
-void func_00152688(u32, u32, u32, u32);
+void dk__LEVEL_UP_SUMMON__draw(u32, u32, u32, u32);
 
 void func_00152718(u32, u32, u32, u32);
 
@@ -568,7 +568,7 @@ u32 func_0023f948(...);
 
 u32 func_0023f908(...);
 
-u32 func_0023eea0(u32, u32, u32, u32, u32, u32);
+u32 Tz__Layout__create(u32, u32, u32, u32, u32, u32);
 
 u32 func_0023f848(...);
 
@@ -580,7 +580,7 @@ u32 func_0016c060(...);
 
 void func_00154100(u32, u32, u32);
 
-u32 func_002362b0(...);
+u32 YI__IMAGE__Init(...);
 
 void func_00236410(u32, u32);
 
@@ -594,7 +594,7 @@ void func_00154af0(u32);
 
 void func_00154b98(u32, u32);
 
-void func_0014fcd8(u32);
+void dk__INFO_BASE__update(u32);
 
 void func_00138c40(u32, u32, u32) asm("_ZN2dk6Sprite6setPosEii");
 
@@ -636,13 +636,13 @@ u32 func_0031a260(...);
 
 u32 func_001565a8(...);
 
-u32 func_00155ee8(u32);
+u32 dk__GAUGE_PLAYER__getDriveInSqNum(u32);
 
 extern "C" u32 func_002ba358() asm("_ZN5SOUND13isSeAlertPlayEv");
 
 u32 func_00166cc8(u32);
 
-void func_001576e8(u32);
+void dk__GAUGE_PLAYER__setFace(u32);
 
 u32 func_001396c0(u32);
 
@@ -670,7 +670,7 @@ void func_00158088();
 
 void func_00237ad8(u32, u32);
 
-void func_00138988(u32);
+void dk__Sprite__draw(u32);
 
 u32 func_00158290(u32);
 
@@ -692,7 +692,7 @@ void func_00140dd0(u32);
 
 u32 func_00139538(...);
 
-void func_001aa728(u32, u32, u32, u32, u32, u32, u32);
+void YS__MESSAGEDRAW__Draw(u32, u32, u32, u32, u32, u32, u32);
 
 u32 func_0013a7e8(u32);
 
@@ -702,11 +702,11 @@ void func_00138d60(u32, u32, u32, u32, u32, u32, u32);
 
 void func_0023acd8(u32);
 
-void func_001390f0(u32);
+void dk__Sprite3D__update(u32);
 
 void func_00139170();
 
-void func_0023ade0(u32);
+void YI__SEQUENCE__Draw(u32);
 
 extern void func_00143110(u32);
 
@@ -714,7 +714,7 @@ extern void func_00153948(u32);
 
 extern void func_0015c450(u32);
 
-extern void func_001de228(void*, u32, u32, u32, u32, u32);
+extern void ryj__PAX__start_group(void*, u32, u32, u32, u32, u32);
 
 extern u64 D_0034c710;
 
@@ -726,9 +726,9 @@ extern void func_001ddd10(void*);
 
 extern void func_001ddd88(void*);
 
-extern void func_001606e0(void*);
+extern void dk__BgObj__calcMotionBoundingBox(void*);
 
-extern void func_001608c0(void*);
+extern void dk__BgObj__draw(void*);
 
 extern void func_00143398(void*);
 
@@ -744,9 +744,9 @@ u32 func_001b13d8();
 
 u32 func_0016e8f8();
 
-u32 func_00180f28();
+u32 YS__PROGRESS__Read();
 
-u32 func_00194a30();
+u32 YS__BATTLE__SysInit();
 
 u32 func_00196170();
 
@@ -756,15 +756,15 @@ u32 func_00199688();
 
 u32 func_001aeb80();
 
-u32 func_001d53e8();
+u32 YS__MISSION_TABLE__Init();
 
 u32 func_001aaa08();
 
 u32 func_0019f790();
 
-u32 func_00192320();
+u32 YS__MESSAGE__SysInit();
 
-u32 func_001d9d00();
+u32 YS__JIGSAW__Init();
 
 u32 func_001b13f0();
 
@@ -794,7 +794,7 @@ f32 func_0016afe0(u32);
 
 u32 func_0016aeb8(...);
 
-u32 func_0016c028(...);
+u32 YS__OBJ__get_pos(...);
 
 u32 func_0016ad38(u32, u32);
 
@@ -808,9 +808,9 @@ f32 func_002f8ad0(f32, f32);
 
 u32 func_0016bc20(...);
 
-f32 func_0016b0e0(u32, u32, u32);
+f32 YS__OBJ__get_bone_matrix(u32, u32, u32);
 
-void func_00188738(void*);
+void YS__ACT__end(void*);
 
 void func_0016ce90(u32);
 
@@ -820,7 +820,7 @@ void func_001826c8(f32);
 
 u32 func_0018a100(u32, u32, u32);
 
-u32 func_0019bd08(...);
+u32 YS__OBJ__is_enable_collision(...);
 
 u32 func_0016bba8(...);
 
@@ -854,7 +854,7 @@ u32 func_0016cfa0(u32, u32, u32, u32, u32);
 
 extern u32 D_0034d8a0;
 
-void func_0016eb48(u32, u32, u32, u32);
+void YS__OBJENTRY__ReadRequestSub(u32, u32, u32, u32);
 
 u32 func_0016f6f8(...);
 
@@ -886,7 +886,7 @@ extern u32 D_0034dca0;
 
 void func_0016bae8(u32, u32, u32, void*);
 
-u32 func_0016bda8(...);
+u32 YS__OBJ__get_target_pos(...);
 
 u32 func_001a75d8(u32, u32, u32);
 
@@ -918,7 +918,7 @@ u32 func_0016a020(...);
 
 u32 func_0016bd60(...);
 
-u32 func_00198450(...);
+u32 YS__STDOBJ___OVR_initialize(...);
 
 extern "C" u32 func_001917c0(...) asm("_ZN2YS6STATUS12IsBattleModeEv");
 
@@ -926,7 +926,7 @@ void func_00176a68(u32);
 
 void func_00176c68(u32);
 
-void func_00176f00(u32);
+void YS__PARTY__exec_mpdrive(u32);
 
 u32 func_00187750(...);
 
@@ -936,7 +936,7 @@ u32 func_0017f5e0(...);
 
 s32 func_001d7f40(u32);
 
-u32 func_0016cd48(u32, u32);
+u32 YS__VM__exec(u32, u32);
 
 void func_00177498(u32);
 
@@ -946,31 +946,31 @@ u32 func_00177860(...);
 
 u32 func_0019c090(...);
 
-u32 func_001b9c90();
+u32 YS__OBJ___OVR_is_control();
 
 u32 func_001ad938();
 
 extern u32 D_0034f240;
 
-u32 func_00186ce8(u32);
+u32 YS__BTLOBJ__is_damage_motion(u32);
 
 u32 func_00186ec0(u32, u32);
 
-void func_001785b8(u32);
+void YS__PLAYER__make_movement_carpet(u32);
 
 void func_00178570(u32);
 
 void func_001786e0(u32);
 
-void func_001784a8(u32);
+void YS__PLAYER___OVR_make_movement(u32);
 
-u32 func_001b90f0(u32, u32);
+u32 YS__COMMAND_ELEM__can_use(u32, u32);
 
-u32 func_0019c218(u32, u32);
+u32 YS__OBJ__can_decide(u32, u32);
 
-s32 func_001bc2a8(u32, u32, u32);
+s32 YS__COMMAND_SLOT__GetStatus(u32, u32, u32);
 
-u32 func_0019ba60(...);
+u32 YS__OBJ__is_exist(...);
 
 void func_00179ea0(u32);
 
@@ -980,7 +980,7 @@ void func_00179f58(u32);
 
 void func_0017a418(u32, u32);
 
-void func_00179a68(u32, f32);
+void YS__PLAYER__add_drive(u32, f32);
 
 void func_00177c50(u32, u32, u32, u32);
 
@@ -988,7 +988,7 @@ u32 func_001778c0(u32, u32);
 
 u32 func_001a6178(u32, u32, u32);
 
-u32 func_001b8e88(...);
+u32 YS__COMMAND_ELEM__Get(...);
 
 u32 func_001a8bd0(...);
 
@@ -996,13 +996,13 @@ u32 func_001a8bf8(...);
 
 u32 func_001a8b38(u32);
 
-void func_001762f8(u32, u32);
+void YS__PARTY___OVR_exec_damage(u32, u32);
 
-u32 func_001b6070();
+u32 YS__CHANGEIN__CanExec();
 
 u32 func_0017e358(u32);
 
-void func_001b5ef0(u32);
+void YS__CHANGEIN__Start(u32);
 
 void func_00176ec8(u32);
 
@@ -1016,13 +1016,13 @@ u32 func_0016a070(...);
 
 u32 func_001a90a8(u32, u32);
 
-u32 func_0017e280(u32);
+u32 YS__FRIEND__can_sacrifice_leave(u32);
 
 u32 func_0017df58(u32);
 
-void func_0017f380(u32);
+void YS__MOTION__clear_queue(u32);
 
-void func_0017efa0(u32, u32, f32, f32);
+void YS__MOTION__start_motion(u32, u32, f32, f32);
 
 void func_0017f268(u32, u32, f32, f32);
 
@@ -1036,9 +1036,9 @@ void func_001447e0(u32, u32, u32);
 
 u32 func_001a97b8(u32, u32);
 
-void func_001801b0(u32, u32, u32, u32, u32, f32);
+void YS__MOTION___Capture(u32, u32, u32, u32, u32, f32);
 
-u32 func_0017ec98(...);
+u32 YS__MOTION__id_to_num(...);
 
 u32 func_0017edf0(u32 a0, u32 a1);
 
@@ -1088,7 +1088,7 @@ u32 func_00168b88(u32 a0, u32 a1, u32 a2, u32 a3);
 
 extern u32 D_0034ecf4;
 
-u32 func_00181da0(u32 a0, u32 a1);
+u32 YS__AREADATA__SETINDEX__parse_code(u32 a0, u32 a1);
 
 void func_00199cd0(u32 a0);
 
@@ -1098,7 +1098,7 @@ u32 func_00184478(u32 a0);
 
 void func_00185b70(u32 a0, u32 a1, u32 a2, float a3);
 
-u32 func_0019f9a8(...);
+u32 YS__OBJ_ATTACK__clear(...);
 
 void func_001dc920(u32 a0);
 
@@ -1148,7 +1148,7 @@ void func_0018e8f0(u32 a0, u32 a1, u32 a2, u32 a3);
 
 void func_001a4498(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5);
 
-u32 func_0018f070(u32 a0);
+u32 YS__ATTACK__is_exist(u32 a0);
 
 void func_001a49d8(u32 a0, f32 a1, f32 a2);
 
@@ -1170,7 +1170,7 @@ void func_00194120(u32 a0, f32 a1);
 
 u32 func_001c0cd8(...);
 
-u32 func_00170cd0(...);
+u32 YS__CACHE_BUFF__IsFlushing(...);
 
 u32 func_00197c28(u32);
 
@@ -1188,11 +1188,11 @@ u32 func_00169f98(u32);
 
 u32 func_001de450(u32);
 
-u32 func_001dde40(...);
+u32 ryj__PAX__ensure(...);
 
-u32 func_0016a328(u32);
+u32 YS__OBJ___OVR__destroy(u32);
 
-u32 func_0016b638(u32);
+u32 YS__OBJ___OVR_check_leave(u32);
 
 u32 func_00198660(u32);
 
@@ -1200,13 +1200,13 @@ u32 func_001b0320(u32);
 
 u32 func_00198738(...);
 
-u32 func_00196ca8(u32, u32, u32);
+u32 YS__EVENT__EVENT(u32, u32, u32);
 
-u32 func_00196e98(u32, u32);
+u32 YS__EVENT__set_camera_target(u32, u32);
 
-u32 func_00196f00(u32);
+u32 YS__EVENT__start(u32);
 
-u32 func_001b1490(u32 a0);
+u32 YS__DATABUFF__ReadBar(u32 a0);
 
 extern u8 D_01c60000[];
 
@@ -1232,7 +1232,7 @@ u32 func_002be5f8();
 
 u32 func_001d7b80(u32);
 
-void func_0019cc20();
+void YS__LOCKON__release();
 
 u32 func_0019ca28(...);
 
@@ -1244,7 +1244,7 @@ extern "C" u32 func_0016bff0(...) asm("_ZN2YS3OBJ10get_serialEv");
 
 void func_0019cb48(u32);
 
-void func_0019d260(u32);
+void YS__LOCKON__update_mark(u32);
 
 void func_0019d228();
 
@@ -1258,7 +1258,7 @@ u32 func_001906c0(u32);
 
 void func_0019ca90(u32, u32, u32);
 
-u32 func_0013e5a8(u32);
+u32 dk__LockOn__change(u32);
 
 u32 func_0019ed48(...);
 
@@ -1285,19 +1285,19 @@ u32 func_001a0d48(...);
 
 extern u8 D_0032e020;
 
-u32 func_001a1490(u32 a0);
+u32 YS__SHEET__AllocParty(u32 a0);
 
 void* func_001a0e78();
 
-void func_001a11e0(u32 a0, u32 a1);
+void YS__SHEET__load(u32 a0, u32 a1);
 
-u32 func_00188fe0(u32 a0, u32 a1);
+u32 YS__SAVERAM_BATTLE__get_partram(u32 a0, u32 a1);
 
-void func_001a1950(u32 a0, u32 a1, u32 a2, u32 a3);
+void YS__SHEET__add_hp(u32 a0, u32 a1, u32 a2, u32 a3);
 
 void func_001a11b0(u32 a0, u32 a1);
 
-u32 func_001a1de0(u32 a0);
+u32 YS__SHEET__is_mpdrive(u32 a0);
 
 void func_001a1d50(u32 a0, f32 a1);
 
@@ -1323,13 +1323,13 @@ u32 func_00192048(...);
 
 u32 func_00192c90(u32 a0, u32 a1);
 
-u32 func_001de168(...);
+u32 ryj__PAX__start(...);
 
 extern "C" u32 func_001dc9d0(u32 a0) asm("_ZN3ryj6EFFECT8is_aliveEv");
 
-u32 func_001c7950(...);
+u32 YS__PRIZEEFFECT__can_get(...);
 
-u32 func_001c79a0(...);
+u32 YS__PRIZEEFFECT__get(...);
 
 void func_001d8d08(u32 a0, f32 a1);
 
@@ -1363,7 +1363,7 @@ void func_001a6dd8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4);
 
 void func_001a6ef0(void);
 
-void func_001a6fe8(void);
+void YS__TEST_LIBRETTO__Callback(void);
 
 void func_001a7108(void);
 
@@ -1383,7 +1383,7 @@ u32 func_0016f4b8(u32 a0, u32 a1);
 
 u32 func_0016f520(u32 a0, u32 a1, u32 a2);
 
-void func_001a91f8(void* a0);
+void YS__OBJDATA__clear(void* a0);
 
 
 extern u32 D_01c6cc50[3];
@@ -1409,7 +1409,7 @@ extern u8 D_001adc08[];
 
 extern u8 D_01c94000[];
 
-void func_00168388(u32 a0, u32 a1, u32 a2, u32 a3);
+void YS__FILE__ReadBack(u32 a0, u32 a1, u32 a2, u32 a3);
 
 u32 func_001ae308(u32 a0, u32 a1);
 
@@ -1431,9 +1431,9 @@ void func_001c8d98(u32 a0, u32 a1);
 
 u32 func_001384a0(...);
 
-void func_001aedf8(u32 a0, u32 a1, u32 a2);
+void YS__GAMEOVER__GAMEOVER(u32 a0, u32 a1, u32 a2);
 
-u32 func_0016ed50(...);
+u32 YS__OBJENTRY__ReadRequest(...);
 
 u32 func_00102448(...);
 
@@ -1443,7 +1443,7 @@ void func_001afa88(u32 a0);
 
 u32 func_00170b30(...);
 
-void func_001afc00(u32 a0, u32 a1);
+void YS__VOICE__ReadEntryId(u32 a0, u32 a1);
 
 void func_001afae0();
 
@@ -1457,11 +1457,11 @@ void func_0016c2b0(void* a0, u32 a1);
 
 void func_001b0940(u32 a0, void* a1);
 
-u32 func_0017c578(...);
+u32 YS__ACTION_JUMP__start(...);
 
 void func_00190920(u32 a0, u32 a1, u32 a2);
 
-void func_001a17c8(u32 a0);
+void YS__SHEET__Free(u32 a0);
 
 u32 func_001a1018(u32 a0);
 
@@ -1471,7 +1471,7 @@ void func_001d1b28(void* a0);
 
 void func_001b5878(u32 a0);
 
-u32 func_001d1f08(void* a0);
+u32 YS__MISSION_GAUGE__is_open(void* a0);
 
 typedef void (*FnA0)(u32);
 
@@ -1507,7 +1507,7 @@ extern u8 D_00351eb8;
 
 extern u32 D_00351184;
 
-u32 func_00189200(u32 a0, u32 a1);
+u32 YS__SAVERAM_BATTLE__get_formram(u32 a0, u32 a1);
 
 u32 func_001a1cc0(u32 a0, u32 a1, u32 a2);
 
@@ -1518,11 +1518,11 @@ void func_0017c690(u32 a0);
 
 typedef void (*VirtCall2)(u32 a0, u32 a1);
 
-u32 func_001bbb28();
+u32 YS__MISSION__IsNoExp();
 
 u32 func_001a8b68(u32 a0);
 
-u32 func_001a3788(...);
+u32 YS__ITEM__MakeMessage(...);
 
 u32 func_00192e50(...);
 
@@ -1530,7 +1530,7 @@ u32 func_001b77a8(u32 a0);
 
 u32 func_001b75b0(u32 a0, u32 a1);
 
-u32 func_001531f8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4);
+u32 dk__LEVELUP_INFO__openChara(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4);
 
 u32 func_00153310(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4);
 
@@ -1574,7 +1574,7 @@ u32 func_001050c8();
 
 u32 func_001024b0(u32 a0);
 
-void func_001123f0();
+void kn__Friend__Init();
 
 void func_00188670();
 
@@ -1596,9 +1596,9 @@ extern u8 D_001b9880;
 
 extern u8 D_001b99b0;
 
-void func_00193608(u32 a0);
+void YS__OBJ__make_matrix(u32 a0);
 
-void func_0017fba0(u32 a0, u32 a1);
+void YS__MOTION__calc(u32 a0, u32 a1);
 
 u32 func_0019c470(u32 a0);
 
@@ -1607,7 +1607,7 @@ void func_001b3118(u32 a0, u32 a1);
 void func_001b78d0(u32 a0);
 
 
-u32 func_00176b58(u32 a0);
+u32 YS__PARTY__GetByPart(u32 a0);
 
 u32 func_001a3a78();
 
@@ -1623,7 +1623,7 @@ u32 func_00105110(...);
 
 extern u32 D_01d48de0;
 
-void func_001d7380(u32 a0);
+void YS__MISSION__OptionEnd(u32 a0);
 
 void func_0014ca20();
 
@@ -1643,7 +1643,7 @@ u32 func_001bc090(u32 a0);
 
 u32 func_00198bd0(u32 a0, u32 a1);
 
-void func_001bb4f0(u32 a0, u32 a1, u32 a2);
+void YS__MISSION__complete(u32 a0, u32 a1, u32 a2);
 
 extern u32 D_01d49320;
 
@@ -1663,7 +1663,7 @@ void func_001d4e50(u32 a0, u32 a1);
 
 void func_001d4ef0(u32 a0, u32 a1);
 
-u32 func_001bc780(...);
+u32 YS__COMMAND_MENU__add(...);
 
 void func_001bc778(u32 a0);
 
@@ -1675,7 +1675,7 @@ u32 func_001bdd20(u32 a0);
 
 u32 func_001b8f10(u32 a0, u32 a1);
 
-void func_0017bfa0(u32 a0, u32 a1, u32 a2, u32 a3);
+void YS__COMMAND__set(u32 a0, u32 a1, u32 a2, u32 a3);
 
 void func_001bd618(u32 a0, u32 a1);
 
@@ -1697,7 +1697,7 @@ u32 func_001db888(void*, u32, u32);
 
 u32 func_001c7048(u32, u32, u32, u32, u32);
 
-u32 func_001a1b68(u32, f32);
+u32 YS__SHEET__add_drive_time(u32, f32);
 
 
 
@@ -1758,7 +1758,7 @@ u32 func_001cc128(u32, u32);
 
 void func_001ccac0(u32, u32);
 
-void func_002877a0(u32, u32, u32);
+void Tz__Mg2DTron__CreateSeq(u32, u32, u32);
 
 extern u32 D_003521d0;
 
@@ -1766,11 +1766,11 @@ void func_001d6a80(u32);
 
 u32 func_001d14a0();
 
-void func_00176dd8(u32, u32, u32, u32);
+void YS__PARTY__exec_item(u32, u32, u32, u32);
 
 void func_001d07e0(u32);
 
-void func_001788b8(u32);
+void YS__PLAYER___OVR_exec(u32);
 
 u32 func_001a8b28();
 
@@ -1790,7 +1790,7 @@ void func_001d1720(u32, u32);
 
 void func_001d17b0(u32, u32);
 
-void func_001d1ed0(u32);
+void YS__MISSION_GAUGE__destroy(u32);
 
 u32 func_0014fa48(u32, u32, u32, u32, u32, f32);
 
@@ -1800,11 +1800,11 @@ void func_00170530(u32 a0, u32 a1, u32 a2, u32 a3);
 
 u32 func_00170978(u32 a0);
 
-u32 func_0016f7d0(u32 a0, u32 a1);
+u32 YS__OBJENTRY__GetCacheBuffStatus(u32 a0, u32 a1);
 
-u32 func_001d4940();
+u32 YS__SPECIAL_COMMAND___check();
 
-void func_00198970(u32 a0);
+void YS__STDOBJ__reset_special_command(u32 a0);
 
 u32 func_0016b740(u32 a0);
 
@@ -1818,7 +1818,7 @@ void func_001a6c90(u32 a0);
 
 void func_001b8838(u32 a0);
 
-u32 func_001d5868(u32 a0);
+u32 YS__LINK_FLAG__is_ok(u32 a0);
 
 u32 func_001d5bb8();
 
@@ -1846,11 +1846,11 @@ void func_001b74b8(u32 a0);
 
 void func_001b74c8(u32 a0, u32 a1);
 
-u32 func_001a3188(...);
+u32 YS__ITEM__Get(...);
 
 void func_001b7538(u32 a0, u32 a1);
 
-void func_001b7768(u32 a0, u32 a1);
+void YS__LEVELUP__INFO__show_summon(u32 a0, u32 a1);
 
 u32 func_001a1460(...);
 
@@ -1887,7 +1887,7 @@ union U32U8_001d8270 {
     u8 b;
 };
 
-void func_001d1950(u32 a0, u32 a1);
+void YS__MISSION_TIMER__start(u32 a0, u32 a1);
 
 typedef void (*Fn_001d8310)(u32 a0);
 
@@ -1929,7 +1929,7 @@ union U32U8_001d8578 {
     u8 b;
 };
 
-void func_001d1b60(u32 a0, u32 a1);
+void YS__MISSION_COUNT__set(u32 a0, u32 a1);
 
 union U32U8_001d8618 {
     u32 u;
@@ -1937,7 +1937,7 @@ union U32U8_001d8618 {
     u8 b;
 };
 
-void func_001d8718(u32 a0, u32 a1);
+void YS__MISSION__AddCountForce(u32 a0, u32 a1);
 
 union U32U8_001d86a0 {
     u32 u;
@@ -1963,9 +1963,9 @@ union U32U8_001d8978 {
     u8 b;
 };
 
-void func_001d8190(u32 a0, u32 a1, u32 a2);
+void YS__MISSION__init_mission2d(u32 a0, u32 a1, u32 a2);
 
-void func_001d1da0(u32 a0, f32 a1);
+void YS__MISSION_GAUGE__set(u32 a0, f32 a1);
 
 static inline u32 add_left_u32(u32 left, u32 right) {
     return left + right;
@@ -2023,7 +2023,7 @@ union U32U8_001d9050 {
     u8 b;
 };
 
-void func_001d2180(u32 a0);
+void YS__COMBOCOUNTER__reset(u32 a0);
 
 union U32U8_001d90e0 {
     u32 u;
@@ -2074,7 +2074,7 @@ void func_001dc878(...);
 
 void func_001e2c00(u32 a0);
 
-void func_001e6c00(u32 a0);
+void pppDeleteMng(u32 a0);
 
 u32 func_001dc488(u32 a0);
 
@@ -2082,7 +2082,7 @@ void func_001dc278(u32 a0, u32 a1, u32 a2);
 
 u32 func_001dc4e8(u32 a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_001dc558(u32 a0, f32 a1);
+u32 ryj__EFFECT__start(u32 a0, f32 a1);
 
 u32 func_001dc540(u32 a0, u32 a1, u32 a2, u32 a3);
 
@@ -2100,7 +2100,7 @@ void func_001e08c8(u32 a0);
 
 void func_001e0958(u32 a0);
 
-void func_001902a8(u32 a0, u32 a1);
+void YS__TARGET__make_collision(u32 a0, u32 a1);
 
 void func_001e0d08(u32 a0, u32 a1);
 
@@ -2177,13 +2177,13 @@ u32 func_00224e90(...);
 
 void func_00224998();
 
-void func_0022b930();
+void sa__MUSICAL_2D__leave();
 
 void func_0022b948();
 
 u32 func_00224988();
 
-void func_0013a218();
+void dk__Obj2D__destroyLoopExec();
 
 void func_0022b968();
 
@@ -2191,7 +2191,7 @@ void func_0022b7b0();
 
 u32 func_0014ce20(...);
 
-u32 func_002282f0(...);
+u32 sa__EVENT__checkStart(...);
 
 u32 func_00224968();
 
@@ -2233,7 +2233,7 @@ u32 func_00226bd0(u32);
 
 u32 func_00228240();
 
-u32 func_0022c108();
+u32 sa__EVENT__last_countdown();
 
 u32 func_0015f288();
 
@@ -2251,7 +2251,7 @@ extern "C" u32 func_00228378() asm("_ZN2sa5EVENT16isSceneEventExecEv");
 
 u32 func_0023d230(u32);
 
-u32 func_002282d8();
+u32 sa__EVENT__getEventPriority();
 
 void func_00102c48(u32, u32, u32, u32);
 
@@ -2299,7 +2299,7 @@ u32 func_00227858(u32, u32, u32);
 
 void func_0022d820();
 
-void func_0022e288();
+void sa__EVENT__leaveAllEffect();
 
 void func_00227078();
 
@@ -2307,7 +2307,7 @@ void func_00224e28();
 
 void func_00224bd0();
 
-void func_002267a0();
+void sa__EVENT__fixFree();
 
 extern u32 D_0035de3c;
 
@@ -2368,7 +2368,7 @@ u32 func_0022a7e0(u32, u32);
 
 u32 func_0022ab80(u32);
 
-void func_0022a5c8(u32, u32, u32, u32, f32);
+void sa__MUSICAL_INPUT__createCircle(u32, u32, u32, u32, f32);
 
 inline void func_0022acf8_call20(u32 a0) {
     u32 vt = *(u32*)(a0 + 0);
@@ -2379,19 +2379,19 @@ inline void func_0022acf8_call20(u32 a0) {
 
 u32 func_002248c0(u32);
 
-s32 func_0022b028(s32);
+s32 sa__MUSICAL_INPUT__BadScore(s32);
 
-u32 func_0022ae98(u32);
+u32 sa__MUSICAL_INPUT__ExcellentPrint(u32);
 
-u32 func_0022af48(u32);
+u32 sa__MUSICAL_INPUT__BadPrint(u32);
 
-u32 func_0022ad88(s32, u32);
+u32 sa__MUSICAL_INPUT__scorePrint(s32, u32);
 
 extern u8 D_0035e2a8;
 
 extern u32 D_0035e298;
 
-u32 func_0022b558(u32, u32, u32);
+u32 sa__MUSICAL_TARGET__start(u32, u32, u32);
 
 extern u8 D_00347e80;
 
@@ -2399,13 +2399,13 @@ u32 func_002361a0(...);
 
 u32 func_0022b9b8();
 
-u32 func_00138650(u32, u32, u32, u32);
+u32 dk__SpriteImage__create(u32, u32, u32, u32);
 
 extern u32 D_0035e2e8;
 
-u32 func_0023c008(u32);
+u32 YI__LAYOUT__LAYOUT(u32);
 
-u32 func_002369a0(u32);
+u32 YI__IMAGE_FREEZE__IMAGE_FREEZE(u32);
 
 u32 func_0022b7f0();
 
@@ -2445,7 +2445,7 @@ u32 func_00197df8();
 
 u32 func_00239cf0(u32, u32);
 
-u32 func_00225b00(...);
+u32 sa__EVENT__isJumpMode(...);
 
 u32 func_0022c4b8(u32);
 
@@ -2479,9 +2479,9 @@ extern f32 D_0035de48;
 
 void func_0022d440();
 
-void func_00225a10();
+void sa__EVENT__waitMessageOn();
 
-void func_0022d4e8(u32);
+void sa__EVENT__reloadActor(u32);
 
 void func_00170888(u32);
 
@@ -2489,7 +2489,7 @@ void func_00225a20();
 
 u32 func_00227d10(s32);
 
-void func_001ba028(u32);
+void YS__OBJ__is_valid(u32);
 
 void func_00194468(u32);
 
@@ -2520,7 +2520,7 @@ u32 func_00106450(...);
 
 u32 func_00239b50(void*, u32);
 
-void func_0023a0d8(void*);
+void YI__SEQUENCE__UpdateActive(void*);
 
 u32 func_00239d30(...);
 
@@ -2544,13 +2544,13 @@ void func_00322ba8(void*);
 
 u32 func_0014c050(...);
 
-u32 func_0023d5b8(void*);
+u32 Tz__MenuObj__Init(void*);
 
 f32 func_0023e700(void*);
 
-void func_0011eb08(u32, u32);
+void kn__ModelObj__setDefaultTexanm(u32, u32);
 
-u32 func_001a9458(u32, u32, u32);
+u32 YS__OBJDATA__get_kna(u32, u32, u32);
 
 void func_0011c7f8(u32, s32);
 
@@ -2590,7 +2590,7 @@ u32 func_00240108(void);
 
 extern u16 D_003717a8[];
 
-u32 func_0014cba0(void);
+u32 dk__Clock__getPlayTime(void);
 
 u32 func_002421e8(u32 a0);
 
@@ -2616,7 +2616,7 @@ void func_0028ca78(void);
 
 u32 func_0023fad0(...);
 
-void func_00287a28(void);
+void Tz__MenuBase__Exit(void);
 
 extern "C" u32 func_00242790(void) asm("_ZN2Tz9MenuSound10ResetPauseEv");
 
@@ -2632,13 +2632,13 @@ extern u8 D_00371830;
 extern u32 D_0035ece4;
 
 
-void func_00243740(void);
+void Tz__HEFT__Setup(void);
 
-u32 func_00236d60(...);
+u32 YI__IMAGE_CACHE__Clear(...);
 
 u32 func_00244068(void);
 
-void func_002444b8(void);
+void Tz__HEFT__Draw(void);
 
 extern u32 D_0035ed1c;
 
@@ -2646,11 +2646,11 @@ extern u32 D_0035ed18;
 
 u32 func_00246840(...) asm("_ZN2Tz7SubMenu13GetCallSignalEv");
 
-void func_00245488(void);
+void Tz__HECO__Setup(void);
 
-u32 func_00245dd0(void);
+u32 Tz__HECO__Control(void);
 
-void func_00246328(void);
+void Tz__HECO__Draw(void);
 
 extern u8 D_00371c98;
 
@@ -2658,7 +2658,7 @@ extern u8 D_00371ca0;
 
 void func_00199718(void* a0, u32 a1, s32 a2);
 
-void func_00104f58(void* a0, u32 a1, u32 a2, u32 a3, u32 a4);
+void AREA__MapJump(void* a0, u32 a1, u32 a2, u32 a3, u32 a4);
 
 u32 func_00246968(u32 a0);
 
@@ -2674,53 +2674,53 @@ u32 func_002469a0(u32 a0);
 
 extern u32 D_0035ed48;
 
-void func_00248060(void);
+void Tz__MUMI__Setup(void);
 
 u32 func_00248900(void);
 
-void func_00248d28(void);
+void Tz__MUMI__Draw(void);
 
 extern u32 D_0035ed6c;
 
-void func_002499b8(void);
+void Tz__TRTE__Setup(void);
 
 void func_00242678(u32 a0);
 
 u32 func_0024a270(void);
 
-void func_0024a710(void);
+void Tz__TRTE__Draw(void);
 
 extern u32 D_0035eda4;
 
-void func_0024b588(void);
+void Tz__HBTE__Setup(void);
 
 u32 func_0024bd90(void);
 
-void func_0024c1a8(void);
+void Tz__HBTE__Draw(void);
 
 extern u32 D_0035edc8;
 
-void func_0024ce18(void);
+void Tz__TTPT__Setup(void);
 
 u32 func_0024d6c8(void);
 
-void func_0024db28(void);
+void Tz__TTPT__Draw(void);
 
 extern u32 D_0035ee00;
 
-void func_0024e850(void);
+void Tz__TTMY__Setup(void);
 
 u32 func_0024ebc0(void);
 
-void func_0024edd8(void);
+void Tz__TTMY__Draw(void);
 
 extern u32 D_0035ee30;
 
-void func_0024f710(void);
+void Tz__LMMU__Setup(void);
 
-u32 func_0024ff08(void);
+u32 Tz__LMMU__Control(void);
 
-void func_00250328(void);
+void Tz__LMMU__Draw(void);
 
 extern u32 D_0035ee34;
 
@@ -2730,11 +2730,11 @@ u32 func_002891e8(...);
 
 extern u32 D_0035ee54;
 
-void func_00251148(void);
+void Tz__CANA__Setup(void);
 
-u32 func_00251318(void);
+u32 Tz__CANA__Control(void);
 
-void func_00251a70(void);
+void Tz__CANA__Draw(void);
 
 extern u32 D_0035ee80;
 
@@ -2760,7 +2760,7 @@ extern u32 D_00372618;
 
 u32 func_00252098(u32 a0);
 
-void func_0028b300(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7, u32 a8);
+void Tz__LaySeq__create(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7, u32 a8);
 
 extern u32 D_0035ee9c;
 
@@ -2770,7 +2770,7 @@ extern u32 D_0035eea4;
 
 extern u32 D_0035ee88;
 
-void func_00252900(void);
+void Tz__ALCA__PauseThread(void);
 
 u32 func_00252ad8(void);
 
@@ -2787,9 +2787,9 @@ u32 func_00258b00(void*, u32);
 
 u32 func_002535d0(s32);
 
-u32 func_00242740(u32);
+u32 Tz__MenuSound__SetPause(u32);
 
-u32 func_00253180(s32, s32);
+u32 Tz__CampMenu__Start(s32, s32);
 
 u32 func_001688b8(void);
 
@@ -2897,7 +2897,7 @@ u32 func_00290580(u32);
 
 void func_00290488(u32);
 
-void func_0028f878(void);
+void Tz__SelHist__LeaveAll(void);
 
 extern u32 D_0035f040;
 
@@ -2955,7 +2955,7 @@ u32 func_00258c48(void) asm("_ZN2Tz5Pause10isLoopFadeEv");
 
 void func_0028e0d8(u32, u32, u32, u32, u32, u32, u32);
 
-void func_0028eab8(u32, u32);
+void Tz__MultiSeq__setParamXYToOffset(u32, u32);
 
 void func_0028e710(u32, u32);
 
@@ -2965,7 +2965,7 @@ void func_00139688(u32);
 
 void func_0028ebf0(u32, s32);
 
-void func_0023f1e0(u32);
+void Tz__LayMsg__create(u32);
 
 u32 func_0019f880(s32, s32);
 
@@ -2987,11 +2987,11 @@ u32 func_002b4af0(...);
 
 u32 func_00258ce8(...);
 
-u32 func_002b4440(...);
+u32 Tz__CmSLBase__Init(...);
 
 u32 func_00103eb0(void);
 
-u32 func_00102818(...);
+u32 TASK_MANAGER__create_thread(...);
 
 extern u8 D_00372f20;
 
@@ -3043,7 +3043,7 @@ extern u32 D_0035f66c;
 
 extern u32 D_0035f670;
 
-void func_00259108(u32, s32, u32, u32, u32, u32, u32);
+void Tz__CmComm__CreateConfirmSelector(u32, s32, u32, u32, u32, u32, u32);
 
 void func_00288f48(u32, s32, s32, u32, u32);
 
@@ -3063,7 +3063,7 @@ u32 func_002597f0(void);
 
 void func_00288658(s32, s32);
 
-void func_00284ea8(void);
+void Tz__Ending__SoundBufferFree(void);
 
 struct Vtbl0025d4e8 {
     u32 pad0[5];
@@ -3107,7 +3107,7 @@ u32 func_0028b040(...);
 
 u32 func_002b6338(void* a0, u32 a1, u32 a2, u32 a3);
 
-u32 func_00263a90(void* a0, u32 a1);
+u32 Tz__CMenuHelp__Create_2(void* a0, u32 a1);
 
 u32 func_00263a58(...);
 
@@ -3213,18 +3213,18 @@ u32 func_00289358(void);
 
 void func_00262820(void);
 
-void func_00262a30(void);
+void Tz__CmItem__DrawUpdate(void);
 
 void func_00262768(void);
 
 
 u32 func_002570a0(u32 a0) asm("_ZN2Tz5CmTop12GetSelectPosEi");
 
-u32 func_002632d0(u32 a0);
+u32 Tz__CmItem__isSoraOnly(u32 a0);
 
 u32 func_002811b0(...);
 
-u32 func_001a2d78(u32 a0, u32 a1);
+u32 YS__ITEM__CanUse(u32 a0, u32 a1);
 
 extern void* D_0035f010;
 
@@ -3291,11 +3291,11 @@ u32 func_002674b8();
 
 u32 func_002670a0(u32 a0);
 
-u32 func_00267408(u32 a0);
+u32 Tz__CmStat__GetSelMsg(u32 a0);
 
 u32 func_0028fb28(u32 a0, u32 a1);
 
-u32 func_00266b58();
+u32 Tz__CmStat__UpdateTopNew();
 
 struct Vtbl0 {
     u32 (*fn0)(void* self, u32 a1, void* a2);
@@ -3330,7 +3330,7 @@ struct Obj1 {
 
 u32 func_00281f10(u32 a0);
 
-u32 func_00269e20();
+u32 Tz__CmEquip__FadeOutList();
 
 u32 func_00256c40();
 
@@ -3442,15 +3442,15 @@ extern u32 D_0035f204;
 
 extern u32 D_0035f214;
 
-void func_002766e0();
+void Tz__Jiminy__LeaveSeqTbl();
 
 extern u32 D_0035f140;
 
 void func_00274e08();
 
-u32 func_00293e00(...);
+u32 Tz__JmInfo__Init(...);
 
-u32 func_00293fc0(...);
+u32 Tz__JmInfo__SetLeadData(...);
 
 void func_00294020(u32 a0);
 
@@ -3462,9 +3462,9 @@ extern u32 D_0035f210;
 
 u32 func_0028d008(...);
 
-void func_0028cc78(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5);
+void Tz__MenuCursor__Create(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5);
 
-void func_0028cf28(u32 a0, u32 a1);
+void Tz__MenuCursor__SetParent(u32 a0, u32 a1);
 
 extern u32 D_0035f218;
 
@@ -3472,23 +3472,23 @@ extern u8 D_00373d80;
 
 extern "C" u32 func_0028d6e8(...) asm("_ZN2Tz8LightCur7isExistEv");
 
-void func_0028d1c0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6);
+void Tz__LightCur__Create(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6);
 
 u32 func_0028d660(...);
 
 extern u32 D_0035f20c;
 
-void func_00275d10();
+void Tz__Jiminy__SetupMainFrameLR();
 
 void func_00275e08();
 
 extern u32 D_0035f21c;
 
-void func_0027a108();
+void Tz__CmAbility__FadeOutSelList();
 
 void func_0027a7e0(u32 a0);
 
-void func_0027ac38();
+void Tz__CmAbility__FadeOutAbilityList();
 
 void func_0027b4e8();
 
@@ -3498,7 +3498,7 @@ void func_0027b510();
 
 extern s16 D_00373e30[];
 
-u32 func_0027af58();
+u32 Tz__CmAbility__Cur2AbiltyType();
 
 extern u32 D_0035f230;
 
@@ -3543,9 +3543,9 @@ extern u8 D_00374050;
 
 extern u32 D_0035f250;
 
-void func_0028d7f0(u32, u32, u32, u32, u32, s32, u32, u32, u32);
+void Tz__MenuUtil__CreateLay(u32, u32, u32, u32, u32, s32, u32, u32, u32);
 
-void func_0023ef50(u32);
+void Tz__Layout__SetImageCache(u32);
 
 void func_0027ff00(void);
 
@@ -3553,13 +3553,13 @@ void func_0027f4a8(void);
 
 void func_001039f8(void);
 
-void func_002593b8(u32, u32);
+void Tz__CmComm__DataLoadWait(u32, u32);
 
 void func_002806c8(void);
 
 extern "C" void func_0027f370(void) asm("_ZN2Tz9GumiPause8SetupTopEv");
 
-u32 func_0027f3d8(void);
+u32 Tz__GumiPause__Control(void);
 
 void func_0027fba0(void);
 
@@ -3587,13 +3587,13 @@ void func_002804f0(void);
 
 void func_00280420(void*, s32);
 
-void func_002539e8(u32, void*);
+void Tz__CMData__BackRead(u32, void*);
 
 void func_00280a50(void);
 
-u32 func_00280c38(void);
+u32 Tz__GumiGameOver__Control(void);
 
-void func_00280d40(void);
+void Tz__GumiGameOver__Draw(void);
 
 extern u32 D_00374190;
 
@@ -3650,7 +3650,7 @@ u32 func_00253b30(...);
 
 extern u32 D_0035f2b0;
 
-u32 func_00290a10(...);
+u32 Tz__MenuFile__alloc(...);
 
 u32 func_00290948(u32, u32);
 
@@ -3660,13 +3660,13 @@ void func_00285418(void);
 
 void func_002853b8(void);
 
-void func_002847e0(void);
+void Tz__Ending__Setup(void);
 
-void func_00284e40(void);
+void Tz__Ending__SoundSetup(void);
 
-u32 func_00284ef0(void);
+u32 Tz__Ending__Control(void);
 
-void func_002851e0(void);
+void Tz__Ending__Draw(void);
 
 extern u32 D_0035f2c0;
 
@@ -3750,7 +3750,7 @@ extern u32 D_0035f34c;
 
 extern u32 D_0035f350;
 
-void func_00287ed8(u32);
+void Tz__MenuBase__SavePadInit(u32);
 
 struct Obj_002890e0 {
     u8 pad0[4];
@@ -3906,7 +3906,7 @@ u32 field56;
 
 };
 
-u32 func_00239988(...);
+u32 YI__SEQUENCE__Init(...);
 
 void func_0028e438(u32, u32, u32, s32);
 
@@ -4059,13 +4059,13 @@ void func_002908a8(u32);
 
 void func_00323e98(u32);
 
-void func_00290d68(u32, u32);
+void Tz__ItemStat__CreateSeq(u32, u32);
 
 void func_00290f78(u32);
 
 u32 func_00291380(u32, u32);
 
-void func_00291510(u32, u32, u32, u32);
+void Tz__ItemStat__Update(u32, u32, u32, u32);
 
 void func_00291ba8(u32, u32, u32, u32, u32, u32);
 
@@ -4150,7 +4150,7 @@ u32 func_00293bd0(...);
 void func_002925c0(void);
 
 
-u32 func_002953c8(s32);
+u32 Tz__JmWorldSel__GetId2Info(s32);
 
 u32 func_00293db8(...);
 
@@ -4178,7 +4178,7 @@ extern u32 D_0035f5d8;
 
 void func_002a1c68(void);
 
-void func_002a0860(void);
+void Tz__JmDic__LeaveDicSeq(void);
 
 extern u32 D_0035f5dc;
 
@@ -4188,15 +4188,15 @@ extern u8 D_0035f5e0;
 
 extern u8 D_0035f5e1;
 
-void func_002a41f0(void);
+void Tz__JmTreasure__LeaveList(void);
 
 extern "C" void func_0028d5d0(u32 a0) asm("_ZN2Tz8LightCur7FadeOutEv");
 
 extern u32 D_0035f5e8;
 
-u32 func_002a7490(void);
+u32 Tz__JmSynthe__isEnableRecipe(void);
 
-u32 func_002a74c0(void);
+u32 Tz__JmSynthe__isEnableMaterial(void);
 
 extern void* D_0035f608;
 
@@ -4214,7 +4214,7 @@ void func_002aabe8(void);
 
 void func_002ab020(void);
 
-void func_002ab448(void);
+void Tz__JmNewInfo__CheckTreasure(void);
 
 void func_002ab818(void);
 
@@ -4238,17 +4238,17 @@ extern u32 D_0035f618;
 
 u32 func_001d9e30(u32 a0);
 
-s32 func_002764b0(u32 a0);
+s32 Tz__Jiminy__AreaWorld2JmWorld(u32 a0);
 
 u32 func_001d9d48(void* a0);
 
 extern volatile u8* volatile D_0035f638;
 
-void func_002b2840();
+void Tz__JmPuzzle__LeaveAll();
 
-u32 func_002b20b8();
+u32 Tz__JmPuzzle__LeaveSeqTbl();
 
-u32* func_002b23e0(s32 a0);
+u32* Tz__JmPuzzle__GetImageInfo(s32 a0);
 
 extern s8 D_00374cd0[];
 
@@ -4316,11 +4316,11 @@ void func_002bb180(u32 a0, u32 a1);
 
 u32 func_002bb0e0(u32 a0);
 
-u32 func_0014ee28(u32 a0, u32 a1, u32 a2);
+u32 dk__POLYGONSE__calc(u32 a0, u32 a1, u32 a2);
 
 void func_002bb5f8(u32 a0);
 
-u32 func_002bc158();
+u32 SOUND__allocSe();
 
 void func_002bb1c8(u32 a0, u32 a1, u32 a2);
 
@@ -4340,17 +4340,17 @@ void func_002bc9a8(u32 a0, u32 a1, u32 a2);
 
 void func_002bcf58(u32 a0);
 
-void func_002bcfa0(u32 a0);
+void SE_BANK__objectDestroy(u32 a0);
 
 void func_002bd1c0(u32 a0);
 
 s32 func_002bca48(u32 a0, u32 a1);
 
-void func_002be0b0(u32 a0);
+void worldmap__Libretto__leaveObj(u32 a0);
 
 u32 func_002be5b8(u32 a0);
 
-void func_0015f618();
+void dk__Map__noDrawAll();
 
 void func_002c1f08(u32 a0, u32 a1);
 
@@ -4408,13 +4408,13 @@ void func_002c2228(u32);
 
 extern u8 D_00361ba8;
 
-void func_001036d0(u32, u32);
+void MENU__CreateAllocator_2(u32, u32);
 
 void func_00288b18(u32);
 
-void func_0028c3f0(u32);
+void Tz__MenuItem__init(u32);
 
-void func_0028c878(u32, u32);
+void Tz__MenuCursor__Init(u32, u32);
 
 extern "C" void func_00274ee8(u32) asm("_ZN2Tz6Jiminy6WMInitEP9ALLOCATOR");
 
@@ -4434,7 +4434,7 @@ void func_00274ac8(...) asm("_ZN2Tz6Jiminy13JmCommonLeaveEv");
 
 u32 func_002891d0(u32);
 
-void func_002c40d8(void*);
+void dk__WM_LANDING__drawList(void*);
 
 void func_002c4240(void*);
 
@@ -4442,11 +4442,11 @@ void func_00138480(u32);
 
 void func_0014f2d8();
 
-void func_002c29d8(u32);
+void dk__WM_LANDING__WM_LANDING(u32);
 
-u32 func_002beb90();
+u32 worldmap__Manager__get2ldFile();
 
-void func_002c4e98(u32, u32, u32);
+void dk__WM_LANDING__create(u32, u32, u32);
 
 void func_002cac40(u32);
 
@@ -4454,7 +4454,7 @@ extern u32 D_00361c10;
 
 u32 func_001b8958(u32);
 
-void func_002bf9d8(u32);
+void worldmap__Event__Event(u32);
 
 void func_002c5850(f32, u32, u32, u32, u32);
 
@@ -4482,21 +4482,21 @@ typedef void (*VCall16)(void*);
 
 u32 func_002ca3d0(u32, u32);
 
-void func_002ca010(u32);
+void dk__WM_GLANDING_INFO__start(u32);
 
-void func_002ca4c0(u32);
+void dk__WM_GLANDING__select(u32);
 
-void func_002ca6f8(u32);
+void dk__WM_GLANDING__drawSelectDeparture(u32);
 
-void func_002ca170(u32);
+void dk__WM_GLANDING__WM_GLANDING(u32);
 
-void func_002caa50(u32, u32, u32);
+void dk__WM_GLANDING__create(u32, u32, u32);
 
 extern u32 D_00361e28;
 
 void func_002cb160(u32);
 
-void func_002cae60(f32, u32, u32, u32);
+void worldmap__CloseUpCamera__CloseUpCamera(f32, u32, u32, u32);
 
 void func_002c5608(u32);
 
@@ -4536,7 +4536,7 @@ void func_002cf280(void*, u32, u32);
 
 void func_002cf2b0(u32 a0, u32 a1);
 
-void func_002d2a90(u32 a0);
+void Ti__MGOarashiGimObj__start_tornado_attack(u32 a0);
 
 u32 func_002d5578(u32 a0);
 
@@ -4552,15 +4552,15 @@ void func_0015ca40(u32 a0, u32 a1, u32 a2, f32 a3, f32 a4, f32 a5, f32 a6);
 
 void func_002d74c8(u32 a0, u32 a1, u32 a2);
 
-void func_002db610(u32 a0);
+void Ti__MGHachimitsuPod__set_run_effect(u32 a0);
 
-void func_002dc1b8(u32 a0, u32 a1);
+void Ti__MGHachimitsuPo__set_run_effect(u32 a0, u32 a1);
 
 void func_001dc818(u32 a0);
 
 u32 func_001bd3e0(u32, u32, u32, void*, u32, u32);
 
-u32 func_001c0d38(u32, u32, u32, u32);
+u32 YS__OBJ__attach(u32, u32, u32, u32);
 
 typedef u32 (*Method1)(u32);
 
@@ -4634,7 +4634,7 @@ void func_002eef08(u32 a0, u32 a1, float a2);
 
 u32 func_0010c7e8(u32 a0);
 
-u32 func_00117970(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);
+u32 kn__Stitch__startEffect(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7);
 
 u32 __ieee754_rem_pio2f(void* out2);
 

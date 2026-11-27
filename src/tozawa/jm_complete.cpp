@@ -12,7 +12,7 @@ extern "C" void func_00106450(void*);
 extern "C" void func_00293eb0();
 extern "C" void func_00170c00(void*);
 extern "C" u32 func_001d9e30(u32);  // record_range_check_or_first
-extern "C" s32 func_002764b0(u32);
+extern "C" s32 Tz__Jiminy__AreaWorld2JmWorld(u32);
 extern "C" u32 func_001d9d48(void*);
 
 // 0x002aceb0: definition moved into src/anon/unit_002a99c8.cpp

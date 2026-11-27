@@ -23,6 +23,6 @@ void func_0023a9c0(Sub28d*, s32*, s32*);
 double func_00313b80(f32);
 s32 func_003142e0(double, double);
 f32 func_0028f1e0(f32*, f32*, f32);
-void func_0023ade0(Sub28d*);
+void YI__SEQUENCE__Draw(Sub28d*);
 void func_0028d320(Obj28d* o);  // 0028d320: moved to src/anon/unit_0028c878.cpp
 }

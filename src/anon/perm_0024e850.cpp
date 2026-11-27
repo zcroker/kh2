@@ -44,16 +44,16 @@ extern Sys24e850 *D_00347f80;
 extern u8 D_00372380;
 extern u8 D_00372388;
 u8 *func_0023ee30(s32);
-void func_002369a0(u8 *);
-void func_0023c008(u8 *);
-void func_0028d7f0(u8 *, s32, s32, s32, s32, s32, s32, s32, s32);
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u8 *);
+void YI__LAYOUT__LAYOUT(u8 *);
+void Tz__MenuUtil__CreateLay(u8 *, s32, s32, s32, s32, s32, s32, s32, s32);
 void func_00288ce0(u32, s32, s32, s32, s32);
-void func_002891f0(u32, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32);
 s32 func_002891e8(u32) asm("_ZN2Tz6Select10GetCurrentEv");
 void func_0024f348(void);
-void func_0023f1e0(u8 *, s32, u8 *, void *, void *, s32, s32, s32);
+void Tz__LayMsg__create(u8 *, s32, u8 *, void *, void *, s32, s32, s32);
 void func_0023f6c0(u8 *, s32);
 void func_00287cc0(s32) asm("_ZN2Tz8Selector8SetStateEi");
-void func_0024e850(void);  // 0x0024e850: definition moved into src/anon/unit_0024e7e8.cpp
+void Tz__TTMY__Setup(void);  // 0x0024e850: definition moved into src/anon/unit_0024e7e8.cpp
 
 }

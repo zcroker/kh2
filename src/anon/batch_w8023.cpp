@@ -16,7 +16,7 @@ struct C0_28f3e8 : B0_28f3e8 { M1b4_28f3e8 m2; ~C0_28f3e8() {} };
 extern "C" {
 extern C0_28f3e8* D_0035f480;
 extern C0_28f3e8* D_0035f480_b asm("D_0035f480");
-void func_0028f3e8(void);  // 0028f3e8: moved to src/anon/unit_0028f1e0.cpp
+void Tz__SelHist__Exit(void);  // 0028f3e8: moved to src/anon/unit_0028f1e0.cpp
 }
 
 extern "C" {

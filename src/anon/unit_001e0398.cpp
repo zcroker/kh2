@@ -123,7 +123,7 @@ void func_001e0690(void) {
     D_00352b60.clear();
 }
 
-void func_001e06b8(void) {
+void ryj__SHAKE__Init(void) {
     T6b8* m0 = func_00102c80();
     T6b8* m1 = getGumiBattleMode_6b8();
     T6b8* list[4];

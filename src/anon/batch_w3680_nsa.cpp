@@ -33,5 +33,5 @@ s32 strcmp(const char*, const char*);
 s32 strlen(const char*);
 
 static inline s32 num2(u8 a, u8 b) { return (a - '0') * 10 + (b - '0'); }
-s32 func_00240e50(void);  // 0x00240e50: definition moved into src/anon/unit_0023f5b8.cpp
+s32 Tz__MCard__UpdateDirInfo(void);  // 0x00240e50: definition moved into src/anon/unit_0023f5b8.cpp
 }

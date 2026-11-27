@@ -15,10 +15,10 @@ union W1573_FU { f32 f; s32 i; };
 
 extern "C" {
 void func_00190128(void*);
-void func_0017bf40(void*);
-void func_001bde58(void*);
+void YS__COMMAND__clear(void*);
+void YS__PLAYER_COMMAND__clear_override(void*);
 void func_00320730(void*);
-void func_0019d4f8(void*);
+void YS__RECOM__init(void*);
 void func_001bd370(void*);
 void func_001bd3a0(void*);
 void slot_clear(void*) asm("_ZN2YS12COMMAND_SLOT5clearEv");
@@ -31,7 +31,7 @@ extern f32 D_01d9e360[];
 f32 func_001ed2d8(f32, f32);
 f32 func_001ed488(f32, f32);
 
-void func_001bcf80(u8* p);  // 0x001bcf80: definition moved into src/anon/unit_001bc568.cpp
+void YS__PLAYER_COMMAND__PLAYER_COMMAND(u8* p);  // 0x001bcf80: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001ed2e0(u8* o, W1573_RandArg* __restrict__ s, W1573_T1* t);  // 0x001ed2e0: definition moved into src/anon/unit_001ec098.cpp
 

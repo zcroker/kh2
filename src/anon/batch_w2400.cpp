@@ -32,7 +32,7 @@ void func_00144e30(V4n*);
 u32 func_00141970(ObjN*);
 void func_00144e50(V4n*, BoxN*, u32);
 void func_00141980(ObjN*, u8*);
-void func_00141c38(ObjN*, s32, V4n*, u16*, s32);
+void dk__OctCollFile__selectPolygon(ObjN*, s32, V4n*, u16*, s32);
 u16 func_00141e78(ObjN*, SegN*, s32, V4n*);
 s32 func_00141ff0(ObjN* o, SegN* ray, V4n* out, u16* id, s32 mask);  // 0x00141ff0: definition moved into src/anon/unit_00141458.cpp
 }

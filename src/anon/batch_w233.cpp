@@ -21,20 +21,20 @@ u32 func_0014aba8();
 void func_0014aa58(u32, s32, s32);
 void func_0013f020();
 void func_0023acd8(void*);
-void func_0023ade0(void*);
-s32 func_0015d440();  // 0x0015d440: definition moved into src/anon/unit_0015d440a.cpp
+void YI__SEQUENCE__Draw(void*);
+s32 dk__KeyHoleJumpEffect__jumpEffectOut_task();  // 0x0015d440: definition moved into src/anon/unit_0015d440a.cpp
 
 extern u8* D_00347d64;
 void func_00192c90(u32, void*);
 void func_00192b30(u32);
-void func_00138210(u32 a);  // 0x00138210: definition moved into src/anon/unit_001374c8.cpp
+void dk__TREASURE_INFO__openPrizeInfo(u32 a);  // 0x00138210: definition moved into src/anon/unit_001374c8.cpp
 
 extern f32 D_00349e14;
 s32 func_00197920(void*);
 void func_00138c10(void*, s32);
-void func_001390a8(void*);
+void dk__SpriteMessage__update(void*);
 struct V15ae { u8 p[20]; void (*f5)(void*); };
-void func_0015ae00(u8* a);  // 0x0015ae00: definition moved into src/anon/unit_0015a810.cpp
+void dk__BILLBOARD_DISABLE_REASON__update(u8* a);  // 0x0015ae00: definition moved into src/anon/unit_0015a810.cpp
 
 extern u32 D_003638d0;
 s64 func_00312db8(u64, u64);
@@ -47,12 +47,12 @@ extern s16* D_0035ee9c;
 void func_002529a8();
 u32* func_0023ee30(u32);
 void func_0031a838(u32*);
-void func_002369a0(u32*);  // obj_ctor_36eac8
-void func_0023c008(u32*);  // obj_ctor_36eae8
-void func_0028d7f0(u32*, s32, s32, s32, s32, s32, s32, s32, s32);
-void func_0023ef50(u32*);
-void func_00252d88();
-void func_00252900();  // 0x00252900: definition moved into src/anon/unit_00250fb8.cpp
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u32*);  // obj_ctor_36eac8
+void YI__LAYOUT__LAYOUT(u32*);  // obj_ctor_36eae8
+void Tz__MenuUtil__CreateLay(u32*, s32, s32, s32, s32, s32, s32, s32, s32);
+void Tz__Layout__SetImageCache(u32*);
+void Tz__ALCA__ChgMode();
+void Tz__ALCA__PauseThread();  // 0x00252900: definition moved into src/anon/unit_00250fb8.cpp
 
 extern u32 D_00367920;
 extern u8 D_01e4c798[];

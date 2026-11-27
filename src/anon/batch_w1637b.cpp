@@ -53,12 +53,12 @@ struct W1637BObj3 {
 struct W1637BInfo { u8 p0[0xc]; s32 f0c; W1637BVec pos; W1637BInfo() : f0c(0) {} };
 
 extern "C" {
-W1637BVec* func_0016c028(W1637BObj3*);
+W1637BVec* YS__OBJ__get_pos(W1637BObj3*);
 W1637BVec func_0016be98(W1637BObj3*);
 f32 func_0016b518(W1637BObj3*, s32);
 void* func_0016bc20(W1637BObj3*, s32, s32);
-void func_0018a818(W1637BInfo*, W1637BObj3*, void*);
+void YS__COLLISION__set(W1637BInfo*, W1637BObj3*, void*);
 f32 func_0011d6c0(W1637BModel*, u32, W1637BMtx*);
 
-f32 func_0016b0e0(W1637BObj3* o, u32 id, W1637BMtx* out);  // 0x0016b0e0: definition moved into src/anon/unit_00169f98.cpp
+f32 YS__OBJ__get_bone_matrix(W1637BObj3* o, u32 id, W1637BMtx* out);  // 0x0016b0e0: definition moved into src/anon/unit_00169f98.cpp
 }

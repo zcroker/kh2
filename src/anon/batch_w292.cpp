@@ -41,8 +41,8 @@ extern s32 D_0035f628;
 extern s32 D_0035f620;
 extern s32 D_0035f62c;
 u8* func_001058e8(void);
-s32 func_002a7490(void);
-s32 func_002a74c0(void);
+s32 Tz__JmSynthe__isEnableRecipe(void);
+s32 Tz__JmSynthe__isEnableMaterial(void);
 
 static inline s32 tb2ad(u32* base, u32 n) { return base[n >> 5] & (1 << (n & 31)); }
 static inline void sb2ad(u32* base, u32 n) { u32 m = 1 << (n & 31); u32* p = base + (n >> 5); *p |= m; }
@@ -54,7 +54,7 @@ static inline s32 cnt2ad(u8* s, s32 off, s32 n)
     return c;
 }
 
-void func_002add90(void);  // 0x002add90: definition moved into src/anon/unit_002a99c8.cpp
+void Tz__JmComplete__CheckSynthesis(void);  // 0x002add90: definition moved into src/anon/unit_002a99c8.cpp
 
 extern s32 D_0035f650;
 s32 func_00289380(s32);
@@ -75,14 +75,14 @@ void func_00287c00(s32);
 void func_0025ccc0(void);
 void func_00287bd0(s32, s32);
 
-void func_0025caf0(void);  // 0x0025caf0: definition moved into src/anon/unit_002588e8.cpp
+void Tz__CmSave__CtrlWMapConfirm(void);  // 0x0025caf0: definition moved into src/anon/unit_002588e8.cpp
 
 struct K231 { u8 b[16]; };
 struct H231 { u8 pad[6]; struct { u16 start, count; } ch[8]; u8 pad2[40 - 38]; K231 keys[1]; };
 extern u8 D_0035de90[8][32];
 f32 func_00230f10(K231*, s32, void*, f32);
 
-void func_002311c0(f32* out, H231* h, f32 t);  // 0x002311c0: definition moved into src/anon/unit_002302c0.cpp
+void sa__EVENT__calcValue_enc(f32* out, H231* h, f32 t);  // 0x002311c0: definition moved into src/anon/unit_002302c0.cpp
 
 struct Obj142 {
     u8 pad[20]; f32 rad; u8 pad2[48 - 24]; QV142 pos; u8 pad3[104 - 64]; f32 f104; f32 h;

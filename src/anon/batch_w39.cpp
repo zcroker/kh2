@@ -41,7 +41,7 @@ void func_0010ab08(int n);  // 0010ab08: moved to src/anon/unit_0010a918.cpp
 // Constructor: base ctor, vtable, then two GS register packets.
 extern u64 D_0036b0d8;
 extern void* D_00349da8[];
-void func_0014b290(u8*);
+void dk__RectBase__createPacket(u8*);
 void func_0014ba20(u8* p);  // 0x0014ba20: definition moved into src/anon/unit_0014b838.cpp
 
 // --- 001576e8
@@ -115,7 +115,7 @@ void func_00196b88(void);  // 0x00196b88: definition moved into src/anon/unit_00
 // --- 00196e98
 int func_00227118(u32);
 void func_001d30f8(u8*, int, int);
-void func_00196e98(u8* p, int x);  // 0x00196e98: definition moved into src/anon/unit_00195d00.cpp
+void YS__EVENT__set_camera_target(u8* p, int x);  // 0x00196e98: definition moved into src/anon/unit_00195d00.cpp
 
 // --- 001a67e0
 // Walks the list up to n (result unused), then destroys and frees n.
@@ -294,7 +294,7 @@ void func_002d4a30(u8* p, Vec4* v);  // 0x002d4a30: definition moved into src/an
 struct S2f0 { u8 pad[16]; Vec4 a; Vec4 b; };
 void func_00110618(S2f0*);
 Vec4* func_0010fa28(S2f0*);  // ptr_add3072
-Vec4* func_0010fa58(S2f0*);
+Vec4* kn__Friend__getInertia(S2f0*);
 // 002f0b60: moved to src/naka/libkn/trapfunctions.cpp
 
 // --- 00304de8

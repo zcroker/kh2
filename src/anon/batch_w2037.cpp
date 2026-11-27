@@ -36,6 +36,6 @@ extern "C" {
 extern f32 D_00349e10;
 s32 func_001c0cd8(void*);
 s32 func_002cf270(void*, s32);
-void func_0016bda8(QVW2037a*, void*);
+void YS__OBJ__get_target_pos(QVW2037a*, void*);
 QVW2037a func_002d3fa8(ObjW2037a* a, ObjW2037a* b);  // 0x002d3fa8: definition moved into src/anon/unit_002d2498.cpp
 }

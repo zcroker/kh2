@@ -13,7 +13,7 @@ struct W1833Obj {
 struct W1833B { u8 pad[0xc]; s32 vc; u8 pad10[0x18]; W1833Info* info; };
 struct W1833Arg { s32 a; W1833Obj* o; W1833B* b; };
 s32 func_0018f010(W1833B*);
-void func_001c0320(void*, W1833B*, void*);
+void YS__ATTACK_CHECK__hit(void*, W1833B*, void*);
 void func_0018ef68(void*, W1833Arg*, s32);
 
 // Bumps the object's counter, forwards the hit to its parts and notifies the listener at +0x98.

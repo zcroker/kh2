@@ -72,14 +72,14 @@ YS::TARGET D_0034aa18;
 }
 
 extern "C" {
-void func_001904f0(YS::TARGET*, S159790*);
-V159790* func_0016c028(void*);
+void YS__TARGET__make_talk_camera_collision(YS::TARGET*, S159790*);
+V159790* YS__OBJ__get_pos(void*);
 f32 func_002f8ad0(f32, f32);
 f32 func_0017ce10(f32);
 void func_0011b6a8(M159790*);
 void func_0011b720(M159790*, f32);
 void func_0013f648(C159790*);
-void func_00141010(f32);
+void dk__ObjCamera__cancelSubjective(f32);
 void func_00162058(f32);
 void func_001024a8(TASK*);
 }
@@ -100,11 +100,11 @@ extern "C" void func_00159790(C159790* c)
 {
     S159790 s;
     s.flag = 0;
-    func_001904f0(&D_0034aa18, &s);
+    YS__TARGET__make_talk_camera_collision(&D_0034aa18, &s);
     c->v128 = s.pos;
     if (D_0034aa11 == 1) {
         V159790 a, b;
-        V159790& t = *func_0016c028(c->target);
+        V159790& t = *YS__OBJ__get_pos(c->target);
         V159790 d;
         b = c->v128;
         d = t;
@@ -151,7 +151,7 @@ void TalkCamera::update(ObjCamera* cam) {
 }  // namespace dk
 
 extern "C" void func_00159b40(YS::TARGET* t, u8 mode) {
-    func_00141010(30.0f);
+    dk__ObjCamera__cancelSubjective(30.0f);
     *(u32*)((u8*)dk::ObjCamera::getInstance() + 64) = 4;
     D_0034aa18 = *t;
     func_00162058(8.0f);

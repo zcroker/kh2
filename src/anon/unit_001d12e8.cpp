@@ -19,8 +19,8 @@
 // pointer (r = (s32)m): that copy is what puts m in v0 at entry, and `r = base(); return r;` keeps the base call a jal.
 namespace n001d1190 {
 struct Msg { u16 a; u16 id; s16 arg; };
-s32 func_00178ae8(u8*, Msg*) asm("func_00178ae8");
-u8* func_001d61b8(u8*, s32) asm("func_001d61b8");
+s32 YS__PLAYER___OVR_exec_command_player(u8*, Msg*) asm("YS__PLAYER___OVR_exec_command_player");
+u8* YS__ANTI_FORM__CheckForm(u8*, s32) asm("YS__ANTI_FORM__CheckForm");
 u8* func_001b90c8(u8*) asm("func_001b90c8");
 void func_001a1b30(u8*, u8) asm("func_001a1b30");
 void func_001d97f0(u8*) asm("func_001d97f0");
@@ -33,10 +33,10 @@ s32 func_001d1190(u8* p, Msg* m) asm("func_001d1190");
 s32 func_001d1190(u8* p, Msg* m) {
     s32 r = (s32)m;
     switch (m->id) {
-    default: r = func_00178ae8(p, m); break;
+    default: r = YS__PLAYER___OVR_exec_command_player(p, m); break;
     case 5: r = func_001b6b10(p, 0); *(u32*)(p + 264) |= 0x100; break;
     case 4: {
-        u8* e = func_001d61b8(p, m->arg);
+        u8* e = YS__ANTI_FORM__CheckForm(p, m->arg);
         func_001a1b30(*(u8**)(p + 1164), func_001b90c8(e)[28]);
         func_001d97f0(e);
         return func_001b6b10(p, e);
@@ -58,13 +58,13 @@ void motion_push_w1672(u8*, u32, f32, f32, u32) asm("_ZN2YS6MOTION4pushEiffPFvPN
 u32 member_Get_w1672(s32) asm("_ZN2YS6MEMBER3GetEi");
 u32 member_get_part_w1672(u32, s32) asm("_ZNK2YS6MEMBER8get_partEi");
 void party_voice_part_w1672(u8*, u32) asm("_ZN2YS5PARTY10voice_partEi");
-void func_001b5ef0(u32) asm("func_001b5ef0");
+void YS__CHANGEIN__Start(u32) asm("YS__CHANGEIN__Start");
 void func_001d12e8(u8* p, u32 b) asm("func_001d12e8");
 void func_001d12e8(u8* p, u32 b) {
     f17f488_w1672(p + 0x140, 0x89, 0.0f, 0.0f);
     motion_push_w1672(p + 0x140, 0, 0.0f, 0.0f, 0);
     party_voice_part_w1672(p, member_get_part_w1672(member_Get_w1672(-1), 3));
-    func_001b5ef0(b);
+    YS__CHANGEIN__Start(b);
 }
 }  // namespace n001d12e8
 
@@ -72,13 +72,13 @@ void func_001d12e8(u8* p, u32 b) {
 namespace n001d1380 {
 void f17f488_w1672(u8*, int, float, float) asm("_Z13func_0017f488iiff");
 u32 GetSystemPax_w1672(void) asm("_ZN2YS6EFFECT12GetSystemPaxEv");
-u32 func_001de168(u32, u32, u32, u32, u32, u8*) asm("func_001de168");
+u32 ryj__PAX__start(u32, u32, u32, u32, u32, u8*) asm("ryj__PAX__start");
 void func_001a1b30(u32, u32) asm("func_001a1b30");
 void func_001c8300(u8*, u32) asm("func_001c8300");
 void func_001d1380(u8* p, u8* q) asm("func_001d1380");
 void func_001d1380(u8* p, u8* q) {
     f17f488_w1672(p + 0x140, 0x8a, 8.0f, 0.0f);
-    *(u32*)(p + 0xb68) = func_001de168(GetSystemPax_w1672(), 0x13, 0, 1, 0, p);
+    *(u32*)(p + 0xb68) = ryj__PAX__start(GetSystemPax_w1672(), 0x13, 0, 1, 0, p);
     func_001a1b30(*(u32*)(p + 0x48c), q[0x1c]);
     func_001c8300(p, *(u16*)q);
 }
@@ -140,10 +140,10 @@ void SORA_set_skateboard_mode(SORALayout* self, s32 v) {
 
 // ---- 001d14b8 from src/anon/batch_w9.cpp
 namespace n001d14b8 {
-void func_00176cd0(void*) asm("func_00176cd0");
+void YS__PARTY___OVR_voice(void*) asm("YS__PARTY___OVR_voice");
 void func_001d14b8(u8* p) asm("func_001d14b8");
 void func_001d14b8(u8* p) {
-    if (*(s32*)(p + 2896) != 6) func_00176cd0(p);
+    if (*(s32*)(p + 2896) != 6) YS__PARTY___OVR_voice(p);
 }
 }  // namespace n001d14b8
 

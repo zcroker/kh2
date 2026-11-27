@@ -56,7 +56,7 @@ typedef void (*GetBoundsFn1337)(Model1337*, BoxVec1337*, BoxVec1337*);
 
 s32 JmInfo_GetCharaData(u32) asm("_ZN2Tz6JmInfo12GetCharaDataEj");
 s32 func_0016f6f8(s32);
-void func_001a91f8(ObjData1337*);
+void YS__OBJDATA__clear(ObjData1337*);
 void func_001a92d8(ObjData1337*, s32, s32);
 Model1337* ObjData_get_knm(ObjData1337*) asm("_ZN2YS7OBJDATA7get_knmEv");
 void ObjData_free(ObjData1337*) asm("_ZN2YS7OBJDATA4freeEv");
@@ -69,15 +69,15 @@ extern u8* D_00361f60;
 void BtlObj_pre_exec(void*) asm("_ZN2YS6BTLOBJ13_OVR_pre_execEv");
 s32 Obj_is_attach(void*) asm("_ZN2YS3OBJ9is_attachEv");
 void Obj_set_pos(void*, const QV1337*) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
-QV1337* func_0016c028(void*);
+QV1337* YS__OBJ__get_pos(void*);
 QM1337* func_002d1f10(u8*);
 QM1337* func_002d1f00(u8*);
-void func_0016b010(void*, QV1337*);
+void YS__OBJ__set_wish_dir(void*, QV1337*);
 
 void func_002d5f48(u8* self);  // 0x002d5f48: definition moved into src/anon/unit_002d4548.cpp
 
 
-s32 func_00143b88(Seg1337*, Hit1337*, u16*, s32*, s32);
+s32 dk__Octree__intersectLine(Seg1337*, Hit1337*, u16*, s32*, s32);
 void func_0018ddc0(Obj1337*, u16, Hit1337*, s32*);
 
 s32 func_0018dc28(Obj1337* self, const QV1337* from, const QV1337* to);  // 0x0018dc28: definition moved into src/anon/unit_0018d050.cpp

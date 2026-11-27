@@ -12,7 +12,7 @@ extern "C" {
 extern u32 D_00341788[8];
 extern s32 D_003417a8;
 void func_00190878(Tgt*, u32, s32);
-s32 func_00190730(Tgt*, s32);
+s32 YS__TARGET__each(Tgt*, s32);
 s32 func_001901c0(Tgt*);
 s32 func_00112d28(u32, s32);
 void func_0010d918(s32 a0, s32 a1, Tgt* out);  // 0x0010d918: definition moved into src/anon/unit_0010d900.cpp

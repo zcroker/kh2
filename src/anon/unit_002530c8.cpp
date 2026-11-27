@@ -46,19 +46,19 @@ extern s32 D_0035f3d4 asm("D_0035f3d4");
 extern s16 D_01dae6a8[] asm("D_01dae6a8");
 void func_00258dc8(void) asm("func_00258dc8");
 void func_0028ca78(void) asm("func_0028ca78");
-void func_00287a28(void) asm("func_00287a28");
+void Tz__MenuBase__Exit(void) asm("Tz__MenuBase__Exit");
 void func_0028d068(s32, s32) asm("func_0028d068");
 void func_00242790(void) asm("func_00242790");
 void func_0023d368(void) asm("func_0023d368");
 /*TARGET 002530f0*/
-void func_002530f0(s32 a) asm("func_002530f0");
-void func_002530f0(s32 a)
+void Tz__CampMenu__Exit(s32 a) asm("Tz__CampMenu__Exit");
+void Tz__CampMenu__Exit(s32 a)
 {
     func_00253330(a)->fn();
     D_0035eeb4 = -1;
     func_00258dc8();
     func_0028ca78();
-    func_00287a28();
+    Tz__MenuBase__Exit();
     D_0035f3d4 = D_01dae6a8[0];
     s32 v = D_01dae6a8[1];
     if (v >= 0) func_0028d068(v, -1);
@@ -81,10 +81,10 @@ void func_00103500(s32) asm("func_00103500");
 s32 func_00253380(u32) asm("func_00253380");
 void func_00253538(s32) asm("func_00253538");
 void func_001037b8(void) asm("func_001037b8");
-void wtarget_00253180(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_00253180jjjj");
+void Tz__CampMenu__Start(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z19Tz__CampMenu__Startjjjj");
 /*TARGET 00253180*/
-void wtarget_00253180(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16wtarget_00253180jjjj");
-void wtarget_00253180(u32 a0, u32 a1, u32 a2, u32 a3) {
+void Tz__CampMenu__Start(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z19Tz__CampMenu__Startjjjj");
+void Tz__CampMenu__Start(u32 a0, u32 a1, u32 a2, u32 a3) {
     s32 v1 = a1;
     s32 flag = 0;
     if (D_0033cbb0) return;
@@ -159,13 +159,13 @@ void func_002533d8(void) {}
 // 002533e0 (was src/anon/batch_w8.cpp)
 namespace n002533e0 {
 void func_0026d808(const void*) asm("func_0026d808");
-void func_00253180(u32, s32) asm("func_00253180");
+void Tz__CampMenu__Start(u32, s32) asm("Tz__CampMenu__Start");
 void camp_start_party(s32 a, const void* b) asm("_ZN2Tz8CampMenu10StartPartyEiPKv");
 /*TARGET 002533e0*/
 void camp_start_party(s32 a, const void* b) asm("_ZN2Tz8CampMenu10StartPartyEiPKv");
 void camp_start_party(s32 a, const void* b) {
     func_0026d808(b);
-    func_00253180(6, a);
+    Tz__CampMenu__Start(6, a);
 }
 }  // namespace n002533e0
 
@@ -175,16 +175,16 @@ struct Obj253410 { u8 pad[37]; u8 active : 1; };
 u8* func_0014aba8(void) asm("func_0014aba8");
 void func_00258b00(void*, s32) asm("func_00258b00");
 void* func_002535d0(s32) asm("func_002535d0");
-void func_00242740(void*) asm("func_00242740");
-void func_00253180(s32, s32) asm("func_00253180");
+void Tz__MenuSound__SetPause(void*) asm("Tz__MenuSound__SetPause");
+void Tz__CampMenu__Start(s32, s32) asm("Tz__CampMenu__Start");
 static inline u8 isOff253410(Obj253410* o) { return !o->active; }
 /*TARGET 00253410*/
 void func_00253410(Obj253410* o, s32 a1) asm("func_00253410");
 void func_00253410(Obj253410* o, s32 a1) {
     if (!isOff253410(o)) *(u32*)(func_0014aba8() + 252) = 0;
     func_00258b00(o, a1);
-    func_00242740(func_002535d0(8));
-    func_00253180(8, -1);
+    Tz__MenuSound__SetPause(func_002535d0(8));
+    Tz__CampMenu__Start(8, -1);
 }
 }  // namespace n00253410
 
@@ -202,7 +202,7 @@ void CampMenu_RestartSelector(void*, const void*, const void*) {
 
 // 002534a0 (was src/tozawa/campmenu.cpp)
 namespace Tz { // method 002534a0
-u32 func_00253180(...) asm("func_00253180");
+u32 Tz__CampMenu__Start(...) asm("Tz__CampMenu__Start");
 u32 func_00274f98(...) asm("func_00274f98");
 /*TARGET 002534a0*/
 u32 CampMenu::StartJiminy(s32 a0, s32 a1) {
@@ -215,7 +215,7 @@ u32 CampMenu::StartJiminy(s32 a0, s32 a1) {
     }
     r5 = r16;
     r4 = (u32)((s32)0u + (4));
-    return ((u32(*)(u32,u32))func_00253180)(r4, r5);
+    return ((u32(*)(u32,u32))Tz__CampMenu__Start)(r4, r5);
 }
 }  // Tz
 
@@ -223,7 +223,7 @@ u32 CampMenu::StartJiminy(s32 a0, s32 a1) {
 namespace n002534e0 {
 s32 func_00103550(void) asm("func_00103550");
 s32 func_00103b38(void) asm("func_00103b38");
-void func_00253180(s32, s32) asm("func_00253180");
+void Tz__CampMenu__Start(s32, s32) asm("Tz__CampMenu__Start");
 void func_0027dc08(void) asm("func_0027dc08");
 /*TARGET 002534e0*/
 void func_002534e0(void) asm("func_002534e0");
@@ -232,7 +232,7 @@ void func_002534e0(void) {
     func_0027dc08();
     s = func_00103550();
     if (func_00103b38() == 0 || s != 50) {
-        func_00253180(14, -1);
+        Tz__CampMenu__Start(14, -1);
     }
 }
 }  // namespace n002534e0
@@ -589,19 +589,19 @@ void func_002ff2e8(u8*) asm("func_002ff2e8");
 s32 func_00253b00() asm("func_00253b00");
 void func_00253978(void*) asm("func_00253978");
 void func_002539d0(void*) asm("func_002539d0");
-void func_001684c0(u8*, s32, void (*)(void*), Slot*) asm("func_001684c0");
-void func_00168388(u8*, s32, void (*)(void*), Slot*) asm("func_00168388");
+void YS__FILE__ReadBarBack(u8*, s32, void (*)(void*), Slot*) asm("YS__FILE__ReadBarBack");
+void YS__FILE__ReadBack(u8*, s32, void (*)(void*), Slot*) asm("YS__FILE__ReadBack");
 /*TARGET 002539e8*/
 // Starts slot idx's request (idx 6 fills buf itself): records a ticket, sets state 2 and
 // queues it with a completion callback.
 // key is pinned to s2 (both buffer results share it); the empty asm keeps a label at the
 // start of the non-6 arm, so the first beq's delay slot is filled from its target as in the original.
-s32 func_002539e8(s32 idx0, u32 key0) asm("func_002539e8");
+s32 Tz__CMData__BackRead(s32 idx0, u32 key0) asm("Tz__CMData__BackRead");
 // Starts slot idx's request (idx 6 fills buf itself): records a ticket, sets state 2 and
 // queues it with a completion callback.
 // key is pinned to s2 (both buffer results share it); the empty asm keeps a label at the
 // start of the non-6 arm, so the first beq's delay slot is filled from its target as in the original.
-s32 func_002539e8(s32 idx0, u32 key0)
+s32 Tz__CMData__BackRead(s32 idx0, u32 key0)
 {
     u8 buf[128];
     s32 idx = idx0;
@@ -621,9 +621,9 @@ s32 func_002539e8(s32 idx0, u32 key0)
     s->d = func_00253b00();
     s->c = 0;
     if (idx != 6) {
-        func_001684c0((u8*)key, s->d, func_00253978, s);
+        YS__FILE__ReadBarBack((u8*)key, s->d, func_00253978, s);
     } else {
-        Slot* q = &D_0035eee0[6]; func_00168388((u8*)key, q->d, func_002539d0, q);
+        Slot* q = &D_0035eee0[6]; YS__FILE__ReadBack((u8*)key, q->d, func_002539d0, q);
     }
     D_0035ef58 = 1;
     return 0;

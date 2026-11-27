@@ -65,8 +65,8 @@ void func_0014b200(u8*, u32) asm("func_0014b200");
 void func_0014b220(u8*, s32, s32, s32, s32) asm("func_0014b220");
 void func_001dd320(Cam*, Sub*, s32) asm("func_001dd320");
 void func_001dd920(s32) asm("func_001dd920");
-void func_00236d60(void) asm("func_00236d60");
-Mot* func_001a9458(void*, s32, s32) asm("func_001a9458");
+void YI__IMAGE_CACHE__Clear(void) asm("YI__IMAGE_CACHE__Clear");
+Mot* YS__OBJDATA__get_kna(void*, s32, s32) asm("YS__OBJDATA__get_kna");
 
 static inline void mulmat(M* d, M* a, M* b) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 16(%1)\n\tlqc2 $vf3, 32(%1)\n\tlqc2 $vf4, 48(%1)\n\t"
@@ -161,7 +161,7 @@ void func_0023e188(Mgr* m)
         func_001dd920(0);
     }
     func_0014b1e0(m->gs2, 0, 0);
-    if (m->count) func_00236d60();
+    if (m->count) YI__IMAGE_CACHE__Clear();
 }
 
 }  // namespace n0023e188

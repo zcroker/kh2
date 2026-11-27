@@ -32,6 +32,6 @@ typedef struct Pair139
   VObj139 b;
 } Pair139;
 s32 u_call4_00139d78(void *) asm("_Z16u_call4_00139d78jjjj");
-s32 func_00139c18(Pair139 *p);  // 0x00139c18: definition moved into src/anon/unit_001393c8.cpp
+s32 dk__Obj2D__checkDoubleCreate(Pair139 *p);  // 0x00139c18: definition moved into src/anon/unit_001393c8.cpp
 
 }

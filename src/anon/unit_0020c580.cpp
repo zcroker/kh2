@@ -232,8 +232,8 @@ void func_0020c858(Obj20c9d0*, Par20c9d0*, Grp20c9d0*) asm("func_0020c858");
 f32 func_0020c860(Obj20c9d0*, f32*, Par20c9d0*, Grp20c9d0*, Elem20c9d0*) asm("func_0020c860");
 s32 func_0020f1e0(u16*, Param20c9d0*, s32) asm("func_0020f1e0");
 /*TARGET 0020c9d0*/
-void func_0020c9d0(u8* base, Par20c9d0* par, Arg20c9d0* arg) asm("func_0020c9d0");
-void func_0020c9d0(u8* base, Par20c9d0* par, Arg20c9d0* arg)
+void pppRyjDrawMegaBirthModelFilter(u8* base, Par20c9d0* par, Arg20c9d0* arg) asm("pppRyjDrawMegaBirthModelFilter");
+void pppRyjDrawMegaBirthModelFilter(u8* base, Par20c9d0* par, Arg20c9d0* arg)
 {
     Grp20c9d0* g = (Grp20c9d0*)(base + arg->h->off8 + 160);
     Elem20c9d0* e = g->elems;

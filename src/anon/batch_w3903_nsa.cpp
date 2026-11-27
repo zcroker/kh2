@@ -54,7 +54,7 @@ s32 func_0010fb10(Cam10ff08*);
 s32 func_0010f8d0(Cam10ff08*);
 s32 func_001137e0(Who10ff08*);
 Ent10ff08* func_001137e8(Who10ff08*);
-s32 func_001a1de0(Other10ff08*);
+s32 YS__SHEET__is_mpdrive(Other10ff08*);
 s32 func_0010f648(s32);
 s32 func_0010f600(Cam10ff08*);
 f32 func_0010f660(void);
@@ -67,8 +67,8 @@ void func_0010eed8(Cam10ff08*, Ent10ff08*, s32);
 void func_00110630(Cam10ff08*);
 Ent10ff08* func_0010fea0(Cam10ff08*);
 u8* func_00112570(Cam10ff08*);
-void func_0016b010(Cam10ff08*, V10ff08*);
+void YS__OBJ__set_wish_dir(Cam10ff08*, V10ff08*);
 // func_0010ff08: camera target choice. Collects candidate entities whose pick callback accepts them
-// (pass 0 skips kind 2 and entities refused by func_001a1de0, pass 1 takes only kind 2), then picks one at random.
+// (pass 0 skips kind 2 and entities refused by YS__SHEET__is_mpdrive, pass 1 takes only kind 2), then picks one at random.
 void func_0010ff08(Cam10ff08* c);  // 0x0010ff08: definition moved into src/anon/unit_0010fea0.cpp
 }

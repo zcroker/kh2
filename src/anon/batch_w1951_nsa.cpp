@@ -20,18 +20,18 @@ struct Cfg1d2 { u8 p[280]; f32 k; };
 struct Obj1d2 { u8 p0[32]; QW1d2 v32; u8 p1[320 - 48]; u8 mot[2548 - 320]; u8 tgt[2920 - 2548]; f32 timer; };
 static inline __attribute__((always_inline)) void SubL(const QW1d2& a, const QW1d2& b, QW1d2* r) {asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(r), "r"(&a), "r"(&b) : "memory");}
 extern "C" {
-Res1d2 func_001d2e68(void*, Obj1d2*);
+Res1d2 YS__ACTION_LM_DOLPHIN__GetNearVector(void*, Obj1d2*);
 f32 func_001d3000(void*, f32);
 void func_00183768(Obj1d2*, Res1d2*, f32);
-void func_0016b010(Obj1d2*, QW1d2*);
+void YS__OBJ__set_wish_dir(Obj1d2*, QW1d2*);
 s32 Tgt1d2_is_exist(void*) asm("_ZNK2YS6TARGET8is_existEv");
 QW1d2 func_00190388(void*);
-QW1d2 ctarget_0016bda8_1d2(Obj1d2*) asm("_Z16ctarget_0016bda8jjjj");
+QW1d2 ctarget_0016bda8_1d2(Obj1d2*) asm("_Z23YS__OBJ__get_target_posjjjj");
 void f17f488_1d2(void*, s32, f32, f32) asm("_Z13func_0017f488iiff");
 void push_1d2(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
 void chg_1d2(Obj1d2*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
 extern Cfg1d2* D_00352130;
 extern f32 D_00349e10;
-void func_001d2c78(void* a0, Obj1d2* o);  // 0x001d2c78: definition moved into src/anon/unit_001d2810.cpp
+void YS__ACTION_LM_DOLPHIN__control(void* a0, Obj1d2* o);  // 0x001d2c78: definition moved into src/anon/unit_001d2810.cpp
 
 }

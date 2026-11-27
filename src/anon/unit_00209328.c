@@ -49,7 +49,7 @@ s32 func_002f35e8(s32);
 void func_002f3918(s32, u32);
 void func_002f25a0(s32, s32);
 
-void func_00209328(u8* base, Spr* s, SprSrc* src)
+void pppRyjDrawDrawKekoto(u8* base, Spr* s, SprSrc* src)
 {
     Vq q[2];
     Vq c[8];

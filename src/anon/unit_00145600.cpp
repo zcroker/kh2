@@ -46,8 +46,8 @@ void func_00106ab8(void*) asm("func_00106ab8");
 // noop_ret
 void func_001070c8(void*) asm("func_001070c8");
 // set_vtbl_34cc50
-void func_0015e4e0(void*) asm("func_0015e4e0");
-void func_0015e9e0(void*) asm("func_0015e9e0");
+void gm__SPRITEFROM3D__draw_common(void*) asm("gm__SPRITEFROM3D__draw_common");
+void dk__ModelSprite__ModelSprite(void*) asm("dk__ModelSprite__ModelSprite");
 void func_0031a830(void*) asm("func_0031a830");
 void func_001447c0(u8*, f32, f32, f32, f32, f32, f32) asm("func_001447c0");
 void func_00145b90(Ob_5680*, s32) asm("func_00145b90");
@@ -60,10 +60,10 @@ void func_00145680(Ob_5680* o, Hd_5680* h, u8 flag, s32 a3) {
   func_001070c8(o->x120);  // set_vtbl_34cc50
   o->x778 = flag;
   o->x779 = 0;
-  func_0015e4e0(o->x790);
+  gm__SPRITEFROM3D__draw_common(o->x790);
   {
     u8 (*p)[880] = o->xc60;
-    for (s32 i = 15; i != -1; i--, p++) func_0015e9e0(p);
+    for (s32 i = 15; i != -1; i--, p++) dk__ModelSprite__ModelSprite(p);
   }
   {
     El_5680* e = o->x4360;
@@ -114,15 +114,15 @@ struct Obj145830 {
 };
 void func_00106ab8(u8* p) asm("func_00106ab8");
 void func_001070c8(u8* p) asm("func_001070c8");
-void func_0015e4e0(u8* p) asm("func_0015e4e0");
-void func_0015e9e0(u8* p) asm("func_0015e9e0");
+void gm__SPRITEFROM3D__draw_common(u8* p) asm("gm__SPRITEFROM3D__draw_common");
+void dk__ModelSprite__ModelSprite(u8* p) asm("dk__ModelSprite__ModelSprite");
 void func_0031a830(u32* p) asm("func_0031a830");
 void func_001447c0_x14971(u8* p, f32 a, f32 b, f32 c, f32 d, f32 e, f32 f) asm("func_001447c0");
 void func_00145b90(Obj145830* o, s32 a) asm("func_00145b90");
 void func_00146d28(Obj145830* o) asm("func_00146d28");
 /*TARGET 00145830*/
-void func_00145830(Obj145830* o, Hdr145830* h, u8 flag, s32 a) asm("func_00145830");
-void func_00145830(Obj145830* o, Hdr145830* h, u8 flag, s32 a)
+void dk__OctDrawFile__OctDrawFile(Obj145830* o, Hdr145830* h, u8 flag, s32 a) asm("dk__OctDrawFile__OctDrawFile");
+void dk__OctDrawFile__OctDrawFile(Obj145830* o, Hdr145830* h, u8 flag, s32 a)
 {
     s32 i;
     o->t4.p = 0;
@@ -136,10 +136,10 @@ void func_00145830(Obj145830* o, Hdr145830* h, u8 flag, s32 a)
     func_001070c8(o->m288);
     o->f1912 = flag;
     o->f1913 = 0;
-    func_0015e4e0(o->m1936);
+    gm__SPRITEFROM3D__draw_common(o->m1936);
     {
         u8* p = o->e3168[0];
-        for (i = 15; i != -1; i--, p += 880) func_0015e9e0(p);
+        for (i = 15; i != -1; i--, p += 880) dk__ModelSprite__ModelSprite(p);
     }
     {
         E8_145830* e = o->e17248;
@@ -385,7 +385,7 @@ static inline W1681Mtx W1681Mul(const W1681Mtx& l, const W1681Mtx& r)
 struct W1681Handle { void* p; };
 union W1681Value { s32 i; s32* p; };
 struct W1681Range { s32* begin; s32* end; } __attribute__((aligned(8)));
-// 256-byte camera record (see func_00106a18).
+// 256-byte camera record (see kn__getProjection).
 struct W1681Cam {
     W1681Mtx world;     // 0
     f32 f40;            // 64
@@ -415,18 +415,18 @@ struct W1681Obj {
     W1681Mtx viewMul;   // 496
     W1681Mtx clipMul;   // 560
 };
-W1681Cam* func_00106a18(s32) asm("func_00106a18");
+W1681Cam* kn__getProjection(s32) asm("kn__getProjection");
 W1681Rec* func_00106a60(s32) asm("func_00106a60");
 W1681Mtx* W1681_camView(W1681Cam*) asm("_ZN2dk11ViewFrustum9setMatrixERKN2kn7FMatrixE");
 W1681Mtx* W1681_camClip(W1681Cam*) asm("_ZN2kn10Projection19getViewClipGsMatrixEv");
 void func_00146680(W1681Mtx*, const W1681Mtx*) asm("func_00146680");
 /*TARGET 00145cb0*/
 // Takes a snapshot of the current camera and the current record, and precomputes the products.
-void func_00145cb0(W1681Obj* o) asm("func_00145cb0");
+void dk__OctDrawFile__calcViewFrustumMatrix(W1681Obj* o) asm("dk__OctDrawFile__calcViewFrustumMatrix");
 // Takes a snapshot of the current camera and the current record, and precomputes the products.
-void func_00145cb0(W1681Obj* o)
+void dk__OctDrawFile__calcViewFrustumMatrix(W1681Obj* o)
 {
-    o->cam = *func_00106a18(1);
+    o->cam = *kn__getProjection(1);
     W1681Mtx view(*W1681_camView(&o->cam));
     W1681Mtx clip(*W1681_camClip(&o->cam));
     W1681Rec* d = &o->rec;

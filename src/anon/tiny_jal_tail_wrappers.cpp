@@ -28,7 +28,7 @@ u32 func_00194930();
 u32 func_001bfc28();
 u32 func_001dcd58();
 u32 func_0020eac0();
-u32 func_00257be0();
+u32 Tz__CmTop__LeaveListSubWin();
 u32 func_002713c8();
 u32 func_002b47a0();
 u32 func_002b5768();
@@ -36,7 +36,7 @@ u32 func_002b5768();
 
 u32 func_001021d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001021d0: definition moved into src/global/unit_00101d50.cpp
 
-u32 func_001021f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001021f0: definition moved into src/global/unit_00101d50.cpp
+u32 GAME_MODE__enable(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001021f0: definition moved into src/global/unit_00101d50.cpp
 
 u32 func_001342a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001342a8: definition moved into src/anon/unit_00133cf0.cpp
 
@@ -49,7 +49,7 @@ u32 func_00161880(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00161880: definition mo
 // 00167618: moved to src/anon/unit_00167358.cpp
 
 // 00188738: moved to src/anon/unit_00188550.cpp
-u32 func_00188738(u32 a0, u32 a1, u32 a2, u32 a3);
+u32 YS__ACT__end(u32 a0, u32 a1, u32 a2, u32 a3);
 
 u32 func_001947a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001947a0: definition moved into src/anon/unit_00194790.cpp
 

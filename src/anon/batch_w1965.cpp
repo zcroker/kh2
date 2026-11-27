@@ -28,14 +28,14 @@ static inline f32 W1965aNormalize(W1965aV* v)
 }
 struct W1965aTgt { u8 pad[12]; u8* obj; };
 extern "C" {
-W1965aV* func_0016c028(u8*);
-W1965aV func_0016af58(u8*);
-W1965aV func_0017d538(const W1965aV&, f32);
+W1965aV* YS__OBJ__get_pos(u8*);
+W1965aV YS__OBJ__get_dir(u8*);
+W1965aV YS__MATH__VectorRotY(const W1965aV&, f32);
 s32 func_0018f010(W1965aTgt*);
-void func_00186a90(u8*, W1965aV*, f32);
+void YS__BTLOBJ__set_hitback(u8*, W1965aV*, f32);
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, s32, f32, f32);
-void func_001cf320(u8* o, s32 a1, W1965aTgt* t);  // 0x001cf320: definition moved into src/anon/unit_001cf0b0.cpp
+void YS__TRPLAYER__ExecReflect(u8* o, s32 a1, W1965aTgt* t);  // 0x001cf320: definition moved into src/anon/unit_001cf0b0.cpp
 }
 
 // 002df500
@@ -73,9 +73,9 @@ struct W1965bBodV { u8 pad[16]; f32 vx; u8 pad2[8]; f32 spd; };
 extern "C" {
 extern s32 D_00361f60;
 extern u8* D_0034e948;
-W1965bV* w1965_pos(void*) asm("func_0016c028");
-void func_002df040(void);
+W1965bV* w1965_pos(void*) asm("YS__OBJ__get_pos");
+void Ti__ACTION_PO_JUMP__control(void);
 W1965bPrm* func_002dc7c8(s32);
 void func_002dd2d8(s32, f32*, f32*);
-void func_002df500(W1965bCtl* a, W1965bBod* b);  // 0x002df500: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__ACTION_PO_JUMP_TIGGER__control(W1965bCtl* a, W1965bBod* b);  // 0x002df500: definition moved into src/anon/unit_002de3c8.cpp
 }

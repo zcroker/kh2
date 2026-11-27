@@ -27,9 +27,9 @@ void func_001398d0(s32) asm("func_001398d0");
 void func_001397d8(s32) asm("func_001397d8");
 /*TARGET 00153158*/
 // Reset three sub-records of the manager and set bit 0 of each one's c word.
-void u_call0_00153158(void) asm("_Z16u_call0_00153158v");
+void dk__LEVELUP_INFO__off(void) asm("_Z21dk__LEVELUP_INFO__offv");
 // Reset three sub-records of the manager and set bit 0 of each one's c word.
-void u_call0_00153158(void) {
+void dk__LEVELUP_INFO__off(void) {
     func_001398d0(14);
     func_001397d8(14);
     {
@@ -104,8 +104,8 @@ inline int inline_fn(s32 arg0, Q *arg1)
   return ((arg0 - arg1->tail) + 16) % 16;
 }
 /*TARGET 001531f8*/
-void func_001531f8(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4) asm("func_001531f8");
-void func_001531f8(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4)
+void dk__LEVELUP_INFO__openChara(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4) asm("dk__LEVELUP_INFO__openChara");
+void dk__LEVELUP_INFO__openChara(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4)
 {
   Q *q = &D_0034a6f0->q;
   s32 h = q->head;
@@ -226,9 +226,9 @@ void func_00192c90(char*, char*) asm("func_00192c90");
 void func_00192b30(char*) asm("func_00192b30");
 /*TARGET 00153468*/
 // Push an entry into a 4-slot ring buffer if there is room.
-void func_00153468(s32 a, char* name, s32 b) asm("func_00153468");
+void dk__LEVELUP_INFO__openSummon(s32 a, char* name, s32 b) asm("dk__LEVELUP_INFO__openSummon");
 // Push an entry into a 4-slot ring buffer if there is room.
-void func_00153468(s32 a, char* name, s32 b) {
+void dk__LEVELUP_INFO__openSummon(s32 a, char* name, s32 b) {
     Ring600* r = (Ring600*)(D_0034a6f0 + 12076);
     s32 idx = r->head;
     s32 n = (idx - r->tail + 4) % 4;

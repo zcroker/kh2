@@ -15,14 +15,14 @@ typedef unsigned int W1820u128 __attribute__((mode(TI)));
 
 // 0014b7a8 (was src/anon/tiny_jal_wrappers_reloc.cpp)
 namespace n0014b7a8 {
-u32 func_0014b290(u32, u32, u32, u32) asm("_Z13func_0014b290jjjj");
+u32 dk__RectBase__createPacket(u32, u32, u32, u32) asm("_Z26dk__RectBase__createPacketjjjj");
 extern u8 D_00349dc0 asm("D_00349dc0");
 /*TARGET 0014b7a8*/
 u32 func_0014b7a8(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0014b7a8jjjj");
 u32 func_0014b7a8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r13 = 0u, r14 = 0u, r15 = 0u, r16 = 0u;
     r16 = r4;
-    r2 = func_0014b290(r4, r5, r6, r7);
+    r2 = dk__RectBase__createPacket(r4, r5, r6, r7);
     r15 = (u32)&D_00349dc0;
     r13 = (u32)((s32)r16 + (256));
     *(u32*)((u32)r16 + (s32)(0)) = r15;
@@ -37,14 +37,14 @@ u32 func_0014b7a8(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0014b7f0 (was src/anon/tiny_jal_wrappers_reloc.cpp)
 namespace n0014b7f0 {
-u32 func_0014b290(u32, u32, u32, u32) asm("_Z13func_0014b290jjjj");
+u32 dk__RectBase__createPacket(u32, u32, u32, u32) asm("_Z26dk__RectBase__createPacketjjjj");
 extern u8 D_00349dc0 asm("D_00349dc0");
 /*TARGET 0014b7f0*/
 u32 func_0014b7f0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0014b7f0jjjj");
 u32 func_0014b7f0(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r13 = 0u, r14 = 0u, r15 = 0u, r16 = 0u;
     r16 = r4;
-    r2 = func_0014b290(r4, r5, r6, r7);
+    r2 = dk__RectBase__createPacket(r4, r5, r6, r7);
     r15 = (u32)&D_00349dc0;
     r13 = (u32)((s32)r16 + (256));
     *(u32*)((u32)r16 + (s32)(0)) = r15;

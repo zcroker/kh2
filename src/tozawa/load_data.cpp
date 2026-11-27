@@ -6,7 +6,7 @@ extern void* YS_CACHE_BUFF_Alloc(char const*, s32) asm("_ZN2YS10CACHE_BUFF5Alloc
 
 namespace Tz {
 
-extern "C" u32 func_00170cd0(...);
+extern "C" u32 YS__CACHE_BUFF__IsFlushing(...);
 extern "C" void func_00170518(...);
 extern u8 D_00360000 asm("D_00360000");
 

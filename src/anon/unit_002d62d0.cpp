@@ -20,7 +20,7 @@
 namespace n002d62d0 {
 struct W2045_V4b { f32 x, y, z, w; } __attribute__((aligned(16)));
 struct W2045_Self { u8 pad[2848]; W2045_V4b dir; };
-W2045_V4b* func_0016c028(void) asm("func_0016c028");
+W2045_V4b* YS__OBJ__get_pos(void) asm("YS__OBJ__get_pos");
 f32 func_001065a8(f32, f32) asm("func_001065a8");
 void func_002d1d30(W2045_V4b*, void*, W2045_V4b*) asm("func_002d1d30");
 f32 fabsf(f32) asm("fabsf");
@@ -36,16 +36,16 @@ static inline f32 w2045_norm(W2045_V4b* v) {
 // 0x001dd320: definition moved into src/anon/unit_001dd2b8.cpp
 
 // ---- 0x2d62d0 (VU0 normalize asm, lq/sq copy) ----
-void func_002d62d0(W2045_Self* self) asm("func_002d62d0");
+void Ti__Path__search_near_point_from_pre_point_nocycle(W2045_Self* self) asm("Ti__Path__search_near_point_from_pre_point_nocycle");
 // 0x001dd320: definition moved into src/anon/unit_001dd2b8.cpp
 
 // ---- 0x2d62d0 (VU0 normalize asm, lq/sq copy) ----
-void func_002d62d0(W2045_Self* self) {
+void Ti__Path__search_near_point_from_pre_point_nocycle(W2045_Self* self) {
     W2045_V4b v;
     W2045_V4b o;
     void* s = D_00361f60;
     W2045_V4b* pv = &v;
-    W2045_V4b* src = func_0016c028();
+    W2045_V4b* src = YS__OBJ__get_pos();
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(pv), "r"(src) : "$8", "memory");
     func_002d1d30(&o, s, pv);
     if ((o.x > 0.8f && self->dir.x > 0.0f) || (o.x < -0.8f && self->dir.x < 0.0f)
@@ -72,7 +72,7 @@ namespace n002d6518 {
 // ---- 002d6518: when the global owner D_00361f60 exists, reset the object's pose, attach it,
 // play its effect and place it at the owner's position.
 void func_0017f540(f32, f32, s32, s32) asm("func_0017f540");
-s32 func_001c0d38(s32, s32, s32, s32) asm("func_001c0d38");
+s32 YS__OBJ__attach(s32, s32, s32, s32) asm("YS__OBJ__attach");
 s32 func_002d1260() asm("func_002d1260");
 u8* func_002d1878(s32) asm("func_002d1878");
 void func_002e7340(f32, f32, s32, s32, s32, void*) asm("func_002e7340");
@@ -87,7 +87,7 @@ void func_002d6518(s32 obj) {
     s32 owner = D_00361f60;
     if (owner != 0) {
         func_0017f540(0.0f, 0.0f, obj + 0x140, 0);
-        func_001c0d38(obj, func_002d1260(), 0x43, 0);
+        YS__OBJ__attach(obj, func_002d1260(), 0x43, 0);
         func_002e7568(1.0f, obj, 2, D_00362380);
         u8* p = func_002d1878(owner);
         u8* q = func_002d1878(owner);
@@ -126,7 +126,7 @@ extern u8 D_00362378[] asm("D_00362378");
 s32 W270_is_attach(W270Ys*) asm("_ZN2YS3OBJ9is_attachEv");
 void W270_detach(W270Ys*) asm("_ZN2YS3OBJ6detachEv");
 void W270_change_action(W270Ys*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
-void W270_ctarget(W270V*, u32) asm("_Z16ctarget_0016bda8jjjj");
+void W270_ctarget(W270V*, u32) asm("_Z23YS__OBJ__get_target_posjjjj");
 void W270_set_pos(W270Ys*, W270V*) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
 void W270_set_rot(W270Ys*, f32) asm("_ZN2YS3OBJ7set_rotEf");
 void W270_17f488(void*, s32, f32, f32) asm("_Z13func_0017f488iiff");
@@ -187,11 +187,11 @@ struct Mg2d6 { u8 pad[320]; u8 f320; };
 extern Mg2d6* D_00361f60 asm("D_00361f60");
 Cfg2d6* config2d6(Mg2d6*) asm("_ZN2Ti9MGOarashi6configEv");
 s32 is_attach2d6(Act2d6*) asm("_ZN2YS3OBJ9is_attachEv");
-V299 getpos2d6(Act2d6*) asm("_Z16ctarget_0016bda8jjjj");
-void setdir2d6(Act2d6*, V299*, f32) asm("_Z16ctarget_00186a90jjjj");
+V299 getpos2d6(Act2d6*) asm("_Z23YS__OBJ__get_target_posjjjj");
+void setdir2d6(Act2d6*, V299*, f32) asm("_Z23YS__BTLOBJ__set_hitbackjjjj");
 void wt2cf280(void*, s32, s32) asm("_Z16wtarget_002cf280jjjj");
 void func_002d6600(Act2d6*, V299*) asm("func_002d6600");
-void func_002d3f18(Act2d6*) asm("func_002d3f18");
+void Ti__MGOarashiGimObj__force_destroy(Act2d6*) asm("Ti__MGOarashiGimObj__force_destroy");
 f32 fabsf(f32) asm("fabsf");
 // fabsf
 static inline u8 pos2d6(Act2d6* t) { return 0.0f < t->f2780; }
@@ -222,7 +222,7 @@ void func_002d6750(Act2d6* a, Ctx2d6* c) {
         setdir2d6(a, &d, fabsf(config2d6(g)->f140));  // fabsf
     }
     wt2cf280((u8*)c->f16 + 2800, 256, 0);
-    func_002d3f18(c->f16);
+    Ti__MGOarashiGimObj__force_destroy(c->f16);
 }
 }  // namespace n002d6750
 
@@ -282,7 +282,7 @@ struct V4_w8024 { f32 x, y, z, w; V4_w8024(f32 a, f32 b, f32 c, f32 d) : x(a), y
 void func_0016ace0(s32, V4_w8024*) asm("func_0016ace0");
 void func_0016b070(s32, V4_w8024*) asm("func_0016b070");
 void func_0016bd60(s32, s32) asm("func_0016bd60");
-s32 func_001c0d38(s32, s32, s32, s32) asm("func_001c0d38");
+s32 YS__OBJ__attach(s32, s32, s32, s32) asm("YS__OBJ__attach");
 void func_002d00a0(s32) asm("func_002d00a0");
 s32 func_002d1260() asm("func_002d1260");
 /*TARGET 002d6a00*/
@@ -295,7 +295,7 @@ void func_002d6a00(s32 a0)
 {
     func_002d00a0(a0);
     func_0016bd60(a0, 3);
-    func_001c0d38(a0, func_002d1260(), 0x55, 0);
+    YS__OBJ__attach(a0, func_002d1260(), 0x55, 0);
     V4_w8024 r(-1.57079625f, -1.57079625f, 0.0f, 0.0f);
     func_0016b070(a0, &r);
     V4_w8024 t(0.0f, 0.0f, 0.0f, 0.0f);
@@ -385,9 +385,9 @@ QV func_002d4f60(void*) asm("func_002d4f60");
 QV func_002d2740(void*, void*, f32, f32) asm("func_002d2740");
 /*TARGET 002d6b30*/
 // Camera target: clamps the follow distance, refreshes the target vector and returns it scaled.
-QV func_002d6b30(CamIn* in, u8* o) asm("func_002d6b30");
+QV Ti__ACTION_PO_OARASHI__calc_movement(CamIn* in, u8* o) asm("Ti__ACTION_PO_OARASHI__calc_movement");
 // Camera target: clamps the follow distance, refreshes the target vector and returns it scaled.
-QV func_002d6b30(CamIn* in, u8* o) {
+QV Ti__ACTION_PO_OARASHI__calc_movement(CamIn* in, u8* o) {
     void* w = D_00361f60;
     QV r;
     if (func_002d5cc8(o)) {
@@ -442,8 +442,8 @@ u8* oarashi_config(void*) asm("_ZN2Ti9MGOarashi6configEv");
 extern void* D_00361f60 asm("D_00361f60");
 void func_002d2740(void*, void*, u32, f32, f32) asm("func_002d2740");
 /*TARGET 002d6d10*/
-void* func_002d6d10(void* ret, u32, u32 a2) asm("func_002d6d10");
-void* func_002d6d10(void* ret, u32, u32 a2)
+void* Ti__ACTION_PO_OARASHI_TORNADO_S__calc_movement(void* ret, u32, u32 a2) asm("Ti__ACTION_PO_OARASHI_TORNADO_S__calc_movement");
+void* Ti__ACTION_PO_OARASHI_TORNADO_S__calc_movement(void* ret, u32, u32 a2)
 {
     void* c = D_00361f60;
     u8* x = oarashi_config(c);
@@ -455,7 +455,7 @@ void* func_002d6d10(void* ret, u32, u32 a2)
 
 // 002d6d88 (was src/anon/tiny_auto80_queue.cpp)
 namespace n002d6d88 {
-void func_002d5b48(...) asm("func_002d5b48");
+void Ti__MGOarashiPlayer__stop_tornado_attack(...) asm("Ti__MGOarashiPlayer__stop_tornado_attack");
 // 0x0018c458: definition moved into src/yasui/libys/npc.cpp
 
 extern f32 D_00349e10 asm("D_00349e10");
@@ -468,7 +468,7 @@ void func_002d6d88(u32 a0, u32 a1) {
     f32 v = *(f32*)(a0 + 12) - dec;
     *(f32*)(self + 12) = v;
     if (v <= zero) {
-        func_002d5b48(a1);
+        Ti__MGOarashiPlayer__stop_tornado_attack(a1);
     }
 }
 }  // namespace n002d6d88
@@ -505,7 +505,7 @@ f32* func_002d6e08(f32* p, u32, u8* q) {
 
 // 002d6e60 (was src/anon/tiny_auto80_queue.cpp)
 namespace n002d6e60 {
-void func_002d5b48(...) asm("func_002d5b48");
+void Ti__MGOarashiPlayer__stop_tornado_attack(...) asm("Ti__MGOarashiPlayer__stop_tornado_attack");
 // 0x0018c458: definition moved into src/yasui/libys/npc.cpp
 
 extern f32 D_00349e10 asm("D_00349e10");
@@ -518,7 +518,7 @@ void func_002d6e60(u32 a0, u32 a1) {
     f32 v = *(f32*)(a0 + 12) - dec;
     *(f32*)(self + 12) = v;
     if (v <= zero) {
-        func_002d5b48(a1);
+        Ti__MGOarashiPlayer__stop_tornado_attack(a1);
     }
 }
 }  // namespace n002d6e60
@@ -534,7 +534,7 @@ void func_002d6ec0(void) {}
 
 // 002d6ec8 (was src/anon/batch_w45.cpp)
 namespace n002d6ec8 {
-void func_00184540(void*, u32, f32, f32) asm("func_00184540");
+void kn__MotionPrototype0__calcLimitValue(void*, u32, f32, f32) asm("kn__MotionPrototype0__calcLimitValue");
 /*TARGET 002d6ec8*/
 // 0x002c2688: definition moved into src/anon/unit_002c2228.cpp
 
@@ -543,7 +543,7 @@ u8* func_002d6ec8(u8* out, u32 a1, u32 a2) asm("func_002d6ec8");
 
 u8* func_002d6ec8(u8* out, u32 a1, u32 a2) {
     u8 tmp[16] __attribute__((aligned(16)));
-    func_00184540(tmp, a2, 0.8f, 0.0f);
+    kn__MotionPrototype0__calcLimitValue(tmp, a2, 0.8f, 0.0f);
     if (out != tmp) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(out), "r"(tmp) : "$8", "memory");
     *(f32*)(out + 8) = 0.0f;
     return out;
@@ -553,7 +553,7 @@ u8* func_002d6ec8(u8* out, u32 a1, u32 a2) {
 // 002d6f28 (was src/anon/tiny_auto80_fptr4.cpp)
 namespace n002d6f28 {
 u32 func_001050d8(u32, u32, u32, u32) asm("_Z13func_001050d8jjjj");
-u32 func_002d7128(u32, u32, u32, u32) asm("_Z13func_002d7128jjjj");
+u32 Ti__MGHachimitsu__MGHachimitsu(u32, u32, u32, u32) asm("_Z30Ti__MGHachimitsu__MGHachimitsujjjj");
 /*TARGET 002d6f28*/
 u32 func_002d6f28(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002d6f28jjjj");
 u32 func_002d6f28(u32 a0, u32 a1, u32 a2, u32 a3) {
@@ -567,7 +567,7 @@ u32 func_002d6f28(u32 a0, u32 a1, u32 a2, u32 a3) {
     r6 = r17;
     r4 = r2;
     r7 = 0u;
-    return func_002d7128(r4, r5, r6, r7);
+    return Ti__MGHachimitsu__MGHachimitsu(r4, r5, r6, r7);
 }
 }  // namespace n002d6f28
 

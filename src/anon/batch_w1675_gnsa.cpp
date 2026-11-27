@@ -127,7 +127,7 @@ s32 func_0019bad8(W1675Obj*);
 void W1675_PrepareBg(W1675Obj*) asm("_ZN2YS3OBJ20prepare_bg_collisionEv");
 s32 W1675_IsAttach(W1675Obj*) asm("_ZN2YS3OBJ9is_attachEv");
 s32 func_0019c090(W1675Obj*);
-void func_00143928(W1675Vec*);
+void dk__Octree__collisionToMap(W1675Vec*);
 s32 func_0019c0f8(W1675Obj*);
 void func_00184308(W1675Obj*);
 void func_00143648(W1675Vec*, W1675Ground*);
@@ -136,10 +136,10 @@ void func_001b3388(s32*, s32);
 void func_001841f0(W1675Obj*);
 W1675Vec func_001840c0(W1675Obj*, const W1675Vec&);
 W1675Collider* func_001cecc8(void);
-W1675Vec func_0016af58(W1675Obj*);
+W1675Vec YS__OBJ__get_dir(W1675Obj*);
 f32 fabsf(f32);
 s32 func_0019c170(W1675Obj*);
-s32 func_0019bf50(W1675Obj*, const W1675Vec&);
+s32 YS__OBJ__is_fall(W1675Obj*, const W1675Vec&);
 
 static inline __attribute__((always_inline)) void W1675_CopyTag(W1675Tag* d, W1675Tag* s) { __builtin_memcpy(d, s, 4); }
 static inline bool W1675_CtlBusy(W1675Obj* self) { return (self->ctl->flags & 2) || (self->flags160 & 0x40); }

@@ -21,12 +21,12 @@ struct W1820Pkt {
 };
 
 extern "C" {
-void func_0013eb00(W1820Gs*);
+void dk__Ft4Base__calcXYZ(W1820Gs*);
 void func_001b7e68(W1820Pkt*, s32);
 void func_001b80d8(W1820Pkt*);
 void func_001b7f30(W1820Pkt*);
 
-void func_0013e940(W1820Gs* p);  // 0x0013e940: definition moved into src/anon/unit_0013dfb8.cpp
+void dk__Ft4Base__createPacket(W1820Gs* p);  // 0x0013e940: definition moved into src/anon/unit_0013dfb8.cpp
 
 void func_0014b698(W1820Gs* p);  // 0x0014b698: definition moved into src/anon/unit_0014b638.cpp
 }

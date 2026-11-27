@@ -3,7 +3,7 @@ extern "C" {
 
 extern "C" void func_0014b220x(void*, u32, u32, u32, u32) asm("_ZN2dk13RectParamBase8setColorEhhhh");
 extern "C" void func_0014b620x(void*, u64) asm("_ZN2dk8RectBase10setGsAlphaEy");
-void func_0016c028x() asm("func_0016c028");
+void func_0016c028x() asm("YS__OBJ__get_pos");
 void func_001cc3b8(void*, u32);
 extern u8 D_0032bae0;
 char* func_0016e920(u32);
@@ -19,7 +19,7 @@ void func_00199f90(char* t, char* s);  // 0x00199f90: definition moved into src/
 
 struct S6 { u32 a[6]; };
 void func_00192990(u32, u32, S6*, char*);
-void func_001aa388(char*, u32);
+void YS__MESSAGEDRAW__set_page(char*, u32);
 void func_001a9970(char* t, int n);  // 0x001a9970: definition moved into src/anon/unit_001a9130.cpp
 
 }

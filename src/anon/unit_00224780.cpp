@@ -439,7 +439,7 @@ void func_00224b08(u32 a0) {
     }
 
     func_00224998();
-    func_0022b930();  // to_1397d8_arg11
+    sa__MUSICAL_2D__leave();  // to_1397d8_arg11
     func_00102448(s0, 1);
     func_0022b948();
 }
@@ -448,7 +448,7 @@ void func_00224b08(u32 a0) {
 // 00224b60 (was src/anon/tiny_auto80.cpp)
 namespace n00224b60 {
 u32 func_00224780(u32, u32, u32, u32) asm("_Z13func_00224780jjjj");
-u32 func_0022b838() asm("_Z13func_0022b838v");
+u32 sa__MUSICAL_2D__read() asm("_Z20sa__MUSICAL_2D__readv");
 /*TARGET 00224b60*/
 // 0x001e2a50: definition moved into src/anon/unit_001e0cb8.cpp
 
@@ -462,7 +462,7 @@ u32 func_00224b60(u32 a0, u32 a1, u32 a2, u32 a3) {
     *(u8*)((u32)r15 + (s32)(-8667)) = (u8)r14;
     r4 = (u32)(s32)(*(s16*)((u32)r4 + (s32)(4)));
     r2 = func_00224780(r4, r5, r6, r7);
-    return func_0022b838();
+    return sa__MUSICAL_2D__read();
 }
 }  // namespace n00224b60
 
@@ -566,7 +566,7 @@ void func_00225208(void) asm("func_00225208");
 s32 func_00224c20(void) asm("func_00224c20");
 void func_00229370(void) asm("func_00229370");
 void func_00228f18(void) asm("func_00228f18");
-void func_00228e58(void) asm("func_00228e58");
+void sa__MUSICAL_GAUGE3__init(void) asm("sa__MUSICAL_GAUGE3__init");
 void func_002289f0(void) asm("func_002289f0");
 void func_00228618(void) asm("func_00228618");
 s32 func_002249a8(s32) asm("func_002249a8");
@@ -588,7 +588,7 @@ s32 func_00224d48(void) {
         switch (v) {
         case 1: func_00229370(); return func_002249a8(v);
         case 2: func_00228f18(); return func_002249a8(v);
-        case 3: func_00228e58(); return func_002249a8(v);
+        case 3: sa__MUSICAL_GAUGE3__init(); return func_002249a8(v);
         case 4: func_002289f0(); return func_002249a8(v);
         case 5: func_00228618(); return func_002249a8(v);
         default: r = func_002249a8(0); break;
@@ -608,8 +608,8 @@ void func_00224e28() {
     }
 
     if (func_00224988() == 0) {  // get_global_byte_36dad5
-        func_0022b930();  // to_1397d8_arg11
-        func_0013a218();
+        sa__MUSICAL_2D__leave();  // to_1397d8_arg11
+        dk__Obj2D__destroyLoopExec();
         func_0022b948();
     }
 
@@ -639,7 +639,7 @@ namespace n00224ea0 {
 void func_00224ea0(u32 a0) asm("_Z13func_00224ea0j");
 void func_00224ea0(u32 a0) {
     u32 s0 = a0;
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart(*(s16*)(a0 + 4)) != 0) {
         return;
     }
 
@@ -689,12 +689,12 @@ struct Arg_f { u8 pad0[4]; s16 f4; s16 type; s16 f8; s16 fa; s16 fc; s16 fe; s16
 Task_f* CreateTask_f(s32, s32, void (*)(Task_f*)) asm("_ZN5FIELD10CreateTaskEiiPFvP4TASKE");
 void* Alloc_f(u32) asm("_ZN4AREA5AllocEj");
 Obj_f* ComboStart_f(s32) asm("_ZN2sa13MUSICAL_COMBO5startEi");
-s32 func_002282f0(s32) asm("func_002282f0");
-s32 func_002282d8(void) asm("func_002282d8");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
+s32 sa__EVENT__getEventPriority(void) asm("sa__EVENT__getEventPriority");
 s32 func_002247d8(void) asm("func_002247d8");
 void func_00224f38(s32, Task_f**, Obj_f**, s32) asm("func_00224f38");
 void func_00224f08(Task_f*) asm("func_00224f08");
-void func_00229e58(Task_f*) asm("func_00229e58");
+void sa__MUSICAL_COMBO__printTask(Task_f*) asm("sa__MUSICAL_COMBO__printTask");
 /*TARGET 00224fa0*/
 // Spawns a task for a grid cell: picks the task kind from p->type, then fills its data block
 // with cell offsets (centre, up, left/right neighbours) relative to p->f4.
@@ -703,9 +703,9 @@ void func_00224fa0(Arg_f* p) asm("func_00224fa0");
 // with cell offsets (centre, up, left/right neighbours) relative to p->f4.
 void func_00224fa0(Arg_f* p)
 {
-    if (func_002282f0(p->f4) != 0)
+    if (sa__EVENT__checkStart(p->f4) != 0)
         return;
-    s32 id = func_002282d8() + 1;
+    s32 id = sa__EVENT__getEventPriority() + 1;
     s32 w = func_002247d8();
     Task_f* t = 0;
     Obj_f* b = 0;
@@ -716,7 +716,7 @@ void func_00224fa0(Arg_f* p)
     case 3: func_00224f38(id, &t, &b, 4); break;
     case 5: func_00224f38(id, &t, &b, 1); break;
     case 6: {
-        t = CreateTask_f(1, id, func_00229e58);
+        t = CreateTask_f(1, id, sa__MUSICAL_COMBO__printTask);
         t->f30 = func_00224f08;
         s32 small = p->f8 < 4;
         b = ComboStart_f(small == 0);
@@ -883,7 +883,7 @@ void func_00225328(u8* p) {
 // 002253a0 (was src/anon/batch_w109.cpp)
 namespace n002253a0 {
 // ---- f2.cpp
-s32 func_002282f0(u16) asm("func_002282f0");
+s32 sa__EVENT__checkStart(u16) asm("sa__EVENT__checkStart");
 void func_00225530(void) asm("func_00225530");
 s32 func_002ba200(void) asm("func_002ba200");
 void func_002259f0(void) asm("func_002259f0");
@@ -900,7 +900,7 @@ extern s32 D_00370d78[] asm("D_00370d78");
 /*TARGET 002253a0*/
 void func_002253a0(u8* p, s32 arg) asm("func_002253a0");
 void func_002253a0(u8* p, s32 arg) {
-    if (func_002282f0(*(u16*)(p + 4))) return;
+    if (sa__EVENT__checkStart(*(u16*)(p + 4))) return;
     if (*(u16*)(p + 6)) func_00225530();
     u16 m = *(u16*)(p + 8);
     if (m == 0) {
@@ -1074,14 +1074,14 @@ u32 func_002bd260(s16) asm("func_002bd260");
 u32 func_002bd2f0(u32, u32*) asm("func_002bd2f0");
 char* func_002ff2e8(char*, u32) asm("func_002ff2e8");
 void func_002256c8(R225*, u32) asm("func_002256c8");
-void func_00168388(u32, u32, void (*)(void), R225*) asm("func_00168388");
+void YS__FILE__ReadBack(u32, u32, void (*)(void), R225*) asm("YS__FILE__ReadBack");
 void func_00226030(void) asm("func_00226030");
 s32 func_001688b8(void) asm("func_001688b8");
 void func_00102448(void*, s32) asm("func_00102448");
 static inline void setup225(R225* r, u32 o) {
     func_002ff2e8(r->name, o);
     func_002256c8(r, o);
-    func_00168388(o, r->f20, func_00226030, r);
+    YS__FILE__ReadBack(o, r->f20, func_00226030, r);
 }
 /*TARGET 00225788*/
 void func_00225788(S225* s, void* x) asm("func_00225788");
@@ -1101,7 +1101,7 @@ void func_00225788(S225* s, void* x) {
 
 // 00225898 (was src/anon/batch_w94.cpp)
 namespace n00225898 {
-s32 func_002282f0(s32) asm("func_002282f0");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
 s32 func_002b7148(s32) asm("func_002b7148");
 void func_002ba298(s32) asm("func_002ba298");
 u32 func_002bd260(s16) asm("func_002bd260");
@@ -1118,7 +1118,7 @@ void func_002baf48(s32, s32, u32, u32, void (*)(void), u8*) asm("func_002baf48")
 /*TARGET 00225898*/
 void func_00225898(u8* p) asm("func_00225898");
 void func_00225898(u8* p) {
-    if (func_002282f0(*(u16*)(p + 4))) return;
+    if (sa__EVENT__checkStart(*(u16*)(p + 4))) return;
     if (func_002b7148(1)) func_002ba298(1);
     u8* a = func_00227a60(func_002bd260(*(s16*)(p + 8)), 6);
     u32 id = 0;
@@ -1170,8 +1170,8 @@ void func_00225a00(u32 a0, u32 a1, u32 a2, u32 a3) {  // zero_global_byte_e
 namespace n00225a10 {
 extern u32 D_0035daed asm("D_0035daed");
 /*TARGET 00225a10*/
-void func_00225a10(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_00225a10jjjj");
-void func_00225a10(u32 a0, u32 a1, u32 a2, u32 a3) {
+void sa__EVENT__waitMessageOn(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z24sa__EVENT__waitMessageOnjjjj");
+void sa__EVENT__waitMessageOn(u32 a0, u32 a1, u32 a2, u32 a3) {
     (void)a1;
     (void)a2;
     (void)a3;
@@ -1247,8 +1247,8 @@ extern u8 D_0035de54 asm("D_0035de54");
 extern s32 D_0035de20 asm("D_0035de20");
 extern s32 D_0035de5c asm("D_0035de5c");
 /*TARGET 00225b00*/
-u8 func_00225b00(s32 n) asm("func_00225b00");
-u8 func_00225b00(s32 n) {  // flag_query_by_index
+u8 sa__EVENT__isJumpMode(s32 n) asm("sa__EVENT__isJumpMode");
+u8 sa__EVENT__isJumpMode(s32 n) {  // flag_query_by_index
     if (n == -1) return D_0035de54;
     u8 r = 0;
     if (D_0035de54 || (n < D_0035de20 && D_0035de20 == D_0035de5c)) r = 1;
@@ -1259,7 +1259,7 @@ u8 func_00225b00(s32 n) {  // flag_query_by_index
 // 00225b50 (was src/anon/tiny_auto80_queue.cpp)
 namespace n00225b50 {
 u32 func_00224e90(...) asm("func_00224e90");
-u32 func_00225b00(...) asm("func_00225b00");
+u32 sa__EVENT__isJumpMode(...) asm("sa__EVENT__isJumpMode");
 /*TARGET 00225b50*/
 // flag_query_by_index
 
@@ -1268,7 +1268,7 @@ u32 func_00225b50(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 
 u32 func_00225b50(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r15;
-    r2 = ((u32(*)())func_00225b00)();
+    r2 = ((u32(*)())sa__EVENT__isJumpMode)();
     r15 = 0u;
     if (r2 != 0u) {
         r2 = ((u32(*)())func_00224e90)();
@@ -1288,7 +1288,7 @@ s32 func_0022bb38() asm("func_0022bb38");
 void func_00226dc8() asm("func_00226dc8");
 s32 func_00228378() asm("func_00228378");
 u8* func_0014ac08() asm("func_0014ac08");
-void func_0014ce60() asm("func_0014ce60");
+void dk__Vsync__initGameSpeed() asm("dk__Vsync__initGameSpeed");
 s32 func_002bc7a8(s32) asm("func_002bc7a8");
 extern s32 D_0035de20 asm("D_0035de20");
 extern s32 D_0035de28 asm("D_0035de28");
@@ -1309,7 +1309,7 @@ void func_00225b88(void) {
     s32 lim = D_0035de28 - 40;
     if (lim <= 0) lim = 0;
     if (!func_00228378() && D_0035de20 >= lim && D_0035de28 != -1 && is4_w2387()) {
-        func_0014ce60();
+        dk__Vsync__initGameSpeed();
     }
     if (D_0035de20 >= lim && D_0035de28 != -1 && D_0035de56 == 1 && D_0035de2c == 0
         && !func_002bc7a8(3) && is4_w2387()) {
@@ -1340,7 +1340,7 @@ namespace n00225d30 {
 void func_00225b88(void) asm("func_00225b88");
 void func_00225cd8(void) asm("func_00225cd8");
 s32 func_00225aa8(void) asm("func_00225aa8");
-s32 func_00225b00(s32) asm("func_00225b00");
+s32 sa__EVENT__isJumpMode(s32) asm("sa__EVENT__isJumpMode");
 s32 func_002263f0(s32*, void*) asm("func_002263f0");
 s32 func_002ef7b8(void) asm("func_002ef7b8");
 s32 func_002ef7a0(s32, s32) asm("func_002ef7a0");
@@ -1356,7 +1356,7 @@ void func_00225d30(void) {
     func_00225b88();
     func_00225cd8();
     if (func_00225aa8() == 0) {
-        if (func_00225b00(-1) != 0) {
+        if (sa__EVENT__isJumpMode(-1) != 0) {
             if (func_002263f0(&D_0035de20, D_0035daf0) != 0) {
                 D_0035de1c = (f32)D_0035de20 * 2.0f;
             } else {
@@ -1569,15 +1569,15 @@ extern s32 D_0035de20 asm("D_0035de20");
 extern s32 D_0035de28 asm("D_0035de28");
 extern u32 D_0035de60 asm("D_0035de60");
 void func_00170888(s32) asm("func_00170888");
-void func_00226268(void) asm("func_00226268");
+void sa__EVENT__readNextMapFile(void) asm("sa__EVENT__readNextMapFile");
 void func_0022c508(void*) asm("func_0022c508");
-void func_0022e1f8(void*, s32) asm("func_0022e1f8");
+void sa__EVENT__effect_read_set(void*, s32) asm("sa__EVENT__effect_read_set");
 void func_0022f5a0(void*, s32, s32) asm("func_0022f5a0");
-void func_00232510(void*, s32) asm("func_00232510");
+void sa__EVENT__audio_read_set(void*, s32) asm("sa__EVENT__audio_read_set");
 void func_002331a0(void*, s32, s32, s32, s32) asm("func_002331a0");
 /*TARGET 00226090*/
-void func_00226090(void) asm("func_00226090");
-void func_00226090(void) {
+void sa__EVENT__read_ctrl(void) asm("sa__EVENT__read_ctrl");
+void sa__EVENT__read_ctrl(void) {
     W1966Hdr* h;
     W1966Cmd* c;
     s32 i, n, odd;
@@ -1597,7 +1597,7 @@ void func_00226090(void) {
             c = (W1966Cmd*)((u8*)c + c->size);
             break;
         case 1:
-            func_00232510((u8*)c + 4, odd);
+            sa__EVENT__audio_read_set((u8*)c + 4, odd);
             c = (W1966Cmd*)((u8*)c + c->size);
             break;
         case 19:
@@ -1605,7 +1605,7 @@ void func_00226090(void) {
             c = (W1966Cmd*)((u8*)c + c->size);
             break;
         case 20:
-            func_0022e1f8((u8*)c + 6, c->a4);
+            sa__EVENT__effect_read_set((u8*)c + 6, c->a4);
             c = (W1966Cmd*)((u8*)c + ((W1966CmdU*)c)->size);
             break;
         case 25:
@@ -1621,7 +1621,7 @@ void func_00226090(void) {
     D_0035de60 = next;
     if (next != 1) func_00170888(0);
     } else {
-        func_00226268();
+        sa__EVENT__readNextMapFile();
     }
 }
 }  // namespace n00226090
@@ -1655,11 +1655,11 @@ void func_00149370(Area *, char *) asm("func_00149370");
 s32 func_001688c8(const char *) asm("func_001688c8");
 void func_00170518(const char *, s32, u32) asm("func_00170518");
 void func_00170888(void *) asm("func_00170888");
-const char *func_001921d8(u32) asm("func_001921d8");
+const char *YS__MESSAGE__GetFilename(u32) asm("YS__MESSAGE__GetFilename");
 void func_00192260(u32, s32) asm("func_00192260");
 /*TARGET 00226268*/
-void func_00226268(void) asm("func_00226268");
-void func_00226268(void)
+void sa__EVENT__readNextMapFile(void) asm("sa__EVENT__readNextMapFile");
+void sa__EVENT__readNextMapFile(void)
 {
   Area area;
   unsigned char new_var;
@@ -1727,7 +1727,7 @@ void func_00226268(void)
   if (D_0032bae0.world != area.world)
   {
     avail -= need;
-    if (avail >= ((func_001688c8(func_001921d8(area.world)) + 0x7ff) & (~0x7ff)))
+    if (avail >= ((func_001688c8(YS__MESSAGE__GetFilename(area.world)) + 0x7ff) & (~0x7ff)))
     {
       func_00192260(area.world, -200);
     }
@@ -1856,9 +1856,9 @@ extern PoolH* D_0035dcfc asm("D_0035dcfc");
 extern PoolI* D_0035dd00 asm("D_0035dd00");
 /*TARGET 00226478*/
 // Allocate and construct the event/effect object pools.
-void func_00226478(void) asm("func_00226478");
+void sa__EVENT__fixAlloc(void) asm("sa__EVENT__fixAlloc");
 // Allocate and construct the event/effect object pools.
-void func_00226478(void) {
+void sa__EVENT__fixAlloc(void) {
     HeapE* heap = GetAllocatorE();
     if (!D_0035dce0) D_0035dce0 = new (heap) PoolA[128];
     if (!D_0035dce4) D_0035dce4 = new (heap) PoolB[128];
@@ -1919,9 +1919,9 @@ extern E112* D_0035dd00 asm("D_0035dd00");
 extern void* D_0035db14 asm("D_0035db14");
 /*TARGET 002267a0*/
 // Frees all of this module's buffers.
-void func_002267a0(void) asm("func_002267a0");
+void sa__EVENT__fixFree(void) asm("sa__EVENT__fixFree");
 // Frees all of this module's buffers.
-void func_002267a0(void) {
+void sa__EVENT__fixFree(void) {
     func_002255f0();
     if (D_0035dce0) { func_00106450(D_0035dce0); D_0035dce0 = 0; }
     if (D_0035dce4) { func_00106450(D_0035dce4); D_0035dce4 = 0; }
@@ -2098,7 +2098,7 @@ namespace n00226bd0 {
 // ---- 00226bd0
 extern u8 D_0035de55 asm("D_0035de55");
 extern u8 D_0035de0c asm("D_0035de0c");
-void func_0015cde0(u8) asm("func_0015cde0");
+void dk__EventCamera__end(u8) asm("dk__EventCamera__end");
 s32 func_0022d7d8(void) asm("func_0022d7d8");
 u32 func_0014abb8(void) asm("func_0014abb8");
 // get_data_359840
@@ -2110,7 +2110,7 @@ void func_001618f0(void) asm("func_001618f0");
 void func_001623b0(void) asm("func_001623b0");
 void func_002bbe80(void) asm("func_002bbe80");
 s32 func_0022bd90(void) asm("func_0022bd90");
-void func_002bbf18(void) asm("func_002bbf18");
+void SOUND__silentBgSeOff(void) asm("SOUND__silentBgSeOff");
 void func_00224b08(u32) asm("func_00224b08");
 s32 func_0022f5e8(void) asm("func_0022f5e8");
 void func_00102448(u32, s32) asm("func_00102448");
@@ -2124,7 +2124,7 @@ void wtarget_00226bd0(u32 a0, u32, u32, u32) asm("_Z16wtarget_00226bd0jjjj");
 /*TARGET 00226bd0*/
 void wtarget_00226bd0(u32 a0, u32, u32, u32) asm("_Z16wtarget_00226bd0jjjj");
 void wtarget_00226bd0(u32 a0, u32, u32, u32) {
-    if (D_0035de55 == 1) func_0015cde0(D_0035de0c);
+    if (D_0035de55 == 1) dk__EventCamera__end(D_0035de0c);
     if (func_0022d7d8()) {
         func_0014aa80(func_0014abb8(), 15, 0);
         func_0014aa80(func_0014abc8(), 15, 0);
@@ -2134,7 +2134,7 @@ void wtarget_00226bd0(u32 a0, u32, u32, u32) {
         func_001623b0();
     }
     func_002bbe80();
-    if (!func_0022bd90()) func_002bbf18();
+    if (!func_0022bd90()) SOUND__silentBgSeOff();
     func_00224b08(a0);
     if (func_0022f5e8()) func_00102448(a0, 1);
     if (!func_001a84f0()) {  // compare_two_globals
@@ -2159,7 +2159,7 @@ u32 func_00226ce8(u32 a0) {
 
     if (a0 != 0) {
 LOOP:
-        v0 = func_00170cd0();
+        v0 = YS__CACHE_BUFF__IsFlushing();
         if (v0 != 0) {
             goto LOOP_CALL;
         }
@@ -2175,7 +2175,7 @@ LOOP:
 CLEANUP:
     func_00226bd0(a0);
     func_00228240();
-    func_0022c108();
+    sa__EVENT__last_countdown();
     return func_0015f288();
 
 LOOP_CALL:
@@ -2221,7 +2221,7 @@ void func_00232988(void) asm("func_00232988");
 void func_002bc518(void) asm("func_002bc518");
 s32 func_00228378(void) asm("func_00228378");
 void func_0023d230(s32) asm("func_0023d230");
-u32 func_002282d8(void) asm("func_002282d8");
+u32 sa__EVENT__getEventPriority(void) asm("sa__EVENT__getEventPriority");
 // limit_15000_or_25000
 void func_00102c48(s32, u32, void*, s32) asm("func_00102c48");
 void func_00226ce8(s32) asm("func_00226ce8");
@@ -2236,7 +2236,7 @@ void func_00226dc8(void)
     func_002bc518();
     if (func_00228378()) {
         func_0023d230(0);
-        func_00102c48(1, func_002282d8(), (void*)func_00226ce8, 4096);
+        func_00102c48(1, sa__EVENT__getEventPriority(), (void*)func_00226ce8, 4096);
     } else {
         D_0035de27 = 1;
         func_00226ce8(0);
@@ -2561,60 +2561,60 @@ void func_0014aa80(void*, s32, s32) asm("func_0014aa80");
 void func_0015cdb0(void) asm("func_0015cdb0");
 void func_0022f7c0(Cmd*, void*) asm("func_0022f7c0");
 void func_00230d78(Cmd*) asm("func_00230d78");
-void func_0022dd80(Cmd*, void*) asm("func_0022dd80");
+void sa__EVENT__set_effect_seq(Cmd*, void*) asm("sa__EVENT__set_effect_seq");
 void func_0022f018(Cmd*, void*) asm("func_0022f018");
-void func_0022e3e8(Cmd*, void*) asm("func_0022e3e8");
-void func_0022f200(Cmd*, void*) asm("func_0022f200");
-void func_0022ef50(Cmd*, void*) asm("func_0022ef50");
-void func_0022efb8(Cmd*, void*) asm("func_0022efb8");
+void sa__EVENT__set_kage_seq(Cmd*, void*) asm("sa__EVENT__set_kage_seq");
+void sa__EVENT__set_bgcol_seq(Cmd*, void*) asm("sa__EVENT__set_bgcol_seq");
+void sa__EVENT__set_part_seq(Cmd*, void*) asm("sa__EVENT__set_part_seq");
+void sa__EVENT__set_alpha_seq(Cmd*, void*) asm("sa__EVENT__set_alpha_seq");
 void func_0022cc38(Cmd*, void*) asm("func_0022cc38");
 void func_0022d880(Cmd*, void*) asm("func_0022d880");
 void func_0022d618(Cmd*, void*) asm("func_0022d618");
-void func_0022cd48(Cmd*, void*) asm("func_0022cd48");
-void func_0022cea0(Cmd*, void*) asm("func_0022cea0");
+void sa__EVENT__set_bin_seq_blur(Cmd*, void*) asm("sa__EVENT__set_bin_seq_blur");
+void sa__EVENT__set_bin_seq_focus(Cmd*, void*) asm("sa__EVENT__set_bin_seq_focus");
 void func_0022f280(Cmd*, void*) asm("func_0022f280");
 void func_0022f308(Cmd*, void*) asm("func_0022f308");
-void func_00231948(Cmd*, void*) asm("func_00231948");
-void func_0022e468(Cmd*, void*) asm("func_0022e468");
+void sa__EVENT__set_bin_seq_crossfade(Cmd*, void*) asm("sa__EVENT__set_bin_seq_crossfade");
+void sa__EVENT__set_ik_seq(Cmd*, void*) asm("sa__EVENT__set_ik_seq");
 void func_002308c8(Cmd*) asm("func_002308c8");
 void func_0022d3c8(Cmd*, void*) asm("func_0022d3c8");
 void func_0022e5f8(Cmd*, void*) asm("func_0022e5f8");
 void func_0022d728(Cmd*, void*) asm("func_0022d728");
 void func_0022cf60(Cmd*, void*) asm("func_0022cf60");
-void func_0022e818(Cmd*, void*) asm("func_0022e818");
+void sa__EVENT__set_scale_seq(Cmd*, void*) asm("sa__EVENT__set_scale_seq");
 void func_0022ea28(Cmd*, void*) asm("func_0022ea28");
-void func_00232c88(Cmd*, void*) asm("func_00232c88");
+void sa__EVENT__set_se_seq(Cmd*, void*) asm("sa__EVENT__set_se_seq");
 void func_002332a8(Cmd*, void*) asm("func_002332a8");
 void func_0022d9b0(Cmd*, void*) asm("func_0022d9b0");
 void func_002253a0(Cmd*, void*) asm("func_002253a0");
 void func_00225898(Cmd*, void*) asm("func_00225898");
-void func_00232070(Cmd*, void*) asm("func_00232070");
+void sa__EVENT__set_bin_seq_objcamera(Cmd*, void*) asm("sa__EVENT__set_bin_seq_objcamera");
 void func_00224fa0(Cmd*, void*) asm("func_00224fa0");
 void func_00224ea0(Cmd*, void*) asm("func_00224ea0");
 void func_0022cae8(Cmd*, void*) asm("func_0022cae8");
 void func_0022eb80(Cmd*, void*) asm("func_0022eb80");
-void func_0022ee30(Cmd*, void*) asm("func_0022ee30");
-void func_0022e4f0(Cmd*, void*) asm("func_0022e4f0");
+void sa__EVENT__set_shadow_alpha_seq(Cmd*, void*) asm("sa__EVENT__set_shadow_alpha_seq");
+void sa__EVENT__set_mirror_seq(Cmd*, void*) asm("sa__EVENT__set_mirror_seq");
 void func_0022c998(Cmd*, void*) asm("func_0022c998");
-void func_0022c590(Cmd*, void*) asm("func_0022c590");
-void func_0022c530(Cmd*, void*) asm("func_0022c530");
+void sa__EVENT__set_bin_seq_mission_effect(Cmd*, void*) asm("sa__EVENT__set_bin_seq_mission_effect");
+void sa__EVENT__set_bin_seq_layout_noname(Cmd*, void*) asm("sa__EVENT__set_bin_seq_layout_noname");
 void func_0022dd40(Cmd*, void*) asm("func_0022dd40");
 void func_0022d598(Cmd*, void*) asm("func_0022d598");
-void func_0022ce00(Cmd*, void*) asm("func_0022ce00");
+void sa__EVENT__set_bin_seq_obj_pause(Cmd*, void*) asm("sa__EVENT__set_bin_seq_obj_pause");
 void func_00232d60(Cmd*, void*) asm("func_00232d60");
 void func_0022ce50(Cmd*, void*) asm("func_0022ce50");
-void func_0022bc08(Cmd*, void*) asm("func_0022bc08");
+void sa__EVENT__set_bin_seq_movie(Cmd*, void*) asm("sa__EVENT__set_bin_seq_movie");
 void func_00233410(Cmd*, void*) asm("func_00233410");
 void func_00230b50(Cmd*, void*) asm("func_00230b50");
-void func_0022d098(Cmd*, void*) asm("func_0022d098");
+void sa__EVENT__set_bin_black_fog(Cmd*, void*) asm("sa__EVENT__set_bin_black_fog");
 void func_0022d1d8(Cmd*, void*) asm("func_0022d1d8");
 void func_002322b8(Cmd*, void*) asm("func_002322b8");
 void func_0022d238(Cmd*, void*) asm("func_0022d238");
-void func_0022d288(Cmd*, void*) asm("func_0022d288");
+void sa__EVENT__set_bin_hide_fobj(Cmd*, void*) asm("sa__EVENT__set_bin_hide_fobj");
 void func_00233490(Cmd*, void*) asm("func_00233490");
-void func_0022bef8(Cmd*, void*) asm("func_0022bef8");
+void sa__EVENT__set_bin_countdown(Cmd*, void*) asm("sa__EVENT__set_bin_countdown");
 void func_0022c7c0(Cmd*, void*) asm("func_0022c7c0");
-void func_0022d778(Cmd*, void*) asm("func_0022d778");
+void sa__EVENT__set_bin_wall_clip(Cmd*, void*) asm("sa__EVENT__set_bin_wall_clip");
 void func_002328c0(Cmd*, void*) asm("func_002328c0");
 /*TARGET 002272b8*/
 // Event-script thread: waits for the event system to be ready, then runs the
@@ -2648,60 +2648,60 @@ void func_002272b8(void* th) {
                 switch (c->type + 0) {
         case 2: func_0022f7c0(c, th); break;
         case 6: func_00230d78(c); break;
-        case 9: func_0022dd80(c, th); break;
+        case 9: sa__EVENT__set_effect_seq(c, th); break;
         case 10: func_0022f018(c, th); break;
-        case 11: func_0022e3e8(c, th); break;
-        case 12: func_0022f200(c, th); break;
-        case 13: func_0022ef50(c, th); break;
-        case 14: func_0022efb8(c, th); break;
+        case 11: sa__EVENT__set_kage_seq(c, th); break;
+        case 12: sa__EVENT__set_bgcol_seq(c, th); break;
+        case 13: sa__EVENT__set_part_seq(c, th); break;
+        case 14: sa__EVENT__set_alpha_seq(c, th); break;
         case 18: func_0022cc38(c, th); break;
         case 21: func_0022d880(c, th); break;
         case 22: func_0022d618(c, th); break;
-        case 23: func_0022cd48(c, th); break;
-        case 24: func_0022cea0(c, th); break;
+        case 23: sa__EVENT__set_bin_seq_blur(c, th); break;
+        case 24: sa__EVENT__set_bin_seq_focus(c, th); break;
         case 25: func_0022f280(c, th); break;
         case 26: func_0022f308(c, th); break;
-        case 27: func_00231948(c, th); break;
-        case 28: func_0022e468(c, th); break;
+        case 27: sa__EVENT__set_bin_seq_crossfade(c, th); break;
+        case 28: sa__EVENT__set_ik_seq(c, th); break;
         case 31: func_002308c8(c); break;
         case 32: func_0022d3c8(c, th); break;
         case 33: func_0022e5f8(c, th); break;
         case 34: func_0022d728(c, th); break;
         case 39: func_0022cf60(c, th); break;
-        case 40: func_0022e818(c, th); break;
+        case 40: sa__EVENT__set_scale_seq(c, th); break;
         case 41: func_0022ea28(c, th); break;
-        case 43: func_00232c88(c, th); break;
+        case 43: sa__EVENT__set_se_seq(c, th); break;
         case 44: func_002332a8(c, th); break;
         case 45: func_0022d9b0(c, th); break;
         case 46: func_002253a0(c, th); break;
         case 48: func_00225898(c, th); break;
-        case 49: func_00232070(c, th); break;
+        case 49: sa__EVENT__set_bin_seq_objcamera(c, th); break;
         case 51: func_00224fa0(c, th); break;
         case 52: func_00224ea0(c, th); break;
         case 53: func_0022cae8(c, th); break;
         case 54: func_0022eb80(c, th); break;
-        case 55: func_0022ee30(c, th); break;
-        case 58: func_0022e4f0(c, th); break;
+        case 55: sa__EVENT__set_shadow_alpha_seq(c, th); break;
+        case 58: sa__EVENT__set_mirror_seq(c, th); break;
         case 59: func_0022c998(c, th); break;
-        case 60: func_0022c590(c, th); break;
-        case 61: func_0022c530(c, th); break;
+        case 60: sa__EVENT__set_bin_seq_mission_effect(c, th); break;
+        case 61: sa__EVENT__set_bin_seq_layout_noname(c, th); break;
         case 63: func_0022dd40(c, th); break;
         case 64: func_0022d598(c, th); break;
-        case 65: func_0022ce00(c, th); break;
+        case 65: sa__EVENT__set_bin_seq_obj_pause(c, th); break;
         case 66: func_00232d60(c, th); break;
         case 67: func_0022ce50(c, th); break;
-        case 68: func_0022bc08(c, th); break;
+        case 68: sa__EVENT__set_bin_seq_movie(c, th); break;
         case 69: func_00233410(c, th); break;
         case 71: func_00230b50(c, th); break;
-        case 72: func_0022d098(c, th); break;
+        case 72: sa__EVENT__set_bin_black_fog(c, th); break;
         case 73: func_0022d1d8(c, th); break;
         case 74: func_002322b8(c, th); break;
         case 75: func_0022d238(c, th); break;
-        case 77: func_0022d288(c, th); break;
+        case 77: sa__EVENT__set_bin_hide_fobj(c, th); break;
         case 79: func_00233490(c, th); break;
-        case 80: func_0022bef8(c, th); break;
+        case 80: sa__EVENT__set_bin_countdown(c, th); break;
         case 81: func_0022c7c0(c, th); break;
-        case 82: func_0022d778(c, th); break;
+        case 82: sa__EVENT__set_bin_wall_clip(c, th); break;
         case 83: func_002328c0(c, th); break;
                 }
                 D_0035db50[i].ofs += size;
@@ -3054,7 +3054,7 @@ extern s32 D_0035dd04 asm("D_0035dd04");
 extern s32 D_0035db18 asm("D_0035db18");
 extern u8 D_0035de24 asm("D_0035de24");
 extern u8 D_0035de55 asm("D_0035de55");
-void func_00226090() asm("func_00226090");
+void sa__EVENT__read_ctrl() asm("sa__EVENT__read_ctrl");
 void func_00170888(void*) asm("func_00170888");
 void func_00224d48() asm("func_00224d48");
 void func_00102448_x9334(void*, s32) asm("func_00102448");
@@ -3067,7 +3067,7 @@ void func_00230838_x9340(C227e30*) asm("func_00230838");
 void func_00230878_x9341(C227e30*) asm("func_00230878");
 void func_00232398(C227e30*) asm("func_00232398");
 void func_00226050(C227e30*) asm("func_00226050");
-void func_00232a48(C227e30*, void*) asm("func_00232a48");
+void sa__EVENT__read_se_data(C227e30*, void*) asm("sa__EVENT__read_se_data");
 void func_00225328(C227e30*, void*) asm("func_00225328");
 void func_00225788(C227e30*, void*) asm("func_00225788");
 void func_00224b60(C227e30*, void*) asm("func_00224b60");
@@ -3089,7 +3089,7 @@ void func_00227e30(void* th) {
             if (size == 0) {
                 D_0035dd04 = 0;
                 if (D_0035db18) {
-                    func_00226090();
+                    sa__EVENT__read_ctrl();
                     func_00170888(th);
                 }
                 func_00224d48();
@@ -3106,7 +3106,7 @@ void func_00227e30(void* th) {
             case 30: func_00230878_x9341(c); break;
             case 35: func_00232398(c); break;
             case 36: func_00226050(c); break;
-            case 42: func_00232a48(c, th); break;
+            case 42: sa__EVENT__read_se_data(c, th); break;
             case 46: func_00225328(c, th); break;
             case 47: func_00225788(c, th); break;
             case 50: func_00224b60(c, th); break;
@@ -3128,25 +3128,25 @@ namespace n00228058 {
 extern u32 D_0035db10 asm("D_0035db10");
 extern u8 D_0035de27 asm("D_0035de27");
 extern u32 D_0035de38 asm("D_0035de38");
-void func_00231500(void) asm("func_00231500");
+void sa__EVENT__camera_ctrl(void) asm("sa__EVENT__camera_ctrl");
 void func_0022f3a8(void) asm("func_0022f3a8");
 void func_00232f08(void) asm("func_00232f08");
 void func_002306a8(void) asm("func_002306a8");
-void func_0022ca00(void) asm("func_0022ca00");
-void func_00232738(void) asm("func_00232738");
-void func_00226090(void) asm("func_00226090");
+void sa__EVENT__light_ctrl(void) asm("sa__EVENT__light_ctrl");
+void sa__EVENT__audio_ctrl(void) asm("sa__EVENT__audio_ctrl");
+void sa__EVENT__read_ctrl(void) asm("sa__EVENT__read_ctrl");
 void func_00225d30(void) asm("func_00225d30");
 void func_001024a8(void*) asm("func_001024a8");
 void func_00228058(void* t) asm("func_00228058");
 void func_00228058(void* t) {
     if (D_0035db10 == 3) {
-        func_00231500();
+        sa__EVENT__camera_ctrl();
         func_0022f3a8();
         func_00232f08();
         func_002306a8();
-        func_0022ca00();
-        func_00232738();
-        func_00226090();
+        sa__EVENT__light_ctrl();
+        sa__EVENT__audio_ctrl();
+        sa__EVENT__read_ctrl();
         func_00225d30();
     }
     if (D_0035de27 == 1) {
@@ -3164,12 +3164,12 @@ void func_00224e28() asm("_Z13func_00224e28v");
 void func_002280f8() asm("_Z13func_002280f8v");
 void func_002280f8() {
     func_0022d820();
-    func_0022e288();
+    sa__EVENT__leaveAllEffect();
     func_00227078();
     func_00224e28();
     func_00224bd0();
     func_00226fc8();
-    func_002267a0();
+    sa__EVENT__fixFree();
     D_0035db10 = 0;
 }
 }  // namespace n002280f8
@@ -3187,9 +3187,9 @@ static inline void vsub(W78Vec* d, const W78Vec* a, const W78Vec* b) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(d), "r"(a), "r"(b) : "memory");
 }
 static inline W78Vec operator-(const W78Vec& a, const W78Vec& b) { W78Vec r; vsub(&r, &a, &b); return r; }
-u8* func_00102818(u32, s32, s32, void*, s32) asm("func_00102818");
+u8* TASK_MANAGER__create_thread(u32, s32, s32, void*, s32) asm("TASK_MANAGER__create_thread");
 void func_00228240(void) asm("func_00228240");
-u32 func_002282d8(void) asm("func_002282d8");
+u32 sa__EVENT__getEventPriority(void) asm("sa__EVENT__getEventPriority");
 // limit_15000_or_25000
 u8* func_00102c80(void) asm("func_00102c80");
 u8* func_00102788(u32, u32, u32, void*) asm("func_00102788");
@@ -3206,10 +3206,10 @@ extern u8 D_0035de27 asm("D_0035de27");
 void func_00228150(u32 a) asm("func_00228150");
 void func_00228150(u32 a) {
     func_00228240();
-    u32 w = func_002282d8();  // limit_15000_or_25000
+    u32 w = sa__EVENT__getEventPriority();  // limit_15000_or_25000
     D_0035de3c = *(u32*)(func_00102c80() + 4);
-    if (!D_0035de30) D_0035de30 = func_00102818(D_0035de3c, a, w, (void*)func_00227e30, 0x2000);
-    if (!D_0035de34) D_0035de34 = func_00102818(D_0035de3c, a, w, (void*)func_002272b8, 0x2000);
+    if (!D_0035de30) D_0035de30 = TASK_MANAGER__create_thread(D_0035de3c, a, w, (void*)func_00227e30, 0x2000);
+    if (!D_0035de34) D_0035de34 = TASK_MANAGER__create_thread(D_0035de3c, a, w, (void*)func_002272b8, 0x2000);
     if (!D_0035de38) {
         u8* v = func_00102788(D_0035de3c, a, w, (void*)func_00228058);
         D_0035de38 = v;
@@ -3253,8 +3253,8 @@ void func_00228240(void) {
 namespace n002282d8 {
 extern s32 D_0035db18 asm("D_0035db18");
 /*TARGET 002282d8*/
-s32 func_002282d8(void) asm("func_002282d8");
-s32 func_002282d8(void) {  // limit_15000_or_25000
+s32 sa__EVENT__getEventPriority(void) asm("sa__EVENT__getEventPriority");
+s32 sa__EVENT__getEventPriority(void) {  // limit_15000_or_25000
     return D_0035db18 == 0 ? 25000 : 15000;
 }
 }  // namespace n002282d8
@@ -3266,8 +3266,8 @@ s32 func_00225b50(s32) asm("func_00225b50");
 extern s32 D_0035db10 asm("D_0035db10");
 extern s32 D_0035de20 asm("D_0035de20");
 /*TARGET 002282f0*/
-s32 func_002282f0(s32 a, u32 b) asm("func_002282f0");
-s32 func_002282f0(s32 a, u32 b) {
+s32 sa__EVENT__checkStart(s32 a, u32 b) asm("sa__EVENT__checkStart");
+s32 sa__EVENT__checkStart(s32 a, u32 b) {
     for (;;) {
         if (D_0035db10 != 3) return 1;
         if (!(D_0035de20 < a)) break;

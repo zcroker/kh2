@@ -40,8 +40,8 @@ struct Rec40 { struct Ent8 e[5]; };
 extern s32 D_0035f680[] asm("D_0035f680");
 extern struct Rec40* D_0035f660 asm("D_0035f660");
 u32* func_002b6118(u32) asm("func_002b6118");
-void func_001a98e8(void*, s32, u32, s32, u32) asm("func_001a98e8");
-void func_001a9ae8(void*, s32, s32, s32) asm("func_001a9ae8");
+void YS__MESSAGEDRAW__MESSAGEDRAW(void*, s32, u32, s32, u32) asm("YS__MESSAGEDRAW__MESSAGEDRAW");
+void YS__MESSAGEDRAW__draw(void*, s32, s32, s32) asm("YS__MESSAGEDRAW__draw");
 /*TARGET 002b6138*/
 // 0022c108: moved to src/sasa/event_countdown.cpp (linked unit)
 
@@ -64,8 +64,8 @@ void func_002b6138(s32 x, s32 y, s32 a2, s32 a3, s32 key) {
         u32* s;
         if (e->v == 0) break;
         s = func_002b6118(e->id);
-        func_001a98e8(buf, 1, e->v, 14, s[2]);
-        func_001a9ae8(buf, s[0] + x, s[1] + y, a3);
+        YS__MESSAGEDRAW__MESSAGEDRAW(buf, 1, e->v, 14, s[2]);
+        YS__MESSAGEDRAW__draw(buf, s[0] + x, s[1] + y, a3);
     }
 }
 }  // namespace n002b6138
@@ -75,7 +75,7 @@ namespace n002b6238 {
 s32 func_002538f8(s32) asm("func_002538f8");
 s32 func_00253928(s32) asm("func_00253928");
 s32 func_00253918(void) asm("_ZN2Tz6CMData10isBackReadEv");
-s32 func_002539e8(s32, s32) asm("func_002539e8");
+s32 Tz__CMData__BackRead(s32, s32) asm("Tz__CMData__BackRead");
 s32 func_002b6238(void) asm("func_002b6238");
 s32 func_002b6238(void)
 {
@@ -83,7 +83,7 @@ s32 func_002b6238(void)
     if (func_002538f8(1)) r = 1;
     else if (func_00253928(1)) r = 1;
     else if (func_00253918()) r = 0;
-    else r = func_002539e8(1, 0) == 0;
+    else r = Tz__CMData__BackRead(1, 0) == 0;
     return r;
 }
 }  // namespace n002b6238
@@ -97,7 +97,7 @@ s32 func_002538f8(s32) asm("func_002538f8");
 s32 func_00253928(s32) asm("func_00253928");
 // entry16_get_bit1
 s32 func_00253918(void) asm("func_00253918");
-s32 func_002539e8(s32, s32) asm("func_002539e8");
+s32 Tz__CMData__BackRead(s32, s32) asm("Tz__CMData__BackRead");
 void func_00102448(u32, s32) asm("func_00102448");
 /*TARGET 002b6298*/
 s32 func_002b6298(u32 a) asm("func_002b6298");
@@ -105,7 +105,7 @@ s32 func_002b6298(u32 a) {
     if (func_002538f8(1)) return 1;
     if (!func_00253928(1)) {  // entry16_get_bit1
         for (;;) {
-            if (!func_00253918() && !func_002539e8(1, 0)) break;
+            if (!func_00253918() && !Tz__CMData__BackRead(1, 0)) break;
             func_00102448(a, 0);
         }
     }
@@ -196,7 +196,7 @@ u32 SyntheData_GetMixDataFname() {
 namespace n002b64d8 {
 void func_00290940(void*) asm("func_00290940");
 void func_00253b30(u32, u32) asm("func_00253b30");
-void func_00290a10(u32, u32, u32) asm("func_00290a10");
+void Tz__MenuFile__alloc(u32, u32, u32) asm("Tz__MenuFile__alloc");
 extern void* D_0035f6dc asm("D_0035f6dc");
 extern u8* D_0035f6d8 asm("D_0035f6d8");
 /*TARGET 002b64d8*/
@@ -211,7 +211,7 @@ void SyntheData_LeadData(void* a0) {
 
     func_00290940(s0);
     func_00253b30((u32)buf, (u32)D_0035f6d8);
-    func_00290a10((u32)s0, (u32)buf, 45);
+    Tz__MenuFile__alloc((u32)s0, (u32)buf, 45);
 }
 }  // namespace n002b64d8
 

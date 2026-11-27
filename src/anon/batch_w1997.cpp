@@ -10,7 +10,7 @@ void func_002bb5f8(Snd9b8*);
 s32 func_002bb8b0(Snd9b8*);
 void func_002bb950(Snd9b8*);
 void StopBg9b8(s32, s32) asm("_ZN2Tz9MenuSound14StopBgSeHandleEz");
-void func_002bb9b8(Snd9b8* s);  // 0x002bb9b8: definition moved into src/anon/unit_002bb8b0.cpp
+void SE3D__calcSe(Snd9b8* s);  // 0x002bb9b8: definition moved into src/anon/unit_002bb8b0.cpp
 
 struct Vec4f0 {
     f32 x, y, z, w;
@@ -22,9 +22,9 @@ struct Vec4f0 {
     }
 } __attribute__((aligned(16)));
 struct Obj4f0 { u8 pad[16]; Vec4f0 v10; Vec4f0 v20; u8 pad2[284 - 48]; f32 f11c; };
-Vec4f0 func_0016af58(Obj4f0*);
-void func_00184ad0(Obj4f0*, Vec4f0*, f32);
-void func_00184540(u8*, u32, f32, f32);
+Vec4f0 YS__OBJ__get_dir(Obj4f0*);
+void YS__OBJ__turn_to_dir(Obj4f0*, Vec4f0*, f32);
+void kn__MotionPrototype0__calcLimitValue(u8*, u32, f32, f32);
 f32 cosf(f32);
 f32 fabsf(f32);
 u64 func_00313b80(f32) __attribute__((const));

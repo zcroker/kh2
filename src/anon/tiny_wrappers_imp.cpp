@@ -2,19 +2,19 @@
 
 u32 func_0011c828(u32, u32, u32, u32);
 u32 func_001393f8(u32, u32, u32, u32);
-u32 func_0013b4b0(u32, u32, u32, u32);
-u32 func_0013daf8(u32, u32, u32, u32);
+u32 dk__COMMAND_DRAW__on(u32, u32, u32, u32);
+u32 dk__GAUGE_DRAW__on(u32, u32, u32, u32);
 u32 func_001431e8(u32, u32, u32, u32);
 u32 func_00143208(u32, u32, u32, u32);
 u32 func_00146e88(u32, u32, u32, u32);
 u32 func_00148528(u32, u32, u32, u32);
 u32 func_00148560(u32, u32, u32, u32);
 u32 func_0014ce88(u32, u32, u32, u32);
-u32 func_00151df0(u32, u32, u32, u32);
-u32 func_001521c8(u32, u32, u32, u32);
+u32 dk__GET_MUNNY__create(u32, u32, u32, u32);
+u32 dk__NEXT_EXP__create(u32, u32, u32, u32);
 u32 func_0016bd60(u32, u32, u32, u32);
 u32 func_00170950(u32, u32, u32, u32);
-u32 func_00178280(u32, u32, u32, u32);
+u32 YS__PLAYER___OVR_leave_req(u32, u32, u32, u32);
 extern "C" u32 func_0017fd30(u32, u32, u32, u32) asm("_ZN2YS6MOTION4syncEPS0_");
 u32 func_00185050(u32, u32, u32, u32);
 u32 func_001afa50(u32, u32, u32, u32);
@@ -31,7 +31,7 @@ u32 func_00225298(u32, u32, u32, u32);
 u32 func_00236cc0(u32, u32, u32, u32);
 u32 func_0023c4b8(u32, u32, u32, u32);
 u32 func_0023fad0(u32, u32, u32, u32);
-u32 func_00253180(u32, u32, u32, u32);
+u32 Tz__CampMenu__Start(u32, u32, u32, u32);
 u32 func_00267620(u32, u32, u32, u32);
 u32 func_002766b0(u32, u32, u32, u32);
 u32 func_00287bd0(u32, u32, u32, u32);
@@ -41,7 +41,7 @@ u32 func_00290948(u32, u32, u32, u32);
 u32 func_002ba2e8(u32, u32, u32, u32);
 u32 func_002ba330(u32, u32, u32, u32);
 u32 func_002bdb58(u32, u32, u32, u32);
-u32 func_002bdb70(u32, u32, u32, u32);
+u32 worldmap__Libretto__parse(u32, u32, u32, u32);
 u32 func_002dc7e8(u32, u32, u32, u32);
 u32 func_002dd348(u32, u32, u32, u32);
 u32 func_002eda40(u32, u32, u32, u32);
@@ -53,7 +53,7 @@ u32 func_002febb0(u32, u32, u32, u32);
 u32 _free_r(u32, u32, u32, u32);
 u32 func_003037b0(u32, u32, u32, u32);
 
-u32 func_0013a218(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013a218: definition moved into src/anon/unit_001393c8.cpp
+u32 dk__Obj2D__destroyLoopExec(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013a218: definition moved into src/anon/unit_001393c8.cpp
 
 u32 func_0013b2f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0013b2f8: definition moved into src/anon/unit_0013a8b8.cpp
 

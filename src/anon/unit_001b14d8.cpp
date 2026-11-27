@@ -14,7 +14,7 @@ struct Sub_001b14d8 { u8 pad[640]; s32 arr[16]; };
 extern Sub_001b14d8 D_01d44108;
 extern s32 D_01d443c8;
 extern u8 D_00350e8c;
-void func_001b1560();
+void YS__LIGHT__Exec();
 void func_001b18e8();
 u8* func_00102c18_14d8(u32, u32, void (*)()) asm("func_00102c18");
 void func_001b14d8() {
@@ -23,7 +23,7 @@ void func_001b14d8() {
     for (s32 i = 0; i < 16; i++) D_01d44108.arr[i] = i;
     D_01d443c8 = 16;
     D_00350e8c = 0;
-    *(void (**)())(func_00102c18_14d8(1, 42000, func_001b1560) + 48) = func_001b18e8;
+    *(void (**)())(func_00102c18_14d8(1, 42000, YS__LIGHT__Exec) + 48) = func_001b18e8;
 }
 }
 
@@ -62,9 +62,9 @@ s32 func_001b1b58_e(u1b14d8_frame::Eff1b1560*) asm("func_001b1b58");
 void func_001b1ab8_e(u1b14d8_frame::Eff1b1560*) asm("func_001b1ab8");
 void func_0015efa0(u8, u8, u8);
 void func_0015ca40(u8, u8, u8, f32, f32, f32, f32);
-void func_0015f618(void);
+void dk__Map__noDrawAll(void);
 void func_0015f548(void);
-void func_001b1560(void)
+void YS__LIGHT__Exec(void)
 {
     using namespace u1b14d8_frame;
     Col1b1560 col;
@@ -97,7 +97,7 @@ void func_001b1560(void)
     func_0015ca40(fog.c.r, fog.c.g, fog.c.b, fog.near, fog.far, fog.min, fog.max);
     if (!(col.r | col.g | col.b)) {
         if (!D_00350e8c) {
-            func_0015f618();
+            dk__Map__noDrawAll();
             D_00350e8c = 1;
         }
     } else if (D_00350e8c) {

@@ -50,13 +50,13 @@ void func_0014b698(W1646Spr*);
 void func_0014bb30(W1646Spr*);
 void func_0015bab8(W1646Map*);
 u64 func_00166148(void*, s32, s32);
-W1646Vec func_0016af58(void*);
+W1646Vec YS__OBJ__get_dir(void*);
 void* func_0016b0d0(void);
-W1646Vec* func_0016c028(void*);
+W1646Vec* YS__OBJ__get_pos(void*);
 s32 func_00191c88(void);
 s32 func_001949d0(void);
 s32 func_00242ae8(void);
 f32 func_002f8ad0(f32, f32);
 
-void func_0015bc80(W1646Hud* o);  // 0x0015bc80: definition moved into src/anon/unit_0015bab8.cpp
+void dk__Radar__draw(W1646Hud* o);  // 0x0015bc80: definition moved into src/anon/unit_0015bab8.cpp
 }

@@ -21,9 +21,9 @@ u8* func_00106a60(s32);  // buffer_get_by_index
 void func_0016aef0(s32, f32*);
 void func_001391a8(void*, Vq);  // vec_copy_at416_if_diff
 s32 func_00139d78(void*);
-Vq func_0016af58(u32);
+Vq YS__OBJ__get_dir(u32);
 void func_0013fcd8(void*, Vq);
-void func_00107368(void*, void*);  // vec_copy_at80_if_diff
+void kn__Camera__getPosition(void*, void*);  // vec_copy_at80_if_diff
 void func_00165f70(void*, void*, void*, void*, void*);
 extern u8* D_00348800;
 extern u32 D_00348810;
@@ -34,17 +34,17 @@ extern u8 D_0034881f;
 
 void func_0011b038(s32 a);  // 0x0011b038: definition moved into src/anon/unit_0011a660.cpp
 
-void func_0013e3b0(u8* o, Vq* v);  // 0x0013e3b0: definition moved into src/anon/unit_0013dfb8.cpp
+void dk__LockOn__setPos(u8* o, Vq* v);  // 0x0013e3b0: definition moved into src/anon/unit_0013dfb8.cpp
 
 void func_0013fd10(u8* o);  // 0x0013fd10: definition moved into src/anon/unit_0013fca8.cpp
 
-void func_00144060(void);  // 0x00144060: definition moved into src/anon/unit_00142c90.cpp
+void dk__Octree__buildOcclusionFrustum(void);  // 0x00144060: definition moved into src/anon/unit_00142c90.cpp
 
 s32 func_00150bc0(void*);
 s32 func_00150be0(void*);
 void func_00150b68(void*);
 extern void* D_0034a42c;
-void func_0014f5d0(s32 id);  // 0x0014f5d0: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__INFORMATION__closeInformationWindow(s32 id);  // 0x0014f5d0: definition moved into src/anon/unit_0014ecb8.cpp
 
 extern u8* D_004f3b38;
 void func_001604d8(u8*);
@@ -58,7 +58,7 @@ struct S10 { u8 a; u8 b; s16 c[4]; };
 extern S10 D_0032bae0;
 extern S10 D_0032bb10;
 void func_0019ee80(s32, s32);
-void func_001d5198(S10*);
+void YS__CA_SHIP__ArriveArea(S10*);
 // 00178220: moved to src/yasui/libys/player.cpp
 
 struct E1817 { s32 id; s32 a; s32 b; };
@@ -79,22 +79,22 @@ extern "C" {
 void func_0016c750(u32);
 void* func_0016d080(u32, s32);
 void func_0016cbc8(void*, s32, s32, s32);
-void func_0016cd48(void*, s32);
+void YS__VM__exec(void*, s32);
 void func_0016cab8(void*);
 void func_0016c7d8(void*);
 void func_0016c770(void);
 extern u32 D_0032b91c;
 extern u32 D_01c61b00;
-void func_00196198(void);  // 0x00196198: definition moved into src/anon/unit_00195d00.cpp
+void YS__VMCOMMON__NewGame(void);  // 0x00196198: definition moved into src/anon/unit_00195d00.cpp
 
 u8* func_00168b88(void*, s32, s32, s32);  // find_entry16_by_half_word
 // 00198738: moved to src/anon/unit_00197fe0.cpp
 
 void func_0018f028(void*);
-void func_0019f9a8(u8* o);  // 0x0019f9a8: definition moved into src/anon/unit_0019ee80.cpp
+void YS__OBJ_ATTACK__clear(u8* o);  // 0x0019f9a8: definition moved into src/anon/unit_0019ee80.cpp
 
 void func_0023acd8(u8*);
-void func_0023ade0(u8*);
+void YI__SEQUENCE__Draw(u8*);
 // 001ac310: moved to src/anon/unit_001abb28.cpp
 
 s32 func_00181550(s32);
@@ -109,13 +109,13 @@ void func_001bd5b0(Obj1bd5b0* o, s32 i, u8 flag);  // 0x001bd5b0: definition mov
 
 struct G32bb30 { u8 pad[13606]; u8 n; u8 pad2[14052 - 13607]; s32 total; u8 pad3[8]; u8 pad4[8]; u16 cur[4]; };
 extern G32bb30 D_0032bb30;
-u8* func_001b8e88(u32);
+u8* YS__COMMAND_ELEM__Get(u32);
 u16 func_001a67b0(s32);
-void func_001bdff0(void);  // 0x001bdff0: definition moved into src/anon/unit_001bc568.cpp
+void YS__FIELD_COMMAND__InitShortcut(void);  // 0x001bdff0: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001bc778(void*);
 u8* func_001bd570(void*, s32);
-void func_001bc780(void*, u32, void*, u32);
+void YS__COMMAND_MENU__add(void*, u32, void*, u32);
 void func_001be890(void* o, void* b);  // 0x001be890: definition moved into src/anon/unit_001bc568.cpp
 
 u8* func_001d5b78(s32, s32);
@@ -132,7 +132,7 @@ u8* func_001e3468(u8* o);  // 0x001e3468: definition moved into src/anon/unit_00
 /* wait until VIF0/VIF1/GIF are idle and VU0 has stopped */
 void func_001e7538(void);  // 0x001e7538: definition moved into src/anon/unit_001e0cb8.cpp
 
-s32 func_002282f0(s32);
+s32 sa__EVENT__checkStart(s32);
 void* func_00227ca8(void*);
 void func_001671e8(void*, s32);
 void func_00167218(void);
@@ -146,7 +146,7 @@ struct E232 { s32 a; s32 b; s32 c; u8 pad[52]; };
 union U232 { E232* p; s32 i; };
 extern U232 D_0035dcf8;
 /* release the slot owned by id */
-void func_00232db0(s32 id);  // 0x00232db0: definition moved into src/anon/unit_00231500.cpp
+void sa__EVENT__clearMotionCtrlWk(s32 id);  // 0x00232db0: definition moved into src/anon/unit_00231500.cpp
 
 extern void* D_0035ee0c;
 extern u32 D_003723a0[];
@@ -157,8 +157,8 @@ struct Obj253410 { u8 pad[37]; u8 active : 1; };
 u8* func_0014aba8(void);
 void func_00258b00(void*, s32);
 void* func_002535d0(s32);
-void func_00242740(void*);
-void func_00253180(s32, s32);
+void Tz__MenuSound__SetPause(void*);
+void Tz__CampMenu__Start(s32, s32);
 static inline u8 isOff253410(Obj253410* o) { return !o->active; }
 void func_00253410(Obj253410* o, s32 a1);  // 0x00253410: definition moved into src/anon/unit_002530c8.cpp
 
@@ -191,12 +191,12 @@ u8 func_002941d8(u8*);
 s32 func_00294208(s32 id);  // 0x00294208: definition moved into src/anon/unit_00292e60.cpp
 
 struct E2953 { s8 id; u8 pad[15]; };
-E2953* func_002953c8(s32 id);  // 0x002953c8: definition moved into src/anon/unit_00292e60.cpp
+E2953* Tz__JmWorldSel__GetId2Info(s32 id);  // 0x002953c8: definition moved into src/anon/unit_00292e60.cpp
 
 void func_0029fcb0(void*);
-void func_002a03d0(void);
+void Tz__JmAnsem__UpdateNewMark(void);
 s32 func_0028b038(void*);
-void func_0028be78(void*, s32);
+void Tz__ScrollBar__SetPos(void*, s32);
 extern void* D_0035f200;
 extern void* D_0035f214;
 void func_002a0168(void* o, s32 msg);  // 0x002a0168: definition moved into src/anon/unit_0029f938.cpp
@@ -211,7 +211,7 @@ extern u8* D_0035f638;
 s32 func_0023f900(void*);
 void func_0023fad0(void*);
 void func_00293d80(s32);
-void func_002b2840(void);  // 0x002b2840: definition moved into src/anon/unit_002b1db8.cpp
+void Tz__JmPuzzle__LeaveAll(void);  // 0x002b2840: definition moved into src/anon/unit_002b1db8.cpp
 
 s32 func_002bc988(s32);
 void func_002bc9a8(void*, s32, s32);  // find_entry12_set_field
@@ -225,7 +225,7 @@ extern Vq D_01e2be20;
 // 002e3b88: moved to src/anon/unit_002e2f08.cpp
 
 void func_002e9d08(u32, u32, const Vq&, const Vq&, s32, s32, s32);
-void func_002e7c18(u32* o);  // 0x002e7c18: definition moved into src/anon/unit_002e7b10.cpp
+void Ts__trap_target_seracher_search(u32* o);  // 0x002e7c18: definition moved into src/anon/unit_002e7b10.cpp
 
 struct Bigint { void* next; s32 k; s32 maxwds; s32 sign; s32 wds; u32 x[1]; };
 /* newlib __mcmp: compare two bigints */

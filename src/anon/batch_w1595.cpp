@@ -19,7 +19,7 @@ void func_00252ba8();
 void func_00252bf0();
 void func_00252c20();
 s32 func_00287bc0();
-void func_00287d68();
+void Tz__MenuBase__SaveMode();
 s32 func_00287db0();
 extern void* D_0035ee34;
 extern void* D_0035ee38;
@@ -30,14 +30,14 @@ extern void* D_0035eea4;
 extern void* D_0035eea8;
 
 // The || chain with a single "return 0" keeps the result in v0 (separate returns put it in t7).
-s32 func_0024ff08(void);  // 0x0024ff08: definition moved into src/anon/unit_0024fbd0.cpp
+s32 Tz__LMMU__Control(void);  // 0x0024ff08: definition moved into src/anon/unit_0024fbd0.cpp
 
 s32 func_00252ad8(void);  // 0x00252ad8: definition moved into src/anon/unit_00250fb8.cpp
 
 s32 func_00281100(s32);
 s32 func_002811b0(s32, s32);
 s32 func_001058e8();
-u16* func_00188fe0(s32, s32);
+u16* YS__SAVERAM_BATTLE__get_partram(s32, s32);
 void func_00293500(s32, s32, u32);
 s32 func_00281480(s32, s32);
 s32 func_002815b8();

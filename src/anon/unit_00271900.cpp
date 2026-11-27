@@ -39,10 +39,10 @@ void func_00138c10(u8*, s32) asm("func_00138c10");
 /*TARGET 00271900*/
 // Builds the 18 menu tiles: a base sprite plus two overlays per tile, laid out
 // two per row.
-void func_00271900(void) asm("func_00271900");
+void Tz__CmCustom__CreateTopList(void) asm("Tz__CmCustom__CreateTopList");
 // Builds the 18 menu tiles: a base sprite plus two overlays per tile, laid out
 // two per row.
-void func_00271900(void) {
+void Tz__CmCustom__CreateTopList(void) {
     s32 i;
     u8* g = func_00257770();
     u8* e;

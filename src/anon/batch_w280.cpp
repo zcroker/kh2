@@ -6,7 +6,7 @@ typedef void (*VV)(...);
 #define VTv(o,i) ((VV)((*(void***)(o))[i]))
 extern "C" {
 s32 func_001c0298(void*, void*);  // state_check5or6
-void* func_0018db38(void*, void*, u32, u32);
+void* YS__ATTACK__strike(void*, void*, u32, u32);
 void func_0018e420(void*, void*, void*, void*, s32);
 void func_0018ef68(void*, void*, s32);
 void func_0018ca10(void*);  // alloc_from_pool_magic
@@ -135,7 +135,7 @@ static inline void QZero(QWord* p)
 extern "C" u8* D_00361f60;
 extern "C" {
 void func_0016aef0(u8*, QWord*);
-QWord* func_0016c028(u8*);  // obj_get_attach_or_alt
+QWord* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 void func_0016ace0(u8*, QWord*);
 void func_002dff60(u8*, u8*);
 void func_002e0230(u8*, u8*);
@@ -163,7 +163,7 @@ struct P1 { s32 n0; s32 n1; f32 f8; f32 f12; f32 f16; f32 f20; };
 extern "C" {
 QWord func_002d38e8(u32);
 u8* func_001cbe30(QWord*, u32, s32);
-void func_002d3568(u32 a, P1* p, u32 c);  // 0x002d3568: definition moved into src/anon/unit_002d2498.cpp
+void Ti__MGOarashiGimObj__appear_rot_prize(u32 a, P1* p, u32 c);  // 0x002d3568: definition moved into src/anon/unit_002d2498.cpp
 }
 }
 

@@ -31,7 +31,7 @@ void func_001f0dc0(u8* o, u32 a1, u8* x);  // 0x001f0dc0: definition moved into 
 void func_001f0ea8(u8* o, u32 a1, u8* x);  // 0x001f0ea8: definition moved into src/anon/unit_001f0cd8.cpp
 
 extern u8 D_0032e020[];
-W248Tbl* func_00188fe0(void*);
+W248Tbl* YS__SAVERAM_BATTLE__get_partram(void*);
 u8* func_001a80c8(u32);  // table24_find_by_id
 s32 func_001a3570(u32);
 // 001a35f8: moved to src/anon/unit_001a2a50.cpp
@@ -39,5 +39,5 @@ s32 func_001a3570(u32);
 extern f32 D_00349e10;
 W248V4* func_0016b0a0(W248Mv*);
 void func_0016b070(W248Mv*, W248V4*);
-void func_001cfaf0(void* self, W248Mv* m);  // 0x001cfaf0: definition moved into src/anon/unit_001cf0b0.cpp
+void YS__ACTION_NMGUN__control(void* self, W248Mv* m);  // 0x001cfaf0: definition moved into src/anon/unit_001cf0b0.cpp
 }

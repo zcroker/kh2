@@ -51,12 +51,12 @@ extern "C" {
 void* w1810_area_alloc(u32) asm("_ZN4AREA5AllocEj");
 int w1810_getcharadata(u32) asm("_ZN2Tz6JmInfo12GetCharaDataEj");
 void w1810_set_mode(void*, int) asm("_ZN2YS6MOTION8set_modeEi");
-W1810Vec* func_0016c028(int);
+W1810Vec* YS__OBJ__get_pos(int);
 
 f32 func_00164c70(void* self, const W1810Vec& a, const W1810Vec& b, const W1810Vec& c);  // 0x00164c70: definition moved into src/anon/unit_00164578.cpp
 
-int func_0017a538(void*);
-void func_00185468(void*, int, void*, u32, int, int);
+int YS__PLAYER__is_changing(void*);
+void YS__WEAPON__WEAPON(void*, int, void*, u32, int, int);
 struct W1810S8 { u8 pad[0x4e]; u16 h; };
 struct W1810Sub { u8 pad[0x14]; int a; u8 p2[4]; int b; u8 p3[0x10]; float f; };
 struct W1810Obj;

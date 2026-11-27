@@ -113,26 +113,26 @@ void W1626_vm_call(u32, s32, u32*, s32) asm("_ZN2YS2VM4callEiP8BD_VALUEi");
 void* func_001050d8(u32);
 void func_00105110(void*);
 void func_001826c8(f32);       // YS::AREADATA::AddCost
-f32 func_001826e0(void);
+f32 YS__AREADATA__GetCostRest(void);
 void func_0016cab8(void*);
 void func_0016c7d8(void*);
 void func_001de450(ryj::PAX*);
-void func_001dde40(ryj::PAX*);
+void ryj__PAX__ensure(ryj::PAX*);
 void func_00170950(s32);
 void func_00170518(char*, s32, s32);
-void func_001bdff0(void);
+void YS__FIELD_COMMAND__InitShortcut(void);
 u32 func_0016cf00(u32, u32, u32, u32, u32);
 void func_00177998(void*);
 void func_0016cbc8(void*, s32, s32, s32);
 s32 func_001a3570(u32);
-u8* func_001b8e88(u32);
-s32 func_0019ba60(void*);
+u8* YS__COMMAND_ELEM__Get(u32);
+s32 YS__OBJ__is_exist(void*);
 Task1a5f50* t1a5f50_CreateTask(s32, s32, void (*)(TASK*)) asm("_ZN5FIELD10CreateTaskEiiPFvP4TASKE");
 void func_001a5db8(TASK*);
 W261En* func_001a6658(s32 id);
 s32 t1a5f50_Alloc(const char*, s32) asm("_ZN2YS10CACHE_BUFF5AllocEPKci");
 Res1a5f50* func_00168b38(s32, s32, s32);
-void t1a5f50_001dddd0(void*, s32) asm("_Z16wtarget_001dddd0jjjj");
+void t1a5f50_001dddd0(void*, s32) asm("_Z14ryj__PAX__initjjjj");
 u32 func_001a6598(u32);
 u32 func_001a67b0(u32);
 }
@@ -180,8 +180,8 @@ void func_001a5db8(TASK*) {
     if (!p) return;
     do {
         MAGIC* next = p->next;
-        extern s32 func_0016cd48(void*, s32);
-        if (func_0016cd48(p->vm, 0) == 1) delete p;
+        extern s32 YS__VM__exec(void*, s32);
+        if (YS__VM__exec(p->vm, 0) == 1) delete p;
         p = next;
     } while (p);
 }
@@ -215,7 +215,7 @@ void MAGIC::Finalizer(TASK*) {
         if (*(u32*)p != 0) {
             u32 q = off + base2;
             if (*(u32*)q != 0) {
-                func_001dde40((ryj::PAX*)q);
+                ryj__PAX__ensure((ryj::PAX*)q);
             }
             func_00170950(*(u32*)p);
         }
@@ -263,10 +263,10 @@ void func_001a5f50(void)
 }
 
 
-void func_001a60c8(void)
+void YS__MAGIC__Reset(void)
 {
     for (s32 i = 0; i < 6; i++) D_00350800[i].data = (W1626ScriptData*)func_001a6658(i);
-    func_001bdff0();
+    YS__FIELD_COMMAND__InitShortcut();
 }
 
 MAGIC* func_001a6118(u32 a0, u32 a1, u32 a2, u32 a3) {
@@ -375,14 +375,14 @@ void MAGIC::MpDriveDisable(s32 a) {
 }
 
 u8 MAGIC::GetMpDriveStatus(s32 a) {
-    u8* p = func_001b8e88(func_001a67b0(a));
+    u8* p = YS__COMMAND_ELEM__Get(func_001a67b0(a));
     u32 mask = 1u << (a & 0x1f);
     if (p[28] >= 255) return 2;
     return (D_0032f274[(u32)a >> 5] & mask) == 0;
 }
 
 bool MAGIC::CanAddCost(f32 f) {
-    return f <= func_001826e0() + 2.0f;
+    return f <= YS__AREADATA__GetCostRest() + 2.0f;
 }
 
 void MAGIC::SysInit(void* t) {
@@ -447,7 +447,7 @@ u32 func_001a6850(void) {
         u8* o = (u8*)n->vm;
         if (*(u32*)(o + 28) & 4) continue;
         u8* a = *(u8**)(o + 56);
-        if (!func_0019ba60(a)) continue;
+        if (!YS__OBJ__is_exist(a)) continue;
         u32 fl = *(u32*)(a + 1416);
         if (!(fl & 0x4000)) continue;
         if (!(fl & 0x400000)) return 1;

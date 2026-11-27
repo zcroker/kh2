@@ -40,9 +40,9 @@ extern ObjE* D_00361e50 asm("D_00361e50");
 extern f32 D_01e2be10 asm("D_01e2be10");
 extern f32 D_01e2be14 asm("D_01e2be14");
 void func_0031cc28(void*) asm("func_0031cc28");
-void func_002c6420(ObjE*) asm("func_002c6420");
+void worldmap__Camera__initialize(ObjE*) asm("worldmap__Camera__initialize");
 void func_001903d0(s32*, PairE*) asm("func_001903d0");
-s32 func_00106a18(s32) asm("func_00106a18");
+s32 kn__getProjection(s32) asm("kn__getProjection");
 f32 func_001070a0(s32) asm("func_001070a0");
 s32 func_0016a020(s32) asm("func_0016a020");
 void func_00162058(f32) asm("func_00162058");
@@ -62,7 +62,7 @@ void func_002cac58(ObjE* self, s32* a1, VecE* a2, f32 f) {
     *(u32*)self->m84 = 0;
     self->vt = D_00361da8;
     *(u32*)&self->f5c = 0;
-    func_002c6420(self);
+    worldmap__Camera__initialize(self);
     *(u32*)&pr.a.w = 0;
     self->vt = D_00361e60;
     D_00361e50 = self;
@@ -73,7 +73,7 @@ void func_002cac58(ObjE* self, s32* a1, VecE* a2, f32 f) {
     d.w = z0;
     f32 len = normE(&d);
     f32 s = len * a2->z;
-    f32 k = s / func_001070a0(func_00106a18(1));
+    f32 k = s / func_001070a0(kn__getProjection(1));
     v.x = a2->x * k;
     v.y = a2->y * k;
     v.z = z0;
@@ -116,9 +116,9 @@ extern ObjE* D_00361e50 asm("D_00361e50");
 extern f32 D_01e2be10 asm("D_01e2be10");
 extern f32 D_01e2be14 asm("D_01e2be14");
 void func_0031cc28(void*) asm("func_0031cc28");
-void func_002c6420(ObjE*) asm("func_002c6420");
+void worldmap__Camera__initialize(ObjE*) asm("worldmap__Camera__initialize");
 void func_001903d0(s32*, PairE*) asm("func_001903d0");
-s32 func_00106a18(s32) asm("func_00106a18");
+s32 kn__getProjection(s32) asm("kn__getProjection");
 f32 func_001070a0(s32) asm("func_001070a0");
 s32 func_0016a020(s32) asm("func_0016a020");
 void func_00162058(f32) asm("func_00162058");
@@ -129,8 +129,8 @@ static inline f32 normE(VecE* v) {
     return len;
 }
 
-void func_002cae60(ObjE* self, s32* a1, VecE* a2, f32 f) asm("func_002cae60");
-void func_002cae60(ObjE* self, s32* a1, VecE* a2, f32 f) {
+void worldmap__CloseUpCamera__CloseUpCamera(ObjE* self, s32* a1, VecE* a2, f32 f) asm("worldmap__CloseUpCamera__CloseUpCamera");
+void worldmap__CloseUpCamera__CloseUpCamera(ObjE* self, s32* a1, VecE* a2, f32 f) {
     PairE pr;
     f32 z0 = 0.0f;
     VecE d;
@@ -138,7 +138,7 @@ void func_002cae60(ObjE* self, s32* a1, VecE* a2, f32 f) {
     self->vt = D_00361da8;
     func_0031cc28(self->m84);
     *(u32*)&self->f5c = 0;
-    func_002c6420(self);
+    worldmap__Camera__initialize(self);
     *(u32*)&pr.a.w = 0;
     self->vt = D_00361e60;
     D_00361e50 = self;
@@ -149,7 +149,7 @@ void func_002cae60(ObjE* self, s32* a1, VecE* a2, f32 f) {
     d.w = z0;
     f32 len = normE(&d);
     f32 s = len * a2->z;
-    f32 k = s / func_001070a0(func_00106a18(1));
+    f32 k = s / func_001070a0(kn__getProjection(1));
     v.x = a2->x * k;
     v.y = a2->y * k;
     v.z = z0;
@@ -166,12 +166,12 @@ void func_002cae60(ObjE* self, s32* a1, VecE* a2, f32 f) {
 // ---- 002cb070: per-frame update: copy the target fov, then the base camera update (never written before)
 namespace n002cb070 {
 struct NoTail { ~NoTail() {} };
-s32 func_002c6490(u8*) asm("func_002c6490");
+s32 worldmap__Camera__update(u8*) asm("worldmap__Camera__update");
 void func_002cb070(u8* p) asm("func_002cb070");
 void func_002cb070(u8* p) {
     NoTail nt;
     *(f32*)(p + 80) = *(f32*)(p + 96);
-    func_002c6490(p);
+    worldmap__Camera__update(p);
 }
 }  // namespace n002cb070
 
@@ -219,7 +219,7 @@ void func_002cb0e8(u32 a0, u32 a1, f32 a2) {
     func_002cb160(s1);
 
     u32 s0 = func_001050d8(112);
-    func_002cae60(f20, s0, s1, s2);
+    worldmap__CloseUpCamera__CloseUpCamera(f20, s0, s1, s2);
 
     u32 v0 = func_002c6218();
     func_002c6228(v0, 2, s0);

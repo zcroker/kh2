@@ -5,7 +5,7 @@ inline void* operator new(unsigned int, void* p) { return p; }
 extern "C" {
 extern u8 D_00363860[];
 void func_002edf28(u8*);  // obj_ctor_3637e0
-void func_001a91f8(u8*);  // obj_init_24bytes
+void YS__OBJDATA__clear(u8*);  // obj_init_24bytes
 void func_001a92d8(u8*, u32, s32);
 void func_00106ab8(u8*);  // noop_ret
 void func_00108698(u8*);
@@ -14,8 +14,8 @@ struct VObj { void** vt; };
 VObj* func_001a93e8(u8*);
 u32 func_001a9420(u8*);
 void func_0011e260(u32, u32);
-void func_00106d40(u8*, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32);
-void func_00106c08(u8*);
+void kn__Projection__set(u8*, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32);
+void kn__Projection__calcMatrix(u8*);
 void func_0011b6a8(u8*);
 struct V4 { f32 x, y, z, w; V4(f32 a, f32 b, f32 c, f32 d) { x = a; y = b; z = c; w = d; }
   void set(f32 a, f32 b, f32 c, f32 d) { x = a; y = b; z = c; w = d; }
@@ -33,12 +33,12 @@ typedef u32 (*Fn9)(VObj*, u32);
 // ---- 00188c30
 namespace n00188c30 {
 extern "C" {
-void func_001888c8(void*);
+void YS__PARTRAM__PARTRAM(void*);
 void func_00189170(void*);
 void func_001a8bb8(void*);  // obj_set_header_bytes
 void func_001d9768(void*);
 }
-struct A276 { u8 d[276]; A276() { func_001888c8(this); } };
+struct A276 { u8 d[276]; A276() { YS__PARTRAM__PARTRAM(this); } };
 struct A56 { u8 d[56]; A56() { func_00189170(this); } };
 struct A4 { u8 d[4]; A4() { func_001a8bb8(this); } };
 struct Z4 { u32 v; Z4() { v = 0; } };
@@ -46,7 +46,7 @@ struct Z8 { u8 a; u32 b; Z8() { a = 0; b = 0; } };
 struct E { Z8 e[64]; u32 x[4]; E() __attribute__((always_inline)); };
 inline E::E() { for (s32 i = 0; i < 4; i++) x[i] = 0; }
 extern "C" {
-void func_00188c30(u8* p);  // 0x00188c30: definition moved into src/anon/unit_00188848.cpp
+void YS__SAVERAM_BATTLE__SAVERAM_BATTLE(u8* p);  // 0x00188c30: definition moved into src/anon/unit_00188848.cpp
 }
 }
 
@@ -82,11 +82,11 @@ static inline void Normalize(QWord* v)
 extern "C" {
 extern u8* D_00361f60;
 extern u8* D_0034e948;
-void func_002df040(u8*, u8*);
-QWord* func_0016c028(u8*);  // obj_get_attach_or_alt
+void Ti__ACTION_PO_JUMP__control(u8*, u8*);
+QWord* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 u8* func_002dc7c8(u8*);
 void func_002dd2d8(u8*, f32*, f32*);
-void func_002df868(u8* s, u8* o);  // 0x002df868: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__ACTION_PO_JUMP_ROO__control(u8* s, u8* o);  // 0x002df868: definition moved into src/anon/unit_002de3c8.cpp
 }
 }
 
@@ -113,15 +113,15 @@ static inline void AddTo(QWord* r, const QWord& a, const QWord& b)
 }
 extern "C" {
 extern f32 D_00349e10;
-s32 func_0019ba60(u32);
+s32 YS__OBJ__is_exist(u32);
 f32 sinf(f32);
-void func_0016af58(QWord*, u8*);
+void YS__OBJ__get_dir(QWord*, u8*);
 void func_0016aeb8(u8*, f32);
 void func_0016be98(QWord*, u32);
 void func_0016ace0(u8*, QWord*);
 u32 func_001a37e8(u32, s32);
-void func_00138210(u32);
+void dk__TREASURE_INFO__openPrizeInfo(u32);
 typedef void (*VF8)(u8*);
-void func_001bfa08(u8* a0, u8* p);  // 0x001bfa08: definition moved into src/anon/unit_001bc568.cpp
+void YS__ACTION_PRIZEBOX_GET__control(u8* a0, u8* p);  // 0x001bfa08: definition moved into src/anon/unit_001bc568.cpp
 }
 }

@@ -1,7 +1,7 @@
 #include "../common/types.h"
 
 extern "C" {
-void func_00102818(u32, u32, u32, u32, u32);
+void TASK_MANAGER__create_thread(u32, u32, u32, u32, u32);
 void func_0016bd60(void*, s32);
 void func_00113668(void*);
 void func_00105110(void*);
@@ -13,7 +13,7 @@ void* func_0014aba8(void);
 void func_0014aa80(void*, s32, s32);
 void func_00150dc0(u32, u32, u32, u32, u32, u32);
 u8 func_00139d78(void*);
-void func_00151c70(void*);
+void dk__MISSION_GAUGE__forceLeave(void*);
 u8 func_00167d68(void*);
 void* func_0016f610(const void*, s32);
 void* func_00185890(u32, void*);
@@ -30,7 +30,7 @@ void* func_001bbcb0(void);
 void* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_001980d0(void*, u32, s32, u32);
 void func_0021fa10(void*);
-void func_00240360(void);
+void Tz__MCard__MakeFname(void);
 void func_00234590(s32, u32, s32, u32, s32);
 void func_0014aa58(void*, s32, s32);
 void func_002bd760(s32);
@@ -48,7 +48,7 @@ void func_002e77a8(void*);
 void func_002ee730(void*);
 s32 func_002bc1e8(s32);
 u32 func_0010c7e8(u32);
-void func_00119830(u32, u32);
+void kn__Stitch__shotEffect(u32, u32);
 void func_00239848(void*);  // set_vtbl_36eb28_then_call
 void func_00106420(void*);
 void func_001d48b0(void*);
@@ -94,7 +94,7 @@ void trap_stitch_shot_effect(u32* v) asm("_ZN2kn23trap_stitch_shot_effectEP8BD_V
 
 // 001045b8: moved to src/common/gumimenu.cpp
 
-void func_0010f960(u8* p);  // 0x0010f960: definition moved into src/anon/unit_0010f338.cpp
+void kn__Friend__enableInertia(u8* p);  // 0x0010f960: definition moved into src/anon/unit_0010f338.cpp
 
 void func_00115560(void** p);  // 0x00115560: definition moved into src/anon/unit_00114a90.cpp
 
@@ -141,13 +141,13 @@ void func_001fab08(u8* p, u8* q);  // 0x001fab08: definition moved into src/anon
 
 void func_0023f6c0(u8* p, u32 a);  // 0x0023f6c0: definition moved into src/anon/unit_0023f5b8.cpp
 
-void func_00240e10(void);  // 0x00240e10: definition moved into src/anon/unit_0023f5b8.cpp
+void Tz__MCard__GetDirInfo(void);  // 0x00240e10: definition moved into src/anon/unit_0023f5b8.cpp
 
 void func_0025cd40(void);  // 0x0025cd40: definition moved into src/anon/unit_002588e8.cpp
 
 void func_00287b98(void);  // 0x00287b98: definition moved into src/anon/unit_00286d28.cpp
 
-void func_00287d68(void);  // 0x00287d68: definition moved into src/anon/unit_00286d28.cpp
+void Tz__MenuBase__SaveMode(void);  // 0x00287d68: definition moved into src/anon/unit_00286d28.cpp
 
 s32 func_002a0360(void);  // 0x002a0360: definition moved into src/anon/unit_0029f938.cpp
 

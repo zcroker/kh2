@@ -72,7 +72,7 @@ struct Path { u8 pad0[3]; u8 flags; s32 count; f32 start; u32 padc; PathKey key[
 static inline QV conv(const KV& p) { return QV(p.x, -p.y, -p.z, 0.0f); }
 void path_seek(Path* p, s32* idx, f32* frac, f32 t) asm("func_002e66f0");
 extern "C" {
-void func_002e6ab0(Path* p, Mtx* m, f32 t);  // 0x002e6ab0: definition moved into src/anon/unit_002e5f70.cpp
+void Ti__Afp__Data__calc_matrix(Path* p, Mtx* m, f32 t);  // 0x002e6ab0: definition moved into src/anon/unit_002e5f70.cpp
 }
 }
 
@@ -162,9 +162,9 @@ Quat quat_slerp(const Quat&, const Quat&, f32) asm("func_002e47a8");
 Mtx quat_to_mtx(const Quat&) asm("func_002e4588");
 extern "C" {
 Rgn* func_0016bc20(Obj*, s32, s32);
-void func_0018a818(Hit*, Obj*, Rgn*);
-Obj* func_001b9bc8(Obj*);
-QV* func_0016c028(Obj*);
+void YS__COLLISION__set(Hit*, Obj*, Rgn*);
+Obj* YS__OBJ__Each(Obj*);
+QV* YS__OBJ__get_pos(Obj*);
 s32 func_0018a550(Hit*, Hit*);
 void func_002cf280(LFlag*, u32, u32);
 s32 func_002d8d68(void* self, Obj* obj, Mtx* m2, Mtx* m3);  // 0x002d8d68: definition moved into src/anon/unit_002d6f70.cpp

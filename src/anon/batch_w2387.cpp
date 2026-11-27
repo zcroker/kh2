@@ -27,7 +27,7 @@ static inline f32 VNormalize_w2387(QWord_w2387* v)
 }
 struct Act_w2387 { u8 pad[340]; s32 state; };
 struct Self_w2387 { u8 pad[36]; s32 f24; s32 f28; };
-QWord_w2387 actor_pos_w2387(Act_w2387*) asm("_Z16ctarget_0016bda8jjjj");
+QWord_w2387 actor_pos_w2387(Act_w2387*) asm("_Z23YS__OBJ__get_target_posjjjj");
 extern "C" {
 extern Act_w2387* D_0034e948;
 extern u32 D_003638d0;
@@ -37,14 +37,14 @@ void func_001e0d68(Self_w2387*, QWord_w2387*);
 
 /* Pick D_0034e948 or party actor 0 (by state 270/271, else a random bit), then store the
    normalized direction from this object's point to that actor's position. */
-void func_001e0e50(Self_w2387* o);  // 0x001e0e50: definition moved into src/anon/unit_001e0cb8.cpp
+void ryj__LASER__attack(Self_w2387* o);  // 0x001e0e50: definition moved into src/anon/unit_001e0cb8.cpp
 
 s32 func_002ef7b8();
 s32 func_0022bb38();
 void func_00226dc8();
 s32 func_00228378();
 u8* func_0014ac08();
-void func_0014ce60();
+void dk__Vsync__initGameSpeed();
 s32 func_002bc7a8(s32);
 extern s32 D_0035de20;
 extern s32 D_0035de28;

@@ -6,7 +6,7 @@ u32 func_0013b988(void*, void*, u8, s32, s32, s32);  // table_by_arg_flags
 void func_0013c080(void*, void*, s32, s32, u8*, s32, s32*, s32*);
 u32 func_0013bc40(void*, s32);  // is_zero_arg
 u32 func_0013b9e0(void*, s32);
-u8* func_001b8e88(u16);
+u8* YS__COMMAND_ELEM__Get(u16);
 u32 func_00192048(u32);
 u8* func_0013b5d0(void*, s32, s32, void*, u8, s32, s32, u32, f32, u32, s32);
 void func_0013bc50(void*, void*, s32, s32, u8, u32, u8*, u8*);
@@ -36,12 +36,12 @@ s32 func_0023aa18(...);
 s32 func_0023aa38(...);
 u32 func_00288ce0(...);
 u32 func_00239870(...);
-u32 func_002891f0(...);
+u32 Tz__Select__SetCurrent(...);
 u32 func_0028b078(...);  // obj_setup_from_args
-u32 func_0028af90(...);  // obj_set_field22_from_arg
+u32 Tz__Select__SetSelectMax(...);  // obj_set_field22_from_arg
 u32 func_00288f48(...);
 u32 func_0028d068(...);
-u32 func_0028d1c0(...);
+u32 Tz__LightCur__Create(...);
 u32 func_002891d0(...);
 u32 func_0028d660(...);  // record_set_value_refresh
 u32 func_001396b0(...);

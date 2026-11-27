@@ -28,15 +28,15 @@ s32 jm_curtop(s32) asm("func_00276620");
 u8* jm_scrbar() asm("func_00276678");
 void jm_hide(s32) asm("func_002766b0");
 u8* jm_seqtbl() asm("func_002766d0");
-void func_00276e78(void) asm("func_00276e78");
+void Tz__Jiminy__CreateCover(void) asm("Tz__Jiminy__CreateCover");
 s32 mb_mode() asm("func_00287bc0");
 void sel_set(s32) asm("func_00287cc0");
-void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("func_00288d80");
+void Tz__Select__SetItem(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("Tz__Select__SetItem");
 Obj* sel_item(s32, s32) asm("func_002891b8");
-void func_002891f0(s32, s32, s32, s32, s32) asm("func_002891f0");
-void func_0028af90(s32, s32) asm("func_0028af90");
+void Tz__Select__SetCurrent(s32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
+void Tz__Select__SetSelectMax(s32, s32) asm("Tz__Select__SetSelectMax");
 void func_0028afd0(s32, s32) asm("func_0028afd0");
-void func_0028b218(s32, s32) asm("func_0028b218");
+void Tz__Select__SetPageMode(s32, s32) asm("Tz__Select__SetPageMode");
 void func_0028b248(s32, s32) asm("func_0028b248");
 void func_0028bae0(s32, s32, s32, s32, u8*, s32, s32, u8*, s32) asm("func_0028bae0");
 void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0");
@@ -45,8 +45,8 @@ s32 func_0028f930(s32) asm("func_0028f930");
 void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
 void func_0029c958(void) asm("func_0029c958");
 void func_0029cdf8(void) asm("func_0029cdf8");
-void func_0028be78(s32, s32) asm("func_0028be78");
-void func_0029ea30(void) asm("func_0029ea30");
+void Tz__ScrollBar__SetPos(s32, s32) asm("Tz__ScrollBar__SetPos");
+void Tz__JmDic__UpdateHelpMess(void) asm("Tz__JmDic__UpdateHelpMess");
 void func_0029af20(void) asm("func_0029af20");
 void func_0029af20(void) {
     s16 tab[2][4];
@@ -69,7 +69,7 @@ void func_0029af20(void) {
     s16* r1 = tab[1];
     w2 = w + 0x4C8;
     id = D_0035f3d4 - 1;
-    func_00276e78();
+    Tz__Jiminy__CreateCover();
     pz_cfo(w, id, D_0035f14c, D_0035f148, D_0035f210, 90, -1, 0);
     obj_xyoff(w);
     mc_as(w, cam);
@@ -79,7 +79,7 @@ void func_0029af20(void) {
     step = yi_cr(w + 0x18);
     id = D_0035f3d4;
     for (i = 0; i < 10; i++) {
-        func_00288d80(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, tab[0], r1);
+        Tz__Select__SetItem(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, tab[0], r1);
         Obj* o = sel_item(D_0035f200, i);
         obj_xyoff(o);
         mc_as(o, w);
@@ -120,19 +120,19 @@ void func_0029af20(void) {
         n = jm_curpos(m);
         top = jm_curtop(m);
     }
-    func_0028af90(D_0035f200, cnt);
-    func_002891f0(D_0035f200, n, 0, -1, -1);
+    Tz__Select__SetSelectMax(D_0035f200, cnt);
+    Tz__Select__SetCurrent(D_0035f200, n, 0, -1, -1);
     func_0028afd0(D_0035f200, top);
-    func_0028b218(D_0035f200, 1);
+    Tz__Select__SetPageMode(D_0035f200, 1);
     func_0028b248(D_0035f200, 10);
     id = D_0035f3d4;
     if (cnt > 10) n = cnt; else n = 10;
     s32 a = yi_unit(lay_get(D_0035f210), D_0035f14c);
     s32 b = yi_img(lay_get(D_0035f210)->img, D_0035f148);
     func_0028bae0(D_0035f214, id, a, b, jm_scrbar(), n, 10, w2, 0);
-    func_0028be78(D_0035f214, top);
+    Tz__ScrollBar__SetPos(D_0035f214, top);
     func_0029cdf8();
-    func_0029ea30();
+    Tz__JmDic__UpdateHelpMess();
     jm_hide(1);
     sel_set(0);
 }
@@ -155,8 +155,8 @@ s32 func_00292630(void) asm("func_00292630");
 void func_00287c30(void) asm("func_00287c30");
 void func_0028af18(u32, s32) asm("func_0028af18");
 s32 func_00276358(void) asm("func_00276358");
-void func_00276220(s32, s32) asm("func_00276220");
-void func_00274cf0(s32) asm("func_00274cf0");
+void Tz__Jiminy__SetParentSeqNum(s32, s32) asm("Tz__Jiminy__SetParentSeqNum");
+void Tz__Jiminy__LoadData(s32) asm("Tz__Jiminy__LoadData");
 // state_dispatch_0_1_2
 void func_002925c0(void) asm("func_002925c0");
 void func_002995e8(void) asm("func_002995e8");
@@ -171,8 +171,8 @@ void func_00287da0(void) asm("func_00287da0");
 s32 func_00288040(void) asm("func_00288040");
 void func_00288018(void) asm("func_00288018");
 // global_zero_4dwords
-void func_0028f6f0(s32) asm("func_0028f6f0");
-void func_00276dc0(void) asm("func_00276dc0");
+void Tz__SelHist__FadeOut(s32) asm("Tz__SelHist__FadeOut");
+void Tz__Jiminy__FadeOutHelp(void) asm("Tz__Jiminy__FadeOutHelp");
 void func_00287c00(s32) asm("func_00287c00");
 void func_00287cc0(s32) asm("func_00287cc0");
 s32 func_002891e8(u32) asm("func_002891e8");
@@ -186,8 +186,8 @@ void func_0029aac0(s32) asm("func_0029aac0");
 void func_0029b698(void) asm("func_0029b698");
 void func_0029ecf0(void) asm("func_0029ecf0");
 void func_0029aa30(void) asm("func_0029aa30");
-s8 func_0029c9d8(s32) asm("func_0029c9d8");
-s32 func_00295430(s32, s32) asm("func_00295430");
+s8 Tz__JmDic__GetCur2World(s32) asm("Tz__JmDic__GetCur2World");
+s32 Tz__JmWorldSel__GetId2WorldName(s32, s32) asm("Tz__JmWorldSel__GetId2WorldName");
 void func_0028fb28(s32, s32) asm("func_0028fb28");
 /*TARGET 0029b378*/
 void func_0029b378(void) asm("func_0029b378");
@@ -209,9 +209,9 @@ void func_0029b378(void)
         func_00287c30();
         s32 k = func_00287bc0();
         func_0028af18(D_0035f200, 115);
-        func_00276220(func_00276358(), 0);
+        Tz__Jiminy__SetParentSeqNum(func_00276358(), 0);
         if (k == 13) {
-            func_00274cf0(13);  // state_dispatch_0_1_2
+            Tz__Jiminy__LoadData(13);  // state_dispatch_0_1_2
             func_002925c0();
             func_002766b0(0);
             func_002995e8();
@@ -221,7 +221,7 @@ void func_0029b378(void)
         return;
     }
     if ((sel != -1 || func_00289310(D_0035f200)) && !func_00276398()) {
-        func_00276220(0, 2);
+        Tz__Jiminy__SetParentSeqNum(0, 2);
         func_00275b60();
     }
     if (st == 0 && func_00276398()) func_00287c90(1);  // state_is_150
@@ -232,23 +232,23 @@ void func_0029b378(void)
             func_00287da0();
             break;
         case -2:
-            func_0028f6f0(0);  // record884_refresh_by_index
+            Tz__SelHist__FadeOut(0);  // record884_refresh_by_index
             func_0029aa30();
-            func_00276dc0();
-            func_00276220(1, 1);
+            Tz__Jiminy__FadeOutHelp();
+            Tz__Jiminy__SetParentSeqNum(1, 1);
             func_00287c00(13);
             func_00287cc0(2);
             break;
         default: {
-            D_0035f5ac->cur = func_0029c9d8(-1);
-            func_0028fb28(1, func_00295430(D_0035f5ac->cur, 0));
+            D_0035f5ac->cur = Tz__JmDic__GetCur2World(-1);
+            func_0028fb28(1, Tz__JmWorldSel__GetId2WorldName(D_0035f5ac->cur, 0));
             func_0029aa30();
-            func_00276dc0();
+            Tz__Jiminy__FadeOutHelp();
             s32 a = func_00287bc0();
             s32 b = func_002891e8(D_0035f200);
             func_002765e8(a, b, func_0028b038(D_0035f200));
             func_002765e8(15, 0, 0);
-            func_00276220(0, 1);
+            Tz__Jiminy__SetParentSeqNum(0, 1);
             func_00287c00(15);
             func_00287cc0(2);
             break;
@@ -289,27 +289,27 @@ u8* jm_scrbar() asm("func_00276678");
 void jm_x(s32) asm("func_00276690");
 void jm_hide(s32) asm("func_002766b0");
 u8* jm_seqtbl() asm("func_002766d0");
-void func_00276e78() asm("func_00276e78");
+void Tz__Jiminy__CreateCover() asm("Tz__Jiminy__CreateCover");
 s32 mb_mode() asm("func_00287bc0");
 void sel_set(s32) asm("func_00287cc0");
-void func_00288d80(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("func_00288d80");
+void Tz__Select__SetItem(s32, s32, s32, s32, s32, s32, s16*, s16*) asm("Tz__Select__SetItem");
 Obj* sel_item(s32, s32) asm("func_002891b8");
-void func_002891f0(s32, s32, s32, s32, s32) asm("func_002891f0");
+void Tz__Select__SetCurrent(s32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
 void func_0028af28(s32, s32) asm("func_0028af28");
-void func_0028af90(s32, s32) asm("func_0028af90");
+void Tz__Select__SetSelectMax(s32, s32) asm("Tz__Select__SetSelectMax");
 void func_0028afd0(s32, s32) asm("func_0028afd0");
-void func_0028b218(s32, s32) asm("func_0028b218");
+void Tz__Select__SetPageMode(s32, s32) asm("Tz__Select__SetPageMode");
 void func_0028b248(s32, s32) asm("func_0028b248");
 void func_0028bae0(s32, s32, s32, s32, u8*, s32, s32, u8*, s32) asm("func_0028bae0");
-void func_0028be78(s32, s32) asm("func_0028be78");
+void Tz__ScrollBar__SetPos(s32, s32) asm("Tz__ScrollBar__SetPos");
 void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0");
 void mc_as(void*, void*) asm("func_0028dcc0");
 s32 func_0028f930(s32) asm("func_0028f930");
 void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
-void func_0029ca50() asm("func_0029ca50");
+void Tz__JmDic__GetCharaIdx() asm("Tz__JmDic__GetCharaIdx");
 void func_0029d008() asm("func_0029d008");
-void func_0029eaa8() asm("func_0029eaa8");
-void func_0029ea30() asm("func_0029ea30");
+void Tz__JmDic__UpdateNewMark() asm("Tz__JmDic__UpdateNewMark");
+void Tz__JmDic__UpdateHelpMess() asm("Tz__JmDic__UpdateHelpMess");
 void func_0029b698(void) asm("func_0029b698");
 void func_0029b698(void) {
     s16 tab[2][4];
@@ -332,7 +332,7 @@ void func_0029b698(void) {
         }
     }
     id = D_0035f3d4 - 1;
-    func_00276e78();
+    Tz__Jiminy__CreateCover();
     pz_cfo(w, id, D_0035f14c, D_0035f148, D_0035f210, 90, -1, 0);
     obj_xyoff(w);
     mc_as(w, cam);
@@ -343,7 +343,7 @@ void func_0029b698(void) {
     step = yi_cr(w + 0x18);
     id = D_0035f3d4;
     for (i = 0; i < 10; i++) {
-        func_00288d80(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, tab[0], tab[1]);
+        Tz__Select__SetItem(D_0035f200, i, D_0035f14c, D_0035f148, D_0035f210, -1, tab[0], tab[1]);
         Obj* o = sel_item(D_0035f200, i);
         obj_xyoff(o);
         mc_as(o, w);
@@ -355,14 +355,14 @@ void func_0029b698(void) {
         pz_cfo(c, id + 1, D_0035f14c, D_0035f148, D_0035f210, 2, -1, 0);
         mc_as(c, o);
     }
-    func_0029ca50();
+    Tz__JmDic__GetCharaIdx();
     s32 cnt = D_0035f5ac->cnt;
     s32 a0 = jm_curpos(15);
     s32 a1 = jm_curtop(15);
-    func_0028af90(D_0035f200, cnt ? cnt : 1);
-    func_002891f0(D_0035f200, a0, 0, -1, -1);
+    Tz__Select__SetSelectMax(D_0035f200, cnt ? cnt : 1);
+    Tz__Select__SetCurrent(D_0035f200, a0, 0, -1, -1);
     func_0028afd0(D_0035f200, a1);
-    func_0028b218(D_0035f200, 1);
+    Tz__Select__SetPageMode(D_0035f200, 1);
     func_0028b248(D_0035f200, 10);
     if (cnt == 0) {
         jm_x(1);
@@ -373,10 +373,10 @@ void func_0029b698(void) {
     s32 a = yi_unit(lay_get(D_0035f210), D_0035f14c);
     s32 b = yi_img(lay_get(D_0035f210)->img, D_0035f148);
     func_0028bae0(D_0035f214, id, a, b, jm_scrbar(), n, 10, w2, 0);
-    func_0028be78(D_0035f214, a1);
+    Tz__ScrollBar__SetPos(D_0035f214, a1);
     func_0029d008();
-    func_0029eaa8();
-    func_0029ea30();
+    Tz__JmDic__UpdateNewMark();
+    Tz__JmDic__UpdateHelpMess();
     jm_hide(1);
     sel_set(0);
 }

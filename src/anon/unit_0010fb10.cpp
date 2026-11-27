@@ -55,7 +55,7 @@ s32 func_0010f8d0(Cam10fb10*);
 void func_0010eee8(Cam10fb10*);
 s32 func_001137e0(Who10fb10*);
 Ent10fb10* func_001137e8(Who10fb10*);
-s32 func_001a1de0(void*);
+s32 YS__SHEET__is_mpdrive(void*);
 s32 func_0010f648(s32);
 void func_0010ef28(Cam10fb10*, Ent10fb10*);
 void func_0010eed8(Cam10fb10*, Ent10fb10*, s32);
@@ -100,7 +100,7 @@ extern "C" s32 func_0010fb10(Cam10fb10* c)
                 if (!(f->flags & 0x20)) continue;
                 break;
             }
-            if (f->q && f->q->n > 0 && c->f1164 && func_001a1de0(c->f1164)) continue;
+            if (f->q && f->q->n > 0 && c->f1164 && YS__SHEET__is_mpdrive(c->f1164)) continue;
             func_00190128(&t);
             s32 r;
             {

@@ -39,7 +39,7 @@ static inline void VZero82(void* p) { asm volatile("vsub.xyzw $vf1, $vf0, $vf0\n
 extern "C" {
 s32 func_00181a70(u8*);
 void func_00189228(u8*, u16);
-s32 func_001ba028(u32);  // list_contains_ptr
+s32 YS__OBJ__is_valid(u32);  // list_contains_ptr
 void func_00177a28(u8*);  // set_bytes_2820_2821
 void func_0016bae8(u32, u8*, u16, u8*);
 void func_0016bd60(u8*, s32);
@@ -47,11 +47,11 @@ u32 func_00177860(u8*);
 s32 func_001c3618(u32, s32);
 u8* func_001ce300(s32);  // to_1ce2a0_index_minus1
 void func_0017f488(u8*, s32, f32, f32);
-void func_001c97b0(u16, f32);
-u32 func_001c88a8(u32, f32);
+void YS__SACRIFICE__StartPart(u16, f32);
+u32 YS__SUMMON__Appear(u32, f32);
 s32 func_001c9958(u8, u16);  // state_pair_check
 void* func_001050d8(u32);
-void func_0010c078(void*, u8*, u32, f32);
+void kn__Friend__Friend(void*, u8*, u32, f32);
 s32 func_00168aa0(void*, s32);
 u8* func_00168b38(void*, s32, s32);  // entry_array_find_nth
 s32 func_0013d498(void);
@@ -62,8 +62,8 @@ s32 func_001584a0(void*);
 void func_0013fda0(void*);
 void func_0013fdc8(void*);
 void func_0031bc58(void*);
-void func_0014fe00(void*, u32, u32, u32, u32, u32, u32, u32, u32);
-void func_001a17c8(u32);
+void dk__COUNTER__create(void*, u32, u32, u32, u32, u32, u32, u32, u32);
+void YS__SHEET__Free(u32);
 void func_001b78b8(u32);  // to_105110
 void func_002cb708(u32);
 void func_00105110(u32);
@@ -116,12 +116,12 @@ static inline bool Reacts0017(u8* a1) { return (*(u32*)(*(u8**)(a1 + 12) + 8) & 
 // 00178bf0: moved to src/yasui/libys/player.cpp
 
 void u_call4_0016a358(u32, u32, u32, u32) asm("_Z16u_call4_0016a358jjjj");
-u32 ctarget_0016f7d0(u32, u32, u32, u32) asm("_Z16ctarget_0016f7d0jjjj");
+u32 YS__OBJENTRY__GetCacheBuffStatus(u32, u32, u32, u32) asm("_Z32YS__OBJENTRY__GetCacheBuffStatusjjjj");
 }
 
 void u_call4_0016a358(u32 a0, u32, u32, u32);  // 0x0016a358: definition moved into src/anon/unit_00169f98.cpp
 
-u32 ctarget_0016f7d0(u32 a0, u32 a1, u32, u32);  // 0x0016f7d0: definition moved into src/anon/unit_0016e8f8.cpp
+u32 YS__OBJENTRY__GetCacheBuffStatus(u32 a0, u32 a1, u32, u32);  // 0x0016f7d0: definition moved into src/anon/unit_0016e8f8.cpp
 
 extern const f32 D_0036cd18;
 
@@ -135,14 +135,14 @@ static inline f32 Dot82(const void* a, const void* b)
 
 extern "C" {
 void func_0018a958(u8*, u32, f32, f32);
-s32 func_0019ba60(u32);
+s32 YS__OBJ__is_exist(u32);
 u32 func_00190208(u8*, u32);
-void func_0018a818(u8*, u32, u32);
-Vec82* func_0016c028(u32);  // obj_get_attach_or_alt
-s32 func_001b9d40(u8*, u8*);  // vtable_call_slot64_flags
-void func_0016af58(void*, u8*);
+void YS__COLLISION__set(u8*, u32, u32);
+Vec82* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
+s32 YS__OBJ__can_control(u8*, u8*);  // vtable_call_slot64_flags
+void YS__OBJ__get_dir(void*, u8*);
 
-void func_001902a8(u8* a0, u8* a1);  // 0x001902a8: definition moved into src/anon/unit_001900d0.cpp
+void YS__TARGET__make_collision(u8* a0, u8* a1);  // 0x001902a8: definition moved into src/anon/unit_001900d0.cpp
 
 // True when a0 is active and both its facing vectors point along a1 (cos >= 0.7).
 s32 func_0019c778(u8* a0, u8* a1);  // 0x0019c778: definition moved into src/anon/unit_0019ba60.cpp
@@ -160,7 +160,7 @@ static inline void Copy64_82(void* d, const void* s)
 }
 
 extern "C" {
-void func_0016b0e0(u32, u32, u8*);
+void YS__OBJ__get_bone_matrix(u32, u32, u8*);
 void func_00165830(u32, Mat82*);
 
 // Updates each bone matrix into the current double-buffer half, then flips halves.
@@ -174,9 +174,9 @@ struct S001d { s32 end; s32 cur; Q001d e[3]; u32 cur_a; f32 cur_f; f32 timer; };
 
 extern "C" {
 void func_001bc778(u8*);
-u8* func_001bc780(u8*, s32, s32, s32);
+u8* YS__COMMAND_MENU__add(u8*, s32, s32, s32);
 s32 func_001cf998(void);
-void func_001cf9e0(u8*, s32);
+void YS__NMPLAYER__set_lamp(u8*, s32);
 s32 func_001d8898(s32);
 void func_00190128(void*);
 void func_00190878(void*, u8*, s32);
@@ -185,10 +185,10 @@ void func_00178888(u8*);
 s32 func_00197920(S001d*);
 void func_001d2668(S001d*, u32, f32);
 
-void func_001cf7d8(u8* a0);  // 0x001cf7d8: definition moved into src/anon/unit_001cf0b0.cpp
+void YS__NMPLAYER___OVR_control(u8* a0);  // 0x001cf7d8: definition moved into src/anon/unit_001cf0b0.cpp
 
 // Advances a 3-entry ring of queued requests once the current one's timer has run out.
-void func_001d2750(S001d* a0);  // 0x001d2750: definition moved into src/anon/unit_001d14e0.cpp
+void YS__INTERVAL_INFO__exec(S001d* a0);  // 0x001d2750: definition moved into src/anon/unit_001d14e0.cpp
 }
 
 extern s32 D_01d9eab4;
@@ -199,7 +199,7 @@ struct Ev001f { u8 pad[4]; s16 f4; u8 pad2[6]; u8 f12; u8 f13; u8 f14; u8 pad3; 
 extern "C" {
 void func_001e0e40(u8*);
 s32 func_00222568(void);  // vu_const_5f_d
-void func_001f5cc8(void);
+void pppKeBornRnd2_Born(void);
 void func_0021ee48(u8*, Ev001f*, void*, u8*, s16, u8, u8);
 
 // Drains queued entries in 0.25 steps of the accumulated time.
@@ -264,7 +264,7 @@ void func_00257140(s32);
 u32 func_00257130(void);
 u32 func_00281f30(u32);
 s32 func_00281f18(u32);
-void func_002827f0(u32, s32, s32);
+void Tz__ItemInfo__MakeMsgTbl(u32, s32, s32);
 void func_00138c10(u8*, u32);
 void func_00139510(u8*);
 
@@ -291,9 +291,9 @@ u32 func_00192048(s32);
 void wt82(u8*, u32, u32) asm("_Z16wtarget_002fde18jjjj");
 
 // Looks up entry idx of the current table (mode 2 = active slot) and returns its item record.
-u8* func_0026a178(s32 idx, s32 mode);  // 0x0026a178: definition moved into src/anon/unit_00269a60.cpp
+u8* Tz__CmEquip__GetItemTbl(s32 idx, s32 mode);  // 0x0026a178: definition moved into src/anon/unit_00269a60.cpp
 
-void func_00280148(void);  // 0x00280148: definition moved into src/anon/unit_0027f2b0.cpp
+void Tz__GumiPause__CreateAdvice(void);  // 0x00280148: definition moved into src/anon/unit_0027f2b0.cpp
 }
 
 extern u32* D_0035f2e4;
@@ -302,22 +302,22 @@ extern s16 D_00374410[][5];
 extern "C" {
 s32 func_00286058(u8);
 u32 func_0023f9c8(u8*, s32);
-void func_001386e0(u32, s32, u32, u32, s32, s32);
+void dk__Sprite__create(u32, s32, u32, u32, s32, s32);
 void func_0028d8c0(u8*, u32, u32, u32, u32, u32, s32, s32);
 void func_0028b4c0(u8*, u32);  // copy_3halfwords_416
 void func_0028b4f0(u8*, u32);  // copy_3halfwords_422
 u8* func_0023f1b0(u32);
-u32 func_0023c3e0(u8*, s16, s32);
+u32 YI__LAYOUT__SearchSequence(u8*, s16, s32);
 void func_0028dd28(u8*, u32);
 
 static inline s32 Bit0028(s32 i) { return (D_0035f2e4[(u32)i >> 5] & (1 << (i & 31))) != 0; }
 
 // id >= 0: whether item id is flagged and usable; id < 0: whether any of the 640 is.
 s32 func_00286068(s32 id);  // 0x00286068: definition moved into src/anon/unit_002853b8.cpp
-void func_002877a0(u8* a0, s32 a1, s32 a2);  // 0x002877a0: definition moved into src/anon/unit_00286d28.cpp
+void Tz__Mg2DTron__CreateSeq(u8* a0, s32 a1, s32 a2);  // 0x002877a0: definition moved into src/anon/unit_00286d28.cpp
 
 
-void func_0028b300(u8* a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3);  // 0x0028b300: definition moved into src/anon/unit_00288b00.cpp
+void Tz__LaySeq__create(u8* a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1, u32 t2, u32 t3);  // 0x0028b300: definition moved into src/anon/unit_00288b00.cpp
 }
 
 extern u8 D_00347e60[];
@@ -349,7 +349,7 @@ extern u8 D_01e2bdc0[];
 extern PU82 D_00361db8;
 
 extern "C" {
-void func_002c6420(u8*);
+void worldmap__Camera__initialize(u8*);
 u8* func_002d1260(u8*);
 u8* func_0016bc20(u32, s32, s32);
 void func_0017f540(u8*, s32, f32, f32);
@@ -358,7 +358,7 @@ s32 func_001c0cd8(u32);
 // 002c66b8: moved to src/anon/unit_002c6420.cpp (linked unit)
 
 // Returns the target in slot a1 if it is within its own reach radius of this object.
-u32 func_002d2660(u8* a0, s32 a1);  // 0x002d2660: definition moved into src/anon/unit_002d2498.cpp
+u32 Ti__MGOarashi__get_attach_ready_tornado(u8* a0, s32 a1);  // 0x002d2660: definition moved into src/anon/unit_002d2498.cpp
 
 void func_002da040(u8* a0);  // 0x002da040: definition moved into src/anon/unit_002da040.cpp
 }
@@ -367,7 +367,7 @@ static inline void VAdd82(void* d, const void* a, const void* b) { asm volatile(
 
 extern "C" {
 void func_002e2a30(u8*, Vec82*, u8*, u8*);
-f32 func_002edd20(u32);
+f32 Ts__ACTION_LIB__HeightFromFloor(u32);
 f32 fabsf(f32);  // fabsf
 double func_00313b80(f32);  // float_to_double
 double func_00313e80(double, double);  // double_div

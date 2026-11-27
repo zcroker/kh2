@@ -334,9 +334,9 @@ f32 func_002f8960(f32) asm("func_002f8960");
 f32 func_002f87c0(f32) asm("func_002f87c0");
 f32 func_0017ce10(f32) asm("func_0017ce10");
 u8* func_00106a60(s32) asm("func_00106a60");
-void func_001dbad0(void*) asm("func_001dbad0");
+void YS__CROWDOBJ___OVR_exec(void*) asm("YS__CROWDOBJ___OVR_exec");
 s32 func_00197920(void) asm("func_00197920");
-s32 func_0019ba60(void*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(void*) asm("YS__OBJ__is_exist");
 s32 func_0016c6e8(s32) asm("func_0016c6e8");
 s32 func_001a7610(FVec*, FVec*, s32, f32, f32) asm("func_001a7610");
 s32 func_001a7588(FVec*, FVec*, FVec*, s32) asm("func_001a7588");
@@ -349,14 +349,14 @@ static inline f32 frange(f32 lo, f32 hi) {
     return lo + (f32)D_003638d0 * 2.3283064e-10f * (hi - lo);
 }
 
-void func_001c4918(void* obj) asm("func_001c4918");
-void func_001c4918(void* obj) {
+void YS__CROWD_M_EX660___OVR_exec(void* obj) asm("YS__CROWD_M_EX660___OVR_exec");
+void YS__CROWD_M_EX660___OVR_exec(void* obj) {
     if (func_001c4160()) func_001c42a0();
     for (s32 i = 0; i < 8; i++) { f32 s = func_002f8960(D_01d49590[i].ang); f32 b = func_002f8960(D_01d49590[i].ang) * 50.0f; f32 c = func_002f87c0(D_01d49590[i].ang); f32 amp = 100.0f; D_01d49590[i].a = sgnsq2(s) * amp; Wave* w = &D_01d49590[i]; w->b = b; w->c = sgnsq2(c) * amp; D_01d49590[i].ang = func_0017ce10(D_01d49590[i].ang + 0.10471976f); }
     u8* p = func_00106a60(1);
     D_01d49610 = *(FMtx*)(p ? p + 16 : 0);
-    func_001dbad0(obj);
-    if (!func_00197920() && func_0019ba60(obj)) {
+    YS__CROWDOBJ___OVR_exec(obj);
+    if (!func_00197920() && YS__OBJ__is_exist(obj)) {
         s32 n = func_001c4170();
         if (func_0016c6e8(1368) < n) {
             FVec v(frange(-500.0f, 500.0f), -1000.0f, frange(300.0f, 500.0f), 0.0f);

@@ -221,8 +221,8 @@ static inline void SetBit(u32* bits, u32 k) {
     u32* w = bits + (k >> 5);
     *w |= 1 << (k & 31);
 }
-u8* func_001c0320(u8* a, u8* b, u8* out) asm("func_001c0320");
-u8* func_001c0320(u8* a, u8* b, u8* out) {
+u8* YS__ATTACK_CHECK__hit(u8* a, u8* b, u8* out) asm("YS__ATTACK_CHECK__hit");
+u8* YS__ATTACK_CHECK__hit(u8* a, u8* b, u8* out) {
     u8 r = func_001c0298(a, b, out);
     *out = r;
     if (r) {
@@ -276,12 +276,12 @@ struct U3_Tmr { u32 id; f32 t; };
 struct U3_TmrSet { u32 f0; u32 bits[10]; f32 f44; U3_Tmr tm[4]; };
 extern union { f32 f; u32 u; } U3_D_00349e10_u asm("D_00349e10");
 extern f32 D_00349e10 asm("D_00349e10");
-s32 func_00186ce8(u32) asm("func_00186ce8");
+s32 YS__BTLOBJ__is_damage_motion(u32) asm("YS__BTLOBJ__is_damage_motion");
 void func_001c0490(U3_TmrSet* s) asm("func_001c0490");
 void func_001c0490(U3_TmrSet* s) {
     s32 i;
     if (s->f44 > 0.0f) {
-        if (!s->f0 || !func_00186ce8(s->f0)) s->f44 -= D_00349e10;
+        if (!s->f0 || !YS__BTLOBJ__is_damage_motion(s->f0)) s->f44 -= D_00349e10;
     }
     U3_Tmr* t = s->tm;
     u32* bits = s->bits;

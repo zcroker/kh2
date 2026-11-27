@@ -42,7 +42,7 @@ void func_0011b7b0(W1816Mx*, void*);
 // 0016e3e0: moved to src/anon/unit_0016d2e0.cpp
 
 extern W1816M* D_0035de4c;
-void func_00232590(void);
+void sa__EVENT__set_audio_data(void);
 W1816O* func_00227a28(void);
 void func_002feee8(char*, const char*);
 void func_00232398(W1816M* m);  // 0x00232398: definition moved into src/anon/unit_00231500.cpp

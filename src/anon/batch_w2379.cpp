@@ -5,7 +5,7 @@ extern "C" {
 // ---- 002d6518: when the global owner D_00361f60 exists, reset the object's pose, attach it,
 // play its effect and place it at the owner's position.
 void func_0017f540(f32, f32, s32, s32);
-s32 func_001c0d38(s32, s32, s32, s32);
+s32 YS__OBJ__attach(s32, s32, s32, s32);
 s32 func_002d1260();
 u8* func_002d1878(s32);
 void func_002e7340(f32, f32, s32, s32, s32, void*);

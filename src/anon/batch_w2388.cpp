@@ -11,7 +11,7 @@ struct Obj17c930 {
 };
 
 extern "C" {
-V4c17c930* func_0016c028(Obj17c930*);
+V4c17c930* YS__OBJ__get_pos(Obj17c930*);
 f32 sinf(f32);
 extern f32 D_00349e10;
 

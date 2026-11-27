@@ -3,7 +3,7 @@
 extern "C" {
 f32 func_00106558(f32);
 u32 func_001c8cd8(void);
-void func_00119e60(u32, u32);
+void kn__Genie__changeForm(u32, u32);
 void func_001391c8(u32, u32, u32);
 void func_0013b128(u32);
 u32 func_00140df0(u32);
@@ -23,16 +23,16 @@ u8 func_0019f2a8(u32, u32);
 void func_002f7e60(void);
 void func_002f71b0(u32);
 void func_002f79c8(u32);
-void func_0017c430(u32);
+void YS__OBJ__prepare_jump_height(u32);
 void func_0016bd60(u32, u32);
 u32 func_001a36e0(u32);
 u32 func_001a80c8(u32);  // table24_find_by_id
-void func_001b8e88(u32);
+void YS__COMMAND_ELEM__Get(u32);
 void func_001dc9e0(u32);
 u32 func_001e6cd0(u32);
 void func_001dcdb8(void);
-void func_001de808(void);
-void func_00229b28(u32, u32, u32, u32, f32);
+void ryj__PAX__TaskStart(void);
+void sa__MUSICAL_COMBO__createCircle(u32, u32, u32, u32, f32);
 void func_002340f0(u32, u32, u32, u32, u32, u32);
 u32 func_002f35e8(u32);
 void func_002f3918(u32, void*);
@@ -82,10 +82,10 @@ void func_0013b1a0(u32 a0);  // 0x0013b1a0: definition moved into src/anon/unit_
 
 // 001586b8: moved to src/harata/libdk/cannoncamera.cpp
 
-void func_0016a328(u32 a0);  // 0x0016a328: definition moved into src/anon/unit_00169f98.cpp
+void YS__OBJ___OVR__destroy(u32 a0);  // 0x0016a328: definition moved into src/anon/unit_00169f98.cpp
 
 // Stores f(x, z) of the vector at a1 into +1644 (e.g. a heading angle).
-void func_0016b010(u8* a0, f32* a1);  // 0x0016b010: definition moved into src/anon/unit_00169f98.cpp
+void YS__OBJ__set_wish_dir(u8* a0, f32* a1);  // 0x0016b010: definition moved into src/anon/unit_00169f98.cpp
 
 // trap_obj_hide: virtual slot 17 on the trap object.
 void trap_obj_hide_impl(u32* bd) asm("_ZN2YS13trap_obj_hideEP8BD_VALUE");
@@ -112,7 +112,7 @@ u32 func_001979d8(u32 a0);  // 0x001979d8: definition moved into src/anon/unit_0
 
 void func_001ae650(void);  // 0x001ae650: definition moved into src/anon/unit_001ada38.cpp
 
-void func_001b2c18(u32 a0, u32 a1);  // 0x001b2c18: definition moved into src/anon/unit_001b2780.cpp
+void YS__ACTION_CARPETJUMP__jump_height(u32 a0, u32 a1);  // 0x001b2c18: definition moved into src/anon/unit_001b2780.cpp
 
 // COMMAND_ELEM GetForm
 void command_elem_get_form(u32 a0) asm("_ZN2YS12COMMAND_ELEM7GetFormEi");
@@ -126,7 +126,7 @@ void control_off(s32 i);  // 0x001b9c28: definition moved into src/anon/unit_001
 s32 new_combo_group(void) asm("_ZN2YS12ATTACK_CHECK13NewComboGroupEv");
 s32 new_combo_group(void);  // 0x001c0090: definition moved into src/anon/unit_001bff88.cpp
 
-void func_001c90c0(u32 a0, u32 a1);  // 0x001c90c0: definition moved into src/anon/unit_001c8e80.cpp
+void YS__ACTION_CARPETBLOW__jump_height(u32 a0, u32 a1);  // 0x001c90c0: definition moved into src/anon/unit_001c8e80.cpp
 
 // 001cd520: moved to src/anon/unit_001cd078.cpp
 

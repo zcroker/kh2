@@ -194,8 +194,8 @@ void func_002657a8(void) {
 // 00265a30 (was src/anon/auto80_199_queue.cpp)
 namespace n00265a30 {
 /*TARGET 00265a30*/
-void func_00265a30(void) asm("_Z13func_00265a30v");
-void func_00265a30(void) {
+void Tz__CmAbility__FadeOutAll(void) asm("_Z25Tz__CmAbility__FadeOutAllv");
+void Tz__CmAbility__FadeOutAll(void) {
     u32 s0 = func_00257770();
 
     if (func_00287bc0() != 24) {
@@ -307,7 +307,7 @@ u8* func_00281180(u32, s32) asm("func_00281180");
 s32 func_00192cc0(u8*, const char*, ...) asm("func_00192cc0");
 s32 func_00188bb0(u32, u32) asm("func_00188bb0");
 u8 func_00267150(s32) asm("func_00267150");
-u8* func_00189200(u8*, u32) asm("func_00189200");
+u8* YS__SAVERAM_BATTLE__get_formram(u8*, u32) asm("YS__SAVERAM_BATTLE__get_formram");
 u8 func_001d5c70(u32, u8*) asm("func_001d5c70");
 u8* func_001d5c10(u32, u8*) asm("func_001d5c10");
 u8 func_001d5d20() asm("func_001d5d20");
@@ -353,17 +353,17 @@ void func_00265c78(void) {
         if (v == 0) {
             if (*(u32*)(D_0035f0e4 + 0x18) & 0x40) func_00192cc0(D_0035f0e4 + 0x5E4, D_00373378, o[0x1B1], o[0x1B2]);
             if (*(u32*)(D_0035f0e4 + 0x18) & 0x80) func_00192cc0(D_0035f0e4 + 0x604, D_00373370, sv[0x1210]);
-            if (*(u32*)(D_0035f0e4 + 0x18) & 0x20000) func_00192cc0(D_0035f0e4 + 0x744, D_00373370, func_00189200(sv, 1)[2]);
-            if (*(u32*)(D_0035f0e4 + 0x18) & 0x100) func_00192cc0(D_0035f0e4 + 0x624, D_00373370, func_00189200(sv, 2)[2]);
-            if (*(u32*)(D_0035f0e4 + 0x18) & 0x40000) func_00192cc0(D_0035f0e4 + 0x764, D_00373370, func_00189200(sv, 3)[2]);
-            if (*(u32*)(D_0035f0e4 + 0x18) & 0x200) func_00192cc0(D_0035f0e4 + 0x644, D_00373370, func_00189200(sv, 4)[2]);
-            if (*(u32*)(D_0035f0e4 + 0x18) & 0x80000) func_00192cc0(D_0035f0e4 + 0x784, D_00373370, func_00189200(sv, 5)[2]);
+            if (*(u32*)(D_0035f0e4 + 0x18) & 0x20000) func_00192cc0(D_0035f0e4 + 0x744, D_00373370, YS__SAVERAM_BATTLE__get_formram(sv, 1)[2]);
+            if (*(u32*)(D_0035f0e4 + 0x18) & 0x100) func_00192cc0(D_0035f0e4 + 0x624, D_00373370, YS__SAVERAM_BATTLE__get_formram(sv, 2)[2]);
+            if (*(u32*)(D_0035f0e4 + 0x18) & 0x40000) func_00192cc0(D_0035f0e4 + 0x764, D_00373370, YS__SAVERAM_BATTLE__get_formram(sv, 3)[2]);
+            if (*(u32*)(D_0035f0e4 + 0x18) & 0x200) func_00192cc0(D_0035f0e4 + 0x644, D_00373370, YS__SAVERAM_BATTLE__get_formram(sv, 4)[2]);
+            if (*(u32*)(D_0035f0e4 + 0x18) & 0x80000) func_00192cc0(D_0035f0e4 + 0x784, D_00373370, YS__SAVERAM_BATTLE__get_formram(sv, 5)[2]);
         }
         break;
     }
     case 1: case 2: case 3: case 4: case 5: {
         u8* o = ((u8**)D_0035f0e4)[v];
-        u8* inf = func_00189200(sv, v);
+        u8* inf = YS__SAVERAM_BATTLE__get_formram(sv, v);
         d = 0;
         func_00192cc0(D_0035f0e4 + 0x524, D_00373370, lv = inf[2]);
         func_00192cc0(D_0035f0e4 + 0x544, D_00373370, func_001d5c70(v, inf));
@@ -408,7 +408,7 @@ void func_00138c68(u32, s32, s32) asm("func_00138c68");
 s32 func_0023aa78(u32) asm("func_0023aa78");
 s32 func_0023aa98(u32) asm("func_0023aa98");
 void func_0028dcc0(u32, u32) asm("func_0028dcc0");
-s32 func_00286418(s32) asm("func_00286418");
+s32 Tz__CmNewFlg__isStatNew(s32) asm("Tz__CmNewFlg__isStatNew");
 s32 func_002864f8(s32) asm("func_002864f8");
 enum Slot { SLOT0 };
 struct Item6 { u16 id; u16 pad; s16 c; };
@@ -481,7 +481,7 @@ void func_00266248(void) {
                     case 12: m = 7; break;
                     default: m = 8; break;
                     }
-                    if (func_00286418(m)) {
+                    if (Tz__CmNewFlg__isStatNew(m)) {
                         func_00138c10(base + idx * 0x198 + 0x87D0, func_002864f8(m) ? D_003734fc : D_003734f8);
                     }
                 }
@@ -511,13 +511,13 @@ void func_00266248(void) {
 // 00266678 (was src/anon/batch_w1587_g.cpp)
 namespace n00266678 {
 void func_002657a8(void) asm("func_002657a8");
-void func_00266988(void) asm("func_00266988");
+void Tz__CmStat__UpdateNew(void) asm("Tz__CmStat__UpdateNew");
 void func_002666a8(void) asm("func_002666a8");
 /*TARGET 00266678*/
 void func_00266678(u32 a0, s32 a1) asm("func_00266678");
 void func_00266678(u32 a0, s32 a1) {
     if (a1 == 23) func_002657a8();
-    func_00266988();
+    Tz__CmStat__UpdateNew();
     func_002666a8();
 }
 }  // namespace n00266678
@@ -563,7 +563,7 @@ s32 func_00281140(s32, s32) asm("func_00281140");
 s32 func_00192e50(s32, void *, s32, s32) asm("func_00192e50");
 void func_00192b30(s32) asm("func_00192b30");
 void func_00192c90(s32, void *) asm("func_00192c90");
-void func_00263a90(void *, s32) asm("func_00263a90");
+void Tz__CMenuHelp__Create_2(void *, s32) asm("Tz__CMenuHelp__Create_2");
 s32 func_00267248(void) asm("func_00267248");
 u32 func_00257070(s32) asm("func_00257070");
 s32 func_002671e8(s32) asm("func_002671e8");
@@ -618,7 +618,7 @@ void func_002666a8(void)
 
     }
 
-    func_00263a90(D_0035f0e4->buf, 1);
+    Tz__CMenuHelp__Create_2(D_0035f0e4->buf, 1);
     return;
   }
   obj = func_0028b040(func_00267248());
@@ -725,7 +725,7 @@ u32 func_002670a0(s32) asm("func_002670a0");
 s32 func_00257070(s32) asm("func_00257070");
 u32 func_00267248() asm("func_00267248");
 s32 func_002671e8(s32) asm("func_002671e8");
-s32 func_00286418(s32) asm("func_00286418");
+s32 Tz__CmNewFlg__isStatNew(s32) asm("Tz__CmNewFlg__isStatNew");
 void func_002865d0(s32) asm("func_002865d0");
 s32 func_002864f8(s32) asm("func_002864f8");
 void func_00138c10(u32, s32) asm("func_00138c10");
@@ -733,8 +733,8 @@ extern u32 D_0035f01c asm("D_0035f01c");
 extern s32 D_003734f8 asm("D_003734f8");
 extern s32 D_003734fc asm("D_003734fc");
 /*TARGET 00266988*/
-void func_00266988(void) asm("func_00266988");
-void func_00266988(void) {
+void Tz__CmStat__UpdateNew(void) asm("Tz__CmStat__UpdateNew");
+void Tz__CmStat__UpdateNew(void) {
     u32 base = func_00257770();
     s32 mode = func_00287bc0();
     s32 v = func_0028b040(D_0035f01c);
@@ -762,7 +762,7 @@ void func_00266988(void) {
         default: k = 8; break;
         }
     }
-    if (func_00286418(k) == 0) return;
+    if (Tz__CmNewFlg__isStatNew(k) == 0) return;
     func_002865d0(k);
     if (func_002864f8(k) != 0) k = D_003734fc;
     else k = D_003734f8;
@@ -781,11 +781,11 @@ namespace n00266b58 {
 
 s32 func_00287bc0(void) asm("func_00287bc0");
 u32 func_00257070(s32) asm("func_00257070");
-s32 func_00286418(s32) asm("func_00286418");
+s32 Tz__CmNewFlg__isStatNew(s32) asm("Tz__CmNewFlg__isStatNew");
 void func_002865d0(s32) asm("func_002865d0");
 /*TARGET 00266b58*/
-void func_00266b58(void) asm("func_00266b58");
-void func_00266b58(void) {
+void Tz__CmStat__UpdateTopNew(void) asm("Tz__CmStat__UpdateTopNew");
+void Tz__CmStat__UpdateTopNew(void) {
     s32 n;
     if (func_00287bc0() != 24) return;
     switch (func_00257070(23)) {
@@ -796,7 +796,7 @@ void func_00266b58(void) {
     case 5: n = 4; break;
     default: return;
     }
-    if (func_00286418(n)) func_002865d0(n);
+    if (Tz__CmNewFlg__isStatNew(n)) func_002865d0(n);
 }
 }  // namespace n00266b58
 
@@ -1060,7 +1060,7 @@ u32 CmStat_ChgSelector() {
 // 00267280 (was src/anon/batch_w1779_g.cpp)
 namespace n00267280 {
 u32 func_00267248(void) asm("func_00267248");
-void func_002891f0(u32, s32, s32, s32, s32) asm("func_002891f0");
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
 s32 func_0028afa8(u32) asm("func_0028afa8");
 s32 func_0028b040(u32) asm("func_0028b040");
 extern u8* D_0035f0e4 asm("D_0035f0e4");
@@ -1076,8 +1076,8 @@ void func_00267280(void) {
     b = func_00267248();
     sel = func_0028b040(a);
     n = func_0028afa8(b);
-    if (sel < n) func_002891f0(b, sel, 0, -1, -1);
-    else func_002891f0(b, n - 1, 0, -1, -1);
+    if (sel < n) Tz__Select__SetCurrent(b, sel, 0, -1, -1);
+    else Tz__Select__SetCurrent(b, n - 1, 0, -1, -1);
 }
 }  // namespace n00267280
 
@@ -1112,7 +1112,7 @@ void func_00267398(void) {
         u32 v0 = base[idx];
 
         if (v0 != 0) {
-            func_001a17c8(v0);
+            YS__SHEET__Free(v0);
             base = D_0035f0e4;
             base[idx] = 0;
         }
@@ -1143,8 +1143,8 @@ u16* func_0026b850(s32) asm("func_0026b850");
 s32 func_002670a0_x8942(s32) asm("func_002670a0");
 s32 func_00281158(s32, s32) asm("func_00281158");
 /*TARGET 00267408*/
-s32 func_00267408(s32 a) asm("func_00267408");
-s32 func_00267408(s32 a) {
+s32 Tz__CmStat__GetSelMsg(s32 a) asm("Tz__CmStat__GetSelMsg");
+s32 Tz__CmStat__GetSelMsg(s32 a) {
     u16* t = func_0026b850(a);
     s32 n = func_002670a0_x8942(a);
     s32 r = 0;
@@ -1190,9 +1190,9 @@ void func_00257050(...) asm("func_00257050");
 u32 func_002670f8(...) asm("func_002670f8");
 u32 func_002674b8(...) asm("func_002674b8");
 u32 func_002670a0(...) asm("func_002670a0");
-u32 func_00267408(...) asm("func_00267408");
+u32 Tz__CmStat__GetSelMsg(...) asm("Tz__CmStat__GetSelMsg");
 u32 func_0028fb28(...) asm("func_0028fb28");
-u32 func_00266b58(...) asm("func_00266b58");
+u32 Tz__CmStat__UpdateTopNew(...) asm("Tz__CmStat__UpdateTopNew");
 /*TARGET 002674f8*/
 u32 CmStat_ChgSelChara(bool a0) asm("_ZN2Tz6CmStat11ChgSelCharaEb");
 u32 CmStat_ChgSelChara(bool a0) {
@@ -1217,8 +1217,8 @@ u32 CmStat_ChgSelChara(bool a0) {
 
     u32 idx = func_002670a0(s1);
     func_00257050(23, idx, 0);
-    func_0028fb28(1, func_00267408(s1));
-    return func_00266b58();
+    func_0028fb28(1, Tz__CmStat__GetSelMsg(s1));
+    return Tz__CmStat__UpdateTopNew();
 }
 }  // Tz
 
@@ -1292,14 +1292,14 @@ void func_00267690() {
 namespace Tz { // method 002676e8
 u32 func_00287bc0() asm("func_00287bc0");
 u32 func_00287db0() asm("func_00287db0");
-void func_00269e20() asm("func_00269e20");
+void Tz__CmEquip__FadeOutList() asm("Tz__CmEquip__FadeOutList");
 void func_00281b30() asm("func_00281b30");
 /*TARGET 002676e8*/
 void CmEquip_FadeOutAll() asm("_ZN2Tz7CmEquip10FadeOutAllEv");
 void CmEquip_FadeOutAll() {
     u32 v = func_00287bc0();
     if (v == 2 || v == 5 || v == 6 || v == 7 || v == 8 || v == 9) {
-        func_00269e20();
+        Tz__CmEquip__FadeOutList();
         CmTop::LeaveShortCutInfo();
         func_00281b30();
         if (func_00287db0() != 0) {
@@ -1370,11 +1370,11 @@ void func_0028d068(s32, s32) asm("func_0028d068");
 s32 func_0028f930(s32) asm("func_0028f930");
 void func_0028f4d8(s32, s32, s32) asm("func_0028f4d8");
 void func_0028d8c0(u8*, s32, s32, s32, s32, s32, s32, s32) asm("func_0028d8c0");
-void func_00288d80(s32, s32, s32, s32, s32, s32, u16*, u16*) asm("func_00288d80");
+void Tz__Select__SetItem(s32, s32, s32, s32, s32, s32, u16*, u16*) asm("Tz__Select__SetItem");
 u8* func_002891b8(s32, s32) asm("func_002891b8");
 void func_00138c10(u8*, s32) asm("func_00138c10");
 s32 func_0023aa78(u8*) asm("func_0023aa78");
-void func_00288e08(s32, s32, s32, s32) asm("func_00288e08");
+void Tz__Select__SetExOffset(s32, s32, s32, s32) asm("Tz__Select__SetExOffset");
 void func_00139620(u8*) asm("func_00139620");
 void func_001395f8(u8*) asm("func_001395f8");
 void func_0028dcc0(u8*, u8*) asm("func_0028dcc0");
@@ -1394,9 +1394,9 @@ void func_002677d8(void) asm("func_002677d8");
 s32 func_00257070(s32) asm("func_00257070");
 s32 func_00281198(s32, s32) asm("func_00281198");
 void func_00282240(s32, s32, s32) asm("func_00282240");
-void func_002827f0(s32, s32, s32) asm("func_002827f0");
-void func_0028af90(s32, s32) asm("func_0028af90");
-void func_002891f0(s32, s32, s32, s32, s32) asm("func_002891f0");
+void Tz__ItemInfo__MakeMsgTbl(s32, s32, s32) asm("Tz__ItemInfo__MakeMsgTbl");
+void Tz__Select__SetSelectMax(s32, s32) asm("Tz__Select__SetSelectMax");
+void Tz__Select__SetCurrent(s32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
 s32 func_00257088(s32) asm("func_00257088");
 void func_0028afd0(s32, s32) asm("func_0028afd0");
 s32 func_0028b040(s32) asm("func_0028b040");
@@ -1404,11 +1404,11 @@ s32 func_00269508(s32) asm("func_00269508");
 s32 func_0028af88(s32) asm("func_0028af88");
 s32 func_00258068(s32) asm("func_00258068");
 void func_0028af18(s32, s32) asm("func_0028af18");
-void func_0028b218(s32, s32) asm("func_0028b218");
+void Tz__Select__SetPageMode(s32, s32) asm("Tz__Select__SetPageMode");
 void func_0028b248(s32, s32) asm("func_0028b248");
-void func_00269658(void) asm("func_00269658");
+void Tz__CmEquip__UpdateTopList(void) asm("Tz__CmEquip__UpdateTopList");
 s32 func_00283ab8(s32) asm("func_00283ab8");
-void func_00256cc0(s32, s32, s32) asm("func_00256cc0");
+void Tz__CmTop__CreatePadHelp(s32, s32, s32) asm("Tz__CmTop__CreatePadHelp");
 void func_00287cc0(s32) asm("func_00287cc0");
 extern s32 D_0035ef6c asm("D_0035ef6c");
 extern s32 D_0035ef68 asm("D_0035ef68");
@@ -1447,9 +1447,9 @@ void func_002678a8(void) {
     sz = 436;
     for (; i < 9; i++) {
         u8* q = m + 24304 + i * sz;
-        func_00288d80(D_0035f01c, i, D_0035ef68, D_0035ef64, D_0035f03c, -1, buf, buf);
+        Tz__Select__SetItem(D_0035f01c, i, D_0035ef68, D_0035ef64, D_0035f03c, -1, buf, buf);
         func_00138c10(func_002891b8(D_0035f01c, i), 265);
-        func_00288e08(D_0035f01c, i, 0, func_0023aa78(func_002891b8(D_0035f01c, i) + 24));
+        Tz__Select__SetExOffset(D_0035f01c, i, 0, func_0023aa78(func_002891b8(D_0035f01c, i) + 24));
         func_00139620(func_002891b8(D_0035f01c, i));
         func_00138c10(func_002891b8(D_0035f01c, i), D_0035ef6c);
         *(s32*)(func_002891b8(D_0035f01c, i) + 392) = -1;
@@ -1483,9 +1483,9 @@ void func_002678a8(void) {
     v = func_00281198(D_0035f010, func_00257070(1)) + 5;
     func_00282240(func_00257130(), v, 0);
     v = 0xc000;
-    func_002827f0(func_00257130(), 0, 0);
-    func_0028af90(D_0035f01c, func_00281f18(func_00257130()));
-    func_002891f0(D_0035f01c, func_00257070(2), 0, -1, -1);
+    Tz__ItemInfo__MakeMsgTbl(func_00257130(), 0, 0);
+    Tz__Select__SetSelectMax(D_0035f01c, func_00281f18(func_00257130()));
+    Tz__Select__SetCurrent(D_0035f01c, func_00257070(2), 0, -1, -1);
     func_0028afd0(D_0035f01c, func_00257088(2));
     t = func_00269508(func_0028b040(D_0035f01c));
     fl = func_0028af88(D_0035f01c);
@@ -1493,15 +1493,15 @@ void func_002678a8(void) {
     if (t == 4) v |= 0x200;
     func_0028af18(D_0035f01c, fl | v);
     v = -1;
-    func_0028b218(D_0035f01c, 1);
+    Tz__Select__SetPageMode(D_0035f01c, 1);
     func_0028b248(D_0035f01c, 9);
-    func_00269658();
+    Tz__CmEquip__UpdateTopList();
     if ((t == 4 && func_00283ab8(0)) || (t == 1 && func_00283ab8(3))) {
         v = 0xcbdd;
         fl = func_0028af88(D_0035f01c) | 0x400;
         func_0028af18(D_0035f01c, fl);
     }
-    if (func_00258068(1)) func_00256cc0(0xb619, 0xb61a, v);
+    if (func_00258068(1)) Tz__CmTop__CreatePadHelp(0xb619, 0xb61a, v);
     func_00287cc0(0);
 }
 }  // namespace n002678a8

@@ -135,8 +135,8 @@ struct W1886GDst {
 
 void func_00236560(W1886GDst*) asm("func_00236560");
 /*TARGET 002362b0*/
-void func_002362b0(W1886GDst* d, W1886GSrc* s) asm("func_002362b0");
-void func_002362b0(W1886GDst* d, W1886GSrc* s)
+void YI__IMAGE__Init(W1886GDst* d, W1886GSrc* s) asm("YI__IMAGE__Init");
+void YI__IMAGE__Init(W1886GDst* d, W1886GSrc* s)
 {
     d->v4 = s->v24 < 0 ? 0x3600 : s->v24 >> 8;
     d->h8 = s->h28;
@@ -441,10 +441,10 @@ s32 func_001319d8(s32, f32) asm("func_001319d8");
 /*TARGET 002368e8*/
 // 0022afa0: moved to src/sasa/musical_input.cpp (linked unit)
 
-void func_002368e8(u8* p, f32 x) asm("func_002368e8");
+void YI__IMAGE__ClutGray(u8* p, f32 x) asm("YI__IMAGE__ClutGray");
 // 0022afa0: moved to src/sasa/musical_input.cpp (linked unit)
 
-void func_002368e8(u8* p, f32 x) {
+void YI__IMAGE__ClutGray(u8* p, f32 x) {
     if (**(s8**)(p + 408) == 0 && *(u32*)(p + 48) == 0) {
         s32 n = *(s32*)(p + 36) * *(s32*)(p + 40);
         s32* a = *(s32**)(p + 60);
@@ -477,8 +477,8 @@ void func_00236978(u32 a0) {
 namespace n002369a0 {
 extern u8 D_0035eac8 asm("D_0035eac8");
 /*TARGET 002369a0*/
-void func_002369a0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_002369a0jjjjjjjj");
-void func_002369a0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // obj_ctor_36eac8
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z30YI__IMAGE_FREEZE__IMAGE_FREEZEjjjjjjjj");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {  // obj_ctor_36eac8
     u32 r4 = a0, r15;
     r15 = (u32)&D_0035eac8;
     *(u32*)(r4 + 20) = 0u;
@@ -577,7 +577,7 @@ asm("_ZN9n00236a588W1886GraC1Ev = _Z13func_002361a0jjjjjjjj");
 struct W1886Ent { s32 off; s32 pad; };
 struct W1886Res { u8 pad[6]; s8 flag; u8 pad2; s32 entOff; s32 n; };
 struct W1886Menu { u8 pad[4]; u32 heap; W1886Res* res; W1886Ent* ents; s32 n; W1886Gra* gra; };
-void func_002362b0(W1886GDst* d, W1886GSrc* s) asm("func_002362b0");
+void YI__IMAGE__Init(W1886GDst* d, W1886GSrc* s) asm("YI__IMAGE__Init");
 void func_002367c8(W1886Gra*) asm("func_002367c8");
 void W1886_SetGraRes(W1886Menu* m, W1886Res* r, u32 heap) asm("_ZN2Tz9MenuBasic9SetGraResEz");
 /*TARGET 00236a58*/
@@ -592,7 +592,7 @@ void W1886_SetGraRes(W1886Menu* m, W1886Res* r, u32 heap)
     if (m->gra) delete[] m->gra;
     m->gra = new (m->heap) W1886Gra[m->n];
     for (i = 0; i < m->n; i++) {
-        func_002362b0((W1886GDst*)&m->gra[i], (W1886GSrc*)((u8*)r + m->ents[i].off));
+        YI__IMAGE__Init((W1886GDst*)&m->gra[i], (W1886GSrc*)((u8*)r + m->ents[i].off));
         func_002367c8(&m->gra[i]);
         if (r->flag) m->gra[i].setFlag();
     }
@@ -604,13 +604,13 @@ namespace n00236bb8 {
 void func_002367c8(u8*) asm("func_002367c8");
 // 0x00232070: definition moved into src/anon/unit_00231500.cpp
 
-void func_002368e8(u8*, f32) asm("func_002368e8");
+void YI__IMAGE__ClutGray(u8*, f32) asm("YI__IMAGE__ClutGray");
 /*TARGET 00236bb8*/
 void func_00236bb8(u8* p, f32 f) asm("func_00236bb8");
 void func_00236bb8(u8* p, f32 f) {
     s32 i;
     for (i = 0; i < *(s32*)(p + 16); i++) {
-        func_002368e8(*(u8**)(p + 20) + i * 416, f);
+        YI__IMAGE__ClutGray(*(u8**)(p + 20) + i * 416, f);
         func_002367c8(*(u8**)(p + 20) + i * 416);  // obj_dispatch_bitfield64
     }
 }
@@ -728,9 +728,9 @@ struct E24 { u8 a; u32 b; u32 pad[4]; };
 extern E24 D_0035e440[64] asm("D_0035e440");
 /*TARGET 00236d60*/
 // Clear the 64-entry table at D_0035e440.
-void func_00236d60(void) asm("func_00236d60");
+void YI__IMAGE_CACHE__Clear(void) asm("YI__IMAGE_CACHE__Clear");
 // Clear the 64-entry table at D_0035e440.
-void func_00236d60(void) {  // clear_64_entries_24
+void YI__IMAGE_CACHE__Clear(void) {  // clear_64_entries_24
     E24* e;
     for (e = D_0035e440; (s32)e < (s32)(D_0035e440 + 64); e++) {
         e->a = 0;

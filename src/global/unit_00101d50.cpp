@@ -44,7 +44,7 @@ void func_00102448(TASK*, u32);
 void func_00102730(TASK_MANAGER*);
 void func_00102750(TASK_MANAGER*);
 s32 func_00102a08(TASK_MANAGER*);
-TASK* func_00102818(TASK_MANAGER*, u32, u32, void (*)(TASK*), u32);
+TASK* TASK_MANAGER__create_thread(TASK_MANAGER*, u32, u32, void (*)(TASK*), u32);
 void func_00167ea8(void);
 void func_0014a4b0(void);
 void func_00167ee0(void);
@@ -54,7 +54,7 @@ void func_00101d50(void);
 void func_00101d68(void);
 void func_00101ea8(TASK*);
 void func_001021d0(void);
-void func_001021f0(void);
+void GAME_MODE__enable(void);
 }
 
 struct TASK {
@@ -197,7 +197,7 @@ void PROC::start() {
                 func_001021d0();
             }
         }
-        func_00102818(D_0032b91c, mask, prio, func_00101ea8, stack)->owner = this;
+        TASK_MANAGER__create_thread(D_0032b91c, mask, prio, func_00101ea8, stack)->owner = this;
     }
 }
 
@@ -227,7 +227,7 @@ void func_001021d0(void) {
     func_0014a4b0();
 }
 
-void func_001021f0(void) {
+void GAME_MODE__enable(void) {
     func_00167ee0();
     func_0014a4c0();
 }

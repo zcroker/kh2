@@ -41,15 +41,15 @@ void func_00138c10(s32, s32) asm("func_00138c10");
 s32 func_0028b040(s32) asm("func_0028b040");
 s8 *func_00276568(void) asm("func_00276568");
 void func_002ac268(s32, s32) asm("func_002ac268");
-s32 func_002abff0(s32, s32) asm("func_002abff0");
+s32 Tz__JmNewInfo__isStoryNew(s32, s32) asm("Tz__JmNewInfo__isStoryNew");
 s32 func_002ac110(s32, s32) asm("func_002ac110");
 extern s32 D_0035f200 asm("D_0035f200");
 extern Hdr *D_0035f594 asm("D_0035f594");
 extern s32 D_00374788 asm("D_00374788");
 extern s32 D_0037478c asm("D_0037478c");
 /*TARGET 00297b30*/
-void func_00297b30(void) asm("func_00297b30");
-void func_00297b30(void)
+void Tz__JmStory__UpdateNewMark(void) asm("Tz__JmStory__UpdateNewMark");
+void Tz__JmStory__UpdateNewMark(void)
 {
   s32 base = func_002766d0();
   s32 i;
@@ -89,7 +89,7 @@ void func_00297b30(void)
       {
         func_002ac268(c, id);
       }
-      if (func_002abff0(c, id))
+      if (Tz__JmNewInfo__isStoryNew(c, id))
       {
         func_00138c10((base + (off * 0x198)) + 0xa998, (func_002ac110(c, id)) ? (D_0037478c) : (D_00374788));
       }
@@ -116,8 +116,8 @@ extern s8 D_0035f5a1 asm("D_0035f5a1");
 extern s8 D_0035f5a2 asm("D_0035f5a2");
 extern s8 D_0035f5a3 asm("D_0035f5a3");
 /*TARGET 00297cf8*/
-void func_00297cf8(void) asm("func_00297cf8");
-void func_00297cf8(void) {
+void Tz__JmAlbum__Init(void) asm("Tz__JmAlbum__Init");
+void Tz__JmAlbum__Init(void) {
     void* p;
     D_0035f598 = func_001063c0(0x14, func_00103570());
     p = func_001063c0(0x1c, func_00103570());
@@ -161,8 +161,8 @@ void func_00297df8(void* self) {}
 // 00297e00 (was src/anon/auto80_199_queue.cpp)
 namespace n00297e00 {
 /*TARGET 00297e00*/
-void func_00297e00(u32 a0) asm("_Z13func_00297e00j");
-void func_00297e00(u32 a0) {
+void Tz__JmAlbum__LeaveAll(u32 a0) asm("_Z21Tz__JmAlbum__LeaveAllj");
+void Tz__JmAlbum__LeaveAll(u32 a0) {
     u32 s0 = a0;
     u32 v0 = func_00287bc0();
     v0 -= 4;

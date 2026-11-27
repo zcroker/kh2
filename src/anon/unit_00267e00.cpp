@@ -36,7 +36,7 @@ void func_00256ea8(void) asm("func_00256ea8");
 void func_00269ef8(void) asm("func_00269ef8");
 void func_00291288(u32) asm("func_00291288");
 void func_0028f7e8(s32) asm("func_0028f7e8");
-void func_0028f878(void) asm("func_0028f878");
+void Tz__SelHist__LeaveAll(void) asm("Tz__SelHist__LeaveAll");
 void func_00287c30(void) asm("func_00287c30");
 void func_0028d068(u32, s32) asm("func_0028d068");
 void func_0026b448(void) asm("func_0026b448");
@@ -46,8 +46,8 @@ void func_00261ce8(s32) asm("func_00261ce8");
 void func_002678a8(void) asm("func_002678a8");
 void func_00277178(s32, s32) asm("func_00277178");
 void func_00268460(void) asm("func_00268460");
-s32 func_00269fc0(void) asm("func_00269fc0");
-void func_0026a060(void) asm("func_0026a060");
+s32 Tz__CmEquip__isBaseLoop(void) asm("Tz__CmEquip__isBaseLoop");
+void Tz__CmEquip__SetLoopList(void) asm("Tz__CmEquip__SetLoopList");
 void func_00256e30(void) asm("func_00256e30");
 void func_0028fa98(s32) asm("func_0028fa98");
 void func_00269a60(void) asm("func_00269a60");
@@ -62,9 +62,9 @@ s32 func_0028b038(u32) asm("func_0028b038");
 void func_00257050(s32, s32, s32) asm("func_00257050");
 void func_00287da0(void) asm("func_00287da0");
 void func_0026b860(s32) asm("func_0026b860");
-void func_00263c60(void) asm("func_00263c60");
-void func_0028f6f0(s32) asm("func_0028f6f0");
-void func_00269e20(void) asm("func_00269e20");
+void Tz__CMenuHelp__FadeOut(void) asm("Tz__CMenuHelp__FadeOut");
+void Tz__SelHist__FadeOut(s32) asm("Tz__SelHist__FadeOut");
+void Tz__CmEquip__FadeOutList(void) asm("Tz__CmEquip__FadeOutList");
 void func_00281b30(void) asm("func_00281b30");
 void func_00287cc0(s32) asm("func_00287cc0");
 void func_00287c00(s32) asm("func_00287c00");
@@ -75,18 +75,18 @@ void func_00287bd0(s32, s32) asm("func_00287bd0");
 void func_002831e0(s32, s32) asm("func_002831e0");
 s32 func_0026b200(void) asm("func_0026b200");
 void func_002691c8(void) asm("func_002691c8");
-void func_0026b0f8(void) asm("func_0026b0f8");
-void func_00269658(void) asm("func_00269658");
+void Tz__CmEquip__CtrlAutoConfirm(void) asm("Tz__CmEquip__CtrlAutoConfirm");
+void Tz__CmEquip__UpdateTopList(void) asm("Tz__CmEquip__UpdateTopList");
 void func_00256e80(void) asm("func_00256e80");
-s32 func_002695a0(s32) asm("func_002695a0");
+s32 Tz__CmEquip__CurPos2FormType(s32) asm("Tz__CmEquip__CurPos2FormType");
 void func_0028fb28(s32, s32) asm("func_0028fb28");
 void func_00281d48(void) asm("func_00281d48");
 void func_00281e20(void) asm("func_00281e20");
 s32 func_00288040(void) asm("func_00288040");
 void func_00288018(void) asm("func_00288018");
 /*TARGET 00267e00*/
-void func_00267e00(void) asm("func_00267e00");
-void func_00267e00(void)
+void Tz__CmEquip__SetupEquip(void) asm("Tz__CmEquip__SetupEquip");
+void Tz__CmEquip__SetupEquip(void)
 {
     s32 sel = func_00289380(D_0035f01c);
     s32 st = func_00287cd0();
@@ -108,7 +108,7 @@ void func_00267e00(void)
                     return;
                 }
                 if (next == 16) {
-                    func_0028f878();
+                    Tz__SelHist__LeaveAll();
                     return;
                 }
             }
@@ -139,12 +139,12 @@ void func_00267e00(void)
         func_00268460();
         return;
     }
-    if ((sel != -1 || func_00289310(D_0035f01c)) && !func_00269fc0()) {
-        func_0026a060();
+    if ((sel != -1 || func_00289310(D_0035f01c)) && !Tz__CmEquip__isBaseLoop()) {
+        Tz__CmEquip__SetLoopList();
         func_00256e30();
         func_0028fa98(-1);
     }
-    if (st == 0 && func_00269fc0()) {
+    if (st == 0 && Tz__CmEquip__isBaseLoop()) {
         func_00269a60();
         func_00287c90(1);
     }
@@ -166,9 +166,9 @@ void func_00267e00(void)
         case -10:
             func_0026b448();
             func_0026b860(sel == -10);
-            func_00263c60();
-            func_0028f6f0(1);
-            func_00269e20();
+            Tz__CMenuHelp__FadeOut();
+            Tz__SelHist__FadeOut(1);
+            Tz__CmEquip__FadeOutList();
             func_00256c40();
             func_00281b30();
             func_00287cc0(2);
@@ -188,16 +188,16 @@ void func_00267e00(void)
                 func_002691c8();
                 func_00287bd0(3, 0);
             } else {
-                func_0026b0f8();
-                func_00269658();
+                Tz__CmEquip__CtrlAutoConfirm();
+                Tz__CmEquip__UpdateTopList();
             }
             break;
         case -5: {
             func_0026b448();
-            func_00263c60();
-            func_0028f6f0(1);
-            func_0028f6f0(0);
-            func_00269e20();
+            Tz__CMenuHelp__FadeOut();
+            Tz__SelHist__FadeOut(1);
+            Tz__SelHist__FadeOut(0);
+            Tz__CmEquip__FadeOutList();
             func_00256e80();
             func_00256c40();
             func_00281b30();
@@ -210,11 +210,11 @@ void func_00267e00(void)
         default:
             if (sel >= 0 && sel < n) {
                 s16 t = D_003736c0[func_00269508(sel)];
-                if (t == 6) func_0028fb28(2, D_00373788[func_002695a0(sel)]);
+                if (t == 6) func_0028fb28(2, D_00373788[Tz__CmEquip__CurPos2FormType(sel)]);
                 else func_0028fb28(2, D_00373768[func_00269508(sel)]);
                 func_00256e80();
-                func_00263c60();
-                func_00269e20();
+                Tz__CMenuHelp__FadeOut();
+                Tz__CmEquip__FadeOutList();
                 func_00287c90(1);
                 func_00287c00(t);
                 s32 cur = func_002891e8(D_0035f01c);
@@ -222,9 +222,9 @@ void func_00267e00(void)
             }
             break;
         case -2: {
-            func_00263c60();
-            func_0028f6f0(1);
-            func_00269e20();
+            Tz__CMenuHelp__FadeOut();
+            Tz__SelHist__FadeOut(1);
+            Tz__CmEquip__FadeOutList();
             func_00256c40();
             func_00281b30();
             func_00287cc0(2);

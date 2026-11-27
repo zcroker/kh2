@@ -103,11 +103,11 @@ u32 func_00141970(Obj*) asm("func_00141970");
 void func_00144e50(V*, Aab*, u32) asm("func_00144e50");
 void func_00141980(Obj*, u8*) asm("func_00141980");
 void func_00141c18(Obj*, s32, s32, s32, s32) asm("func_00141c18");
-void func_00141c38(Obj*, s32, V*, u16*, s32) asm("func_00141c38");
+void dk__OctCollFile__selectPolygon(Obj*, s32, V*, u16*, s32) asm("dk__OctCollFile__selectPolygon");
 s32 func_00141ff0(Obj*, Seg*, V*, u16*, s32) asm("func_00141ff0");
 void func_00164578(Obj*, Ent*, Sphere*, u16, s32*, V, f32) asm("func_00164578");
-s32 func_00164718(Obj* o, Ent* e) asm("func_00164718");
-s32 func_00164718(Obj* o, Ent* e) {
+s32 dk__OctCollFile__collisionSphere_2(Obj* o, Ent* e) asm("dk__OctCollFile__collisionSphere_2");
+s32 dk__OctCollFile__collisionSphere_2(Obj* o, Ent* e) {
     if (e->kind == 6) e->mode = 2;
     V step;
     V p0;
@@ -138,7 +138,7 @@ s32 func_00164718(Obj* o, Ent* e) {
     u8 buf[2048];
     func_00141980(o, buf);
     func_00141c18(o, 15, 4, 1, 0);
-    func_00141c38(o, 0, &bb, &hit, e->kind);
+    dk__OctCollFile__selectPolygon(o, 0, &bb, &hit, e->kind);
     if (hit == 0) {
         e->v48 = p1;
         if (!o->b209) e->v48 = o->m80 * e->v48;

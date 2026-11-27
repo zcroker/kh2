@@ -43,19 +43,19 @@ extern s32 D_003638d8[3][6];   // motion id tables: idle, idle2, stop, turn righ
 s32 func_0016a070(W1634MotObj*);   // YS::OBJ::get_part_num
 f32 fabsf(f32);
 s32 func_002eff58(W1634MotObj*);
-void func_0016af58(W1634Vec*, W1634MotObj*);
+void YS__OBJ__get_dir(W1634Vec*, W1634MotObj*);
 f32 func_002f8aa0(f32);
 f32 func_002efe18(O2efe18*, s32, f32);
 void func_0017f488(void*, s32, f32, f32);
-f32 func_001806f8(M2efe18*, s32);
+f32 YS__MOTION__get_length(M2efe18*, s32);
 f32 func_00180770(M2efe18*, s32);
 f32 func_002f8b00(f32, f32);
 void func_0016bd60(void*, s32);
-void func_0017c430(void*);
-void func_0017c4c8(void*, W1634Vec*);
+void YS__OBJ__prepare_jump_height(void*);
+void YS__OBJ__prepare_jump(void*, W1634Vec*);
 void func_0017c030(W1634Vec*, void*, s32*, u8);
 }
-void wtarget_0017cc30(void*, void*, s32) asm("_Z16wtarget_0017cc30jjjj");
+void YS__ACTION_JUMP___land(void*, void*, s32) asm("_Z22YS__ACTION_JUMP___landjjjj");
 void wtarget_002f0598(void* o, W1634Vec* q) asm("_Z16wtarget_002f0598jjjj");
 
 static inline void W1634VecCopy(W1634Vec* d, const W1634Vec* s) {
@@ -132,9 +132,9 @@ extern "C" {
 f32 func_002efe18(O2efe18* o, s32 id, f32 dt) {
     M2efe18* m = &o->mot;
     f32 t = m->time + D_00349e10 + dt;
-    f32 s0 = func_001806f8(m, -1);
+    f32 s0 = YS__MOTION__get_length(m, -1);
     f32 e0 = func_00180770(m, -1);
-    f32 s1 = func_001806f8(m, id);
+    f32 s1 = YS__MOTION__get_length(m, id);
     f32 e1 = func_00180770(m, id);
     f32 r;
     if (e0 < s0 && e1 < s1) {
@@ -186,7 +186,7 @@ void func_002eff90(void* self, W1634MotObj* obj) {
             W1634Vec c;
             W1634Vec* dir = &obj->dir;
             f32 lim;
-            func_0016af58(&a, obj);
+            YS__OBJ__get_dir(&a, obj);
             W1634VecAdd(&d, dir, &a);
             W1634VecCopy(&a, &obj->vel);
             d.y = 0.0f;
@@ -263,7 +263,7 @@ W1634Vec ctl_2f0458(void* self, W1634MotObj* obj) {
 
 extern "C" {
 
-void func_002f04e0(void* self, W1634MotObj* obj) {
+void kn__ACTION_FRIEND_FLY_BLOW__control(void* self, W1634MotObj* obj) {
     W1634Vec* v = &obj->dir;
     W1634Scale(v, v, *(f32*)(D_00352130 + 60));
     if (W1634Length(v) < obj->stopSpeed) {
@@ -282,12 +282,12 @@ void ctl_2f0590(void* self, W1634MotObj* obj) {}
 void wtarget_002f0598(void* o, W1634Vec* q) {
     W1634Vec t;
     W1634VecCopy(&t, q);
-    func_0017c4c8(o, &t);
+    YS__OBJ__prepare_jump(o, &t);
     func_0016bd60(o, 63);
 }
 
 extern "C" void func_002f05d8(void* o) {
-    func_0017c430(o);
+    YS__OBJ__prepare_jump_height(o);
     func_0016bd60(o, 63);
 }
 
@@ -305,7 +305,7 @@ extern "C" void func_002f0640(void* self, u8* obj, u8 flag) {
     s32 w;
     func_0017c030(&tmp, obj, &w, flag);
     W1634VecCopy(&v, &tmp);
-    func_0017c4c8(obj, &v);
+    YS__OBJ__prepare_jump(obj, &v);
     obj[1300] = 9;
     func_0017f488(obj + 320, w, 0.0f, 0.0f);
     *(u32*)(obj + 256) = 4;
@@ -321,5 +321,5 @@ void ctl_2f06d0(void* self, void* o) {
 }
 
 extern "C" void func_002f06e8(void* self, void* o) {
-    wtarget_0017cc30(self, o, 62);
+    YS__ACTION_JUMP___land(self, o, 62);
 }

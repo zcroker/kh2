@@ -18,13 +18,13 @@
 namespace n001d9d00 {
 // 0x001d9820: definition moved into src/anon/unit_001d7458.cpp
 
-u32 func_001b1448(u32) asm("func_001b1448");
+u32 YS__DATABUFF__Read(u32) asm("YS__DATABUFF__Read");
 extern u32 D_003528fc asm("D_003528fc");
 extern u32 D_01d5baa8 asm("D_01d5baa8");
 /*TARGET 001d9d00*/
-void func_001d9d00(void) asm("func_001d9d00");
-void func_001d9d00(void) {
-    D_01d5baa8 = func_001b1448(D_003528fc);
+void YS__JIGSAW__Init(void) asm("YS__JIGSAW__Init");
+void YS__JIGSAW__Init(void) {
+    D_01d5baa8 = YS__DATABUFF__Read(D_003528fc);
 }
 }  // namespace n001d9d00
 
@@ -170,7 +170,7 @@ void func_001d9ef0(u8* p, u32 a, u32 b) {
 // 001d9f30 (was src/anon/batch_wcx.cpp)
 namespace n001d9f30 {
 extern u8 D_0032bae0[] asm("D_0032bae0");
-void func_00198450(u8*) asm("func_00198450");
+void YS__STDOBJ___OVR_initialize(u8*) asm("YS__STDOBJ___OVR_initialize");
 u32 func_0016c008(u8*, s32) asm("func_0016c008");
 u32 func_001d9dd0(u8, u8, u32) asm("func_001d9dd0");
 s32 func_001d9d48(u32) asm("func_001d9d48");
@@ -181,7 +181,7 @@ void func_001d9f30(u8* p) asm("func_001d9f30");
 void func_001d9f30(u8* p)
 {
     u8* k = D_0032bae0;
-    func_00198450(p);
+    YS__STDOBJ___OVR_initialize(p);
     u32 r = func_001d9dd0(k[0], k[1], func_0016c008(p, 1));
     *(u32*)(p + 2552) = r;
     if (!r || !func_001d9d48(r)) *(u32*)(p + 2548) = func_0016ac38(p, 0, 1, 0, 0);
@@ -195,7 +195,7 @@ typedef void (*VFn9fd8)(u8*);
 s32 func_001da070(void*) asm("func_001da070");
 u32 func_001d9d28_fd8(u32) asm("_Z13func_001d9d28jjjj");
 u32 u_tail4_00192048(u32) asm("_Z16u_tail4_00192048jjjj");
-void func_00138210(u32) asm("func_00138210");
+void dk__TREASURE_INFO__openPrizeInfo(u32) asm("dk__TREASURE_INFO__openPrizeInfo");
 void fadeout_kill_9fd8(u32, f32) asm("_ZN3ryj6EFFECT12fadeout_killEf");
 u32 func_0016ac38(void*, s32, s32, s32, s32) asm("func_0016ac38");
 void gap_001d9fd8(u8* p) asm("gap_001d9fd8");
@@ -204,7 +204,7 @@ void gap_001d9fd8(u8* p) {
     u32 t = *(u32*)(p + 2552);
     if (t) {
         func_001d9d28_fd8(t);
-        func_00138210(u_tail4_00192048(*(u16*)(*(u32*)(p + 2552) + 2)));
+        dk__TREASURE_INFO__openPrizeInfo(u_tail4_00192048(*(u16*)(*(u32*)(p + 2552) + 2)));
     }
     fadeout_kill_9fd8(*(u32*)(p + 2548), 8.0f);
     *(u32*)(p + 2548) = 0;
@@ -230,8 +230,8 @@ static inline f32 Length(const QWord& v)
     return r;
 }
 extern void* D_0034e948 asm("D_0034e948");
-s32 func_0019ba60(void*) asm("func_0019ba60");
-QWord* func_0016c028(void*) asm("func_0016c028");
+s32 YS__OBJ__is_exist(void*) asm("YS__OBJ__is_exist");
+QWord* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 // obj_get_attach_or_alt
 f32 fabsf(f32) asm("fabsf");
 /*TARGET 001da070*/
@@ -241,9 +241,9 @@ s32 func_001da070(void* o) asm("func_001da070");
 s32 func_001da070(void* o)
 {
     void* p = D_0034e948;
-    if (!func_0019ba60(p)) return 0;
-    QWord* a = func_0016c028(p);  // obj_get_attach_or_alt
-    QWord d = Sub(*a, *func_0016c028(o));  // obj_get_attach_or_alt
+    if (!YS__OBJ__is_exist(p)) return 0;
+    QWord* a = YS__OBJ__get_pos(p);  // obj_get_attach_or_alt
+    QWord d = Sub(*a, *YS__OBJ__get_pos(o));  // obj_get_attach_or_alt
     d.y += -50.0f;
     if (fabsf(d.y) > 90.0f) return 0;
     *(u32*)&d.y = 0;
@@ -401,12 +401,12 @@ void func_001da340(u32 a0, u32 a1) {
     u32 s17 = a1;
     u32 s16 = D_0034e948;
 
-    if (func_0019ba60(s16) != 0) {
+    if (YS__OBJ__is_exist(s16) != 0) {
         u32 t7 = *(u32*)(s17 + 40);
         t7 = t7 & 1u;
         if (t7 != 0) {
-            if (((u32(*)(u32, u32, f32, f32))func_001c7950)(s17, s16, 0.0f, 0.0f) != 0) {
-                func_001c79a0(s17, s16, 0);
+            if (((u32(*)(u32, u32, f32, f32))YS__PRIZEEFFECT__can_get)(s17, s16, 0.0f, 0.0f) != 0) {
+                YS__PRIZEEFFECT__get(s17, s16, 0);
                 func_001d86a0(1, 0);
                 return;
             }
@@ -858,10 +858,10 @@ s32 func_001db198(void* p, s32 n) {
 
 // 001db200 (was src/anon/tiny_auto80_queue.cpp)
 namespace n001db200 {
-u32 func_001b9d40(...) asm("func_001b9d40");
+u32 YS__OBJ__can_control(...) asm("YS__OBJ__can_control");
 // 0x0018ffb8: definition moved into src/anon/unit_0018f140.cpp
 
-extern "C" u32 func_0019ba60(...) asm("func_0019ba60");
+extern "C" u32 YS__OBJ__is_exist(...) asm("YS__OBJ__is_exist");
 // 001919d0: moved to src/yasui/libys/status.cpp
 
 extern u8 D_0034e948 asm("D_0034e948");
@@ -870,8 +870,8 @@ u32 func_001db200() asm("_Z13func_001db200v");
 u32 func_001db200() {
     u32 s0 = *(u32*)&D_0034e948;
     u32 s1 = 0;
-    if (func_0019ba60(s0) != 0) {
-        s1 = (u32)(func_001b9d40(s0) != 0);  // vtable_call_slot64_flags
+    if (YS__OBJ__is_exist(s0) != 0) {
+        s1 = (u32)(YS__OBJ__can_control(s0) != 0);  // vtable_call_slot64_flags
     }
     return s1;
 }
@@ -1008,11 +1008,11 @@ struct W84Ev2 : W84Ev { W84Ev2(u16* p) : W84Ev(p) { vt = D_003529d8; } };
 // 0x00272938: definition moved into src/anon/unit_00271e08.cpp
 
 
-W84Ev* func_001db440(u16* p) asm("func_001db440");
+W84Ev* YS__ZONE__Create(u16* p) asm("YS__ZONE__Create");
 // 0x00272938: definition moved into src/anon/unit_00271e08.cpp
 
 
-W84Ev* func_001db440(u16* p) {
+W84Ev* YS__ZONE__Create(u16* p) {
     switch (*p) {
     case 0: return new W84Ev0(p);
     case 1: return new W84Ev1(p);
@@ -1330,7 +1330,7 @@ u32 func_001db9a8(u32 a, u32 b, u32 c) {
 
 // 001dba18 (was src/anon/batch_w43.cpp)
 namespace n001dba18 {
-u8* func_001b9bc8(u8*) asm("func_001b9bc8");
+u8* YS__OBJ__Each(u8*) asm("YS__OBJ__Each");
 /*TARGET 001dba18*/
 // 0x001d5370: definition moved into src/anon/unit_001d4f40.cpp
 
@@ -1339,7 +1339,7 @@ u8* func_001dba18(u32 id) asm("func_001dba18");
 
 u8* func_001dba18(u32 id) {
     u8* v = 0;
-    while ((v = func_001b9bc8(v)) != 0) {
+    while ((v = YS__OBJ__Each(v)) != 0) {
         if (!(*(u32*)(v + 1416) & 0x10000000)) continue;
         if (*(u32*)(v + 8) == id) return v;
     }
@@ -1379,18 +1379,18 @@ void func_001dba98(u8* p) {
 namespace n001dbad0 {
 // 0x001d87b8: definition moved into src/anon/unit_001d7458.cpp
 
-s32 func_0019ba60(u32) asm("func_0019ba60");
-u8* func_0016c028(u32) asm("func_0016c028");
+s32 YS__OBJ__is_exist(u32) asm("YS__OBJ__is_exist");
+u8* YS__OBJ__get_pos(u32) asm("YS__OBJ__get_pos");
 // obj_get_attach_or_alt
 void func_001dbcd0(void) asm("func_001dbcd0");
 void func_001c2578(u32) asm("func_001c2578");
 extern u32 D_0034e948 asm("D_0034e948");
 extern u8 D_00352a60[] asm("D_00352a60");
 /*TARGET 001dbad0*/
-void func_001dbad0(u32 a) asm("func_001dbad0");
-void func_001dbad0(u32 a) {
-    if (func_0019ba60(D_0034e948)) {
-        u8* v = func_0016c028(D_0034e948);  // obj_get_attach_or_alt
+void YS__CROWDOBJ___OVR_exec(u32 a) asm("YS__CROWDOBJ___OVR_exec");
+void YS__CROWDOBJ___OVR_exec(u32 a) {
+    if (YS__OBJ__is_exist(D_0034e948)) {
+        u8* v = YS__OBJ__get_pos(D_0034e948);  // obj_get_attach_or_alt
         if (v != D_00352a60)
             asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(D_00352a60), "r"(v) : "$8", "memory");
     }
@@ -1402,13 +1402,13 @@ void func_001dbad0(u32 a) {
 // 001dbb38 (was src/anon/batch_w31.cpp)
 namespace n001dbb38 {
 typedef void (*VFn)(void*);
-void* func_00185da8(void*) asm("func_00185da8");
+void* YS__ENEMY__Each(void*) asm("YS__ENEMY__Each");
 int func_0019c410(void*) asm("func_0019c410");
 /*TARGET 001dbb38*/
 void func_001dbb38(void) asm("func_001dbb38");
 void func_001dbb38(void) {
     void* o = 0;
-    while ((o = func_00185da8(o)) != 0) {
+    while ((o = YS__ENEMY__Each(o)) != 0) {
         if (func_0019c410(o)) {
             (*(VFn*)(*(u8**)o + 32))(o);
             return;

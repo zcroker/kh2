@@ -40,12 +40,12 @@ struct W1830Prm { u8 p0[0x20]; f32 f20; u8 p24[0xc]; f32 f30; };
 struct W1830Obj2 { u8 p0[0x20]; W1830QW v20; u8 p30[0xf0 - 0x30]; W1830Prm* prm; };
 extern "C" {
 extern f32 D_00349e10;
-W1830QW func_0016af58(void*);
+W1830QW YS__OBJ__get_dir(void*);
 void func_0017f540(f32, f32, void*, s32);
-void func_001c39d0(s32, W1830Obj1*);
-f32 func_001c3ba8(void*, W1830Obj2*);
+void YS__ACTION_GLIDEHOVER___control(s32, W1830Obj1*);
+f32 YS__ACTION_GLIDEHOVER__calc_movement_y(void*, W1830Obj2*);
 
-void func_001c3cf8(s32 a0, W1830Obj1* o);  // 0x001c3cf8: definition moved into src/anon/unit_001c2b58.cpp
+void YS__ACTION_GLIDE__control(s32 a0, W1830Obj1* o);  // 0x001c3cf8: definition moved into src/anon/unit_001c2b58.cpp
 
-W1830QW func_001c3e20(void* a1, W1830Obj2* o);  // 0x001c3e20: definition moved into src/anon/unit_001c2b58.cpp
+W1830QW YS__ACTION_GLIDE__calc_movement(void* a1, W1830Obj2* o);  // 0x001c3e20: definition moved into src/anon/unit_001c2b58.cpp
 }

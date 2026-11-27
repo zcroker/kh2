@@ -38,8 +38,8 @@ static inline void vu_Copy11(Vec4* d, Vec4* s)
     if (d != s) QCOPYN(d, s);
 }
 struct Obj11 { u8 pad[16]; Vec4 dir; Vec4 pos; };
-u32 func_00184540(u32 out, u32 a1, f32 t, f32 s) asm("_Z13func_00184540jjff");
-u32 func_00184540(u32 out, u32 a1, f32 t, f32 s) asm("func_00184540");
+u32 kn__MotionPrototype0__calcLimitValue(u32 out, u32 a1, f32 t, f32 s) asm("_Z36kn__MotionPrototype0__calcLimitValuejjff");
+u32 kn__MotionPrototype0__calcLimitValue(u32 out, u32 a1, f32 t, f32 s) asm("kn__MotionPrototype0__calcLimitValue");
 struct VecD { f32 x, y, z, w; ~VecD() {} } __attribute__((aligned(16)));
 struct VA14;
 struct VA14 {
@@ -79,7 +79,7 @@ static inline V2e2f08 Mul2e2f08(const f32* m, const V2e2f08& v)
                  : : "r"(&r), "r"(m), "r"(&v) : "memory");
     return r;
 }
-V2e2f08 func_00184540__2e2f08(u32, f32, f32) asm("func_00184540");
+V2e2f08 func_00184540__2e2f08(u32, f32, f32) asm("kn__MotionPrototype0__calcLimitValue");
 f32* func_002e2930__2e2f08(u32) asm("func_002e2930");
 extern u32 D_00361f60__2e2f08 asm("D_00361f60");
 extern "C" V2e2f08 func_002e2f08(u32 self, u32 a)
@@ -135,7 +135,7 @@ s32 W1618_IsExec(void) asm("_ZN2YS5EVENT6IsExecEv");
 s32 W1618_be_ready(void) asm("_ZN2Ti8MiniGame8be_readyEv");
 W1618M4* func_002e2930(W1618MG*) asm("func_002e2930");
 W1618M4* func_002e2920(W1618MG*) asm("func_002e2920");
-W1618V4* func_0016c028(W1618Ob*) asm("func_0016c028");
+W1618V4* YS__OBJ__get_pos(W1618Ob*) asm("YS__OBJ__get_pos");
 void W1618_set_pos(W1618Ob*, const W1618V4&) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
 void W1618_set_dir(W1618Ob*, const W1618V4&) asm("_ZN2YS3OBJ7set_dirERKN2kn7FVectorE");
 extern "C" void func_002e2f90(u32 self, W1618Ob* o) {
@@ -145,7 +145,7 @@ extern "C" void func_002e2f90(u32 self, W1618Ob* o) {
     W1618M4 a(*func_002e2930(mg));
     W1618M4 b(*func_002e2920(mg));
     b.invOrtho();
-    W1618V4 p = b * *func_0016c028(o);
+    W1618V4 p = b * *YS__OBJ__get_pos(o);
     p.z = D_00362e78;
     W1618V4 q = a * p;
     W1618M4 c(a);
@@ -161,14 +161,14 @@ extern "C" void func_002e2f90(u32 self, W1618Ob* o) {
 // ---- 2e31f0 (src/anon/batch_w47.cpp)
 namespace n2e31f0 {
 struct Vec4 { f32 x, y, z, w; } __attribute__((aligned(16)));
-Vec4* func_0016c028(void*) asm("func_0016c028");
+Vec4* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 s32 func_002ceb28(u32, u8*) asm("func_002ceb28");
 extern void* D_0034e948 asm("D_0034e948");
 void func_0016ace0(u8*, Vec4*) asm("func_0016ace0");
 void func_0016aeb8(u8*, f32) asm("func_0016aeb8");
 extern "C" void func_002e31f0(u32 a, u8* b) {
     if (!func_002ceb28(a, b)) return;
-    func_0016ace0(b, func_0016c028(D_0034e948));
+    func_0016ace0(b, YS__OBJ__get_pos(D_0034e948));
     func_0016aeb8(b, 3.1415927f);
 }
 }
@@ -302,8 +302,8 @@ struct V3_2e3 { u32 a, b, c; };
 
 extern "C" {
 s32 func_0018bbf8(void*);
-FV2e3 func_0016af58(void*);
-FV2e3* func_0016c028(void*);
+FV2e3 YS__OBJ__get_dir(void*);
+FV2e3* YS__OBJ__get_pos(void*);
 FV2e3 func_0016c2b0(void*);
 s32 func_00184eb8(void*, s32, void*);
 s32 func_00184f90(void*, s32);
@@ -314,7 +314,7 @@ void func_0018acd8(void*, s32);
 s32 func_0018b1b8(void*);
 void func_0018c150(void*);
 V3_2e3* func_0018c240(void*);
-FV2e3 func_0018c258(void*);
+FV2e3 YS__NPC__get_rtn_action_dir(void*);
 void* func_0019b260(s32);
 void func_002cb7a0(void*, s32, FV2e3*);
 void func_002cb7c0(void*, void*, s32);
@@ -327,11 +327,11 @@ void func_002cbd08(void*, f32);
 void func_002cbec0(void*, FV2e3*);
 FV2e3 func_002cbed8(void*);
 FV2e3 func_002cbf08(void*);
-void func_002cc620(void*, void*, void*);
+void Ti__Path__reset_leave_way(void*, void*, void*);
 void func_002cd260(void*);
-void func_002cd290(void*, void*, s32);
+void Ti__Path__reset_active_path(void*, void*, s32);
 void func_002e2d50(void);
-void func_002e2d88(s32, s32);
+void Ti__MG_EHSidecar__PlayPath(s32, s32);
 s32 func_002e2dd8(void);
 }
 s32 NPC_is_rtn_change_dir(void*) asm("_ZN2YS3NPC17is_rtn_change_dirEv");
@@ -353,8 +353,8 @@ void trap_get_start_rtn_action(BD_VALUE* bd) {
 static void trap_2e3540(BD_VALUE* bd) {
     u8* o = TOBJ(bd);
     if (PATH(o)) {
-        FV2e3* pos = func_0016c028(o);
-        s_vec = func_002cba88(PATH(o), pos, func_0016af58(o), bd[1].f, 1.0f);
+        FV2e3* pos = YS__OBJ__get_pos(o);
+        s_vec = func_002cba88(PATH(o), pos, YS__OBJ__get_dir(o), bd[1].f, 1.0f);
         bd[0].p = &s_vec;
     }
 }
@@ -364,8 +364,8 @@ static void trap_2e3540(BD_VALUE* bd) {
 extern "C" void func_002e35e8(BD_VALUE* bd) {
     u8* o = TOBJ(bd);
     if (PATH(o)) {
-        FV2e3* pos = func_0016c028(o);
-        s_vec = func_002cba88(PATH(o), pos, func_0016af58(o), bd[1].f, bd[2].f);
+        FV2e3* pos = YS__OBJ__get_pos(o);
+        s_vec = func_002cba88(PATH(o), pos, YS__OBJ__get_dir(o), bd[1].f, bd[2].f);
         bd[0].p = &s_vec;
     }
 }
@@ -375,7 +375,7 @@ namespace Ti {
 void trap_set_path_way(BD_VALUE* bd) {
     u8* o = TOBJ(bd);
     if (PATH(o)) {
-        FV2e3* pos = func_0016c028(o);
+        FV2e3* pos = YS__OBJ__get_pos(o);
         u8* o1 = TOBJ(bd);
         u32 flag = bd[1].u;
         void* path = PATH(o1);
@@ -386,7 +386,7 @@ void trap_set_path_way(BD_VALUE* bd) {
 void trap_reverse_path_way(BD_VALUE* bd) {
     u8* o = TOBJ(bd);
     if (PATH(o)) {
-        FV2e3* pos = func_0016c028(o);
+        FV2e3* pos = YS__OBJ__get_pos(o);
         bd[0].i = func_002cb800(PATH(TOBJ(bd)), pos);
     } else {
         bd[0].i = 0;
@@ -406,7 +406,7 @@ static void trap_2e3770(BD_VALUE* bd) {
 }  // namespace Ti
 
 extern "C" void func_002e37c0(BD_VALUE* bd) {
-    s_vec = func_0018c258(TOBJ(bd));
+    s_vec = YS__NPC__get_rtn_action_dir(TOBJ(bd));
     bd[0].p = &s_vec;
 }
 
@@ -434,8 +434,8 @@ static void trap_2e38b8(BD_VALUE* bd) {
     u8* o = TOBJ(bd);
     if (o && PATH(o) && PATH(o)[135]) {
         u8* tgt = *(u8**)((u8*)bd[1].p + 4);
-        FV2e3* pos = func_0016c028(tgt);
-        s_vec = func_002cba88(PATH(o), pos, func_0016af58(tgt), bd[2].f, 1.0f);
+        FV2e3* pos = YS__OBJ__get_pos(tgt);
+        s_vec = func_002cba88(PATH(o), pos, YS__OBJ__get_dir(tgt), bd[2].f, 1.0f);
         bd[0].p = &s_vec;
     }
 }
@@ -449,7 +449,7 @@ void trap_forward_path_current_pointer(BD_VALUE* bd) {
 void trap_reset_path_current_pointer(BD_VALUE* bd) {
     u8* o = TOBJ(bd);
     if (o && PATH(o))
-        func_002cbec0(PATH(o), func_0016c028(o));
+        func_002cbec0(PATH(o), YS__OBJ__get_pos(o));
 }
 
 }  // namespace Ti
@@ -479,7 +479,7 @@ void trap_is_end_rtn_action(BD_VALUE* bd) {
 void trap_reset_active_path(BD_VALUE* bd) {
     u8* o = TOBJ(bd);
     if (o && PATH(o) && PATH(o)[135])
-        func_002cd290(PATH(o), o, 0);
+        Ti__Path__reset_active_path(PATH(o), o, 0);
 }
 
 void trap_set_path_target_point(BD_VALUE* bd) {
@@ -512,7 +512,7 @@ extern "C" void func_002e3c28(BD_VALUE* bd) {
     u8* o = TOBJ(bd);
     void* t = *(void**)((u8*)bd[1].p + 4);
     if (o && PATH(o) && t)
-        func_002cc620(PATH(o), o, t);
+        Ti__Path__reset_leave_way(PATH(o), o, t);
 }
 
 namespace Ti {
@@ -582,7 +582,7 @@ void trap_eh22_path_get_point(BD_VALUE* bd) {
 }
 
 void trap_eh22_path_play(BD_VALUE* bd) {
-    func_002e2d88(bd[1].i, bd[2].i != 0);
+    Ti__MG_EHSidecar__PlayPath(bd[1].i, bd[2].i != 0);
 }
 
 struct TRAP { void (*fn)(BD_VALUE*); u32 flags; };

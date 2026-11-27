@@ -22,12 +22,12 @@ struct QV1567 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern "C" {
 extern f32 D_00362e60;
 s32 func_00197920(void);
-s32 func_00106a18(s32);
-void func_00106de8(f32, s32, s32);
-void func_00106c08(s32);
+s32 kn__getProjection(s32);
+void kn__Projection__setFOV(f32, s32, s32);
+void kn__Projection__calcMatrix(s32);
 u8* func_00106a60(s32);
 NM1567 func_002e71a0(s32, u8, s32);
-void func_001072d0(u8*, u8*, QV1567*);
+void kn__Camera__lookAt_2(u8*, u8*, QV1567*);
 void wt1567(u8* a0, u32, u32, u32) asm("_Z16wtarget_002e27c8jjjj");
 // 002e27c8: moved to src/anon/unit_002e1908.cpp
 }
@@ -57,10 +57,10 @@ extern f32 D_00349e10;
 extern f32 D_00351fd8;
 extern f32 D_00351fe0;
 Pl1567* func_002d1260(void);
-s32 func_0019ba60(Pl1567*);
+s32 YS__OBJ__is_exist(Pl1567*);
 void func_0011b6a8(QM1567b*);
 void func_0011b768(QM1567b*, f32);
 f32 func_001cbf50(f32);
-s32 uc1567(u8* o, u32, u32, u32) asm("_Z16u_call4_001caf00jjjj");
+s32 uc1567(u8* o, u32, u32, u32) asm("_Z39YS__PRIZEEFFECT_PO__phase_get_po06_falljjjj");
 s32 uc1567(u8* o, u32, u32, u32);  // 0x001caf00: definition moved into src/anon/unit_001ca8e0.cpp
 }

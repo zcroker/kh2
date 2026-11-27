@@ -38,17 +38,17 @@ void func_00288f48(s32, s32, s32, s32, s32);
 void func_002b3df8(s32);
 s32 func_00103570(void);
 s32 func_001063c0(s32, s32);
-void func_00322e58(s32);
+void Tz__JmDic__Init(s32);
 void func_002fde18(s32, s32, s32);
 void func_00239700(void*);
 s32* func_00103eb0(void);
-void func_00102818(s32, s32, s32, void*, s32);
+void TASK_MANAGER__create_thread(s32, s32, s32, void*, s32);
 void PauseThread_(void*) asm("_ZN2Tz4HECO11PauseThreadEP4TASK");
 
 typedef void* (*AF)(s32, u32, void*);
 extern s32 D_0032ba14_i asm("D_0032ba14");
 static inline void* Al(u32 n) { s32 a = D_0032ba14_i; return (*(AF*)*(s32*)a)(a, n, __builtin_return_address(0)); }
-void func_00244f10(void);  // 0x00244f10: definition moved into src/anon/unit_00242478.cpp
+void Tz__HECO__Init(void);  // 0x00244f10: definition moved into src/anon/unit_00242478.cpp
 
 extern u8 D_0035f0b0;
 s32 func_00240ba0(void);
@@ -61,26 +61,26 @@ s32 func_00234798(void);
 s32 func_00234758(void);
 void func_00241450(s32);
 void func_00287d20(s32);
-s32 func_00241c40(s32);
+s32 Tz__MCard__ChkFileSize(s32);
 void func_00287bd0(s32, s32);
 void func_002400f8(s32);
 void func_002b5108(s32, s32);
-void func_002b4c88(s32);
-void func_00240e10(s32);
+void Tz__CmSLBase__SetupWarningConfirm(s32);
+void Tz__MCard__GetDirInfo(s32);
 void func_00234570(s32, s32);
 
 void func_0025bbe0(void);  // 0x0025bbe0: definition moved into src/anon/unit_002588e8.cpp
 
 extern u8* D_00361f60;
 void func_0016a9a0(void);
-QM* func_002d8110(u8*);
-void func_002d0bd8(u8*, QM*);
+QM* Ti__MGHachimitsu__get_current_center_matrix(u8*);
+void Ti__MGObj__set_matrix_2(u8*, QM*);
 void func_0011b6a8(QM*);
 void func_0011b7b0(QM*, u8*);
 void func_0016ace0(u8*, QV*);
 void func_0016b070(u8*, u8*);
 void func_002d8120(f32, QM*, u8*, u8*);
-void func_002d0b88(u8*, QM*);
+void Ti__MGObj__set_matrix(u8*, QM*);
 
 void func_002dafd0(u8* o);  // 0x002dafd0: definition moved into src/anon/unit_002da040.cpp
 }

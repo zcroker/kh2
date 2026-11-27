@@ -6,7 +6,7 @@ extern "C" {
 void* znaj1987(u32, u32) asm("_Znaj");
 s32 getimg1987(s32, s32) asm("_ZN2YI12IMAGE_FREEZE8GetImageEi");
 void func_00239700(Elem1987*);
-void func_00239988(Elem1987*, u8*, s32);
+void YI__SEQUENCE__Init(Elem1987*, u8*, s32);
 }
 struct Elem1987 { virtual ~Elem1987(); u8 pad[340]; };
 extern "C" {

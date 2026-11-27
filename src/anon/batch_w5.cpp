@@ -14,7 +14,7 @@ void* func_0011a900(void* dst, u8* src);  // 0x0011a900: definition moved into s
 
 // Call the object's first virtual function.
 typedef void (*VFn)(void*);
-void func_0011f3b8(void** obj);  // 0x0011f3b8: definition moved into src/anon/unit_0011c128.cpp
+void kn__modelDestroy(void** obj);  // 0x0011f3b8: definition moved into src/anon/unit_0011c128.cpp
 
 // 00134d78: moved to src/anon/unit_00134668.cpp
 
@@ -39,7 +39,7 @@ u32* func_00102c80(void);
 void func_00102688(u32, u32, u32);
 void func_001619e8(void);  // 0x001619e8: definition moved into src/anon/unit_001614e8.cpp
 
-u32 func_001b1448(u32);
+u32 YS__DATABUFF__Read(u32);
 void func_001d3390(u32);
 extern u32 D_0034dc28;
 void func_0016e8f8(void);  // 0x0016e8f8: definition moved into src/anon/unit_0016e8f8.cpp
@@ -62,8 +62,8 @@ extern u32 D_00350334;
 extern u32 D_01c61b04;
 void func_00196300(void);  // 0x00196300: definition moved into src/anon/unit_00195d00.cpp
 
-void func_001d8fa8(u32, u32);
-void func_001a04f8(BD_VALUE* bd);  // 0x001a04f8: definition moved into src/anon/unit_0019fb70.cpp
+void YS__MISSION__WarningGauge(u32, u32);
+void YS__trap_mission_warning_gauge(BD_VALUE* bd);  // 0x001a04f8: definition moved into src/anon/unit_0019fb70.cpp
 
 // Low five bits of table byte i.
 u8 func_001a8bf8(u8* p, s32 i);  // 0x001a8bf8: definition moved into src/anon/unit_001a8618.cpp
@@ -159,7 +159,7 @@ class FRIEND { public: static void Init(); };
 extern "C" void func_0026bc10(void);
 extern "C" void func_00257708(u32);
 extern "C" void func_0026ceb0(void);
-extern "C" u32 func_002953c8(s32);
+extern "C" u32 Tz__JmWorldSel__GetId2Info(s32);
 extern "C" u8 func_002941a8(u32);
 namespace Tz {
 class CmParty { public: static void CreateInfo(); };

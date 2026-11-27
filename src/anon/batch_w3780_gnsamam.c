@@ -11,7 +11,7 @@ s32 func_0028b040(s32);
 s32 func_002570a0(s32);
 void func_0027aed8(s32, s32*, s32*);
 s32 func_001058e8(void);
-u8* func_00189200(s32, s32);
+u8* YS__SAVERAM_BATTLE__get_formram(s32, s32);
 u8* func_001a80c8(u16);
 extern s32 D_0035f01c;
 typedef struct Ent { u16 id; s8 on; s8 slot; s8 col; s8 x11; s8 x12; s8 kind; } Ent;

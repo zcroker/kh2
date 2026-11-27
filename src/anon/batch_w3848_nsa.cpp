@@ -69,11 +69,11 @@ u32 func_00141970(Obj*);
 void func_00144e50(V*, Aab*, u32);
 void func_00141980(Obj*, u8*);
 void func_00141c18(Obj*, s32, s32, s32, s32);
-void func_00141c38(Obj*, s32, V*, u16*, s32);
+void dk__OctCollFile__selectPolygon(Obj*, s32, V*, u16*, s32);
 s32 func_00141ff0(Obj*, Seg*, V*, u16*, s32);
 void func_00164578(Obj*, Ent*, Sphere*, u16, s32*, V, f32);
 
 // Moves an entity from v0 by v16 through the collision mesh in radius-sized steps
 // (sphere sweep via func_00164578), then checks the final segment with func_00141ff0.
-s32 func_00164718(Obj* o, Ent* e);  // 0x00164718: definition moved into src/anon/unit_00164578.cpp
+s32 dk__OctCollFile__collisionSphere_2(Obj* o, Ent* e);  // 0x00164718: definition moved into src/anon/unit_00164578.cpp
 }

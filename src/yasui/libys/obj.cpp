@@ -20,7 +20,7 @@ extern "C" void func_0016c460(u32, u32);
 
 // 0x0016c018: definition moved into src/anon/unit_00169f98.cpp
 
-extern "C" u32 func_001a7790(...);
+extern "C" u32 YS__BG__IsCulling(...);
 
 // 0x0019c410: definition moved into src/anon/unit_0019ba60.cpp
 

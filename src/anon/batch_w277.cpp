@@ -43,7 +43,7 @@ struct Mv {
 struct G1f34 { f32 a, b; };
 extern G1f34* D_00351f34;
 s32 func_001ca448(Mv*);  // type_is_16_44_161
-void func_001ca4a8(Mv*);
+void YS__ACTION_LIGHTCYCLE__CheckCrash(Mv*);
 void func_0017f540(u8*, s32, f32, f32);
 void func_001c9ee8(void* self, Mv* m);  // 0x001c9ee8: definition moved into src/anon/unit_001c9ea0.cpp
 }
@@ -67,7 +67,7 @@ extern QWord D_01d49870;
 void func_001dbb38(void);
 s32 func_00197920(void);
 s32 func_001c5f78(void);
-void* func_001b9bc8(void*);
+void* YS__OBJ__Each(void*);
 s32 func_0016a020(void*);
 s32 func_001dbe78(void*, QWord*);
 struct Ob { QWord pos; u8 pad[72]; s32 x58; };
@@ -102,7 +102,7 @@ union UF { f32 f; u8 c; };
 extern UF D_00347b70;
 void func_00127cf8(void*);
 void func_00128480(Obj*, Arg*);
-void func_00128b38(Obj*, Arg*, f32);
+void kn__MotionPrototype0__setFcurveValue(Obj*, Arg*, f32);
 void func_00130c18(Obj*, f32);
 void func_0012d728(Obj*, Arg*, Mtx*, void*, void*);
 void func_00129c38(Obj*, Arg*, Mtx*, void*, void*);

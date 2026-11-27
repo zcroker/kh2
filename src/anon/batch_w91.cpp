@@ -58,7 +58,7 @@ void func_0010c9f8(u8* p, f32 a, f32 b, f32 c, f32 d, f32 e);  // 0x0010c9f8: de
 // --- 001215b8
 // Flags (|= 4) every entry of both tables whose id field matches (or all when id == -1).
 u8* func_00120800(u8*);  // obj_get_sub_ptr_by12
-void func_001215b8(u8* p, u8* flags, s32 id);  // 0x001215b8: definition moved into src/anon/unit_00120520.cpp
+void kn__ModelSKL__setStealth(u8* p, u8* flags, s32 id);  // 0x001215b8: definition moved into src/anon/unit_00120520.cpp
 
 // --- 00131810
 // Copies the current frame's matrices into the destination's matrix buffer.
@@ -112,8 +112,8 @@ void func_00177a28(u8*);  // set_bytes_2820_2821
 void func_002cb708(u8*);
 void func_00105110(u8*);
 u8* func_0019b380(u8*, u32);
-u8* func_00182e98(u32);
-u32 func_0016c028(u8*);  // obj_get_attach_or_alt
+u8* YS__UNIT__GetPathByID(u32);
+u32 YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 u8* func_002cd018(u8*, u8*, u32, f32);
 // 00184f90: moved to src/anon/unit_00183088.cpp
 
@@ -163,26 +163,26 @@ u8* func_00177860(u8*);
 s32 func_001bbcc0(void);
 u64 func_00312db8(u64, u64);
 extern u32 D_003638d0;
-u32 func_001d62b0(u8* who, u8* st);  // 0x001d62b0: definition moved into src/anon/unit_001d4f40.cpp
+u32 YS__ANTI_FORM__IsAnti(u8* who, u8* st);  // 0x001d62b0: definition moved into src/anon/unit_001d4f40.cpp
 
 // --- 001d7538
 extern u32 D_003527e4;
 f32 func_00191b70(void);
 s32 func_001a5bd0(u8*, s32, f32);
 void func_001d7638(u8*, s32);
-s32 func_001d9228(s32);
-void func_001d7538(u8* p, u8* q);  // 0x001d7538: definition moved into src/anon/unit_001d7458.cpp
+s32 YS__MISSION__GetComboCounter(s32);
+void YS__PRIZE_COLOSSEUM__AppearTable(u8* p, u8* q);  // 0x001d7538: definition moved into src/anon/unit_001d7458.cpp
 
 // --- 001e1070
 u8* func_001050d8(u32);
-void func_0018d238(u8*, u32, u32, u32, u32, s32, s32);
+void YS__ATTACK__ATTACK_2(u8*, u32, u32, u32, u32, s32, s32);
 UF91* func_0018da18(u8*, u8*, u32, u32);
 void func_0018ca10(UF91*);  // alloc_from_pool_magic
 void func_0018f028(u8*);
 extern u8* D_00352bd0;
 // Unused 16-byte local with trivial ctor/dtor: reserves the frame slot and blocks the tail call.
 struct NT16 { u32 x[4]; NT16() {} ~NT16() {} };
-void func_001e1070(u32, u8* a);  // 0x001e1070: definition moved into src/anon/unit_001e0cb8.cpp
+void ryj__LASER__strike(u32, u8* a);  // 0x001e1070: definition moved into src/anon/unit_001e0cb8.cpp
 
 // --- 001ead10
 // Scales the work matrix rows by the bone's scale and copies its translation.
@@ -223,7 +223,7 @@ void func_001fcd70(void);  // 0x001fcd70: definition moved into src/anon/unit_00
 
 // --- 0024a270
 s32 func_00287bc0(void);
-void func_00287d68(void);  // copy_globals_3words
+void Tz__MenuBase__SaveMode(void);  // copy_globals_3words
 u32 func_00287db0(void);
 u32 func_0028acc8(u32);
 void func_001039f8(void);
@@ -244,14 +244,14 @@ void LeaveStock(void*);  // 0x00262588: definition moved into src/anon/unit_0025
 // --- 00272468
 u8* cmtop_list_buffer2(void) asm("_ZN2Tz5CmTop13GetListBufferEv");
 u32 cmtop_select_pos(s32) asm("_ZN2Tz5CmTop12GetSelectPosEi");
-s32 func_00272b60(u32);
+s32 Tz__CmCustom__CurPos2CustomType(u32);
 struct T6 { u16 a, b; s16 c; };
 extern T6 D_00373a30[];
 void func_00138c10(u8*, s32);
 u32 func_0028be58(u32);
 void func_0028bd60(u32);
 extern u32 D_0035f04c;
-void func_00272468(void);  // 0x00272468: definition moved into src/anon/unit_00271e08.cpp
+void Tz__CmCustom__SetLoopList(void);  // 0x00272468: definition moved into src/anon/unit_00271e08.cpp
 
 // --- 0027b5d0
 extern u32 D_0035f010;
@@ -284,7 +284,7 @@ extern u8 D_0035f4e2;
 extern char D_00374578[];
 extern u8 D_00292e60[];
 void func_002fee78(char*, char*, ...);
-void func_00168388(char*, u32, u8*, E16*);
+void YS__FILE__ReadBack(char*, u32, u8*, E16*);
 u32 func_00292f18(void);  // 0x00292f18: definition moved into src/anon/unit_00292e60.cpp
 
 // --- 0029ad40
@@ -298,17 +298,17 @@ void func_0029ad40(void);  // 0x0029ad40: definition moved into src/anon/unit_00
 extern u8* D_0035f5d8;
 extern u8* D_0035f5d4;
 u8* func_002a1bc0(u16);
-u32 func_00295430(s32, s32);
+u32 Tz__JmWorldSel__GetId2WorldName(s32, s32);
 void func_00192e50(u32, u8*, s32, u32);
 void func_002595e8(u8*, u32);
-void func_002a17e8(void);  // 0x002a17e8: definition moved into src/anon/unit_002a0908.cpp
+void Tz__JmDiagram__SetCharaName(void);  // 0x002a17e8: definition moved into src/anon/unit_002a0908.cpp
 
 // --- 002ab540
 static inline bool tbit91(u32* a, u32 i) { return (a[i >> 5] & (1 << (i & 31))) != 0; }
 extern u8* D_0035f610;
 u8* func_001a82b0(u8*);
-s32 func_002764b0(u8);
-u32 func_002ab540(s32 who);  // 0x002ab540: definition moved into src/anon/unit_002a99c8.cpp
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8);
+u32 Tz__JmNewInfo__isTreasureNew(s32 who);  // 0x002ab540: definition moved into src/anon/unit_002a99c8.cpp
 
 // --- 002ac800
 u8* func_002a9d68(void);
@@ -348,7 +348,7 @@ Vq* func_001422a0(Vq* out, u8* obj, u16 idx);  // 0x001422a0: definition moved i
 
 // --- 001a7790
 struct Ob64 { u8 b[64]; } __attribute__((aligned(16)));
-u8* func_00106a18(s32);  // buffer_get_256
+u8* kn__getProjection(s32);  // buffer_get_256
 Mc* func_00106ad0(u8*);
 u8* func_00106a60(s32);  // buffer_get_by_index
 void func_00146680(Ob64*, Mc*);  // copy_quad4_if_diff

@@ -13,5 +13,5 @@ u8* func_001d56c8(u32);
 void func_002ab258(s32);
 
 // Built with -fno-strength-reduce (_nsr).
-void func_002a8768(void);  // 0x002a8768: definition moved into src/anon/unit_002a8748.cpp
+void Tz__JmMiniGame__UpdateNewMark(void);  // 0x002a8768: definition moved into src/anon/unit_002a8748.cpp
 }

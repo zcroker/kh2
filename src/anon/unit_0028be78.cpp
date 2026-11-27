@@ -8,8 +8,8 @@ struct Bar28b { s32 h; u8 p4[28]; s32 total; s32 disp; s32 pos; s32 size; s32 vi
 // Stores the new position, then places the bar: length = size / view * (disp / total) clamped to 1,
 // offset = size / total * pos with pos clamped to total - disp. The position clamp comes after the
 // ratio clamp in the source: written before it, the scheduler pulls `li a1,1` above the pos + disp add.
-void func_0028be78(Bar28b* p, s32 pos) asm("func_0028be78");
-void func_0028be78(Bar28b* p, s32 pos) {
+void Tz__ScrollBar__SetPos(Bar28b* p, s32 pos) asm("Tz__ScrollBar__SetPos");
+void Tz__ScrollBar__SetPos(Bar28b* p, s32 pos) {
     s32 flag = 0;
     p->pos = pos;
     s32 disp = p->disp;

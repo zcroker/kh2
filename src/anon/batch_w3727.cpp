@@ -24,13 +24,13 @@ void wtarget_001dc140(u32* a0, u32 a1, u32 a2, u32 a3);  // 0x001dc140: definiti
 struct O_w3727 { u8 pad[0x48c]; s32 x; };
 extern O_w3727* D_0034e948;
 extern u8 D_00351eb8;
-bool func_0019ba60(O_w3727*);
+bool YS__OBJ__is_exist(O_w3727*);
 bool func_001b58a8();
 s32 func_001c8ab0();
 bool func_001c8db8(void*, s32);
 bool func_001410c8();
 bool func_001917c0();
-s32 func_001a1de0(s32);
+s32 YS__SHEET__is_mpdrive(s32);
 
 // Chain of checks on the current object. All exits go through one return label placed before the
 // body (goto form): gcc then merges the epilogue there, as in the original layout.

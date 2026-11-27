@@ -32,16 +32,16 @@ extern s8 D_0035f120;
 void func_0026e140(s32, s32, s32);
 void gspxy_x(void*) asm("_ZN2dk5Obj2D17getSeqPraramXYOffEv");
 void SetDisableButton_x(void*, u32) asm("_ZN2Tz6Select16SetDisableButtonEj");
-u8* func_0028c198(s32, s32, s32, u32, u32, u32);
+u8* Tz__MenuItem__start(s32, s32, s32, u32, u32, u32);
 void func_00288ce0(void*, void*, s32, s16*, s16*);
-void func_002891f0(void*, s32, s32, s32, s32);
-void func_0026df30(void);  // 0x0026df30: definition moved into src/anon/unit_0026c450.cpp
+void Tz__Select__SetCurrent(void*, s32, s32, s32, s32);
+void Tz__Selector__SetupSelector(void);  // 0x0026df30: definition moved into src/anon/unit_0026c450.cpp
 
 void setOffsetPos_x(void*, s32, s32) asm("_ZN2dk6Sprite12setOffsetPosEii");
 s32 u_call4_00139d78_x(void*) asm("_Z16u_call4_00139d78jjjj");
 s32 GetParamEx_x(void*) asm("_ZN2YI8SEQUENCE10GetParamExEv");
 u8* GetItemPtr_x(void*, s32) asm("_ZN2Tz6Select10GetItemPtrEi");
 s32 GetItemMax_x(void*) asm("_ZN2Tz6Select10GetItemMaxEv");
-void func_0026e3b0(void);  // 0x0026e3b0: definition moved into src/anon/unit_0026c450.cpp
+void Tz__Selector__AdjustSeqPos(void);  // 0x0026e3b0: definition moved into src/anon/unit_0026c450.cpp
 
 }

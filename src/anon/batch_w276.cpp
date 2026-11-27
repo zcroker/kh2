@@ -46,8 +46,8 @@ extern "C" {
 u64 func_00313b80(f32);  // float_to_double
 s32 func_003142e0(u64, u64);  // double_compare
 void func_00183768(O*, QV*, f32);  // copy_quad_at16_and_len
-QV func_00184540(O*, f32, f32);
-void func_00184ad0(O*, QV*);
+QV kn__MotionPrototype0__calcLimitValue(O*, f32, f32);
+void YS__OBJ__turn_to_dir(O*, QV*);
 QV func_002ede48(O*, QV*, f32, f32);
 QV func_002ed068(void* unused, O* o);  // 0x002ed068: definition moved into src/anon/unit_002ecdb0.cpp
 }

@@ -1,7 +1,7 @@
 # Whole-function assembly (last step of the README match ladder, w3957 2026-11-11).
 # Transcribed from the retail disassembly; calls with a func_ symbol are referenced through it.
 # Replace with C/C++ after 100%.
-#   func_002e5518: rope/cloth grid draw (21x41 nodes, 16-byte nodes, 656-byte rows): VU0 quad normals,
+#   Ti__Cord__draw: rope/cloth grid draw (21x41 nodes, 16-byte nodes, 656-byte rows): VU0 quad normals,
 #     normalize/dot/project/winding, GIF A+D tag and RGBAQ/ST/XYZ packets, soft-double maths via
 #     func_00313b80/003144b0/00313f40/00313e80, func_002fd178 x3.
 #     Closest C: ~/re/kh2/tmp.w3957/best_002e5518.cpp (_gnsa_nogcse, = best/002e5518_w3946_gnsa_nogcse.cpp,
@@ -13,10 +13,10 @@
 	.set nomacro
 	.section .text.func_002e5518,"ax",@progbits
 	.align 2
-	.globl func_002e5518
-	.type func_002e5518, @function
-	.ent func_002e5518
-func_002e5518:
+	.globl Ti__Cord__draw
+	.type Ti__Cord__draw, @function
+	.ent Ti__Cord__draw
+Ti__Cord__draw:
 	addiu	$29,$29,-272
 	mtc1	$0,$f0
 	sd	$30,240($29)
@@ -238,7 +238,7 @@ func_002e5518:
 	sqc2	$vf2,16($23)
 	sqc2	$vf3,32($23)
 	li	$4,1
-	jal	func_00106a18
+	jal	kn__getProjection
 	mov.s	$f23,$f20
 	move	$20,$0
 	lui	$13,0x37
@@ -690,5 +690,5 @@ func_002e5518:
 	move	$4,$2
 	b	.L002e5b88
 	ld	$5,24608($15)
-	.end func_002e5518
-	.size func_002e5518, 2576
+	.end Ti__Cord__draw
+	.size Ti__Cord__draw, 2576

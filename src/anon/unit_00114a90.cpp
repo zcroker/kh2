@@ -74,8 +74,8 @@ extern u8 D_003464e8 asm("D_003464e8");
 extern u8 D_00346658 asm("D_00346658");
 void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00113628jjjjjjjj");
 /*TARGET 00114ab0*/
-u32 func_00114ab0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00114ab0jjjjjjjj");
-u32 func_00114ab0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 kn__Aladdin__Aladdin(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z20kn__Aladdin__Aladdinjjjjjjjj");
+u32 kn__Aladdin__Aladdin(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
     p[0] = (u32)&D_00346658;
@@ -489,8 +489,8 @@ extern u8 D_00346b40 asm("D_00346b40");
 extern u8 D_00346cd8 asm("D_00346cd8");
 void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00113628jjjjjjjj");
 /*TARGET 00114fb0*/
-u32 func_00114fb0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00114fb0jjjjjjjj");
-u32 func_00114fb0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 kn__Simba__Simba(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z16kn__Simba__Simbajjjjjjjj");
+u32 kn__Simba__Simba(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32* p = (u32*)a0;
     u32 r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
     p[0] = (u32)&D_00346cd8;
@@ -1428,8 +1428,8 @@ struct W115c08Mtx {
     }
 } __attribute__((aligned(16)));
 struct O115c08 { u8 pad0[4]; void* model; u8 pad1[1656]; W115c08Mtx view; };
-void f115c08_node(void*, s32, W115c08Mtx*) asm("func_0016b0e0");
-s32 func_00106a18(u8) asm("func_00106a18");
+void f115c08_node(void*, s32, W115c08Mtx*) asm("YS__OBJ__get_bone_matrix");
+s32 kn__getProjection(u8) asm("kn__getProjection");
 f32 func_001070a0(s32) asm("func_001070a0");
 u8* func_00106a60(u8) asm("func_00106a60");
 void f115c08_euler(W115c08Mtx*, W115c08Vec*) asm("func_0011bac8");
@@ -1446,7 +1446,7 @@ void func_00115c08(O115c08* o, W115c08Mtx* m, W115c08Vec* scaleOut, W115c08Vec* 
     a = o->view * a;
     a.r3.x = a.r3.x * 1024.0f / a.r3.z;
     a.r3.y = a.r3.y * 1024.0f / a.r3.z;
-    a.r3.z = func_001070a0(func_00106a18(cam));
+    a.r3.z = func_001070a0(kn__getProjection(cam));
     u8* p = func_00106a60(cam);
     b = *(W115c08Mtx*)(p ? p + 16 : 0);
     b.inverse();
@@ -1577,12 +1577,12 @@ struct W1161c8Mtx {
         return o;
     }
 } __attribute__((aligned(16)));
-s32 f1161c8_cam(u8) asm("func_00106a18");
+s32 f1161c8_cam(u8) asm("kn__getProjection");
 f32 f1161c8_fov(s32) asm("func_001070a0");
 u8* f1161c8_camm(u8) asm("func_00106a60");
 struct O1161c8 { u8 pad0[1792]; W1161c8Mtx view; };
 void* func_00111e38(s32) asm("func_00111e38");
-void f1161c8_node(void*, s32, W1161c8Mtx*) asm("func_0016b0e0");
+void f1161c8_node(void*, s32, W1161c8Mtx*) asm("YS__OBJ__get_bone_matrix");
 void f1161c8_euler(W1161c8Mtx*, W1161c8Vec*) asm("func_0011bac8");
 /*TARGET 001161c8*/
 void func_001161c8(O1161c8* o, W1161c8Mtx* m, W1161c8Vec* scaleOut, W1161c8Vec* rotOut, W1161c8Vec* posOut, u8 cam) asm("func_001161c8");
@@ -1720,8 +1720,8 @@ void func_00116990(Obj1169e8* p, f32* px, f32* py) asm("func_00116990");
 f32 func_0010f660(void) asm("func_0010f660");
 u32 func_0010f648(s32 n) asm("func_0010f648");
 /*TARGET 001169e8*/
-void func_001169e8(Obj1169e8* p, s32 mode) asm("func_001169e8");
-void func_001169e8(Obj1169e8* p, s32 mode)
+void kn__Stitch__calc_move_target(Obj1169e8* p, s32 mode) asm("kn__Stitch__calc_move_target");
+void kn__Stitch__calc_move_target(Obj1169e8* p, s32 mode)
 {
     f32 r;
     f32* px = &p->x;
@@ -1943,7 +1943,7 @@ struct E116Obj {
     s32 f1572;
 };
 E116Cam* func_00111e38(s32) asm("func_00111e38");
-s32 func_0019ba60(E116Model*) asm("func_0019ba60");
+s32 YS__OBJ__is_exist(E116Model*) asm("YS__OBJ__is_exist");
 void func_001dc920(s32) asm("func_001dc920");
 void func_00117910(E116Obj*, s32) asm("func_00117910");
 void func_00117aa8(E116Obj*, s32) asm("func_00117aa8");
@@ -1955,7 +1955,7 @@ E116Vec* func_001dc5f8(s32) asm("func_001dc5f8");
 E116Vec* func_001dc620(s32) asm("func_001dc620");
 E116Vec* func_001dc648(s32) asm("func_001dc648");
 f32* func_001dc670(s32) asm("func_001dc670");
-void func_0016b0e0(void*, s32, E116Mtx*) asm("func_0016b0e0");
+void YS__OBJ__get_bone_matrix(void*, s32, E116Mtx*) asm("YS__OBJ__get_bone_matrix");
 void func_0011b6a8(E116Mtx*) asm("func_0011b6a8");
 void func_0011b7b0(E116Mtx*, E116Vec*) asm("func_0011b7b0");
 void func_00115c08(E116Obj*, E116Mtx*, E116Vec*, E116Vec*, E116Vec*, u8) asm("func_00115c08");
@@ -1963,8 +1963,8 @@ void func_001161c8(E116Obj*, E116Mtx*, E116Vec*, E116Vec*, E116Vec*, u8) asm("fu
 f32 func_00194690(E116Model*) asm("func_00194690");
 void func_0018f028(s32) asm("func_0018f028");
 /*TARGET 00116db0*/
-void func_00116db0(E116Obj* o) asm("func_00116db0");
-void func_00116db0(E116Obj* o)
+void kn__Stitch__pre_exec(E116Obj* o) asm("kn__Stitch__pre_exec");
+void kn__Stitch__pre_exec(E116Obj* o)
 {
     E116Mtx M;
     E116Mtx mtx;
@@ -1973,7 +1973,7 @@ void func_00116db0(E116Obj* o)
     E116Cam* cam = func_00111e38(0);
     for (s32 i = 0; i < 24; i++) {
         if (o->slots[i].handle) {
-            if (!func_0019ba60(o->model) || (o->slots[i].flags & 0x40000000)) {
+            if (!YS__OBJ__is_exist(o->model) || (o->slots[i].flags & 0x40000000)) {
                 func_001dc920(o->slots[i].handle);
                 func_00117910(o, i);
                 continue;
@@ -2009,9 +2009,9 @@ void func_00116db0(E116Obj* o)
         case 0:
             break;
         case 1: {
-            func_0016b0e0(o->model, o->slots[i].node, &mtx);
+            YS__OBJ__get_bone_matrix(o->model, o->slots[i].node, &mtx);
             pos = mtx.r3;
-            if (!(o->slots[i].flags & 8) && o->slots[i].node != 0x4000) func_0016b0e0(o->model, 0x4000, &mtx);
+            if (!(o->slots[i].flags & 8) && o->slots[i].node != 0x4000) YS__OBJ__get_bone_matrix(o->model, 0x4000, &mtx);
             mtx.r3 = pos;
             func_0011b6a8(&M2);
             func_0011b7b0(&M2, &o->slots[i].rot);
@@ -2039,9 +2039,9 @@ void func_00116db0(E116Obj* o)
         }
         case 2: {
             register E116Vec* pp asm("$16");
-            func_0016b0e0(cam, o->slots[i].node, &mtx);
+            YS__OBJ__get_bone_matrix(cam, o->slots[i].node, &mtx);
             pos = mtx.r3;
-            if (!(o->slots[i].flags & 8) && o->slots[i].node != 0x4000) func_0016b0e0(cam, 0x4000, &mtx);
+            if (!(o->slots[i].flags & 8) && o->slots[i].node != 0x4000) YS__OBJ__get_bone_matrix(cam, 0x4000, &mtx);
             mtx.r3 = pos;
             pp = &o->slots[i].pos;
             asm("" : "+r"(pp));
@@ -2071,7 +2071,7 @@ void func_00116db0(E116Obj* o)
         }
     }
     if (o->f1568) {
-        if (!func_0019ba60(o->model) || (o->f1572 >= 0 && (o->f1572 != o->model->f340 || (o->model->f352 & 2)))) {
+        if (!YS__OBJ__is_exist(o->model) || (o->f1572 >= 0 && (o->f1572 != o->model->f340 || (o->model->f352 & 2)))) {
             func_0018f028(o->f1568);
             o->f1568 = 0;
         }

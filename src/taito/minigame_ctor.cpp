@@ -17,7 +17,7 @@ extern "C" {
 void func_002cf320(s32);
 void func_002e7500(void);
 }
-void func_002cedd0(s32 n, E16* e);
+void Ti__MiniGame__create_task(s32 n, E16* e);
 
 extern u8 D_00361f70[];
 extern u8 D_00361f40[];
@@ -30,7 +30,7 @@ MG::MG(s32 kind_, s32 arg_, s32 heap) : kind(kind_), arg(arg_) {
     f60 = 0;
     D_00361f60 = this;
     active = 0;
-    func_002cedd0(2, (E16*)D_00361f40);
+    Ti__MiniGame__create_task(2, (E16*)D_00361f40);
     func_002cf320(heap);
     func_002e7500();
 }

@@ -457,8 +457,8 @@ static inline bool skf(Tree* t, s32* f) {
   if (t->b211 && t->b210) sk = (*f & 0xf) == 5;
   return sk;
 }
-void func_00141c38(Tree* t, s32 n, void* box, u16* cnt, s32 arg) asm("func_00141c38");
-void func_00141c38(Tree* t, s32 n, void* box, u16* cnt, s32 arg) {
+void dk__OctCollFile__selectPolygon(Tree* t, s32 n, void* box, u16* cnt, s32 arg) asm("dk__OctCollFile__selectPolygon");
+void dk__OctCollFile__selectPolygon(Tree* t, s32 n, void* box, u16* cnt, s32 arg) {
   TNode* nd = &t->nodes[n];
   if (!func_00145580(nd->box, box)) return;
 
@@ -488,7 +488,7 @@ void func_00141c38(Tree* t, s32 n, void* box, u16* cnt, s32 arg) {
   for (m = 0; m < 8; m++) {
     s32 k = *c++;
     if (k == -1) return;
-    func_00141c38(t, k, box, cnt, arg);
+    dk__OctCollFile__selectPolygon(t, k, box, cnt, arg);
   }
     asm("" : : "r"(ne));
 }
@@ -590,7 +590,7 @@ void func_00144e30(V4n*) asm("func_00144e30");
 u32 func_00141970(ObjN*) asm("func_00141970");
 void func_00144e50(V4n*, BoxN*, u32) asm("func_00144e50");
 void func_00141980(ObjN*, u8*) asm("func_00141980");
-void func_00141c38(ObjN*, s32, V4n*, u16*, s32) asm("func_00141c38");
+void dk__OctCollFile__selectPolygon(ObjN*, s32, V4n*, u16*, s32) asm("dk__OctCollFile__selectPolygon");
 u16 func_00141e78(ObjN*, SegN*, s32, V4n*) asm("func_00141e78");
 s32 func_00141ff0(ObjN* o, SegN* ray, V4n* out, u16* id, s32 mask) asm("func_00141ff0");
 s32 func_00141ff0(ObjN* o, SegN* ray, V4n* out, u16* id, s32 mask) {
@@ -612,7 +612,7 @@ s32 func_00141ff0(ObjN* o, SegN* ray, V4n* out, u16* id, s32 mask) {
     u16 r = 0;
     u8 buf[2048];
     func_00141980(o, buf);
-    func_00141c38(o, 0, &b, &r, mask);
+    dk__OctCollFile__selectPolygon(o, 0, &b, &r, mask);
     u16 v = func_00141e78(o, &r2, r, out);
     *id = v;
     if (v == 0xffff) return 0;
@@ -871,9 +871,9 @@ void func_00144e30(V4*) asm("func_00144e30");
 u32 func_00141970(u8*) asm("func_00141970");
 void func_00144e50(V4*, Seg*, u32) asm("func_00144e50");
 void func_00141c18(u8*, s32, s32, s32, s32) asm("func_00141c18");
-void func_00141c38(u8*, s32, V4*, u16*, s32) asm("func_00141c38");
-u16 func_00142848(u8* o, u8* p) asm("func_00142848");
-u16 func_00142848(u8* o, u8* p)
+void dk__OctCollFile__selectPolygon(u8*, s32, V4*, u16*, s32) asm("dk__OctCollFile__selectPolygon");
+u16 dk__OctCollFile__selectDownAllPolygon(u8* o, u8* p) asm("dk__OctCollFile__selectDownAllPolygon");
+u16 dk__OctCollFile__selectDownAllPolygon(u8* o, u8* p)
 {
     Seg a;
     V4 b;
@@ -882,7 +882,7 @@ u16 func_00142848(u8* o, u8* p)
     func_00144e50(&b, &a, func_00141970(o));
     u16 r = 0;
     func_00141c18(o, 0, 0, 0, 0);
-    func_00141c38(o, 0, &b, &r, 15);
+    dk__OctCollFile__selectPolygon(o, 0, &b, &r, 15);
     return r;
 }
 }  // namespace n00142848

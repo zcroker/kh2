@@ -1,4 +1,4 @@
-// func_002b4440: (re)initialises a game-mode state block: clears counters, allocates lists, work objects and two 512-byte buffers.
+// Tz__CmSLBase__Init: (re)initialises a game-mode state block: clears counters, allocates lists, work objects and two 512-byte buffers.
 // Built under -g (_g). Partial asm: one empty non-volatile asm makes the D_0035f6c8 store wait for the D_0035f6c4 reload
 // (original order; pure C gives 2 differing lines).
 #include "../common/types.h"
@@ -63,5 +63,5 @@ extern void* D_0035f6c8;
 extern u8 D_0035f6d0;
 extern s32 D_0035f3d4;
 
-void func_002b4440(void);  // 0x002b4440: definition moved into src/anon/unit_002b3ac8.cpp
+void Tz__CmSLBase__Init(void);  // 0x002b4440: definition moved into src/anon/unit_002b3ac8.cpp
 }

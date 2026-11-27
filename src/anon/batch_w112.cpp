@@ -3,7 +3,7 @@
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
 struct Vec4 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern "C" {
-Vec4* func_0016c028(void*);  // obj_get_attach_or_alt
+Vec4* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 f32 fabsf(f32);  // fabsf
 }
 
@@ -29,7 +29,7 @@ extern u8 D_003a9250[];
 extern u8* D_00341708;
 s32 w146730(void*, u32) asm("_Z16wtarget_00146730jjjj");
 void func_00319e90(RayQ*, void*);
-void func_00143928(RayQ*);
+void dk__Octree__collisionToMap(RayQ*);
 }
 static inline void vsub(Vec4* d, const Vec4* a, const Vec4* b) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(d), "r"(a), "r"(b) : "memory");
@@ -57,7 +57,7 @@ extern "C" {
 void* func_00132350(Node*);
 void* func_00132180(void*, u32);
 void* func_00132130(void*);
-void func_001324b8(Node*, void*);
+void kn__TEXAnmWork__TEXAnmWork(Node*, void*);
 void func_00133198(Node*, void*);
 void func_00132358(Node*, Node*);
 // Builds TEXA (texture) and UVSC (uv scroll) nodes from a chunk list and appends them to the owner's list.
@@ -110,7 +110,7 @@ void func_001349a8(u32, u8*, u32);
 s32 func_00147240(Mgr*, Ob*, f32);
 void func_00147ca0(Mgr*, Ob*, f32);
 void func_00147d80(Mgr*, Ob*, f32);
-void func_00148470(Mgr*, Ob*);
+void dk__OctDrawFile__drawModel(Mgr*, Ob*);
 }
 extern "C" {
 // Per-frame update of an entry: refreshes it, then queues it (bounded at 16 per slot) by state.
@@ -123,10 +123,10 @@ namespace n00157ae0 {
 struct Cfg { u8 pad[384]; u32 f384, f388; };
 struct Wk { u8 pad[1164]; Cfg* cfg; };
 extern "C" {
-s32 func_001a1de0(Cfg*);
+s32 YS__SHEET__is_mpdrive(Cfg*);
 f32 func_001a1e00(Cfg*);
 s32 func_00158250(u8*);
-s32 func_00155f40(u8*);
+s32 dk__GAUGE_PLAYER__getDriveLoopSqNum(u8*);
 void func_00138c10(u8*, s32);
 void func_001565a8(u8*);
 void func_00156540(u8*);
@@ -167,7 +167,7 @@ extern "C" {
 extern u8 D_00350379;
 extern u8 D_0032b9dd;
 extern u32 D_0032b9e0;
-void func_0014ce60(void);
+void dk__Vsync__initGameSpeed(void);
 void func_00194980(void);
 s32 func_0019f060(u8*);
 void func_0019f070(u8*, u32);
@@ -231,7 +231,7 @@ extern void* D_0035db14;
 }
 extern "C" {
 // Frees all of this module's buffers.
-void func_002267a0(void);  // 0x002267a0: definition moved into src/anon/unit_00224780.cpp
+void sa__EVENT__fixFree(void);  // 0x002267a0: definition moved into src/anon/unit_00224780.cpp
 }
 }
 
@@ -244,11 +244,11 @@ s32 func_00181500(u32);
 s32 func_001a6d08(u32);
 Info* func_001d56c8(u32);
 s32 func_00276c18(void);
-void func_0014ca80(u32, s32*, s32*, s32*, s32*);
+void dk__Clock__vCountToHMSMS(u32, s32*, s32*, s32*, s32*);
 }
 extern "C" {
 // Evaluates an entry's unlock condition: 0 = locked, 1 = available, 2 = cleared, 3 = forced.
-s32 func_002a99c8(LRec* r);  // 0x002a99c8: definition moved into src/anon/unit_002a99c8.cpp
+s32 Tz__JmQuest__GetQuestStat(LRec* r);  // 0x002a99c8: definition moved into src/anon/unit_002a99c8.cpp
 }
 }
 
@@ -281,9 +281,9 @@ extern "C" {
 extern f32 D_00349e10;
 extern f32 D_0036e3bc;
 extern Cfg2* D_00352130;
-void func_00178758(Ch*);
+void YS__PLAYER___OVR_pre_exec(Ch*);
 s32 func_00180618(u8*);
-void func_001a1aa0(Lv*, u32);  // ring_buffer_index
+void YS__SHEET__add_drive(Lv*, u32);  // ring_buffer_index
 void func_0017f488(u8*, u32, f32, f32);
 void func_0017f5e0(u8*, u32, u32, f32, f32);
 void func_00190128(Iter*);
@@ -294,7 +294,7 @@ u32 func_001d14a0(void);
 void func_00190878(Iter*, u32, u32);
 void func_001bd418(u32, u32, u32, Iter*, u32, u32);
 s32 func_00197920(void);
-void func_001d2750(u8*);
+void YS__INTERVAL_INFO__exec(u8*);
 }
 static inline bool IsFull(Lv* l) { return l->cur >= l->max; }
 extern "C" {
@@ -340,12 +340,12 @@ struct QV { f32 x, y, z, w; } __attribute__((aligned(16)));
 struct Info64 { u8 pad[48]; QV pos; };
 extern "C" {
 extern u32 D_00361f60;
-void func_0016b0e0(u32, u32, Info64*);
-u8* func_001b9bc8(u8*);
+void YS__OBJ__get_bone_matrix(u32, u32, Info64*);
+u8* YS__OBJ__Each(u8*);
 s32 func_0016a060(u8*);
 s32 func_002cf270(u8*, u32);
 s32 func_002ceef8(u32, u8*);
-QV* func_0016c028(u8*);  // obj_get_attach_or_alt
+QV* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 }
 static inline void qcopy(QV* d, const QV* s) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory"); }
 static inline void vsub(QV* d, const QV* a, const QV* b) {

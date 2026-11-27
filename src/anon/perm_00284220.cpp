@@ -33,7 +33,7 @@ extern s32 D_0035f2dc;
 extern W1572_VObj *D_0035f2e0;
 extern u8 D_00347e60[];
 void func_00285460(void);
-void func_00284ea8(void);
+void Tz__Ending__SoundBufferFree(void);
 void func_0031acc0(void *);
 void func_00239870(void *);
 void func_0031a840(void *);

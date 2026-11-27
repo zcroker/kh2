@@ -63,13 +63,13 @@ struct Mv {
 struct G1f34 { f32 a, b; };
 extern G1f34* D_00351f34 asm("D_00351f34");
 s32 func_001ca448(Mv*) asm("func_001ca448");
-void func_001ca4a8(Mv*) asm("func_001ca4a8");
+void YS__ACTION_LIGHTCYCLE__CheckCrash(Mv*) asm("YS__ACTION_LIGHTCYCLE__CheckCrash");
 void func_0017f540(u8*, s32, f32, f32) asm("func_0017f540");
 void func_001c9ee8(void* self, Mv* m) asm("func_001c9ee8");
 void func_001c9ee8(void* self, Mv* m) {
     s32 mot = 0;
     QWord unused;
-    if (func_001ca448(m) && !(m->flags7f8 & 4)) func_001ca4a8(m);                      
+    if (func_001ca448(m) && !(m->flags7f8 & 4)) YS__ACTION_LIGHTCYCLE__CheckCrash(m);                      
     if (0.0f < m->dir.f[3]) {
         if (m->dir.f[0] < 0.0f) mot = 151;
         else if (0.0f < m->dir.f[0]) mot = 152;
@@ -106,7 +106,7 @@ struct Mv {
 struct G1f34 { f32 a, b; u8 pad[32]; f32 f28; };
 extern G1f34* D_00351f34 asm("D_00351f34");
 extern f32 D_00349e10 asm("D_00349e10");
-QWord func_0017d538(f32, const QWord&) asm("func_0017d538");
+QWord YS__MATH__VectorRotY(f32, const QWord&) asm("YS__MATH__VectorRotY");
 QWord func_001ca060(void* self, Mv* m) asm("func_001ca060");
 QWord func_001ca060(void* self, Mv* m) {
     f32 k;
@@ -119,7 +119,7 @@ QWord func_001ca060(void* self, Mv* m) {
     w.f[2] = z;
     m->v2.f[2] = z;
     f32 f = m->f66c;   // a local for the call argument: gives z the f0 register
-    w = func_0017d538(f, w);
+    w = YS__MATH__VectorRotY(f, w);
     return Scale(w, D_00349e10);
 }
 }  // namespace n001ca060

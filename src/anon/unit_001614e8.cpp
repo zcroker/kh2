@@ -421,8 +421,8 @@ extern char D_001dda78[] asm("D_001dda78");
 extern u32 D_001ddb30 asm("D_001ddb30");
 u8* func_00102c18(u32, u32, const char*) asm("func_00102c18");
 /*TARGET 001618b8*/
-void func_001618b8(void) asm("func_001618b8");
-void func_001618b8(void) {
+void dk__Camera__createEffectDestroyTask(void) asm("dk__Camera__createEffectDestroyTask");
+void dk__Camera__createEffectDestroyTask(void) {
     u8* v = func_00102c18(1, 0x16b48, D_001dda78);
     *(void**)(v + 48) = &D_001ddb30;
 }
@@ -436,7 +436,7 @@ void func_001069f8(s32) asm("func_001069f8");
 u8* func_00102c18(s32, s32, void (*)(void)) asm("func_00102c18");
 void func_00161818(void) asm("func_00161818");
 void func_001433e8(void) asm("func_001433e8");
-void func_00107888(void) asm("func_00107888");
+void kn__camera_task(void) asm("kn__camera_task");
 void func_001dd2b8(void) asm("func_001dd2b8");
 void func_00144250(void) asm("func_00144250");
 void func_00161880(void) asm("func_00161880");
@@ -454,7 +454,7 @@ void func_001618f0(void) {
     func_001069f8(0);
     func_00102c18(3, 6000, func_00161818);
     func_00102c18(3, 6001, func_001433e8);
-    func_00102c18(3, 30000, func_00107888);
+    func_00102c18(3, 30000, kn__camera_task);
     func_00102c18(3, 41000, func_001dd2b8);
     func_00102c18(3, 43000, func_00144250);
     func_00102c18(3, 49999, func_00161880);
@@ -771,8 +771,8 @@ namespace n00161f10 {
 void func_0014e0d8(void*) asm("func_0014e0d8");
 void func_001024a8(void*) asm("func_001024a8");
 /*TARGET 00161f10*/
-void func_00161f10(void* p) asm("func_00161f10");
-void func_00161f10(void* p) {
+void dk__Camera__storeImageTask(void* p) asm("dk__Camera__storeImageTask");
+void dk__Camera__storeImageTask(void* p) {
     func_0014e0d8(p);
     func_001024a8(p);
 }
@@ -797,7 +797,7 @@ TaskMgr* func_00102c80(void) asm("func_00102c80");
 void func_00102670(void*, TaskB*) asm("func_00102670");
 // to_1025f8
 void func_00161df0(void) asm("func_00161df0");
-void func_00161f10(void) asm("func_00161f10");
+void dk__Camera__storeImageTask(void) asm("dk__Camera__storeImageTask");
 void func_00161c20(void) asm("func_00161c20");
 void func_00161f38(void) asm("func_00161f38");
 struct U8Flag { u8 v; };
@@ -812,7 +812,7 @@ void func_00161f48_impl(u8 mode, f32 t) {
         k->mode = mode;
         k->t = t + t;
         D_0034c770.v = 1;
-        func_00102c18(1, 0x15f90, func_00161f10);
+        func_00102c18(1, 0x15f90, dk__Camera__storeImageTask);
         if (D_0034c778) func_00102670(func_00102c80()->q, (TaskB*)D_0034c778);  // to_1025f8
         D_0034c778 = func_00102c18(1, 0x16008, func_00161c20);
         ((TaskB*)D_0034c778)->fn = (void*)func_00161f38;
@@ -875,7 +875,7 @@ namespace n001620a8 {
 // 0x002f9bc0: definition moved into src/newlib/libm/ef_log.c
 
 // ---- 001620a8
-void func_00107888(void) asm("func_00107888");
+void kn__camera_task(void) asm("kn__camera_task");
 void func_001433e8(void) asm("func_001433e8");
 void func_00144250(void) asm("func_00144250");
 void func_0014df48(void) asm("func_0014df48");
@@ -901,7 +901,7 @@ void func_001620a8(void)
     func_00102c18(5, 6001, func_001433e8);
     func_00102c18(5, 6002, func_00161a10);
     func_00102c18(5, 29999, func_00161a28);
-    func_00102c18(5, 30000, func_00107888);
+    func_00102c18(5, 30000, kn__camera_task);
     func_00102c18(5, 40999, func_00161a10);
     func_00102c18(5, 41000, func_001dd2b8);
     func_00102c18(5, 42999, func_00161a28);
@@ -916,7 +916,7 @@ void func_001620a8(void)
     func_00102c18(5, 90005, func_0014df48);
     func_00102c18(5, 90010, func_00161868);
     func_00102c18(5, 90020, func_00161a10);
-    func_00102c18(5, 90030, func_00107888);
+    func_00102c18(5, 90030, kn__camera_task);
     func_00102c18(5, 90039, func_00161a28);
     func_00102c18(5, 90040, func_001dd2b8);
     func_00102c18(5, 90049, func_00161a10);

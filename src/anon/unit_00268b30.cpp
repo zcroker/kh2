@@ -8,8 +8,8 @@ namespace n00268b30 {
 u8* func_00257770(void) asm("func_00257770");
 s32 func_00287bc0(void) asm("func_00287bc0");
 u32 func_002570a0(s32) asm("func_002570a0");
-u32 func_0026a178(u32, s32) asm("func_0026a178");
-u16* func_001a8190(u32) asm("func_001a8190");
+u32 Tz__CmEquip__GetItemTbl(u32, s32) asm("Tz__CmEquip__GetItemTbl");
+u16* YS__ITEM_TABLE__get_param(u32) asm("YS__ITEM_TABLE__get_param");
 u16* func_001a80c8(u16) asm("func_001a80c8");
 // table24_find_by_id
 u32 func_00257140(s32) asm("func_00257140");
@@ -31,7 +31,7 @@ void func_00268b30(s32 idx) {
     u8* w = func_00257770();
     u32 st = func_00287bc0();
     if (st - 5 >= 2) return;
-    u16 id = func_001a8190(func_0026a178(func_002570a0(2), 2))[1];
+    u16 id = YS__ITEM_TABLE__get_param(Tz__CmEquip__GetItemTbl(func_002570a0(2), 2))[1];
     if (!id) return;
     u8* o = w + 2504;
     id = func_001a80c8(id)[4];
@@ -58,10 +58,10 @@ u32 func_00269508(s32) asm("func_00269508");
 s32 func_00281f18(u32) asm("func_00281f18");
 u32 func_00257130(void) asm("func_00257130");
 E268* func_00281f20(u32) asm("func_00281f20");
-void func_002891f0(u32, s32, s32, s32, s32) asm("func_002891f0");
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
 void func_0028afd0(u32, s32) asm("func_0028afd0");
 // obj_set_signed18
-void func_0028be78(u32, s32) asm("func_0028be78");
+void Tz__ScrollBar__SetPos(u32, s32) asm("Tz__ScrollBar__SetPos");
 extern u32 D_0035f0ec asm("D_0035f0ec");
 extern u32 D_0035f01c asm("D_0035f01c");
 extern u32 D_0035f04c asm("D_0035f04c");
@@ -93,9 +93,9 @@ void func_00268c68(void) {
         top = cur - n + 1;
         cur = n - 1;
     }
-    func_002891f0(D_0035f01c, cur, 0, -1, -1);
+    Tz__Select__SetCurrent(D_0035f01c, cur, 0, -1, -1);
     func_0028afd0(D_0035f01c, top);  // obj_set_signed18
-    func_0028be78(D_0035f04c, top);
+    Tz__ScrollBar__SetPos(D_0035f04c, top);
 }
 }  // namespace n00268c68
 
@@ -137,13 +137,13 @@ void func_00291288(void* p) asm("func_00291288");
 s32 func_00287c10(void) asm("func_00287c10");
 void func_00287c30(void) asm("func_00287c30");
 void func_0028f7e8(s32 a) asm("func_0028f7e8");
-void func_0026b008(void) asm("func_0026b008");
+void Tz__CmEquip__CheckAutoReplenishment(void) asm("Tz__CmEquip__CheckAutoReplenishment");
 s32 func_00257070(s32 a) asm("func_00257070");
 u8* func_00281180(void* p, s32 i) asm("func_00281180");
 void func_00188ac8(u32 a) asm("func_00188ac8");
 void func_002678a8(void) asm("func_002678a8");
-s32 func_00269fc0(void) asm("func_00269fc0");
-void func_0026a060(void) asm("func_0026a060");
+s32 Tz__CmEquip__isBaseLoop(void) asm("Tz__CmEquip__isBaseLoop");
+void Tz__CmEquip__SetLoopList(void) asm("Tz__CmEquip__SetLoopList");
 void func_0028fa98(s32 a) asm("func_0028fa98");
 void func_00269a60(void) asm("func_00269a60");
 void func_00287c90(s32 a) asm("func_00287c90");
@@ -163,12 +163,12 @@ s32 func_00288040(void) asm("func_00288040");
 void func_00288018(void) asm("func_00288018");
 // global_zero_4dwords
 void func_0026ab18(u32 id) asm("func_0026ab18");
-void func_0028f6f0(s32 a) asm("func_0028f6f0");
+void Tz__SelHist__FadeOut(s32 a) asm("Tz__SelHist__FadeOut");
 // record884_refresh_by_index
 void func_00256e80(void) asm("func_00256e80");
-void func_00263c60(void) asm("func_00263c60");
+void Tz__CMenuHelp__FadeOut(void) asm("Tz__CMenuHelp__FadeOut");
 // sync_global_index_if_changed
-void func_00269e20(void) asm("func_00269e20");
+void Tz__CmEquip__FadeOutList(void) asm("Tz__CmEquip__FadeOutList");
 void func_00281b30_8db8(void) asm("func_00281b30");
 void func_002831e0(s32 a, s32 b) asm("func_002831e0");
 void func_00287cc0(s32 s) asm("func_00287cc0");
@@ -176,9 +176,9 @@ void func_0026b448(void) asm("func_0026b448");
 void func_00287da0(void) asm("func_00287da0");
 /*TARGET 00268db8*/
 // Item-list menu: per-frame state update.
-void func_00268db8(void) asm("func_00268db8");
+void Tz__CmEquip__CtrlEquip(void) asm("Tz__CmEquip__CtrlEquip");
 // Item-list menu: per-frame state update.
-void func_00268db8(void) {
+void Tz__CmEquip__CtrlEquip(void) {
     s32 busy = 0;
     s32 cur = func_00289380(D_0035f01c_8db8);
     s32 st = func_00287cd0();
@@ -196,18 +196,18 @@ void func_00268db8(void) {
         func_00287c10();
         func_00287c30();
         func_0028f7e8(2);
-        func_0026b008();
+        Tz__CmEquip__CheckAutoReplenishment();
         func_00188ac8(*(u32*)(func_00281180(D_0035f010_8db8, func_00257070(1)) + 580));
         func_002678a8();
         return;
     }
     if (cur != -1 || func_00289310_8db8(D_0035f01c_8db8)) {
-        if (!func_00269fc0()) {
-            func_0026a060();
+        if (!Tz__CmEquip__isBaseLoop()) {
+            Tz__CmEquip__SetLoopList();
             func_0028fa98(-1);
         }
     }
-    if (st == 0 && func_00269fc0()) {
+    if (st == 0 && Tz__CmEquip__isBaseLoop()) {
         func_00269a60();
         func_00287c90(1);
     }
@@ -217,7 +217,7 @@ void func_00268db8(void) {
         case -4:
             func_0026b448();
             func_00291288(D_0035f018_8db8);
-            func_0026b008();
+            Tz__CmEquip__CheckAutoReplenishment();
             func_00188ac8(*(u32*)(func_00281180(D_0035f010_8db8, func_00257070(1)) + 580));
             func_00287da0();
             break;
@@ -227,10 +227,10 @@ void func_00268db8(void) {
             else if (mode == 6) func_002831e0(3, 6);
             break;
         case -2:
-            func_00263c60();  // sync_global_index_if_changed
-            func_0028f6f0(2);  // record884_refresh_by_index
+            Tz__CMenuHelp__FadeOut();  // sync_global_index_if_changed
+            Tz__SelHist__FadeOut(2);  // record884_refresh_by_index
             func_00256e80();
-            func_00269e20();
+            Tz__CmEquip__FadeOutList();
             func_00281b30_8db8();
             func_00287cc0(2);
             func_00287c00(2);
@@ -247,10 +247,10 @@ void func_00268db8(void) {
                 } else {
                     s32 idx = cur - (mode != 5 && mode != 6);
                     func_0026ab18(idx >= 0 ? tbl[idx].id : 0);
-                    func_0028f6f0(2);  // record884_refresh_by_index
+                    Tz__SelHist__FadeOut(2);  // record884_refresh_by_index
                     func_00256e80();
-                    func_00263c60();  // sync_global_index_if_changed
-                    func_00269e20();
+                    Tz__CMenuHelp__FadeOut();  // sync_global_index_if_changed
+                    Tz__CmEquip__FadeOutList();
                     func_00281b30_8db8();
                     func_00287c90(1);
                     func_00287c00(2);
@@ -315,8 +315,8 @@ void func_00257670(s32) asm("func_00257670");
 void func_00287c90(s32) asm("func_00287c90");
 s32 func_00287df0(s32, s32, s32, s32, s32) asm("func_00287df0");
 s32 func_00242848(s32) asm("func_00242848");
-void func_0026b0f8() asm("func_0026b0f8");
-void func_00269658() asm("func_00269658");
+void Tz__CmEquip__CtrlAutoConfirm() asm("Tz__CmEquip__CtrlAutoConfirm");
+void Tz__CmEquip__UpdateTopList() asm("Tz__CmEquip__UpdateTopList");
 void func_00257530(s32) asm("func_00257530");
 void func_00287c00(s32) asm("func_00287c00");
 void func_00281d48() asm("func_00281d48");
@@ -342,8 +342,8 @@ void func_002691f8() {
     if (!func_00242848(func_00287df0(r, func_00289310_x8969(D_0035f024), 0, 0, 1))) {
         switch (r) {
         case 1:
-            func_0026b0f8();
-            func_00269658();
+            Tz__CmEquip__CtrlAutoConfirm();
+            Tz__CmEquip__UpdateTopList();
         case -2: case 0:
             func_00257530(0);
             func_00287cc0(2);
@@ -394,8 +394,8 @@ void func_00257530(s32) asm("func_00257530");
 void func_00281d48(void) asm("func_00281d48");
 void func_00281e20(void) asm("func_00281e20");
 /*TARGET 002693a8*/
-void func_002693a8(void) asm("func_002693a8");
-void func_002693a8(void) {
+void Tz__CmEquip__CtrlAbilityWarning(void) asm("Tz__CmEquip__CtrlAbilityWarning");
+void Tz__CmEquip__CtrlAbilityWarning(void) {
     s32 a = func_00289380(D_0035f024);
     s32 b = func_00287cd0();
     func_00287bc0();
@@ -469,8 +469,8 @@ s32 func_002827e0(u32, s32) asm("func_002827e0");
 s32 func_002813b8() asm("func_002813b8");
 s32 func_00281420() asm("func_00281420");
 /*TARGET 002695a0*/
-s32 func_002695a0(s32 a) asm("func_002695a0");
-s32 func_002695a0(s32 a) {
+s32 Tz__CmEquip__CurPos2FormType(s32 a) asm("Tz__CmEquip__CurPos2FormType");
+s32 Tz__CmEquip__CurPos2FormType(s32 a) {
     s32 v[5];
     s32 i, n;
     s32 m;

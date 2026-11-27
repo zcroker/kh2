@@ -34,12 +34,12 @@ void func_00108698(void*);
 void func_0011b6a8(void*);
 void func_0011e260(s32, void*);
 void func_0011e880(s32, s32, s32, s32);
-void func_0011eb08(s32, s32);
+void kn__ModelObj__setDefaultTexanm(s32, s32);
 void func_001415e8(void*, s32, u64);
 void func_00142bf8(void*);
 void func_00143278(void);
 void func_00143298(void);
-void func_00145830(void*, s32, u8, u64);
+void dk__OctDrawFile__OctDrawFile(void*, s32, u8, u64);
 W1677Res* func_00149288(void*);
 void* func_00149290(void*);
 s32 func_00149298(void*);
@@ -55,5 +55,5 @@ void func_00153678(s32, u64, s32);
 void func_0015c500(void);
 void func_0015c6d0(s32);
 
-void func_00142c90(void* setup, s32 heap, u8 flag, u64 mask);  // 0x00142c90: definition moved into src/anon/unit_00142c90.cpp
+void dk__Octree__create(void* setup, s32 heap, u8 flag, u64 mask);  // 0x00142c90: definition moved into src/anon/unit_00142c90.cpp
 }

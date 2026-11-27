@@ -28,10 +28,10 @@ struct BtlCmd {
 
 extern "C" {
 extern u8 D_00351ec0;
-s32 func_001a1de0(BtlStatus*);
+s32 YS__SHEET__is_mpdrive(BtlStatus*);
 s32 func_001a6598(s16);
 s32 func_001b58a8(void);
-s32 func_001b5b20(BtlObj*, BtlCmd*, s32);
+s32 YS__LIMIT__GetCommandStatus(BtlObj*, BtlCmd*, s32);
 s32 func_001b8ff8(BtlCmd*, BtlObj*);
 s32 func_001b91d0(BtlCmd*, s32);
 s32 func_001bb4a0(void);
@@ -43,5 +43,5 @@ s32 func_001c8ab0(void);
 s32 func_001c8db8(void*, s32);
 s32 func_001c9c00(void);
 
-s32 func_001bc2a8(BtlCmd* cmd, BtlObj* obj);  // 0x001bc2a8: definition moved into src/anon/unit_001bc2a8.cpp
+s32 YS__COMMAND_SLOT__GetStatus(BtlCmd* cmd, BtlObj* obj);  // 0x001bc2a8: definition moved into src/anon/unit_001bc2a8.cpp
 }

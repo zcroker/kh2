@@ -118,14 +118,14 @@ void func_0013e1c8(u8* o) {
 // ---- 0013e2d8 from src/anon/batch_w59.cpp
 namespace n0013e2d8 {
 u32 func_0013a7e8(u32) asm("func_0013a7e8");
-void func_001386e0(u8*, u32, u32, u32, u32, u32) asm("func_001386e0");
+void dk__Sprite__create(u8*, u32, u32, u32, u32, u32) asm("dk__Sprite__create");
 void func_00139598(u8*) asm("func_00139598");
 void func_00139708(u8*) asm("func_00139708");
-void func_0013e2d8(u8* p, u32 a, u32 b) asm("func_0013e2d8");
-void func_0013e2d8(u8* p, u32 a, u32 b) {
+void dk__LockOn__start(u8* p, u32 a, u32 b) asm("dk__LockOn__start");
+void dk__LockOn__start(u8* p, u32 a, u32 b) {
     *(u32*)(p + 436) = a;
-    func_001386e0(p, 4000, func_0013a7e8(0), b, a, 17);
-    func_001386e0(p + 448, 4000, func_0013a7e8(0), b, 20, 17);
+    dk__Sprite__create(p, 4000, func_0013a7e8(0), b, a, 17);
+    dk__Sprite__create(p + 448, 4000, func_0013a7e8(0), b, 20, 17);
     func_00139598(p + 448);
     func_00139708(p + 448);
 }
@@ -157,8 +157,8 @@ struct Vq {
 } __attribute__((aligned(16)));
 void func_001391a8(void*, Vq) asm("func_001391a8");
 s32 func_00139d78(void*) asm("func_00139d78");
-void func_0013e3b0(u8* o, Vq* v) asm("func_0013e3b0");
-void func_0013e3b0(u8* o, Vq* v) {
+void dk__LockOn__setPos(u8* o, Vq* v) asm("dk__LockOn__setPos");
+void dk__LockOn__setPos(u8* o, Vq* v) {
     func_001391a8(o, *v);
     if (func_00139d78(o + 448)) func_001391a8(o + 448, *v);
 }
@@ -177,12 +177,12 @@ void func_0013e410(u8* o) {
 
 // ---- 0013e470 from src/anon/tiny_auto80_queue.cpp
 namespace n0013e470 {
-u32 func_001390f0(...) asm("func_001390f0");
+u32 dk__Sprite3D__update(...) asm("dk__Sprite3D__update");
 u32 func_00139d78(...) asm("func_00139d78");
-void func_0013e470(u32 a0) asm("_Z13func_0013e470j");
-void func_0013e470(u32 a0) {
+void dk__LockOn__update(u32 a0) asm("_Z18dk__LockOn__updatej");
+void dk__LockOn__update(u32 a0) {
     u32 base = a0;
-    func_001390f0(a0);
+    dk__Sprite3D__update(a0);
     u32 dst = (u32)((s32)base + (448));
     if (func_00139d78(dst) != 0u) {
         *(f32*)((u32)dst + (s32)(384)) = *(f32*)((u32)base + (s32)(384));
@@ -196,8 +196,8 @@ s32 func_00139d78(void*) asm("func_00139d78");
 struct S13e { u8 pad[388]; s32 f388; u8 pad2[56]; u8 sub[16]; };
 void func_00138c10(void*, s32) asm("func_00138c10");
 void func_00139510(void*) asm("func_00139510");
-void func_0013e4b8(S13e* p) asm("func_0013e4b8");
-void func_0013e4b8(S13e* p) {
+void dk__LockOn__end(S13e* p) asm("dk__LockOn__end");
+void dk__LockOn__end(S13e* p) {
     if (!func_00139d78(p)) return;
     func_00138c10(p, p->f388 - 1);
     if (func_00139d78(p->sub)) func_00139510(p->sub);
@@ -232,8 +232,8 @@ void func_00139510(void*) asm("func_00139510");
 void func_0013e610(u32) asm("func_0013e610");
 struct O13e { void (**vt)(O13e*); u8 pad[432]; u32 f1b4; u32 pad2[2]; u8 sub[16]; };
 static inline void upd13e(u8* s) { if (func_00139d78(s)) func_00139510(s); }
-void func_0013e5a8(O13e* p) asm("func_0013e5a8");
-void func_0013e5a8(O13e* p) {
+void dk__LockOn__change(O13e* p) asm("dk__LockOn__change");
+void dk__LockOn__change(O13e* p) {
     if (func_00139d78(p)) p->vt[5](p);
     upd13e(p->sub);
     func_0013e610(p->f1b4);
@@ -246,14 +246,14 @@ struct Pool13e { u8 pad[8064]; s32 free[9]; s32 n; };
 struct G13e { u32 v; };
 extern u8* D_003486a4 asm("D_003486a4");
 extern G13e D_003486a0 asm("D_003486a0");
-void func_0013e2d8(u8*, u32, u32) asm("func_0013e2d8");
+void dk__LockOn__start(u8*, u32, u32) asm("dk__LockOn__start");
 u8* func_0013e610(u32 a) asm("func_0013e610");
 u8* func_0013e610(u32 a) {
     Pool13e* p = (Pool13e*)D_003486a4;
     s32 n = p->n - 1;
     p->n = n;
     u8* r = (u8*)p + p->free[n] * 896;
-    func_0013e2d8(r, a, D_003486a0.v + 32);
+    dk__LockOn__start(r, a, D_003486a0.v + 32);
     return r;
 }
 }  // namespace n0013e610
@@ -281,7 +281,7 @@ void* func_001050c8(void) asm("func_001050c8");
 u8* func_001063c0(u32, void*) asm("func_001063c0");
 void func_002361a0(void*) asm("func_002361a0");
 s32 func_0013a7d0(s32) asm("func_0013a7d0");
-void func_00138650(void*, s32, s32, s32) asm("func_00138650");
+void dk__SpriteImage__create(void*, s32, s32, s32) asm("dk__SpriteImage__create");
 void func_0013e890(void) asm("func_0013e890");
 extern u32 D_00347e18[] asm("D_00347e18");
 extern u32 D_003486b0[] asm("D_003486b0");
@@ -289,8 +289,8 @@ extern u32 D_00347e80[] asm("D_00347e80");
 extern u8* D_003486a0 asm("D_003486a0");
 extern u8* D_003486a4 asm("D_003486a4");
 extern Sys* D_00347f80 asm("D_00347f80");
-void u_call0_0013e688(void) asm("_Z16u_call0_0013e688v");
-void u_call0_0013e688(void) {
+void dk__LockOn__init(void) asm("_Z16dk__LockOn__initv");
+void dk__LockOn__init(void) {
     u8* p = func_001063c0(8112, func_001050c8());
     u8* q = p;
     u32* r = (u32*)(p + 12);
@@ -323,7 +323,7 @@ void u_call0_0013e688(void) {
     *(u32**)o = D_00347e80;
     func_002361a0(o + 32);
     D_003486a0 = o;
-    func_00138650(D_003486a0, 3700, func_0013a7d0(0), 0);
+    dk__SpriteImage__create(D_003486a0, 3700, func_0013a7d0(0), 0);
     func_0013e890();
 }
 }  // namespace n0013e688
@@ -370,7 +370,7 @@ void func_0013e8a8(BD_VALUE* bd) { func_001398d0(17); }
 // ---- 0013e8c0 from src/anon/tiny_auto80_solver.cpp
 namespace n0013e8c0 {
 u32 func_0013e8c0(u32) asm("_Z13func_0013e8c0j");
-u32 func_0013e940(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_0013e940jjjjjjjj");
+u32 dk__Ft4Base__createPacket(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z25dk__Ft4Base__createPacketjjjjjjjj");
 void func_0014b150(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_0014b150jjjjjjjj");
 extern u8 D_003486f0 asm("D_003486f0");
 u32 func_0013e8c0(u32 a0) asm("_Z13func_0013e8c0j");
@@ -381,13 +381,13 @@ u32 func_0013e8c0(u32 a0) {
     *(u32*)(s0 + 276) = 0;
     *(u32*)s0 = (u32)&D_003486f0;
     *(u32*)(s0 + 280) = 0;
-    return ((u32(*)(u32))func_0013e940)(s0);
+    return ((u32(*)(u32))dk__Ft4Base__createPacket)(s0);
 }
 }  // namespace n0013e8c0
 
 // ---- 0013e900 from src/anon/auto200_999.cpp
 namespace n0013e900 {
-u32 func_0013e940(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_0013e940jjjjjjjj");
+u32 dk__Ft4Base__createPacket(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z25dk__Ft4Base__createPacketjjjjjjjj");
 void func_0014b150(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_0014b150jjjjjjjj");
 extern u8 D_003486f0 asm("D_003486f0");
 u32 func_0013e900(u32 a0) asm("_Z13func_0013e900j");
@@ -398,7 +398,7 @@ u32 func_0013e900(u32 a0) {
     *(u32 *)(s0 + 276) = 0;
     *(u32 *)s0 = (u32)&D_003486f0;
     *(u32 *)(s0 + 280) = 0;
-    return ((u32 (*)(u32))func_0013e940)(s0);
+    return ((u32 (*)(u32))dk__Ft4Base__createPacket)(s0);
 }
 }  // namespace n0013e900
 
@@ -414,9 +414,9 @@ struct W1820Gs {
     u64 g[22];
     u64 g2[2];
 };
-void func_0013eb00(W1820Gs*) asm("func_0013eb00");
-void func_0013e940(W1820Gs* p) asm("func_0013e940");
-void func_0013e940(W1820Gs* p)
+void dk__Ft4Base__calcXYZ(W1820Gs*) asm("dk__Ft4Base__calcXYZ");
+void dk__Ft4Base__createPacket(W1820Gs* p) asm("dk__Ft4Base__createPacket");
+void dk__Ft4Base__createPacket(W1820Gs* p)
 {
     p->g[0] = 0x8000000000000001ULL;
     p->g[1] = 0xEEEEEEEEULL;
@@ -440,7 +440,7 @@ void func_0013e940(W1820Gs* p)
     p->g[19] = 0x5353535310ULL;
     p->g[20] = 0x144;
     p->g[21] = (u64)p->b0 | ((u64)p->b1 << 8) | ((u64)p->b2 << 16) | ((u64)p->b3 << 24) | (1ULL << 32);
-    func_0013eb00(p);
+    dk__Ft4Base__calcXYZ(p);
 }
 }  // namespace n0013e940
 
@@ -494,8 +494,8 @@ struct W1624Ft4 {
 void func_0011b6a8(W1624Mat*) asm("func_0011b6a8");
 void sceVu0RotMatrixZ(f32, W1624Mat*, W1624Mat*) asm("sceVu0RotMatrixZ");
 void func_0013ea50(W1624Ft4*, W1624Mat*, W1624Vec, s32*, s32*) asm("func_0013ea50");
-void func_0013eb00(W1624Ft4* p) asm("func_0013eb00");
-void func_0013eb00(W1624Ft4* p)
+void dk__Ft4Base__calcXYZ(W1624Ft4* p) asm("dk__Ft4Base__calcXYZ");
+void dk__Ft4Base__calcXYZ(W1624Ft4* p)
 {
     s32 left = p->cx - (p->w >> 1);
     s32 top = p->cy - (p->h >> 1);
@@ -641,14 +641,14 @@ namespace n0013eeb8 {
 typedef unsigned int u128 __attribute__((mode(TI)));
 struct Pkt13eeb8 { u32 a; u32 b; u128* p; };
 struct Obj13eeb8 { u8 pad[0x10]; u8 c[4]; u8 pad2[0xc]; union { u128 q[15]; struct { u8 pad[0xa8]; u64 tag; } t; }; };
-void func_0013eb00(Obj13eeb8*) asm("func_0013eb00");
+void dk__Ft4Base__calcXYZ(Obj13eeb8*) asm("dk__Ft4Base__calcXYZ");
 void func_001b7e68(Pkt13eeb8*, s32) asm("func_001b7e68");
 void func_001b80d8(Pkt13eeb8*) asm("func_001b80d8");
 void func_001b7f30(Pkt13eeb8*) asm("func_001b7f30");
 void func_0013eeb8(Obj13eeb8* o) asm("func_0013eeb8");
 void func_0013eeb8(Obj13eeb8* o) {
     o->t.tag = (u64)o->c[0] | ((u64)o->c[1] << 8) | ((u64)o->c[2] << 16) | ((u64)o->c[3] << 24) | ((u64)1 << 32);
-    func_0013eb00(o);
+    dk__Ft4Base__calcXYZ(o);
     Pkt13eeb8 k;
     k.p = 0; k.b = 0; k.a = 0;
     func_001b7e68(&k, 240);

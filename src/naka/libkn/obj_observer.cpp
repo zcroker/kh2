@@ -6,7 +6,7 @@ struct AREA {
     static void* Alloc(u32 size);
     static void Free(void* p);
 };
-extern "C" s32 func_0019ba60(u32);
+extern "C" s32 YS__OBJ__is_exist(u32);
 
 namespace kn {
 
@@ -85,7 +85,7 @@ void ObjObserver::update() {
     s32 n = 0;
     s32 i;
     for (i = 0; i < entryNum; i++) {
-        if (array[i] && func_0019ba60(array[i]))
+        if (array[i] && YS__OBJ__is_exist(array[i]))
             tmp[n++] = array[i];
     }
     for (i = 0; i < n; i++) array[i] = tmp[i];

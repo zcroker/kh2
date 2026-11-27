@@ -130,12 +130,12 @@ u32 func_0011a3e0(u32* a0) {
 
 // ---- 0011a408 from src/anon/tiny_auto80_solver.cpp
 namespace n0011a408 {
-u32 func_00112740(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_00112740jjjjjjjj");
+u32 kn__Friend__getFlag(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z19kn__Friend__getFlagjjjjjjjj");
 u32 func_00119f48(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_00119f48jjjjjjjj");
 u32 func_0011a408(u32) asm("_Z13func_0011a408j");
 u32 func_0011a408(u32 a0) asm("_Z13func_0011a408j");
 u32 func_0011a408(u32 a0) {
-    u32 v0 = ((u32(*)(u32))func_00112740)(*(u32*)(a0 + 4));
+    u32 v0 = ((u32(*)(u32))kn__Friend__getFlag)(*(u32*)(a0 + 4));
     u32 ret = ((u32(*)(u32))func_00119f48)(v0);
     if (ret != 0) {
         return ret;
@@ -146,11 +146,11 @@ u32 func_0011a408(u32 a0) {
 
 // ---- 0011a430 from src/anon/batch_w10.cpp
 namespace n0011a430 {
-u32 func_00112740(void*) asm("func_00112740");
+u32 kn__Friend__getFlag(void*) asm("kn__Friend__getFlag");
 void func_00112730(void*, u32) asm("func_00112730");
 void Peterpan_acceptNotifyPlayerTarget(void*) asm("_ZN2kn8Peterpan24acceptNotifyPlayerTargetEv");
 void Peterpan_acceptNotifyPlayerTarget(void* s) {
-    func_00112730(*(void**)((u8*)s + 4), func_00112740(*(void**)((u8*)s + 4)) | 0x200);
+    func_00112730(*(void**)((u8*)s + 4), kn__Friend__getFlag(*(void**)((u8*)s + 4)) | 0x200);
 }
 }  // namespace n0011a430
 
@@ -254,8 +254,8 @@ void func_0011b038(Owner*) asm("func_0011b038");
 void func_001112a8(Self*) asm("func_001112a8");
 s32 func_00190140(Tgt*) asm("func_00190140");
 V func_00190388(Tgt*) asm("func_00190388");
-V* func_0016c028(Self*) asm("func_0016c028");
-V func_0016af58(Self*) asm("func_0016af58");
+V* YS__OBJ__get_pos(Self*) asm("YS__OBJ__get_pos");
+V YS__OBJ__get_dir(Self*) asm("YS__OBJ__get_dir");
 
 static inline u8 valid(Tgt* t) {
     u8 ok = 0;
@@ -273,7 +273,7 @@ void func_0011a548(Self* self) {
     if (valid(t)) {
         self->owner->pos = func_00190388(t);
     } else {
-        self->owner->pos = *func_0016c028(self) + func_0016af58(self) * 200.0f;
+        self->owner->pos = *YS__OBJ__get_pos(self) + YS__OBJ__get_dir(self) * 200.0f;
     }
 }
 }  // namespace n0011a548

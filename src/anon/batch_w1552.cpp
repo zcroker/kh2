@@ -23,10 +23,10 @@ struct Blk_225fa0 { Blk_225fa0* next; Blk_225fa0* prev; u8 used; u8 pad[3]; s32 
 void func_00225fa0(void* a0, void* p);  // 0x00225fa0: definition moved into src/anon/unit_00224780.cpp
 
 void func_0016aef0(u8*, V4_df040*);
-V4_df040* func_0016c028(u8*);
+V4_df040* YS__OBJ__get_pos(u8*);
 void func_0016ace0(u8*, V4_df040*);
 void func_002deda8(u8*, u8*);
-void func_002df040(u8* a0, u8* a1);  // 0x002df040: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__ACTION_PO_JUMP__control(u8* a0, u8* a1);  // 0x002df040: definition moved into src/anon/unit_002de3c8.cpp
 
 /* libgcc fp-bit unpack_d (double) */
 struct Fpn_3147a0 { s32 cls; u32 sign; s32 normal_exp; s32 pad; u64 ll; };
@@ -36,7 +36,7 @@ extern u32 D_00361d00;
 extern u32 D_0034e8b8;
 extern u32 D_0034ee08;
 void func_00319f88(void*);
-void func_0019f9a8(void*);
+void YS__OBJ_ATTACK__clear(void*);
 void func_001c0248(void*);
 void func_00319fb0(void*);
 void AREA_Free_25158(void*) asm("_ZN4AREA4FreeEPv");

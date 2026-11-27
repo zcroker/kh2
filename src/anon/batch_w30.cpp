@@ -8,12 +8,12 @@ s16 func_00147050(u32, u32, void*, u32, void*);  // entry48_process_5args
 extern u32 D_00348800;
 void func_001398d0(s32);
 void func_00139a38(s32);
-void func_001ca148(void*, u32, u32, f32);
+void YS__OBJ__get_lightcycle_movement(void*, u32, u32, f32);
 extern u8 D_01c5f480[16];
 u32 func_00106a60(s32);  // buffer_get_by_index
 void func_00107478(u32, void*);  // vec_copy_at96_if_diff
 u32 func_002cd1d8(void*, u32);
-void func_002cd290(u32, void*, u32);
+void Ti__Path__reset_active_path(u32, void*, u32);
 void func_00192f78(void*);  // obj_init_float_const
 void func_001ab750(u32, void*);
 extern s32* D_01c94040[];
@@ -37,15 +37,15 @@ void func_001391a8(void*, void*);  // vec_copy_at416_if_diff
 void func_002251c8(u32);
 u32 func_001064a8(s32);  // int_to_float_scaled
 extern u16 D_0035f0a8[3];
-void func_001a17c8(u32);
+void YS__SHEET__Free(u32);
 u8* func_00103eb0(void);
-u8* func_00102818(u32, u32, u32, void*, u32);
+u8* TASK_MANAGER__create_thread(u32, u32, u32, void*, u32);
 void func_00292608(void*) asm("_ZN2Tz8LoadData9FlushTaskEP4TASK");
 void func_00292620(void);
 u32* func_002a9d68(void);
 void func_002b7fbc(u32);
 void func_002bce40(void*);
-void func_002bce50(void*);
+void SE_BANK__clearField(void*);
 void func_002b9b78(void);
 void func_002ba390(void);
 void func_002b9ed0(void);
@@ -62,12 +62,12 @@ extern u8 D_00374f70[];
 void func_002fee78(void*, void*, u32);
 void strlen(void*);  // strlen
 extern u8 D_0034ee08[];
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 u8 func_00319fb0(void*);  // big_obj_dtor
 void func_00105110(void*);
 void* func_001050d8(u32);
-void* func_002d1550(void*, u32, u32);
+void* Ti__MGOarashi__MGOarashi(void*, u32, u32);
 void func_002cfeb0(void*, u32, u32, u32);  // obj_init_field1416_bit800
 extern u8 D_00362858[];
 void func_002cf280(void*, u32, u32);
@@ -85,7 +85,7 @@ void func_0023ee68(void*);
 }
 
 extern "C" {
-void wtarget_0013b4b0(u32, u32, u32, u32) asm("_Z16wtarget_0013b4b0jjjj");
+void dk__COMMAND_DRAW__on(u32, u32, u32, u32) asm("_Z20dk__COMMAND_DRAW__onjjjj");
 void wtarget_00185050(u32, u32, u32, u32) asm("_Z16wtarget_00185050jjjj");
 void wtarget_001d7a08(u32, u32, u32, u32) asm("_Z16wtarget_001d7a08jjjj");
 // YS::trap_camera_at(BD_VALUE*)
@@ -93,7 +93,7 @@ void trap_camera_at(void**) asm("_ZN2YS14trap_camera_atEP8BD_VALUE");
 void func_00281008_impl(void*) asm("_Z13func_00281008Pv");
 }
 
-void wtarget_0013b4b0(u32, u32, u32, u32);  // 0x0013b4b0: definition moved into src/anon/unit_0013a8b8.cpp
+void dk__COMMAND_DRAW__on(u32, u32, u32, u32);  // 0x0013b4b0: definition moved into src/anon/unit_0013a8b8.cpp
 
 // 00185050: moved to src/anon/unit_00183088.cpp
 
@@ -118,7 +118,7 @@ void func_00143348(u8* p);  // 0x00143348: definition moved into src/anon/unit_0
 // GS SCISSOR register value from x/y/w/h.
 void func_0014b950(u8* p, s16 x, s16 y, u16 w, u16 h);  // 0x0014b950: definition moved into src/anon/unit_0014b838.cpp
 
-void func_0014f528(void);  // 0x0014f528: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__INFORMATION__off(void);  // 0x0014f528: definition moved into src/anon/unit_0014ecb8.cpp
 
 // dot(a.xyz, b.xyz) + b.w -> *out; returns 1 when it is <= a[4].
 s32 func_00162b68(f32* a, f32* b, f32* out);  // 0x00162b68: definition moved into src/anon/unit_001614e8.cpp
@@ -157,9 +157,9 @@ void func_001db950(u8* p, u32 a, u32 b, u32 c);  // 0x001db950: definition moved
 
 s32 func_0020f188(void);  // 0x0020f188: definition moved into src/anon/unit_0020f118.cpp
 
-u8 func_00225b00(s32 n);  // 0x00225b00: definition moved into src/anon/unit_00224780.cpp
+u8 sa__EVENT__isJumpMode(s32 n);  // 0x00225b00: definition moved into src/anon/unit_00224780.cpp
 
-void* func_0022af48(u8* p);  // 0022af48: moved to src/sasa/musical_input.cpp (linked unit)
+void* sa__MUSICAL_INPUT__BadPrint(u8* p);  // 0022af48: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_00242088(u8* p);  // 0x00242088: definition moved into src/anon/unit_00241fd0.cpp
 
@@ -179,7 +179,7 @@ void func_002d0028(u8* p);  // 0x002d0028: definition moved into src/anon/unit_0
 
 void* func_002d1270(u32 a, u32 b);  // 0x002d1270: definition moved into src/anon/unit_002cf260.cpp
 
-void func_002daa98(u8* p, u32 a, u32 b);  // 0x002daa98: definition moved into src/anon/unit_002da040.cpp
+void Ti__MGHachimitsuGimObj__MGHachimitsuGimObj(u8* p, u32 a, u32 b);  // 0x002daa98: definition moved into src/anon/unit_002da040.cpp
 
 // 002e2240: moved to src/anon/unit_002e1908.cpp
 

@@ -10,7 +10,7 @@ void func_00138c68(u32, s32, s32);
 s32 func_0023aa78(u32);
 s32 func_0023aa98(u32);
 void func_0028dcc0(u32, u32);
-s32 func_00286418(s32);
+s32 Tz__CmNewFlg__isStatNew(s32);
 s32 func_002864f8(s32);
 enum Slot { SLOT0 };
 struct Item6 { u16 id; u16 pad; s16 c; };

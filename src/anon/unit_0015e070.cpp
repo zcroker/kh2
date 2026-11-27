@@ -93,7 +93,7 @@ struct Owner15e608 {
 };
 extern Rect15e608 D_004f3820 asm("D_004f3820");
 extern u8 D_0034b280[] asm("D_0034b280");
-Proj15e608* b15e_00106a18(s32) asm("func_00106a18");
+Proj15e608* b15e_00106a18(s32) asm("kn__getProjection");
 Cam15e608* b15e_00106a60(s32) asm("func_00106a60");
 void m15e608_swap(u32) asm("_ZN2kn8ModelObj10matrixSwapEv");
 void b15e_0011cdf0(u32, M15e608*, void*, void*, u8) asm("func_0011cdf0");
@@ -125,8 +125,8 @@ struct Owner15e070 {
     s16 y; u8 pad4[2];
     u16 size;
 };
-void func_0015e070(Owner15e070* o) asm("func_0015e070");
-void func_0015e070(Owner15e070* o)
+void dk__SpotBlend__draw(Owner15e070* o) asm("dk__SpotBlend__draw");
+void dk__SpotBlend__draw(Owner15e070* o)
 {
     r15e608_setZbuf(&D_004f3820, 0x131000070ULL);
     r15e608_setFrame(&D_004f3820, 0x80140);
@@ -170,8 +170,8 @@ void func_0014b5e8(u8*, u64, u64) asm("func_0014b5e8");
 void func_0014b208(u8*, u64, u64) asm("func_0014b208");
 void func_0014b468(u8*, u64, u64) asm("func_0014b468");
 void func_0014b628(u8*, u64) asm("func_0014b628");
-void func_0015e3b8(u8* p) asm("func_0015e3b8");
-void func_0015e3b8(u8* p) {
+void dk__SpotBlend__SpotBlend(u8* p) asm("dk__SpotBlend__SpotBlend");
+void dk__SpotBlend__SpotBlend(u8* p) {
     *(u32*)(p + 4) = 0;
     *(u32*)p = (u32)D_0034c6e0;
     u8* a = p + 144;
@@ -210,8 +210,8 @@ void func_0014b220(u32, u32, u32, u32, u32) asm("func_0014b220");
 extern u8 D_0034c6e0[] asm("D_0034c6e0");
 extern u8 D_0034c6c8[] asm("D_0034c6c8");
 extern u8 D_004f3820[] asm("D_004f3820");
-void func_0015e4e0(u32 p) asm("func_0015e4e0");
-void func_0015e4e0(u32 p) {
+void gm__SPRITEFROM3D__draw_common(u32 p) asm("gm__SPRITEFROM3D__draw_common");
+void gm__SPRITEFROM3D__draw_common(u32 p) {
     u32 s1, s2;
     *(u32*)(p + 4) = 0;
     *(u32*)p = (u32)D_0034c6e0;
@@ -237,8 +237,8 @@ void func_0015e4e0(u32 p) {
 }  // namespace n15e4e0
 
 namespace n15e608 {
-void func_0015e608(Owner15e608* o) asm("func_0015e608");
-void func_0015e608(Owner15e608* o)
+void dk__ModelSprite__draw(Owner15e608* o) asm("dk__ModelSprite__draw");
+void dk__ModelSprite__draw(Owner15e608* o)
 {
     b15e_0014c350(&D_004f3820);
     Proj15e608 proj(*b15e_00106a18(0));
@@ -268,8 +268,8 @@ namespace n15e3b8 {
 extern u8 D_0034c6c8[] asm("D_0034c6c8");
 extern u8 D_004f3820[] asm("D_004f3820");
 void func_0014b220(u8*, u64, u64, u64, u64) asm("func_0014b220");
-void func_0015e8c8(u8* p) asm("func_0015e8c8");
-void func_0015e8c8(u8* p) {
+void gm__FRAMEBUFFER__Init(u8* p) asm("gm__FRAMEBUFFER__Init");
+void gm__FRAMEBUFFER__Init(u8* p) {
     *(u32*)(p + 4) = 0;
     *(u32*)p = (u32)D_0034c6c8;
     func_0014c050(p + 80);
@@ -290,8 +290,8 @@ void func_0015e8c8(u8* p) {
 }  // namespace n15e3b8
 
 namespace n15e4e0 {
-void func_0015e9e0(u32 p) asm("func_0015e9e0");
-void func_0015e9e0(u32 p) {
+void dk__ModelSprite__ModelSprite(u32 p) asm("dk__ModelSprite__ModelSprite");
+void dk__ModelSprite__ModelSprite(u32 p) {
     u32 s2;
     u32 g;
     *(u32*)(p + 4) = 0;

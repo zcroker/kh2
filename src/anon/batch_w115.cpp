@@ -10,7 +10,7 @@ s32 func_00280290(void);
 void func_002802e8(void);
 void func_00287bd0(s32, s32);
 void func_00280458(void);
-void func_00280528(void);
+void Tz__GumiPause__UpdateAdviceGra(void);
 s32 func_00280368(void);
 void func_002803e0(void);
 void func_00287cc0(s32);

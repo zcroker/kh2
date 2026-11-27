@@ -15,7 +15,7 @@ s32 func_0028b040(s32) asm("func_0028b040");
 s32 func_002570a0(s32) asm("func_002570a0");
 void func_0027aed8(s32, s32*, s32*) asm("func_0027aed8");
 s32 func_001058e8(void) asm("func_001058e8");
-u8* func_00189200(s32, s32) asm("func_00189200");
+u8* YS__SAVERAM_BATTLE__get_formram(s32, s32) asm("YS__SAVERAM_BATTLE__get_formram");
 u8* func_001a80c8(u16) asm("func_001a80c8");
 extern s32 D_0035f01c asm("D_0035f01c");
 typedef struct Ent { u16 id; s8 on; s8 slot; s8 col; s8 x11; s8 x12; s8 kind; } Ent;
@@ -43,7 +43,7 @@ void func_002793b0(void) {
             c++;
         }
     }
-    u8* p = func_00189200(func_001058e8() + 0x24F0, sel);
+    u8* p = YS__SAVERAM_BATTLE__get_formram(func_001058e8() + 0x24F0, sel);
     s32 idx = sel - 1;
     if (sel != 7) idx = sel;
     s32 row = idx - 1;
@@ -88,7 +88,7 @@ s32 func_002570a0(s32) asm("func_002570a0");
 void func_0027aed8(s32, s32*, s32*) asm("func_0027aed8");
 Obj* func_00281180(s32, s32) asm("func_00281180");
 s32 func_001a80c8(s32) asm("func_001a80c8");
-Item* func_001a8190(s32) asm("func_001a8190");
+Item* YS__ITEM_TABLE__get_param(s32) asm("YS__ITEM_TABLE__get_param");
 s32 func_00281388(s32) asm("func_00281388");
 s32 func_002814b0(s32) asm("func_002814b0");
 extern s32 D_0035f010 asm("D_0035f010");
@@ -115,8 +115,8 @@ void func_00279620(void) {
     Obj* o = func_00281180(D_0035f010, kind ? 0 : idx);
     s32 n = D_0035f230.p->count;
     s32 it = func_001a80c8(o->sub->id);
-    if (func_001a8190(it)->next) {
-        it = func_001a8190(it)->next;
+    if (YS__ITEM_TABLE__get_param(it)->next) {
+        it = YS__ITEM_TABLE__get_param(it)->next;
         func_001a80c8(it);
         addEnt(n, it);
         n++;
@@ -133,8 +133,8 @@ void func_00279620(void) {
         }
         if (func_00281388(sel)) {
             it = func_001a80c8(func_002814b0(sel));
-            if (func_001a8190(it)->next) {
-                it = func_001a8190(it)->next;
+            if (YS__ITEM_TABLE__get_param(it)->next) {
+                it = YS__ITEM_TABLE__get_param(it)->next;
                 func_001a80c8(it);
                 addEnt(n, it);
                 n++;
@@ -158,8 +158,8 @@ u8* func_00281180(s32, s32) asm("func_00281180");
 u8* func_001a80c8(u16) asm("func_001a80c8");
 s32 func_001145b0(u16) asm("func_001145b0");
 /*TARGET 00279860*/
-void func_00279860(void) asm("func_00279860");
-void func_00279860(void) {
+void Tz__CmAbility__GetFriendAbilityAI(void) asm("Tz__CmAbility__GetFriendAbilityAI");
+void Tz__CmAbility__GetFriendAbilityAI(void) {
     s32 i;
     s32 v;
     s32 a, b;
@@ -221,8 +221,8 @@ union MgrP279a10 { Mgr279a10* p; u32 u; u8 c; };
 extern MgrP279a10 D_0035f230 asm("D_0035f230");
 Ent279a10* func_001a8110_x13535(Ent279a10* p) asm("func_001a8110");
 /*TARGET 00279a10*/
-void func_00279a10(void) asm("func_00279a10");
-void func_00279a10(void)
+void Tz__CmAbility__SortAbilityInfo(void) asm("Tz__CmAbility__SortAbilityInfo");
+void Tz__CmAbility__SortAbilityInfo(void)
 {
     s16 order[80];
     Item279a10 t;
@@ -295,8 +295,8 @@ void func_001395f8(void *) asm("func_001395f8");
 s32 func_00257140(s32) asm("func_00257140");
 void func_001398d0(s32) asm("func_001398d0");
 /*TARGET 00279cd8*/
-void func_00279cd8(void) asm("func_00279cd8");
-void func_00279cd8(void)
+void Tz__CmAbility__CreateTopList(void) asm("Tz__CmAbility__CreateTopList");
+void Tz__CmAbility__CreateTopList(void)
 {
   int new_var;
   s32 i = 0;

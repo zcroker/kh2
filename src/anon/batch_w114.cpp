@@ -1,7 +1,7 @@
 #include "../common/types.h"
 
 extern "C" {
-void func_0014b290(u8*);
+void dk__RectBase__createPacket(u8*);
 }
 
 // ---- 0014c5a0: constructor filling a 17-entry parameter table
@@ -38,9 +38,9 @@ static inline void settle(u8* m) {
     }
 }
 extern "C" {
-void func_00150be8(u8* p);
+void dk__TIMER__init(u8* p);
 }
-void func_00150be8(u8* p);  // 0x00150be8: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__TIMER__init(u8* p);  // 0x00150be8: definition moved into src/anon/unit_0014ecb8.cpp
 
 // ---- 001379e0
 extern "C" {
@@ -50,23 +50,23 @@ void func_0031a260(u8*, s32);
 s32 func_001b1fc8(s32);
 u32 func_001b1ff0(s32);
 u32 func_001b1e70(void);
-void func_00138650(u8*, s32, u32, s32);
-void func_001386e0(u8*, s32, u32, u8*, s32, s32);
+void dk__SpriteImage__create(u8*, s32, u32, s32);
+void dk__Sprite__create(u8*, s32, u32, u8*, s32, s32);
 void func_00236410(u8*, s32);  // obj_set4_then_call
 void func_00236428(u8*, s32);  // obj_set32_then_call
 void func_002367c8(u8*);  // obj_dispatch_bitfield64
 void func_00139598(u8*);
 void func_001395a8(u8*);
-void func_00138840(u8*);
+void dk__Sprite__update(u8*);
 u8* func_00167f18(s32);
 void func_002ba2e8(s32, s32);
 void func_00138c10(u8*, u32);
 }
 // Per-frame update: lazily loads the model on first use, then counts down a timer.
 extern "C" {
-void func_001379e0(u8* p);
+void dk__TREASURE_EVENT_INFO__update(u8* p);
 }
-void func_001379e0(u8* p);  // 0x001379e0: definition moved into src/anon/unit_001374c8.cpp
+void dk__TREASURE_EVENT_INFO__update(u8* p);  // 0x001379e0: definition moved into src/anon/unit_001374c8.cpp
 
 // ---- 00276888
 extern "C" {
@@ -112,7 +112,7 @@ extern "C" {
 s32 func_00139d78(u8*);
 u32 func_00103580(void);
 void func_001dc920(u32);
-void func_001dde40(u32*);
+void ryj__PAX__ensure(u32*);
 void func_001a9350(u8*);
 void func_00106420(u8*);
 void func_0023e738(Mgr11*, s32, s32, s32);  // store_2halfwords_2928
@@ -136,9 +136,9 @@ void func_00299290(void);
 static inline s32 usable12(s32 i) { return func_00294348(func_002983d8(D_0035f598->items[i])); }
 // Moves the list cursor to the next/previous usable entry (dir -10 = forward), wrapping around.
 extern "C" {
-void func_00298c60(s32 dir);
+void Tz__JmAlbum__MovePage(s32 dir);
 }
-void func_00298c60(s32 dir);  // 0x00298c60: definition moved into src/anon/unit_002982f0.cpp
+void Tz__JmAlbum__MovePage(s32 dir);  // 0x00298c60: definition moved into src/anon/unit_002982f0.cpp
 
 // ---- 00273368
 extern "C" {
@@ -155,7 +155,7 @@ s32 func_0028d008(u8*);
 void func_00139510(u8*);
 void func_00256c40(void);
 u32 func_002570a0(s32);
-s32 func_00272b60(u32);
+s32 Tz__CmCustom__CurPos2CustomType(u32);
 void func_0028d8c0(u8*, s32, u32, u32, u32, s32, s32, s32);
 void func_0028dcc0(u8*, u8*);
 u8* func_0028d0e0(u8*);
@@ -166,6 +166,6 @@ void func_00256bb0(u8*);
 }
 // Updates the target-cursor effect for the given actor and starts/stops the prompt.
 extern "C" {
-void func_00273368(u8* p, u8 flag);
+void Tz__CmCustom__UpdateTopSelActive(u8* p, u8 flag);
 }
-void func_00273368(u8* p, u8 flag);  // 0x00273368: definition moved into src/anon/unit_00271e08.cpp
+void Tz__CmCustom__UpdateTopSelActive(u8* p, u8 flag);  // 0x00273368: definition moved into src/anon/unit_00271e08.cpp

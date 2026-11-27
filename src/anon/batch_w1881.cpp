@@ -14,7 +14,7 @@ struct Act5748 {
 s32 st_eff5748(Act5748*, s32, s32, s32) asm("_ZN2YS3OBJ12start_effectEiii");
 V5748* epos5748(void*) asm("_ZN3ryj6EFFECT3posEv");
 void ekill5748(void*) asm("_ZN3ryj6EFFECT4killEv");
-V5748 getpos5748(void*) asm("_Z16ctarget_0016bda8jjjj");
+V5748 getpos5748(void*) asm("_Z23YS__OBJ__get_target_posjjjj");
 void tornado5748(Act5748*) asm("_ZN2Ti15MGOarashiPlayer20start_tornado_attackEv");
 extern "C" {
 extern Mg5748* D_00361f60;

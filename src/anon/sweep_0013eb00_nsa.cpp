@@ -33,5 +33,5 @@ extern "C" {
 void func_0011b6a8(W1624Mat*);
 void sceVu0RotMatrixZ(f32, W1624Mat*, W1624Mat*);
 void func_0013ea50(W1624Ft4*, W1624Mat*, W1624Vec, s32*, s32*);
-void func_0013eb00(W1624Ft4* p);  // 0x0013eb00: definition moved into src/anon/unit_0013dfb8.cpp
+void dk__Ft4Base__calcXYZ(W1624Ft4* p);  // 0x0013eb00: definition moved into src/anon/unit_0013dfb8.cpp
 }

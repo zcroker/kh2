@@ -28,21 +28,21 @@ struct Obj186 { u8 pad0[0xc]; Info186* info; u8 pad10[0x508]; u8 sub518[4]; };
 struct Msg186 { QV186 dir; u8 pad10[8]; u32 flags; u8 pad1c[0xa]; u8 action; u8 type; };
 extern "C" {
 extern void* D_0034e948;
-QV186* func_0016c028(void*);
+QV186* YS__OBJ__get_pos(void*);
 s32 func_001d7b90(void*);
 void func_001cf0d8(Obj186*, Msg186*);
 u32 func_0018ca48(u8);
 s32 func_001c0cd8(Obj186*);
 void func_001c0e60(Obj186*);
-f32 func_0018cb30(Msg186*);
+f32 YS__DAMAGE__get_hitback(Msg186*);
 void func_00186378(Obj186*, Msg186*, f32);
-void func_00186478(Obj186*, Msg186*);
+void YS__BTLOBJ__exec_damage_small_spot(Obj186*, Msg186*);
 void func_001863a8(Obj186*, Msg186*, f32);
 void func_0018cd28(Msg186*, f32*, f32*);
 void func_00186740(Obj186*, Msg186*, s32, s32, f32, f32);
 void func_00186948(Obj186*, Msg186*);
-void func_00186988(Obj186*, Msg186*, f32);
-void func_001cd078(Msg186*);
+void YS__BTLOBJ__exec_damage_large(Obj186*, Msg186*, f32);
+void YS__PRIZE_TT__ExecDamage(Msg186*);
 
 static inline bool isType17(Obj186* o) { return o->info->kind == 0x17; }
 // 00186160: moved to src/anon/unit_00185d10.cpp

@@ -82,7 +82,7 @@ static DamagePool D_01c60bf0;
 extern "C" {
 extern DmgPrm* D_00352130;
 extern u32 D_003638d0;  // random seed
-DmgVec* func_0016c028(u32);  // obj_get_attach_or_alt
+DmgVec* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
 u32 func_001a1e20(u32, DmgSrc*, u8*, u8);
 
 DamageRec* func_0018c8b8(void) {
@@ -94,7 +94,7 @@ DamageRec* func_0018c8b8(void) {
 
 void func_0018c960(DamageRec* d, DmgSrc* src, u8* prm, u32 target, u32 attr);
 
-DamageRec* func_0018c8f0(DmgSrc* src, u8* prm, u32 target, u32 attr) {
+DamageRec* YS__DAMAGE__Alloc(DmgSrc* src, u8* prm, u32 target, u32 attr) {
     DamageRec* d = func_0018c8b8();
     func_0018c960(d, src, prm, target, attr);
     return d;
@@ -187,7 +187,7 @@ extern "C" {
 void func_0018cd28(DamageRec* d, f32* x, f32* y);
 
 // Knock-back distance of the hit.
-f32 func_0018cb30(DamageRec* self) {
+f32 YS__DAMAGE__get_hitback(DamageRec* self) {
     DmgVec v;
     DmgVec* pv = &v;
     f32 r = D_00352130->f30;
@@ -200,7 +200,7 @@ f32 func_0018cb30(DamageRec* self) {
     case 5: {
         f32 len;
         f32 lo, hi;
-        *pv = self->src->get() - *func_0016c028(self->target);
+        *pv = self->src->get() - *YS__OBJ__get_pos(self->target);
         pv->y = 0.0f;
         len = DmgLength(pv);
         lo = (f32)((DmgRange*)self->prm)->lo;
@@ -251,7 +251,7 @@ Lret:
 
 extern "C" void func_0018ce08(DamageRec* o) {
     if (o->kind == 5) {
-        DmgVec* p = func_0016c028(o->target);
+        DmgVec* p = YS__OBJ__get_pos(o->target);
         o->dir = *p - o->src->get();
         o->dir.y = 0;
         DmgNormalize(&o->dir);

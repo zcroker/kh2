@@ -22,5 +22,5 @@ static inline u8* getp_w1970(Mgr_w1970* m, s32 a, X_w1970* x) {
     return (u8*)v + x->off + 0xa0;
 }
 extern "C" {
-void func_001f6c58(s32 a, X_w1970* x, Y_w1970* y);  // 0x001f6c58: definition moved into src/anon/unit_001f6b68.cpp
+void KeBornPtCmlp(s32 a, X_w1970* x, Y_w1970* y);  // 0x001f6c58: definition moved into src/anon/unit_001f6b68.cpp
 }

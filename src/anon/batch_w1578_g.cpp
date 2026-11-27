@@ -48,22 +48,22 @@ void* W1578_JmInfo_GetCharaData(u32) asm("_ZN2Tz6JmInfo12GetCharaDataEj");
 void func_001a4df0(void*, void*, s32, s32);
 void* W1578_YS_TABLE_Get(void) asm("_ZN2YS6MEMBER5TABLE3GetEv");
 void* W1578_YS_CACHE_BUFF_Clear(s32) asm("_ZN2YS10CACHE_BUFF5ClearEi");
-void W1578_wtarget_0016ed50(void*, u32, u32) asm("_Z16wtarget_0016ed50jjjj");
+void W1578_wtarget_0016ed50(void*, u32, u32) asm("_Z25YS__OBJENTRY__ReadRequestjjjj");
 W1578Mode* W1578_getFieldMode(void) asm("_Z12getFieldModev");
 W1578Mode* W1578_getGumiBattleMode(void) asm("_Z17getGumiBattleModev");
 void func_00102180(W1578Mode**);
 void func_001e02f8(s32);
 void func_001de8a8(s32, s32, s32, s32);
 void W1578_YS_SUMMON_LeaveTink(void) asm("_ZN2YS6SUMMON9LeaveTinkEv");
-s32 func_0016c028(u32);
+s32 YS__OBJ__get_pos(u32);
 f32 W1578_ObjCamera_getObjBackDirection(u32) asm("_ZN2dk9ObjCamera19getObjBackDirectionEv");
-void func_001c7fb8(f32, u8*, void*, s32);
+void YS__SUMMON__SUMMON(f32, u8*, void*, s32);
 void W1578_YS_ACT_push(u8*, char*) asm("_ZN2YS3ACT4pushEPc");
-void func_001373d8(void);
+void dk__BGM__Continue(void);
 void func_001c2ba8(void);
 void func_001c0560(void);
-void func_001a4388(void);
-void func_0018ed18(W1578Cont*);
+void YS__ATTACK_OBJ__Exec(void);
+void YS__ATTACK_WORK_MANAGER__check(W1578Cont*);
 void func_00161228(void);
 W1578Task* W1578_FIELD_CreateTask(s32, s32, W1578TaskFn) asm("_ZN5FIELD10CreateTaskEiiPFvP4TASKE");
 W1578Task* W1578_TM_create_task(s32, s32, s32, W1578TaskFn) asm("_ZN12TASK_MANAGER11create_taskEiiPFvP4TASKE");
@@ -87,11 +87,11 @@ s32 func_00134278(void);  // 0x00134278: definition moved into src/anon/unit_001
 
 // 001a5928: moved to src/anon/unit_001a4db0.cpp
 
-void func_001d0068(void);  // 0x001d0068: definition moved into src/anon/unit_001cf0b0.cpp
+void YS__MICKEY__ReadRequest(void);  // 0x001d0068: definition moved into src/anon/unit_001cf0b0.cpp
 
-void func_001de808(void);  // 0x001de808: definition moved into src/anon/unit_001ddcf0.cpp
+void ryj__PAX__TaskStart(void);  // 0x001de808: definition moved into src/anon/unit_001ddcf0.cpp
 
-void func_001af938(void);  // 0x001af938: definition moved into src/anon/unit_001ada38.cpp
+void YS__GAMEOVER__Reraise(void);  // 0x001af938: definition moved into src/anon/unit_001ada38.cpp
 
 void func_0018d620(void);  // 0x0018d620: definition moved into src/anon/unit_0018d050.cpp
 

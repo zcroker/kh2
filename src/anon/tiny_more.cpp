@@ -80,7 +80,7 @@ u32 func_002283e0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x002283e0: definition moved
 
 u32 func_00240440(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00240440: definition moved into src/anon/unit_0023f5b8.cpp
 
-u32 func_00240bd0(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00240bd0: definition moved into src/anon/unit_0023f5b8.cpp
+u32 Tz__MCard__GetPos(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00240bd0: definition moved into src/anon/unit_0023f5b8.cpp
 
 u32 func_00242e48(u32 a0,u32 a1,u32 a2,u32 a3);  // 0x00242e48: definition moved into src/anon/unit_00242478.cpp
 

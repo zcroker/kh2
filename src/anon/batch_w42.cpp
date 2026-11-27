@@ -92,7 +92,7 @@ E20* func_0018a1b8(u8* p, u32 mask, E20* e);  // 0x0018a1b8: definition moved in
 
 // 00198970
 extern u8* D_0034e948;
-void wtarget_00198970(u8* p, u32, u32, u32) asm("_Z16wtarget_00198970jjjj");
+void YS__STDOBJ__reset_special_command(u8* p, u32, u32, u32) asm("_Z33YS__STDOBJ__reset_special_commandjjjj");
 // 00198970: moved to src/anon/unit_00197fe0.cpp
 
 // 001a3958: first item of a kind that has an Ansem entry; mark it
@@ -108,9 +108,9 @@ struct E344 { u8 pad[328]; s32 x; s32 y; u8 pad2[8]; };
 // 001ad020: moved to src/anon/unit_001abb28.cpp
 
 // 001be940
-s32 func_001b9d40(u32);  // vtable_call_slot64_flags
+s32 YS__OBJ__can_control(u32);  // vtable_call_slot64_flags
 void func_001d6da8(void*);
-void func_001bc990(void*, void*);
+void YS__COMMAND_MENU__make(void*, void*);
 void func_001be940(u8* p);  // 0x001be940: definition moved into src/anon/unit_001bc568.cpp
 
 // 001c35a0: for each of 5 groups, record the highest level whose flag is set
@@ -171,7 +171,7 @@ s32 func_00264328(u32 id);  // 0x00264328: definition moved into src/anon/unit_0
 
 // 0028cf28
 extern u8* D_0035f3fc;
-void func_0028cf28(s32 i, s32 v);  // 0028cf28: moved to src/anon/unit_0028c878.cpp
+void Tz__MenuCursor__SetParent(s32 i, s32 v);  // 0028cf28: moved to src/anon/unit_0028c878.cpp
 
 // 0028d008: entry i is active and not masked
 extern s32 D_0035f410;
@@ -188,7 +188,7 @@ void func_002930d8(void);  // 0x002930d8: definition moved into src/anon/unit_00
 extern u8 D_0035f590;
 extern u8 D_0035f591;
 void func_002969e0(void);
-void func_00296b80(s32);
+void Tz__JmReport__CreateGra(s32);
 void func_00296b08(void);  // 0x00296b08: definition moved into src/anon/unit_00295d28.cpp
 
 // 002ba220
@@ -197,18 +197,18 @@ s32 func_002ba220(u32 a, u32 b, u32 c, u32 d, u32 e, u32 f);  // 0x002ba220: def
 
 // 002bf978: run the handler for every flagged object
 u8* func_002be908(void*);
-void func_002bf8f0(void*);
+void worldmap__Symbol__appearEpisode(void*);
 void func_002bf978(void);  // 0x002bf978: definition moved into src/anon/unit_002bebd0.cpp
 
 // 002c1860
-void func_002c7060(void*);
+void worldmap__Warp__exec(void*);
 static inline bool positive(f32 x) { return 0.0f < x; }
 void func_002c1860(u32, u8* obj);  // 0x002c1860: definition moved into src/anon/unit_002c10e0.cpp
 
 // 002d6d10
 extern void* D_00361f60;
 void func_002d2740(void*, void*, u32, f32, f32);
-void* func_002d6d10(void* ret, u32, u32 a2);  // 0x002d6d10: definition moved into src/anon/unit_002d62d0.cpp
+void* Ti__ACTION_PO_OARASHI_TORNADO_S__calc_movement(void* ret, u32, u32 a2);  // 0x002d6d10: definition moved into src/anon/unit_002d62d0.cpp
 
 // 002dd448: add score (10/5/1 per rank) to the mission counter
 struct Score3 { s32 v[3]; };
@@ -222,7 +222,7 @@ struct C2e { u8 pad[16]; u8 col[36]; f32 x; f32 y; };
 // 002e95a0: moved to src/sugi/flare.cpp
 
 // 002ec9d0
-void func_0017c4c8(void*, void*);
+void YS__OBJ__prepare_jump(void*, void*);
 void func_002eb6f8(void*, s32, f32);
 // 002ec9d0: moved to src/anon/unit_002ec5f8.cpp
 

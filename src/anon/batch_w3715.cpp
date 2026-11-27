@@ -17,6 +17,6 @@ void func_0014b668(void*);
 extern u8 D_00347f98[], D_00347e60[], D_00348608[], D_0034a800[], D_0034a920[], D_0034a958[],
     D_00348678[], D_00348658[];
 
-void func_0031b130(u8* t);  // 0x0031b130: definition moved into src/anon/unit_003197d0.cpp
+void dk__INFORMATION__openHiTimer(u8* t);  // 0x0031b130: definition moved into src/anon/unit_003197d0.cpp
 
 }

@@ -202,7 +202,7 @@ void func_002bcc60(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
     u32 s18 = a4;
 
     func_002bcf58(s16);
-    func_002bcfa0(s16);
+    SE_BANK__objectDestroy(s16);
     func_002bd1c0(s16);
 
     *(u32*)s18 = func_002bc988(s17);
@@ -342,8 +342,8 @@ namespace n002bce50 {
 extern u32 D_003616f8[] asm("D_003616f8");
 void func_002bc470(u32) asm("func_002bc470");
 struct Ent12b { u32 a; s32 b; u32 c; };
-void func_002bce50(u8* p) asm("func_002bce50");
-void func_002bce50(u8* p) {
+void SE_BANK__clearField(u8* p) asm("SE_BANK__clearField");
+void SE_BANK__clearField(u8* p) {
     p[336] = 0;
     *(s32*)(p + 328) = 30;
     *(s32*)(p + 332) = 20;
@@ -371,8 +371,8 @@ void SE_BANK::setGumiMode() {
 namespace n002bcee8 {
 extern u32 D_00361768[] asm("D_00361768");
 void func_002bc470(u32) asm("func_002bc470");
-void func_002bcee8(u32* p) asm("func_002bcee8");
-void func_002bcee8(u32* p) {
+void SE_BANK__clearGumi(u32* p) asm("SE_BANK__clearGumi");
+void SE_BANK__clearGumi(u32* p) {
     u32* s = D_00361768;
     for (s32 i = 0; i < 27; i++) {
         p[0] = *s;
@@ -413,8 +413,8 @@ void func_002bcf58(u32 *a0) {
 namespace n002bcfa0 {
 extern u8 D_003616f8 asm("D_003616f8");
 void func_002bc470(...) asm("func_002bc470");
-void func_002bcfa0() asm("_Z13func_002bcfa0v");
-void func_002bcfa0() {
+void SE_BANK__objectDestroy() asm("_Z22SE_BANK__objectDestroyv");
+void SE_BANK__objectDestroy() {
     u32* base = (u32*)&D_003616f8;
     u32* p = (u32*)((u8*)base + 44);
     s32 i = 13;
@@ -675,15 +675,15 @@ struct Heap2bd310 { Heap2bd310Vt* vt; };
 struct Ctx2bd310 { u32 f0; void* file; u32 f8; void* f12; Heap2bd310* heap; };
 void func_002ba298(void*) asm("func_002ba298");
 s32 func_001688c8(void*) asm("func_001688c8");
-void func_00168388(void*, void*, s32, s32) asm("func_00168388");
-s32 func_00170cd0(void) asm("func_00170cd0");
+void YS__FILE__ReadBack(void*, void*, s32, s32) asm("YS__FILE__ReadBack");
+s32 YS__CACHE_BUFF__IsFlushing(void) asm("YS__CACHE_BUFF__IsFlushing");
 void func_00102448(Ctx2bd310*, s32) asm("func_00102448");
 void func_002baf48(void*, s32, void*, s32, s32, s32) asm("func_002baf48");
 s32 func_002ba200(void) asm("func_002ba200");
 void* func_002bd2f0(void*, s32*) asm("func_002bd2f0");
 s32 func_002bd230(s32, u32) asm("func_002bd230");
-void func_002bd310(Ctx2bd310* c) asm("func_002bd310");
-void func_002bd310(Ctx2bd310* c)
+void SOUND__readBgmThread(Ctx2bd310* c) asm("SOUND__readBgmThread");
+void SOUND__readBgmThread(Ctx2bd310* c)
 {
     Heap2bd310* h = c->heap;
     void* fh = c->file;
@@ -693,8 +693,8 @@ void func_002bd310(Ctx2bd310* c)
     s32 sz = func_001688c8(fh);
     void* raw = h->vt->alloc(h, (sz + 2111) & ~2047, 0);
     void* buf = (void*)(((u32)raw + 63) & ~63);
-    func_00168388(fh, buf, 0, 0);
-    while (func_00170cd0()) func_00102448(c, 0);
+    YS__FILE__ReadBack(fh, buf, 0, 0);
+    while (YS__CACHE_BUFF__IsFlushing()) func_00102448(c, 0);
     func_002baf48(x, 2, buf, sz, 0, 0);
     while (func_002ba200()) func_00102448(c, 0);
     s32 out = 0;
@@ -704,8 +704,8 @@ void func_002bd310(Ctx2bd310* c)
     s32 sz2 = func_001688c8(r);
     void* raw2 = h->vt->alloc(h, (sz2 + 2111) & ~2047, 0);
     void* buf2 = (void*)(((u32)raw2 + 63) & ~63);
-    func_00168388(r, buf2, 0, 0);
-    while (func_00170cd0()) func_00102448(c, 0);
+    YS__FILE__ReadBack(r, buf2, 0, 0);
+    while (YS__CACHE_BUFF__IsFlushing()) func_00102448(c, 0);
     func_002baf48(0, 1, buf2, sz2, 0, 0);
     while (func_002ba200()) func_00102448(c, 0);
     h->vt->free(h, raw2);

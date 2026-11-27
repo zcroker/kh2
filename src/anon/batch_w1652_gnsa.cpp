@@ -89,9 +89,9 @@ W1652Vec func_001835f8(W1652Obj*);
 W1652Vec func_00186b90(W1652Obj*);
 s32 func_0019bad8(W1652Obj*);
 s32 func_0019c090(W1652Obj*);
-W1652Vec func_00184bb0(W1652Obj*);
+W1652Vec YS__OBJ__get_belt_conveyor_movement(W1652Obj*);
 W1652Vec func_001d3ac0(W1652Obj*);
-W1652Vec func_001b3428(s32*, W1652Obj*);
+W1652Vec YS__OBJOCC__RIDE__get_movement(s32*, W1652Obj*);
 void func_00183918(W1652Obj*, const W1652Vec&, const W1652Vec&, W1652Vec&);
 
 static inline __attribute__((always_inline)) void W1652_CopyTag(W1652Tag* d, W1652Tag* s) { __builtin_memcpy(d, s, 4); }

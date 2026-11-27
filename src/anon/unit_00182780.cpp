@@ -17,13 +17,13 @@ void func_00199aa0(UnitItem*, void*, u8*);
 void func_00199cd0(void*);
 void func_00199998(void*);
 void func_00199d38(void*);
-void func_00196908(void*);
+void YS__UNITSCRIPT__Start(void*);
 void func_00199dc0(void*);
 void func_0019a048(void*);
 void func_00102c18(s32, s32, void (*)(void));  // FIELD::CreateTask
 u8* func_00186078(u8*);
-s32 func_0019ba60(u8*);
-UnitQ* func_0016c028(u8*);  // obj_get_attach_or_alt
+s32 YS__OBJ__is_exist(u8*);
+UnitQ* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 u32 func_0019b328(void*, u32);
 u32 func_0019b380(void*, u32);
 void func_0019a308(void*);
@@ -95,7 +95,7 @@ void YS::UNIT::activate() {
     u32 f = flags;
     flags = f & ~2;
     f &= 1;
-    if (f != 0) func_00196908(obj);
+    if (f != 0) YS__UNITSCRIPT__Start(obj);
     else func_00199dc0(obj);
 }
 
@@ -130,7 +130,7 @@ void func_00182ab0(void) {
 
 void func_00182c60(void);
 
-void func_00182b18(void) {
+void YS__UNIT__ActivateAll(void) {
     func_00102c18(1, 12000, func_00182c60);
     for (s32 i = 0; i < D_0034ed00; i++) {
         u32 off = i * 12;
@@ -149,9 +149,9 @@ void func_00182c60(void) {
     while ((n = func_00186078(n)) != 0) {
         *(u32*)(n + 2728) |= 0x10000;
     }
-    if (func_0019ba60(D_0034ed04) && !(*(u32*)(D_0034ed04 + 2040) & 4)) {
+    if (YS__OBJ__is_exist(D_0034ed04) && !(*(u32*)(D_0034ed04 + 2040) & 4)) {
         UnitQ q;
-        UnitQ* v = func_0016c028(D_0034ed04);
+        UnitQ* v = YS__OBJ__get_pos(D_0034ed04);
         s32 i;
         if (&q != v) UNIT_QCOPY(&q, v);
         if (*(u32*)(D_0034ed04 + 1416) & 0x80) {
@@ -178,7 +178,7 @@ void u_call0_00182d80(void) {
 void func_00182df0(void) { D_0034ed04 = 0; }
 void func_00182e00(void) {}
 
-u32 func_00182e08(u32 a0) {
+u32 YS__UNIT__GetPath(u32 a0) {
     for (s32 i = 0; i < D_0034ed00; i++) {
         u32 r = func_0019b328(D_01c60588[i].obj, a0);
         if (r) return r;
@@ -186,7 +186,7 @@ u32 func_00182e08(u32 a0) {
     return 0;
 }
 
-u32 func_00182e98(u32 x) {
+u32 YS__UNIT__GetPathByID(u32 x) {
     s32 i;
     for (i = 0; i < D_0034ed00; i++) {
         u32 r = func_0019b380(D_01c60588[i].obj, x);
@@ -197,7 +197,7 @@ u32 func_00182e98(u32 x) {
 
 void func_00182f28(u8* p) { D_0034ed04 = p; }
 
-void func_00182f38(void) {
+void YS__UNIT__InitMinigame(void) {
     for (s32 i = 0; i < D_0034ed00; i++) func_0019a308(D_01c60588[i].obj);
 }
 

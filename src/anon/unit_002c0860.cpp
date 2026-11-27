@@ -23,10 +23,10 @@ extern u8 D_0035eb98[] asm("D_0035eb98");
 extern u8 D_00347e60[] asm("D_00347e60");
 extern Menu* D_00361a90 asm("D_00361a90");
 void func_0031a838(void*) asm("func_0031a838");
-void func_002369a0(void*) asm("func_002369a0");
-void func_0023c008(void*) asm("func_0023c008");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
+void YI__LAYOUT__LAYOUT(void*) asm("YI__LAYOUT__LAYOUT");
 void func_00239700(void*) asm("func_00239700");
-s32 func_002beb90(void) asm("func_002beb90");
+s32 worldmap__Manager__get2ldFile(void) asm("worldmap__Manager__get2ldFile");
 s32 func_001708f8(s32, s32) asm("func_001708f8");
 void func_0023f800(LayFile*) asm("func_0023f800");
 void func_0023f848(LayFile*) asm("func_0023f848");
@@ -34,14 +34,14 @@ void func_0023fa08(LayFile*, s32) asm("func_0023fa08");
 s32 func_0023f948(LayFile*, s32) asm("func_0023f948");
 s32 func_0023f908(LayFile*, s32) asm("func_0023f908");
 s32 func_002c1460(Menu*, s32) asm("func_002c1460");
-void func_0023eea0(Lay*, s32, s32, s32, s32, s32) asm("func_0023eea0");
-void func_0023ef50(Lay*) asm("func_0023ef50");
+void Tz__Layout__create(Lay*, s32, s32, s32, s32, s32) asm("Tz__Layout__create");
+void Tz__Layout__SetImageCache(Lay*) asm("Tz__Layout__SetImageCache");
 void func_0023f0c8(Lay*, s32) asm("func_0023f0c8");
 void func_00139570(Lay*) asm("func_00139570");
 void* func_0023f1b0(Lay*) asm("func_0023f1b0");
 s32 func_0023c4b8(void*, s32) asm("func_0023c4b8");
 s32 func_00236ca8(s32, s32) asm("func_00236ca8");
-void func_001386e0(Sp*, s32, s32, s32, s32, s32) asm("func_001386e0");
+void dk__Sprite__create(Sp*, s32, s32, s32, s32, s32) asm("dk__Sprite__create");
 void func_001396b0(Sp*) asm("func_001396b0");
 void func_0031a260(Sp*, s32) asm("func_0031a260");
 void func_00139660(Sp*) asm("func_00139660");
@@ -71,8 +71,8 @@ void func_002c0860(Menu* self) {
     title = &self->title;
     func_0031a838(self->lay.m0c);
     self->lay.vptr = D_0035eb98;
-    func_002369a0(self->lay.m18);
-    func_0023c008(self->lay.m30);
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(self->lay.m18);
+    YI__LAYOUT__LAYOUT(self->lay.m30);
     self->cache = 0;
     INIT(self->title);
     InitArray(self->icons, 2);
@@ -82,21 +82,21 @@ void func_002c0860(Menu* self) {
     D_00361a90 = self;
     x = 0;
     func_0023f800(&lf);
-    self->cache = func_001708f8(func_002beb90(), -1);
+    self->cache = func_001708f8(worldmap__Manager__get2ldFile(), -1);
     func_0023fa08(&lf, self->cache);
     gra = func_0023f948(&lf, 0);
     mes = func_0023f908(&lf, 0);
     r = func_002c1460(self, 0);
-    func_0023eea0(&self->lay, 30101, gra, mes, r, 0);
-    func_0023ef50(&self->lay);
+    Tz__Layout__create(&self->lay, 30101, gra, mes, r, 0);
+    Tz__Layout__SetImageCache(&self->lay);
     func_0023f0c8(&self->lay, func_002c1460(self, 2));
     func_00139570(&self->lay);
     unit = func_0023c4b8(func_0023f1b0(&self->lay), 1);
     self->image = func_00236ca8(*(s32*)((u8*)func_0023f1b0(&self->lay) + 0x28), 1);
-    func_001386e0(title, 30105, unit, self->image, 75, 201);
+    dk__Sprite__create(title, 30105, unit, self->image, 75, 201);
     title->m188 = 76;
     for (s32 j = 0; j < 3; j++) {
-        func_001386e0(&self->icons[j], 30105, unit, self->image, 39, 201);
+        dk__Sprite__create(&self->icons[j], 30105, unit, self->image, 39, 201);
         SetParent(&self->icons[j], title);
         func_00139660(&self->icons[j]);
         func_00139688(&self->icons[j]);
@@ -104,7 +104,7 @@ void func_002c0860(Menu* self) {
         func_001396b0(&self->icons[j]);
         x += func_0023aa98(self->icons[j].seq);
     }
-    func_001386e0(mid, 30105, unit, self->image, 49, 201);
+    dk__Sprite__create(mid, 30105, unit, self->image, 49, 201);
     SetParent(mid, title);
     func_00139660(mid);
     func_00139688(mid);
@@ -112,7 +112,7 @@ void func_002c0860(Menu* self) {
     func_001396b0(mid);
     x += func_0023aa98(self->mid.seq);
     for (s32 j = 0; j < 2; j++) {
-        func_001386e0(&self->tail[j], 30105, unit, self->image, 39, 201);
+        dk__Sprite__create(&self->tail[j], 30105, unit, self->image, 39, 201);
         SetParent(&self->tail[j], title);
         func_00139660(&self->tail[j]);
         func_00139688(&self->tail[j]);
@@ -123,8 +123,8 @@ void func_002c0860(Menu* self) {
     func_001391c8(self, 30102, 201);
     func_0023f848(&lf);
 }
-void func_002c0ca0(Menu* self) asm("func_002c0ca0");
-void func_002c0ca0(Menu* self) {
+void dk__WM_TOTAL_INFO__WM_TOTAL_INFO(Menu* self) asm("dk__WM_TOTAL_INFO__WM_TOTAL_INFO");
+void dk__WM_TOTAL_INFO__WM_TOTAL_INFO(Menu* self) {
     LayFile lf;
     s32 gra, mes, unit, x, r;
     Sp* title;
@@ -136,8 +136,8 @@ void func_002c0ca0(Menu* self) {
     title = &self->title;
     func_0031a838(self->lay.m0c);
     self->lay.vptr = D_0035eb98;
-    func_002369a0(self->lay.m18);
-    func_0023c008(self->lay.m30);
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(self->lay.m18);
+    YI__LAYOUT__LAYOUT(self->lay.m30);
     self->cache = 0;
     INIT(self->title);
     InitArray(self->icons, 2);
@@ -147,21 +147,21 @@ void func_002c0ca0(Menu* self) {
     D_00361a90 = self;
     x = 0;
     func_0023f800(&lf);
-    self->cache = func_001708f8(func_002beb90(), -1);
+    self->cache = func_001708f8(worldmap__Manager__get2ldFile(), -1);
     func_0023fa08(&lf, self->cache);
     gra = func_0023f948(&lf, 0);
     mes = func_0023f908(&lf, 0);
     r = func_002c1460(self, 0);
-    func_0023eea0(&self->lay, 30101, gra, mes, r, 0);
-    func_0023ef50(&self->lay);
+    Tz__Layout__create(&self->lay, 30101, gra, mes, r, 0);
+    Tz__Layout__SetImageCache(&self->lay);
     func_0023f0c8(&self->lay, func_002c1460(self, 2));
     func_00139570(&self->lay);
     unit = func_0023c4b8(func_0023f1b0(&self->lay), 1);
     self->image = func_00236ca8(*(s32*)((u8*)func_0023f1b0(&self->lay) + 0x28), 1);
-    func_001386e0(title, 30105, unit, self->image, 75, 201);
+    dk__Sprite__create(title, 30105, unit, self->image, 75, 201);
     title->m188 = 76;
     for (s32 j = 0; j < 3; j++) {
-        func_001386e0(&self->icons[j], 30105, unit, self->image, 39, 201);
+        dk__Sprite__create(&self->icons[j], 30105, unit, self->image, 39, 201);
         SetParent(&self->icons[j], title);
         func_00139660(&self->icons[j]);
         func_00139688(&self->icons[j]);
@@ -169,7 +169,7 @@ void func_002c0ca0(Menu* self) {
         func_001396b0(&self->icons[j]);
         x += func_0023aa98(self->icons[j].seq);
     }
-    func_001386e0(mid, 30105, unit, self->image, 49, 201);
+    dk__Sprite__create(mid, 30105, unit, self->image, 49, 201);
     SetParent(mid, title);
     func_00139660(mid);
     func_00139688(mid);
@@ -177,7 +177,7 @@ void func_002c0ca0(Menu* self) {
     func_001396b0(mid);
     x += func_0023aa98(self->mid.seq);
     for (s32 j = 0; j < 2; j++) {
-        func_001386e0(&self->tail[j], 30105, unit, self->image, 39, 201);
+        dk__Sprite__create(&self->tail[j], 30105, unit, self->image, 39, 201);
         SetParent(&self->tail[j], title);
         func_00139660(&self->tail[j]);
         func_00139688(&self->tail[j]);

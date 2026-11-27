@@ -7,8 +7,8 @@ extern u8 D_00361c20[], D_00347f98[], D_0035eb98[], D_0035ebb8[], D_00347e60[], 
 extern u8* D_00361c10;
 void func_0031a838(void*);
 void func_0031a830(void*);
-void func_002369a0(void*);
-void func_0023c008(void*);
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*);
+void YI__LAYOUT__LAYOUT(void*);
 void func_0028d140(void*);
 void func_00239700(void*);
 void func_002361a0(void*);
@@ -18,7 +18,7 @@ void func_00167f38(s32);
 void func_002c5f48(void);
 struct Id3b2c29d8 { u8 a, b, c; void Fill(s32 v) { a = v; b = v; c = v; } };
 struct Id3h2c29d8 { u16 a, b, c; void Fill(s32 v) { a = v; b = v; c = v; } };
-void func_002c29d8(u8* t);  // 0x002c29d8: definition moved into src/anon/unit_002c2228.cpp
+void dk__WM_LANDING__WM_LANDING(u8* t);  // 0x002c29d8: definition moved into src/anon/unit_002c2228.cpp
 // 0028a5a8: list cursor scroll up/down with wrap and grid paging.
 s32 func_0028b040(W1610Lc*);
 s32 func_0028af78(W1610Lc*, s32);

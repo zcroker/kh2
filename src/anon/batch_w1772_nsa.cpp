@@ -7,7 +7,7 @@ struct F4_w1772 { f32 x, y, z, w; F4_w1772() { x = w = z = y = 0.0f; } };
 extern "C" {
 void func_001980d0(u8*, u32, u32, u32);
 void func_00190128(u8*);
-void func_0019f950(u8*, u8*);
+void YS__OBJ_ATTACK__OBJ_ATTACK(u8*, u8*);
 extern u8 D_0034ee08;
 void sceGsSyncPath(s32, s32);
 void FlushCache(s32);
@@ -20,7 +20,7 @@ void func_00185ed8(u8* p, u32 a1, u32 a2, u32 a3);
 
 // Byte-identical twin of func_00185ed8 (a second class with the same ctor).
 // 00185f70: moved to src/anon/unit_00185d10.cpp
-void func_00185f70(u8* p, u32 a1, u32 a2, u32 a3);
+void YS__BTLOBJ__BTLOBJ(u8* p, u32 a1, u32 a2, u32 a3);
 
 // GIF packet: 128-bit tag, GIFtag (NLOOP=1, EOP, NREG=2, REGS=A+D,A+D), two A+D pairs.
 struct Pkt_w1772 { u128 tag; u64 a; u64 b; u64 c[4]; };

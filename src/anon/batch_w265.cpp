@@ -10,21 +10,21 @@ void func_0029ac00(void);  // 0x0029ac00: definition moved into src/anon/unit_00
 struct I265 { s32 id; s32 b; s32 c; s32 n; s32 x; s32 y; };
 struct O265 { u8 pad[64]; s32 h; u8 pad2[260]; s32 x; s32 y; u8 pad3[8]; };
 struct P265 { u8 pad[16]; u8* tbl; u8* recs; u8 pad2[24]; O265* objs; s32 cnt; s32 st; u8 padx[4]; f32 lim; u8 pad3[8]; s32 sel; u8 pad4[4]; s32 dx; s32 dy; };
-void func_00236d60(void);  // clear_64_entries_24
+void YI__IMAGE_CACHE__Clear(void);  // clear_64_entries_24
 void func_00236830(s32);
-void func_0023ade0(O265*);
+void YI__SEQUENCE__Draw(O265*);
 void func_002367a0(void);
-void func_0023cc18(P265* p);  // 0x0023cc18: definition moved into src/anon/unit_0023c968.cpp
+void YI__LAYOUT__Draw(P265* p);  // 0x0023cc18: definition moved into src/anon/unit_0023c968.cpp
 extern char D_0036cbc0[];
 void func_0017f488(u8*, s32, f32, f32);
-s32 func_0019ba60(u8*);
+s32 YS__OBJ__is_exist(u8*);
 s32 func_001b0498(u8*);  // obj_check_ready_flags
 void func_001b0700(u8*, f32);
 void func_0018c438(u8*);
 s32 func_001883d8(u8*, const char*);
 void func_001880b0(u8*, const char*);
 struct Q265g { u8 pad[8]; u8* t; u8 pad1[2620]; s32 a; u8 pad2[180]; f32 f2816; u32 b0 : 1; u32 rest : 31; Q265g* o; };
-void func_0018b338(Q265g* p, f32 x);  // 0x0018b338: definition moved into src/yasui/libys/npc.cpp
+void YS__NPC__after_talk(Q265g* p, f32 x);  // 0x0018b338: definition moved into src/yasui/libys/npc.cpp
 extern u8 D_00361aa0[];
 extern u8* D_00361a90;
 extern u8 D_00347e60[];

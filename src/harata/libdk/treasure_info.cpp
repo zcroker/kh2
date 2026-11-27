@@ -5,7 +5,7 @@ namespace dk {
 extern u32 D_00347d58 asm("D_00347d58");
 
 extern u32 D_00347d58 asm("D_00347d58");
-extern "C" u32 func_00253180(u32, u32);
+extern "C" u32 Tz__CampMenu__Start(u32, u32);
 
 // 0x001382b8: definition moved into src/anon/unit_001374c8.cpp
 

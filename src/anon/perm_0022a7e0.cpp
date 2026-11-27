@@ -67,8 +67,8 @@ void func_0031a260(W1636Spr *, s32);
 u32 func_0022b720(void);
 u32 func_0022b9e0(void);
 void func_0022a0f8(W1636Group *, s32, s32, s32);
-void func_00158050(W1636Spr *, s32, u32, u32, s32, s32, s32);
-void func_001386e0(W1636Spr *, s32, u32, u32, s32, s32);
+void dk__GAUGE_ONE__create(W1636Spr *, s32, u32, u32, s32, s32, s32);
+void dk__Sprite__create(W1636Spr *, s32, u32, u32, s32, s32);
 void func_00139d78(W1636Group *);
 void func_0014b200(W1636Rect *, u32);
 inline static void W1636_setParent(W1636Spr *s, W1636Score *p)

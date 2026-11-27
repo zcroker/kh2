@@ -58,7 +58,7 @@ f32 W1685_fixRadian(f32) asm("_ZN2YS4MATH9FixRadianEf");
 extern "C" {
 extern s32 D_003616ec;
 W1685Cam* func_00106a60(s32);
-f32 func_0017d160(W1685Vec, W1685Vec);
+f32 YS__MATH__VectorAngle(W1685Vec, W1685Vec);
 
 void func_002bb5f8(W1685Fade* p)
 {
@@ -76,7 +76,7 @@ void func_002bb5f8(W1685Fade* p)
     d.normalize();
     d.y = 0.0f;
     f32 r;
-    r = W1685_fixRadian(r = func_0017d160(fwd, d));
+    r = W1685_fixRadian(r = YS__MATH__VectorAngle(fwd, d));
     // The angle starts at 0 and is also the zero for the first two tests.
     f32 angle = 0.0f;
     if (d.x < angle && d.z > angle) angle = 64.0f - r * 128.0f / 3.1415927f;

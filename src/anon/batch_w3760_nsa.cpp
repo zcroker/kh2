@@ -16,7 +16,7 @@ static inline ONode* ONext(Mgr* g, ONode* q) { return !q ? g->head : q->next; }
 extern "C" {
 u8* func_001050d8(s32);
 void func_00105110(u8*);
-QM* func_00106a18(s32);
+QM* kn__getProjection(s32);
 Cam* func_00106a60(s32);
 s32 func_001c18d0(ONode*);
 void func_001c1938(ONode*, LList*, u8*, QM*);

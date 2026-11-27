@@ -85,13 +85,13 @@ void func_00190878(Tgt118998*, s32, s32);
 s32 func_001b58a8(void);
 s32 func_0010f8c0(Model118998*);
 s32 func_00118958(Who118998*);
-void func_001169e8(Who118998*, s32);
+void kn__Stitch__calc_move_target(Who118998*, s32);
 void func_001168c0(Who118998*);
 s32 func_00116d08(Who118998*);
 void func_0017f488(void*, s32, f32, f32);
 void func_0017f5e0(void*, s32, f32, f32, void*);
 void func_001a1a50(void*, s32);
 void func_0016ac38(Model118998*, s32, s32, s32, Lead118998*);
-void* func_00117970(Who118998*, s32, Model118998*, s32, s32, s32, s32, s32);
+void* kn__Stitch__startEffect(Who118998*, s32, Model118998*, s32, s32, s32, s32, s32);
 s32 func_00118998(Who118998* w, Ent118998* e, Tgt118998* t, s32* score, u8 check);  // 0x00118998: definition moved into src/anon/unit_00118958.cpp
 }

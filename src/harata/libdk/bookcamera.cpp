@@ -76,7 +76,7 @@ extern f32 D_00349e10;  // frame time
 u8* func_00140df0(void);   // dk::ObjCamera::getInstance
 s32 func_00140dc0(void);   // dk::ObjCamera::getMode
 void func_00140dd0(u8*);   // dk::ObjCamera::returnMode
-void func_00141010(f32);
+void dk__ObjCamera__cancelSubjective(f32);
 f32 func_0013fd10(BcCam*);
 void func_0013fd78(BcCam*);
 s32 func_0019c4d0(BcTarget*);
@@ -88,10 +88,10 @@ f32 func_0017ce80(f32, f32, f32);
 void func_0011b6a8(M4*);
 void func_0011b720(M4*, f32);
 s32 func_00167f18(s32);
-s32 func_0013f9e0(V4*, V4*, V4*, s32, s32);
+s32 dk__ObjCamera__collision_2(V4*, V4*, V4*, s32, s32);
 BcVec func_0016c2b0(BcTarget*);
-BcVec* func_0016c028(BcTarget*);
-s32 func_00143d10(BcSeg*, BcVec*, f32*, s32*);
+BcVec* YS__OBJ__get_pos(BcTarget*);
+s32 dk__Octree__intersectLineCamera(BcSeg*, BcVec*, f32*, s32*);
 
 void func_001589d0(u8* p) {
     M4* m = (M4*)(D_004f35a0 + 64);
@@ -133,10 +133,10 @@ void func_00158b20(BcCam* c) {
     *(BcVec*)&c->v112 = D_0034a9d0;
 }
 
-void func_00158c88(BcCam* c);
+void dk__DangleCamera__calcEyeTarget(BcCam* c);
 
 // Steps the angle toward its target (or snaps it while the hold flag is set).
-void func_00158b78(BcPad* a, BcCam* b) {
+void dk__DangleCamera__control(BcPad* a, BcCam* b) {
     f32 k = D_00349e10;
     if (a->flags & 0x20000) {
         b->out = func_0013fd10(b);
@@ -150,10 +150,10 @@ void func_00158b78(BcPad* a, BcCam* b) {
         b->out = b->val = func_0017ce10(b->val);
     }
     if (!func_0019c4d0(b->target)) func_0013fdf0(b, a, k);
-    func_00158c88(b);
+    dk__DangleCamera__calcEyeTarget(b);
 }
 
-void func_00158c88(BcCam* c) {
+void dk__DangleCamera__calcEyeTarget(BcCam* c) {
     u8* p = (u8*)c;
     VAssign((V4*)(p + 0x80), (V4*)&D_0034a9b0);
     f32 d = *(f32*)(p + 0x48) - *(f32*)(p + 0xd0);
@@ -171,7 +171,7 @@ void func_00158c88(BcCam* c) {
     *(f32*)(p + 0x64) = *(f32*)(p + 0x84) - -220.0f - h;
 }
 
-void func_00158dc0(BcCam* c) {
+void dk__DangleCamera__update(BcCam* c) {
     s32 mode = func_00167f18(0);
     if (!c->target->vt->IsValid(c->target)) return;
     func_00158ac8(c);
@@ -179,7 +179,7 @@ void func_00158dc0(BcCam* c) {
         BcVec pos = func_0016c2b0(c->target);
         BcSeg seg;
         BcVec* pa = &seg.a;
-        BcVec& r = *func_0016c028(c->target);
+        BcVec& r = *YS__OBJ__get_pos(c->target);
         BcVec* pb = &seg.b;
         *pa = r;
         *pb = pos;
@@ -187,29 +187,29 @@ void func_00158dc0(BcCam* c) {
         f32 t;
         s32 n = 0;
         f32* pt = &t;
-        if (func_00143d10(&seg, &hit, pt, &n)) D_0034a9b0 = hit;
+        if (dk__Octree__intersectLineCamera(&seg, &hit, pt, &n)) D_0034a9b0 = hit;
         else D_0034a9b0 = pos;
         *(f32*)((u8*)c + 80) = func_0013fd10(c);
         D_0034a9e8 = 0;
     } else {
-        func_00158b78((BcPad*)mode, c);
-        if (func_0013f9e0(&c->v112, &c->v128, &c->v96, 1, 1)) {
+        dk__DangleCamera__control((BcPad*)mode, c);
+        if (dk__ObjCamera__collision_2(&c->v112, &c->v128, &c->v96, 1, 1)) {
             func_00158b20(c);
-            func_00158c88(c);
-            func_0013f9e0(&c->v112, &c->v128, &c->v96, 1, 1);
+            dk__DangleCamera__calcEyeTarget(c);
+            dk__ObjCamera__collision_2(&c->v112, &c->v128, &c->v96, 1, 1);
         }
     }
 }
 
-void func_00158f40(void) {
-    func_00141010(30.0f);
+void dk__DangleCamera__create(void) {
+    dk__ObjCamera__cancelSubjective(30.0f);
     u8* p = func_00140df0();
     func_00140dc0();
     *(s32*)(p + 0x40) = 6;
     D_0034a9e8 = 1;
 }
 
-void func_00158f90(void) {
+void dk__DangleCamera__destroy(void) {
     u8* cam = func_00140df0();
     if (func_00140dc0() == 6) func_00140dd0(cam);
 }

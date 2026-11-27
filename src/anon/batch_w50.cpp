@@ -65,25 +65,25 @@ extern "C" {
 u32 func_001dc5f0(s32);
 void func_00136020(void*);
 u32 func_0013a800(void);
-void func_00138650(void*, s32, u32, s32);
+void dk__SpriteImage__create(void*, s32, u32, s32);
 s32 func_00242c70(void);
 s32 func_0013a9d0(void);
-void func_002368e8(void*, f32);
+void YI__IMAGE__ClutGray(void*, f32);
 void func_002367c8(void*);  // obj_dispatch_bitfield64
 extern u8* D_00348050;
 s32 func_001991a8(s32, s32);
 void func_0013f030(void);
 void func_0013f048(void);
 extern u32 D_00348704;
-void func_0013f288(void);
-void func_0015d690(void);
+void dk__JumpEffect__in(void);
+void dk__KeyHoleJumpEffect__in(void);
 void func_0013f3d0(void);
 void func_0013f4d8(void);
 void func_001069b8(s32);  // swap_global_word
 void func_00140f78(void*, void*);
 void* func_00106a60(s32);  // buffer_get_by_index
-void* func_00106a18(s32);  // buffer_get_256
-void func_00107368(void*, void*);  // vec_copy_at80_if_diff
+void* kn__getProjection(s32);  // buffer_get_256
+void kn__Camera__getPosition(void*, void*);  // vec_copy_at80_if_diff
 void func_00107478(void*, void*);  // vec_copy_at96_if_diff
 f32 func_001074b8(void*);
 f32 func_00106f30(void*, s32);
@@ -98,9 +98,9 @@ void func_00160a90(void);
 extern void* D_004f3b30;
 extern void* D_0032b91c;
 void func_00168958(void*, s32, u32);  // obj_init_name_string
-Vec4 func_0016bda8(void*);
-s32 func_001d35e0(Vec4*, Vec4*, Vec4*, s32);
-void func_001a55a8(Vec4*, s32);
+Vec4 YS__OBJ__get_target_pos(void*);
+s32 YS__BGHIT__check_line(Vec4*, Vec4*, Vec4*, s32);
+void YS__PRIZE__Appear(Vec4*, s32);
 void YS_OBJ_scatter_prize(u8*, s32) asm("_ZN2YS3OBJ13scatter_prizeEi");
 extern s8 D_004f62f0;
 extern Vec4 D_004f6300;
@@ -113,7 +113,7 @@ s32 func_00181500(s32);
 s32 func_0019c400(void*);
 void func_0016ae58(void*, f32);
 f32 func_0017ce10(f32);
-s32 func_0019c838(void*);
+s32 YS__OBJ__can_hitback(void*);
 extern u8* D_00352130;
 extern u8 D_0032bae0[];
 extern u8 D_0032bb30[];
@@ -133,7 +133,7 @@ void func_001bd3e0(void*, s32, u32, u32, s32, s32);
 extern void* D_003527e0;
 void func_0019c9e0(void*);
 void func_0013ddc0(s32, void*);
-void func_001bdf38(void*, void*, u32);
+void YS__FIELD_COMMAND__initialize(void*, void*, u32);
 void func_001d6ab0(void*);
 void func_001b3b70(void*, void*, s32, u32);
 s32 func_0019c8a8(void*);
@@ -143,7 +143,7 @@ extern f32 D_00359a20[];
 double func_00313b80(f32);  // float_to_double
 void func_002fdfc8(const char*, u32, double, double, double, double);  // device_vprintf_va
 extern const char D_00370c68[];
-void func_0016ed50(u32, s32, s32);
+void YS__OBJENTRY__ReadRequest(u32, s32, s32);
 u8* func_00227d10(u32);
 u8* func_001058e8(void);
 void func_002fde18(void*, s32, s32);
@@ -171,7 +171,7 @@ void func_001dc818(u32);
 u32 func_0016ac38(u8*, s32, s32, s32, s32);
 extern u8 D_00362d20[];
 u32 func_002e64b8(s32, u32);  // list_advance_count
-void func_002e6ab0(u32, u8*, f32);
+void Ti__Afp__Data__calc_matrix(u32, u8*, f32);
 extern u8* D_01e2bfa0;
 
 // Clears a 3-quadword GS packet and fills in its GIFtags and A+D register ids.
@@ -203,7 +203,7 @@ void YS_OBJ_scatter_prize(u8* self, s32 n);  // 0x0016be00: definition moved int
 // registration of its destructor spelled out) and points o->v at it.
 // 0016d450: moved to src/anon/unit_0016d2e0.cpp
 
-void func_001722e8(S172* s);  // 0x001722e8: definition moved into src/anon/unit_00171e58.cpp
+void YS__trap_obj_flyjump(S172* s);  // 0x001722e8: definition moved into src/anon/unit_00171e58.cpp
 
 // 0017d050: moved to src/anon/unit_0017c400.cpp
 
@@ -260,9 +260,9 @@ void func_002bd870(void);  // 0x002bd870: definition moved into src/anon/unit_00
 
 void func_002c6228(u8* o, s32 i, u32 v);  // 0x002c6228: definition moved into src/worldmap/cameramanager.cpp
 
-f32* func_002cbca0(f32* out, u8* p);  // 0x002cbca0: definition moved into src/taito/path.cpp
+f32* Ti__Path__get_next_movement(f32* out, u8* p);  // 0x002cbca0: definition moved into src/taito/path.cpp
 
-void func_002dc1b8(u8* o, s32 id);  // 0x002dc1b8: definition moved into src/anon/unit_002da040.cpp
+void Ti__MGHachimitsuPo__set_run_effect(u8* o, s32 id);  // 0x002dc1b8: definition moved into src/anon/unit_002da040.cpp
 
 void func_002dea00(u8* o, f32 a, f32 b);  // 0x002dea00: definition moved into src/anon/unit_002de3c8.cpp
 

@@ -6,7 +6,7 @@ struct W2368Slot { u8 pad[8]; s32 h; };
 struct W2368Obj { u8 pad0[0x9c]; u8 res[0x7b0 - 0x9c]; s32 arr[8]; };
 
 extern "C" {
-s32 func_001de168(void*, s32, s32, s32, s32, W2368Obj*);
+s32 ryj__PAX__start(void*, s32, s32, s32, s32, W2368Obj*);
 W2368Snd* func_001dc670(s32);
 void func_001dc920(s32);
 

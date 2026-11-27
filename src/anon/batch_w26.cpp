@@ -37,9 +37,9 @@ void loadImage(u32) asm("_ZN2dk9loadImageEj");
 void TaskYield(...) asm("_ZN2Tz9TaskYieldEz");
 void SignalCall(void) asm("_ZN2Tz8DbgSMenu10SignalCallEv");
 void jumpEffectIn_task(void*) asm("_ZN2dk14StopJumpEffect17jumpEffectIn_taskEP4TASK");
-void* ctarget_001b9bc8(void*) asm("_Z16ctarget_001b9bc8jjjj");
+void* YS__OBJ__Each(void*) asm("_Z13YS__OBJ__Eachjjjj");
 void* obj_get_serial(void*) asm("_ZN2YS3OBJ10get_serialEv");
-void ctarget_0019ba60(void*) asm("_Z16ctarget_0019ba60jjjj");
+void YS__OBJ__is_exist(void*) asm("_Z17YS__OBJ__is_existjjjj");
 void party_use_mp(void*) asm("_ZN2YS5PARTY6use_mpEv");
 void* func_001cd7a8(void*);
 void target_set_obj(void*, void*, s32) asm("_ZN2YS6TARGET7set_objEPNS_3OBJEi");
@@ -47,14 +47,14 @@ void cache_free(void*) asm("_ZN2YS10CACHE_BUFF4FreeEPv");
 void func_00192028(s32);
 void func_00198dc0(void*);
 void func_0019aec0(void*, u8);
-s32 func_0017a538(void*);
+s32 YS__PLAYER__is_changing(void*);
 void* sheet_ctor(void*) asm("_ZN2YS5SHEETC1Ev");
 void* func_001db5a8(void*);
 void func_001a0ee0(void*, void*);
 void func_00239700(void*);
 void* func_001ab810(void);  // get_global_1c7cec0
 void* font_get_image(void) asm("_ZN2YS4FONT8GetImageEv");
-void func_00239988(void*, void*, void*);
+void YI__SEQUENCE__Init(void*, void*, void*);
 s32 obj_is_attach(void*) asm("_ZN2YS3OBJ9is_attachEv");
 void* friend_get(s32) asm("_ZN2YS6FRIEND3GetEi");
 s32 obj_is_leave(void*) asm("_ZN2YS3OBJ8is_leaveEv");
@@ -62,7 +62,7 @@ s32 func_001ca448(void*);  // type_is_16_44_161
 s32 mission_is_exec(void) asm("_ZN2YS7MISSION6IsExecEv");
 s32 mission_get_count(s32) asm("_ZN2YS7MISSION8GetCountEi");
 void func_00177dc8(void*, void*, s32, void*, void*);
-void func_001befd8(void*, void*, s32);
+void YS__FIELD_COMMAND__set_minigame(void*, void*, s32);
 s32 func_001d7f10(s32);
 u8 sceVu0CopyVector(void*, void*);  // memcpy16
 u8* minigame_get_score(s32) asm("_ZN2YS8MINIGAME8GetScoreEi");
@@ -74,11 +74,11 @@ bool u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
 bool select_is_created(...) asm("_ZN2Tz6Select9isCreatedEz");
 s32 seq_get_loop_mode(void*, s32) asm("_ZN2YI8SEQUENCE11GetLoopModeEi");
 u8* jm_get_sram(s32) asm("_ZN2Tz9JmNewInfo7GetSramEv");
-u8 func_002bb9b8(void*);
+u8 SE3D__calcSe(void*);
 s32 func_002bbc90(void*);
 s32 func_002bbbc8(void*);
 void area_free(void*) asm("_ZN4AREA4FreeEPv");
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 u8 func_00319fb0(void*);  // big_obj_dtor
 void func_002e70b0(void*);
@@ -136,7 +136,7 @@ struct Obj { void (**vt)(Obj*); };
 // Counts objects that are not culled.
 s32 func_001182d0(void);  // 0x001182d0: definition moved into src/anon/unit_001182d0.cpp
 
-void func_00123d40(void* a, void* b, void* c);  // 0x00123d40: definition moved into src/anon/unit_00123990.cpp
+void kn__ModelMulti__getBoundingBox(void* a, void* b, void* c);  // 0x00123d40: definition moved into src/anon/unit_00123990.cpp
 
 void jumpEffectIn_task(void* task);  // 0x0013f450: definition moved into src/anon/unit_0013ef70.cpp
 

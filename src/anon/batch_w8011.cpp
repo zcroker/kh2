@@ -6,7 +6,7 @@ void func_00279ec8(void);
 void func_0027b6b8(void);
 s32 func_002570a0(s32);
 void func_0027aed8(s32, s32*, s32*);
-void func_0027a6d8(void);
+void Tz__CmAbility__UpdateNew(void);
 void func_0027a208(void);
 void func_0027b248(s32);
 u32 func_0028af88(s32);
@@ -14,7 +14,7 @@ s32 func_0028b040(s32);
 extern E27bb* D_0035f230;
 s32 func_00283ab8(s32);
 s32 func_00258068(s32);
-void func_00256cc0(s32, s32, s32);
+void Tz__CmTop__CreatePadHelp(s32, s32, s32);
 void func_0028af18(s32, u32);
 void func_0027aaa0(void);
 
@@ -32,6 +32,6 @@ s32 func_00139d78(void*);
 static inline void SetFlag283790(u8* p) { ((Sub283790*)p)->flags |= 8; }
 u32 func_0023f1b0(u32);
 u32 func_0023c4b8(u32, s32);
-void func_001386e0(void*, s32, u32, u8*, s32, s32);
-void func_00283790(void);  // 0x00283790: definition moved into src/anon/unit_00282c68.cpp
+void dk__Sprite__create(void*, s32, u32, u8*, s32, s32);
+void Tz__CmTutorial__CreateGra(void);  // 0x00283790: definition moved into src/anon/unit_00282c68.cpp
 }

@@ -109,16 +109,16 @@ struct W1635Param {
 };
 
 extern "C" {
-W1635FormInfo* func_001b6fb0(s32, u8);
+W1635FormInfo* YS__LEVELUP__Get(s32, u8);
 s32 func_001b73e8(W1635FormInfo*, s32);
 void func_001c2f90(void*, W1635Sheet*);
-void func_001c3060(void*);
+void YS__ABILITY__check(void*);
 void func_001a24a0(W1635Sheet*, u16);
 extern W1635Int D_01c6cabc;
 extern W1635Param* D_00352130;
 W1635Info* func_00177860(W1635Obj*);
-s32 func_0019ba60(W1635Obj*);
-s32 func_001a1de0(W1635Sheet*);
+s32 YS__OBJ__is_exist(W1635Obj*);
+s32 YS__SHEET__is_mpdrive(W1635Sheet*);
 s32 func_001a2108(W1635Sheet*, s32, s32);
 s32 func_001a2200(W1635Sheet*, s32);
 s32 func_001a22b0(W1635Sheet*, s32, W1635Sheet*, W1635AttackData*);
@@ -128,7 +128,7 @@ s32 func_001a2478(W1635Sheet*);
 W1635Default* func_001c0cc8(void) __attribute__((pure));
 
 // Set the sheet up from its data record (null = keep the current one).
-void func_001a11e0(W1635Sheet* s, W1635SheetData* d);  // 0x001a11e0: definition moved into src/anon/unit_0019fb70.cpp
+void YS__SHEET__load(W1635Sheet* s, W1635SheetData* d);  // 0x001a11e0: definition moved into src/anon/unit_0019fb70.cpp
 
 static inline bool W1635_is6(W1635Obj* o) { return o->xb50 == 6; }
 

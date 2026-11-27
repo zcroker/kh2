@@ -25,7 +25,7 @@ void func_002ceb08(void*);
 void func_002e2660(u8*);
 void func_002e26c0(u8*);
 }
-void wtarget_002e2440(void*) asm("_Z16wtarget_002e2440jjjj");
+void Ti__MG_EHSidecar__exec(void*) asm("_Z22Ti__MG_EHSidecar__execjjjj");
 void wtarget_002e2570(void*) asm("_Z16wtarget_002e2570jjjj");
 void wtarget_002e27c8(void*) asm("_Z16wtarget_002e27c8jjjj");
 
@@ -36,12 +36,12 @@ static inline void vcopy(void* d, void* s) {
     if (d != s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory");
 }
 extern u32 D_00361f60 asm("D_00361f60");
-void func_00184540(V16*, u32, f32, f32) asm("func_00184540");
+void kn__MotionPrototype0__calcLimitValue(V16*, u32, f32, f32) asm("kn__MotionPrototype0__calcLimitValue");
 void func_002e10d0(V16*, u32) asm("func_002e10d0");
 extern "C" V16* func_002e1908(V16* out, u32 a1, u32 a2) {
     V16 m[4];
     V16 t;
-    func_00184540(out, a2, 0.800000012f, 0.800000012f);
+    kn__MotionPrototype0__calcLimitValue(out, a2, 0.800000012f, 0.800000012f);
     func_002e10d0(m, D_00361f60);
     ((u32*)out)[3] = 0;
     asm volatile("lqc2 $vf5, 0(%1)\n\tlqc2 $vf1, 0(%2)\n\tlqc2 $vf2, 16(%2)\n\tlqc2 $vf3, 32(%2)\n\tlqc2 $vf4, 48(%2)\n\t"
@@ -121,7 +121,7 @@ s32 func_002e0fe8(s32) asm("func_002e0fe8");
 Cam1998Mtx func_002e10d0(s32) asm("func_002e10d0");
 Cam1998Mtx* func_002e10c0(s32) asm("func_002e10c0");
 Cam1998Mtx34 func_002e1108(s32) asm("func_002e1108");
-Cam1998Vec* func_0016c028(Cam1998Act*) asm("func_0016c028");
+Cam1998Vec* YS__OBJ__get_pos(Cam1998Act*) asm("YS__OBJ__get_pos");
 void func_0016ace0(Cam1998Act*, const Cam1998Vec&) asm("func_0016ace0");
 void func_0016b070(Cam1998Act*, Cam1998Vec*) asm("func_0016b070");
 void func_0011b6a8(Cam1998Mtx*) asm("func_0011b6a8");
@@ -136,7 +136,7 @@ extern "C" void func_002e1998(void*, Cam1998Act* o)
         Cam1998Mtx view = func_002e10d0(cam);
         Cam1998Mtx inv = func_002e10c0(cam)->inverse();
         {
-            Cam1998Vec p = inv * *func_0016c028(o);
+            Cam1998Vec p = inv * *YS__OBJ__get_pos(o);
             p.z = D_00362d88;
             Cam1998Vec q = view * p;
             Cam1998Mtx vi = view.inverse();
@@ -202,7 +202,7 @@ void W2024b_obj_set_pos_trans(W2024b_Obj*, const W2024b_Vec*) asm("_ZN2YS3OBJ13s
 void W2024b_obj_set_rot(W2024b_Obj*, const W2024b_Vec*) asm("_Z16wtarget_0016b070jjjj");
 extern W2024b_Cam* D_00361f60 asm("D_00361f60");
 extern void* D_0034e948 asm("D_0034e948");
-W2024b_Vec* func_0016c028(void*) asm("func_0016c028");
+W2024b_Vec* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 void func_002e10d0(W2024b_Mtx*, W2024b_Cam*) asm("func_002e10d0");
 void func_002e1140(W2024b_Mtx*, W2024b_Cam*) asm("func_002e1140");
 void func_0011b6a8(void*) asm("func_0011b6a8");
@@ -215,7 +215,7 @@ extern "C" void func_002e1d28(void* self, W2024b_Obj* o) {
     W2024b_Mtx b2;
     if (!W2024b_mg_be_ready(self)) return;
     if (W2024b_cam_matrix(c)) {
-        W2024b_obj_set_pos_trans(o, func_0016c028(D_0034e948));
+        W2024b_obj_set_pos_trans(o, YS__OBJ__get_pos(D_0034e948));
         func_002e10d0(&a, c);
         func_002e1140(&b, c);
         func_0011b6a8(&m);
@@ -283,8 +283,8 @@ void func_002e34c0(u8*, u32) asm("func_002e34c0");
 void func_002e64b0(u32) asm("func_002e64b0");
 u32 func_001050c8(void) asm("func_001050c8");
 void* func_001063c0(s32, u32) asm("func_001063c0");
-void func_002e6fc0(void*, u32) asm("func_002e6fc0");
-void func_002cedd0(s32, u8*) asm("func_002cedd0");
+void Ti__Afp__Afp(void*, u32) asm("Ti__Afp__Afp");
+void Ti__MiniGame__create_task(s32, u8*) asm("Ti__MiniGame__create_task");
 void func_0016bd60(u8*, s32) asm("func_0016bd60");
 u8* func_0016b740(s32) asm("func_0016b740");
 void func_002e2350(Obj57*) asm("func_002e2350");
@@ -303,9 +303,9 @@ extern "C" void func_002e1f70(Obj57* o, u32 a)
     u32 x = func_00168b38(h, 42, 1)->v;
     func_002e64b0(x);
     void* m = func_001063c0(12, func_001050c8());
-    func_002e6fc0(m, x);
+    Ti__Afp__Afp(m, x);
     o->m = m;
-    func_002cedd0(3, D_00362e80);
+    Ti__MiniGame__create_task(3, D_00362e80);
     u8* p = D_0034e948;
     func_0016bd60(p, 53);
     *(u32*)(p + 264) |= 1;
@@ -352,8 +352,8 @@ void func_002e34c0(u8*, u32) asm("func_002e34c0");
 void func_002e64b0(u32) asm("func_002e64b0");
 u32 func_001050c8(void) asm("func_001050c8");
 void* func_001063c0(s32, u32) asm("func_001063c0");
-void func_002e6fc0(void*, u32) asm("func_002e6fc0");
-void func_002cedd0(s32, u8*) asm("func_002cedd0");
+void Ti__Afp__Afp(void*, u32) asm("Ti__Afp__Afp");
+void Ti__MiniGame__create_task(s32, u8*) asm("Ti__MiniGame__create_task");
 void func_0016bd60(u8*, s32) asm("func_0016bd60");
 u8* func_0016b740(s32) asm("func_0016b740");
 void func_002e2350(Obj57*) asm("func_002e2350");
@@ -373,8 +373,8 @@ void func_002e34c0(u8*, u32) asm("func_002e34c0");
 void func_002e64b0(u32) asm("func_002e64b0");
 u32 func_001050c8(void) asm("func_001050c8");
 void* func_001063c0(s32, u32) asm("func_001063c0");
-void func_002e6fc0(void*, u32) asm("func_002e6fc0");
-void func_002cedd0(s32, u8*) asm("func_002cedd0");
+void Ti__Afp__Afp(void*, u32) asm("Ti__Afp__Afp");
+void Ti__MiniGame__create_task(s32, u8*) asm("Ti__MiniGame__create_task");
 void func_0016bd60(u8*, s32) asm("func_0016bd60");
 u8* func_0016b740(s32) asm("func_0016b740");
 void func_002e2350_102666(Obj83*) asm("func_002e2350");
@@ -393,9 +393,9 @@ extern "C" void func_002e20d8(Obj83* o, u32 a)
     u32 x = func_00168b38_102666(h, 42, 1)->v;
     func_002e64b0(x);
     void* m = func_001063c0(12, func_001050c8());
-    func_002e6fc0(m, x);
+    Ti__Afp__Afp(m, x);
     o->m = m;
-    func_002cedd0(3, D_00362e80);
+    Ti__MiniGame__create_task(3, D_00362e80);
     u8* p = D_0034e948;
     func_0016bd60(p, 53);
     *(u32*)(p + 264) |= 1;
@@ -502,8 +502,8 @@ void func_002e24e0(u8*) asm("func_002e24e0");
 extern V4 D_00362e70 asm("D_00362e70");
 extern u8* D_0034e948 asm("D_0034e948");
 void func_0016ace0(u8*, V4*) asm("func_0016ace0");
-void wtarget_002e2440(u32, u32, u32, u32) asm("_Z16wtarget_002e2440jjjj");
-void wtarget_002e2440(u32 a, u32, u32, u32)
+void Ti__MG_EHSidecar__exec(u32, u32, u32, u32) asm("_Z22Ti__MG_EHSidecar__execjjjj");
+void Ti__MG_EHSidecar__exec(u32 a, u32, u32, u32)
 {
     u8* p = (u8*)a;
     if (func_00197920(p)) return;
@@ -664,17 +664,17 @@ struct NM1567 {
 struct QV1567 { f32 x, y, z, w; } __attribute__((aligned(16)));
 extern f32 D_00362e60 asm("D_00362e60");
 s32 func_00197920(void) asm("func_00197920");
-s32 func_00106a18(s32) asm("func_00106a18");
-void func_00106de8(f32, s32, s32) asm("func_00106de8");
-void func_00106c08(s32) asm("func_00106c08");
+s32 kn__getProjection(s32) asm("kn__getProjection");
+void kn__Projection__setFOV(f32, s32, s32) asm("kn__Projection__setFOV");
+void kn__Projection__calcMatrix(s32) asm("kn__Projection__calcMatrix");
 u8* func_00106a60(s32) asm("func_00106a60");
 NM1567 func_002e71a0(s32, u8, s32) asm("func_002e71a0");
-void func_001072d0(u8*, u8*, QV1567*) asm("func_001072d0");
+void kn__Camera__lookAt_2(u8*, u8*, QV1567*) asm("kn__Camera__lookAt_2");
 void wt1567(u8* a0, u32, u32, u32) {
     if (func_00197920() == 0) {
-        s32 b = func_00106a18(1);
-        func_00106de8(D_00362e60 * 0.017453292f, b, 1);
-        func_00106c08(b);
+        s32 b = kn__getProjection(1);
+        kn__Projection__setFOV(D_00362e60 * 0.017453292f, b, 1);
+        kn__Projection__calcMatrix(b);
         u8* cam = func_00106a60(1);
         NM1567 m = func_002e71a0(*(s32*)(a0 + 0x6c), (*(u8**)(a0 + 0x64))[8], 1);
         asm volatile("lqc2 $vf1, 48(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.xyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 48(%0)" : : "r"(&m), "r"(a0 + 0xf0) : "memory");
@@ -682,7 +682,7 @@ void wt1567(u8* a0, u32, u32, u32) {
         *d = m;
         QV1567 t;
         asm volatile("lqc2 $vf1, 0(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%2)" : : "r"(cam + 0x40), "r"(cam + 0x30), "r"(&t) : "memory");
-        func_001072d0(cam, cam + 0x40, &t);
+        kn__Camera__lookAt_2(cam, cam + 0x40, &t);
         d->invOrtho();
     }
 }
@@ -704,7 +704,7 @@ struct Vec82 {
         return *this;
     }
 } __attribute__((aligned(16)));
-Vec82* func_0016c028(u32) asm("func_0016c028");
+Vec82* YS__OBJ__get_pos(u32) asm("YS__OBJ__get_pos");
 union FU001d { f32 f; s32 i; };
 struct Q001d { u32 a; FU001d f; };
 struct S001d { s32 end; s32 cur; Q001d e[3]; u32 cur_a; f32 cur_f; f32 timer; };
@@ -719,7 +719,7 @@ extern "C" void func_002e2940(u8* a0, u8* a1, Vec82* a2, Vec82* a3)
     if (func_00197920((S001d*)a0)) return;
     if (!a0[88]) return;
     if (!(*(u32*)(a1 + 1416) & 0x80)) return;
-    VAdd82(&a, func_0016c028((u32)a1), a2);  // obj_get_attach_or_alt
+    VAdd82(&a, YS__OBJ__get_pos((u32)a1), a2);  // obj_get_attach_or_alt
     VAdd82(&b, &a, a3);
     QCopy82(&a, &b);
     func_002e2a30(a0, &a, a0 + 288, a0 + 304);
@@ -793,7 +793,7 @@ struct MG_EHSidecar {
     static s32 GetCurrentPoint();
 };
 void MG_EHSidecar::task_update_camera(TASK* t) {
-    wtarget_002e2440(*(void**)((u8*)t + 4));
+    Ti__MG_EHSidecar__exec(*(void**)((u8*)t + 4));
 }
 }
 extern "C" void func_002e2c68(TASK* t) {

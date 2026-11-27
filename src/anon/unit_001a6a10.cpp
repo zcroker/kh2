@@ -48,7 +48,7 @@ void f_btlobj_ctor(u8*, u32, u32, u32) asm("func_001b3b70");
 void* f_get_serial(void*) asm("_ZN2YS3OBJ10get_serialEv");
 void f_history_set(void*, void*) asm("func_001956d0");
 u8 f_history_test(void*, void*) asm("func_00195700");
-void f_menuflag_changed(void) asm("func_001d59b0");
+void f_menuflag_changed(void) asm("YS__LINK_FLAG__Check");
 void f_pool_free(u32) asm("func_001b86e0");
 u32 f_pool_alive(u32, u32, u32, u32) asm("func_001b84b8");
 u32 f_pool_alloc(u32, u32) asm("func_001b8680");
@@ -58,8 +58,8 @@ void f_rec_restore(u32) asm("func_001c11a8");
 void f_lock(u32) asm("func_001b9c28");
 void f_unlock(u32) asm("func_001b9c58");
 void f_task_wait(u32, s32) asm("func_00102448");
-u8 f_win_busy(void) asm("func_001b8e88");
-u8 f_win_wait(u8*, u32) asm("func_0019c218");
+u8 f_win_busy(void) asm("YS__COMMAND_ELEM__Get");
+u8 f_win_wait(u8*, u32) asm("YS__OBJ__can_decide");
 
 // ---- buffer cache ----
 
@@ -106,8 +106,8 @@ void func_001a6b58(u8* p, u32 a, u32 b) {
     *(u32*)(p + 2748) |= 4;
 }
 
-void func_001a6bc8(u8* p, u32 a, u32 b) asm("func_001a6bc8");
-void func_001a6bc8(u8* p, u32 a, u32 b) {
+void YS__FIELDOBJ__FIELDOBJ(u8* p, u32 a, u32 b) asm("YS__FIELDOBJ__FIELDOBJ");
+void YS__FIELDOBJ__FIELDOBJ(u8* p, u32 a, u32 b) {
     f_btlobj_ctor(p, a, 4, b);
     *(void**)p = D_00350910;
     *(u32*)(p + 1416) |= 0x100;
@@ -182,20 +182,20 @@ void func_001a6dd8(u32* p, u32 b, S20* src, u32 d, u32 e) {
 }
 
 void func_001a6ef0(JobTask* t) asm("func_001a6ef0");
-s32 func_001a6fe8(WinMsg* m, WinTask* t) asm("func_001a6fe8");
+s32 YS__TEST_LIBRETTO__Callback(WinMsg* m, WinTask* t) asm("YS__TEST_LIBRETTO__Callback");
 void func_001a6e88(u32 a0, u32 a1, u32 a2) asm("func_001a6e88");
 void func_001a6e88(u32 a0, u32 a1, u32 a2) {
     f_rec_copy(12);
     f_lock(0);
-    func_001a6dd8((u32*)a0, a1, (S20*)a2, (u32)&func_001a6ef0, (u32)&func_001a6fe8);
+    func_001a6dd8((u32*)a0, a1, (S20*)a2, (u32)&func_001a6ef0, (u32)&YS__TEST_LIBRETTO__Callback);
 }
 
 // ---- job 1: hold the target while a window is open ----
 
 V4 f_tgt_pos(YS::TARGET*) asm("func_00190388");
-V4* f_obj_pos(void*) asm("func_0016c028");
-void f_obj_look(void*, const V4&) asm("func_0016b010");
-void f_npc_before(void*) asm("func_0018b200");
+V4* f_obj_pos(void*) asm("YS__OBJ__get_pos");
+void f_obj_look(void*, const V4&) asm("YS__OBJ__set_wish_dir");
+void f_npc_before(void*) asm("YS__NPC__before_check");
 void f_npc_after(void*) asm("_ZN2YS3NPC11after_checkEv");
 u32 f_event_exec(void) asm("_ZN2YS5EVENT6IsExecEv");
 
@@ -228,8 +228,8 @@ void f_win_open_a(Win*, u32) asm("func_001ad228");
 void f_win_open_b(Win*, u32) asm("func_001ad4a8");
 static inline bool w_IsOpen(Win* w) { return w->state != 3; }
 
-s32 func_001a6fe8(WinMsg* m, WinTask* t) asm("func_001a6fe8");
-s32 func_001a6fe8(WinMsg* m, WinTask* t) {
+s32 YS__TEST_LIBRETTO__Callback(WinMsg* m, WinTask* t) asm("YS__TEST_LIBRETTO__Callback");
+s32 YS__TEST_LIBRETTO__Callback(WinMsg* m, WinTask* t) {
     u32 task = t->task;
     if (m->type == 1) {
         u32 arg = m->arg;
@@ -259,9 +259,9 @@ void f_member_face(u8*, f32, f32, f32) asm("_Z13func_001ad990jfff");
 u32 f_npc_check(void*) asm("func_0018b1d8");
 void f_tgt_lock(YS::TARGET*, u32) asm("func_00159b40");
 void f_tgt_unlock(void) asm("func_00159c20");
-V4 f_obj_dir(void*) asm("func_0016af58");
+V4 f_obj_dir(void*) asm("YS__OBJ__get_dir");
 void f_npc_face(void*, V4*, f32) asm("func_0018b288");
-void f_npc_end(void*) asm("func_0018b338");
+void f_npc_end(void*) asm("YS__NPC__after_talk");
 void f_obj_set_dir(void*, const V4&) asm("_ZN2YS3OBJ7set_dirERKN2kn7FVectorE");
 void f_motion_set(u8*, s32, f32, f32) asm("_Z13func_0017f488iiff");
 void f_texanm_start(void*, s32) asm("_ZN2YS3OBJ12texanm_startEi");

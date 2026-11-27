@@ -5,7 +5,7 @@ extern "C" {
 void func_001adc48();
 void func_001adc08(void*, s32, void*);
 s32 func_00105ee8(s32);
-void func_00168388(void*, u32, void (*)(void*, s32, void*), void*);
+void YS__FILE__ReadBack(void*, u32, void (*)(void*, s32, void*), void*);
 void func_001ae4c0(s32, u32, void*);
 void func_001ae590(Info1ad*, s32);
 void func_002f6698(void (*)());

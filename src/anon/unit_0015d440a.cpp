@@ -14,10 +14,10 @@ u32 func_0014aba8() asm("func_0014aba8");
 void func_0014aa58(u32, s32, s32) asm("func_0014aa58");
 void func_0013f020() asm("func_0013f020");
 void func_0023acd8(void*) asm("func_0023acd8");
-void func_0023ade0(void*) asm("func_0023ade0");
+void YI__SEQUENCE__Draw(void*) asm("YI__SEQUENCE__Draw");
 /*TARGET 0015d440*/
-s32 func_0015d440() asm("func_0015d440");
-s32 func_0015d440() {
+s32 dk__KeyHoleJumpEffect__jumpEffectOut_task() asm("dk__KeyHoleJumpEffect__jumpEffectOut_task");
+s32 dk__KeyHoleJumpEffect__jumpEffectOut_task() {
     func_00236788(D_0034af40);  // to_236830
     if (!(u8)func_00239d30(&D_0034b0e0, D_0034b0e0.f114)) {
         if (!func_00239d10(&D_0034b0e0)) {
@@ -29,7 +29,7 @@ s32 func_0015d440() {
     func_0023acd8(&D_0034b0e0);
     D_0034b0e0.f148 = 0;
     D_0034b0e0.f14c = 0;
-    func_0023ade0(&D_0034b0e0);
+    YI__SEQUENCE__Draw(&D_0034b0e0);
     return 0;
 }
 }  // namespace n0015d440
@@ -38,16 +38,16 @@ s32 func_0015d440() {
 // 0015d4e8 (gap: the field task that waits until the demo sequence ends). The first step is written out
 // before the loop; cross-jumping merges the two TaskYield calls, which puts the argument moves before the loop label.
 namespace n0015d4e8 {
-s32 func_0015d440() asm("func_0015d440");
+s32 dk__KeyHoleJumpEffect__jumpEffectOut_task() asm("dk__KeyHoleJumpEffect__jumpEffectOut_task");
 void func_00102448(u32, s32) asm("func_00102448");  // Tz::TaskYield
 void func_0014e098(s32) asm("func_0014e098");
 /*TARGET 0015d4e8*/
 void func_0015d4e8(u32 task) asm("func_0015d4e8");
 void func_0015d4e8(u32 task) {
-    if (func_0015d440()) return;
+    if (dk__KeyHoleJumpEffect__jumpEffectOut_task()) return;
     func_00102448(task, 0);
     func_0014e098(216);
-    while (!func_0015d440()) {
+    while (!dk__KeyHoleJumpEffect__jumpEffectOut_task()) {
         func_00102448(task, 0);
         func_0014e098(216);
     }

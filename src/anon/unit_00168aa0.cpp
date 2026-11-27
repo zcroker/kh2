@@ -211,7 +211,7 @@ namespace n00168e30 {
 // --------------------
 struct Rel168eEnt { u16 type; u16 flags; u32 pad; u32 ofs; u32 size; };
 struct Rel168eHdr { u32 pad; s32 count; u32 base; u32 pad2; Rel168eEnt e[1]; };
-void func_0011f3b8_x8152(u32) asm("func_0011f3b8");
+void func_0011f3b8_x8152(u32) asm("kn__modelDestroy");
 void func_00131f40(u32) asm("func_00131f40");
 void func_00127da0(u32) asm("func_00127da0");
 void func_002bc708(u32) asm("func_002bc708");
@@ -254,17 +254,17 @@ u32 func_00168f18() {
     func_001675b0();
     func_001b13d8();
     func_0016e8f8();
-    func_00180f28();
-    func_00194a30();
+    YS__PROGRESS__Read();
+    YS__BATTLE__SysInit();
     func_00196170();
     func_00196300();
     func_00199688();
     func_001aeb80();
-    func_001d53e8();
+    YS__MISSION_TABLE__Init();
     func_001aaa08();
     func_0019f790();
-    func_00192320();
-    func_001d9d00();
+    YS__MESSAGE__SysInit();
+    YS__JIGSAW__Init();
     return func_001b13f0();
 }
 }  // namespace n00168f18
@@ -339,7 +339,7 @@ void func_001a89f0(void) asm("func_001a89f0");
 void func_00196b88(void) asm("func_00196b88");
 void func_001a8498(void) asm("func_001a8498");
 void func_001c8de0(void) asm("func_001c8de0");
-void func_001ada38(u32) asm("func_001ada38");
+void YS__RECOV__Exec(u32) asm("YS__RECOV__Exec");
 /*TARGET 00169030*/
 void func_00169030(u32 a) asm("func_00169030");
 void func_00169030(u32 a) {
@@ -365,7 +365,7 @@ void func_00169030(u32 a) {
     func_00196b88();
     func_001a8498();
     func_001c8de0();
-    func_001ada38(11);
+    YS__RECOV__Exec(11);
 }
 }  // namespace n00169030
 
@@ -399,8 +399,8 @@ void func_00192260(u32, s32) asm("func_00192260");
 void func_001b8318(void) asm("func_001b8318");
 void func_001a3a50(void) asm("func_001a3a50");
 void func_001a64c0(void) asm("func_001a64c0");
-void func_001a5970(void) asm("func_001a5970");
-void func_001bfbd8(void) asm("func_001bfbd8");
+void YS__PRIZE__Read(void) asm("YS__PRIZE__Read");
+void YS__PRIZEBOX__Read(void) asm("YS__PRIZEBOX__Read");
 void func_00182ab0(void) asm("func_00182ab0");
 void func_001c8838(s32) asm("func_001c8838");
 void func_001bae08(void) asm("func_001bae08");
@@ -411,12 +411,12 @@ void func_00169178(void) {
     func_001b8318();
     func_001a3a50();
     if (!(D_0034f240 & 0x80000)) func_001a64c0();
-    func_001a5970();
+    YS__PRIZE__Read();
     u32 v = D_0034f240;
     if (v & 0x200) {
     } else if (v & 0x400) {
     } else {
-        func_001bfbd8();
+        YS__PRIZEBOX__Read();
     }
     func_00182ab0();
     func_001c8838(1);
@@ -439,22 +439,22 @@ void func_00185d98(void) asm("func_00185d98");
 void func_001aeae0(void) asm("func_001aeae0");
 void func_00196a40(void) asm("func_00196a40");
 void func_001a0bc0(void) asm("func_001a0bc0");
-void func_0018d738(void) asm("func_0018d738");
+void YS__ATTACK__Init(void) asm("YS__ATTACK__Init");
 void func_001a5f50(void) asm("func_001a5f50");
 void func_00199548(void) asm("func_00199548");
 void func_001a6a10(void) asm("func_001a6a10");
 void func_001b14d8(void) asm("func_001b14d8");
-void func_0019ec20(void) asm("func_0019ec20");
-void func_001b4300(void) asm("func_001b4300");
+void YS__BLUR__Init(void) asm("YS__BLUR__Init");
+void YS__LIMIT__Init(void) asm("YS__LIMIT__Init");
 void func_00179be8(void) asm("func_00179be8");
 void func_001c8a90(void) asm("func_001c8a90");
 void func_001d3b60(void) asm("func_001d3b60");
 void func_001d5a48(void) asm("func_001d5a48");
 void func_001a3a88(void) asm("func_001a3a88");
 void func_001ba718(void) asm("func_001ba718");
-void func_001a5928(void) asm("func_001a5928");
+void YS__PRIZE__Init(void) asm("YS__PRIZE__Init");
 void func_001b24c0(void) asm("func_001b24c0");
-void func_00182b18(void) asm("func_00182b18");
+void YS__UNIT__ActivateAll(void) asm("YS__UNIT__ActivateAll");
 /*TARGET 00169210*/
 // 00105b58: moved to src/common/region.cpp
 
@@ -477,22 +477,22 @@ void func_00169210(void) {
     func_001aeae0();
     func_00196a40();
     func_001a0bc0();
-    func_0018d738();
+    YS__ATTACK__Init();
     func_001a5f50();
     func_00199548();
     func_001a6a10();
     func_001b14d8();
-    func_0019ec20();
-    func_001b4300();
+    YS__BLUR__Init();
+    YS__LIMIT__Init();
     func_00179be8();
     func_001c8a90();
     func_001d3b60();
     func_001d5a48();
     func_001a3a88();
     func_001ba718();
-    func_001a5928();
+    YS__PRIZE__Init();
     func_001b24c0();
-    func_00182b18();
+    YS__UNIT__ActivateAll();
 }
 }  // namespace n00169210
 

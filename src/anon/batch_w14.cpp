@@ -16,12 +16,12 @@ void func_0016f9e8(void);
 void func_00140db0(void*);
 void func_00182f28(s32);  // store_global_35ed04
 void func_001d69d0(void*);
-s32 func_0017ec98(void*, s32);
+s32 YS__MOTION__id_to_num(void*, s32);
 s32 func_0017edf0(void*, s32);
 s32 func_00180408(void*, s32);
-void* func_00188fe0(void*, void*);
+void* YS__SAVERAM_BATTLE__get_partram(void*, void*);
 void func_00188948(void*, void*, void*);
-void func_0019cc20(void*);
+void YS__LOCKON__release(void*);
 void* func_001d5af8(void*, void*, void*);
 void* func_00102c18(s32, s32, void (*)(void));
 void func_001b4340(void);
@@ -47,7 +47,7 @@ void func_0028b8a0(void*);
 void func_0023f820(void*);
 void func_00292998(void);
 s32 func_001b6d70(u8);  // table_entry_ptr_b
-void func_002bf650(void*, s32);
+void worldmap__Symbol__setState(void*, s32);
 void func_002d2948(void*, void*, s32, void*);
 void func_002e7308(void*);
 void func_0031fec0(void*);
@@ -101,11 +101,11 @@ static inline u8* next_node(u8* p, u8* q) {
 
 void func_00114de0(u8* p);  // 0x00114de0: definition moved into src/anon/unit_00114a90.cpp
 
-void func_00124100(void* a, s32 b);  // 0x00124100: definition moved into src/anon/unit_00123990.cpp
+void kn__ModelMulti__calc(void* a, s32 b);  // 0x00124100: definition moved into src/anon/unit_00123990.cpp
 
 void func_00128008(u8* p);  // 0x00128008: definition moved into src/anon/unit_00127f40.cpp
 
-void func_00137c50(u8* p);  // 0x00137c50: definition moved into src/anon/unit_001374c8.cpp
+void dk__TREASURE_INFO__create(u8* p);  // 0x00137c50: definition moved into src/anon/unit_001374c8.cpp
 
 struct Entry20 { u8 pad[16]; u8 on; u8 id; u8 pad2[2]; };
 
@@ -114,7 +114,7 @@ void func_001418e8(u8* p, u8 id);  // 0x001418e8: definition moved into src/anon
 
 // 0014dc08: moved to src/anon/unit_0014d680.cpp
 
-void func_00151b40(u8* p);  // 0x00151b40: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__MISSION_GAUGE__alert(u8* p);  // 0x00151b40: definition moved into src/anon/unit_0014ecb8.cpp
 
 // Copies the new target into the camera state and flags the change.
 // 0015a6c8: moved to src/harata/libdk/targetcamera.cpp
@@ -139,7 +139,7 @@ void LOCKON_dtor(void* l);  // 0x0019c9a8: definition moved into src/anon/unit_0
 
 void func_001a0678(void** p);  // 0x001a0678: definition moved into src/anon/unit_0019fb70.cpp
 
-void func_001b4300(void);  // 0x001b4300: definition moved into src/anon/unit_001b2780.cpp
+void YS__LIMIT__Init(void);  // 0x001b4300: definition moved into src/anon/unit_001b2780.cpp
 
 void func_001b58b8(void* a, void* b, void* c);  // 0x001b58b8: definition moved into src/anon/unit_001b2780.cpp
 
@@ -184,7 +184,7 @@ void func_00292a58(void);  // 00292a58: moved to src/anon/unit_00292998.cpp
 
 void func_002bf618(u8* p);  // 0x002bf618: definition moved into src/anon/unit_002bebd0.cpp
 
-void func_002d4200(u8* p, void* a, void* b);  // 0x002d4200: definition moved into src/anon/unit_002d2498.cpp
+void Ti__MGOarashiPiglet__MGOarashiPiglet(u8* p, void* a, void* b);  // 0x002d4200: definition moved into src/anon/unit_002d2498.cpp
 
 // Skips n variable-length records (64 bytes + 12 per sub-entry) after a 16-byte header.
 // 002e34d8: moved to src/anon/unit_002e2f08.cpp

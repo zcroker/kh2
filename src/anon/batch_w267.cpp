@@ -21,7 +21,7 @@ extern u32 D_0035f640;
 extern u32 D_0035f664;
 extern u32* D_0035f6cc;
 void func_002b6418(void*);
-void func_00259108(u32, s32, u32, u32, u32, void*, u32);
+void Tz__CmComm__CreateConfirmSelector(u32, s32, u32, u32, u32, void*, u32);
 void func_00288f48(u32, s32, s32, s32, s32);
 void func_0028af28(u32, s32);
 s32 func_00139d78(u32);
@@ -32,7 +32,7 @@ void func_00138c78(u32, s32*, s32*);
 s32 func_0023aa18(u32);
 s32 func_0023aa38(u32);
 void func_00138c68(u32, s32, s32);
-void func_002b4c88(void* p);  // 0x002b4c88: definition moved into src/anon/unit_002b3ac8.cpp
+void Tz__CmSLBase__SetupWarningConfirm(void* p);  // 0x002b4c88: definition moved into src/anon/unit_002b3ac8.cpp
 extern char D_00362dc8[];
 extern char D_00375eb8[];
 extern char D_00362d90[];
@@ -45,10 +45,10 @@ u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_002e34c0(void*, u32);
 u32 func_001050c8(void);
 void* func_001063c0(s32, u32);
-void func_002e6fc0(void*, u32);
+void Ti__Afp__Afp(void*, u32);
 void func_00102c80(void);
 void func_002e1020(void*);
-void func_002cedd0(s32, char*);
+void Ti__MiniGame__create_task(s32, char*);
 void func_0016bd60(u8*, s32);
 u8* func_0016b740(s32);
 struct S2e0 {
@@ -82,7 +82,7 @@ void func_0016aef0(u8*, QV267*);
 void func_0017f488(u8*, u32, f32, f32);
 void func_00186888(u8*, QV267*);
 s32 func_0018cac0(V186*);
-void func_001bfcc8(u8*, s32);
+void YS__PRIZEBOX__DropNmPresent(u8*, s32);
 // 00186740: moved to src/anon/unit_00185d10.cpp
 void func_00186740(u8* p, V186* v, u32 a2, u32 a3, f32 y, f32 w);
 }

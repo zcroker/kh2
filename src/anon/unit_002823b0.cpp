@@ -30,14 +30,14 @@ union Tot2823 { s32 i; u8 c; };
 struct Self2823 { Tot2823 total; Ent2823 ent[682]; u8 pad[4]; s32 f1004; s32 f1008; s32 f100c; s32 cnt[5]; };
 s32 func_002811f8(s32, s32) asm("func_002811f8");
 Obj2823* func_00281180(s32, s32) asm("func_00281180");
-s32 func_002826f8(Self2823*, s32, s32) asm("func_002826f8");
+s32 Tz__ItemInfo__CalcEquipMax(Self2823*, s32, s32) asm("Tz__ItemInfo__CalcEquipMax");
 s32 func_00281480(s32, s32) asm("func_00281480");
 s32 func_002813b8(void) asm("func_002813b8");
 s32 func_00281420(void) asm("func_00281420");
 u16 func_002814b0(s32) asm("func_002814b0");
 /*TARGET 002823b0*/
-void func_002823b0(Self2823* self, s32 b, s32 r) asm("func_002823b0");
-void func_002823b0(Self2823* self, s32 b, s32 r) {
+void Tz__ItemInfo__SetEquip(Self2823* self, s32 b, s32 r) asm("Tz__ItemInfo__SetEquip");
+void Tz__ItemInfo__SetEquip(Self2823* self, s32 b, s32 r) {
     u16* items;
     s32 total;
     s32 mask;
@@ -47,7 +47,7 @@ void func_002823b0(Self2823* self, s32 b, s32 r) {
     self->f100c = func_002811f8(self->f1004, b - 5);
     items = func_00281180(self->f1004, self->f100c)->items;
     for (i = 0; i < 5; i++) {
-        self->cnt[i] = func_002826f8(self, self->f100c, i);
+        self->cnt[i] = Tz__ItemInfo__CalcEquipMax(self, self->f100c, i);
     }
     mask = 0;
     if (func_00281480(self->f1004, self->f100c)) {

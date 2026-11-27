@@ -6,7 +6,7 @@ extern u32 D_0035f148;
 extern u32 D_0035f210;
 extern u8* D_0035f638;
 extern u8 D_00374ce8[];
-u16* func_002b23e0(s32);  // list_entry_by_index_checked
+u16* Tz__JmPuzzle__GetImageInfo(s32);  // list_entry_by_index_checked
 u8* func_001a80c8(u32);  // table24_find_by_id
 void func_00281cf0(u32);
 void func_0028d8c0(u8*, s32, u32, u32, u32, s32, s32, s32);

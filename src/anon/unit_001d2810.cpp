@@ -158,13 +158,13 @@ extern "C++" const s32 R_0036e3dc asm("D_0036e3dc") = 42;
 namespace n001d29c8 {
 extern u8* D_00352668 asm("D_00352668");
 u8* func_001c16f0(void*, void*) asm("func_001c16f0");
-void func_001c79a0(void*, void*, s32) asm("func_001c79a0");
+void YS__PRIZEEFFECT__get(void*, void*, s32) asm("YS__PRIZEEFFECT__get");
 void PrizeTrGetAll(void* o) asm("_ZN2YS8PRIZE_TR6GetAllEPNS_6BTLOBJE");
 void PrizeTrGetAll(void* o) {
     if (!D_00352668) return;
     u8* n = 0;
     while ((n = func_001c16f0(*(void**)(D_00352668 + 2548), n))) {
-        if (*(s32*)(n + 72) == 0) func_001c79a0(n, o, 0);
+        if (*(s32*)(n + 72) == 0) YS__PRIZEEFFECT__get(n, o, 0);
     }
 }
 }  // namespace n001d29c8
@@ -204,17 +204,17 @@ static inline Vq operator*(const Vq& a, f32 s) {
 #define MAX(a, b) ((a) < (b) ? (b) : (a))
 extern f32 D_00349e10 asm("D_00349e10");
 f32 func_00184a90(u8*) asm("func_00184a90");
-Vq* func_0016c028(u8*) asm("func_0016c028");
+Vq* YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 struct VqI { FI x, y, z, w; } __attribute__((aligned(16)));
-Vq func_001d2a68(u32, u8* o) asm("func_001d2a68");
-Vq func_001d2a68(u32, u8* o) {
+Vq YS__ACTION_DEADSORA__calc_movement(u32, u8* o) asm("YS__ACTION_DEADSORA__calc_movement");
+Vq YS__ACTION_DEADSORA__calc_movement(u32, u8* o) {
     VqI v;
     QCOPY(&v, o + 2144);
     v.x.i = 0;
     v.z.i = 0;
     f32 z = v.x.f;
     if (v.y.f < z) v.y.f = z;
-    f32 h = MAX(z, func_00184a90(o) - func_0016c028(o)->y);
+    f32 h = MAX(z, func_00184a90(o) - YS__OBJ__get_pos(o)->y);
     if (h < 300.0f) {
         v.y.f = (v.y.f - 0.5f) * 0.95f + 0.5f;
     } else {
@@ -239,7 +239,7 @@ static inline QW1d2 operator*(const QW1d2& a, f32 k) {
 struct Cfg { u8 p[228]; f32 f228; f32 f232; u8 q[268 - 236]; f32 lo268, hi272, lo276; };
 struct Obj1d2 { u8 p0[12]; u8* f12; u8 pp[12]; f32 f28; QW1d2 v32; u8 p1[340 - 48]; s32 f340; u8 rest[2920 - 344]; f32 timer; };
 extern Cfg* D_00352130 asm("D_00352130");
-QW1d2 v2e68(void*, Obj1d2*) asm("func_001d2e68");
+QW1d2 v2e68(void*, Obj1d2*) asm("YS__ACTION_LM_DOLPHIN__GetNearVector");
 f32 func_001d3000(void*, f32) asm("func_001d3000");
 void func_001d2bb0(void* a0, Obj1d2* o) asm("func_001d2bb0");
 void func_001d2bb0(void* a0, Obj1d2* o) {
@@ -275,25 +275,25 @@ struct Res1d2 { s32 a, b, c; f32 f; };
 struct Cfg1d2 { u8 p[280]; f32 k; };
 struct Obj1d2 { u8 p0[32]; QW1d2 v32; u8 p1[320 - 48]; u8 mot[2548 - 320]; u8 tgt[2920 - 2548]; f32 timer; };
 static inline __attribute__((always_inline)) void SubL(const QW1d2& a, const QW1d2& b, QW1d2* r) {asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(r), "r"(&a), "r"(&b) : "memory");}
-Res1d2 func_001d2e68(void*, Obj1d2*) asm("func_001d2e68");
+Res1d2 YS__ACTION_LM_DOLPHIN__GetNearVector(void*, Obj1d2*) asm("YS__ACTION_LM_DOLPHIN__GetNearVector");
 f32 func_001d3000(void*, f32) asm("func_001d3000");
 void func_00183768(Obj1d2*, Res1d2*, f32) asm("func_00183768");
-void func_0016b010(Obj1d2*, QW1d2*) asm("func_0016b010");
+void YS__OBJ__set_wish_dir(Obj1d2*, QW1d2*) asm("YS__OBJ__set_wish_dir");
 s32 Tgt1d2_is_exist(void*) asm("_ZNK2YS6TARGET8is_existEv");
 QW1d2 func_00190388(void*) asm("func_00190388");
-QW1d2 ctarget_0016bda8_1d2(Obj1d2*) asm("_Z16ctarget_0016bda8jjjj");
+QW1d2 ctarget_0016bda8_1d2(Obj1d2*) asm("_Z23YS__OBJ__get_target_posjjjj");
 void f17f488_1d2(void*, s32, f32, f32) asm("_Z13func_0017f488iiff");
 void push_1d2(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
 void chg_1d2(Obj1d2*, s32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
 extern Cfg1d2* D_00352130 asm("D_00352130");
 extern f32 D_00349e10 asm("D_00349e10");
-void func_001d2c78(void* a0, Obj1d2* o) asm("func_001d2c78");
-void func_001d2c78(void* a0, Obj1d2* o) {
+void YS__ACTION_LM_DOLPHIN__control(void* a0, Obj1d2* o) asm("YS__ACTION_LM_DOLPHIN__control");
+void YS__ACTION_LM_DOLPHIN__control(void* a0, Obj1d2* o) {
     Cfg1d2* cfg = D_00352130;
-    Res1d2 r = func_001d2e68(a0, o);
+    Res1d2 r = YS__ACTION_LM_DOLPHIN__GetNearVector(a0, o);
     func_00183768(o, &r, func_001d3000(a0, r.f));
     QW1d2 v(o->v32);
-    func_0016b010(o, &v);
+    YS__OBJ__set_wish_dir(o, &v);
     o->timer -= D_00349e10;
     if (o->timer <= 0.0f) {
         if (Tgt1d2_is_exist(o->tgt)) {
@@ -311,13 +311,13 @@ void func_001d2c78(void* a0, Obj1d2* o) {
 // ---- 001d2e28 from src/anon/tiny_auto80_queue.cpp
 namespace n001d2e28 {
 extern u8  D_00350000 asm("D_00350000");
-void func_00184540(u32, u32, f32, f32) asm("_Z13func_00184540jjff");
+void kn__MotionPrototype0__calcLimitValue(u32, u32, f32, f32) asm("_Z36kn__MotionPrototype0__calcLimitValuejjff");
 void* func_001d2e28(void* a0, u32 a1, u32 a2) asm("_Z13func_001d2e28Pvjj");
 void* func_001d2e28(void* a0, u32 a1, u32 a2) {
     (void)a1;
     u8* t6 = *(u8**)((u8*)&D_00350000 + 8496u);
     f32 f12 = *(f32*)(t6 + 236);
-    func_00184540(a0, a2, f12, f12);
+    kn__MotionPrototype0__calcLimitValue(a0, a2, f12, f12);
     return a0;
 }
 }  // namespace n001d2e28
@@ -349,19 +349,19 @@ struct S1d2e68 { f32 a, b, c; s32 d; V1d2e68 pos; u8 pad[16]; };
 struct O1d2e68 { u8 p0[2548]; u8 tgt[4]; };
 extern u8 D_00352130[] asm("D_00352130");
 s32 func_00190140(void*) asm("_ZNK2YS6TARGET8is_existEv");
-void func_001902a8(void*, S1d2e68*) asm("func_001902a8");
-V1d2e68 func_0016bda8(O1d2e68*) asm("_Z16ctarget_0016bda8jjjj");
-V1d2e68 func_0017d538(V1d2e68*, f32) asm("func_0017d538");
-V1d2e68 func_0016af58(O1d2e68*) asm("func_0016af58");
-V1d2e68 func_001d2e68(void* self, O1d2e68* o) asm("func_001d2e68");
-V1d2e68 func_001d2e68(void* self, O1d2e68* o) {
+void YS__TARGET__make_collision(void*, S1d2e68*) asm("YS__TARGET__make_collision");
+V1d2e68 YS__OBJ__get_target_pos(O1d2e68*) asm("_Z23YS__OBJ__get_target_posjjjj");
+V1d2e68 YS__MATH__VectorRotY(V1d2e68*, f32) asm("YS__MATH__VectorRotY");
+V1d2e68 YS__OBJ__get_dir(O1d2e68*) asm("YS__OBJ__get_dir");
+V1d2e68 YS__ACTION_LM_DOLPHIN__GetNearVector(void* self, O1d2e68* o) asm("YS__ACTION_LM_DOLPHIN__GetNearVector");
+V1d2e68 YS__ACTION_LM_DOLPHIN__GetNearVector(void* self, O1d2e68* o) {
     V1d2e68 r;
     P1d2e68* prm = *(P1d2e68**)D_00352130;
     S1d2e68 s;
     s.d = 0;
     if (func_00190140(o->tgt)) {
-        func_001902a8(o->tgt, &s);
-        r = sub_1d2e68(s.pos, func_0016bda8(o));
+        YS__TARGET__make_collision(o->tgt, &s);
+        r = sub_1d2e68(s.pos, YS__OBJ__get_target_pos(o));
         f32 d = norm_1d2e68(&r) - s.b;
         if (d < 0.0f) d = 0.0f;
         if (d < prm->f104) {
@@ -370,11 +370,11 @@ V1d2e68 func_001d2e68(void* self, O1d2e68* o) {
             if (t < 0.0f) c = 0.0f;
             else if (1.0f < t) c = 1.0f;
             else c = t;
-            r = func_0017d538(&r, prm->f100 * c);
+            r = YS__MATH__VectorRotY(&r, prm->f100 * c);
         }
         r.w = d;
     } else {
-        r = func_0016af58(o);
+        r = YS__OBJ__get_dir(o);
         *(s32*)&r.w = 0;
     }
     return r;

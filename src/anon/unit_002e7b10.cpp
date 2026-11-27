@@ -14,7 +14,7 @@ void gap_002e7ae0(f32* v) { func_001e0428(v[0], v[1], v[2], v[3], v[4], v[5], v[
 
 // 002e7b10 (was src/anon/batch_w2.cpp)
 namespace n002e7b10 {
-void func_001a55a8(u32, u32) asm("func_001a55a8");
+void YS__PRIZE__Appear(u32, u32) asm("YS__PRIZE__Appear");
 /*TARGET 002e7b10*/
 // 0x002ba330: definition moved into src/anon/unit_002b9ab8.cpp
 
@@ -23,7 +23,7 @@ void func_002e7b10(u32* v) asm("func_002e7b10");
 
 void func_002e7b10(u32* v) {
     u32 a = v[0];
-    func_001a55a8(a, v[1]);
+    YS__PRIZE__Appear(a, v[1]);
 }
 }  // namespace n002e7b10
 
@@ -127,8 +127,8 @@ struct Vq {
 
 void func_002e9d08(u32, u32, const Vq&, const Vq&, s32, s32, s32) asm("func_002e9d08");
 /*TARGET 002e7c18*/
-void func_002e7c18(u32* o) asm("func_002e7c18");
-void func_002e7c18(u32* o) {
+void Ts__trap_target_seracher_search(u32* o) asm("Ts__trap_target_seracher_search");
+void Ts__trap_target_seracher_search(u32* o) {
     u32 a = o[0];
     Vq d = *(Vq*)o[3];
     Vq c = *(Vq*)o[2];
@@ -154,7 +154,7 @@ void func_002e7c78(u32* p) {
 
 // 002e7ca0 (was src/anon/tiny_jal_wrappers_flex.cpp)
 namespace n002e7ca0 {
-u32 func_0019c6f0(u32, u32, u32, u32) asm("_Z13func_0019c6f0jjjj");
+u32 YS__OBJ__is_stop(u32, u32, u32, u32) asm("_Z16YS__OBJ__is_stopjjjj");
 /*TARGET 002e7ca0*/
 // 0x002e1140: definition moved into src/anon/unit_002de3c8.cpp
 
@@ -186,7 +186,7 @@ u32 func_002e7ca0(u32 a0, u32 a1, u32 a2, u32 a3) {
     r16 = r4;
     r15 = *(u32*)((u32)r4 + (s32)(0));
     r4 = *(u32*)((u32)r15 + (s32)(4));
-    r2 = func_0019c6f0(r4, r5, r6, r7);
+    r2 = YS__OBJ__is_stop(r4, r5, r6, r7);
     *(u32*)((u32)r16 + (s32)(0)) = r2;
     return r2;
 }
@@ -254,13 +254,13 @@ struct VB30 {
 } __attribute__((aligned(16)));
 union UD30 { u32 u; u8* p; VB30* v; };
 struct B30 { f32 a, rad, c; UD30 d; VB30 pos; };
-void func_0018a818(B32*, u8*, u32) asm("func_0018a818");
-s32 func_0019ba60(u8*) asm("func_0019ba60");
+void YS__COLLISION__set(B32*, u8*, u32) asm("YS__COLLISION__set");
+s32 YS__OBJ__is_exist(u8*) asm("YS__OBJ__is_exist");
 u8* func_0016bba8(u8*, s32, u8*) asm("func_0016bba8");
 struct Find30 { s32 idx; VB30* target; };
 /*TARGET 002e7d20*/
-void func_002e7d20(Find30* f) asm("func_002e7d20");
-void func_002e7d20(Find30* f)
+void Ts__trap_obj_near_parts(Find30* f) asm("Ts__trap_obj_near_parts");
+void Ts__trap_obj_near_parts(Find30* f)
 {
     f32 best = 0.0f;
     s32 idx = -1;
@@ -269,10 +269,10 @@ void func_002e7d20(Find30* f)
     VB30 d;
     B30 b;
     b.d.u = 0;
-    func_0019ba60(obj);
+    YS__OBJ__is_exist(obj);
     u8* o = 0;
     while ((o = func_0016bba8(obj, 2, o)) != 0) {
-        func_0018a818((B32*)&b, obj, (u32)o);
+        YS__COLLISION__set((B32*)&b, obj, (u32)o);
         d = *t - b.pos;
         f32 l2;
         asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf1, $vf1, $vf1\n\tvaddy.x $vf1, $vf1, $vf1y\n\tvaddz.x $vf1, $vf1, $vf1z\n\tqmfc2 $8, $vf1\n\tmtc1 $8, %0"
@@ -355,11 +355,11 @@ void gap_002e7ef8(BD_VALUE* bd) { BD_VALUE a = bd[0]; u32 o = ((O*)a.p)->obj; fu
 
 // 002e7f38 (was src/anon/tiny_wrappers_more.cpp)
 namespace n002e7f38 {
-u32 func_002e9b58(u32, u32, u32, u32) asm("_Z13func_002e9b58jjjj");
+u32 Ts__TARGET_SEARCHER__add(u32, u32, u32, u32) asm("_Z24Ts__TARGET_SEARCHER__addjjjj");
 /*TARGET 002e7f38*/
 u32 func_002e7f38(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002e7f38jjjj");
 u32 func_002e7f38(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_002e9b58(((u32)(*(u32*)((u32)(a0) + 0u))), ((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 4u)))) + 4u))), 0xffffffffu, a3);
+    return Ts__TARGET_SEARCHER__add(((u32)(*(u32*)((u32)(a0) + 0u))), ((u32)(*(u32*)((u32)(((u32)(*(u32*)((u32)(a0) + 4u)))) + 4u))), 0xffffffffu, a3);
 }
 }  // namespace n002e7f38
 
@@ -382,12 +382,12 @@ void func_002e9d08(u8*, void*, void*, void*, u32, u32, u32) asm("func_002e9d08")
 
 // 002e3a78: moved to src/anon/unit_002e2f08.cpp
 
-void func_002e7f80(u32* a0) asm("func_002e7f80");
+void Ts__trap_target_searcher_get_target_num(u32* a0) asm("Ts__trap_target_searcher_get_target_num");
 // 0x002d6ec8: definition moved into src/anon/unit_002d62d0.cpp
 
 // 002e3a78: moved to src/anon/unit_002e2f08.cpp
 
-void func_002e7f80(u32* a0) {
+void Ts__trap_target_searcher_get_target_num(u32* a0) {
     u8 m[32] __attribute__((aligned(16)));
     u8 v1[16] __attribute__((aligned(16)));
     u8 v2[16] __attribute__((aligned(16)));
@@ -403,18 +403,18 @@ void func_002e7f80(u32* a0) {
 // 002e7ff8 (was src/anon/batch_w13.cpp)
 namespace n002e7ff8 {
 struct Q128 { u32 w[4]; };
-f32 func_001906f0(void*, void*) asm("func_001906f0");
+f32 YS__TARGET__get_dist(void*, void*) asm("YS__TARGET__get_dist");
 extern void (*D_0035e380[])(void) asm("D_0035e380");
 /*TARGET 002e7ff8*/
 // 0x002de810: definition moved into src/anon/unit_002de3c8.cpp
 
-void func_002e7ff8(u32* p) asm("func_002e7ff8");
+void Ts__trap_target_dist(u32* p) asm("Ts__trap_target_dist");
 // 0x002de810: definition moved into src/anon/unit_002de3c8.cpp
 
-void func_002e7ff8(u32* p) {
+void Ts__trap_target_dist(u32* p) {
     Q128 t;
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(&t), "r"(p[1]) : "$8", "memory");
-    *(f32*)p = func_001906f0((void*)p[0], &t);
+    *(f32*)p = YS__TARGET__get_dist((void*)p[0], &t);
 }
 }  // namespace n002e7ff8
 
@@ -673,8 +673,8 @@ struct Obj2e8 { Own2e8* o; void* v; f32 a; f32 b; };
 void func_001b2210(void*, void*, f32, f32) asm("func_001b2210");
 void func_0016bd60(void*, s32) asm("func_0016bd60");
 /*TARGET 002e8390*/
-void func_002e8390(Obj2e8* o) asm("func_002e8390");
-void func_002e8390(Obj2e8* o) {
+void Ts__trap_obj_hop_direct(Obj2e8* o) asm("Ts__trap_obj_hop_direct");
+void Ts__trap_obj_hop_direct(Obj2e8* o) {
     u8 tmp[16] __attribute__((aligned(16)));
     asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(tmp), "r"(o->v) : "$8", "memory");
     func_001b2210(o->o->h, tmp, o->a, o->b);
@@ -696,8 +696,8 @@ u32 func_002e83e8(u32 a0, u32 a1, u32 a2, u32 a3) {
 namespace n002e8400 {
 // 002e2440: moved to src/anon/unit_002e1908.cpp
 
-u8* func_001b9bc8(u8*) asm("func_001b9bc8");
-s32 func_0019c6f0(u32) asm("func_0019c6f0");
+u8* YS__OBJ__Each(u8*) asm("YS__OBJ__Each");
+s32 YS__OBJ__is_stop(u32) asm("YS__OBJ__is_stop");
 void func_0016c568(u8*, u32, f32) asm("func_0016c568");
 /*TARGET 002e8400*/
 void func_002e8400(u8* p) asm("func_002e8400");
@@ -706,9 +706,9 @@ void func_002e8400(u8* p)
     u8* a = *(u8**)(*(u8**)p + 4);
     u8* b = *(u8**)(*(u8**)(p + 12) + 4);
     u8* n = 0;
-    while ((n = func_001b9bc8(n))) {
+    while ((n = YS__OBJ__Each(n))) {
         if (n == a || n == b) continue;
-        if ((*(u32*)(n + 1416) & 0x40) && !func_0019c6f0(*(u32*)(n + 2548))) continue;
+        if ((*(u32*)(n + 1416) & 0x40) && !YS__OBJ__is_stop(*(u32*)(n + 2548))) continue;
         func_0016c568(n, *(u32*)(p + 4), *(f32*)(p + 8));
     }
 }
@@ -745,7 +745,7 @@ struct QV {
 void func_00188250(u32, u32) asm("func_00188250");
 void gap_002e84e0(u32* v) asm("gap_002e84e0");
 void gap_002e84e0(u32* v) { func_00188250(*(u32*)(v[0] + 4) + 768, v[1]); }
-u32 func_001d35e0(u32, QV*, QV*, u32) asm("func_001d35e0");
+u32 YS__BGHIT__check_line(u32, QV*, QV*, u32) asm("YS__BGHIT__check_line");
 void gap_002e8508(u32* v) asm("gap_002e8508");
 void gap_002e8508(u32* v) {
     QV a;
@@ -754,7 +754,7 @@ void gap_002e8508(u32* v) {
     b = *(QV*)v[2];
     a.w = 1.0f;
     b.w = 1.0f;
-    v[0] = func_001d35e0(v[0], &a, &b, v[3]);
+    v[0] = YS__BGHIT__check_line(v[0], &a, &b, v[3]);
 }
 }  // namespace g002e84e0
 
@@ -814,14 +814,14 @@ void trap_bghit_get_cross_pos(BD_VALUE* bd) { bd->i = func_001d36e8(bd->i); }
 
 // 002e8630 (was src/anon/tiny_jal_wrappers_flex.cpp)
 namespace n002e8630 {
-u32 func_002edbf8(u32, u32, u32, u32) asm("_Z13func_002edbf8jjjj");
+u32 Ts__XEMNAS__Get(u32, u32, u32, u32) asm("_Z15Ts__XEMNAS__Getjjjj");
 /*TARGET 002e8630*/
 u32 func_002e8630(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002e8630jjjj");
 u32 func_002e8630(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
     r16 = r4;
     r4 = *(u32*)((u32)r4 + (s32)(0));
-    r2 = func_002edbf8(r4, r5, r6, r7);
+    r2 = Ts__XEMNAS__Get(r4, r5, r6, r7);
     *(u32*)((u32)r16 + (s32)(0)) = r2;
     return r2;
 }
@@ -852,7 +852,7 @@ u32 func_002e86a0(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 002e86c0 (was src/anon/tiny_jal_wrappers_flex.cpp)
 namespace n002e86c0 {
-u32 func_00186ce8(u32, u32, u32, u32) asm("_Z13func_00186ce8jjjj");
+u32 YS__BTLOBJ__is_damage_motion(u32, u32, u32, u32) asm("_Z28YS__BTLOBJ__is_damage_motionjjjj");
 /*TARGET 002e86c0*/
 u32 func_002e86c0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002e86c0jjjj");
 u32 func_002e86c0(u32 a0, u32 a1, u32 a2, u32 a3) {
@@ -860,7 +860,7 @@ u32 func_002e86c0(u32 a0, u32 a1, u32 a2, u32 a3) {
     r16 = r4;
     r15 = *(u32*)((u32)r4 + (s32)(0));
     r4 = *(u32*)((u32)r15 + (s32)(4));
-    r2 = func_00186ce8(r4, r5, r6, r7);
+    r2 = YS__BTLOBJ__is_damage_motion(r4, r5, r6, r7);
     *(u32*)((u32)r16 + (s32)(0)) = r2;
     return r2;
 }
@@ -1002,7 +1002,7 @@ void func_002e87e0(A2e87e0* a)
 namespace n002e8a28 {
 typedef void (*VFn)(void*);
 u32 func_0016a070(void*) asm("func_0016a070");
-s32 func_001b9bc8(u32) asm("func_001b9bc8");
+s32 YS__OBJ__Each(u32) asm("YS__OBJ__Each");
 /*TARGET 002e8a28*/
 // Call slot 17 on every other object with the same part number as this one.
 void func_002e8a28(u32** p) asm("func_002e8a28");
@@ -1011,7 +1011,7 @@ void func_002e8a28(u32** p) {
     u32 me = (*p)[1];
     u32 type = func_0016a070((void*)me);
     u32 o = 0;
-    while ((o = func_001b9bc8(o)) != 0) {
+    while ((o = YS__OBJ__Each(o)) != 0) {
         if (func_0016a070((void*)o) == type && o != me) (*(VFn*)(*(u8**)o + 68))((void*)o);
     }
 }

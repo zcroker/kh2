@@ -28,12 +28,12 @@ struct WTgt {
 };
 extern "C" {
 WCam* func_00106a60(s32);
-void* func_00106a18(void);
-void func_00106de8(void*, s32, f32);
-void func_00106c08(void*);
+void* kn__getProjection(void);
+void kn__Projection__setFOV(void*, s32, f32);
+void kn__Projection__calcMatrix(void*);
 
-void wtarget_002d78a8(u32 a0, u32, u32, u32) asm("_Z16wtarget_002d78a8jjjj");
+void Ti__MGHachimitsu__update_camera(u32 a0, u32, u32, u32) asm("_Z31Ti__MGHachimitsu__update_camerajjjj");
 /* 002d78a8: target matrix update. One variable c holds both call results (camera in the first branch,
    object in the second), which gives the original's saved-register order. */
-void wtarget_002d78a8(u32 a0, u32, u32, u32);  // 0x002d78a8: definition moved into src/anon/unit_002d6f70.cpp
+void Ti__MGHachimitsu__update_camera(u32 a0, u32, u32, u32);  // 0x002d78a8: definition moved into src/anon/unit_002d6f70.cpp
 }

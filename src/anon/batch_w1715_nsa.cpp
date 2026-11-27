@@ -40,13 +40,13 @@ void func_002854b0(void);
 
 u8* func_0023ee30(u32);
 void func_0031a838(u8*);
-void func_002369a0(u8*);
-void func_0023c008(u8*);
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u8*);
+void YI__LAYOUT__LAYOUT(u8*);
 s32 func_002854c0(void);
 s32 func_0023f948(void*, s32);
 s32 func_0023f908(void*, s32);
-void func_0028d7f0(u8*, s32, s32, s32, s32, s32, s32, s32, s32);
-void func_0023ef50(u8*);
+void Tz__MenuUtil__CreateLay(u8*, s32, s32, s32, s32, s32, s32, s32, s32);
+void Tz__Layout__SetImageCache(u8*);
 void func_0028d980(W1715_Sprite*, s32, s32, s32, u8*, s32, s32, s32, s32);
 void func_00139620(W1715_Sprite*);
 void func_001395f8(W1715_Sprite*);
@@ -71,6 +71,6 @@ void func_00288750(void (*)(void));
 
 static inline void W1715_SetFlag(W1715_Sub* s) { s->flags |= 8; }
 
-void func_002847e0(void);  // 0x002847e0: definition moved into src/anon/unit_00284220.cpp
+void Tz__Ending__Setup(void);  // 0x002847e0: definition moved into src/anon/unit_00284220.cpp
 
 }

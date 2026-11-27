@@ -32,7 +32,7 @@ struct W1639Menu {
 extern "C" {
 extern s32 D_00348060[];
 u8* func_0013bb58(W1639Cmd*, W1639Menu*, s32, s32, u8, s32, s32);
-u8* func_001b8e88(u16);
+u8* YS__COMMAND_ELEM__Get(u16);
 void func_0013c080(W1639Cmd*, W1639Entry*, s32, s32, u8*, s32, s32*, s32*);
 s32 func_00192048(s32);
 s32 func_0013b988(W1639Cmd*, W1639Menu*, s32, s32, s32, s32);
@@ -42,5 +42,5 @@ s32 func_0013bc40(W1639Cmd*, s32);
 void func_0013ce08(W1639Cmd*, s32);
 
 // Draws one column of a menu: one sprite per entry, the selected entry is passed to func_0013c190.
-void func_0013c3b8(W1639Cmd* self, W1639Menu* m, s32 slot, s32 col, u8 force);  // 0x0013c3b8: definition moved into src/anon/unit_0013a8b8.cpp
+void dk__COMMAND_DRAW__drawCommandPage(W1639Cmd* self, W1639Menu* m, s32 slot, s32 col, u8 force);  // 0x0013c3b8: definition moved into src/anon/unit_0013a8b8.cpp
 }

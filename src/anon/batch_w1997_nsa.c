@@ -6,8 +6,8 @@ typedef struct Arg8 { u8 pad[4]; s16 id; } Arg8;
 typedef struct Elem8 { void* vt; u8 pad[8]; u8 err[12]; u8 m[0x198 - 24]; } Elem8;
 typedef struct Big8 { void* vt; u8 pad[8]; u8 err[16]; Elem8 e[3]; } Big8;
 typedef struct Obj8 { void* vt; u8 pad[8]; s32 f0c; u8 pad2[8]; u8 m18[0x1a0 - 0x18]; void* vt2; u8 pad3[8]; u8 err[0x1c0 - 0x1ac]; u8 img[0x370 - 0x1c0]; } Obj8;
-s32 func_002282f0(s16);
-s32 func_00225b00(s16);
+s32 sa__EVENT__checkStart(s16);
+s32 sa__EVENT__isJumpMode(s16);
 void func_00239700(void*);
 void ErrorRaise8(void*) asm("_Z10ErrorRaisePv");
 void Image8(void*) asm("_ZN2YI5IMAGEC1Ev");
@@ -22,4 +22,4 @@ extern u8 D_0035e340[];
 extern s32 D_0035de64;
 extern u32 D_0035de68;
 extern s32 D_0035de6c;
-void func_0022bef8(Arg8* arg);  // 0022bef8: moved to src/sasa/event_countdown.cpp (linked unit)
+void sa__EVENT__set_bin_countdown(Arg8* arg);  // 0022bef8: moved to src/sasa/event_countdown.cpp (linked unit)

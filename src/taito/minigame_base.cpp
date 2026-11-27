@@ -83,17 +83,17 @@ u32 func_002cf3f8(void*);
 void func_00105110(void*);
 void func_00170950(u32);
 u32 func_00146730(void*, void*);
-u32 func_00106a18(u32);
+u32 kn__getProjection(u32);
 M4* func_00106ad0(u32);
 u8* func_00106a60(u32);
 void func_00146680(u8*, M4*);
-u32 func_002d00e0(void*);
+u32 Ti__MGObj__check_all_leave(void*);
 u8* func_00102c80(void);
 u8* func_00102788(u32, u32, u32, u32);
 void func_002d0718(void*);
 void func_0011b6a8(void*);
 void func_0011b720(void*, f32);
-void func_001449a8(void*, void*);
+void dk__Aabbox__mulMatrix(void*, void*);
 void func_001444c8(void*, void*, void*);
 u32 func_002e7518(void*);
 }
@@ -193,18 +193,18 @@ void func_002cec50(u32 a0) {
     }
 }
 
-void func_002cec88(MdlRef* r) {
+void Ti__MiniGame__task_proc_view_info(MdlRef* r) {
     u8* mdl = r->mdl + 16;
     M4 m;
-    MCOPY(&m, func_00106ad0(func_00106a18(1)));
+    MCOPY(&m, func_00106ad0(kn__getProjection(1)));
     MMulTo(&m, &m, (M4*)(func_00106a60(1) + 16));
     func_00146680(mdl, &m);
     if (D_00361f60 && D_00361f60->active) D_00361f60->drawn = 1;
 }
 
-u32 Ti::MiniGame::task_last(void* t) { return func_002d00e0(t); }
+u32 Ti::MiniGame::task_last(void* t) { return Ti__MGObj__check_all_leave(t); }
 
-void func_002cedd0(s32 n, E16* e) {
+void Ti__MiniGame__create_task(s32 n, E16* e) {
     for (s32 i = 0; i < n; i++, e++) {
         u8* o = func_00102788(*(u32*)(func_00102c80() + 4), 1, e->a, e->b);
         *(E16**)(o + 8) = e;
@@ -227,7 +227,7 @@ s32 func_002cee58(void* a, u8* o)
     t.z = *(f32*)(o + 12);
     t.w = 0.0f;
     asm volatile("lqc2 $vf1, 48(%0)\n\tlqc2 $vf2, 0(%1)\n\tvadd.xyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 48(%0)" : : "r"(&m), "r"(&t) : "memory");
-    func_001449a8(buf, &m);
+    dk__Aabbox__mulMatrix(buf, &m);
     return vf_culling(a, buf) != 0;
 }
 
@@ -252,7 +252,7 @@ u8 func_002cef80(void* a0, V2c* pos) {
     func_0011b6a8(&m);
     *r3 = *pos;
     m.r[3].w = 1.0f;
-    func_001449a8(&box, &m);
+    dk__Aabbox__mulMatrix(&box, &m);
     return vf_culling(D_00361f60, &box) != 0;
 }
 
@@ -260,7 +260,7 @@ static inline void trans2cf(M2cf* m, V2cf* v) {
     asm volatile("lqc2 $vf1,48(%0)\n\tlqc2 $vf2,0(%1)\n\tvadd.xyz $vf1,$vf1,$vf2\n\tsqc2 $vf1,48(%0)" : : "r"(m), "r"(v) : "memory");
 }
 
-void wt_002cf058(u8* self, u8* obj) asm("_Z16wtarget_002cf058jjjj");
+void wt_002cf058(u8* self, u8* obj) asm("_Z27Ti__MiniGame___prepare_zonejjjj");
 void wt_002cf058(u8* self, u8* obj) {
     T2cf* t = *(T2cf**)(obj + 108);
     if (t->kind != 3) return;
@@ -280,7 +280,7 @@ void wt_002cf058(u8* self, u8* obj) {
     hi.z = -1.0f;
     hi.w = zero;
     func_001444c8(&box, &hi, &lo);
-    func_001449a8(&box, &m);
+    dk__Aabbox__mulMatrix(&box, &m);
     if (vf_culling(self, &box)) *(u32*)(obj + 104) |= 1;
     else *(u32*)(obj + 104) &= ~1;
 }

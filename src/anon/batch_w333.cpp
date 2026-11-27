@@ -19,7 +19,7 @@ extern "C" {
 extern u32 D_003638d0[];
 extern f32 D_00349e10[];
 s32 func_002bc1e8(s32);
-void func_001e0e50(W333E48*);
+void ryj__LASER__attack(W333E48*);
 s32 func_001e0fd0(W333E48*);
 void func_001e0f90(W333E48*);
 }

@@ -68,7 +68,7 @@ s32 func_002e0fe8(s32);
 Cam1998Mtx func_002e10d0(s32);
 Cam1998Mtx* func_002e10c0(s32);
 Cam1998Mtx34 func_002e1108(s32);
-Cam1998Vec* func_0016c028(Cam1998Act*);
+Cam1998Vec* YS__OBJ__get_pos(Cam1998Act*);
 void func_0016ace0(Cam1998Act*, const Cam1998Vec&);
 void func_0016b070(Cam1998Act*, Cam1998Vec*);
 void func_0011b6a8(Cam1998Mtx*);

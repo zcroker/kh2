@@ -18,7 +18,7 @@ extern u8 D_0032ba1c;
 
 // 00103480: moved to src/common/unit_001031b0.cpp
 
-void func_0014b290(u8*);
+void dk__RectBase__createPacket(u8*);
 extern void* D_00349da8[];
 extern u64 D_0036b0e0;
 // Constructor: two GIF-tag style 4-qword blocks at +0x100.
@@ -28,7 +28,7 @@ struct S15b { u8 pad[436]; f32 f; };
 union U15b { S15b* p; f32 f; };
 extern s32 D_0034aa98;
 extern U15b D_0034aa9c;
-void func_0015ad80(S15b*, u32);
+void dk__BILLBOARD__DrawDisableReason(S15b*, u32);
 void func_0015aea8(S15b*, u32);
 void func_0015b268(u32 a, f32 f);  // 0x0015b268: definition moved into src/anon/unit_0015b100.cpp
 
@@ -40,7 +40,7 @@ struct T168 { u32 f0; s32 count; u32 f8, fc; E168 e[1]; };
 // Counts entries matching (id, val); id -1 matches any id.
 void func_00168ad8(T168* t, s32* out, s32 id, s32 v);  // 0x00168ad8: definition moved into src/anon/unit_00168aa0.cpp
 
-u8* func_001b9bc8(u8*);
+u8* YS__OBJ__Each(u8*);
 u32 func_0016a020(u8*);
 s32 obj_count_entry(u32 id) asm("_ZN2YS3OBJ10CountEntryEj");
 // Counts objects whose entry id equals id.
@@ -50,11 +50,11 @@ extern s32 D_01c5f478;
 s32 func_00170d38(s32 x);  // 0x00170d38: definition moved into src/anon/unit_0016e8f8.cpp
 
 u8* func_001050d8(u32);
-void func_002ee220(u8*);
+void menu__Window__Window(u8*);
 void func_002ee5d8(u8*, u32);
 void func_002edfa8(u8*, u8*);
 extern void* D_0034e888[];
-void func_00175370(u32* a);  // 0x00175370: definition moved into src/anon/unit_00171e58.cpp
+void YS__trap_tutorial_pause(u32* a);  // 0x00175370: definition moved into src/anon/unit_00171e58.cpp
 
 s32 func_00181a70(u32, u32);
 u32* func_00189068(u32, u32);
@@ -96,7 +96,7 @@ void func_001af9f8(void);
 // 001bb890: moved to src/yasui/libys/mission.cpp
 
 void func_001d5f30(u8*, u32);
-void func_001d6148(u8* p, s32 id);  // 0x001d6148: definition moved into src/anon/unit_001d4f40.cpp
+void YS__FORM_LEVEL__CheckLimit(u8* p, s32 id);  // 0x001d6148: definition moved into src/anon/unit_001d4f40.cpp
 
 u8* func_001d7980(u32);
 // ORs together the flags of up to four referenced entries.
@@ -105,7 +105,7 @@ void func_001d7b10(u16* p);  // 0x001d7b10: definition moved into src/anon/unit_
 s32 func_001bb4b0(void);
 s32 func_001bb4a0(void);
 u8* func_001bbcb0(void);
-void func_001d8718(s32, s32);
+void YS__MISSION__AddCountForce(s32, s32);
 struct MissionFlag { u32 on : 1; u32 rest : 31; };
 static inline bool mission_entry_on(s32 i) {
     u8* b = func_001bbcb0();
@@ -117,13 +117,13 @@ void mission_add_count(s32 a, s32 i);  // 0x001d86a0: definition moved into src/
 s32 mission_get_count(s32 i) asm("_ZN2YS7MISSION8GetCountEi");
 s32 mission_get_count(s32 i);  // 0x001d87b8: definition moved into src/anon/unit_001d7458.cpp
 
-s32 func_0019ba60(u32);
-u8* func_0016c028(u32);  // obj_get_attach_or_alt
+s32 YS__OBJ__is_exist(u32);
+u8* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
 void func_001dbcd0(void);
 void func_001c2578(u32);
 extern u32 D_0034e948;
 extern u8 D_00352a60[];
-void func_001dbad0(u32 a);  // 0x001dbad0: definition moved into src/anon/unit_001d9d00.cpp
+void YS__CROWDOBJ___OVR_exec(u32 a);  // 0x001dbad0: definition moved into src/anon/unit_001d9d00.cpp
 
 extern s32 D_00359780;
 extern s32 D_00359788[];
@@ -133,7 +133,7 @@ extern s32 D_00359810[];
 s32 func_0020eaf8(s32 size);  // 0x0020eaf8: definition moved into src/anon/unit_0020e9f8.cpp
 
 struct F239 { u32 b0 : 1; u32 b1 : 1; u32 rest : 30; };
-void func_00239f18(u8* p, f32 f);  // 0x00239f18: definition moved into src/anon/unit_00239988.cpp
+void YI__SEQUENCE__SetScaleX(u8* p, f32 f);  // 0x00239f18: definition moved into src/anon/unit_00239988.cpp
 
 union U241 { u32 w; u8 b; };
 struct E241 { U241 f; u8 pad[28]; };
@@ -199,14 +199,14 @@ void func_00170888(u32);
 extern char D_00375000[];
 extern char D_00374fe8[];
 extern const char* D_0033caf4;
-void func_002be4b0(u32* p);  // 0x002be4b0: definition moved into src/anon/unit_002be020.cpp
+void worldmap__Libretto__flush(u32* p);  // 0x002be4b0: definition moved into src/anon/unit_002be020.cpp
 
 // Splits n into count decimal digits (most significant first); returns digits used (min 1).
 s32 func_002c5238(s32 n, s32 count, s32* out);  // 0x002c5238: definition moved into src/anon/unit_002c4ca8.cpp
 
 void func_00182f28(u32);  // store_global_35ed04
 void func_00319f88(u8*);
-void func_0019f9a8(u8*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(u8*);  // array8_free_slots
 void func_001c0248(u8*);
 void func_00319fb0(u8*);  // big_obj_dtor
 extern void* D_00362060[];
@@ -221,7 +221,7 @@ void u_call4_dtor(u32 a, u32, u32, u32);  // 0x002d0f38: definition moved into s
 
 void func_001dc818(u32);
 u32 func_0016ac38(u8*, s32, u32, u32, u32);
-void func_002db610(u8* p, s32 id);  // 0x002db610: definition moved into src/anon/unit_002da040.cpp
+void Ti__MGHachimitsuPod__set_run_effect(u8* p, s32 id);  // 0x002db610: definition moved into src/anon/unit_002da040.cpp
 
 // Inverts an orthonormal 4x4 matrix (transpose 3x3, negate rotated translation).
 // Hand-written VU0/MMI asm in the original.

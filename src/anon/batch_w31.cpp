@@ -3,8 +3,8 @@
 typedef void (*VFn)(void*);
 
 extern "C" {
-u8* func_00102818(u32, s32, u32, void*, s32);
-void func_0014a0a0(void);
+u8* TASK_MANAGER__create_thread(u32, s32, u32, void*, s32);
+void dk__Field__execTitle_task(void);
 extern u32 D_0032b96c;
 void TitleStart(bool) asm("_ZN2dk5Field10TitleStartEb");
 
@@ -51,7 +51,7 @@ int func_001c9ab8(void*);
 int func_001c99b0(int);
 
 extern u8* D_01d5baa8;
-void* func_00185da8(void*);
+void* YS__ENEMY__Each(void*);
 int func_0019c410(void*);
 
 extern void* D_00352bd0;
@@ -80,8 +80,8 @@ u32 wtarget_00234098(u32 a, u32 b, u32 c, u32 d);  // 0x00234098: definition mov
 
 extern "C" {
 u8* func_00294000(int);
-int func_00295158(u32);
-u32* func_002b23e0(int);  // list_entry_by_index_checked
+int Tz__JmWorldSel__GetCur2Idx(u32);
+u32* Tz__JmPuzzle__GetImageInfo(int);  // list_entry_by_index_checked
 extern u32 D_00374ca4;
 extern u32 D_00374ca8;
 extern char D_01e2a5a8[];
@@ -104,7 +104,7 @@ void func_00195858(void*, int);
 extern void* D_00347f98[];
 extern u8* D_00347f80;
 extern void* D_0034ee08[];
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 void func_00319fb0(void*);  // big_obj_dtor
 extern void* D_00363880[];
@@ -116,7 +116,7 @@ void func_002369f0(void*);  // set_vtbl_36eac8_then_call
 // dk Field: start the title task.
 void TitleStart(bool flag);  // 0014a138: moved to src/anon/unit_00149fa8.cpp
 
-void func_0014f578(u32 a);  // 0x0014f578: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__INFORMATION__openInformationWindow(u32 a);  // 0x0014f578: definition moved into src/anon/unit_0014ecb8.cpp
 
 // 00155410: moved to src/anon/unit_00153ea0.cpp
 void func_00155410(u8* p);
@@ -142,7 +142,7 @@ void* func_001a07b0(void* p, u32 a, u32 b);  // 0x001a07b0: definition moved int
 
 // 001ad5a8: moved to src/anon/unit_001abb28.cpp
 
-int func_001c9b38(u8* p);  // 0x001c9b38: definition moved into src/yasui/libys/sacrifice.cpp
+int YS__SACRIFICE__GetCommandStatus(u8* p);  // 0x001c9b38: definition moved into src/yasui/libys/sacrifice.cpp
 
 int func_001ca448(u8* p);  // 0x001ca448: definition moved into src/anon/unit_001ca148.cpp
 

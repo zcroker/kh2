@@ -41,12 +41,12 @@ struct CDE58O {
     u32 bits[4];
 };
 extern "C" {
-void func_001cddb8(CDE58O*);
+void YS__CHOOSE_ATTACK__check_enemy(CDE58O*);
 void func_001cdbc8(CDE58O*, void*, s32);
 s32 func_001a0920(CDE58Ent*, CDE58A*);
 s32 func_0019c090(CDE58A*);
 QV func_001840c0(CDE58A*, QV);
-s32 func_0019bf50(CDE58A*, QV*);
+s32 YS__OBJ__is_fall(CDE58A*, QV*);
 u32 func_001d7f40(CDE58Tab*, s32);
 s32 func_001ce0a8(CDE58O*);
 }

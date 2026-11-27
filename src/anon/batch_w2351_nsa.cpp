@@ -38,14 +38,14 @@ typedef void (*EntFn2040)(Ent2040*, Res2040*);
 extern "C" {
 s32 func_0018d940(Ctx2040*, Ent2040*);
 Info2040* func_00112f88(Ent2040**);
-void func_0018a818(Q2040*, Ent2040*, Info2040*);
+void YS__COLLISION__set(Q2040*, Ent2040*, Info2040*);
 f32 func_0018a970(Q2040*, V2040);
-Res2040* func_0018db38(Ctx2040*, Ent2040*, u16, u8);
+Res2040* YS__ATTACK__strike(Ctx2040*, Ent2040*, u16, u8);
 void func_0018ca10(Res2040*);
 void* func_0016ac80(void*, s32, V2040*, s32, s32);
 V2040* func_001dc648(void*);
-V2040 func_0017d050(const V2040&);
-void func_001c2c00(void*);
+V2040 YS__MATH__VectorToAngle(const V2040&);
+void YS__HITMARK__Add(void*);
 
 }
 extern "C" {
@@ -63,13 +63,13 @@ s32 func_0019f2a8(Cmd*, Sel*);
 Mem* func_001a8bd0(s32);
 void func_001a8d40(Mem*, s32);
 void func_001d94f8(Mem, Mem*);
-void func_001a60c8(void);
+void YS__MAGIC__Reset(void);
 void func_002533e0(s32, const void*);
-void func_00104f58(Sel*, u32, s32, s32, s32);
-void func_001ada38(s32);
+void AREA__MapJump(Sel*, u32, s32, s32, s32);
+void YS__RECOV__Exec(s32);
 void func_00149fe0(s32, u32);
 void func_0014a138(s32);
-void func_00253180(s32, s32);
+void Tz__CampMenu__Start(s32, s32);
 extern s8 D_01c62fa0;
 extern Mem D_01c62fa8 __attribute__((aligned(4)));
 extern s32 D_01c62f98;

@@ -13,7 +13,7 @@ u8 u_call4_00139d78(void*) asm("_Z16u_call4_00139d78jjjj");
 u8* func_00132c68(void*, u32);
 s32 func_001325c8(void*, s32, u32);
 void func_00132720(void*, u8*);
-void func_00132e28(u8* a, u32 b);  // 0x00132e28: definition moved into src/anon/unit_00131418.cpp
+void kn__TEXAnmWork__set(u8* a, u32 b);  // 0x00132e28: definition moved into src/anon/unit_00131418.cpp
 
 // 00133938: write a 16-byte packet header at the cursor and advance the cursor
 struct PktHdr { u16 id; u8 b2; u8 b3; PktHdr* next; PktHdr* p8; PktHdr* p12; };
@@ -24,7 +24,7 @@ PktHdr* wtarget_00133938(PktHdr** pp, PktHdr* next, u32 id, u32 a3, u32 a4);  //
 extern void* D_00348804;
 void func_00141c18(void*, u32, u32, u32, u32);
 void func_00141ff0(void*, u32, u32, u32, u32);
-void func_00143ae0(u32 a, u32 b, u32 c, u32 d);  // 0x00143ae0: definition moved into src/anon/unit_00142c90.cpp
+void dk__Octree__intersectLineMap_2(u32 a, u32 b, u32 c, u32 d);  // 0x00143ae0: definition moved into src/anon/unit_00142c90.cpp
 
 // 0014ce88: count frames then derive a scaled time step and its reciprocal
 extern s32 D_00349e1c;
@@ -47,7 +47,7 @@ void func_0015c068(u8* p, void* a);  // 0x0015c068: definition moved into src/an
 // 0016be98: returns a 128-bit value by hidden pointer
 struct L16be98 { u32 a, b, c, d; u128 v; };
 void* func_0016bc20(u8*, s32, s32);
-void func_0018a818(void*, u8*, void*);
+void YS__COLLISION__set(void*, u8*, void*);
 u128* func_0016be98(u128* out, u8* a);  // 0x0016be98: definition moved into src/anon/unit_00169f98.cpp
 
 // 0016e000
@@ -97,7 +97,7 @@ void blur_start(BlurState* self, f32 t);  // 0x0019ecb0: definition moved into s
 struct S1a6 { u8 pad[40]; u32 v; };
 extern S1a6 D_00350800[];
 u32 func_001a6658(s32);
-void func_001bdff0(void);
+void YS__FIELD_COMMAND__InitShortcut(void);
 // 001a60c8: moved to src/yasui/libys/magic.cpp
 
 // 001aa8f0
@@ -141,11 +141,11 @@ struct T1d5 { u8 key; u8 val; u16 arg; };
 extern T1d5 D_0036e538[];
 u32* func_001ba158(u8*);
 void func_00181178(u16);
-void func_001d5198(u8* p);  // 0x001d5198: definition moved into src/anon/unit_001d4f40.cpp
+void YS__CA_SHIP__ArriveArea(u8* p);  // 0x001d5198: definition moved into src/anon/unit_001d4f40.cpp
 
 // 001d77a0
 s32 func_001a6d08(s32);
-u8* func_00189200(void*, s32);
+u8* YS__SAVERAM_BATTLE__get_formram(void*, s32);
 void func_001a6c90(s32);  // set_bit_in_array_b
 extern u8 D_0032e020[];
 void u_call0_001d77a0(void) asm("_Z16u_call0_001d77a0v");
@@ -177,7 +177,7 @@ void func_00232988(void);
 void func_002bc518(void);
 s32 func_00228378(void);
 void func_0023d230(s32);
-u32 func_002282d8(void);  // limit_15000_or_25000
+u32 sa__EVENT__getEventPriority(void);  // limit_15000_or_25000
 void func_00102c48(s32, u32, void*, s32);
 void func_00226ce8(s32);
 void func_00226dc8(void);  // 0x00226dc8: definition moved into src/anon/unit_00224780.cpp
@@ -190,11 +190,11 @@ extern s32 D_0035f3d4;
 extern s16 D_01dae6a8[];
 void func_00258dc8(void);
 void func_0028ca78(void);
-void func_00287a28(void);
+void Tz__MenuBase__Exit(void);
 void func_0028d068(s32, s32);
 void func_00242790(void);
 void func_0023d368(void);
-void func_002530f0(s32 a);  // 0x002530f0: definition moved into src/anon/unit_002530c8.cpp
+void Tz__CampMenu__Exit(s32 a);  // 0x002530f0: definition moved into src/anon/unit_002530c8.cpp
 
 // 002656c0
 u8* func_00257770(void);
@@ -207,7 +207,7 @@ s32 func_00287bc0(void);
 s32 func_0028b040(u32);
 s32 func_002570a0(s32);
 extern s8* D_0035f230;
-s32 func_0027af58(void);  // 0x0027af58: definition moved into src/anon/unit_0027a6d8.cpp
+s32 Tz__CmAbility__Cur2AbiltyType(void);  // 0x0027af58: definition moved into src/anon/unit_0027a6d8.cpp
 
 // 002ac268: set bit k in a per-index bit array (only if not already set)
 u8* func_002a9d68(s32, u32);
@@ -226,7 +226,7 @@ void func_002c85c8(u32 a);  // 0x2c85c8: moved to src/anon/unit_002c7e68.cpp
 // 002d3128
 u8* func_002d1878(u32);
 extern u32 D_00361f60;
-void func_002d3128(u8* p, s32 n);  // 0x002d3128: definition moved into src/anon/unit_002d2498.cpp
+void Ti__MGOarashiGimObj__reserve_fall_prize(u8* p, s32 n);  // 0x002d3128: definition moved into src/anon/unit_002d2498.cpp
 
 // 003015a8: vsprintf-style formatting into a string through a fake FILE
 struct StrFile { u8* p; s32 r; s32 w; s16 flags; s16 file; u8* base; s32 size; u8 pad[60]; void* data; u8 pad2[8]; };

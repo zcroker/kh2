@@ -53,17 +53,17 @@ u8 *func_002766d0(void) asm("_ZN2Tz6Jiminy9GetSeqTblEv");
 u8 *func_00294000(s32) asm("_ZN2Tz6JmInfo7GetDataEi");
 void func_00138c10(void *, s32) asm("_ZN2dk6Sprite6setNumEi");
 s32 func_0028b038(s32) asm("_ZN2Tz6Select12GetSelectTopEv");
-void func_0028be78(s32, s32);
+void Tz__ScrollBar__SetPos(s32, s32);
 I29d *func_002891b8(s32, s32) asm("_ZN2Tz6Select10GetItemPtrEi");
 void *func_00192048(u32) asm("_Z16u_tail4_00192048jjjj");
 s32 func_0028afa8(s32) asm("_ZN2Tz6Select12GetSelectMaxEv");
 s32 func_002943b0(E29d *);
-u32 func_00295430(s32, s32);
+u32 Tz__JmWorldSel__GetId2WorldName(s32, s32);
 void *func_00192e50(void *, char *, s32, void *);
 void func_002595e8(char *, void *) asm("_ZN2Tz6CmComm11CopyMessageEPcPKN2YS7MESSAGEE");
 void *func_00192a80(void *);
-void func_0028def0(char *, void *);
-s32 func_002a9e98(u32);
+void Tz__MenuUtil__MakeQuestionStr_2(char *, void *);
+s32 Tz__JmNewInfo__isCharaNew(u32);
 s32 func_002a9f50(u32);
 void func_0029d008(void);  // 0x0029d008: definition moved into src/anon/unit_0029d008.cpp
 

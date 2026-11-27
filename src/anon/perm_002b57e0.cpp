@@ -26,7 +26,7 @@ struct Obj
   s32 a18c;
   s32 a190;
 };
-Obj *func_0028c198(s32, s32, s32, s32, s32, s32);
+Obj *Tz__MenuItem__start(s32, s32, s32, s32, s32, s32);
 s32 func_002891b8(s32, s32) asm("_ZN2Tz6Select10GetItemPtrEi");
 void func_001396b0(Obj *) asm("_ZN2Tz6Select10BeginLeaveEz");
 void func_0031a260(Obj *, s32) asm("_ZN2Tz6Select7SetFlagEz");

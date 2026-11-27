@@ -3,7 +3,7 @@
 extern "C" {
 void func_00161598(void*);
 void func_00161668(void*, f32);
-void func_0011ea40(f32, u32);
+void kn__ModelObj__playAnimation(f32, u32);
 extern f32 D_00349e10;
 
 // 00160430: moved to src/harata/libdk/bgobj.cpp

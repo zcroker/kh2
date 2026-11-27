@@ -27,7 +27,7 @@ u32 func_00257070(s32) asm("func_00257070");
 void func_00266df8(u32) asm("func_00266df8");
 void func_0028d8c0(u32, s32, u32, u32, u32, u32, s32, s32) asm("func_0028d8c0");
 void func_0028d980(u32, s32, u32, u32, u32, u32, s32, s32, s32) asm("func_0028d980");
-void func_00288d80(u32, s32, u32, u32, u32, s32, s16*, s16*) asm("func_00288d80");
+void Tz__Select__SetItem(u32, s32, u32, u32, u32, s32, s16*, s16*) asm("Tz__Select__SetItem");
 void func_002fde18(u32, u32, u32) asm("func_002fde18");
 u32 func_002891b8(u32, s32) asm("func_002891b8");
 void func_0028dcc0(u32, u32) asm("func_0028dcc0");
@@ -38,16 +38,16 @@ void func_00138c68(u32, s32, s32) asm("func_00138c68");
 s32 func_0023aa18(u32) asm("func_0023aa18");
 s32 func_0023aa38(u32) asm("func_0023aa38");
 u32 func_00257140(s32) asm("func_00257140");
-void func_0028af90(u32, s32) asm("func_0028af90");
-void func_002891f0(u32, s32, s32, s32, s32) asm("func_002891f0");
+void Tz__Select__SetSelectMax(u32, s32) asm("Tz__Select__SetSelectMax");
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32) asm("Tz__Select__SetCurrent");
 u32 func_0028af88(u32) asm("func_0028af88");
 void func_0028af18(u32, u32) asm("func_0028af18");
-void func_0028b218(u32, s32) asm("func_0028b218");
+void Tz__Select__SetPageMode(u32, s32) asm("Tz__Select__SetPageMode");
 void func_0028b248(u32, s32) asm("func_0028b248");
 void func_00266248(void) asm("func_00266248");
 void func_00265c78(void) asm("func_00265c78");
 void func_002666a8(void) asm("func_002666a8");
-void func_00256cc0(s32, s32, s32) asm("func_00256cc0");
+void Tz__CmTop__CreatePadHelp(s32, s32, s32) asm("Tz__CmTop__CreatePadHelp");
 void func_00287cc0(s32) asm("func_00287cc0");
 extern u32 D_0035ef64 asm("D_0035ef64");
 extern u32 D_0035ef68 asm("D_0035ef68");
@@ -62,8 +62,8 @@ extern s16 D_00373502 asm("D_00373502");
 extern u8 D_0035f0e8 asm("D_0035f0e8");
 struct Num { s16 n;  };
 /*TARGET 00264be0*/
-void func_00264be0(void) asm("func_00264be0");
-void func_00264be0(void) {
+void Tz__CmStat__SetupHelp(void) asm("Tz__CmStat__SetupHelp");
+void Tz__CmStat__SetupHelp(void) {
     s32 i = 3;
     s32 cnt, col, i10, curId, fadeId;
     Num nums[4];
@@ -85,7 +85,7 @@ void func_00264be0(void) {
         i10 = i * 10;
         s32 j;
         for (j = 0; j < 10; j++) {
-            func_00288d80(sel, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, &nums[0].n, &nums[0].n);
+            Tz__Select__SetItem(sel, j, D_0035ef68, D_0035ef64, D_0035f03c, -1, &nums[0].n, &nums[0].n);
             s32 idx = i10 + j;
             u32 item = func_002891b8(sel, j);
             func_0028dcc0(item, base);
@@ -110,25 +110,25 @@ void func_00264be0(void) {
             func_00138c68(fade, px, py);
             if (*(u32*)(D_0035f0e4 + 0x18) & (1 << idx)) cnt++;
         }
-        func_0028af90(sel, cnt);
+        Tz__Select__SetSelectMax(sel, cnt);
     }
-    func_002891f0(D_0035f01c, 0, 1, 0, 2);
-    func_002891f0(D_0035f020, 0, 1, 0, 2);
+    Tz__Select__SetCurrent(D_0035f01c, 0, 1, 0, 2);
+    Tz__Select__SetCurrent(D_0035f020, 0, 1, 0, 2);
     u32 en = func_0028af88(D_0035f01c);
     en |= 0xC0000;
     en |= 0xC000;
     en &= ~0x10;
     func_0028af18(D_0035f01c, en);
     func_0028af18(D_0035f020, en);
-    func_0028b218(D_0035f01c, 1);
+    Tz__Select__SetPageMode(D_0035f01c, 1);
     func_0028b248(D_0035f01c, 10);
-    func_0028b218(D_0035f020, 1);
+    Tz__Select__SetPageMode(D_0035f020, 1);
     func_0028b248(D_0035f020, 10);
     func_00266248();
     func_00265c78();
     func_002666a8();
     D_0035f0e8 = 0;
-    func_00256cc0(0xB61A, -1, -1);
+    Tz__CmTop__CreatePadHelp(0xB61A, -1, -1);
     func_00287cc0(0);
 }
 }  // namespace n00264be0
@@ -159,8 +159,8 @@ s32 func_00256ef0() asm("func_00256ef0");
 void func_00265ab8() asm("func_00265ab8");
 void func_00256ea8() asm("func_00256ea8");
 void func_0028f7e8(s32) asm("func_0028f7e8");
-void func_002644a0(s32) asm("func_002644a0");
-void func_00264be0() asm("func_00264be0");
+void Tz__CmStat__SetupTop(s32) asm("Tz__CmStat__SetupTop");
+void Tz__CmStat__SetupHelp() asm("Tz__CmStat__SetupHelp");
 s32 func_0028ae28(u32, s32) asm("func_0028ae28");
 s32 func_00265c10() asm("func_00265c10");
 void func_0028ab20(u32) asm("func_0028ab20");
@@ -170,17 +170,17 @@ void func_00256e30() asm("func_00256e30");
 void func_00267398() asm("func_00267398");
 void func_00267280() asm("func_00267280");
 void func_002674f8(s32) asm("func_002674f8");
-void func_00263c60() asm("func_00263c60");
-void func_0028f6f0(s32) asm("func_0028f6f0");
-void func_00265a30() asm("func_00265a30");
+void Tz__CMenuHelp__FadeOut() asm("Tz__CMenuHelp__FadeOut");
+void Tz__SelHist__FadeOut(s32) asm("Tz__SelHist__FadeOut");
+void Tz__CmAbility__FadeOutAll() asm("Tz__CmAbility__FadeOutAll");
 void func_00256e80() asm("func_00256e80");
 extern u8 D_00267590[] asm("D_00267590");
 extern u32 D_0035f01c asm("D_0035f01c");
 extern u32 D_0035f020 asm("D_0035f020");
 extern u8 D_0035f0e8 asm("D_0035f0e8");
 /*TARGET 00265018*/
-void func_00265018(void) asm("func_00265018");
-void func_00265018(void) {
+void Tz__CmStat__CtrlHelp(void) asm("Tz__CmStat__CtrlHelp");
+void Tz__CmStat__CtrlHelp(void) {
     u32 sel = func_00267248();
     D_0035f0e8 = 0;
     s32 st = func_00289380(sel);
@@ -213,8 +213,8 @@ void func_00265018(void) {
             }
             func_0028af18(D_0035f020, 0x73);
             func_0028f7e8(1);
-            if (n == 23) func_002644a0(0);
-            else if (n == 24) func_00264be0();
+            if (n == 23) Tz__CmStat__SetupTop(0);
+            else if (n == 24) Tz__CmStat__SetupHelp();
         }
     } else {
         if (st != -1 || func_00289310(sel)) {
@@ -240,18 +240,18 @@ void func_00265018(void) {
             case -11:
             case -10:
                 func_002674f8(st == -10);
-                func_00263c60();
-                func_0028f6f0(1);
-                func_00265a30();
+                Tz__CMenuHelp__FadeOut();
+                Tz__SelHist__FadeOut(1);
+                Tz__CmAbility__FadeOutAll();
                 func_00287c00(func_00287bc0());
                 func_00287cc0(2);
                 break;
             case -1:
                 break;
             case -2:
-                func_00263c60();
-                func_0028f6f0(1);
-                func_00265a30();
+                Tz__CMenuHelp__FadeOut();
+                Tz__SelHist__FadeOut(1);
+                Tz__CmAbility__FadeOutAll();
                 func_00256e80();
                 func_00287c00(23);
                 func_00287c90(1);

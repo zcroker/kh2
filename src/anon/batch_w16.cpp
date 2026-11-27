@@ -15,7 +15,7 @@ public:
 };
 }  // namespace Tz
 
-u32 ctarget_00185da8(u32, u32, u32, u32);
+u32 YS__ENEMY__Each(u32, u32, u32, u32);
 u32 wtarget_001ce2a0(u32, u32, u32, u32);
 void wtarget_001d9ca0(u32, u32, u32, u32);
 void wtarget_002eaab0(u32, u32, u32, u32);
@@ -26,7 +26,7 @@ typedef void (*VFn)(void*);
 typedef void (*VFn1)(void*, void*);
 typedef u32 (*VFnR)(void*);
 
-void func_00102818(u32, u32, u32, u32, u32);
+void TASK_MANAGER__create_thread(u32, u32, u32, u32, u32);
 void func_00105110(void*);
 u8 func_00106420(void*);
 void func_00113668(void*);
@@ -39,18 +39,18 @@ void func_0013b1d0(void*);
 void func_0013d208(void*);
 void func_0013b1a0(void*);
 u32 func_00139d78(void*);
-void func_00150678(void*);
+void dk__COUNTER__close(void*);
 void* func_001050c8(void*);
 void func_00142940(u32, void*);
 void func_001bdab0(u32);
 void func_001776f8(void*);
 void func_0016a2e0(void*);
 u32 func_00196e88(void*, u32, u32, f32);
-u8 func_001b8e88(void);
-u8 func_0019c218(u8*, u32);
+u8 YS__COMMAND_ELEM__Get(void);
+u8 YS__OBJ__can_decide(u8*, u32);
 u8 func_001ab598(u32, void*, u32, u32, u32, u32);
 u32 func_001a3a78(void*);
-void func_001de168(u32, u32, u32, u32, u32, void*);  // scan_list_by_half
+void ryj__PAX__start(u32, u32, u32, u32, u32, void*);  // scan_list_by_half
 u8 func_002fd248(u32, void*, u32, u32, void*);
 u32 func_001bb4a0(void);
 void func_001a4e30(void*);
@@ -64,8 +64,8 @@ void func_00226030(u32, u32, u8*);
 void func_001de750(u32);
 void func_002fde18(void*, u32, u32);
 u8* func_001058e8(void);
-void func_0028dbf8(u32, void*, void*);
-void func_002b4b00(void);
+void Tz__MenuUtil__GetLaySeq(u32, void*, void*);
+void OvlShop__ItemShop__SetupConfirm(void);
 void func_00240be0(void);
 void func_0028f4d8(u32, u32, u32);
 void func_002908f0(void*);
@@ -76,10 +76,10 @@ u8 func_002d2a08(void*);
 u8 func_003167f8(void*);  // set_vtbl_367910
 void func_003155e8(void*);  // set_vtbl_367878
 void func_0031ffc0(void*);
-void func_0017c4c8(u32, void*);
+void YS__OBJ__prepare_jump(u32, void*);
 void func_0016bd60(u32, u32);
 void func_001d9a18(void*, s32);
-u32 func_001b9bc8(u32);
+u32 YS__OBJ__Each(u32);
 
 extern u32 D_0032b96c;
 extern u8 D_00346cd8;
@@ -109,7 +109,7 @@ extern void* D_003520c0;
 // Destructor body: set vtable, destroy members, chain to the base.
 void func_00115090(void* p);  // 0x00115090: definition moved into src/anon/unit_00114a90.cpp
 
-u32 func_00123e00(void* a);  // 0x00123e00: definition moved into src/anon/unit_00123990.cpp
+u32 kn__ModelMulti__getHrc(void* a);  // 0x00123e00: definition moved into src/anon/unit_00123990.cpp
 
 // Skips a header (size from func_001320f0 plus 8); 0 when the rest is invalid.
 u8* func_00132130(u8* p);  // 0x00132130: definition moved into src/anon/unit_00131418.cpp
@@ -148,7 +148,7 @@ void func_001973f0(u8* p);  // 0x001973f0: definition moved into src/anon/unit_0
 
 u8 func_001aa940(u8* p, u32 a, u32 b, u32 c, u32 d);  // 0x001aa940: definition moved into src/anon/unit_001a9130.cpp
 
-void func_001b7468(void* p);  // 0x001b7468: definition moved into src/anon/unit_001b6a50.cpp
+void YS__LEVELUP__ShowEffectDrive(void* p);  // 0x001b7468: definition moved into src/anon/unit_001b6a50.cpp
 
 u8 func_001b8800(u32 a);  // 0x001b8800: definition moved into src/anon/unit_001b87a0.cpp
 

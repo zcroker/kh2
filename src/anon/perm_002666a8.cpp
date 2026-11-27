@@ -56,7 +56,7 @@ s32 func_00281140(s32, s32);
 s32 func_00192e50(s32, void *, s32, s32);
 void func_00192b30(s32);
 void func_00192c90(s32, void *);
-void func_00263a90(void *, s32);
+void Tz__CMenuHelp__Create_2(void *, s32);
 s32 func_00267248(void);
 u32 func_00257070(s32);
 s32 func_002671e8(s32);

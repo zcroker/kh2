@@ -66,7 +66,7 @@ void func_001c7c68(void* p)
     func_00105110(p);
 }
 
-void func_001c7ca8(u32 a, u32 b)
+void YS__PRIZE_MU__AppearTable(u32 a, u32 b)
 {
     f32 k = func_00191b70();
     if (D_00351d98) {
@@ -93,7 +93,7 @@ void func_001c7ea8(void* self, u8* o)
     func_001a5990(o, 0, D_0036e030[o[20]]);
 }
 
-void func_001c7ee0(void)
+void YS__PRIZE_MU__ClearAll(void)
 {
     u8* p = (u8*)D_00351d98;
     if (p) func_001c1708(*(u32*)(p + 2548));

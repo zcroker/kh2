@@ -7,9 +7,9 @@ struct W1775Self { W1775Hold* h; };
 
 
 extern "C" {
-void func_0019ba60(W1775Obj*);
+void YS__OBJ__is_exist(W1775Obj*);
 s32 func_0019c090(W1775Obj*);
-s32 func_001b9d40(W1775Obj*);
+s32 YS__OBJ__can_control(W1775Obj*);
 u8 func_001791e8(W1775Obj*, void*);
 
 static inline bool W1775_CtlBusy(W1775Obj* o) { return (o->ctl->flags & 2) || (o->flags160 & 0x40); }
@@ -18,7 +18,7 @@ static inline bool W1775_CanAct(W1775Obj* o) { bool r = false; if (func_0019c090
 
 
 /* Notifies the held object, then replaces the holder pointer with the object's busy flag. */
-void func_00173878(W1775Self* s);  // 0x00173878: definition moved into src/anon/unit_00171e58.cpp
+void YS__trap_obj_is_air(W1775Self* s);  // 0x00173878: definition moved into src/anon/unit_00171e58.cpp
 
 // 00179148: moved to src/yasui/libys/player.cpp
 

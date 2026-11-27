@@ -11,7 +11,7 @@ s32 func_002892f8(s32);
 s32 func_0028afa8(s32);
 Res2b1* func_002891b8(s32, s32);
 void func_00138c10(Item2b1*, s32);
-s32 func_002ac420(u8);
+s32 Tz__JmNewInfo__isPuzzlePieceNew(u8);
 s32 func_002ac538(u8);
 extern s32 D_0035f200;
 extern Ent2b1* D_0035f630;

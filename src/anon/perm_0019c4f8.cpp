@@ -18,7 +18,7 @@ union BD_VALUE
   void *p;
   u32 u;
 };
-s32 func_0019c6f0(u8 *);
-s32 func_0019c4f8(u8 *p);  // 0x0019c4f8: definition moved into src/anon/unit_0019ba60.cpp
+s32 YS__OBJ__is_stop(u8 *);
+s32 YS__OBJ__is_disable_rc(u8 *p);  // 0x0019c4f8: definition moved into src/anon/unit_0019ba60.cpp
 
 }

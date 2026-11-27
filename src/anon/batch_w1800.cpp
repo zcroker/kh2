@@ -17,7 +17,7 @@ void cc30_change_action(Cc30Obj*, u32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION
 
 /* 001cb0a8 */
 void* b0a8_current(void) asm("_ZN2Ti8MGPlayer7currentEv");
-B0a8V* func_0016c028(void*);
+B0a8V* YS__OBJ__get_pos(void*);
 static inline __attribute__((always_inline)) f32 b0a8_normalize(B0a8V* v) {
     f32 len;
     asm volatile("lqc2 $vf1, 0(%1)\n\tvmul.xyz $vf2, $vf1, $vf1\n\tvaddy.x $vf2, $vf2, $vf2y\n\tvaddz.x $vf2, $vf2, $vf2z\n\tvsqrt Q, $vf2x\n\tvwaitq\n\tcfc2.ni $8, $vi22\n\tvaddq.x $vf2, $vf0, Q\n\tmtc1 $8, %0\n\tvnop\n\tvdiv Q, $vf0w, $vf2x\n\tvwaitq\n\tvmulq.xyz $vf1, $vf1, Q\n\tsqc2 $vf1, 0(%1)" : "=f"(len) : "r"(v) : "$8", "memory");

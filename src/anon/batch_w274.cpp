@@ -62,33 +62,33 @@ static inline f32 Length(const V4* v) {
 struct C5088 { u8 pad[16]; V4 v; u8 pad2[2840]; u8* o2872; u8 pad3[228]; V4 v3104; };
 static inline u8 IsMode2(u8* e) { return *(s32*)(e + 944) == 2; }
 extern "C" {
-void func_00209178(u8* a0, f32* m);  // 0x00209178: definition moved into src/anon/unit_002090c0.cpp
+void get_st(u8* a0, f32* m);  // 0x00209178: definition moved into src/anon/unit_002090c0.cpp
 
-void func_00178ae8(u8*, u8*);
+void YS__PLAYER___OVR_exec_command_player(u8*, u8*);
 void func_0017f488(u8*, s32, f32, f32);
 void func_0017f5e0(u8*, s32, f32, f32, void*);
 void func_001d07e0(u8*);
 void func_001d0870(u8*);
-void func_001d0678(u8* p, u8* msg);  // 0x001d0678: definition moved into src/anon/unit_001cf0b0.cpp
+void YS__MICKEY___OVR_exec_command_player(u8* p, u8* msg);  // 0x001d0678: definition moved into src/anon/unit_001cf0b0.cpp
 extern u8 D_0035de26;
 s32 func_002283b0(void);
 s32 func_002283c8(void);
 OO* func_00227cd8(s32);
 void* func_00106a60(s32);  // buffer_get_by_index
-void func_00107368(void*, V4*);  // vec_copy_at80_if_diff
+void kn__Camera__getPosition(void*, V4*);  // vec_copy_at80_if_diff
 void func_00107478(void*, V4*);  // vec_copy_at96_if_diff
-s32 func_001ba028(u8*);  // list_contains_ptr
-void func_001072d0(void*, V4*, V4*);
+s32 YS__OBJ__is_valid(u8*);  // list_contains_ptr
+void kn__Camera__lookAt_2(void*, V4*, V4*);
 void func_001024a8(void*);
 void func_00232150(void* self);  // 0x00232150: definition moved into src/anon/unit_00231500.cpp
 extern f32 D_00349e10;
-void func_002c6420(C6490*);
+void worldmap__Camera__initialize(C6490*);
 f32 sinf(f32);
-void* func_00106a18(s32);  // buffer_get_256
+void* kn__getProjection(s32);  // buffer_get_256
 void func_00107300(void*, V4*, V4*, f32);  // copy_blocks_and_store_float
-void func_00106de8(void*, s32, f32);
+void kn__Projection__setFOV(void*, s32, f32);
 // 002c6490: moved to src/anon/unit_002c6420.cpp (linked unit)
-V4* func_0016c028(u8*);  // obj_get_attach_or_alt
+V4* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 extern u8* D_0034a990;
 extern f32 D_0034a994;
 extern f32 D_0034a998;
@@ -96,14 +96,14 @@ extern f32 D_0034a99c;
 extern V4 D_0034a9a0;
 // 00158708: moved to src/harata/libdk/scopecamera.cpp
 extern u8* D_00361f60;
-s32 func_001b9d40(void);  // vtable_call_slot64_flags
+s32 YS__OBJ__can_control(void);  // vtable_call_slot64_flags
 s32 func_002d5588(C5088*);
 u8* func_002d1878(u8*);
 void func_002d5088(C5088* p);  // 0x002d5088: definition moved into src/anon/unit_002d4548.cpp
 extern u32 D_0034f240;
 extern u8* D_0034e948;
-s32 func_0019ba60(u8*);
-u8* func_00185da8(u8*);
+s32 YS__OBJ__is_exist(u8*);
+u8* YS__ENEMY__Each(u8*);
 s32 func_0019c8a8(u8*);
 // 00191cd8: moved to src/yasui/libys/status.cpp
 }

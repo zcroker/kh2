@@ -33,10 +33,10 @@ s32 func_002891e8(s32);
 s32 func_0028b038(s32);
 s32 func_002892f8(s32);
 void func_0028bfc0(s32, s32);
-void func_0028be78(s32, s32);
-void func_002891f0(s32, s32, s32, s32, s32);
+void Tz__ScrollBar__SetPos(s32, s32);
+void Tz__Select__SetCurrent(s32, s32, s32, s32, s32);
 void func_0028afd0(s32, s32);
-void func_0028af90(s32, s32);
+void Tz__Select__SetSelectMax(s32, s32);
 void func_00273a28();  // 0x00273a28: definition moved into src/anon/unit_00271e08.cpp
 
 }

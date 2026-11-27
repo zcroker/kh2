@@ -13,7 +13,7 @@ s32 func_00192048(void*);
 s32 func_0023aa18(void*);
 s32 func_0023aa38(void*);
 s32 func_0023aa78(void*);
-void func_00259108(void*, s32, s32, s32, s32, s32, void*);
+void Tz__CmComm__CreateConfirmSelector(void*, s32, s32, s32, s32, s32, void*);
 u8* func_002891b8(void*, s32);
 void func_0028dcc0(void*, void*);
 void func_00138c68(void*, s32, s32);
@@ -35,12 +35,12 @@ s32 func_0023aa18(void*);
 s32 func_0023aa38(void*);
 void func_00288ce0(void*, void*, s32, void*, void*);
 void func_00239870(void*);
-void func_002891f0(void*, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(void*, s32, s32, s32, s32);
 void func_0028b078(void*, s32, s32);  // obj_setup_from_args
-void func_0028af90(void*, s32);  // obj_set_field22_from_arg
+void Tz__Select__SetSelectMax(void*, s32);  // obj_set_field22_from_arg
 void func_00288f48(void*, s32, s32, s32, s32);
 void func_0028d068(s32, s32);
-void func_0028d1c0(void*, s32, s32, s32, void*, void*, s32);
+void Tz__LightCur__Create(void*, s32, s32, s32, void*, void*, s32);
 s32 func_002891d0(void*);
 void func_0028d660(void*, s32);  // record_set_value_refresh
 void func_001396b0(void*);

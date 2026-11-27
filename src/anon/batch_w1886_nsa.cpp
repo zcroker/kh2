@@ -46,12 +46,12 @@ extern f32 D_003417c8;
 extern f32 D_003417cc;
 extern s32 D_003417d0;
 s32 func_00112d90(W1886Arg*);
-f32 func_001806f8(void*, s32);
+f32 YS__MOTION__get_length(void*, s32);
 void func_001129d8(s32);
 void func_00112ab8(s32 mode, W1886Arg* arg);  // 0x00112ab8: definition moved into src/anon/unit_001117d8.cpp
 
 void func_00236560(W1886GDst*);
-void func_002362b0(W1886GDst* d, W1886GSrc* s);  // 0x002362b0: definition moved into src/anon/unit_00236180.cpp
+void YI__IMAGE__Init(W1886GDst* d, W1886GSrc* s);  // 0x002362b0: definition moved into src/anon/unit_00236180.cpp
 
 void func_002367c8(W1886Gra*);
 }

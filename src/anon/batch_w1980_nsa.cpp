@@ -79,7 +79,7 @@ s32 W1980Eff80_is_active(void*) asm("_ZN3ryj6EFFECT9is_activeEv");
 W1980Obj80* func_002e97b8(W1980Obj80*);
 s32 func_0018a550(W1980Col80*, W1980Col80*);
 void func_0018a7d0(W1980Col80*, W1980Col80*, W1980V80*);
-void func_002e9610(W1980Obj80*, const W1980V80&);
+void Ts__FLARE__set_pos(W1980Obj80*, const W1980V80&);
 extern W1980ColList80 D_01e2bfb0;
 // 002e93b0: moved to src/sugi/flare.cpp
 

@@ -14,5 +14,5 @@ extern E6 D_00373798[];
 extern E6 D_003737c8[];
 extern u32 D_0035f04c;
 
-void func_00269e20(void);  // 0x00269e20: definition moved into src/anon/unit_00269a60.cpp
+void Tz__CmEquip__FadeOutList(void);  // 0x00269e20: definition moved into src/anon/unit_00269a60.cpp
 }

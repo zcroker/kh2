@@ -20,5 +20,5 @@ static inline __attribute__((always_inline)) void W1628_ctor436(u8* e)
     *(u32*)(e + 408) = 0; *(u32*)e = (u32)D_00347e40;
 }
 
-void func_00322e58(u8* t);  // 0x00322e58: definition moved into src/anon/unit_00321728.cpp
+void Tz__JmDic__Init(u8* t);  // 0x00322e58: definition moved into src/anon/unit_00321728.cpp
 }

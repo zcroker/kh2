@@ -2,7 +2,7 @@
 
 extern "C" {
 extern s32 D_0034e948;
-s32 func_0019ba60(s32);
+s32 YS__OBJ__is_exist(s32);
 void* func_001a8bd0(s32);
 s32 func_001a8bf8(void*, s32);  // get_bits5_at
 u8* func_001a8b28(void);  // get_data_1c7cc10
@@ -18,7 +18,7 @@ void func_002c3da0(u8*);
 void func_002c8648(void);
 struct W254S10 { s16 h[5]; };
 
-u8* func_001b9bc8(u8*);
+u8* YS__OBJ__Each(u8*);
 s32 func_0016a040(u8*);
 s32 func_0016a060(u8*);
 
@@ -45,12 +45,12 @@ s32 func_001069e8(void);
 void func_0015cff0(void);
 f32 func_0017ce10(f32);
 u8* func_00106a60(s32);  // buffer_get_by_index
-void func_0013f9e0(u8*, u8*, u8*, u8, s32);
+void dk__ObjCamera__collision_2(u8*, u8*, u8*, u8, s32);
 void func_0015d058(u8*, u8*);
 void func_0015d208(f32*, f32*);
 void func_00107300(u8*, u8*, u8*, f32);  // copy_blocks_and_store_float
-u8* func_00106a18(s32);  // buffer_get_256
-void func_00106de8(u8*, u8*, f32);
+u8* kn__getProjection(s32);  // buffer_get_256
+void kn__Projection__setFOV(u8*, u8*, f32);
 
 // Member lookup: find slot of id a0 in party (1..2), spawn its object, start its fade unless flagged.
 u8* func_001c9c78(s32 a0);  // 0x001c9c78: definition moved into src/yasui/libys/sacrifice.cpp
@@ -114,15 +114,15 @@ static inline void MtxInverseOrtho(Mtx* m) {
 }
 extern "C" {
 extern f32 D_00362d70;
-u8* func_00106a18(s32);  // buffer_get_256
-void func_00106de8(u8*, s32, f32);
-void func_00106c08(u8*);
+u8* kn__getProjection(s32);  // buffer_get_256
+void kn__Projection__setFOV(u8*, s32, f32);
+void kn__Projection__calcMatrix(u8*);
 u8* func_00106a60(s32);  // buffer_get_by_index
 void func_002e71a0(Mtx*, u32, u8, s32);
 
-void wtarget_002e1178(u8* a0, u32, u32, u32) asm("_Z16wtarget_002e1178jjjj");
+void Ti__MG_ALEscape__task_update_camera(u8* a0, u32, u32, u32) asm("_Z35Ti__MG_ALEscape__task_update_camerajjjj");
 // Set camera FOV from degrees, rebuild projection, then store the inverse of a fresh view matrix.
-void wtarget_002e1178(u8* a0, u32, u32, u32);  // 0x002e1178: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__MG_ALEscape__task_update_camera(u8* a0, u32, u32, u32);  // 0x002e1178: definition moved into src/anon/unit_002de3c8.cpp
 }
 }
 
@@ -148,6 +148,6 @@ void func_0017f5e0(u8*, u32, s32, f32, f32);
 
 // Optionally negate a direction, apply it, then pick motion 15/14 (flip if unavailable) and play it.
 // 00186590: moved to src/anon/unit_00185d10.cpp
-void func_00186590(u8* a0, Vec* a1, u32 a2);
+void YS__BTLOBJ___exec_damage_small_air(u8* a0, Vec* a1, u32 a2);
 }
 }

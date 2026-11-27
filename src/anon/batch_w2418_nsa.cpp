@@ -23,10 +23,10 @@ struct W2418Menu3 {
     f32 f2892;
     union { s32 i; u8 c; } f2896;
 };
-void func_00138650(W2418Sprite*, u32, u32, u32);
-void func_001386e0(W2418Sprite*, u32, u32, void*, u32, u32);
+void dk__SpriteImage__create(W2418Sprite*, u32, u32, u32);
+void dk__Sprite__create(W2418Sprite*, u32, u32, void*, u32, u32);
 s32 func_0013a9d0(void);
-void func_002368e8(void*, f32);
+void YI__IMAGE__ClutGray(void*, f32);
 void func_002367c8(void*);
 void func_001396b0(W2418Sprite*);
 void func_0031a260(W2418Sprite*, u32);
@@ -34,7 +34,7 @@ void func_00139660(W2418Sprite*);
 void func_00139688(W2418Sprite*);
 void func_00138c68(W2418Sprite*, s32, s32);
 void func_00138c40(W2418Sprite*, s32, s32);
-void func_00239988(W2418Seq*, u32, void*);
+void YI__SEQUENCE__Init(W2418Seq*, u32, void*);
 void func_00239c38(W2418Seq*, s32);
 void func_0023acd8(W2418Seq*);
 s32 func_0023a950(W2418Seq*);
@@ -58,7 +58,7 @@ static inline void W2418_setParent(W2418Sprite* obj, W2418Sprite* parent) {
     }
 }
 
-void func_001516b0(W2418Menu3* self, u32 a1, u32 a2, s32 mode, f32* pv, u32 a5, f32 f);  // 0x001516b0: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__MISSION_GAUGE__create(W2418Menu3* self, u32 a1, u32 a2, s32 mode, f32* pv, u32 a5, f32 f);  // 0x001516b0: definition moved into src/anon/unit_0014ecb8.cpp
 }
 
 extern "C" {
@@ -81,5 +81,5 @@ s32 func_0020a060(W2418Q*, W2418A1*);
 void func_0020aec0(void*, W2418A1*, W2418Q*);
 f32 func_0020aec8(void*, f32 (*)[4], W2418A1*, W2418Q*, W2418It*);
 
-void func_0020aff8(u8* a0, W2418A1* a1, W2418A2* a2);  // 0x0020aff8: definition moved into src/anon/unit_0020ad28.cpp
+void pppRyjDrawMegaBirth(u8* a0, W2418A1* a1, W2418A2* a2);  // 0x0020aff8: definition moved into src/anon/unit_0020ad28.cpp
 }

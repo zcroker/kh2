@@ -59,18 +59,18 @@ union Half36fd0 { u16 h[2]; u32 w; };
 void func_00139598(u8*);
 void func_002ba2e8(s32, s32);
 void func_001395a8(u8*);
-void func_00138840(u8*);
+void dk__Sprite__update(u8*);
 extern f32 D_00349e14;
 
-void func_00137560(u8* p);  // 0x00137560: definition moved into src/anon/unit_001374c8.cpp
+void dk__TREASURE_INFO_BASE__update(u8* p);  // 0x00137560: definition moved into src/anon/unit_001374c8.cpp
 
 // ---------------------------------------------------------------------------
-void func_0014fcd8(u8*);
+void dk__INFO_BASE__update(u8*);
 s32 func_00139538(u8*);
 void func_00138c40(u8*, s32, u32);
 void func_0023acd8(u8*);
 
-void func_00152318(u8* p);  // 0x00152318: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__NEXT_EXP__update(u8* p);  // 0x00152318: definition moved into src/anon/unit_0014ecb8.cpp
 
 // ---------------------------------------------------------------------------
 f32 func_0017ce10(f32);
@@ -79,7 +79,7 @@ f32 func_0017ce10(f32);
 s32 func_00155830(s32 a0, f32* a1, f32* a2, f32* a3);
 
 // ---------------------------------------------------------------------------
-void func_00239f18(u8*);  // obj_set_float312_and_flags
+void YI__SEQUENCE__SetScaleX(u8*);  // obj_set_float312_and_flags
 void func_00138c68(u8*, s32, s32);
 
 // 00155b58: moved to src/anon/unit_00153ea0.cpp
@@ -126,7 +126,7 @@ s32 func_00170c50(void);  // 0x00170c50: definition moved into src/anon/unit_001
 
 // ---------------------------------------------------------------------------
 s32 func_00190140(u8*);
-void func_00159130(u8*);
+void dk__ReactionCamera__create(u8*);
 
 // 00178a50: moved to src/yasui/libys/player.cpp
 
@@ -151,7 +151,7 @@ void func_001942b8(u8* p);  // 0x001942b8: definition moved into src/anon/unit_0
 
 // ---------------------------------------------------------------------------
 s32 func_00199810(u8*);
-void func_0016ed50(u32, s32, s32);
+void YS__OBJENTRY__ReadRequest(u32, s32, s32);
 
 void func_00199d38(u8* p);  // 0x00199d38: definition moved into src/anon/unit_00199688.cpp
 
@@ -165,10 +165,10 @@ s32 func_0019ac80(u8* p);  // 0x0019ac80: definition moved into src/anon/unit_00
 // ---------------------------------------------------------------------------
 s32 func_001c8ab0(u8*);
 extern u32 D_0034f240;
-void func_0019cc20(u8*);
+void YS__LOCKON__release(u8*);
 void func_0019cd40(u8*);
 void func_0019ce48(u8*);
-void func_0019d260(u8*);
+void YS__LOCKON__update_mark(u8*);
 
 void func_0019d188(u8* p);  // 0x0019d188: definition moved into src/anon/unit_0019ba60.cpp
 
@@ -194,8 +194,8 @@ void func_001b7f88(void);  // 0x001b7f88: definition moved into src/anon/unit_00
 // ---------------------------------------------------------------------------
 s32 func_001d5460(u32);
 extern u32 D_01d49324;
-void func_001d7940(void);
-void func_001ada38(s32);
+void YS__HE_COLOSSEUM__Start(void);
+void YS__RECOV__Exec(s32);
 void func_001bb468(void);
 void func_00199098(u8*, s32);
 void func_0019f070(u8*, u32);
@@ -212,7 +212,7 @@ void func_001c8d98(void*, s32);
 void func_001c9b90(void);
 void func_001d2710(u8*);
 void func_00319f88(u8*);
-void func_0019f9a8(u8*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(u8*);  // array8_free_slots
 void func_001c0248(u8*);
 void func_00319fb0(u8*);  // big_obj_dtor
 void func_00105110(u8*);
@@ -317,8 +317,8 @@ extern char D_00347f98[];
 extern char D_0035eb98[];
 extern u8* D_00361e28;
 void func_0031a838(u8*);
-void func_002369a0(u8*);  // obj_ctor_36eac8
-void func_0023c008(u8*);  // obj_ctor_36eae8
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u8*);  // obj_ctor_36eac8
+void YI__LAYOUT__LAYOUT(u8*);  // obj_ctor_36eae8
 void func_0028d140(u8*);
 void func_00167f38(s32);
 void func_002c5f48(void);
@@ -330,13 +330,13 @@ void func_002ca0e0(u8* p);  // 0x2ca0e0: moved to src/anon/unit_002ca0e0.cpp
 // ---------------------------------------------------------------------------
 u8* func_001050d8(u32);
 void func_002cb5d8(u8*, f32);
-void func_002cd290(u8*, u32, u32);
+void Ti__Path__reset_active_path(u8*, u32, u32);
 
 u8* func_002cd1d8(u32 a, u32 b);  // 0x002cd1d8: definition moved into src/taito/path.cpp
 
 // ---------------------------------------------------------------------------
 extern u32 D_00361f60;
-void func_00184540(V16*, u32, f32, f32);
+void kn__MotionPrototype0__calcLimitValue(V16*, u32, f32, f32);
 void func_002e10d0(V16*, u32);
 
 // Builds a vector, sets w = 0 and transforms it by the current view matrix.

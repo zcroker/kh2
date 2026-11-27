@@ -53,8 +53,8 @@ u32 func_0016bff0(...) asm("_ZN2YS3OBJ10get_serialEv");
 u32 func_001991a8(...) asm("func_001991a8");
 u32 func_0017f488(...) asm("func_0017f488");
 void func_00185d10(u32 a0) asm("func_00185d10");
-void func_001b1da0(u32 a0) asm("func_001b1da0");
-void func_001b1da0(u32 a0) {
+void YS__ZAKO___OVR__dead(u32 a0) asm("YS__ZAKO___OVR__dead");
+void YS__ZAKO___OVR__dead(u32 a0) {
     u32 s0 = a0;
 
     u32 v0 = func_0016bff0(a0);
@@ -76,13 +76,13 @@ void func_001b1da0(u32 a0) {
 namespace n001b1e00 {
 s32 func_0019baa8(u8*) asm("func_0019baa8");
 void func_001cc160(u8*, u32) asm("func_001cc160");
-void func_001bfcc8(u8*, u32) asm("func_001bfcc8");
+void YS__PRIZEBOX__DropNmPresent(u8*, u32) asm("YS__PRIZEBOX__DropNmPresent");
 void func_00186020(u8*) asm("func_00186020");
 void func_001b1e00(u8* o) asm("func_001b1e00");
 void func_001b1e00(u8* o) {
     if (func_0019baa8(o) == 0 && (*(u32*)(o + 2040) & 4)) {
         func_001cc160(o, *(u32*)(o + 2760));
-        func_001bfcc8(o, *(u32*)(o + 2764));
+        YS__PRIZEBOX__DropNmPresent(o, *(u32*)(o + 2764));
     }
     func_00186020(o);
 }
@@ -114,15 +114,15 @@ u32 ITEMPIC_GetSequenceData() {
 // 001b1e80 (from src/anon/batch_w45.cpp)
 namespace n001b1e80 {
 struct Tk { u32 f0; s32 id; };
-Tk* func_00102818_t(u32, u32, u32, void*, u32) asm("func_00102818");
+Tk* func_00102818_t(u32, u32, u32, void*, u32) asm("TASK_MANAGER__create_thread");
 extern s32 D_00350f1c asm("D_00350f1c");
 extern u32 D_0032b91c asm("D_0032b91c");
 extern u32 D_01d48c44 asm("D_01d48c44");
-void func_001b1ee8(void) asm("func_001b1ee8");
+void YS__ITEMPIC__ReadImageThread(void) asm("YS__ITEMPIC__ReadImageThread");
 void func_001b1e80(s32 id) asm("func_001b1e80");
 void func_001b1e80(s32 id) {
     if (id == -1 || id == D_00350f1c) return;
-    Tk* t = func_00102818_t(D_0032b91c, 0, 0x55730, (void*)func_001b1ee8, 4096);
+    Tk* t = func_00102818_t(D_0032b91c, 0, 0x55730, (void*)YS__ITEMPIC__ReadImageThread, 4096);
     D_01d48c44 = (u32)t;
     t->id = id;
 }
@@ -139,10 +139,10 @@ extern u32 D_01d48c44 asm("D_01d48c44");
 void func_00102448(void*, s32) asm("func_00102448");
 void func_002fee78(char*, const char*, ...) asm("func_002fee78");
 void func_001688c8(char*) asm("func_001688c8");
-void func_00168388(char*, void*, s32, s32) asm("func_00168388");
+void YS__FILE__ReadBack(char*, void*, s32, s32) asm("YS__FILE__ReadBack");
 s32 func_001688b8(void) asm("func_001688b8");
-void func_001b1ee8(u8* o) asm("func_001b1ee8");
-void func_001b1ee8(u8* o) {
+void YS__ITEMPIC__ReadImageThread(u8* o) asm("YS__ITEMPIC__ReadImageThread");
+void YS__ITEMPIC__ReadImageThread(u8* o) {
     char buf[48];
     u32 v;
     while (D_00350f18) func_00102448(o, 0);
@@ -150,7 +150,7 @@ void func_001b1ee8(u8* o) {
     v = *(u32*)(o + 4);
     func_002fee78(buf, D_0036d9a8, v);
     func_001688c8(buf);
-    func_00168388(buf, D_01d44440, 0, 0);
+    YS__FILE__ReadBack(buf, D_01d44440, 0, 0);
     while (func_001688b8()) func_00102448(o, 0);
     D_00350f1c = v;
     D_00350f18 = 0;
@@ -244,9 +244,9 @@ u32 func_001b20a0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 // 001b20f0 (from src/anon/tiny.cpp)
 namespace n001b20f0 {
 union BD_VALUE;
-void func_0017c578(void*) asm("func_0017c578");
+void YS__ACTION_JUMP__start(void*) asm("YS__ACTION_JUMP__start");
 void func_001b20f0(BD_VALUE* bd) asm("func_001b20f0");
-void func_001b20f0(BD_VALUE* bd) { func_0017c578(bd); }
+void func_001b20f0(BD_VALUE* bd) { YS__ACTION_JUMP__start(bd); }
 }  // namespace n001b20f0
 
 // 001b2108 (gap, never written)
@@ -275,13 +275,13 @@ struct Vec4 {
     }
 } __attribute__((aligned(16)));
 extern f32 D_00349e10 asm("D_00349e10");
-Vec4 func_00184540(u8*, f32, f32) asm("func_00184540");
-Vec4 func_001b2170(void* self, u8* o) asm("func_001b2170");
-Vec4 func_001b2170(void* self, u8* o)
+Vec4 kn__MotionPrototype0__calcLimitValue(u8*, f32, f32) asm("kn__MotionPrototype0__calcLimitValue");
+Vec4 YS__ACTION_HOP__calc_movement(void* self, u8* o) asm("YS__ACTION_HOP__calc_movement");
+Vec4 YS__ACTION_HOP__calc_movement(void* self, u8* o)
 {
     f32 y0 = *(f32*)(o + 36);
     Vec4 r;
-    r = func_00184540(o, *(f32*)(o + 240), *(f32*)(o + 240));
+    r = kn__MotionPrototype0__calcLimitValue(o, *(f32*)(o + 240), *(f32*)(o + 240));
     f32 v = y0 + *(f32*)(o + 244) * D_00349e10;
     f32 m = *(f32*)(o + 288);
     f32 c;
@@ -495,7 +495,7 @@ Vec128* func_001b2578(Path29* p, Vec128* pos) {
 namespace n001b2618 {
 struct Pt { f32 x, y, z; };
 struct Src { u16 f0; u16 n; u8 pad[4]; Pt p[1]; };
-Src* func_00182e08(void) asm("func_00182e08");
+Src* YS__UNIT__GetPath(void) asm("YS__UNIT__GetPath");
 u8* func_001050d8(s32) asm("func_001050d8");
 void func_001b2380(u8*, u16) asm("func_001b2380");
 void func_001b2520(u8*, f32*) asm("func_001b2520");
@@ -503,7 +503,7 @@ u8* func_001b2618(void) asm("func_001b2618");
 u8* func_001b2618(void)
 {
     s32 i = 0;
-    Src* s = func_00182e08();
+    Src* s = YS__UNIT__GetPath();
     u8* o = func_001050d8(28);
     func_001b2380(o, s->n);
     for (; i < s->n; i++) {

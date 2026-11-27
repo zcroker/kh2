@@ -33,7 +33,7 @@ static inline __attribute__((always_inline)) u8* w1825_mk() {
     func_00239700(a + 24);
     return a;
 }
-void func_002815d8(void);  // 0x002815d8: definition moved into src/anon/unit_0027f2b0.cpp
+void Tz__ItemPicDraw__Init(void);  // 0x002815d8: definition moved into src/anon/unit_0027f2b0.cpp
 }
 
 // 002cb938
@@ -88,17 +88,17 @@ s32 func_00186ec0(W1825Obj* o, W1825Oth* p);
 // 001cd690
 struct W1825Slot { u32 val; void* obj; };
 extern "C" {
-s32 func_0019ba60(void*);
+s32 YS__OBJ__is_exist(void*);
 }
 static inline bool w1825_dead(void* p)
 {
     bool r = 0;
-    if (!p || !func_0019ba60(p)) r = 1;
+    if (!p || !YS__OBJ__is_exist(p)) r = 1;
     return r;
 }
 extern "C" {
 // 001cd690: moved to src/anon/unit_001cd660.cpp
-void func_001cd690(W1825Slot* s, u32 val, void* obj);
+void YS__PRIORITYTARGET__search(W1825Slot* s, u32 val, void* obj);
 }
 
 // 001871c8
@@ -127,11 +127,11 @@ struct W1825V {
 struct W1825Act { u8 pad[1376]; W1825V pos; };
 struct W1825Tgt { W1825Act* owner; };
 extern "C" {
-s32 func_00187300(W1825Act*, W1825Tgt*, f32);
+s32 YS__BTLOBJ___turn_to_target_range(W1825Act*, W1825Tgt*, f32);
 s32 func_00190180(W1825Tgt*);
 W1825V func_00190388(W1825Tgt*);
-W1825V* func_0016c028(W1825Act*);
-void func_0016b010(W1825Act*, W1825V);
-s32 u_call4_001871c8(W1825Act* o, W1825Tgt* t, f32 r) asm("_Z16u_call4_001871c8jjjj");
+W1825V* YS__OBJ__get_pos(W1825Act*);
+void YS__OBJ__set_wish_dir(W1825Act*, W1825V);
+s32 YS__BTLOBJ___turn_to_target(W1825Act* o, W1825Tgt* t, f32 r) asm("_Z27YS__BTLOBJ___turn_to_targetjjjj");
 // 001871c8: moved to src/anon/unit_00185d10.cpp
 }

@@ -48,10 +48,10 @@ void* func_00288be8(s32);
 void func_002889f0(void*, s32, s32);
 void func_00288f48(void*, s32, s32, s32, s32);
 R* func_00103eb0(void);
-void func_00102818(s32, s32, s32, void*, s32);
+void TASK_MANAGER__create_thread(s32, s32, s32, void*, s32);
 void func_002510d0(void);
 
 // Sets up two work buffers, then allocates and constructs the module objects.
-void func_00250a50(void);  // 0x00250a50: definition moved into src/anon/unit_0024fbd0.cpp
+void Tz__CANA__Init(void);  // 0x00250a50: definition moved into src/anon/unit_0024fbd0.cpp
 }
 }

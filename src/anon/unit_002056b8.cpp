@@ -40,8 +40,8 @@ namespace n00205718 {
 void func_001e7798(u32, u32) asm("func_001e7798");
 extern u32 D_01d9e6e4 asm("D_01d9e6e4");
 /*TARGET 00205718*/
-void func_00205718(u8* a0, u8* a1) asm("func_00205718");
-void func_00205718(u8* a0, u8* a1) {
+void pppRyjMegaBirthDes(u8* a0, u8* a1) asm("pppRyjMegaBirthDes");
+void pppRyjMegaBirthDes(u8* a0, u8* a1) {
     u8* s = a0 + *(u32*)(*(u8**)(a1 + 12) + 8) + 160;
     if (*(u32*)(s + 80)) { func_001e7798(D_01d9e6e4, *(u32*)(s + 80)); *(u32*)(s + 80) = 0; }
     if (*(u32*)(s + 84)) { func_001e7798(D_01d9e6e4, *(u32*)(s + 84)); *(u32*)(s + 84) = 0; }

@@ -35,7 +35,7 @@ void func_002cb3f8(u8* p, u32 a1, u32 a2);  // 0x002cb3f8: definition moved into
 
 void f17f488_w1672(u8*, int, float, float) asm("_Z13func_0017f488iiff");
 u32 GetSystemPax_w1672(void) asm("_ZN2YS6EFFECT12GetSystemPaxEv");
-u32 func_001de168(u32, u32, u32, u32, u32, u8*);
+u32 ryj__PAX__start(u32, u32, u32, u32, u32, u8*);
 void func_001a1b30(u32, u32);
 void func_001c8300(u8*, u32);
 void func_001d1380(u8* p, u8* q);  // 0x001d1380: definition moved into src/anon/unit_001d12e8.cpp
@@ -62,7 +62,7 @@ void motion_push_w1672(u8*, u32, f32, f32, u32) asm("_ZN2YS6MOTION4pushEiffPFvPN
 u32 member_Get_w1672(s32) asm("_ZN2YS6MEMBER3GetEi");
 u32 member_get_part_w1672(u32, s32) asm("_ZNK2YS6MEMBER8get_partEi");
 void party_voice_part_w1672(u8*, u32) asm("_ZN2YS5PARTY10voice_partEi");
-void func_001b5ef0(u32);
+void YS__CHANGEIN__Start(u32);
 void func_001d12e8(u8* p, u32 b);  // 0x001d12e8: definition moved into src/anon/unit_001d12e8.cpp
 
 s32 func_002feac0(u8*);

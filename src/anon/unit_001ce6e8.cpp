@@ -18,11 +18,11 @@
 
 // ---- 001ce6e8 gap (never-written function)
 namespace g001ce6e8 {
-u32 func_0017c578(u32, u8*) asm("func_0017c578");
+u32 YS__ACTION_JUMP__start(u32, u8*) asm("YS__ACTION_JUMP__start");
 u32 func_001ce6e8(u32 a, u8* o) asm("func_001ce6e8");
 u32 func_001ce6e8(u32 a, u8* o) {
     *(u32*)(o + 268) = (*(u32*)(o + 268) | 0x10) & ~0x80000;
-    return func_0017c578(a, o);
+    return YS__ACTION_JUMP__start(a, o);
 }
 }  // namespace g001ce6e8
 
@@ -68,10 +68,10 @@ Vq func_001ce7e8(u32 a, u8* o) {
 
 // ---- 001ce820 from src/anon/tiny_wrappers_more.cpp
 namespace n001ce820 {
-u32 func_0017cc30(u32, u32, u32, u32) asm("_Z13func_0017cc30jjjj");
+u32 YS__ACTION_JUMP___land(u32, u32, u32, u32) asm("_Z22YS__ACTION_JUMP___landjjjj");
 u32 func_001ce820(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001ce820jjjj");
 u32 func_001ce820(u32 a0, u32 a1, u32 a2, u32 a3) {
-    return func_0017cc30(a0, a1, 0x00000016u, a3);
+    return YS__ACTION_JUMP___land(a0, a1, 0x00000016u, a3);
 }
 }  // namespace n001ce820
 
@@ -84,18 +84,18 @@ void func_001ce838(BD_VALUE* bd) { func_0017a8f8(bd); }
 
 // ---- 001ce850 gap (never-written function)
 namespace g001ce850 {
-void func_0017c430(u8*) asm("func_0017c430");
+void YS__OBJ__prepare_jump_height(u8*) asm("YS__OBJ__prepare_jump_height");
 void func_0016bd60(u8*, s32) asm("func_0016bd60");
 void func_001ce850(u32, u8* o) asm("func_001ce850");
 void func_001ce850(u32, u8* o) {
-    func_0017c430(o);
+    YS__OBJ__prepare_jump_height(o);
     func_0016bd60(o, 26);
 }
 }  // namespace g001ce850
 
 // ---- 001ce880 from src/anon/tiny_auto80_solver.cpp
 namespace n001ce880 {
-u32 func_002875e8(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_002875e8jjjjjjjj");
+u32 Tz__Mg2DTron__Mg2DTron(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z22Tz__Mg2DTron__Mg2DTronjjjjjjjj");
 u32 func_001ce880(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001ce880jjjjjjjj");
 u32 func_001ce880(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r16;
@@ -103,7 +103,7 @@ u32 func_001ce880(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r16 = r4;
     *(u32*)((u32)r16 + (s32)(8)) = 0u;
     r4 = (u32)((s32)r4 + (12));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002875e8)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))Tz__Mg2DTron__Mg2DTron)(r4, r5, r6, r7, r8, r9, r10, r11);
     *(u32*)((u32)r16 + (s32)(52)) = 0u;
     *(u32*)((u32)r16 + (s32)(56)) = 0u;
     return r2;
@@ -112,7 +112,7 @@ u32 func_001ce880(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 
 // ---- 001ce8b8 from src/anon/tiny_auto80_solver.cpp
 namespace n001ce8b8 {
-u32 func_002875e8(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z13func_002875e8jjjjjjjj");
+u32 Tz__Mg2DTron__Mg2DTron(u32, u32, u32, u32, u32, u32, u32, u32) asm("_Z22Tz__Mg2DTron__Mg2DTronjjjjjjjj");
 u32 func_001ce8b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_001ce8b8jjjjjjjj");
 u32 func_001ce8b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r8 = a4, r9 = a5, r10 = a6, r11 = a7, r2, r16;
@@ -120,7 +120,7 @@ u32 func_001ce8b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
     r16 = r4;
     *(u32*)((u32)r16 + (s32)(8)) = 0u;
     r4 = (u32)((s32)r4 + (12));
-    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_002875e8)(r4, r5, r6, r7, r8, r9, r10, r11);
+    r2 = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))Tz__Mg2DTron__Mg2DTron)(r4, r5, r6, r7, r8, r9, r10, r11);
     *(u32*)((u32)r16 + (s32)(52)) = 0u;
     *(u32*)((u32)r16 + (s32)(56)) = 0u;
     return r2;
@@ -159,8 +159,8 @@ inline void* operator new(unsigned int, void* p) { return p; }
 struct S1ce { s32 state; u32 f4; union { struct { u32 r0 : 1; u32 r1 : 1; } b; u32 req; }; };
 u32 func_00167f18(s32) asm("func_00167f18");
 void func_001ceb40(S1ce*, s32) asm("func_001ceb40");
-s32 func_00186ce8(u8*) asm("func_00186ce8");
-void func_001cea48(S1ce*, u8*, u32) asm("func_001cea48");
+s32 YS__BTLOBJ__is_damage_motion(u8*) asm("YS__BTLOBJ__is_damage_motion");
+void YS__LIGHTCYCLE__check_turn(S1ce*, u8*, u32) asm("YS__LIGHTCYCLE__check_turn");
 extern u8* D_0034e948 asm("D_0034e948");
 void wt_001ce930(S1ce*) asm("_Z16wtarget_001ce930jjjj");
 void wt_001ce930(S1ce* s) {
@@ -175,7 +175,7 @@ void wt_001ce930(S1ce* s) {
             s->state = on;
             st = on;
         }
-        if (st == on && (!func_00186ce8(t) || (*(u32*)(t + 352) & 0x10))) func_001cea48(s, t, v);
+        if (st == on && (!YS__BTLOBJ__is_damage_motion(t) || (*(u32*)(t + 352) & 0x10))) YS__LIGHTCYCLE__check_turn(s, t, v);
     } else if (s->b.r0) {
         if (s->state <= 0) {
             func_001ceb40(s, 0);
@@ -212,18 +212,18 @@ static inline QWord operator-(const QWord& a, const QWord& b)
     return r;
 }
 struct Cea { s32 state; u32 b0 : 1; u32 b1 : 1; u32 rest : 30; };
-void func_002877a0(u8*, u32, u32) asm("func_002877a0");
-void func_001cea48(Cea* o, u8* e, u64* pad) asm("func_001cea48");
-void func_001cea48(Cea* o, u8* e, u64* pad) {
+void Tz__Mg2DTron__CreateSeq(u8*, u32, u32) asm("Tz__Mg2DTron__CreateSeq");
+void YS__LIGHTCYCLE__check_turn(Cea* o, u8* e, u64* pad) asm("YS__LIGHTCYCLE__check_turn");
+void YS__LIGHTCYCLE__check_turn(Cea* o, u8* e, u64* pad) {
     u64 b = *pad;
     if ((b & (1ULL << 34)) && (u8)o->b0) {
-        func_002877a0((u8*)o + 12, 0, 3);
-        if (o->b1) func_002877a0((u8*)o + 12, 1, 4);
+        Tz__Mg2DTron__CreateSeq((u8*)o + 12, 0, 3);
+        if (o->b1) Tz__Mg2DTron__CreateSeq((u8*)o + 12, 1, 4);
         *(s32*)(e + 2928) = 1;
         o->state = 3;
     } else if ((b & (1ULL << 35)) && o->b1) {
-        func_002877a0((u8*)o + 12, 1, 3);
-        if ((u8)o->b0) func_002877a0((u8*)o + 12, 0, 4);
+        Tz__Mg2DTron__CreateSeq((u8*)o + 12, 1, 3);
+        if ((u8)o->b0) Tz__Mg2DTron__CreateSeq((u8*)o + 12, 0, 4);
         *(s32*)(e + 2928) = 2;
         o->state = 3;
     }
@@ -240,7 +240,7 @@ void func_001ceb40(u8* a0, u32 a1) {
         s32 v = (x >> i) & 1;
         u8 b = (u8)v;
         if (b != 0) {
-            func_002877a0((u32)(a0 + 12), (u32)i, a1);
+            Tz__Mg2DTron__CreateSeq((u32)(a0 + 12), (u32)i, a1);
         }
         i = i + 1;
     }
@@ -428,7 +428,7 @@ struct PoolI {
 } __attribute__((aligned(16)));
 void func_001780d8(u8*) asm("func_001780d8");
 u8* func_0016b740_edc0(u32) asm("func_0016b740");
-void func_001c0d38(u8*, u8*, u32, u32) asm("func_001c0d38");
+void YS__OBJ__attach(u8*, u8*, u32, u32) asm("YS__OBJ__attach");
 void func_0017fd30(u8*, u8*) asm("func_0017fd30");
 void func_0017f488_edc0(u8*, u32, f32, f32) asm("func_0017f488");
 void func_0017f5e0(u8*, u32, u32, f32, f32) asm("func_0017f5e0");
@@ -440,7 +440,7 @@ void func_001cedc0(u8* p) {
     u8* r = func_0016b740_edc0(1620);
     *(u8**)(p + 2924) = r;
     if (r) {
-        func_001c0d38(r, p, 16386, 0);
+        YS__OBJ__attach(r, p, 16386, 0);
         func_0017fd30(p + 320, *(u8**)(p + 2924) + 320);
     }
     f32 z = 0.0f;
@@ -473,22 +473,22 @@ void func_001cee80(u8* p) {
 namespace n001ceef8 {
 struct W1789Vec { u8 b[16]; };
 struct W1789Obj { u8 pad[0x7f8]; u32 flags; u8 pad2[0xb70 - 0x7fc]; s32 state; };
-void func_0016af58(W1789Vec*, W1789Obj*) asm("func_0016af58");
-void func_0017d538(W1789Vec*, W1789Vec*, f32) asm("func_0017d538");
+void YS__OBJ__get_dir(W1789Vec*, W1789Obj*) asm("YS__OBJ__get_dir");
+void YS__MATH__VectorRotY(W1789Vec*, W1789Vec*, f32) asm("YS__MATH__VectorRotY");
 void func_0016aef0(W1789Obj*, W1789Vec*) asm("func_0016aef0");
-void func_001788b8(W1789Obj*) asm("func_001788b8");
+void YS__PLAYER___OVR_exec(W1789Obj*) asm("YS__PLAYER___OVR_exec");
 void func_001ceef8(W1789Obj* p) asm("func_001ceef8");
 void func_001ceef8(W1789Obj* p) {
     if (p->flags & 4) return;
     s32 s = p->state;
     if (s != 0) {
         switch (s) {
-        case 1: { W1789Vec b; W1789Vec a; func_0016af58(&a, p); func_0017d538(&b, &a, -1.57079637f); func_0016aef0(p, &b); } break;
-        case 2: { W1789Vec b; W1789Vec a; func_0016af58(&a, p); func_0017d538(&b, &a, 1.57079637f); func_0016aef0(p, &b); } break;
+        case 1: { W1789Vec b; W1789Vec a; YS__OBJ__get_dir(&a, p); YS__MATH__VectorRotY(&b, &a, -1.57079637f); func_0016aef0(p, &b); } break;
+        case 2: { W1789Vec b; W1789Vec a; YS__OBJ__get_dir(&a, p); YS__MATH__VectorRotY(&b, &a, 1.57079637f); func_0016aef0(p, &b); } break;
         }
         p->state = 0;
     }
-    func_001788b8(p);
+    YS__PLAYER___OVR_exec(p);
 }
 }  // namespace n001ceef8
 

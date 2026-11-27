@@ -43,14 +43,14 @@ extern f32 D_0034a99c;  // look distance
 extern V4 D_0034a9a0;   // eye position
 
 extern "C" {
-V4* func_0016c028(u8*);  // obj_get_attach_or_alt
-void func_00141010(f32);
+V4* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
+void dk__ObjCamera__cancelSubjective(f32);
 u8* func_00140df0(void) asm("_ZN2dk9ObjCamera11getInstanceEv");
 
 void func_00158708(C8708* o) {
     V4 a;
     V4 d;
-    a = *func_0016c028(D_0034a990);  // obj_get_attach_or_alt
+    a = *YS__OBJ__get_pos(D_0034a990);  // obj_get_attach_or_alt
     a.y -= D_0034a994;
     d = a - D_0034a9a0;
     Normalize(&d);
@@ -62,7 +62,7 @@ void func_00158708(C8708* o) {
 }
 
 void func_00158870(u8* obj, f32 f) {
-    func_00141010(30.0f);
+    dk__ObjCamera__cancelSubjective(30.0f);
     *(u32*)(func_00140df0() + 64) = 7;
     D_0034a990 = obj;
     D_0034a994 = f;

@@ -26,8 +26,8 @@ struct W1573_E {
 extern "C" {
 extern W1573_E* D_0035dcf8;
 extern f32 D_00349e10;
-void func_001ba028(u8*);
-W1573_Q* func_0016c028(u8*);
+void YS__OBJ__is_valid(u8*);
+W1573_Q* YS__OBJ__get_pos(u8*);
 void motion_start(void*, void*, f32, f32) asm("_ZN2YS6MOTION5startEPNS_6BINARCEff");
 s32 obj_is_attach(u8*) asm("_ZN2YS3OBJ9is_attachEv");
 void obj_set_pos(u8*, W1573_Q*) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");

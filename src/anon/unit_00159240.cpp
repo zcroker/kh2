@@ -78,12 +78,12 @@ static f32 D_004f35b0 = deg2rad(60.0f);  // view angle
 extern "C" {
 u32 D_0034aa08;  // 1: fixed view
 
-s32 func_00143d10(Q16Pair*, Q16*, Q16*, s32*);
+s32 dk__Octree__intersectLineCamera(Q16Pair*, Q16*, Q16*, s32*);
 s32 func_00162098(void);
 void func_00162058(f32);
 void* func_00140df0(void);
 u8* func_00167f18(s32);
-V159368* func_0016c028(Obj159368*);
+V159368* YS__OBJ__get_pos(Obj159368*);
 void func_0013f648(Cam159368*);
 
 // Drops a point onto the ground below it (or keeps it when nothing is hit).
@@ -98,7 +98,7 @@ void func_00159240(Q16* out, Q16* in) {
     ((f32*)&hi)[1] += 10000.0f;
     seg.v[0] = lo;
     *ph = hi;
-    if (!func_00143d10(&seg, out, &x, &y)) *out = *in;
+    if (!dk__Octree__intersectLineCamera(&seg, out, &x, &y)) *out = *in;
 }
 
 void func_00159308(u8* p) {
@@ -129,7 +129,7 @@ void func_00159368(Cam159368* c)
         c->f48 = 1.5f;
     } else {
         a = c->pos;
-        t = *func_0016c028(c->obj);
+        t = *YS__OBJ__get_pos(c->obj);
         func_00159240((Q16*)&p, (Q16*)&t);
         p.y -= 150.0f;
         d = p - a;

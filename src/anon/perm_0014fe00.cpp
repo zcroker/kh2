@@ -59,15 +59,15 @@ struct W1630Menu
   s32 hasExtra;
   s32 f6176;
 };
-void func_00138650(W1630Sprite *, u32, u32, u32);
-void func_001386e0(W1630Sprite *, u32, u32, void *, u32, u32);
+void dk__SpriteImage__create(W1630Sprite *, u32, u32, u32);
+void dk__Sprite__create(W1630Sprite *, u32, u32, void *, u32, u32);
 void func_001396b0(W1630Sprite *) asm("_ZN2Tz6Select10BeginLeaveEz");
 void func_0031a260(W1630Sprite *, u32) asm("_ZN2Tz6Select7SetFlagEz");
 void func_00139660(W1630Sprite *) asm("_ZN2dk5Obj2D19getParentSeqColorOnEv");
 void func_00139688(W1630Sprite *) asm("_ZN2dk5Obj2D21getParentSeqAlphaOnlyEv");
 void func_00138c68(W1630Sprite *, s32, s32) asm("_ZN2dk6Sprite12setOffsetPosEii");
 void func_00138c40(W1630Sprite *, s32, s32) asm("_ZN2dk6Sprite6setPosEii");
-void func_00239988(W1630Seq *, u32, void *);
+void YI__SEQUENCE__Init(W1630Seq *, u32, void *);
 void func_00239c38(W1630Seq *, s32) asm("_ZN2YI8SEQUENCE14SetNumberForceEi");
 void func_0023acd8(W1630Seq *);
 s32 func_0023a950(W1630Seq *) asm("_ZN2YI8SEQUENCE10GetActiveXEv");
@@ -91,6 +91,6 @@ inline static void W1630_setParent(W1630Sprite *obj, W1630Sprite *parent)
   }
 }
 
-void func_0014fe00(W1630Menu *self, u32 a1, u32 a2, s32 mode, s32 hasExtra, s32 count, u32 *p1, u32 *p2, u32 a8);  // 0x0014fe00: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__COUNTER__create(W1630Menu *self, u32 a1, u32 a2, s32 mode, s32 hasExtra, s32 count, u32 *p1, u32 *p2, u32 a8);  // 0x0014fe00: definition moved into src/anon/unit_0014ecb8.cpp
 
 }

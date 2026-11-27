@@ -18,7 +18,7 @@ u8 D_0034c70d asm("D_0034c70d");
 u64 D_0034c710 asm("D_0034c710");  // visible groups, one bit each
 
 extern "C" {
-void func_001de228(void*, s32, s32, s32, s32, s32);
+void ryj__PAX__start_group(void*, s32, s32, s32, s32, s32);
 void func_0015c4a0(u32);
 void func_001de3d8(void*, u32);
 void func_0015c450(u32);
@@ -75,7 +75,7 @@ void func_0015f3e8(void)
         u64 bit = (u64)1 << i;
         if (!(D_0034c710 & bit)) continue;
         func_0015c450(i);
-        if (D_0034c70c == 1) func_001de228(&D_0034c6f0, i, 1, 2, 0, 0);
+        if (D_0034c70c == 1) ryj__PAX__start_group(&D_0034c6f0, i, 1, 2, 0, 0);
     }
 }
 
@@ -110,7 +110,7 @@ void func_0015f548(void)
     }
 }
 
-void func_0015f618(void)
+void dk__Map__noDrawAll(void)
 {
     s32 i;
     u64 one = 1;

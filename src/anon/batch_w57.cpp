@@ -39,7 +39,7 @@ void func_0013afe8(T13a* t);  // 0x0013afe8: definition moved into src/anon/unit
 extern u32 D_00348804;
 void func_00141c18(u32, u32, u32, u32, u32);
 u32 func_00141ff0(u32, u32, u32, u32, u32);
-void func_00143dd0(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x00143dd0: definition moved into src/anon/unit_00142c90.cpp
+void dk__Octree__intersectLineMapKind(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x00143dd0: definition moved into src/anon/unit_00142c90.cpp
 
 void func_00166618(u32, u32, u32, u32, u32, u32, u32);
 struct P14d { u32 pad; s16 w; u16 h; };
@@ -73,14 +73,14 @@ void func_00127c70(u32, void*, u32);
 
 struct B156 { u8 p[156]; u32 bit:1; };
 u32 func_00187e20(void);
-u32 func_00187e58(void*);
+u32 YS__ACT__is_damage_motion(void*);
 // 00188758: moved to src/anon/unit_00188550.cpp
 u32 func_00188758(B156* t);
 
 // Fetch a 16-byte result; copy it out when the lookup succeeds.
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
 #define QCOPY(d, s) asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory")
-void* func_001d35e0(void*, void*, u32);
+void* YS__BGHIT__check_line(void*, void*, u32);
 // 001a7588: moved to src/yasui/libys/bg.cpp
 
 // Out-of-range test against the 0x7000/0x9000/0x7300/0x8d00 screen limits.
@@ -142,7 +142,7 @@ void func_0022d820(void);  // 0x0022d820: definition moved into src/anon/unit_00
 
 u32 func_00138470(void);
 u32 func_00138440(void);
-void func_001382e0(void);
+void dk__TREASURE_INFO__createEventInfo(void);
 u32 func_00287db0(void);
 void func_001039f8(void);
 void func_0017a798(void);
@@ -162,7 +162,7 @@ void func_0028d660(T28d* t, u32 v);  // 0028d660: moved to src/anon/unit_0028c87
 
 void func_002bc470(u32);
 void func_002b6e24(u32, u32, u32);
-void func_002ba1b8(u32 a, u32 b, u32 c);  // 0x002ba1b8: definition moved into src/anon/unit_002b9ab8.cpp
+void SOUND__sebTransfer(u32 a, u32 b, u32 c);  // 0x002ba1b8: definition moved into src/anon/unit_002b9ab8.cpp
 
 extern u32 D_003617ec, D_003617f4;
 extern u8 D_003617f8;
@@ -174,12 +174,12 @@ void func_002bd788(u32 a);  // 0x002bd788: definition moved into src/anon/unit_0
 
 // Destructor: tear down the layered members and chain to the base.
 void func_00319f88(void*);
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 void func_00319fb0(void*);  // big_obj_dtor
 extern u8 D_00345c08, D_0034e8b8, D_0034ee08;
 struct G0 { u8* t; ~G0() { func_00319fb0(t); } };
-struct G1 { u8* t; ~G1() { *(void**)t = &D_0034ee08; func_0019f9a8(t + 2568); func_001c0248(t + 2640); } };
+struct G1 { u8* t; ~G1() { *(void**)t = &D_0034ee08; YS__OBJ_ATTACK__clear(t + 2568); func_001c0248(t + 2640); } };
 struct G2 { u8* t; ~G2() { *(void**)t = &D_0034e8b8; func_00319f88(t + 2824); } };
 struct B319 {
     void* vt;

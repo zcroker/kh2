@@ -5,8 +5,8 @@ struct T52 { s32 w0; s32 w4; u8 pad[38]; s16 h46; s16 h48; u8 pad2[2]; };
 extern T40* D_0035dcfc;
 extern T52* D_0035dcf4;
 extern s32 D_0035de20;
-s32 func_002282f0(s32);
-void ut_1c0d38(u32, u32, s32, s32) asm("_Z16u_tail4_001c0d38jjjj");
+s32 sa__EVENT__checkStart(s32);
+void ut_1c0d38(u32, u32, s32, s32) asm("_Z15YS__OBJ__attachjjjj");
 struct S { u8 pad[4]; s16 h4; u8 p6[2]; s16 h8; s16 h10; s16 h12; s16 h14; s16 h16; };
 void func_0022f018(S* s);  // 0x0022f018: definition moved into src/anon/unit_0022d358.cpp
 typedef void (*VF5)(void*);
@@ -28,7 +28,7 @@ s32 mb_gm(void) asm("_ZN2Tz8MenuBase7GetModeEv");
 s32 cm_gsp(s32) asm("_ZN2Tz5CmTop12GetSelectPosEi");
 void func_0027aed8(s32, s32*, s32*);
 s32 func_0028d008(void*);
-s32 func_0027af58(void);  // check_state16_then_loop
+s32 Tz__CmAbility__Cur2AbiltyType(void);  // check_state16_then_loop
 void pz_cfo(void*, s32, s32, s32, s32, s32, s32, s32) asm("_ZN2Tz5Pause16CreateFadeObjectEz");
 void mc_as(void*, void*) asm("_ZN2Tz10MenuCursor12AttachSpriteEz");
 u8* mc_gs(void*) asm("_ZN2Tz10MenuCursor9GetSpriteEi");
@@ -37,7 +37,7 @@ void sp_sop(void*, s32, s32) asm("_ZN2dk6Sprite12setOffsetPosEii");
 s32 jm_gd(u32) asm("_ZN2Tz8JmReport7GetDataEj");
 void cm_csci(void*) asm("_ZN2Tz5CmTop18CreateShortCutInfoEPN2dk6SpriteE");
 void cm_lsci(void) asm("_ZN2Tz5CmTop17LeaveShortCutInfoEv");
-void func_0027bd40(void* p, u8 flag);  // 0x0027bd40: definition moved into src/anon/unit_0027a6d8.cpp
+void Tz__CmAbility__UpdateTopSelActive(void* p, u8 flag);  // 0x0027bd40: definition moved into src/anon/unit_0027a6d8.cpp
 extern u8 D_00340ed0[3];
 extern u32 D_00340ed4;
 extern u64 D_00340ed8[];
@@ -46,7 +46,7 @@ typedef void (*CB7)(N7*, s32);
 struct N7 { u32* w0; u32 w4; u32 w8; u32 w12; N7* next; u8 pad20[4]; u32 w24; u8 b28, b29, b30, b31, b32, b33, b34; u8 pad35[5]; u64 d40; u64 d48; u8 pad56[24]; CB7 cb80; CB7 cb84; };
 s32 func_00109f58(u32, u32, u8);
 s32 func_00109ea8(u32, u32, u8);
-void func_00108c00(u64*, u32, u64, u64, s32, s32, u64, u64);
+void kn__VU1DrawContext__setPacket(u64*, u32, u64, u64, s32, s32, u64, u64);
 s32 func_0011c8f8(u32*, u32*, s32, u32, u32, u32);
 void func_00134490(void);
 void func_00109fe8(N7* n);  // 00109fe8: moved to src/anon/unit_00109c30.cpp

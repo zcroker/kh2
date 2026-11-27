@@ -20,10 +20,10 @@
 namespace n0019ea10 {
 s32 func_001a3570(s32) asm("func_001a3570");
 u32* func_00177860(void) asm("func_00177860");
-s32 func_001bc2a8(void*, void*, s32) asm("func_001bc2a8");
-static inline bool lt4(void* c, void* a) { return func_001bc2a8(c, a, 0) < 4; }
-bool func_0019ea10(void* a, u8* b, void* c) asm("func_0019ea10");
-bool func_0019ea10(void* a, u8* b, void* c) {
+s32 YS__COMMAND_SLOT__GetStatus(void*, void*, s32) asm("YS__COMMAND_SLOT__GetStatus");
+static inline bool lt4(void* c, void* a) { return YS__COMMAND_SLOT__GetStatus(c, a, 0) < 4; }
+bool YS__RC_SEARCHER__CheckAutoCommand(void* a, u8* b, void* c) asm("YS__RC_SEARCHER__CheckAutoCommand");
+bool YS__RC_SEARCHER__CheckAutoCommand(void* a, u8* b, void* c) {
     u32* bits = func_00177860();
     switch (b[2]) {
     case 19: {
@@ -44,7 +44,7 @@ namespace n0019ead0 {
 void func_00190128(void*) asm("func_00190128");
 void* func_001d45a0(u32, u16) asm("func_001d45a0");
 void func_00190878(void*, u32, u32) asm("func_00190878");
-void func_0019da68(u8*, void*, void*, u32, u32) asm("func_0019da68");
+void YS__RC_SEARCHER__set(u8*, void*, void*, u32, u32) asm("YS__RC_SEARCHER__set");
 u32 func_0019ead0(u8* p, u32 b) asm("func_0019ead0");
 u32 func_0019ead0(u8* p, u32 b) {
     u8 buf[32];
@@ -52,7 +52,7 @@ u32 func_0019ead0(u8* p, u32 b) {
     if (o) {
         func_00190128(buf);
         func_00190878(buf, b, 0);
-        func_0019da68(p, o, buf, 0, 0);
+        YS__RC_SEARCHER__set(p, o, buf, 0, 0);
         return 1;
     }
     return 0;
@@ -88,8 +88,8 @@ void func_0019ed48(void*) asm("func_0019ed48");
 void func_0019ec68(void) asm("func_0019ec68");
 void func_00102c18(u32, u32, void (*)(void)) asm("func_00102c18");
 extern u8 D_00350448[] asm("D_00350448");
-void func_0019ec20(void) asm("func_0019ec20");
-void func_0019ec20(void) {
+void YS__BLUR__Init(void) asm("YS__BLUR__Init");
+void YS__BLUR__Init(void) {
     func_0019ec88(D_00350448);
     func_0019ed48(D_00350448);
     func_00102c18(1, 0xa410, func_0019ec68);

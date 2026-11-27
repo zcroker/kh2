@@ -16,5 +16,5 @@ extern s32 D_0035f03c;
 extern char D_00374250[];
 extern Ent283 D_003742c8[];
 extern u16 D_00374318[];
-void func_002833f8(void);  // 0x002833f8: definition moved into src/anon/unit_00282c68.cpp
+void Tz__CmTutorial__CreateList(void);  // 0x002833f8: definition moved into src/anon/unit_00282c68.cpp
 }

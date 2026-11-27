@@ -34,11 +34,11 @@ s32 slr_GetState(void) asm("_ZN2Tz8Selector8GetStateEv");
 void func_002b6418(void);
 s32 func_0028d008(s32);
 void func_0028cdb8(s32);
-void func_0028cc78(s32, s32, s32, W3862Layout*, s32, s32);
-void func_0028cf28(s32, s32);
-void func_0028ce98(s32, s32);
+void Tz__MenuCursor__Create(s32, s32, s32, W3862Layout*, s32, s32);
+void Tz__MenuCursor__SetParent(s32, s32);
+void Tz__MenuCursor__SetType(s32, s32);
 s32 func_0028cf10(s32);
-void func_0028d1c0(W3862LightCur*, s32, s32, s32, W3862Layout*, u16*, s32);
+void Tz__LightCur__Create(W3862LightCur*, s32, s32, s32, W3862Layout*, u16*, s32);
 void func_0028d660(W3862LightCur*, s32);
 void func_0025f430(W3862Select*, u32, s32);
 
@@ -47,15 +47,15 @@ static inline s32 W3862_UseSubCursor(W3862Select* sel) {
     return 0;
 }
 
-// Menu cursor/light-cursor upkeep for the current menu mode (sibling of func_0025cde0).
-void func_0025eee8(void);  // 0x0025eee8: definition moved into src/anon/unit_0025da20.cpp
+// Menu cursor/light-cursor upkeep for the current menu mode (sibling of Tz__CmSave__Draw).
+void Tz__CmLoad__Draw(void);  // 0x0025eee8: definition moved into src/anon/unit_0025da20.cpp
 
 u8* func_002766d0(void) asm("_ZN2Tz6Jiminy9GetSeqTblEv");
 s32 sel_GetSelectMax(s32) asm("_ZN2Tz6Select12GetSelectMaxEv");
 u8* func_002891b8(s32, s32);
 s32 func_00192048(s32);
 void func_00138c10(u8*, s32);
-void func_0028af90(s32, s32);
+void Tz__Select__SetSelectMax(s32, s32);
 s32 jm_isFullOpen(void) asm("_ZN2Tz6Jiminy10isFullOpenEv");
 s32 func_002a0360(void);
 s32 func_002aa2f8(s32);
@@ -64,25 +64,25 @@ s32 func_002ad338(void);
 s32 func_002aa098(s32);
 s32 func_002aa148(s32);
 s32 func_002ad1b0(s32);
-s32 func_002ab540(s32);
+s32 Tz__JmNewInfo__isTreasureNew(s32);
 s32 func_002ab620(s32);
-s32 func_002adaf0(s32);
-s32 func_002b3ae8(void);
-s32 func_002ac420(s32);
-s32 func_002ac748(s32);
+s32 Tz__JmComplete__isTreasureComp(s32);
+s32 Tz__JmPuzzle__isEnable(void);
+s32 Tz__JmNewInfo__isPuzzlePieceNew(s32);
+s32 Tz__JmNewInfo__isPuzzleInfoNew(s32);
 s32 func_002ac538(s32);
 s32 func_002ac800(s32);
-s32 func_002ae660(s32);
-s32 func_002ae768(s32);
+s32 Tz__JmComplete__isPuzzlePieceComp(s32);
+s32 Tz__JmComplete__isPuzzleGameComp(s32);
 s32 jmc_isPuzzleInfoComp(s32) asm("_ZN2Tz10JmComplete16isPuzzleInfoCompEi");
-s32 func_002ab8e8(s32);
+s32 Tz__JmNewInfo__isNaviNew(s32);
 s32 func_002ab9c8(s32);
-s32 func_002adcb0(s32);
-s32 func_002a9b88(s32);
+s32 Tz__JmComplete__isNaviComp(s32);
+s32 Tz__JmQuest__isEnable(s32);
 s32 func_002aacd8(s32);
 s32 func_002aad58(s32);
 s32 func_002ad7d0(s32);
-s32 func_002a8870(s32);
+s32 Tz__JmMiniGame__isEnable(s32);
 s32 func_002ab100(s32);
 s32 func_002ab180(s32);
 s32 func_002ad950(s32);
@@ -94,7 +94,7 @@ s32 func_002a7530(void);
 s32 func_002abc60(s32);
 s32 func_002abce8(s32);
 s32 func_002adf60(s32);
-s32 func_002a1b18(s32, s32);
+s32 Tz__JmDiagram__GetNewInfo(s32, s32);
 s32 func_002ae1b0(s32, s32);
 extern s32 D_0035f200;
 extern s32 D_00374908;
@@ -103,5 +103,5 @@ extern u16 D_00374910[];
 
 
 // Jiminy's journal: fills the menu items with each category's new/complete marks.
-void func_00299920(void);  // 0x00299920: definition moved into src/anon/unit_00299920.cpp
+void Tz__JmCollection__SetupSelMess(void);  // 0x00299920: definition moved into src/anon/unit_00299920.cpp
 }

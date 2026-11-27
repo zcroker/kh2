@@ -15,7 +15,7 @@ extern "C" {
 void func_0011c7f8(u8* self, u32 x);  // 0x0011c7f8: definition moved into src/anon/unit_0011c128.cpp
 
 void** func_00124748(void*, u32);  // list_nth_node_rel
-void func_00123d10(void* p);  // 0x00123d10: definition moved into src/anon/unit_00123990.cpp
+void kn__ModelMulti__getDistanceFromSkeleton(void* p);  // 0x00123d10: definition moved into src/anon/unit_00123990.cpp
 
 // 64-byte (matrix) copy src -> dst unless they are the same.
 void func_00146680(u8* dst, u8* src);  // 0x00146680: definition moved into src/anon/unit_00145600.cpp
@@ -36,7 +36,7 @@ void func_00199468(u32, u32, f32, u32);
 struct S174060 { u32* obj; f32 f; u32 a; u32 b; };
 void func_00174060(S174060* p);  // 0x00174060: definition moved into src/anon/unit_00171e58.cpp
 
-void func_0017c430(void*);
+void YS__OBJ__prepare_jump_height(void*);
 void func_0016bd60(void*, u32);
 // 0017a938: moved to src/anon/unit_0017a8f8.cpp
 
@@ -47,18 +47,18 @@ u8 func_0017ee68(void*);
 // Increment a 16-bit counter (table at +0x1458), saturating at 999.
 void func_00189228(u8* p, u32 i);  // 0x00189228: definition moved into src/anon/unit_00188848.cpp
 
-u32 func_001921d8(u32);
+u32 YS__MESSAGE__GetFilename(u32);
 void func_00170518(u32, u32, u32);
 void msg_read(u32 a, u32 b) asm("_ZN2YS7MESSAGE4ReadEii");
 // read: moved to src/yasui/libys/message.cpp
 
 void func_001dc878(u32);
-void func_0016b668(void*);
+void YS__OBJ___OVR_leave(void*);
 void savepoint_leave(u8* o) asm("_ZN2YS3OBJ6VTABLEINS_9SAVEPOINTEE5leaveEPS0_");
 void savepoint_leave(u8* o);  // 0x00195f88: definition moved into src/anon/unit_00195d00.cpp
 
 void func_0019d548(void*);
-void func_0019d4f8(void*);
+void YS__RECOM__init(void*);
 void func_0019d720(void* p);  // 0x0019d720: definition moved into src/anon/unit_0019ba60.cpp
 
 // Set the RGBA bytes at +20 and refresh.
@@ -82,8 +82,8 @@ void item_effect_dtor(void* self) asm("_ZN2YS11ITEM_EFFECTD1Ev");
 // Is bit o->field_1c clear in the bit set (words from +4)?
 u32 func_001c0268(u32* bits, u8* o);  // 0x001c0268: definition moved into src/anon/unit_001bff88.cpp
 
-void func_00198970(void*);
-void func_00178280(void*);
+void YS__STDOBJ__reset_special_command(void*);
+void YS__PLAYER___OVR_leave_req(void*);
 void mickey_leave_req(void* o) asm("_ZN2YS3OBJ6VTABLEINS_6MICKEYEE9leave_reqEPS0_");
 void mickey_leave_req(void* o);  // 0x001d0200: definition moved into src/anon/unit_001cf0b0.cpp
 
@@ -104,8 +104,8 @@ extern S354690 D_00354690;
 void func_001e6250(void);  // 0x001e6250: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_00229d40(void*);
-void func_001390f0(void*);
-void func_00229d68(void* p);  // 00229d68: moved to src/sasa/musical_combo.cpp (linked unit)
+void dk__Sprite3D__update(void*);
+void sa__MUSICAL_COMBO__update(void* p);  // 00229d68: moved to src/sasa/musical_combo.cpp (linked unit)
 
 void func_00234188(u32, u32, u32, u32, u32, u32);
 void func_002345c0(u32 a, u32 b, u32 c, u32 d, u32 e);  // 0x002345c0: definition moved into src/anon/unit_002335e8.cpp
@@ -118,7 +118,7 @@ extern s8* D_0035ec94;
 void func_00241740(s32 x);  // 0x00241740: definition moved into src/anon/unit_0023f5b8.cpp
 
 void func_0026d808(const void*);
-void func_00253180(u32, s32);
+void Tz__CampMenu__Start(u32, s32);
 void camp_start_party(s32 a, const void* b) asm("_ZN2Tz8CampMenu10StartPartyEiPKv");
 void camp_start_party(s32 a, const void* b);  // 0x002533e0: definition moved into src/anon/unit_002530c8.cpp
 

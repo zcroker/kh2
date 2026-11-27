@@ -32,7 +32,7 @@ void func_00150260(void*, void*, s32, s32*);
 void func_0023a9c0(void*, s32*, s32*);
 s32 func_0023aa18(void*);
 s32 func_0023aa38(void*);
-void func_001386e0(void*, s32, s32, void*, s32, s32);
+void dk__Sprite__create(void*, s32, s32, void*, s32, s32);
 void func_001396b0(void*);
 void func_0031a260(void*, s32);
 void func_00139660(void*);
@@ -41,16 +41,16 @@ void func_00138c10(void*, s32);
 void func_00139598(void*);
 s32 func_0023aa98(void*);
 void func_00138c68(void*, s32, s32);
-void func_00138650(void*, s32, s32, s32);
+void dk__SpriteImage__create(void*, s32, s32, s32);
 s32 func_00239cf0(void*, s32);
 void func_00226e60(s32);
 void func_001024a8(u32);
 void func_00102c18(s32, s32, void*);
-void func_00138840(void*);
+void dk__Sprite__update(void*);
 s32 func_00139538(void*);
 void func_00139510(void*);
-s32 func_002282f0(s16);
-s32 func_00225b00(s16);
+s32 sa__EVENT__checkStart(s16);
+s32 sa__EVENT__isJumpMode(s16);
 void func_00239700(void*);
 void func_0031a838(void*);  // ErrorRaise
 void func_002361a0(void*);  // YI::IMAGE::IMAGE
@@ -73,8 +73,8 @@ void func_0022bda0(u8* self, s32 mode, u32 flag) {
     flag &= 0xff;
     self[864] = flag;
     Th* t = func_00197df8();
-    func_00138650(self + 416, 26000, *(s32*)t, 16);
-    func_001386e0(self, 26000, t->f4, self + 448, mode, 16);
+    dk__SpriteImage__create(self + 416, 26000, *(s32*)t, 16);
+    dk__Sprite__create(self, 26000, t->f4, self + 448, mode, 16);
     if (func_00239cf0(self + 24, mode) != 0) {
         self[864] = 0;
     }
@@ -95,7 +95,7 @@ void func_0022be58(u8* self) {
 }
 
 void func_0022beb0(u8* self) {
-    func_00138840(self);
+    dk__Sprite__update(self);
     if (func_00139538(self) != 0) {
         func_00139510(self + 416);
     }
@@ -103,11 +103,11 @@ void func_0022beb0(u8* self) {
 
 void func_0022c1f8(Obj* self, void* a1, u8* a2);
 
-void func_0022bef8(Arg8* arg) {
+void sa__EVENT__set_bin_countdown(Arg8* arg) {
     s32 n;
     Obj8* p;
-    if (func_002282f0(arg->id)) return;
-    if (func_00225b00(arg->id)) return;
+    if (sa__EVENT__checkStart(arg->id)) return;
+    if (sa__EVENT__isJumpMode(arg->id)) return;
     n = 1;
     D_0035de64 = 1;
     switch (D_0035de68) {
@@ -159,7 +159,7 @@ static inline u8* alloc_obj(s32 size) {
     return (**(AllocFn**)a)(a, size, 0);
 }
 
-void func_0022c108(void) {
+void sa__EVENT__last_countdown(void) {
     s32 m = D_0035de64;
     s32 mode;
     u8* v;
@@ -200,7 +200,7 @@ void func_0022c1f8(Obj* self, void* a1, u8* a2) {
         Sub* s = self->sub;
         s32* bp = buf;
         for (i = 2; i >= 0; i--) {
-        func_001386e0(s, 26000, t->f4, p, *bp, 16);
+        dk__Sprite__create(s, 26000, t->f4, p, *bp, 16);
         s->f18c = (s32)a2;
         func_001396b0(s);
         if (s->f18c != 0) {
@@ -236,7 +236,7 @@ void func_0022c1f8(Obj* self, void* a1, u8* a2) {
 }
 
 
-void func_0022c410(u8* p) {
+void sa__ROUND_NUMBER__destroy(u8* p) {
     if (p != 0) {
         (*(void (**)(u8*))(*(u8**)p + 16))(p);
     }

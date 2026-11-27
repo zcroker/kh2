@@ -32,24 +32,24 @@ extern u32 D_0034d8a0;
 void func_001dc840(u32);
 extern f32 D_00349e10;
 f32 func_0016c460(u8*, void*);
-void func_0017c4c8(u8*, void*);
+void YS__OBJ__prepare_jump(u8*, void*);
 void func_0017f488(u8*, u32, f32, f32);
 u32 func_001a97b8(u32, s32);
 s32 func_0019a9e0(u8*, u8*);
 void func_0019ab80(u8*);
 void func_001a1db8(u8*);
-u32 func_001b1490(u32);
+u32 YS__DATABUFF__ReadBar(u32);
 u8* func_00168b38(u32, u32, s32);  // entry_array_find_nth
 extern u32 D_00350de8;
 extern u32 D_01c94040[];
 void func_001b08e8(u8*, u32);
 void func_001ad990(u8*, f32, f32, f32);
-void* func_00102818(u32, u32, u32, void*, u32);
-Tk* func_00102818_t(u32, u32, u32, void*, u32) asm("func_00102818");
+void* TASK_MANAGER__create_thread(u32, u32, u32, void*, u32);
+Tk* func_00102818_t(u32, u32, u32, void*, u32) asm("TASK_MANAGER__create_thread");
 extern s32 D_00350f1c;
 extern u32 D_0032b91c;
 extern Tk* D_01d48c44;
-void func_001b1ee8(void);
+void YS__ITEMPIC__ReadImageThread(void);
 void* func_001050d8(u32);
 extern LList D_01d48c80;
 s32 func_001c8ab0(void);
@@ -74,7 +74,7 @@ f32 func_00207260(void);
 u32 func_001de4b0(u32, u32, u32);
 extern u32 D_0035de84;
 extern u32 D_0035de88;
-void func_001ba028(u8*);  // list_contains_ptr
+void YS__OBJ__is_valid(u8*);  // list_contains_ptr
 u8* func_001058e8(void);
 s32 func_00139d78(u8*);
 void func_00139510(u8*);
@@ -102,7 +102,7 @@ void func_00276b10(void);
 s32 func_00181500(u32);
 u32 func_001c3748(u32, u32);
 u8 func_001c3888(u32);
-void func_00184540(void*, u32, f32, f32);
+void kn__MotionPrototype0__calcLimitValue(void*, u32, f32, f32);
 void func_002cbf08(void*, u32);
 extern u8 D_01e2be20[];
 void func_00190128(void*);
@@ -119,7 +119,7 @@ void func_001a9350(u8*);
 
 void func_00132f38(u8* a0);  // 0x00132f38: definition moved into src/anon/unit_00131418.cpp
 
-void func_001386e0(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1);  // 0x001386e0: definition moved into src/anon/unit_00138480.cpp
+void dk__Sprite__create(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u32 t1);  // 0x001386e0: definition moved into src/anon/unit_00138480.cpp
 
 // true if any of the a0+624 entries (stride 80) accepts a1
 s32 func_00146088(u8* a0, u32 a1);  // 0x00146088: definition moved into src/anon/unit_00145600.cpp
@@ -154,8 +154,8 @@ void func_001aeb80(void);  // 0x001aeb80: definition moved into src/anon/unit_00
 // 001dbc58: moved to src/anon/unit_001dbbe0.cpp
 
 // init a node from a data block and append it to the global list
-void wtarget_001dddd0(u32, u32, u32, u32) asm("_Z16wtarget_001dddd0jjjj");
-void wtarget_001dddd0(u32 x0, u32 x1, u32, u32);  // 0x001dddd0: definition moved into src/anon/unit_001ddcf0.cpp
+void ryj__PAX__init(u32, u32, u32, u32) asm("_Z14ryj__PAX__initjjjj");
+void ryj__PAX__init(u32 x0, u32 x1, u32, u32);  // 0x001dddd0: definition moved into src/anon/unit_001ddcf0.cpp
 
 void func_001de8a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001de8a8: definition moved into src/anon/unit_001ddcf0.cpp
 
@@ -181,7 +181,7 @@ void func_00275e08(void);  // 0x00275e08: definition moved into src/anon/unit_00
 
 void func_0028b078(u8* a0, s32 a1, s32 a2);  // 0x0028b078: definition moved into src/anon/unit_00288b00.cpp
 
-void func_0028ce98(s32 i, u32 v);  // 0028ce98: moved to src/anon/unit_0028c878.cpp
+void Tz__MenuCursor__SetType(s32 i, u32 v);  // 0028ce98: moved to src/anon/unit_0028c878.cpp
 
 s32 func_00292a90(s32 id);  // 00292a90: moved to src/anon/unit_00292998.cpp
 
@@ -201,7 +201,7 @@ u8* func_002d6ec8(u8* out, u32 a1, u32 a2);  // 0x002d6ec8: definition moved int
 
 // 002e3a78: moved to src/anon/unit_002e2f08.cpp
 
-void func_002e7f80(u32* a0);  // 0x002e7f80: definition moved into src/anon/unit_002e7b10.cpp
+void Ts__trap_target_searcher_get_target_num(u32* a0);  // 0x002e7f80: definition moved into src/anon/unit_002e7b10.cpp
 
 void u_call4_002eec58(u32, u32, u32, u32) asm("_Z16u_call4_002eec58jjjj");
 // 002eec58: moved to src/anon/unit_002ee8a8.cpp

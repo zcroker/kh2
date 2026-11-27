@@ -27,11 +27,11 @@ struct TzObj285 { void (**vt)(TzObj285*); };
 extern "C" {
 void func_001256c0(f32 (*d)[4], f32 (*a)[4], f32 (*b)[4], f32 t);  // 0x001256c0: definition moved into src/anon/unit_00123990.cpp
 
-void func_001902a8(void*, Loc285*);
-Vq285* func_0016c028(s32);  // obj_get_attach_or_alt
+void YS__TARGET__make_collision(void*, Loc285*);
+Vq285* YS__OBJ__get_pos(s32);  // obj_get_attach_or_alt
 void func_001a7610(Vq285*, Vq285*, s32, f32, f32);
 void func_0016bd60(s32, s32);
-void func_002c6eb8(Obj285* o, s32 id, void* p);  // 0x2c6eb8: moved to src/anon/unit_002c6eb8.cpp
+void worldmap__Warp__start(Obj285* o, s32 id, void* p);  // 0x2c6eb8: moved to src/anon/unit_002c6eb8.cpp
 
 
 
@@ -46,14 +46,14 @@ void func_0028ce38(void);
 void func_0026ebc0(void);
 s32 func_0028acc8(void*);
 s32 func_0028d008(s32);
-void func_0028cc78(s32, s32, s32, void*, s32, s32);
+void Tz__MenuCursor__Create(s32, s32, s32, void*, s32, s32);
 s32 func_002891d0(void*);
-void func_0028cf28(s32, s32);  // record408_set_and_refresh
+void Tz__MenuCursor__SetParent(s32, s32);  // record408_set_and_refresh
 s32 func_0028d6e8(void*);
-void func_0028d1c0(void*, s32, s32, s32, void*, void*, s32);
+void Tz__LightCur__Create(void*, s32, s32, s32, void*, void*, s32);
 void func_0028d660(void*, s32);  // record_set_value_refresh
 s32 func_00287bc0(void);
-void func_0026eae8(void*, s32);
+void Title__BootMcChk__SelDraw(void*, s32);
 void func_0028cdb8(s32);  // record408_alloc_init
 void func_0028d5d0(void*);
 void PauseTaskUpdate_impl(void) asm("_ZN2Tz15PauseTaskUpdateEv");

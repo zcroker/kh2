@@ -17,7 +17,7 @@ void func_0020e858(PktNode3687* n, s32 count, s32 pri);  // 0x0020e858: definiti
 u8* Tz_CmTop_GetListBuffer(void) asm("_ZN2Tz5CmTop13GetListBufferEv");
 void u_call4_00139d78(u8*) asm("_Z16u_call4_00139d78jjjj");
 s32 Tz_MenuBase_GetMode(void) asm("_ZN2Tz8MenuBase7GetModeEv");
-s32 func_0027af58(void);
+s32 Tz__CmAbility__Cur2AbiltyType(void);
 void Tz_Select_SetSequence(u8*, s32) asm("_ZN2Tz6Select11SetSequenceEz");
 typedef struct SeqEntry3687 { s16 a, b, seq; } SeqEntry3687;
 extern SeqEntry3687 D_00373e30[];

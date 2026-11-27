@@ -128,7 +128,7 @@ void func_00198ea8(EVENT88* e, u32 id) {
     x->id = id;
 }
 
-void func_00198ee8(EVENT88* o) {
+void YS__SIGNAL_HOOK__exec(EVENT88* o) {
     if (o->se != 0xffff && !func_00181500(o->se)) func_00181178(o->se);
     if (o->bgm >= 0) func_001a6c90(o->bgm);  // set_bit_in_array_b
     if (o->nres > 0)
@@ -142,7 +142,7 @@ void func_00198ee8(EVENT88* o) {
     o->a = -1;
 }
 
-s32 func_00199030(EVENT88* e) {
+s32 YS__SIGNAL_HOOK__SignalCall(EVENT88* e) {
     u8* p = (u8*)e;
     if (p[48]) return 1;
     if (*(u32*)(p + 16)) {
@@ -155,7 +155,7 @@ s32 func_00199030(EVENT88* e) {
 
 S36 func_00199098(u32 a1) {
     EVENT88* v = ctarget_00198bd0(a1, -1);
-    func_00198ee8(v);
+    YS__SIGNAL_HOOK__exec(v);
     return *(S36*)&v->jmp;
 }
 }

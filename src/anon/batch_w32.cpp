@@ -25,7 +25,7 @@ void func_001781e8(void*);
 void func_001dc920(void*);
 void func_00175928(void*);
 extern void* D_0034e948;
-s32 func_0019ba60(void*);
+s32 YS__OBJ__is_exist(void*);
 void* func_0018ee10(void*);
 s32 func_001a15d0(s32);
 s32 func_001a1540(s32);
@@ -43,7 +43,7 @@ extern u32 D_0034f240;
 void func_001e7798(void*, void*);
 extern void* D_01d9e6e4;
 void func_001e2c00(void*);
-void func_001e6c00(void*);  // alloc_336_align_171
+void pppDeleteMng(void*);  // alloc_336_align_171
 void func_001dc700(void*, s32);
 extern u32 D_0035dad0;
 extern u8 D_0035dade;
@@ -82,7 +82,7 @@ extern u8 D_0035eb98[];
 void func_0023c098(void*);  // set_vtbl_36eae8_then_call
 void func_002369f0(void*);  // set_vtbl_36eac8_then_call
 extern u8 D_0034ee08[];
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 u8 func_00319fb0(void*);  // big_obj_dtor
 extern u8 D_003638a8[];
@@ -139,13 +139,13 @@ s32 func_002670a0(s32 n);  // 0x002670a0: definition moved into src/anon/unit_00
 // Looks up key in a -1 terminated (key, value) table; last match wins.
 s32 func_00282c68(s32 key);  // 0x00282c68: definition moved into src/anon/unit_00282c68.cpp
 
-u8* func_002b23e0(s32 i);  // 0x002b23e0: definition moved into src/anon/unit_002b1db8.cpp
+u8* Tz__JmPuzzle__GetImageInfo(s32 i);  // 0x002b23e0: definition moved into src/anon/unit_002b1db8.cpp
 
 void func_002bc398(void* a, void* b);  // 0x002bc398: definition moved into src/anon/unit_002bb8b0.cpp
 
 void func_002d5e10(void** p);  // 0x002d5e10: definition moved into src/anon/unit_002d4548.cpp
 
-void func_002daca0(u8* p, void* b, void* c);  // 0x002daca0: definition moved into src/anon/unit_002da040.cpp
+void Ti__MGHachimitsuGopher__MGHachimitsuGopher(u8* p, void* b, void* c);  // 0x002daca0: definition moved into src/anon/unit_002da040.cpp
 
 // delete[] of the 64-byte element array.
 void func_002e70b0(u8* o);  // 0x002e70b0: definition moved into src/anon/unit_002e5f70.cpp
@@ -168,5 +168,5 @@ void func_00322d70(void** p);  // 0x00322d70: definition moved into src/anon/uni
 
 s32 func_00324938(void** p);  // 0x00324938: definition moved into src/anon/unit_00324808.cpp
 
-void func_00325b80(void** p);  // 0x00325b80: definition moved into src/anon/unit_00324808.cpp
+void Tz__CmTutorial__Exit(void** p);  // 0x00325b80: definition moved into src/anon/unit_00324808.cpp
 }

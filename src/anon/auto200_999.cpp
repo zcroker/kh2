@@ -1,7 +1,7 @@
 #include "../common/types.h"
 #include "../tozawa/menu_sound.hpp"
 
-u32 func_0013e940(u32, u32, u32, u32, u32, u32, u32, u32);
+u32 dk__Ft4Base__createPacket(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_00149350(u32, u32, u32, u32);
 void func_0014b150(u32, u32, u32, u32, u32, u32, u32, u32);  // obj_init_fields_14b150
 u32 func_00135ff0(u32, u32, u32, u32, u32, u32, u32, u32);
@@ -14,7 +14,7 @@ void func_001a9970(void *, u32);
 u32 func_001aae68(u32);
 void func_001b0188(u32);
 void func_001b0210(u32, u32, u32, u32);
-void func_001bacd0(u32);
+void YS__MISSION__prepare(u32);
 void func_001d79b8(u32);
 void func_00102670(u32, u32);  // to_1025f8
 u32 func_00102788(u32, u32, u32, u32);
@@ -33,7 +33,7 @@ u32 func_0028be58(u32);
 u32 func_002cf268(u32, u32, u32, u32, u32, u32, u32, u32);
 u32 func_002cff50(u32, u32, u32, u32, u32, u32, u32, u32);
 void func_0016a358(u32);
-void func_0019f9a8(u32);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(u32);  // array8_free_slots
 void func_002fd160(void) __attribute__((noreturn));
 u32 func_00290738(...);
 void func_0031e7f8(u32);
@@ -171,7 +171,7 @@ u32 func_0018f010(u32 a0);  // 0x0018f010: definition moved into src/anon/unit_0
 
 // 00192498: moved to src/yasui/libys/message.cpp
 
-u32 ctarget_00189200(u32 a0, u32 a1, u32, u32);  // 0x00189200: definition moved into src/anon/unit_00188848.cpp
+u32 YS__SAVERAM_BATTLE__get_formram(u32 a0, u32 a1, u32, u32);  // 0x00189200: definition moved into src/anon/unit_00188848.cpp
 
 u32 func_001977d8();  // 0x001977d8: definition moved into src/anon/unit_00195d00.cpp
 
@@ -244,7 +244,7 @@ void func_001963c8(u32 a0);  // 0x001963c8: definition moved into src/anon/unit_
 
 void func_0019f490(u32 a0, u32 a1);  // 0x0019f490: definition moved into src/anon/unit_0019ee80.cpp
 
-void func_001a1c70(u32 a0);  // 0x001a1c70: definition moved into src/anon/unit_0019fb70.cpp
+void YS__SHEET__max_drive(u32 a0);  // 0x001a1c70: definition moved into src/anon/unit_0019fb70.cpp
 
 void func_001a1d40(u32 a0, f32 f12);  // 0x001a1d40: definition moved into src/anon/unit_0019fb70.cpp
 
@@ -312,7 +312,7 @@ class RectBase {
 void func_0019f4b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6,
                    u32 a7);  // 0x0019f4b8: definition moved into src/anon/unit_0019ee80.cpp
 
-void func_001a98e8(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4);  // 0x001a98e8: definition moved into src/anon/unit_001a9130.cpp
+void YS__MESSAGEDRAW__MESSAGEDRAW(u32 *a0, u32 a1, u32 a2, u32 a3, u32 a4);  // 0x001a98e8: definition moved into src/anon/unit_001a9130.cpp
 
 // 001d3328: moved to src/anon/unit_001d30b0.cpp
 
@@ -405,7 +405,7 @@ void func_002723e0();  // 0x002723e0: definition moved into src/anon/unit_00271e
 
 void func_00290610(u32 self);  // 00290610: moved to src/anon/unit_0028f1e0.cpp
 
-u32 func_002cff00(u32 a0);  // 0x002cff00: definition moved into src/anon/unit_002cf260.cpp
+u32 Ti__MGObj__MGObj(u32 a0);  // 0x002cff00: definition moved into src/anon/unit_002cf260.cpp
 
 u32 func_002d0ef0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d0ef0: definition moved into src/anon/unit_002cf260.cpp
 

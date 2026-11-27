@@ -71,7 +71,7 @@ s32 func_00239d10(void *);
 void func_00239bf8(void *, u32);
 void func_001aa558(void *);
 void func_001abdf0(void *, s32);
-void func_001abe80(void *, T *, s32);
+void YS__TURNPAGE__exec(void *, T *, s32);
 void func_001ac728(T *);
 void func_001ac0d0(void *);
 s32 func_001ac1d0(void *);

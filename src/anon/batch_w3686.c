@@ -24,8 +24,8 @@ f32 func_00209fb8(void);
 void sceVu0RotMatrix(M20a658*, M20a658*, V20a658*);
 void sceVu0ApplyMatrix(V20a658*, M20a658*, V20a658*);
 void sceVu0ScaleVector(V20a658*, V20a658*, f32);
-void func_0020a090(Src20a658*, Dst20a658*, f32*);
-void func_0020a658(void* unused, Src20a658* s, Dst20a658* d, void* unused2, Cf20a658* cf)
+void birth(Src20a658*, Dst20a658*, f32*);
+void init_param(void* unused, Src20a658* s, Dst20a658* d, void* unused2, Cf20a658* cf)
 {
     V20a658 v;
     V20a658 n;
@@ -118,7 +118,7 @@ asm volatile("" : : "r"(d->f.cnt), "f"(one));
             sceVu0ScaleVector(&t, &t, -far);
             sceVu0AddVector(&d->pos, &D_01d9e7f0, &t);
             d->pos.w = 1.0f;
-            func_0020a090(s, d, (f32*)cf);
+            birth(s, d, (f32*)cf);
         }
     }
 }

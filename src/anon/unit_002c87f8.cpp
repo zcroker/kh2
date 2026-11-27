@@ -67,17 +67,17 @@ extern s16 D_003757d8[] asm("D_003757d8");
 extern s16 D_003757e8[] asm("D_003757e8");
 extern s16 D_003757f0[] asm("D_003757f0");
 void func_0031a838(void*) asm("func_0031a838");
-void func_002369a0(void*) asm("func_002369a0");
-void func_0023c008(void*) asm("func_0023c008");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
+void YI__LAYOUT__LAYOUT(void*) asm("YI__LAYOUT__LAYOUT");
 void func_00239700(void*) asm("func_00239700");
-s32 func_002beb90(void) asm("func_002beb90");
+s32 worldmap__Manager__get2ldFile(void) asm("worldmap__Manager__get2ldFile");
 s32 func_001708f8(s32, s32) asm("func_001708f8");
 void func_0023fa08(LayFile2c90c8*, s32) asm("func_0023fa08");
 s32 func_0023f948(LayFile2c90c8*, s32) asm("func_0023f948");
 s32 func_0023f908(LayFile2c90c8*, s32) asm("func_0023f908");
 s32 func_002c9e90(M2c90c8*, s32) asm("func_002c9e90");
-void func_0023eea0(void*, s32, s32, s32, s32, s32) asm("func_0023eea0");
-void func_0023ef50(void*) asm("func_0023ef50");
+void Tz__Layout__create(void*, s32, s32, s32, s32, s32) asm("Tz__Layout__create");
+void Tz__Layout__SetImageCache(void*) asm("Tz__Layout__SetImageCache");
 void func_0023f0c8(void*, s32) asm("func_0023f0c8");
 void func_00139570(void*) asm("func_00139570");
 u8* func_0023f1b0(void*) asm("func_0023f1b0");
@@ -87,7 +87,7 @@ Rec2c90c8* func_001e09a0(u8*, s32, s32, s32) asm("func_001e09a0");
 s32 func_002c1c88(s32) asm("func_002c1c88");
 void func_00138d60(WP2c90c8*, s32, s32, s32, s32, s32, s32) asm("func_00138d60");
 void func_00139620(WP2c90c8*) asm("func_00139620");
-void func_001386e0(W2c90c8*, s32, s32, s32, s32, s32) asm("func_001386e0");
+void dk__Sprite__create(W2c90c8*, s32, s32, s32, s32, s32) asm("dk__Sprite__create");
 void func_001396b0(W2c90c8*) asm("func_001396b0");
 void func_0031a260(W2c90c8*, s32) asm("func_0031a260");
 void func_00139660(W2c90c8*) asm("func_00139660");
@@ -122,8 +122,8 @@ void func_002c87f8(M2c90c8* t, s32 course)
     W2c90c8* title = &t->title;
     func_0031a838(t->lay + 12);
     *(u32*)t->lay = (u32)D_0035eb98;
-    func_002369a0(t->lay + 24);
-    func_0023c008(t->lay + 48);
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(t->lay + 24);
+    YI__LAYOUT__LAYOUT(t->lay + 48);
     t->head.w.vt = (u32)D_00347f98;
     func_0031a838((u8*)&t->head + 12);
     t->head.w.vt = (u32)D_00347e60;
@@ -143,7 +143,7 @@ void func_002c87f8(M2c90c8* t, s32 course)
     { W2c90c8* q; s32 n; for (q = t->e, n = 2; n != -1; n--, q++) { q->f12 = 0; q->vt = (u32)D_00347e60; func_00239700(q->seq); } }
 
     asm("" : : "r"(row));
-    t->cache = func_001708f8(func_002beb90(), -1);
+    t->cache = func_001708f8(worldmap__Manager__get2ldFile(), -1);
     t->course = course;
     s32 cm1 = course - 1;
     D_00361e00 = t;
@@ -151,8 +151,8 @@ void func_002c87f8(M2c90c8* t, s32 course)
     func_0023fa08(&lf, t->cache);
     s32 gra = func_0023f948(&lf, 0);
     s32 mes = func_0023f908(&lf, 0);
-    func_0023eea0(t->lay, 0x7581, gra, mes, func_002c9e90(t, 0), 0);
-    func_0023ef50(t->lay);
+    Tz__Layout__create(t->lay, 0x7581, gra, mes, func_002c9e90(t, 0), 0);
+    Tz__Layout__SetImageCache(t->lay);
     func_0023f0c8(t->lay, func_002c9e90(t, 2));
     func_00139570(t->lay);
     course = func_0023c4b8(func_0023f1b0(t->lay), 1);
@@ -168,7 +168,7 @@ void func_002c87f8(M2c90c8* t, s32 course)
     head->f432 = 2;
     func_00139620(head);
     head->w.f392 = D_003757e8[t->mode];
-    func_001386e0(title, 0x7586, course, t->img, t->mode ? 150 : 149, 201);
+    dk__Sprite__create(title, 0x7586, course, t->img, t->mode ? 150 : 149, 201);
     Attach2c90c8(title, &head->w);
     // A plain copy in the block of the next use: gcse then sees two different expressions and
     // does not share title.seq with the constructor call above (cse2 removes the copy again).
@@ -185,20 +185,20 @@ void func_002c87f8(M2c90c8* t, s32 course)
         if (tt->mode != 1) n = 3;
         s32 y = 0;
         for (s32 k = 0; k < n; k++) {
-            func_001386e0(&tt->a[k], 0x7587, course, tt->img, D_003757f0[rec[k]->icon], 201);
+            dk__Sprite__create(&tt->a[k], 0x7587, course, tt->img, D_003757f0[rec[k]->icon], 201);
             Attach2c90c8(&tt->a[k], &head->w);
             func_00139660(&tt->a[k]);
             func_00139688(&tt->a[k]);
             func_00138c68(&tt->a[k], 0, y);
             func_001396b0(&tt->a[k]);
             if (rec2[k]->flag) {
-                func_001386e0(&tt->b[k], 0x7587, course, tt->img, 120, 201);
+                dk__Sprite__create(&tt->b[k], 0x7587, course, tt->img, 120, 201);
                 Attach2c90c8(&tt->b[k], &head->w);
                 func_00139660(&tt->b[k]);
                 func_00139688(&tt->b[k]);
                 func_00138c68(&tt->b[k], 0, y);
                 func_001396b0(&tt->b[k]);
-                func_001386e0(&tt->c[k], 0x7587, course, tt->img, D_003757f0[rec2[k]->icon], 201);
+                dk__Sprite__create(&tt->c[k], 0x7587, course, tt->img, D_003757f0[rec2[k]->icon], 201);
                 Attach2c90c8(&tt->c[k], &head->w);
                 func_00138c68(&tt->c[k], 90, y);
                 func_00139660(&tt->c[k]);
@@ -207,7 +207,7 @@ void func_002c87f8(M2c90c8* t, s32 course)
             }
             s32 xs[3];
             s32 cnt = func_002c5238((s32)rec[k]->f32_, 3, xs);
-            func_001386e0(&tt->e[k], 0x7588, course, tt->img, 144, 201);
+            dk__Sprite__create(&tt->e[k], 0x7588, course, tt->img, 144, 201);
             Attach2c90c8(&tt->e[k], &head->w);
             func_00139660(&tt->e[k]);
             func_00139688(&tt->e[k]);
@@ -219,7 +219,7 @@ void func_002c87f8(M2c90c8* t, s32 course)
                 W2c90c8* d = (W2c90c8*)(k * 1224 + (u32)tt + 4704);
                 s32* xp = &xs[2];
                 for (s32 m = cnt; m != 0; m--) {
-                    func_001386e0(d, 0x7588, course, tt->img, *xp-- + 134, 201);
+                    dk__Sprite__create(d, 0x7588, course, tt->img, *xp-- + 134, 201);
                     Attach2c90c8(d, &head->w);
                     func_00139660(d);
                     func_00139688(d);
@@ -278,17 +278,17 @@ extern s16 D_003757d8[] asm("D_003757d8");
 extern s16 D_003757e8[] asm("D_003757e8");
 extern s16 D_003757f0[] asm("D_003757f0");
 void func_0031a838(void*) asm("func_0031a838");
-void func_002369a0(void*) asm("func_002369a0");
-void func_0023c008(void*) asm("func_0023c008");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(void*) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
+void YI__LAYOUT__LAYOUT(void*) asm("YI__LAYOUT__LAYOUT");
 void func_00239700(void*) asm("func_00239700");
-s32 func_002beb90(void) asm("func_002beb90");
+s32 worldmap__Manager__get2ldFile(void) asm("worldmap__Manager__get2ldFile");
 s32 func_001708f8(s32, s32) asm("func_001708f8");
 void func_0023fa08(LayFile2c90c8*, s32) asm("func_0023fa08");
 s32 func_0023f948(LayFile2c90c8*, s32) asm("func_0023f948");
 s32 func_0023f908(LayFile2c90c8*, s32) asm("func_0023f908");
 s32 func_002c9e90(M2c90c8*, s32) asm("func_002c9e90");
-void func_0023eea0(void*, s32, s32, s32, s32, s32) asm("func_0023eea0");
-void func_0023ef50(void*) asm("func_0023ef50");
+void Tz__Layout__create(void*, s32, s32, s32, s32, s32) asm("Tz__Layout__create");
+void Tz__Layout__SetImageCache(void*) asm("Tz__Layout__SetImageCache");
 void func_0023f0c8(void*, s32) asm("func_0023f0c8");
 void func_00139570(void*) asm("func_00139570");
 u8* func_0023f1b0(void*) asm("func_0023f1b0");
@@ -298,7 +298,7 @@ Rec2c90c8* func_001e09a0(u8*, s32, s32, s32) asm("func_001e09a0");
 s32 func_002c1c88(s32) asm("func_002c1c88");
 void func_00138d60(WP2c90c8*, s32, s32, s32, s32, s32, s32) asm("func_00138d60");
 void func_00139620(WP2c90c8*) asm("func_00139620");
-void func_001386e0(W2c90c8*, s32, s32, s32, s32, s32) asm("func_001386e0");
+void dk__Sprite__create(W2c90c8*, s32, s32, s32, s32, s32) asm("dk__Sprite__create");
 void func_001396b0(W2c90c8*) asm("func_001396b0");
 void func_0031a260(W2c90c8*, s32) asm("func_0031a260");
 void func_00139660(W2c90c8*) asm("func_00139660");
@@ -322,8 +322,8 @@ static inline void Attach2c90c8(W2c90c8* w, W2c90c8* parent)
 }
 
 
-void func_002c90c8(M2c90c8* t, s32 course) asm("func_002c90c8");
-void func_002c90c8(M2c90c8* t, s32 course)
+void dk__WM_GLANDING_INFO__WM_GLANDING_INFO(M2c90c8* t, s32 course) asm("dk__WM_GLANDING_INFO__WM_GLANDING_INFO");
+void dk__WM_GLANDING_INFO__WM_GLANDING_INFO(M2c90c8* t, s32 course)
 {
     t->f12 = 0;
     t->vt = (u32)D_00361e10;
@@ -333,8 +333,8 @@ void func_002c90c8(M2c90c8* t, s32 course)
     W2c90c8* title = &t->title;
     func_0031a838(t->lay + 12);
     *(u32*)t->lay = (u32)D_0035eb98;
-    func_002369a0(t->lay + 24);
-    func_0023c008(t->lay + 48);
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(t->lay + 24);
+    YI__LAYOUT__LAYOUT(t->lay + 48);
     t->head.w.vt = (u32)D_00347f98;
     func_0031a838((u8*)&t->head + 12);
     t->head.w.vt = (u32)D_00347e60;
@@ -354,7 +354,7 @@ void func_002c90c8(M2c90c8* t, s32 course)
     { W2c90c8* q; s32 n; for (q = t->e, n = 2; n != -1; n--, q++) { q->f12 = 0; q->vt = (u32)D_00347e60; func_00239700(q->seq); } }
 
     asm("" : : "r"(row));
-    t->cache = func_001708f8(func_002beb90(), -1);
+    t->cache = func_001708f8(worldmap__Manager__get2ldFile(), -1);
     t->course = course;
     s32 cm1 = course - 1;
     D_00361e00 = t;
@@ -362,8 +362,8 @@ void func_002c90c8(M2c90c8* t, s32 course)
     func_0023fa08(&lf, t->cache);
     s32 gra = func_0023f948(&lf, 0);
     s32 mes = func_0023f908(&lf, 0);
-    func_0023eea0(t->lay, 0x7581, gra, mes, func_002c9e90(t, 0), 0);
-    func_0023ef50(t->lay);
+    Tz__Layout__create(t->lay, 0x7581, gra, mes, func_002c9e90(t, 0), 0);
+    Tz__Layout__SetImageCache(t->lay);
     func_0023f0c8(t->lay, func_002c9e90(t, 2));
     func_00139570(t->lay);
     course = func_0023c4b8(func_0023f1b0(t->lay), 1);
@@ -379,7 +379,7 @@ void func_002c90c8(M2c90c8* t, s32 course)
     head->f432 = 2;
     func_00139620(head);
     head->w.f392 = D_003757e8[t->mode];
-    func_001386e0(title, 0x7586, course, t->img, t->mode ? 150 : 149, 201);
+    dk__Sprite__create(title, 0x7586, course, t->img, t->mode ? 150 : 149, 201);
     Attach2c90c8(title, &head->w);
     // A plain copy in the block of the next use: gcse then sees two different expressions and
     // does not share title.seq with the constructor call above (cse2 removes the copy again).
@@ -396,20 +396,20 @@ void func_002c90c8(M2c90c8* t, s32 course)
         if (tt->mode != 1) n = 3;
         s32 y = 0;
         for (s32 k = 0; k < n; k++) {
-            func_001386e0(&tt->a[k], 0x7587, course, tt->img, D_003757f0[rec[k]->icon], 201);
+            dk__Sprite__create(&tt->a[k], 0x7587, course, tt->img, D_003757f0[rec[k]->icon], 201);
             Attach2c90c8(&tt->a[k], &head->w);
             func_00139660(&tt->a[k]);
             func_00139688(&tt->a[k]);
             func_00138c68(&tt->a[k], 0, y);
             func_001396b0(&tt->a[k]);
             if (rec2[k]->flag) {
-                func_001386e0(&tt->b[k], 0x7587, course, tt->img, 120, 201);
+                dk__Sprite__create(&tt->b[k], 0x7587, course, tt->img, 120, 201);
                 Attach2c90c8(&tt->b[k], &head->w);
                 func_00139660(&tt->b[k]);
                 func_00139688(&tt->b[k]);
                 func_00138c68(&tt->b[k], 0, y);
                 func_001396b0(&tt->b[k]);
-                func_001386e0(&tt->c[k], 0x7587, course, tt->img, D_003757f0[rec2[k]->icon], 201);
+                dk__Sprite__create(&tt->c[k], 0x7587, course, tt->img, D_003757f0[rec2[k]->icon], 201);
                 Attach2c90c8(&tt->c[k], &head->w);
                 func_00138c68(&tt->c[k], 90, y);
                 func_00139660(&tt->c[k]);
@@ -418,7 +418,7 @@ void func_002c90c8(M2c90c8* t, s32 course)
             }
             s32 xs[3];
             s32 cnt = func_002c5238((s32)rec[k]->f32_, 3, xs);
-            func_001386e0(&tt->e[k], 0x7588, course, tt->img, 144, 201);
+            dk__Sprite__create(&tt->e[k], 0x7588, course, tt->img, 144, 201);
             Attach2c90c8(&tt->e[k], &head->w);
             func_00139660(&tt->e[k]);
             func_00139688(&tt->e[k]);
@@ -430,7 +430,7 @@ void func_002c90c8(M2c90c8* t, s32 course)
                 W2c90c8* d = (W2c90c8*)(k * 1224 + (u32)tt + 4704);
                 s32* xp = &xs[2];
                 for (s32 m = cnt; m != 0; m--) {
-                    func_001386e0(d, 0x7588, course, tt->img, *xp-- + 134, 201);
+                    dk__Sprite__create(d, 0x7588, course, tt->img, *xp-- + 134, 201);
                     Attach2c90c8(d, &head->w);
                     func_00139660(d);
                     func_00139688(d);

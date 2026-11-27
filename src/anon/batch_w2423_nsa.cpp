@@ -5,7 +5,7 @@ void func_00138c10(u8*, s32);
 void func_00138c68(u8*, u32, u32);
 void func_00138c78(u8*, u32*, u32*);
 void func_00242618(s32, s32);
-void func_002a3aa8(void);
+void Tz__JmTreasure__UpdateNewMark(void);
 s32 func_002a4990(s32);
 s32 func_002a4a00(s32);
 extern u8* D_0035f5e4;

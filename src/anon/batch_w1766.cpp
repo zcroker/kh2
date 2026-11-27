@@ -10,7 +10,7 @@ extern s32 D_00367920;
 extern s32 D_00352bd0;
 
 extern "C" {
-s32 func_001a1de0(void*);
+s32 YS__SHEET__is_mpdrive(void*);
 s32 func_0023aa98(s32);
 void func_00138c68(s32, s32, s32);
 s32 DIntr(void);
@@ -32,11 +32,11 @@ static inline s32 w1766_once(s32* o, void (*f)(void)) {
 extern "C" {
 
 // 00155f40: moved to src/anon/unit_00153ea0.cpp
-s32 func_00155f40(u8* p);
+s32 dk__GAUGE_PLAYER__getDriveLoopSqNum(u8* p);
 
 void func_001e0fe8(u8* p);  // 0x001e0fe8: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_00288e08(s32 p, s32 i, s32 a, s32 b);  // 0x00288e08: definition moved into src/anon/unit_00288b00.cpp
+void Tz__Select__SetExOffset(s32 p, s32 i, s32 a, s32 b);  // 0x00288e08: definition moved into src/anon/unit_00288b00.cpp
 
 void func_003169d0(void);  // 0x003169d0: definition moved into src/libsupc++/eh_globals.cpp
 

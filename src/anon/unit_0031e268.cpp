@@ -330,7 +330,7 @@ void func_001b0188(u32) asm("_Z13func_001b0188j");
 void func_001c0248(u32) asm("_Z13func_001c0248j");
 void func_001d5718(u32) asm("_Z13func_001d5718j");
 void func_0016a358(u32) asm("_Z13func_0016a358j");
-void func_0019f9a8(u32) asm("_Z13func_0019f9a8j");
+void YS__OBJ_ATTACK__clear(u32) asm("_Z21YS__OBJ_ATTACK__clearj");
 void func_0031e7f8(u32) asm("_Z13func_0031e7f8j");
 extern u32 D_0034e8b8 asm("D_0034e8b8");
 extern u32 D_0034ee08 asm("D_0034ee08");
@@ -352,7 +352,7 @@ void func_0031e690(u32 self) {
     func_001b0188(s18 + 2824);
 
     *(u32 *)(s18 + 0) = addr_D_0034ee08();
-    func_0019f9a8(s18 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s18 + 2568);  // array8_free_slots
     func_001c0248(s18 + 2640);
 
     *(u32 *)(s18 + 0) = addr_D_003503e0();
@@ -389,7 +389,7 @@ void func_0031e740(u32 self) {
     func_001b0188(s18 + 2824);
 
     *(u32*)(s18 + 0) = addr_D_0034ee08();
-    func_0019f9a8(s18 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s18 + 2568);  // array8_free_slots
     func_001c0248(s18 + 2640);
 
     *(u32*)(s18 + 0) = addr_D_003503e0();
@@ -438,7 +438,7 @@ void func_0031e820(u32 self) {
     *(u32*)s16 = addr_D_0034e8b8();
     func_00319f88(s16 + 2824);
     *(u32*)s16 = addr_D_0034ee08();
-    func_0019f9a8(s16 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s16 + 2568);  // array8_free_slots
     func_001c0248(s16 + 2640);
     func_00319fb0(s16);  // big_obj_dtor
     u32 t = s16;
@@ -455,7 +455,7 @@ void func_0031e878(u32 self) {
     *(u32*)s16 = addr_D_0034e8b8();
     func_00319f88(s16 + 2824);
     *(u32*)s16 = addr_D_0034ee08();
-    func_0019f9a8(s16 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s16 + 2568);  // array8_free_slots
     func_001c0248(s16 + 2640);
     func_00319fb0(s16);  // big_obj_dtor
     u32 t = s16;
@@ -478,17 +478,17 @@ void func_0031e8d8(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 // 0031e8e0 (was src/anon/tiny_jal_wrappers_flex.cpp)
 namespace n0031e8e0 {
-u32 func_0016bda8(u32, u32, u32, u32) asm("_Z13func_0016bda8jjjj");
+u32 YS__OBJ__get_target_pos(u32, u32, u32, u32) asm("_Z23YS__OBJ__get_target_posjjjj");
 /*TARGET 0031e8e0*/
 // 0x00303fc0: definition moved into src/newlib/libc/mprec.c
 
-u32 func_0031e8e0(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_0031e8e0jjjj");
+u32 SQEX__CDev__Engine__Sd__Driver__PS3__FilterPS3__UpdateParameters(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z64SQEX__CDev__Engine__Sd__Driver__PS3__FilterPS3__UpdateParametersjjjj");
 // 0x00303fc0: definition moved into src/newlib/libc/mprec.c
 
-u32 func_0031e8e0(u32 a0, u32 a1, u32 a2, u32 a3) {
+u32 SQEX__CDev__Engine__Sd__Driver__PS3__FilterPS3__UpdateParameters(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r2 = 0u, r16 = 0u;
     r16 = r4;
-    r2 = func_0016bda8(r4, r5, r6, r7);
+    r2 = YS__OBJ__get_target_pos(r4, r5, r6, r7);
     r2 = r16;
     return r2;
 }
@@ -607,7 +607,7 @@ void func_0031e948(u32 self) {
     *(u32*)s16 = addr_D_0034e8b8();
     func_00319f88(s16 + 2824);
     *(u32*)s16 = addr_D_0034ee08();
-    func_0019f9a8(s16 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s16 + 2568);  // array8_free_slots
     func_001c0248(s16 + 2640);
     func_00319fb0(s16);  // big_obj_dtor
     u32 t = s16;
@@ -624,7 +624,7 @@ void func_0031e9a0(u32 self) {
     *(u32*)s16 = addr_D_0034e8b8();
     func_00319f88(s16 + 2824);
     *(u32*)s16 = addr_D_0034ee08();
-    func_0019f9a8(s16 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s16 + 2568);  // array8_free_slots
     func_001c0248(s16 + 2640);
     func_00319fb0(s16);  // big_obj_dtor
     u32 t = s16;
@@ -741,7 +741,7 @@ s32 func_0031eb60(void* self) { return *(s32*)((char*)self + 2560); }
 namespace n0031eb68 {
 // strlen
 extern u8 D_0034ee08[] asm("D_0034ee08");
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 u8 func_00319fb0(void*) asm("func_00319fb0");
@@ -749,7 +749,7 @@ u8 func_00319fb0(void*) asm("func_00319fb0");
 s32 func_0031eb68(u8* p) asm("func_0031eb68");
 s32 func_0031eb68(u8* p) {
     *(void**)p = D_0034ee08;
-    func_0019f9a8(p + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(p + 2568);  // array8_free_slots
     func_001c0248(p + 2640);
     return func_00319fb0(p);  // big_obj_dtor
 }
@@ -758,7 +758,7 @@ s32 func_0031eb68(u8* p) {
 // 0031ebb0 (was src/anon/batch_w26.cpp)
 namespace n0031ebb0 {
 void area_free(void*) asm("_ZN4AREA4FreeEPv");
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 u8 func_00319fb0(void*) asm("func_00319fb0");
@@ -767,7 +767,7 @@ extern u8 D_0034ee08[] asm("D_0034ee08");
 void func_0031ebb0(u8* o) asm("func_0031ebb0");
 void func_0031ebb0(u8* o) {
     *(u8**)o = D_0034ee08;
-    func_0019f9a8(o + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(o + 2568);  // array8_free_slots
     func_001c0248(o + 2640);
     func_00319fb0(o);  // big_obj_dtor
     area_free(o);
@@ -781,7 +781,7 @@ void func_0031ebf8(u32 self) asm("_Z13func_0031ebf8j");
 void func_0031ebf8(u32 self) {
     u32 s18 = self;
     *(u32*)s18 = addr_D_0034ee08();
-    func_0019f9a8(s18 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s18 + 2568);  // array8_free_slots
     func_001c0248(s18 + 2640);
 
     *(u32*)s18 = addr_D_003503e0();
@@ -812,7 +812,7 @@ void func_0031ec98(u32 self) asm("_Z13func_0031ec98j");
 void func_0031ec98(u32 self) {
     u32 s18 = self;
     *(u32*)s18 = addr_D_0034ee08();
-    func_0019f9a8(s18 + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear(s18 + 2568);  // array8_free_slots
     func_001c0248(s18 + 2640);
 
     *(u32*)s18 = addr_D_003503e0();

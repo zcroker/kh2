@@ -11,8 +11,8 @@ void func_002ff3fc(char*);
 u32 func_001050d8(u32) asm("_ZN4AREA5AllocEj");
 void func_0023f800(u8*) asm("_ZN2Tz7LayFileC1Ev");
 u32 func_0023fa70(u8*, char*, s32) asm("_ZN2Tz7LayFile11readRequestEPKci");
-void func_0023c008(u8*);
-void func_002369a0(u8*);
+void YI__LAYOUT__LAYOUT(u8*);
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u8*);
 void func_0023fa90(u8*, char*);
 u32 func_0023f908(u8*, u32);
 u32 func_0023f948(u8*, u32);
@@ -39,11 +39,11 @@ char* func_0022b7f0(void) {
     return D_01dad938;
 }
 
-u32 func_0022b838() {
+u32 sa__MUSICAL_2D__read() {
     u8* p = (u8*)func_001050d8(144);
     func_0023f800(p);
-    func_0023c008(p + 28);
-    func_002369a0(p + 120);
+    YI__LAYOUT__LAYOUT(p + 28);
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(p + 120);
     D_0035e2e8 = p;
     return func_0023fa70(D_0035e2e8, func_0022b7f0(), -200);
 }
@@ -57,7 +57,7 @@ void func_0022b898(void) {
     func_0023c100(D_0035e2e8 + 28, b, D_0035e2e8 + 120, c);
 }
 
-void func_0022b930(BD_VALUE* bd) { func_001397d8(11); }
+void sa__MUSICAL_2D__leave(BD_VALUE* bd) { func_001397d8(11); }
 
 u32 func_0022b948(void) { return func_0023fad0(D_0035e2e8); }
 

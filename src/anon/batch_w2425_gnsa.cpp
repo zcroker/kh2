@@ -31,7 +31,7 @@ extern Game2cfb30* D_00361f60;
 extern f32 D_00349e10;
 s32 g2cfb30_be_ready(void) asm("_ZN2Ti8MiniGame8be_readyEv");
 s32 g2cfb30_IsExec(void) asm("_ZN2YS5EVENT6IsExecEv");
-Obj2cfb30* g2cfb30_next(Obj2cfb30*) asm("_Z16ctarget_001b9bc8jjjj");
+Obj2cfb30* g2cfb30_next(Obj2cfb30*) asm("_Z13YS__OBJ__Eachjjjj");
 s32 g2cfb30_is_ghost(Obj2cfb30*) asm("_ZN2YS3OBJ8is_ghostEv");
 s32 g2cfb30_check(void*, u32) asm("_ZN2Ti5LFlag5checkEj");
 void g2cfb30_set(void*, u32, s32) asm("_Z16wtarget_002cf280jjjj");
@@ -41,6 +41,6 @@ void g2cfb30_set_balloon(Obj2cfb30*, Obj2cfb30*) asm("_ZN2Ti18MGHachimitsuGopher
 void func_001cbcf0(V2cfb30*, V2cfb30*, s32);
 s32 g2cfb30_type(void) asm("_ZN2Ti8MiniGame4typeEv");
 Rec2cfb30* func_002e3260(s32, s32, u16);
-s32 g2cfb30_001c0d38s(Obj2cfb30*, Obj2cfb30*, s32, s32) asm("_Z16u_tail4_001c0d38jjjj");
+s32 g2cfb30_001c0d38s(Obj2cfb30*, Obj2cfb30*, s32, s32) asm("_Z15YS__OBJ__attachjjjj");
 void func_002cfb30(void);  // 0x002cfb30: definition moved into src/anon/unit_002cf260.cpp
 }

@@ -2,8 +2,8 @@
 
 extern "C" u32 getSaveRam(u32, u32, u32, u32) asm("_Z10getSaveRamv");
 u32 func_001064a8(u32, u32, u32, u32);  // int_to_float_scaled
-u32 func_0010e130(u32, u32, u32, u32);
-u32 func_0010f7b0(u32, u32, u32, u32);
+u32 kn__Friend__updateTarget(u32, u32, u32, u32);
+u32 kn__Friend__equipedAbility(u32, u32, u32, u32);
 extern "C" u32 kn_Friend_getToScript(u32, u32, u32, u32) asm("_ZN2kn6Friend11getToScriptEv");
 u32 func_00112760(u32, u32, u32, u32);
 u32 func_0011e350(u32, u32, u32, u32);
@@ -12,27 +12,27 @@ u32 func_00133938(u32, u32, u32, u32);
 u32 func_00139d78(u32, u32, u32, u32);
 extern "C" u32 dk_ObjCamera_getInstance(u32, u32, u32, u32) asm("_ZN2dk9ObjCamera11getInstanceEv");
 u32 func_00148a08(u32, u32, u32, u32);
-u32 func_0014fcd8(u32, u32, u32, u32);
+u32 dk__INFO_BASE__update(u32, u32, u32, u32);
 extern "C" u32 YS_OBJ_get_entry_id(u32, u32, u32, u32) asm("_ZN2YS3OBJ12get_entry_idEv");
 extern "C" u32 YS_OBJ_get_part_num(u32, u32, u32, u32) asm("_ZN2YS3OBJ12get_part_numEv");
 u32 func_0016a950(u32, u32, u32, u32);
 extern "C" u32 YS_OBJ_set_pos(u32, u32, u32, u32) asm("_ZN2YS3OBJ7set_posERKN2kn7FVectorE");
 extern "C" u32 YS_OBJ_change_action(u32, u32, u32, u32) asm("_ZN2YS3OBJ13change_actionENS_6ACTION2IDE");
-u32 func_0016bda8(u32, u32, u32, u32);
+u32 YS__OBJ__get_target_pos(u32, u32, u32, u32);
 extern "C" u32 func_0016bf20(u32, u32, u32, u32) asm("_ZN2YS3OBJ14get_appear_wayEv");
 extern "C" u32 func_0016bff0(u32, u32, u32, u32) asm("_ZN2YS3OBJ10get_serialEv");
 extern "C" u32 YS_OBJ_get_unit_arg(u32, u32, u32, u32) asm("_ZN2YS3OBJ12get_unit_argEi");
-u32 func_00170400(u32, u32, u32, u32);
+u32 YS__CACHE_BUFF__ReadRequestSub(u32, u32, u32, u32);
 extern "C" u32 YS_PARTY_hand_to_bone(u32, u32, u32, u32) asm("_ZN2YS5PARTY12hand_to_boneEi");
 u32 func_00178330(u32, u32, u32, u32);
 u32 func_0017a968(u32, u32, u32, u32);
 u32 func_00180618(u32, u32, u32, u32);
 u32 func_00184f90(u32, u32, u32, u32);
-u32 func_00185da8(u32, u32, u32, u32);
+u32 YS__ENEMY__Each(u32, u32, u32, u32);
 u32 func_00185de0(u32, u32, u32, u32);
-u32 func_00186a90(u32, u32, u32, u32);
-u32 func_00186ce8(u32, u32, u32, u32);
-u32 func_00187650(u32, u32, u32, u32);
+u32 YS__BTLOBJ__set_hitback(u32, u32, u32, u32);
+u32 YS__BTLOBJ__is_damage_motion(u32, u32, u32, u32);
+u32 YS__BTLOBJ__add_mp(u32, u32, u32, u32);
 extern "C" u32 YS_NPC_check_option_flag(u32, u32, u32, u32) asm("_ZN2YS3NPC17check_option_flagEj");
 extern "C" u32 YS_NPC_is_end_rtn_action(u32, u32, u32, u32) asm("_ZN2YS3NPC17is_end_rtn_actionEv");
 u32 func_0018bbf8(u32, u32, u32, u32);
@@ -43,12 +43,12 @@ u32 func_00192c90(u32, u32, u32, u32);
 u32 func_00194468(u32, u32, u32, u32);
 extern "C" u32 YS_STDOBJ_show_picture(u32, u32, u32, u32) asm("_ZN2YS6STDOBJ12show_pictureEi");
 u32 func_0019abe8(u32, u32, u32, u32);
-u32 func_0019ba60(u32, u32, u32, u32);
+u32 YS__OBJ__is_exist(u32, u32, u32, u32);
 u32 func_0019bb58(u32, u32, u32, u32);
 extern "C" u32 YS_OBJ_is_xyzrot(u32, u32, u32, u32) asm("_ZN2YS3OBJ9is_xyzrotEv");
 u32 func_0019c440(u32, u32, u32, u32);
 extern "C" u32 YS_OBJ_can_capture_control(u32, u32, u32, u32) asm("_ZN2YS3OBJ19can_capture_controlEv");
-u32 func_0019c6f0(u32, u32, u32, u32);
+u32 YS__OBJ__is_stop(u32, u32, u32, u32);
 u32 func_0019f670(u32, u32, u32, u32);
 extern "C" u32 YS_OBJ_is_hover(u32, u32, u32, u32) asm("_ZN2YS3OBJ8is_hoverEv");
 u32 func_001a27d8(u32, u32, u32, u32);
@@ -59,19 +59,19 @@ u32 func_001abe48(u32, u32, u32, u32);
 u32 func_001b1100(u32, u32, u32, u32);
 u32 func_001b1328(u32, u32, u32, u32);
 extern "C" u32 YS_LIGHT_Create(u32, u32, u32, u32) asm("_ZN2YS5LIGHT6CreateEi");
-u32 func_001b9bc8(u32, u32, u32, u32);
+u32 YS__OBJ__Each(u32, u32, u32, u32);
 u32 func_001bb4a0(u32, u32, u32, u32);
 extern "C" u32 YS_ATTACK_CHECK_NewComboGroup(u32, u32, u32, u32) asm("_ZN2YS12ATTACK_CHECK13NewComboGroupEv");
 extern "C" u32 YS_OBJ_is_attach(u32, u32, u32, u32) asm("_ZN2YS3OBJ9is_attachEv");
 u32 func_001c1df8(u32, u32, u32, u32);
 u32 func_001c8948(u32, u32, u32, u32);
-u32 func_001cc920(u32, u32, u32, u32);
+u32 YS__PRIZE_CA__Vacuum(u32, u32, u32, u32);
 u32 func_001d1678(u32, u32, u32, u32);  // obj_init_28bytes
 u32 func_001d1698(u32, u32, u32, u32);
 u32 func_001d2110(u32, u32, u32, u32);
 extern "C" u32 YS_MISSION_ResetComboCounter(u32, u32, u32, u32) asm("_ZN2YS7MISSION17ResetComboCounterEi");
-u32 func_001d9148(u32, u32, u32, u32);
-u32 func_001d9228(u32, u32, u32, u32);
+u32 YS__MISSION__GetMaxComboCounter(u32, u32, u32, u32);
+u32 YS__MISSION__GetComboCounter(u32, u32, u32, u32);
 u32 func_001e4f40(u32, u32, u32, u32);
 u32 func_00239c38(u32, u32, u32, u32);
 u32 func_00239c68(u32, u32, u32, u32);
@@ -80,8 +80,8 @@ extern "C" u32 Tz_Layout_setNum(u32, u32, u32, u32) asm("_ZN2Tz6Layout6setNumEii
 u32 func_002bb468(u32, u32, u32, u32);
 u32 func_002d8150(u32, u32, u32, u32);
 u32 func_002e71a0(u32, u32, u32, u32);
-u32 func_002ed8e0(u32, u32, u32, u32);
-u32 func_002edbf8(u32, u32, u32, u32);
+u32 Ts__SUMMON_ENEMY__Get(u32, u32, u32, u32);
+u32 Ts__XEMNAS__Get(u32, u32, u32, u32);
 u32 _Balloc(u32, u32, u32, u32);
 
 // 00106520: moved to src/anon/unit_00106490.cpp
@@ -106,7 +106,7 @@ u32 func_0016ad38(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016ad38: definition mo
 
 u32 func_0016b0a0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016b0a0: definition moved into src/anon/unit_00169f98.cpp
 
-u32 func_0016b638(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016b638: definition moved into src/anon/unit_00169f98.cpp
+u32 YS__OBJ___OVR_check_leave(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0016b638: definition moved into src/anon/unit_00169f98.cpp
 
 u32 func_00170570(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00170570: definition moved into src/anon/unit_0016e8f8.cpp
 
@@ -187,11 +187,11 @@ u32 func_001a8b38(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001a8b38: definition mo
 
 u32 func_001d1408(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d1408: definition moved into src/anon/unit_001d12e8.cpp
 
-u32 func_001d1a18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d1a18: definition moved into src/anon/unit_001d14e0.cpp
+u32 YS__MISSION_COUNT__set_param(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d1a18: definition moved into src/anon/unit_001d14e0.cpp
 
 u32 func_001d1cd8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d1cd8: definition moved into src/anon/unit_001d14e0.cpp
 
-u32 func_001d2180(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d2180: definition moved into src/anon/unit_001d14e0.cpp
+u32 YS__COMBOCOUNTER__reset(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d2180: definition moved into src/anon/unit_001d14e0.cpp
 
 u32 func_001d7c00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d7c00: definition moved into src/anon/unit_001d7458.cpp
 
@@ -225,7 +225,7 @@ u32 func_002bbf68(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bbf68: definition mo
 
 u32 func_002d8120(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8120: definition moved into src/anon/unit_002d6f70.cpp
 
-u32 func_002dd4f8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dd4f8: definition moved into src/anon/unit_002da040.cpp
+u32 Ti__MGJump__reset_combo_count(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002dd4f8: definition moved into src/anon/unit_002da040.cpp
 
 u32 func_002e10d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002e10d0: definition moved into src/anon/unit_002de3c8.cpp
 
@@ -267,7 +267,7 @@ u32 func_002eaa70(u32 a0, u32 a1, u32 a2, u32 a3);  // 002eaa70: moved to src/an
 
 u32 __i2b(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00303fc0: definition moved into src/newlib/libc/mprec.c
 
-u32 func_0031e8e0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031e8e0: definition moved into src/anon/unit_0031e268.cpp
+u32 SQEX__CDev__Engine__Sd__Driver__PS3__FilterPS3__UpdateParameters(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031e8e0: definition moved into src/anon/unit_0031e268.cpp
 
 u32 func_0031eb18(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0031eb18: definition moved into src/anon/unit_0031e268.cpp
 

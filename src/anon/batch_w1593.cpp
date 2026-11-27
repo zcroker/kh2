@@ -22,7 +22,7 @@ void func_0026ebc0(void);  // 0x0026ebc0: definition moved into src/anon/unit_00
 struct MenuMode1593 { u32 a; u32 list; };
 MenuMode1593* getMenuMode1593() asm("_Z11getMenuModev");
 s32 func_00102a38(u32, u32);
-void func_00102818(u32, u32, u32, u32, u32);
+void TASK_MANAGER__create_thread(u32, u32, u32, u32, u32);
 void func_001039f8();
 void func_002530c8();
 void func_00258a30();
@@ -39,7 +39,7 @@ s32 func_002827e0(u32, s32);
 s32 func_002813b8();
 s32 func_00281420();
 
-s32 func_002695a0(s32 a);  // 0x002695a0: definition moved into src/anon/unit_00268b30.cpp
+s32 Tz__CmEquip__CurPos2FormType(s32 a);  // 0x002695a0: definition moved into src/anon/unit_00268b30.cpp
 
 // ---- 0028abe0 Tz::Select::Destroy
 union ItemU1593 { Obj1593* p; s16 h; u8 c; };

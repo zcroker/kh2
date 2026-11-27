@@ -19,5 +19,5 @@ extern s32 D_0035f210;
 
 /* 002a7f58: sets up 10 rows of three sprites (two 436-byte items in D_0035f604's table at 872 bytes per row,
    plus one 408-byte item at w+0xa998), each placed from its parent and given draw flags 0x60000008. */
-void func_002a7f58(void);  // 0x002a7f58: definition moved into src/anon/unit_002a7308.cpp
+void Tz__JmMiniGame__CreateList(void);  // 0x002a7f58: definition moved into src/anon/unit_002a7308.cpp
 }

@@ -67,12 +67,12 @@ struct Cam2dc988 { u32 vt; u8 pad[12]; W2dc988Mtx m; };
 struct O2dc988 { u8 pad0[256]; u8 draw[32288 - 256]; u8 tex[0x8050 - 32288]; u64 gs; };
 s32 o2dc988_visible(O2dc988*, Box2dc988*) asm("_ZN2Ti8MiniGame15bbox_is_visibleERKN2dk6AabboxE");
 Cam2dc988* func_00106a60(s32);
-W2dc988Mtx* func_00106a18(s32);
+W2dc988Mtx* kn__getProjection(s32);
 void func_0011b6a8(W2dc988Mtx*);
 void o2dc988_rotateX(W2dc988Mtx*, f32) asm("_ZN2kn7FMatrix7rotateXEf");
 s32 func_001344f8(void);
 void func_002e6210(void*, s32, s32);
-void func_002e5518(void*, W2dc988Mtx*, s32, u64);
+void Ti__Cord__draw(void*, W2dc988Mtx*, s32, u64);
 }
 
 // Minigame pot marker draw: skip when the bounding box is off screen, then

@@ -16,8 +16,8 @@ static inline void w1949_add(W1949Vec* d, W1949Vec* s) {
         : : "r"(d), "r"(s) : "memory");
 }
 void* func_0016bc20(W1949Obj*, s32, s32);
-void func_0018a818(W1949Hit*, W1949Obj*, void*);
-W1949Obj* func_001b9bc8(W1949Obj*);
+void YS__COLLISION__set(W1949Hit*, W1949Obj*, void*);
+W1949Obj* YS__OBJ__Each(W1949Obj*);
 s32 func_0016bff0(W1949Obj*);
 s32 func_0018a550(W1949Hit*, W1949Hit*);
 void func_0018bfa0(W1949Obj*, W1949Obj*, f32);

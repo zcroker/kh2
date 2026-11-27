@@ -154,7 +154,7 @@ struct S2 { f32 a, b; };
 extern Ent* D_0035dcec asm("D_0035dcec");
 extern s32 D_0035de20 asm("D_0035de20");
 extern f32 D_0035de1c asm("D_0035de1c");
-void func_001ba028(s32) asm("func_001ba028");
+void YS__OBJ__is_valid(s32) asm("YS__OBJ__is_valid");
 void func_0016ace0(s32, V4*) asm("func_0016ace0");
 void func_0016aeb8(s32, f32) asm("func_0016aeb8");
 s32 func_002302c0(f32, s32, V4*, S2*) asm("func_002302c0");
@@ -180,7 +180,7 @@ void func_002306a8(void) {
                         v.y = -v.y;
                         v.z = -v.z;
                         w = D_0035dcec[i].w;
-                        func_001ba028(w);
+                        YS__OBJ__is_valid(w);
                         func_0016ace0(w, &v);
                         func_0016aeb8(w, s.b);
                     }
@@ -300,17 +300,17 @@ namespace n002309c8 {
 // ---- 002309c8
 union FP230 { f32* p; f32 f; };
 struct Obj230 { u32 f0; u32 owner; FP230 x; FP230 y; FP230 z; };
-s32 func_001ba028(u32) asm("func_001ba028");
+s32 YS__OBJ__is_valid(u32) asm("YS__OBJ__is_valid");
 // list_contains_ptr
 s32 func_0014f0e0(f32*) asm("func_0014f0e0");
 void func_0016ace0(u32, f32*) asm("func_0016ace0");
 void func_00106420(f32*) asm("func_00106420");
 void func_001024a8(Obj230*) asm("func_001024a8");
 /*TARGET 002309c8*/
-void func_002309c8(Obj230* o) asm("func_002309c8");
-void func_002309c8(Obj230* o) {
+void sa__EVENT__objMoveTask(Obj230* o) asm("sa__EVENT__objMoveTask");
+void sa__EVENT__objMoveTask(Obj230* o) {
     u32 owner = o->owner;
-    if (!func_001ba028(owner)) return;
+    if (!YS__OBJ__is_valid(owner)) return;
     f32 v[4];
     f32* px = o->x.p;
     v[3] = 1.0f;
@@ -367,13 +367,13 @@ W2024c_Ent* W2024c_ev_entry_work_get(s32) asm("_ZN2sa5EVENT14entry_work_getEi");
 W2024c_Tk* W2024c_field_create_task(s32, s32, void (*)(void*)) asm("_ZN5FIELD10CreateTaskEiiPFvP4TASKE");
 void* W2024c_area_get_alloc(void) asm("_ZN4AREA12GetAllocatorEv");
 W2024c_P3* W2024c_tz_alloc(u32, void*) asm("_ZN2Tz13LoadDataAllocEjj");
-s32 func_002282f0(u16) asm("func_002282f0");
-s32 func_00225b00(u16) asm("func_00225b00");
-void func_001ba028(s32) asm("func_001ba028");
+s32 sa__EVENT__checkStart(u16) asm("sa__EVENT__checkStart");
+s32 sa__EVENT__isJumpMode(u16) asm("sa__EVENT__isJumpMode");
+void YS__OBJ__is_valid(s32) asm("YS__OBJ__is_valid");
 void func_0016adc8(s32, W2024c_V4) asm("func_0016adc8");
 void func_0022f6b8(s32, W2024c_V4*) asm("func_0022f6b8");
-s32 func_002282d8(void) asm("func_002282d8");
-void func_002309c8(void*) asm("func_002309c8");
+s32 sa__EVENT__getEventPriority(void) asm("sa__EVENT__getEventPriority");
+void sa__EVENT__objMoveTask(void*) asm("sa__EVENT__objMoveTask");
 void func_00230ae8(void*) asm("func_00230ae8");
 void func_0014f030(W2024c_P3*, f32, f32, f32) asm("func_0014f030");
 /*TARGET 00230b50*/
@@ -387,11 +387,11 @@ void func_00230b50(W2024c_Ev* e) {
     W2024c_P3* p1;
     W2024c_P3* p2;
     f32 one;
-    if (func_002282f0(e->key) != 0) return;
-    if (func_00225b00(e->key) != 0) return;
+    if (sa__EVENT__checkStart(e->key) != 0) return;
+    if (sa__EVENT__isJumpMode(e->key) != 0) return;
     one = 1.0f;
     en = W2024c_ev_entry_work_get(e->id);
-    func_001ba028(en->h);
+    YS__OBJ__is_valid(en->h);
     a.x = W2024c_ev_get_float(e->v0 + 0);
     a.y = W2024c_ev_get_float(e->v0 + 4);
     a.z = W2024c_ev_get_float(e->v0 + 8);
@@ -406,7 +406,7 @@ void func_00230b50(W2024c_Ev* e) {
     c.y = W2024c_ev_get_float(e->v0 + 0x10);
     c.z = W2024c_ev_get_float(e->v0 + 0x14);
     c.w = one;
-    t = W2024c_field_create_task(1, func_002282d8(), func_002309c8);
+    t = W2024c_field_create_task(1, sa__EVENT__getEventPriority(), sa__EVENT__objMoveTask);
     t->f30 = (void*)func_00230ae8;
     t->f4 = en->h;
     al = W2024c_area_get_alloc();
@@ -586,8 +586,8 @@ struct H231 { u8 pad[6]; struct { u16 start, count; } ch[8]; u8 pad2[40 - 38]; K
 extern u8 D_0035de90[8][32] asm("D_0035de90");
 f32 func_00230f10(K231*, s32, void*, f32) asm("func_00230f10");
 /*TARGET 002311c0*/
-void func_002311c0(f32* out, H231* h, f32 t) asm("func_002311c0");
-void func_002311c0(f32* out, H231* h, f32 t)
+void sa__EVENT__calcValue_enc(f32* out, H231* h, f32 t) asm("sa__EVENT__calcValue_enc");
+void sa__EVENT__calcValue_enc(f32* out, H231* h, f32 t)
 {
     if (h->ch[0].count) out[0] = func_00230f10(&h->keys[h->ch[0].start], h->ch[0].count, D_0035de90[0], t);
     if (h->ch[1].count) out[1] = -func_00230f10(&h->keys[h->ch[1].start], h->ch[1].count, D_0035de90[1], t);

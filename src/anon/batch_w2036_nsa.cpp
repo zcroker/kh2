@@ -33,13 +33,13 @@ extern V158dc0 D_0034a9b0;
 extern u8 D_0034a9e8;
 s32 func_00167f18(s32);
 void func_00158ac8(C158dc0*);
-void func_00158b78(s32, C158dc0*);
+void dk__DangleCamera__control(s32, C158dc0*);
 void func_00158b20(C158dc0*);
-void func_00158c88(C158dc0*);
-s32 func_0013f9e0(V158dc0*, V158dc0*, V158dc0*, s32, s32);
+void dk__DangleCamera__calcEyeTarget(C158dc0*);
+s32 dk__ObjCamera__collision_2(V158dc0*, V158dc0*, V158dc0*, s32, s32);
 V158dc0 func_0016c2b0(Tgt158dc0*);
-V158dc0* func_0016c028(Tgt158dc0*);
-s32 func_00143d10(Seg158dc0*, V158dc0*, f32*, s32*);
+V158dc0* YS__OBJ__get_pos(Tgt158dc0*);
+s32 dk__Octree__intersectLineCamera(Seg158dc0*, V158dc0*, f32*, s32*);
 f32 func_0013fd10(C158dc0*);
 // 00158dc0: moved to src/harata/libdk/bookcamera.cpp
 }

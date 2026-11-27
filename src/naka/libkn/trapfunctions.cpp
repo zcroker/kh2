@@ -21,21 +21,21 @@ struct FVector {
 extern "C" {
 void func_00117808(void*, s32);
 void func_001178b8(kn::FVector*, void*);
-s32 func_00117970(void*, s32, s32, s32, s32, s32, s32, s32);
+s32 kn__Stitch__startEffect(void*, s32, s32, s32, s32, s32, s32, s32);
 void func_00117aa8(void*, s32);
 void func_00118d10(void*, s32);
-void func_00119830(void*, s32);
-void func_00119e60(void*, s32);
+void kn__Stitch__shotEffect(void*, s32);
+void kn__Genie__changeForm(void*, s32);
 s32 func_00119f08(void*);
 void func_0011a900(kn::FVector*, void*);
 void func_0011a918(void*, s32);
 void func_0011a938(void*, s32, f32, f32);
 void* func_0010c7b0(void*);
 void func_0010cbc8(void*, s32, s32, s32);
-void func_0010f960(void*);
+void kn__Friend__enableInertia(void*);
 kn::FVector* func_0010fa28(void*);
-kn::FVector* func_0010fa58(void*);
-void func_00110500(void*);
+kn::FVector* kn__Friend__getInertia(void*);
+void kn__Friend__followPlayer(void*);
 void func_00111000(void*, f32);
 void func_00111020(void*);
 void func_001125d8(void*, s32, s32);
@@ -63,12 +63,12 @@ void Friend_setLastAction(void*, void*, void*) asm("_ZN2kn6Friend13setLastAction
 void Friend_followEnemy(void*) asm("_ZN2kn6Friend11followEnemyEv");
 s32 Peterpan_receiveNotifyPlayerTarget(void*) asm("_ZN2kn8Peterpan25receiveNotifyPlayerTargetEv");
 void Peterpan_acceptNotifyPlayerTarget(void*) asm("_ZN2kn8Peterpan24acceptNotifyPlayerTargetEv");
-s32 Friend_isEquipedAbility(void*, s32, s32) asm("_Z16ctarget_0010f7b0jjjj");
+s32 Friend_isEquipedAbility(void*, s32, s32) asm("_Z26kn__Friend__equipedAbilityjjjj");
 void Friend_disableInertia(void*) asm("_Z16wtarget_0010f918jjjj");
 void Friend_removePlayerAttacker(void*, s32) asm("_Z16u_tail4_001128d0jjjj");
 s32 ATTACK_is_finish(void*) asm("_ZNK2YS6ATTACK9is_finishEv");
 void STDOBJ_set_special_command(void*, s32) asm("_ZN2YS6STDOBJ19set_special_commandEi");
-void Friend_getTargetLastPosition(void*) asm("_Z16wtarget_00198970jjjj");
+void Friend_getTargetLastPosition(void*) asm("_Z33YS__STDOBJ__reset_special_commandjjjj");
 
 static kn::FVector s_ret;
 
@@ -106,7 +106,7 @@ void func_002f07c8(BD_VALUE* bd) {
     (*(void (**)(void*))(*(u8**)p + 44))(p);
 }
 
-void func_002f07f8(BD_VALUE* bd) {
+void kn__trap_chickenlittle_get_shoot_target(BD_VALUE* bd) {
     kn::FVector t;
     func_0011a900(&t, Friend_getPersonality(OBJ(bd)));
     s_ret = t;
@@ -131,7 +131,7 @@ static void trap_2f0890(BD_VALUE* bd) {
 }
 
 void trap_genie_change_form(BD_VALUE* bd) {
-    func_00119e60(Friend_getPersonality(OBJ(bd)), bd[1].i);
+    kn__Genie__changeForm(Friend_getPersonality(OBJ(bd)), bd[1].i);
 }
 
 static void trap_2f0910(BD_VALUE* bd) {
@@ -149,12 +149,12 @@ namespace kn {
 
 void trap_stitch_effect_start(BD_VALUE* bd) {
     void* p = Friend_getPersonality(OBJ(bd));
-    bd[0].i = func_00117970(p, bd[1].i, bd[2].p ? *(s32*)((u8*)bd[2].p + 4) : 0, bd[3].i, bd[4].i,
+    bd[0].i = kn__Stitch__startEffect(p, bd[1].i, bd[2].p ? *(s32*)((u8*)bd[2].p + 4) : 0, bd[3].i, bd[4].i,
                             bd[5].i != 0, bd[6].i, bd[7].i);
 }
 
 void trap_stitch_shot_effect(BD_VALUE* bd) {
-    func_00119830(Friend_getPersonality(OBJ(bd)), bd[1].i);
+    kn__Stitch__shotEffect(Friend_getPersonality(OBJ(bd)), bd[1].i);
 }
 
 static void trap_2f0a10(BD_VALUE* bd) {
@@ -192,16 +192,16 @@ extern "C" {
 
 void func_002f0af0(BD_VALUE* bd) {
     u8* o = OBJ(bd);
-    func_00110500(o);
+    kn__Friend__followPlayer(o);
     *(kn::FVector*)(o + 16) = *func_0010fa28(o);
-    *(kn::FVector*)(o + 32) = *func_0010fa58(o);
+    *(kn::FVector*)(o + 32) = *kn__Friend__getInertia(o);
 }
 
 void func_002f0b60(BD_VALUE* bd) {
     u8* o = OBJ(bd);
     Friend_followEnemy(o);
     *(kn::FVector*)(o + 16) = *func_0010fa28(o);
-    *(kn::FVector*)(o + 32) = *func_0010fa58(o);
+    *(kn::FVector*)(o + 32) = *kn__Friend__getInertia(o);
 }
 
 }
@@ -238,7 +238,7 @@ void trap_friend_disable_inertia(BD_VALUE* bd) {
 }
 
 static void trap_2f0d00(BD_VALUE* bd) {
-    func_0010f960(OBJ(bd));
+    kn__Friend__enableInertia(OBJ(bd));
 }
 
 static void trap_2f0d20(BD_VALUE* bd) {
@@ -398,7 +398,7 @@ kn::TRAP D_00363a40[60] = {
     { kn::trap_2f0740, 0x40000001 },
     { func_002f0798, 1 },
     { func_002f07c8, 1 },
-    { func_002f07f8, 0x40000001 },
+    { kn__trap_chickenlittle_get_shoot_target, 0x40000001 },
     { kn::trap_obj_set_special_command, 2 },
     { kn::trap_friend_get_target_last_position, 1 },
     { kn::trap_2f0890, 0x40000001 },

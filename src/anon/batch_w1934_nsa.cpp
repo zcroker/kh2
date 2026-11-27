@@ -69,5 +69,5 @@ void func_002889f0(void*, s32, s32);
 struct W1934X444 { u8 d[444]; W1934X444() { func_0028d140(this); } static void* operator new(unsigned int n) { return W1934Alloc(n); } };
 struct W1934X832 { u8 d[832]; W1934X832() { func_00290610(this); } static void* operator new(unsigned int n) { return W1934Alloc(n); } };
 struct W1934X56 { u8 d[56]; W1934X56(s32 a, s32 b) { func_002889f0(this, a, b); } static void* operator new(unsigned int n) { return func_00288be8(n); } };
-void func_0026d968(void);  // 0x0026d968: definition moved into src/anon/unit_0026c450.cpp
+void Tz__Selector__Init(void);  // 0x0026d968: definition moved into src/anon/unit_0026c450.cpp
 }

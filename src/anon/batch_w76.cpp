@@ -1,16 +1,16 @@
 #include "../common/types.h"
 extern "C" {
-f32* func_0016c028(u8*);  // obj_get_attach_or_alt
+f32* YS__OBJ__get_pos(u8*);  // obj_get_attach_or_alt
 struct Q16 { u32 w[4]; } __attribute__((aligned(16)));
 s32 func_00114620(u32);
 u32 func_0016a070(u32);
 s32 func_001a35f8(s32, u32);
 u8* func_001058e8(void);
-u8* func_00188fe0(u8*, u32);
+u8* YS__SAVERAM_BATTLE__get_partram(u8*, u32);
 struct Entry { u16 id : 15; u16 on : 1; };
-u32 ctarget_0010f7b0(u32, u32, s32, u32) asm("_Z16ctarget_0010f7b0jjjj");
+u32 kn__Friend__equipedAbility(u32, u32, s32, u32) asm("_Z26kn__Friend__equipedAbilityjjjj");
 
-u32 ctarget_0010f7b0(u32 a, u32 b, s32 id, u32 d);  // 0x0010f7b0: definition moved into src/anon/unit_0010f338.cpp
+u32 kn__Friend__equipedAbility(u32 a, u32 b, s32 id, u32 d);  // 0x0010f7b0: definition moved into src/anon/unit_0010f338.cpp
 
 extern u32 D_00341708[3];
 extern u32 D_0034e948;
@@ -29,7 +29,7 @@ s32 func_002ee530(void);
 u8* func_00167f18(u32);
 u32 func_001c1218(void);
 s32 func_001688b8(void);
-void func_00253180(u32, s32);
+void Tz__CampMenu__Start(u32, s32);
 void func_00253410(u32, u32);
 void func_00102448(u32, u32);
 void* func_001050c8(void);
@@ -49,10 +49,10 @@ union HalfOrFloat6 { s16 h[6]; f32 f[6]; };
 /* six s16 values to floats, optionally scaled by a table entry */
 void func_001450e8(HalfOrFloat6* src, s32 idx, HalfOrFloat6* out);  // 0x001450e8: definition moved into src/anon/unit_00144450.cpp
 
-void func_00239f18(u8*, f32);  // obj_set_float312_and_flags
+void YI__SEQUENCE__SetScaleX(u8*, f32);  // obj_set_float312_and_flags
 void func_00138c68(u8*, s32, s32);
 // 001547e0: moved to src/anon/unit_00153ea0.cpp
-void func_001547e0(u8* a, s32 b, s32 c);
+void dk__GAUGE_ENEMY__updateHP(u8* a, s32 b, s32 c);
 
 struct V4 {
     f32 x, y, z, w;
@@ -84,7 +84,7 @@ static inline void Kill(u8* n) { if (n) { func_0016cab8(n); func_0016c7d8(n); } 
 
 s32 func_001b58a8(u8*, u32, u32, u32);
 void func_001b59c0(u8*, u32, u32, u32);
-s32 func_0019ba60(u8*);
+s32 YS__OBJ__is_exist(u8*);
 void func_0016cce8(u32, s32, u32*, s32, s32);
 typedef void (*VFn4)(void*, u32, u32, u32);
 // 00177760: moved to src/yasui/libys/party.cpp
@@ -95,7 +95,7 @@ static inline bool InfoFlag(u8* info) { return ((Bits8*)(info + 8))->b0; }
 
 u8 func_0019f6f0(u8*, u32, u32);
 u8 func_0019f740(u8*, u32, u32);
-u8 func_0019bd08(u8*, u32);
+u8 YS__OBJ__is_enable_collision(u8*, u32);
 u8 func_0019bdc8(u8* o, u32 a, u32 b);  // 0x0019bdc8: definition moved into src/anon/unit_0019ba60.cpp
 
 struct FV {
@@ -244,13 +244,13 @@ void func_001fb9a8(u8* base, u8* in, u8* desc);  // 0x001fb9a8: definition moved
 
 void func_00201ca0(u8* p, s32* x, s32* w, s32* y, s32* h);  // 0x00201ca0: definition moved into src/anon/unit_00201bb0.cpp
 s32 func_00287bc0(void);
-void func_00287d68(void);  // copy_globals_3words
+void Tz__MenuBase__SaveMode(void);  // copy_globals_3words
 s32 func_00287db0(void);
 s32 func_0028acc8(u32);
 s32 func_00139d78(void*);
 void func_001039f8(void);
 void func_0024be68(void);
-void func_0024bfb8(void);
+void Tz__HBTE__CtrlSel(void);
 extern u32 D_0035eda8;
 extern u32 D_0035edac;
 extern void* D_0035edb0;
@@ -263,14 +263,14 @@ extern u32 D_0035f14c;
 extern u32 D_0035f148;
 extern u32 D_0035f210;
 void func_0028d980(u8*, s32, u32, u32, u32, s32, s32, s32, s32);
-void func_00275d10(void);  // 0x00275d10: definition moved into src/anon/unit_002748a0.cpp
+void Tz__Jiminy__SetupMainFrameLR(void);  // 0x00275d10: definition moved into src/anon/unit_002748a0.cpp
 
 void func_00276088(u32, s32*, s32*);
 extern u16 D_00373d70[3];
 void func_00276150(u32 a, s32* out0, s32* out1);  // 0x00276150: definition moved into src/anon/unit_002748a0.cpp
 u8* func_0023f1b0(void*);
-u32 func_0023c3e0(u8*, s32, s32);
-u32 func_0028dbf8(void* a, s16* keys, s16* vals);  // 0028dbf8: moved to src/anon/unit_0028c878.cpp
+u32 YI__LAYOUT__SearchSequence(u8*, s32, s32);
+u32 Tz__MenuUtil__GetLaySeq(void* a, s16* keys, s16* vals);  // 0028dbf8: moved to src/anon/unit_0028c878.cpp
 
 s32 func_00192a80(u32);
 s32 func_00105c30(void);
@@ -278,26 +278,26 @@ extern char D_00374470[];
 u32 func_00192cc0(char*, const char*);
 s32 func_00192b30(u32);
 void memcpy(u8*, char*, s32);
-u8* func_0028de08(u32 id, u8* buf);  // 0028de08: moved to src/anon/unit_0028c878.cpp
+u8* Tz__MenuUtil__MakeQuestionStr(u32 id, u8* buf);  // 0028de08: moved to src/anon/unit_0028c878.cpp
 
 s8* func_00276568(void);
 s32 func_002a4380(s8);
-s32 func_002b3ae8(void);
-s32 func_002a9b88(s8);
-s32 func_002a8870(s8);
+s32 Tz__JmPuzzle__isEnable(void);
+s32 Tz__JmQuest__isEnable(s8);
+s32 Tz__JmMiniGame__isEnable(s8);
 s32 JmReport_GetIndex(u32 idx) asm("_ZN2Tz8JmReport8GetIndexEj");
 s32 JmReport_GetIndex(u32 idx);  // 0x00296da8: definition moved into src/anon/unit_00295d28.cpp
 union GP { u8* p; s32 i; };
 extern GP D_0035f5e4;
 s8* func_00276568(void);
-void func_002a4b78(void);  // 0x002a4b78: definition moved into src/anon/unit_002a40c8.cpp
+void Tz__JmTreasure__AdjustCurPos(void);  // 0x002a4b78: definition moved into src/anon/unit_002a40c8.cpp
 
 static inline bool TestBit(u32* bits, u32 i) { return (bits[i >> 5] & (1 << (i & 31))) != 0; }
 extern u8* D_0035f610;
 extern u8* D_0035f620;
 u8* func_001a82b0(u8*);
-s32 func_002764b0(u8);
-bool func_002adaf0(s32 who);  // 0x002adaf0: definition moved into src/anon/unit_002a99c8.cpp
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8);
+bool Tz__JmComplete__isTreasureComp(s32 who);  // 0x002adaf0: definition moved into src/anon/unit_002a99c8.cpp
 void func_002edf28(u8*);  // obj_ctor_3637e0
 u8* func_001050d8(u32);
 void func_001ad0f8(u8*, u32, s32);
@@ -306,16 +306,16 @@ extern u8 D_00361980[];
 union PtrS { u8* p; s32 i; };
 void func_002bec88(u8* o, s32 kind, u32 arg);  // 0x002bec88: definition moved into src/anon/unit_002bebd0.cpp
 
-void func_002369a0(u8*);  // obj_ctor_36eac8
-void func_0023c008(u8*);  // obj_ctor_36eae8
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u8*);  // obj_ctor_36eac8
+void YI__LAYOUT__LAYOUT(u8*);  // obj_ctor_36eae8
 extern u8 D_00363880[];
 extern u8 D_003619a8[];
 extern u32 D_00361998;
-u8* func_002beb90(void);
+u8* worldmap__Manager__get2ldFile(void);
 u32 func_001708f8(u8*, s32);
 u8* func_00168b38(u32, s32, s32);  // entry_array_find_nth
 void func_002ef1f8(u8*, u32, u32);
-void func_002bf308(void);
+void worldmap__RootWindow__execTask(void);
 void func_00102c18(s32, u32, void*);
 void func_002befc0(u8* o);  // 0x002befc0: definition moved into src/anon/unit_002bebd0.cpp
 
@@ -332,7 +332,7 @@ void func_001af638(void);
 void func_001af6f0(void);
 void func_001bb468(u8*);
 u32 func_001c10f8(s32);  // request_pool_block64
-s32 func_0017a538(u8*);
+s32 YS__PLAYER__is_changing(u8*);
 u32 func_001d1438(s32);
 u32 func_0016a020(u8*);
 static inline bool Is12(u8* p) { return *(s32*)(p + 2896) == 12; }
@@ -352,7 +352,7 @@ static inline void AssertFail(const char* expr, const char* file, u32 line)
 void func_001e8ac8(u8* o);  // 0x001e8ac8: definition moved into src/anon/unit_001e8ac8.cpp
 
 u8* func_001a80c8(u16);  // table24_find_by_id
-bool func_002ab8e8(s32 who);  // 0x002ab8e8: definition moved into src/anon/unit_002a99c8.cpp
+bool Tz__JmNewInfo__isNaviNew(s32 who);  // 0x002ab8e8: definition moved into src/anon/unit_002a99c8.cpp
 u8* func_002a9d68(s32);
 bool func_002aaab8(s32 id);  // 0x002aaab8: definition moved into src/anon/unit_002a99c8.cpp
 }

@@ -81,7 +81,7 @@ extern "C" void func_001d97c8(BD_VALUE*);
 extern "C" void func_00170ee8(s32, s32);
 extern "C" void func_0018f0b0(s32, s32);
 extern "C" u32 func_001b5af0(void);
-extern "C" void func_001e29e0(void*);
+extern "C" void ryj__LAST_XEMNUS_LASER__Start(void*);
 
 extern s32 YS_abs_int(s32) asm("_ZN2YS3absEi");
 extern s32 YS_FILE_IsReading(void) asm("_ZN2YS4FILE9IsReadingEv");
@@ -110,7 +110,7 @@ extern void YS_BTLOBJ_blow(void*) asm("_ZN2YS6BTLOBJ4blowERKN2kn7FVectorE");
 extern "C" void func_0014ce50(f32);
 extern "C" void func_0019ec88(u32);
 extern "C" u32 func_00198580(u32, u32);  // check_div1000_500
-extern "C" f32 func_0018cb30(s32);
+extern "C" f32 YS__DAMAGE__get_hitback(s32);
 extern "C" void func_0018e040(s32);
 extern "C" u32 func_00153f08(u32, u32, u32, u32);
 extern "C" u32 func_00186888(u32, u32, u32, u32);

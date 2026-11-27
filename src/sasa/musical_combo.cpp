@@ -32,8 +32,8 @@ extern "C" {
 void* W1635_getImage(void) asm("_ZN2sa14MUSICAL_TARGET8getImageEv");
 void* W1635_getSqd(void) asm("_ZN2sa10MUSICAL_2D6getSqdEv");
 void func_0022a0f8(W1635ComboPart*, s32, s32, s32);
-void func_00158050(W1635Sel*, s32, void*, void*, s32, s32, s32);
-void func_001386e0(W1635Sel*, s32, void*, void*, s32, s32);
+void dk__GAUGE_ONE__create(W1635Sel*, s32, void*, void*, s32, s32, s32);
+void dk__Sprite__create(W1635Sel*, s32, void*, void*, s32, s32);
 void W1635_hide(W1635Sel*) asm("_ZN2dk5Obj2D4hideEv");
 u8 W1635_call139d78(W1635ComboPart*) asm("_Z16u_call4_00139d78jjjj");
 void W1635_setZ(void*, u32) asm("_ZN2dk13RectParamBase4setZEj");
@@ -55,7 +55,7 @@ static inline void W1635_setParent(W1635Sel* p, void* parent) {
 typedef u8* (*AllocFn)(u8*, u32, u32);
 extern u8 D_00340000[];
 void func_00322418(void*);
-void func_001390f0(void*);
+void dk__Sprite3D__update(void*);
 void dk_Obj2D_leave(void*) asm("_ZN2dk5Obj2D5leaveEv");
 void dk_Obj2D_show(void*) asm("_ZN2dk5Obj2D4showEv");
 
@@ -89,10 +89,10 @@ void func_002298a8(W1635Combo* c, s32 mode) {
     register W1635Sel* ring asm("$16") = &c->ring;
     func_0022a0f8(p1, 2500, 1, 11);
     asm("" : "+r"(ring));
-    func_00158050(ring, 2500, sqd, img, ringNo, 100, 11);
+    dk__GAUGE_ONE__create(ring, 2500, sqd, img, ringNo, 100, 11);
     W1635Sel* gauge = &c->gauge;
-    func_001386e0(gauge, 2500, sqd, img, gaugeNo, 11);
-    func_001386e0(&c->face, 2499, sqd, img, faceNo, 11);
+    dk__Sprite__create(gauge, 2500, sqd, img, gaugeNo, 11);
+    dk__Sprite__create(&c->face, 2499, sqd, img, faceNo, 11);
     W1635_hide(gauge);
     W1635_call139d78(p0);
     W1635_setZ(c->part[0].rect0, 0);
@@ -112,7 +112,7 @@ void func_002298a8(W1635Combo* c, s32 mode) {
     W1635_setParent(&c->face, 0);
 }
 
-s32 func_0022a3d0(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, s32* g, s32* h, f32* out);
+s32 sa__MUSICAL_INPUT__createCircleSize(s32 n, f32 x, s32* a, s32* b, s32* c, s32* d, s32* e, s32* f, s32* g, s32* h, f32* out);
 void W2023_hide(void*) asm("_ZN2dk5Obj2D9localHideEv");
 void W2023_show(void*) asm("_ZN2dk5Obj2D9localShowEv");
 void W2023_call4(void*) asm("_Z16u_call4_00139d78jjjj");
@@ -150,13 +150,13 @@ struct W2023Self {
     s32 b98;
 };
 
-void func_00229b28(W2023Self* s, s32 i, u32 z1, u32 z2, f32 x)
+void sa__MUSICAL_COMBO__createCircle(W2023Self* s, s32 i, u32 z1, u32 z2, f32 x)
 {
     s32 h;
     f32 rot;
     s32 a, b, c, d, e, f, g;
     W2023_hide(s->e[i].obj);
-    switch (func_0022a3d0(s->b98, x, &a, &b, &c, &d, &e, &f, &g, &h, &rot)) {
+    switch (sa__MUSICAL_INPUT__createCircleSize(s->b98, x, &a, &b, &c, &d, &e, &f, &g, &h, &rot)) {
     case 0:
         break;
     case 1:
@@ -180,12 +180,12 @@ void func_00229b28(W2023Self* s, s32 i, u32 z1, u32 z2, f32 x)
 }
 
 void func_00229d40(u8* a0) {
-    func_00229b28((W2023Self*)a0, 1, 200, 0, (f32)*(s32*)(a0 + 2972));
+    sa__MUSICAL_COMBO__createCircle((W2023Self*)a0, 1, 200, 0, (f32)*(s32*)(a0 + 2972));
 }
 
-void func_00229d68(void* p) {
+void sa__MUSICAL_COMBO__update(void* p) {
     func_00229d40((u8*)p);
-    func_001390f0(p);
+    dk__Sprite3D__update(p);
 }
 
 static inline void call20(u8* a0) {

@@ -37,12 +37,12 @@ struct W1788Q { s32 rd; s32 wr; W1788QEnt e[16]; u8 pad[0x98 - 0x88]; s32 busy; 
 
 extern "C" {
 void func_0011b6a8(W1788M4*);
-W1788V4* func_0016c028();
+W1788V4* YS__OBJ__get_pos();
 void func_0018b008(void*, W1788V4*, void*, W1788V4*);
-void* func_002edbf8(s32);
+void* Ts__XEMNAS__Get(s32);
 void func_001880b0(void*, s32);
 void func_00187fd8(W1788Q*, s32*);
-s32 func_001d35e0(W1788Hit*, W1788V4*, W1788V4*, u32);
+s32 YS__BGHIT__check_line(W1788Hit*, W1788V4*, W1788V4*, u32);
 
 static inline __attribute__((always_inline)) void W1788_link(W1788Node* n, W1788Node* prev) {
     if (!prev) {

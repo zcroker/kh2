@@ -990,8 +990,8 @@ u32 func_002347c8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1dbe470
 // 002347d8 (was src/anon/tiny.cpp)
 namespace n002347d8 {
 /*TARGET 002347d8*/
-u32 func_002347d8(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_002347d8jjjj");
-u32 func_002347d8(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1dbe45c
+u32 YI__MCARD__GetResultRead(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z24YI__MCARD__GetResultReadjjjj");
+u32 YI__MCARD__GetResultRead(u32 a0, u32 a1, u32 a2, u32 a3) {  // get_global_1dbe45c
     (void)a0;
     (void)a1;
     (void)a2;

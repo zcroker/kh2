@@ -48,7 +48,7 @@ void func_00108698(u8* p);  // 00108698: moved to src/anon/unit_001085a8.cpp
 struct VObj1246 { u32 (**vt)(...); };
 VObj1246* func_00124748(u32, u32);  // list_nth_node_rel
 typedef u32 (*Fn1246)(VObj1246*, u32, u32, u32, u32, u8, u32);
-u32 func_001246b8(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2);  // 0x001246b8: definition moved into src/anon/unit_00123990.cpp
+u32 kn__ModelMulti__drawOnShadow(u32 a0, u32 a1, u32 a2, u32 a3, u32 t0, u8 t1, u32 t2);  // 0x001246b8: definition moved into src/anon/unit_00123990.cpp
 
 void func_00132270(u8*);  // obj_ctor_347c00
 void func_00108398(u8*);  // clear_quads_set_flags
@@ -59,7 +59,7 @@ void func_00132430(u8* p);  // 0x00132430: definition moved into src/anon/unit_0
 extern u32 D_0034a3f0;
 extern f32* D_0034a3f4;
 extern f32 D_0034a3f8;
-f32* func_0016c028(u32);  // obj_get_attach_or_alt
+f32* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
 f32 func_002f8ad0(f32, f32);
 // Yaw/pitch (atan2) of the offset between two points.
 // 0014e658: moved to src/harata/libdk/fpscamera.cpp
@@ -74,7 +74,7 @@ void func_0013f888(u8*, Vq*, u32);
 void func_0013fca8(u8*);
 // 0015a528: moved to src/harata/libdk/targetcamera.cpp
 
-void func_00141010(f32);
+void dk__ObjCamera__cancelSubjective(f32);
 u8* func_00140df0(void);
 s32 func_00140dc0(void);
 void func_0015a6c8(u8*);
@@ -84,8 +84,8 @@ extern f32 D_0034aa84;
 extern u8 D_0034c70c;
 extern u8 D_0034c6f0[];
 s32 func_001de568(u8*);
-void func_001dde40(u8*);
-void func_00142f50(void);
+void ryj__PAX__ensure(u8*);
+void dk__Octree__destroy(void);
 // 0015edb8: moved to src/harata/libdk/map.cpp
 
 struct Blk64 {
@@ -140,14 +140,14 @@ struct S19b {
     u64 w;
 };
 void func_00185118(S19b*);
-void func_00143928(Vq*);
-s32 func_0019bf50(S19b* p, Vq* v);  // 0x0019bf50: definition moved into src/anon/unit_0019ba60.cpp
+void dk__Octree__collisionToMap(Vq*);
+s32 YS__OBJ__is_fall(S19b* p, Vq* v);  // 0x0019bf50: definition moved into src/anon/unit_0019ba60.cpp
 
 void func_001b0330(u32);
 void* func_001050d8(u32);
 void func_001b6298(void*, u8*, u32, u32);
 extern u8 D_0032f054;
-void func_001b6c60(u8* p);  // 0x001b6c60: definition moved into src/anon/unit_001b6a50.cpp
+void YS__CHANGEFORM__Dead(u8* p);  // 0x001b6c60: definition moved into src/anon/unit_001b6a50.cpp
 
 struct Tbl1d5 { u32 f0; u32 n; u8 data[1]; };
 extern Tbl1d5* D_01d48d98;
@@ -155,8 +155,8 @@ extern u8 D_00320458[];
 struct R1b8 { u16 h0; u16 h2; s16 h4; };
 R1b8* func_002fd248(u32, u8*, u32, u32, u8*);
 u32 func_001a67b0(s32);
-void u_call4_001b8e88(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16u_call4_001b8e88jjjj");
-void u_call4_001b8e88(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b8e88: definition moved into src/anon/unit_001b87a0.cpp
+void YS__COMMAND_ELEM__Get(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z21YS__COMMAND_ELEM__Getjjjj");
+void YS__COMMAND_ELEM__Get(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b8e88: definition moved into src/anon/unit_001b87a0.cpp
 
 struct E1bc { u8 pad[5]; u8 type; u8 pad2[6]; };
 struct S1bc { u8 pad[8]; s32 n; E1bc e[1]; };
@@ -170,7 +170,7 @@ void func_001c8d98(u8*, u32);
 void func_001c9b90(void);
 void func_001d2710(u8*);
 void func_00319f88(u8*);
-void func_0019f9a8(u8*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(u8*);  // array8_free_slots
 void func_001c0248(u8*);
 void func_00319fb0(u8*);  // big_obj_dtor
 extern u8 D_00352360[];
@@ -186,20 +186,20 @@ void func_001d19e8(u8*, s32);
 void func_001d16e8(u8*, u32, u32);
 extern u8 D_003525c8[];
 extern u8 D_00352750[];
-void func_001d4c98(u8* p);  // 0x001d4c98: definition moved into src/anon/unit_001d3c08.cpp
+void YS__MISSION_SCORE__MISSION_SCORE(u8* p);  // 0x001d4c98: definition moved into src/anon/unit_001d3c08.cpp
 
 s32 func_0019c898(u32);
 void func_001d5f30(u8*, u32);
 void func_001d6088(u32 id, u8* o);  // 0x001d6088: definition moved into src/anon/unit_001d4f40.cpp
 
 extern s32 D_00352b50;
-s32 func_0019ba60(u8*);
+s32 YS__OBJ__is_exist(u8*);
 s32 func_001dffd8(u8* p);  // 0x001dffd8: definition moved into src/anon/unit_001deb58.cpp
 
 extern u32 D_01d9e6e4;
 void func_001e7798(u32, u32);
 // Releases the three handles at +12/+16/+20 of the sub-block.
-void func_00207050(u8* p, u8* d);  // 0x00207050: definition moved into src/anon/unit_00206be8.cpp
+void pppRyjMegaPlaceDes(u8* p, u8* d);  // 0x00207050: definition moved into src/anon/unit_00206be8.cpp
 
 extern s32 D_0035dcf0;
 extern u8 D_0035db00[];
@@ -234,7 +234,7 @@ void func_00139d78(u8*);
 s16* func_0028ac98(u8*, u32);  // lookup_by_index_align
 s32 func_0028ae98(u8* p, u32 i);  // 0x0028ae98: definition moved into src/anon/unit_00288b00.cpp
 
-void func_00138840(void);
+void dk__Sprite__update(void);
 double func_00313b80(f32);  // float_to_double
 s32 func_003142e0(double, double);  // double_compare
 extern f32 D_00349e10;
@@ -253,7 +253,7 @@ s32 func_002cf270(u8*, u32);
 void func_002cf2b0(u8*, u32);
 void func_0016ac38(u8*, u32, u32, u32, u32);
 void func_002cf280(u8*, u32, u32);
-void func_002d3f18(u8* p);  // 0x002d3f18: definition moved into src/anon/unit_002d2498.cpp
+void Ti__MGOarashiGimObj__force_destroy(u8* p);  // 0x002d3f18: definition moved into src/anon/unit_002d2498.cpp
 
 void func_00198690(u8*);
 void func_0016b070(u8*, f32*);

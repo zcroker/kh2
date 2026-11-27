@@ -11,7 +11,7 @@ struct A2d { u8 p[320]; u8 mo[3056-320]; void* p3056; C2d* p3060; f32 f3064; u8 
 struct M256 { u8 pad[20]; s32 i20; s32 i24; u32 i28; };
 
 extern "C" {
-s32 func_0017ec98(M256*, s32);
+s32 YS__MOTION__id_to_num(M256*, s32);
 s32 func_0017ebc8(M256*);
 s32 func_0017f178(M256*, s32, f32, f32);
 u32 mo_start_num_w256(M256*, s32) asm("_ZN2YS6MOTION9start_numEiff");
@@ -33,11 +33,11 @@ extern u32 D_0035f01c;
 u32 getselpos_w256(s32) asm("_ZN2Tz5CmTop12GetSelectPosEi");
 s32 getitemtbl_w256(s32) asm("_ZN2Tz9CmAbility10GetItemTblEi");
 void func_0027aed8(u32, s32*, s32*);
-s32 func_0027af58(void);  // check_state16_then_loop
+s32 Tz__CmAbility__Cur2AbiltyType(void);  // check_state16_then_loop
 I27* func_00273180(s32, s32);  // state_dispatch_2_3
-void func_002891f0(u32, s32, s32, s32, s32);
+void Tz__Select__SetCurrent(u32, s32, s32, s32, s32);
 void func_0027b248(s32);
-void func_0027afe0(void);  // 0x0027afe0: definition moved into src/anon/unit_0027a6d8.cpp
+void Tz__CmAbility__SetIndiAbilityDefaultPos(void);  // 0x0027afe0: definition moved into src/anon/unit_0027a6d8.cpp
 
 
 extern H2d* D_00361f60;

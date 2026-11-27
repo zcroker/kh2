@@ -15,11 +15,11 @@ void func_0023f070(s32, s32, s32);
 void func_0024e5b0(void);
 s32 func_0028d008(s32);
 s32 func_002891d0(s32);
-void func_0028cf28(s32, s32);
+void Tz__MenuCursor__SetParent(s32, s32);
 u8* func_0024e058(void);
 void func_002b4388(s32, void *, s32);
-void func_0024e228(void);
-void func_0024dd68(s32 a0, s32 a1, s32 a2);  // 0x0024dd68: definition moved into src/anon/unit_0024cda8.cpp
+void Tz__TTPT__UpdateScore(void);
+void Tz__TTPT__DrawSelector(s32 a0, s32 a1, s32 a2);  // 0x0024dd68: definition moved into src/anon/unit_0024cda8.cpp
 
 
 
@@ -27,12 +27,12 @@ s32 func_001a3570(u32);
 s32 func_001c99b0(u32);
 s32 func_00181500(u32);
 u8* func_001b90c8(u32);
-u8* func_00189200(void *, u32);
+u8* YS__SAVERAM_BATTLE__get_formram(void *, u32);
 f32 func_002f8b30(f32, f32);
 extern u8 D_0032e020[];
 extern u8 *D_00352130;
 extern u32 D_003638d0;
-s32 func_001d63a8(u8 *a0);  // 0x001d63a8: definition moved into src/anon/unit_001d63a8.cpp
+s32 YS__ANTI_FORM__IsFinal(u8 *a0);  // 0x001d63a8: definition moved into src/anon/unit_001d63a8.cpp
 
 
 
@@ -67,16 +67,16 @@ s32 func_00292630(void);
 void func_00276690(s32 a);
 void func_00287c30(void);
 s32 func_00276358(void);
-void func_00276220(s32 a, s32 b);
-void func_00274cf0(s32 a);
+void Tz__Jiminy__SetParentSeqNum(s32 a, s32 b);
+void Tz__Jiminy__LoadData(s32 a);
 void func_002925c0(void);
 void func_002995e8(void);
 s32 func_00276398(void);
 void func_00275b60(void);
 void func_00287c90(s32 a);
 s32 func_00242848(s32 a);
-void func_0028f6f0(s32 a);
-void func_00276dc0(void);
+void Tz__SelHist__FadeOut(s32 a);
+void Tz__Jiminy__FadeOutHelp(void);
 s32 func_0028b038(void *s);
 void func_002765e8(s32 a, s32 b, s32 c);
 void func_00287c00(s32 m);
@@ -90,10 +90,10 @@ int func_0028af18(void *s, u32 a);
 s32 func_00289310(void *s);
 s32 func_00287df0(s32 a, s32 b, s32 c, void (*d)(void), s32 e);
 s32 func_002891e8(void *s);
-void func_002958b0(void);
-void func_002a7760(void);
+void Tz__JmReport__Setup(void);
+void Tz__JmMiniGame__LeaveAll(void);
 void func_002a7758(void);
-void func_002a7a60(void);  // 0x002a7a60: definition moved into src/anon/unit_002a7308.cpp
+void Tz__JmMiniGame__Control(void);  // 0x002a7a60: definition moved into src/anon/unit_002a7308.cpp
 
 
 
@@ -107,16 +107,16 @@ s32 func_00292630(void);
 void func_00276690(s32 a);
 void func_00287c30(void);
 s32 func_00276358(void);
-void func_00276220(s32 a, s32 b);
-void func_00274cf0(s32 a);
+void Tz__Jiminy__SetParentSeqNum(s32 a, s32 b);
+void Tz__Jiminy__LoadData(s32 a);
 void func_002925c0(void);
 void func_002995e8(void);
 s32 func_00276398(void);
 void func_00275b60(void);
 void func_00287c90(s32 a);
 s32 func_00242848(s32 a);
-void func_0028f6f0(s32 a);
-void func_00276dc0(void);
+void Tz__SelHist__FadeOut(s32 a);
+void Tz__Jiminy__FadeOutHelp(void);
 s32 func_0028b038(void *s);
 void func_002765e8(s32 a, s32 b, s32 c);
 void func_00287c00(s32 m);
@@ -130,9 +130,9 @@ volatile unsigned int func_0028af18_b(void *s, u32 a) asm("func_0028af18");
 s32 func_00289310(void *s);
 s32 func_00287df0(s32 a, s32 b, s32 c, void (*d)(void), s32 e);
 s32 func_002891e8(void *s);
-void func_002958b0(void);
-void func_002a8a88(void);
+void Tz__JmReport__Setup(void);
+void Tz__JmQuest__LeaveAll(void);
 void func_002a8a80(void);
-void func_002a8d98(void);  // 0x002a8d98: definition moved into src/anon/unit_002a8ac8.cpp
+void Tz__JmQuest__Control(void);  // 0x002a8d98: definition moved into src/anon/unit_002a8ac8.cpp
 
 }

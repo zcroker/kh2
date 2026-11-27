@@ -96,15 +96,15 @@ void func_0011c2d0(u8* a0);  // 0x0011c2d0: definition moved into src/anon/unit_
 
 void func_0011c438(u8* a0);  // 0x0011c438: definition moved into src/anon/unit_0011c128.cpp
 
-void func_0011ea98(u32 a0, u32 a1);  // 0x0011ea98: definition moved into src/anon/unit_0011c128.cpp
+void kn__ModelObj__setTexanm(u32 a0, u32 a1);  // 0x0011ea98: definition moved into src/anon/unit_0011c128.cpp
 
-void func_0011eb08(u32 a0, u32 a1);  // 0x0011eb08: definition moved into src/anon/unit_0011c128.cpp
+void kn__ModelObj__setDefaultTexanm(u32 a0, u32 a1);  // 0x0011eb08: definition moved into src/anon/unit_0011c128.cpp
 
-void func_0011eb78(u32 a0, u32 a1);  // 0x0011eb78: definition moved into src/anon/unit_0011c128.cpp
+void kn__ModelObj__resetDefaultTexanm(u32 a0, u32 a1);  // 0x0011eb78: definition moved into src/anon/unit_0011c128.cpp
 
 void func_0011ec28(u8* a0, u32 a1, u32 a2, u32 a3);  // 0x0011ec28: definition moved into src/anon/unit_0011c128.cpp
 
-u32 func_00124140(u8* a0);  // 0x00124140: definition moved into src/anon/unit_00123990.cpp
+u32 kn__ModelMulti__getGroupNum(u8* a0);  // 0x00124140: definition moved into src/anon/unit_00123990.cpp
 
 void func_00127c70(u32 a0, Obj* a1, u32 a2);  // 0x00127c70: definition moved into src/anon/unit_00127a88.cpp
 
@@ -132,7 +132,7 @@ void func_00133ea8(void);  // 0x00133ea8: definition moved into src/anon/unit_00
 
 void func_00138d60(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6);  // 0x00138d60: definition moved into src/anon/unit_00138480.cpp
 
-void func_001390f0(u32 a0);  // 0x001390f0: definition moved into src/anon/unit_00138480.cpp
+void dk__Sprite3D__update(u32 a0);  // 0x001390f0: definition moved into src/anon/unit_00138480.cpp
 
 void func_00139200(u32 a0);  // 0x00139200: definition moved into src/anon/unit_001391c8.cpp
 
@@ -181,7 +181,7 @@ u32 func_0013d390(u32 a0);  // 0x0013d390: definition moved into src/anon/unit_0
 
 void func_0013d4c8(void);  // 0x0013d4c8: definition moved into src/anon/unit_0013a8b8.cpp
 
-void func_0013daf8(void);  // 0x0013daf8: definition moved into src/anon/unit_0013a8b8.cpp
+void dk__GAUGE_DRAW__on(void);  // 0x0013daf8: definition moved into src/anon/unit_0013a8b8.cpp
 
 void func_0013dfb8(u32 a0);  // 0x0013dfb8: definition moved into src/anon/unit_0013dfb8.cpp
 
@@ -191,9 +191,9 @@ void func_0013e808(void);  // 0x0013e808: definition moved into src/anon/unit_00
 
 u32 func_0013ef90(u32 a0);  // 0x0013ef90: definition moved into src/anon/unit_0013ef70.cpp
 
-u32 func_0013f230(void);  // 0x0013f230: definition moved into src/anon/unit_0013ef70.cpp
+u32 dk__JumpEffect__out(void);  // 0x0013f230: definition moved into src/anon/unit_0013ef70.cpp
 
-u32 func_0013f288(void);  // 0x0013f288: definition moved into src/anon/unit_0013ef70.cpp
+u32 dk__JumpEffect__in(void);  // 0x0013f288: definition moved into src/anon/unit_0013ef70.cpp
 
 u32 func_0013f378(void);  // 0x0013f378: definition moved into src/anon/unit_0013ef70.cpp
 
@@ -229,13 +229,13 @@ void func_00150260(u32 a0, u32 a1, s32 a2, u32 a3);  // 0x00150260: definition m
 
 void func_001505b0(u32 a0);  // 0x001505b0: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_00150678(u32 a0);  // 0x00150678: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__COUNTER__close(u32 a0);  // 0x00150678: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_00151528(u32 a0);  // 0x00151528: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__TIMER__close(u32 a0);  // 0x00151528: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_00151b78(u32 a0);  // 0x00151b78: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__MISSION_GAUGE__releaseAlert(u32 a0);  // 0x00151b78: definition moved into src/anon/unit_0014ecb8.cpp
 
-void func_00151bf0(u32 a0);  // 0x00151bf0: definition moved into src/anon/unit_0014ecb8.cpp
+void dk__MISSION_GAUGE__close(u32 a0);  // 0x00151bf0: definition moved into src/anon/unit_0014ecb8.cpp
 
 void func_00152718(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00152718: definition moved into src/anon/unit_0014ecb8.cpp
 
@@ -262,7 +262,7 @@ void func_001543a0(u32 a0, u32 a1, u32 a2);
 u32 func_00154450(u32 a0, u32 a1, u32 a2);
 
 // 00154a88: moved to src/anon/unit_00153ea0.cpp
-void func_00154a88(u32 a0);
+void dk__GAUGE_ENEMY__update(u32 a0);
 
 // 00155300: moved to src/anon/unit_00153ea0.cpp
 void func_00155300(u32 a0);
@@ -312,9 +312,9 @@ u32 func_00156540(u32 a0);
 
 void func_0015ad28(u32 a0);  // 0x0015ad28: definition moved into src/anon/unit_0015a810.cpp
 
-void func_0015ad80(u32 a0, u32 a1, f32 a2);  // 0x0015ad80: definition moved into src/anon/unit_0015a810.cpp
+void dk__BILLBOARD__DrawDisableReason(u32 a0, u32 a1, f32 a2);  // 0x0015ad80: definition moved into src/anon/unit_0015a810.cpp
 
-void func_0015b578(u32 a0);  // 0x0015b578: definition moved into src/anon/unit_0015b100.cpp
+void dk__Exp__update(u32 a0);  // 0x0015b578: definition moved into src/anon/unit_0015b100.cpp
 
 void func_0015b5d8(u32 a0);  // 0x0015b5d8: definition moved into src/anon/unit_0015b100.cpp
 
@@ -346,7 +346,7 @@ u32 func_0016bba8(u8* a0, u32 a1, u32 a2);  // 0x0016bba8: definition moved into
 
 u32 func_0016bc98(u8* a0, u32 a1, u32 a2);  // 0x0016bc98: definition moved into src/anon/unit_00169f98.cpp
 
-u32 func_0016bda8(u32 a0, u32 a1);  // 0x0016bda8: definition moved into src/anon/unit_00169f98.cpp
+u32 YS__OBJ__get_target_pos(u32 a0, u32 a1);  // 0x0016bda8: definition moved into src/anon/unit_00169f98.cpp
 
 // 0016cce8: moved to src/anon/unit_0016c770.cpp
 
@@ -481,7 +481,7 @@ void func_001880b0(u32 a0, u32 a1);
 // 00188250: moved to src/anon/unit_00185d10.cpp
 void func_00188250(u32 a0, u32 a1);
 
-void func_00189258(u32 a0);  // 0x00189258: definition moved into src/anon/unit_00188848.cpp
+void YS__ANMATR__Reset(u32 a0);  // 0x00189258: definition moved into src/anon/unit_00188848.cpp
 
 void func_0018b988(u32 a0);  // 0x0018b988: definition moved into src/yasui/libys/npc.cpp
 
@@ -527,7 +527,7 @@ void func_0019be88(u32 a0);  // 0x0019be88: definition moved into src/anon/unit_
 
 u32 func_0019c5d0(u32 a0);  // 0x0019c5d0: definition moved into src/anon/unit_0019ba60.cpp
 
-u32 func_0019c6f0(u32 a0);  // 0x0019c6f0: definition moved into src/anon/unit_0019ba60.cpp
+u32 YS__OBJ__is_stop(u32 a0);  // 0x0019c6f0: definition moved into src/anon/unit_0019ba60.cpp
 
 void func_0019ca90(u32 a0, u32 a1, u32 a2);  // 0x0019ca90: definition moved into src/anon/unit_0019ba60.cpp
 
@@ -539,7 +539,7 @@ void func_0019f610(u32 a0, u32 a1, u32 a2);  // 0x0019f610: definition moved int
 
 void func_0019f670(u32 a0, u32 a1, u32 a2);  // 0x0019f670: definition moved into src/anon/unit_0019ee80.cpp
 
-void func_0019fd00(u32 a0, u32 a1, u32 a2);  // 0x0019fd00: definition moved into src/anon/unit_0019fb70.cpp
+void YS__ACTION_BLOW___land(u32 a0, u32 a1, u32 a2);  // 0x0019fd00: definition moved into src/anon/unit_0019fb70.cpp
 
 u32 func_0019fe90(u32 a0, u32 a1, u32, u32, u32, u32, u32, u32);  // 0x0019fe90: definition moved into src/anon/unit_0019fb70.cpp
 
@@ -637,7 +637,7 @@ void func_001b03b0(s32 a0, s32 a1);  // 0x001b03b0: definition moved into src/an
 
 // 001b1da0: moved to src/anon/unit_001b1d20.cpp
 
-u32 func_001b2b80(u32 a0, u32 a1);  // 0x001b2b80: definition moved into src/anon/unit_001b2780.cpp
+u32 YS__ACTION_CARPETJUMP__start(u32 a0, u32 a1);  // 0x001b2b80: definition moved into src/anon/unit_001b2780.cpp
 
 u32 func_001b3b10(u32 a0);  // 0x001b3b10: definition moved into src/anon/unit_001b2780.cpp
 
@@ -655,7 +655,7 @@ u32 func_001b5680(u32 a0);  // 0x001b5680: definition moved into src/anon/unit_0
 
 void func_001b57f8(u32 a0);  // 0x001b57f8: definition moved into src/anon/unit_001b2780.cpp
 
-u32 func_001b5918(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b5918: definition moved into src/anon/unit_001b2780.cpp
+u32 YS__LIMIT__AnmatrEffect(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001b5918: definition moved into src/anon/unit_001b2780.cpp
 
 void func_001b5f68(u32 a0);  // 0x001b5f68: definition moved into src/anon/unit_001b2780.cpp
 
@@ -665,9 +665,9 @@ void func_001b6450(u32 a0);  // 0x001b6450: definition moved into src/anon/unit_
 
 void func_001b6518(u32 a0);  // 0x001b6518: definition moved into src/anon/unit_001b2780.cpp
 
-void func_001b6e08(u32 a0, u32 a1);  // 0x001b6e08: definition moved into src/anon/unit_001b6a50.cpp
+void YS__ACTION_FLYJUMP__start(u32 a0, u32 a1);  // 0x001b6e08: definition moved into src/anon/unit_001b6a50.cpp
 
-void func_001b6e90(u32 a0, u32 a1);  // 0x001b6e90: definition moved into src/anon/unit_001b6a50.cpp
+void YS__ACTION_FLYJUMP__control(u32 a0, u32 a1);  // 0x001b6e90: definition moved into src/anon/unit_001b6a50.cpp
 
 u32 func_001b7038();  // 0x001b7038: definition moved into src/anon/unit_001b6a50.cpp
 
@@ -719,7 +719,7 @@ void func_001b9b28(u32 a0);  // 0x001b9b28: definition moved into src/anon/unit_
 
 // 001bbd58: moved to src/yasui/libys/mission.cpp
 
-void func_001bc990(u32 a0, u32 a1);  // 0x001bc990: definition moved into src/anon/unit_001bc568.cpp
+void YS__COMMAND_MENU__make(u32 a0, u32 a1);  // 0x001bc990: definition moved into src/anon/unit_001bc568.cpp
 
 void func_001bd2d0(u32 a0, u32 a1, u32 a2);  // 0x001bd2d0: definition moved into src/anon/unit_001bc568.cpp
 
@@ -769,7 +769,7 @@ void func_001d17b0(u32 a0);  // 0x001d17b0: definition moved into src/anon/unit_
 
 void func_001d1a50(u32 a0);  // 0x001d1a50: definition moved into src/anon/unit_001d14e0.cpp
 
-void func_001d1b60(u32 a0, s32 a1);  // 0x001d1b60: definition moved into src/anon/unit_001d14e0.cpp
+void YS__MISSION_COUNT__set(u32 a0, s32 a1);  // 0x001d1b60: definition moved into src/anon/unit_001d14e0.cpp
 
 void func_001d1d00(u32 a0);  // 0x001d1d00: definition moved into src/anon/unit_001d14e0.cpp
 
@@ -797,7 +797,7 @@ u32 func_001d5c10(u32 a0, u8* a1);  // 0x001d5c10: definition moved into src/ano
 
 u32 func_001d5c70(u32 a0, u8* a1);  // 0x001d5c70: definition moved into src/anon/unit_001d4f40.cpp
 
-void func_001d6020(u32 a0, u32 a1);  // 0x001d6020: definition moved into src/anon/unit_001d4f40.cpp
+void YS__FORM_LEVEL__CheckBrave(u32 a0, u32 a1);  // 0x001d6020: definition moved into src/anon/unit_001d4f40.cpp
 
 u32 func_001d6578(u32 a0, u32 a1, f32 a2);  // 0x001d6578: definition moved into src/anon/unit_001d63a8.cpp
 
@@ -813,13 +813,13 @@ void func_001d7828();  // 0x001d7828: definition moved into src/anon/unit_001d74
 
 void func_001d7a88(u32 a0);  // 0x001d7a88: definition moved into src/anon/unit_001d7458.cpp
 
-void func_001d7c38(u32 a0);  // 0x001d7c38: definition moved into src/anon/unit_001d7458.cpp
+void YS__MISSION_WATCH__activate(u32 a0);  // 0x001d7c38: definition moved into src/anon/unit_001d7458.cpp
 
 void func_001d8010(u32 a0);  // 0x001d8010: definition moved into src/anon/unit_001d7458.cpp
 
-void func_001d80f0(u32 a0);  // 0x001d80f0: definition moved into src/anon/unit_001d7458.cpp
+void YS__MISSION__Deactivate2d(u32 a0);  // 0x001d80f0: definition moved into src/anon/unit_001d7458.cpp
 
-void func_001d8270(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d8270: definition moved into src/anon/unit_001d7458.cpp
+void YS__MISSION__SetTimerParam(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001d8270: definition moved into src/anon/unit_001d7458.cpp
 
 void func_001d8310(s32 a0, u32 a1);  // 0x001d8310: definition moved into src/anon/unit_001d7458.cpp
 
@@ -863,7 +863,7 @@ void func_001d9388(u32 a0, u32 a1);  // 0x001d9388: definition moved into src/an
 
 void func_001d9418(u32 a0, u32 a1);  // 0x001d9418: definition moved into src/anon/unit_001d7458.cpp
 
-void func_001d9488(u32 a0);  // 0x001d9488: definition moved into src/anon/unit_001d7458.cpp
+void YS__MISSION__DisableWatch(u32 a0);  // 0x001d9488: definition moved into src/anon/unit_001d7458.cpp
 
 void func_001d9768(u16* a0);  // 0x001d9768: definition moved into src/anon/unit_001d7458.cpp
 
@@ -871,7 +871,7 @@ void func_001da340(u32 a0, u32 a1);  // 0x001da340: definition moved into src/an
 
 u32 func_001db610(u32 a0, Func_001db610_cb a1, u32 a2);  // 0x001db610: definition moved into src/anon/unit_001d9d00.cpp
 
-void func_001dc8c8(u32 a0, f32 a1);  // 0x001dc8c8: definition moved into src/anon/unit_001dbfd8.cpp
+void ryj__EFFECT__fadeout_free(u32 a0, f32 a1);  // 0x001dc8c8: definition moved into src/anon/unit_001dbfd8.cpp
 
 void func_001dc978(u32 a0, f32 a1);  // 0x001dc978: definition moved into src/anon/unit_001dbfd8.cpp
 
@@ -891,7 +891,7 @@ void func_001de3d8(u32 a0, u32 a1);  // 0x001de3d8: definition moved into src/an
 
 void func_001e16c0(u32 a0);  // 0x001e16c0: definition moved into src/anon/unit_001e0cb8.cpp
 
-void func_001e18d8(u32 a0);  // 0x001e18d8: definition moved into src/anon/unit_001e0cb8.cpp
+void ryj__LAST_XEMNUS_LASER__ExecTaskFinalizer(u32 a0);  // 0x001e18d8: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_001e2938(u32 a0);  // 0x001e2938: definition moved into src/anon/unit_001e0cb8.cpp
 
@@ -923,7 +923,7 @@ void func_002070d0(u32 a0, u32 a1, u32 a2);  // 0x002070d0: definition moved int
 
 void func_00207150(u32 a0, u32 a1, u32 a2);  // 0x00207150: definition moved into src/anon/unit_00206be8.cpp
 
-void func_002071d8(u32 a0, u32 a1, u32 a2);  // 0x002071d8: definition moved into src/anon/unit_00206be8.cpp
+void pppRyjMegaPlaceLamp(u32 a0, u32 a1, u32 a2);  // 0x002071d8: definition moved into src/anon/unit_00206be8.cpp
 
 void func_002090f8(u32 a0, u32 a1);  // 0x002090f8: definition moved into src/anon/unit_002090c0.cpp
 
@@ -987,9 +987,9 @@ u32 func_00229d90(u32 a0);  // 00229d90: moved to src/sasa/musical_combo.cpp (li
 
 u32 func_0022a368(u32 a0);  // 0022a368: moved to src/sasa/musical_input.cpp (linked unit)
 
-void func_0022abd8(u32 a0, u32 a1);  // 0022abd8: moved to src/sasa/musical_input.cpp (linked unit)
+void sa__MUSICAL_INPUT__setFace(u32 a0, u32 a1);  // 0022abd8: moved to src/sasa/musical_input.cpp (linked unit)
 
-void func_0022ac60(u32 a0);  // 0022ac60: moved to src/sasa/musical_input.cpp (linked unit)
+void sa__MUSICAL_INPUT__updateGauge(u32 a0);  // 0022ac60: moved to src/sasa/musical_input.cpp (linked unit)
 
 u32 func_0022acf8(u32 a0);  // 0022acf8: moved to src/sasa/musical_input.cpp (linked unit)
 
@@ -997,7 +997,7 @@ u32 func_0022b0a0(u32 a0, u32 a1);  // 0022b0a0: moved to src/sasa/musical_input
 
 u32 func_0022b688(u32 a0);  // 0022b688: moved to src/sasa/musical_target.cpp (linked unit)
 
-u32 func_0022b838();  // 0022b838: moved to src/sasa/musical_2d.cpp (linked unit)
+u32 sa__MUSICAL_2D__read();  // 0022b838: moved to src/sasa/musical_2d.cpp (linked unit)
 
 void func_0022ba08(u32 a0, u32 a1);  // 0022ba08: moved to src/sasa/event_movie.cpp (linked unit)
 
@@ -1007,7 +1007,7 @@ void func_0022bda0(u32 a0, u32 a1, u32 a2);  // 0022bda0: moved to src/sasa/even
 
 void func_0022c440(u32 a0);  // 0022c440: moved to src/sasa/event_countdown.cpp (linked unit)
 
-void func_0022c530(u32 a0);  // 0022c530: moved to src/sasa/event_layout.cpp (linked unit)
+void sa__EVENT__set_bin_seq_layout_noname(u32 a0);  // 0022c530: moved to src/sasa/event_layout.cpp (linked unit)
 
 void func_0022c7c0(u32 a0);  // 0022c7c0: moved to src/sasa/event_layout.cpp (linked unit)
 
@@ -1017,7 +1017,7 @@ void func_0022cba0(u32 a0);  // 0022cba0: moved to src/sasa/event_layout.cpp (li
 
 void func_0022d000(u32 a0);  // 0022d000: moved to src/sasa/event_layout.cpp (linked unit)
 
-void func_0022d288(u32 a0);  // 0022d288: moved to src/sasa/event_layout.cpp (linked unit)
+void sa__EVENT__set_bin_hide_fobj(u32 a0);  // 0022d288: moved to src/sasa/event_layout.cpp (linked unit)
 
 void func_0022d3c8(u32 a0);  // 0x0022d3c8: definition moved into src/anon/unit_0022d358.cpp
 
@@ -1025,21 +1025,21 @@ void func_0022d598(u32 a0, u32 a1);  // 0x0022d598: definition moved into src/an
 
 void func_0022d618(u32 a0);  // 0x0022d618: definition moved into src/anon/unit_0022d358.cpp
 
-void func_0022e3e8(u32 a0);  // 0x0022e3e8: definition moved into src/anon/unit_0022d358.cpp
+void sa__EVENT__set_kage_seq(u32 a0);  // 0x0022e3e8: definition moved into src/anon/unit_0022d358.cpp
 
-void func_0022e468(u32 a0);  // 0x0022e468: definition moved into src/anon/unit_0022d358.cpp
+void sa__EVENT__set_ik_seq(u32 a0);  // 0x0022e468: definition moved into src/anon/unit_0022d358.cpp
 
 void func_0022e5f8(u32 a0);  // 0x0022e5f8: definition moved into src/anon/unit_0022d358.cpp
 
 void func_0022e998(u32 a0);  // 0x0022e998: definition moved into src/anon/unit_0022d358.cpp
 
-void func_0022ef50(u32 a0);  // 0x0022ef50: definition moved into src/anon/unit_0022d358.cpp
+void sa__EVENT__set_part_seq(u32 a0);  // 0x0022ef50: definition moved into src/anon/unit_0022d358.cpp
 
-void func_0022f200(u32 a0);  // 0x0022f200: definition moved into src/anon/unit_0022d358.cpp
+void sa__EVENT__set_bgcol_seq(u32 a0);  // 0x0022f200: definition moved into src/anon/unit_0022d358.cpp
 
 void func_0022f280(u32 a0);  // 0x0022f280: definition moved into src/anon/unit_0022d358.cpp
 
-void func_00231948(u32 a0);  // 0x00231948: definition moved into src/anon/unit_00231500.cpp
+void sa__EVENT__set_bin_seq_crossfade(u32 a0);  // 0x00231948: definition moved into src/anon/unit_00231500.cpp
 
 u32 func_00233a18(u32 a0, u32 a1);  // 0x00233a18: definition moved into src/anon/unit_002335e8.cpp
 
@@ -1055,7 +1055,7 @@ u32 func_00239af8(void* a0, u32 a1);  // 0x00239af8: definition moved into src/a
 
 void func_0023c300(void* a0);  // 0x0023c300: definition moved into src/anon/unit_0023bc58.cpp
 
-u32 func_0023c978(void* a0);  // 0x0023c978: definition moved into src/anon/unit_0023c968.cpp
+u32 YI__LAYOUT__GetLoopMode(void* a0);  // 0x0023c978: definition moved into src/anon/unit_0023c968.cpp
 
 void func_0023d368();  // 0x0023d368: definition moved into src/anon/unit_0023d260.cpp
 
@@ -1065,9 +1065,9 @@ u32 func_0023d4f8(void* a0, u32 a1);  // 0x0023d4f8: definition moved into src/a
 
 void func_0023e5d0(void* a0, u32 a1, void* a2);  // 0x0023e5d0: definition moved into src/anon/unit_0023e5d0.cpp
 
-void func_0023eae0(void* a0, u32 a1, s32 a2, s32 a3);  // 0x0023eae0: definition moved into src/anon/unit_0023e5d0.cpp
+void Tz__MenuObj__SetHidePartAll(void* a0, u32 a1, s32 a2, s32 a3);  // 0x0023eae0: definition moved into src/anon/unit_0023e5d0.cpp
 
-void func_0023eb50(void* a0, u32 a1, s32 a2);  // 0x0023eb50: definition moved into src/anon/unit_0023e5d0.cpp
+void Tz__MenuObj__SetHidePart(void* a0, u32 a1, s32 a2);  // 0x0023eb50: definition moved into src/anon/unit_0023e5d0.cpp
 
 u32 func_0023fc40(u32 a0, u32 a1);  // 0x0023fc40: definition moved into src/anon/unit_0023f5b8.cpp
 
@@ -1176,7 +1176,7 @@ void func_002590b0(u32 a0);  // 0x002590b0: definition moved into src/anon/unit_
 
 u32 func_00259618(u32 a0, u32 a1, u32 a2);  // 0x00259618: definition moved into src/anon/unit_002588e8.cpp
 
-u32 func_00259690(void);  // 0x00259690: definition moved into src/anon/unit_002588e8.cpp
+u32 Tz__CmLoad__Init(void);  // 0x00259690: definition moved into src/anon/unit_002588e8.cpp
 
 u32 func_002597f0(void);  // 0x002597f0: definition moved into src/anon/unit_002588e8.cpp
 
@@ -1186,7 +1186,7 @@ void func_0025cd78(void);  // 0x0025cd78: definition moved into src/anon/unit_00
 
 void func_0025d4e8(void);  // 0x0025d4e8: definition moved into src/anon/unit_002588e8.cpp
 
-u32 func_0025d6b0(void);  // 0x0025d6b0: definition moved into src/anon/unit_002588e8.cpp
+u32 Tz__CmSave__Init(void);  // 0x0025d6b0: definition moved into src/anon/unit_002588e8.cpp
 
 u32 func_0025d748(void);  // 0x0025d748: definition moved into src/anon/unit_002588e8.cpp
 
@@ -1200,7 +1200,7 @@ void func_00262360(void);  // 0x00262360: definition moved into src/anon/unit_00
 
 void func_00262768(void);  // 0x00262768: definition moved into src/anon/unit_0025f6b8.cpp
 
-u32 func_002632d0(u32 a0);  // 0x002632d0: definition moved into src/anon/unit_002632d0.cpp
+u32 Tz__CmItem__isSoraOnly(u32 a0);  // 0x002632d0: definition moved into src/anon/unit_002632d0.cpp
 
 void func_00263340(u32 a0, u32 a1);  // 0x00263340: definition moved into src/anon/unit_002632d0.cpp
 
@@ -1221,7 +1221,7 @@ void func_00263db0(u32 a0);  // 0x00263db0: definition moved into src/anon/unit_
 
 void func_00265580(void);  // 0x00265580: definition moved into src/anon/unit_00265580.cpp
 
-void func_00265a30(void);  // 0x00265a30: definition moved into src/anon/unit_00265580.cpp
+void Tz__CmAbility__FadeOutAll(void);  // 0x00265a30: definition moved into src/anon/unit_00265580.cpp
 
 u32 func_00266c00(void);  // 0x00266c00: definition moved into src/anon/unit_00265580.cpp
 
@@ -1249,8 +1249,8 @@ u32 duplicate_unplaced_002674f8(u32 a0) {
 
     u32 idx = func_002670a0(s1);
     func_00257050(23, idx, 0);
-    func_0028fb28(1, func_00267408(s1));
-    return func_00266b58();
+    func_0028fb28(1, Tz__CmStat__GetSelMsg(s1));
+    return Tz__CmStat__UpdateTopNew();
 }
 
 u32 func_00267620();  // 0x00267620: definition moved into src/anon/unit_00265580.cpp
@@ -1279,7 +1279,7 @@ void func_0026d828();  // 0x0026d828: definition moved into src/anon/unit_0026c4
 
 u32 func_0026e340();  // 0x0026e340: definition moved into src/anon/unit_0026c450.cpp
 
-void func_0026ed48();  // 0x0026ed48: definition moved into src/anon/unit_0026c450.cpp
+void Tz__CmCustom__Init();  // 0x0026ed48: definition moved into src/anon/unit_0026c450.cpp
 
 void func_00273c40(s32 a0);  // 0x00273c40: definition moved into src/anon/unit_00271e08.cpp
 
@@ -1301,7 +1301,7 @@ void duplicate_unplaced_00274ac8() {
         func_0028be18(D_0035f214);
     }
 
-    func_002766e0();
+    Tz__Jiminy__LeaveSeqTbl();
 }
 
 extern "C" void func_00274ee8(u32) asm("_ZN2Tz6Jiminy6WMInitEP9ALLOCATOR");
@@ -1312,7 +1312,7 @@ void duplicate_unplaced_002759e8(u32 a0) {
     u32 s0 = a0;
     u32 v0 = func_0028d6e8(D_0035f218);
     if (v0 == 0) {
-        func_0028d1c0(D_0035f218, 30065, D_0035f14c, D_0035f148, D_0035f210, (u32)&D_00373d80, 0);
+        Tz__LightCur__Create(D_0035f218, 30065, D_0035f14c, D_0035f148, D_0035f210, (u32)&D_00373d80, 0);
     } else {
         u32 p = D_0035f218;
         if (*(u32*)(p + 396) == s0) {
@@ -1329,7 +1329,7 @@ void duplicate_unplaced_00275a80() {
         func_0028d980(D_0035f20c + 872, 30040, D_0035f14c, D_0035f148, D_0035f210, 53, 54, -1, 0);
         *(u32*)(D_0035f20c + 1304) = 2;
     }
-    func_00275d10();
+    Tz__Jiminy__SetupMainFrameLR();
 }
 
 void func_00275af8();  // 0x00275af8: definition moved into src/anon/unit_002748a0.cpp
@@ -1401,11 +1401,11 @@ void func_00281058(u32 a0, s32 a1);  // 0x00281058: definition moved into src/an
 
 u32 func_00282ec0(u32 a0);  // 0x00282ec0: definition moved into src/anon/unit_00282c68.cpp
 
-void func_00283730(void);  // 0x00283730: definition moved into src/anon/unit_00282c68.cpp
+void Tz__SelHist__Loop(void);  // 0x00283730: definition moved into src/anon/unit_00282c68.cpp
 
 void func_00283900(u32 a0);  // 0x00283900: definition moved into src/anon/unit_00282c68.cpp
 
-void func_00283960(u32 a0);  // 0x00283960: definition moved into src/anon/unit_00282c68.cpp
+void Tz__CmTutorial__LeaveList(u32 a0);  // 0x00283960: definition moved into src/anon/unit_00282c68.cpp
 
 u32 func_002839f0(u32 a0);  // 0x002839f0: definition moved into src/anon/unit_00282c68.cpp
 
@@ -1452,7 +1452,7 @@ void func_0028d730(u32 self, Cb_0028d730 cb, f32 a2, f32 a3, f32 a4, f32 a5);  /
 
 void func_0028dae0(u32 self, u32 value);  // 0028dae0: moved to src/anon/unit_0028c878.cpp
 
-u32 func_0028db48(u32 self);  // 0028db48: moved to src/anon/unit_0028c878.cpp
+u32 Tz__MenuUtil__SprtIsLoop(u32 self);  // 0028db48: moved to src/anon/unit_0028c878.cpp
 
 u32 func_0028dba0(u32 self);  // 0028dba0: moved to src/anon/unit_0028c878.cpp
 
@@ -1482,7 +1482,7 @@ void func_00290298(Obj_00290298* self);  // 00290298: moved to src/anon/unit_002
 
 void func_00290300(Obj_00290300* self);  // 00290300: moved to src/anon/unit_0028f1e0.cpp
 
-void func_00290368(Obj_00290368* self, u32 a1, u32 a2, u32 a3);  // 00290368: moved to src/anon/unit_0028f1e0.cpp
+void Tz__TimeDraw__Create(Obj_00290368* self, u32 a1, u32 a2, u32 a3);  // 00290368: moved to src/anon/unit_0028f1e0.cpp
 
 void func_00290508(Obj_00290508* self, u32 idx);  // 00290508: moved to src/anon/unit_0028f1e0.cpp
 
@@ -1509,10 +1509,10 @@ void duplicate_unplaced_00291068(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5)
     u32 s20 = a4;
     u32 s21 = a5;
 
-    func_00290d68(s16, a3);
+    Tz__ItemStat__CreateSeq(s16, a3);
     func_00290f78(s16);
     u32 s18 = func_00291380(s16, s17);
-    func_00291510(s16, s19, s17, s18);
+    Tz__ItemStat__Update(s16, s19, s17, s18);
     func_00291ba8(s16, s19, s17, s20, s21, s18);
 }
 
@@ -1526,11 +1526,11 @@ void func_00293bd0(u32 a0, u32 a1, u32 a2);  // 0x00293bd0: definition moved int
 
 void func_00294ea8(void);  // 0x00294ea8: definition moved into src/anon/unit_00292e60.cpp
 
-void func_00296ab0(void);  // 0x00296ab0: definition moved into src/anon/unit_00295d28.cpp
+void Tz__JmReport__LeaveAll(void);  // 0x00296ab0: definition moved into src/anon/unit_00295d28.cpp
 
 void func_00297d78(void);  // 0x00297d78: definition moved into src/anon/unit_00295d28.cpp
 
-void func_00297e00(u32 a0);  // 0x00297e00: definition moved into src/anon/unit_00295d28.cpp
+void Tz__JmAlbum__LeaveAll(u32 a0);  // 0x00297e00: definition moved into src/anon/unit_00295d28.cpp
 
 void func_00298fe8(s32 a0) {
     u8 buf[32];
@@ -1667,7 +1667,7 @@ u32 func_002c5ed8(u32 a0, u32 a1, f32 a2);  // 0x002c5ed8: definition moved into
 
 // 002c6c60: moved to src/anon/unit_002c6420.cpp (linked unit)
 
-void func_002c83c0(u8* a0);  // 0x2c83c0: moved to src/anon/unit_002c7e68.cpp
+void dk__WM_LANDING_INFO__update(u8* a0);  // 0x2c83c0: moved to src/anon/unit_002c7e68.cpp
 
 
 void func_002c8490(u8* a0);  // 0x2c8490: moved to src/anon/unit_002c7e68.cpp
@@ -1676,7 +1676,7 @@ void func_002c8490(u8* a0);  // 0x2c8490: moved to src/anon/unit_002c7e68.cpp
 void func_002c8550(u8* a0);  // 0x2c8550: moved to src/anon/unit_002c7e68.cpp
 
 
-void func_002c9f60(u8* a0);  // 0x2c9f60: moved to src/anon/unit_002c9998.cpp
+void dk__WM_GLANDING_INFO__update(u8* a0);  // 0x2c9f60: moved to src/anon/unit_002c9998.cpp
 
 
 void func_002ca410(u8* a0);  // 0x2ca410: moved to src/anon/unit_002ca0e0.cpp
@@ -1688,7 +1688,7 @@ void func_002ca5b8(u8* a0);  // 0x2ca5b8: moved to src/anon/unit_002ca0e0.cpp
 void func_002ca630(u8* a0);  // 0x2ca630: moved to src/anon/unit_002ca0e0.cpp
 
 
-void func_002ca6f8(u8* a0);  // 0x2ca6f8: moved to src/anon/unit_002ca0e0.cpp
+void dk__WM_GLANDING__drawSelectDeparture(u8* a0);  // 0x2ca6f8: moved to src/anon/unit_002ca0e0.cpp
 
 
 void func_002ca7b0(u8* a0);  // 0x2ca7b0: moved to src/anon/unit_002ca0e0.cpp
@@ -1720,13 +1720,13 @@ void func_002d29a8(u8* a0);  // 0x002d29a8: definition moved into src/anon/unit_
 
 void func_002d5af0(u32 a0);  // 0x002d5af0: definition moved into src/anon/unit_002d4548.cpp
 
-void func_002d5b48(u32 a0);  // 0x002d5b48: definition moved into src/anon/unit_002d4548.cpp
+void Ti__MGOarashiPlayer__stop_tornado_attack(u32 a0);  // 0x002d5b48: definition moved into src/anon/unit_002d4548.cpp
 
 u32 func_002d5c40(u32 a0);  // 0x002d5c40: definition moved into src/anon/unit_002d4548.cpp
 
 void func_002d7390(u32 a0);  // 0x002d7390: definition moved into src/anon/unit_002d6f70.cpp
 
-void func_002d7420(u32 a0);  // 0x002d7420: definition moved into src/anon/unit_002d6f70.cpp
+void Ti__MGHachimitsu__show_course_bg_group(u32 a0);  // 0x002d7420: definition moved into src/anon/unit_002d6f70.cpp
 
 void func_002d7630(u32 a0);  // 0x002d7630: definition moved into src/anon/unit_002d6f70.cpp
 
@@ -1736,9 +1736,9 @@ void func_002dd968(u32 a0);  // 0x002dd968: definition moved into src/anon/unit_
 
 void func_002de888(u32 a0);  // 0x002de888: definition moved into src/anon/unit_002de3c8.cpp
 
-void func_002def70(u32 a0, u32 a1);  // 0x002def70: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__ACTION_PO_JUMP__on_land(u32 a0, u32 a1);  // 0x002def70: definition moved into src/anon/unit_002de3c8.cpp
 
-void func_002df758(u32 a0, u32 a1);  // 0x002df758: definition moved into src/anon/unit_002de3c8.cpp
+void Ti__ACTION_PO_JUMP_ROO__start(u32 a0, u32 a1);  // 0x002df758: definition moved into src/anon/unit_002de3c8.cpp
 
 void func_002e0f20(u32 a0);  // 0x002e0f20: definition moved into src/anon/unit_002de3c8.cpp
 

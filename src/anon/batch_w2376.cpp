@@ -9,7 +9,7 @@ extern u16 D_0034edf8[];
 
 // Pick one of four motions (by facing and a second check, flip if unavailable) and play it.
 // 00186478: moved to src/anon/unit_00185d10.cpp
-void func_00186478(u8* a, u8* b);
+void YS__BTLOBJ__exec_damage_small_spot(u8* a, u8* b);
 struct Rec_195360 { u8 pad[8]; s32 v; };
 struct Pair_195360 { s32 a, b; };
 Rec_195360* func_00168b88(s32, s32, s32, s32);
@@ -26,7 +26,7 @@ struct Obj_2da238 { u8 pad[1344]; Vec_2da238 pos; u8 pad2[3056 - 1344 - 16]; voi
 s32 is_attach_2da238(void* o) asm("_ZN2YS3OBJ9is_attachEv");
 s32 is_separate_blow_2da238(void* o) asm("_ZN2Ti14MGHachimitsuPo16is_separate_blowEv");
 Info_2da238* func_0016bc20(void*, s32, s32);
-Vec_2da238* func_0016c028(void*);
+Vec_2da238* YS__OBJ__get_pos(void*);
 extern s32 D_00361f60;
 
 // VU0 distance between two points.
@@ -42,7 +42,7 @@ static inline f32 dist_2da238(const Vec_2da238* a, const Vec_2da238* b) {
 static inline bool in_reach_2da238(Obj_2da238* self) {
     if (is_attach_2da238(self->target) || is_separate_blow_2da238(self->target)) return false;
     f32 r = func_0016bc20(self->target, 5, -1)->radius;
-    if (dist_2da238(&self->pos, func_0016c028(self->target)) < r) return true;
+    if (dist_2da238(&self->pos, YS__OBJ__get_pos(self->target)) < r) return true;
     return false;
 }
 
@@ -54,7 +54,7 @@ struct Part_1dfdb8 { u8 pad[0xaf8]; Part_1dfdb8* l; Part_1dfdb8* r; };
 struct Obj_1dfdb8 { u8 pad[0x40]; s32 x40; Hdr_1dfdb8* h; Part_1dfdb8* p; };
 f32 func_00194690(Part_1dfdb8*);
 extern s32 D_00352b50;
-s32 func_0019ba60(Part_1dfdb8*);
+s32 YS__OBJ__is_exist(Part_1dfdb8*);
 s32 func_0019c5d0(Part_1dfdb8*);
 Rec_1dfdb8* func_001dc670(s32);
 

@@ -22,4 +22,4 @@ extern W1949_Flags* D_0035f2e4;
 s32 func_00258108(void);
 s32 func_002811b0(s32, s32);
 s32 func_001b7818(s32);
-s32 func_00286d28(s32 a, s32 b);  // 0x00286d28: definition moved into src/anon/unit_00286d28.cpp
+s32 Tz__CmNewFlg__isAbilityNewMember(s32 a, s32 b);  // 0x00286d28: definition moved into src/anon/unit_00286d28.cpp

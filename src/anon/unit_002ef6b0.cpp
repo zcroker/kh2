@@ -10,7 +10,7 @@ void CACHE_BUFF_FixFree(void*) asm("_ZN2YS10CACHE_BUFF7FixFreeEPv");
 void ovl_functionCall(s32, void*) asm("_Z16wtarget_01f18014jjjj");
 extern "C" {
 void* func_00170b30(u32);
-void func_00103590(s32, void*);
+void MENU__CreateAllocator(s32, void*);
 void func_00168548(const char*, void (*)(void), s32);
 s32 FlushCache(s32);
 void func_001b8228(void);
@@ -33,7 +33,7 @@ extern "C" void func_002ef6b0(void) {
     MENU_SetGameMode(5);
     void* h = createMemoryAllocator(func_00170b30(0xa0000), 0xa0000);
     D_003638c4 = h;
-    func_00103590(1, h);
+    MENU__CreateAllocator(1, h);
     D_003638c0 = 0;
     D_003638c8 = 0;
 }

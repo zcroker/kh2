@@ -120,7 +120,7 @@ u32 func_003218b8(u32 a, u16* b) { a -= *b; return a; }
 // 003218c8 (was src/anon/batch_w31.cpp)
 namespace n003218c8 {
 extern void* D_0034ee08[] asm("D_0034ee08");
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 void func_00319fb0(void*) asm("func_00319fb0");
@@ -133,7 +133,7 @@ void func_003218c8(void** p) asm("func_003218c8");
 void func_003218c8(void** p) {
     NoTail g;
     *p = D_0034ee08;
-    func_0019f9a8((u8*)p + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear((u8*)p + 2568);  // array8_free_slots
     func_001c0248((u8*)p + 2640);
     func_00319fb0(p);  // big_obj_dtor
 }
@@ -143,7 +143,7 @@ void func_003218c8(void** p) {
 namespace n00321910 {
 void func_00105110(void*) asm("func_00105110");
 extern void* D_0034ee08[] asm("D_0034ee08");
-void func_0019f9a8(void*) asm("func_0019f9a8");
+void YS__OBJ_ATTACK__clear(void*) asm("YS__OBJ_ATTACK__clear");
 // array8_free_slots
 void func_001c0248(void*) asm("func_001c0248");
 void func_00319fb0(void*) asm("func_00319fb0");
@@ -151,7 +151,7 @@ void func_00319fb0(void*) asm("func_00319fb0");
 void func_00321910(void** p) asm("func_00321910");
 void func_00321910(void** p) {
     *p = D_0034ee08;
-    func_0019f9a8((u8*)p + 2568);  // array8_free_slots
+    YS__OBJ_ATTACK__clear((u8*)p + 2568);  // array8_free_slots
     func_001c0248((u8*)p + 2640);
     func_00319fb0(p);  // big_obj_dtor
     func_00105110(p);
@@ -1208,8 +1208,8 @@ namespace n00322968 {
 
 typedef void (*VFn1)(void*);
 /*TARGET 00322968*/
-void func_00322968(void** o) asm("func_00322968");
-void func_00322968(void** o) {
+void sa__MUSICAL_TARGET__close(void** o) asm("sa__MUSICAL_TARGET__close");
+void sa__MUSICAL_TARGET__close(void** o) {
     ((VFn1*)*o)[5](o);
 }
 }  // namespace n00322968
@@ -1540,8 +1540,8 @@ static inline __attribute__((always_inline)) void W1628_ctor436(u8* e)
     *(u32*)(e + 408) = 0; *(u32*)e = (u32)D_00347e40;
 }
 /*TARGET 00322e58*/
-void func_00322e58(u8* t) asm("func_00322e58");
-void func_00322e58(u8* t)
+void Tz__JmDic__Init(u8* t) asm("Tz__JmDic__Init");
+void Tz__JmDic__Init(u8* t)
 {
     u8* m = t + 436;
     W1628_ctor436(t);
@@ -1644,8 +1644,8 @@ struct W2417_Big {
     W2417_T p;
 };
 /*TARGET 00323110*/
-void func_00323110(W2417_Big* p) asm("func_00323110");
-void func_00323110(W2417_Big* p)
+void sa__MUSICAL_SCORE2__init(W2417_Big* p) asm("sa__MUSICAL_SCORE2__init");
+void sa__MUSICAL_SCORE2__init(W2417_Big* p)
 {
     void* va = D_00347f98;
     new (&p->a0) W2417_A; new (&p->a1) W2417_A; new (&p->a2) W2417_A; new (&p->a3) W2417_A;
@@ -1717,8 +1717,8 @@ static inline __attribute__((always_inline)) void L408(u8* q)
     s32 i = 31; do { *(u32*)(q + 12) = 0; *(u32*)q = (u32)D_00347e60; func_00239700(q + 24); i--; q += 408; } while (i != -1);
 }
 /*TARGET 00323540*/
-void func_00323540(u8* p) asm("func_00323540");
-void func_00323540(u8* p) {
+void dk__INFORMATION__init(u8* p) asm("dk__INFORMATION__init");
+void dk__INFORMATION__init(u8* p) {
     u32 vb = (u32)D_00347e60; u32 va = (u32)D_00347f98;
     H408(p, vb); H408(p + 408, vb); H408(p + 816, vb); H408(p + 1224, vb);
     H436(p + 1632, va, vb); H436(p + 2068, va, vb); H436(p + 2504, va, vb);

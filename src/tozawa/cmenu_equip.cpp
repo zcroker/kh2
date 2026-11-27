@@ -11,7 +11,7 @@ extern void* D_0035f010 asm("D_0035f010");
 extern "C" u32 func_00287bc0();
 extern "C" u32 func_00287db0();
 extern "C" void func_00256ea8(...);
-extern "C" void func_00269e20();
+extern "C" void Tz__CmEquip__FadeOutList();
 extern "C" void func_00269ef8();
 extern "C" void func_00281b30();
 extern "C" void func_00281c50();

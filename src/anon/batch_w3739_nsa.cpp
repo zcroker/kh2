@@ -68,8 +68,8 @@ extern Obj159790* D_0034aa18;
 extern u8 D_0034aa11;
 extern f32 D_004f3600;
 extern "C" {
-void func_001904f0(Obj159790**, S159790*);
-V159790* func_0016c028(void*);
+void YS__TARGET__make_talk_camera_collision(Obj159790**, S159790*);
+V159790* YS__OBJ__get_pos(void*);
 f32 func_002f8ad0(f32, f32);
 f32 func_0017ce10(f32);
 void func_0011b6a8(M159790*);

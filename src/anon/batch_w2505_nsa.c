@@ -12,8 +12,8 @@ extern Part1e9e48* D_01d9e6e0;
 extern s32 D_01d9eab4;
 extern EmitRes1e9e48* D_01d9e6e4;
 extern EmitOvr1e9e48* D_01d9e6e8;
-void func_001e9d48(u8*, Emit1e9e48*, EmitPt1e9e48*);
-void func_001ea100(u8*, Emit1e9e48*, EmitPt1e9e48*);
+void apea(u8*, Emit1e9e48*, EmitPt1e9e48*);
+void pppVertexApLc(u8*, Emit1e9e48*, EmitPt1e9e48*);
 /* VU0 random number in [0,1) (hand-written VU0 macro code) */
 static inline f32 rand1e9e48(void)
 {
@@ -23,7 +23,7 @@ static inline f32 rand1e9e48(void)
     return r;
 }
 /* partMng particle emitter: spawn e->num points per tick (sequential or VU0-random pick) */
-void func_001e9e48(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c);  // 0x001e9e48: definition moved into src/anon/unit_001e8ac8.cpp
+void pppVertexAp(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c);  // 0x001e9e48: definition moved into src/anon/unit_001e8ac8.cpp
 
-/* twin of func_001e9e48 with a different spawn callee */
+/* twin of pppVertexAp with a different spawn callee */
 void func_001ea1b0(u8* base, Emit1e9e48* e, EmitCtx1e9e48* c);  // 0x001ea1b0: definition moved into src/anon/unit_001e8ac8.cpp

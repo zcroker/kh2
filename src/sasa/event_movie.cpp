@@ -25,8 +25,8 @@ void func_0014aa80(u32, s32, s32);
 void func_002ef708(void);
 void func_0014a1e0(void);
 void func_001ddb68(void);
-s32 func_002282f0(s32);
-s32 func_00225b00(s32);
+s32 sa__EVENT__checkStart(s32);
+s32 sa__EVENT__isJumpMode(s32);
 void func_00226ed0(void);
 void func_002fee78(char*, const char*, ...);  // sprintf
 s32 func_002ff538(const char*, const char*, s32);  // strncmp
@@ -103,9 +103,9 @@ void func_0022bbc8() {
 
 void func_0022bd80(void);
 
-void func_0022bc08(Obj48* o, u32 w) {
-    if (func_002282f0(o->id)) return;
-    if (func_00225b00(o->id)) return;
+void sa__EVENT__set_bin_seq_movie(Obj48* o, u32 w) {
+    if (sa__EVENT__checkStart(o->id)) return;
+    if (sa__EVENT__isJumpMode(o->id)) return;
     char* name = o->name;
     func_0014aa58(func_0014abd8(), 0, 0);
     func_00226ed0();

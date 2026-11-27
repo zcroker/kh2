@@ -39,10 +39,10 @@ extern s32 D_01D48CB0;
 extern u8 D_00351EB8;
 extern u8 D_00352560;
 extern u8 D_00350E48;
-s32 func_0019ba60(void*);
+s32 YS__OBJ__is_exist(void*);
 void func_0016cab8(void*);
 void func_0016c7d8(void*);
-void func_001dde40(void*);
+void ryj__PAX__ensure(void*);
 void func_001b1c10(void*, f32);
 void func_0016c640(s32);
 void func_001d4570(void*, void*);
@@ -50,24 +50,24 @@ void func_00170950(void*);
 s32 func_001b5858(void*);
 s32 func_001b5cb8(void*);
 void func_001c8d98(void*, s32);
-void func_001d1ed0(void*);
+void YS__MISSION_GAUGE__destroy(void*);
 void func_001d2048(void*);
 void func_001b0188(void*);
 void func_001ddd88(void*);
 
 void func_001b4f40(u8* p);  // 0x001b4f40: definition moved into src/anon/unit_001b2780.cpp
-s32 func_0019bb98(void*);
+s32 YS__OBJ__is_heavy(void*);
 f32 func_0016a0a0(void*);
 void func_001b7958(void*, V7b*);  // add_vec_to_records
-void func_001b7b10(u8* a, u8* b, V7b* src, V7b* dst);  // 0x001b7b10: definition moved into src/anon/unit_001b6a50.cpp
+void YS__OBJCLSN__avoid(u8* a, u8* b, V7b* src, V7b* dst);  // 0x001b7b10: definition moved into src/anon/unit_001b6a50.cpp
 s32 func_001bfca0(void*);
 void func_001991a8(s32, s32);
-V7e* func_0016c028(void*);  // obj_get_attach_or_alt
+V7e* YS__OBJ__get_pos(void*);  // obj_get_attach_or_alt
 V7e func_0016be98(void*);
 void func_0016bd60(void*, s32);
 void* func_0016a070(void*);
-void* func_001a3018(void*, void*, s32);
-void func_001a3188(void*, void*, s32);
+void* YS__ITEM__WhereGet(void*, void*, s32);
+void YS__ITEM__Get(void*, void*, s32);
 void func_001bf378(u8* p, u8* t);  // 0x001bf378: definition moved into src/anon/unit_001bc568.cpp
 extern u8* D_00347F80;
 extern u8 D_0035E190;
@@ -107,7 +107,7 @@ union U9 { u32 u; s32 s; u8 c; };
 #define R(o) (((U9*)(d + (o)))->s)
 #undef W
 #define W(o) (*(u32*)(p + (o)))
-s32 func_00239988(u8* p, u8* d);  // 0x00239988: definition moved into src/anon/unit_00239988.cpp
+s32 YI__SEQUENCE__Init(u8* p, u8* d);  // 0x00239988: definition moved into src/anon/unit_00239988.cpp
 #undef W
 #undef R
 }

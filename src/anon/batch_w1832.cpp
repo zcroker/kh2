@@ -2,13 +2,13 @@
 struct Obj2c1832 { u8 pad[0x18]; u8 sub[0x174]; void* f18c; };
 extern "C" {
 void func_00138cb8(void*, s32*, s32*);
-void func_001aa728(s32, s32, s32, s32, s32, s32, s32);
+void YS__MESSAGEDRAW__Draw(s32, s32, s32, s32, s32, s32, s32);
 s32 func_0023aa18(void*);
 s32 func_0023aa38(void*);
 s32 func_0023aa58(void*);
 s32 func_0023aa98(void*);
 s32 func_0028b040(s32);
-s32 func_0028b160(s32, Obj2c1832*);
+s32 Tz__Select__GetPtr2Idx(s32, Obj2c1832*);
 s32 func_002c2610(s32, s32);
 extern s32 D_00361c0c;
 extern s32 D_01e2bd10;

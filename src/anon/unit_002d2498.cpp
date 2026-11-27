@@ -38,7 +38,7 @@ struct V {
         return r;
     }
 } __attribute__((aligned(16)));
-V* func_0016c028(u8*) asm("func_0016c028");
+V* YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 void func_002d1b90(u8*, V*) asm("func_002d1b90");
 void func_002d1bf8(u8*, V*, V*, V*) asm("func_002d1bf8");
 void func_002d2330(u8* self, u8* o, const V& off, V& out) asm("func_002d2330");
@@ -46,7 +46,7 @@ void func_002d2330(u8* self, u8* o, const V& off, V& out)
 {
     if (!self[88]) return;
     if (!(*(u32*)(o + 1416) & 0x80) && **(s32**)(o + 8) != 1565) return;
-    V u = (*func_0016c028(o) + off) + out;
+    V u = (*YS__OBJ__get_pos(o) + off) + out;
     V t = u;
     if (*(u32*)(o + 1416) & 0x80) {
         func_002d1b90(self, &t);
@@ -100,21 +100,21 @@ struct Obj1818 { u32 a, b; s32* id; };
 struct Slot1818 { u32 x; Obj1818* p; };
 struct Owner1818 { u8 pad[320]; u32 q[4]; };
 // --- 002d24e8: keep the nearer of two objects with id 2031/2032
-extern Vec1818* func_0016c028(Obj1818*) asm("func_0016c028");
+extern Vec1818* YS__OBJ__get_pos(Obj1818*) asm("YS__OBJ__get_pos");
 // obj_get_attach_or_alt
 extern Obj1818* func_002d1260(void) asm("func_002d1260");
 /*TARGET 002d24e8*/
-void func_002d24e8(Owner1818* s, Obj1818* o) asm("func_002d24e8");
-void func_002d24e8(Owner1818* s, Obj1818* o) {
+void Ti__MGOarashi__set_current_tornado(Owner1818* s, Obj1818* o) asm("Ti__MGOarashi__set_current_tornado");
+void Ti__MGOarashi__set_current_tornado(Owner1818* s, Obj1818* o) {
     s32 id = *o->id;
     u32 r = (u32)(id - 2031) < 2;
     u8 i = id != 2031;
     if (r) {
         Slot1818* t = (Slot1818*)((i << 2) + (u32)s + 320);
         if (t->p == 0) { t->p = o; return; }
-        Vec1818 base(*func_0016c028(func_002d1260()));
-        Vec1818 d1 = *func_0016c028(t->p) - base;
-        Vec1818 d2 = *func_0016c028(o) - base;
+        Vec1818 base(*YS__OBJ__get_pos(func_002d1260()));
+        Vec1818 d1 = *YS__OBJ__get_pos(t->p) - base;
+        Vec1818 d2 = *YS__OBJ__get_pos(o) - base;
         if (vlen1818(d2) < vlen1818(d1)) t->p = o;
     }
 }
@@ -122,14 +122,14 @@ void func_002d24e8(Owner1818* s, Obj1818* o) {
 
 // 002d25f0 (was src/anon/batch_w37.cpp)
 namespace n002d25f0 {
-u8* func_001b9bc8(void*) asm("func_001b9bc8");
-void func_002d24e8(void*, void*) asm("func_002d24e8");
+u8* YS__OBJ__Each(void*) asm("YS__OBJ__Each");
+void Ti__MGOarashi__set_current_tornado(void*, void*) asm("Ti__MGOarashi__set_current_tornado");
 /*TARGET 002d25f0*/
 void func_002d25f0(void* a) asm("func_002d25f0");
 void func_002d25f0(void* a) {
     u8* v = 0;
-    while ((v = func_001b9bc8(v)) != 0) {
-        if (*(u32*)(v + 1416) & 0x08000000) func_002d24e8(a, v);
+    while ((v = YS__OBJ__Each(v)) != 0) {
+        if (*(u32*)(v + 1416) & 0x08000000) Ti__MGOarashi__set_current_tornado(a, v);
     }
 }
 }  // namespace n002d25f0
@@ -145,7 +145,7 @@ struct Vec82 {
         return *this;
     }
 } __attribute__((aligned(16)));
-Vec82* func_0016c028(u32) asm("func_0016c028");
+Vec82* YS__OBJ__get_pos(u32) asm("YS__OBJ__get_pos");
 static inline void QCopy82(void* d, const void* s) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(d), "r"(s) : "$8", "memory"); }
 static inline void VSub82(void* d, const void* a, const void* b) { asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.xyzw $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(d), "r"(a), "r"(b) : "memory"); }
 static inline f32 VLen82(const void* v)
@@ -160,11 +160,11 @@ u8* func_0016bc20(u32, s32, s32) asm("func_0016bc20");
 // 002c66b8: moved to src/anon/unit_002c6420.cpp (linked unit)
 
 // Returns the target in slot a1 if it is within its own reach radius of this object.
-u32 func_002d2660(u8* a0, s32 a1) asm("func_002d2660");
+u32 Ti__MGOarashi__get_attach_ready_tornado(u8* a0, s32 a1) asm("Ti__MGOarashi__get_attach_ready_tornado");
 // 002c66b8: moved to src/anon/unit_002c6420.cpp (linked unit)
 
 // Returns the target in slot a1 if it is within its own reach radius of this object.
-u32 func_002d2660(u8* a0, s32 a1)
+u32 Ti__MGOarashi__get_attach_ready_tornado(u8* a0, s32 a1)
 {
     u32* slot = (u32*)(a1 * 4 + (u32)a0 + 320);
     u8* o;
@@ -175,8 +175,8 @@ u32 func_002d2660(u8* a0, s32 a1)
     if (!slot[1]) return 0;
     o = func_002d1260(a0);
     r = *(s16*)(func_0016bc20(slot[1], 5, -1) + 16);
-    QCopy82(a, func_0016c028((u32)o));  // obj_get_attach_or_alt
-    QCopy82(b, func_0016c028(slot[1]));  // obj_get_attach_or_alt
+    QCopy82(a, YS__OBJ__get_pos((u32)o));  // obj_get_attach_or_alt
+    QCopy82(b, YS__OBJ__get_pos(slot[1]));  // obj_get_attach_or_alt
     VSub82(d, a, b);
     if (VLen82(d) < r) return slot[1];
     return 0;
@@ -394,10 +394,10 @@ struct QWord {
 struct VO { void (**vt)(VO*, s32, s32, VO*, s32); };
 void* func_0016abf8(VO*, s32, s32, s32) asm("func_0016abf8");
 QWord* func_001dc5f8(void*) asm("func_001dc5f8");
-QWord func_0016bda8(VO*) asm("func_0016bda8");
+QWord YS__OBJ__get_target_pos(VO*) asm("YS__OBJ__get_target_pos");
 /*TARGET 002d2a90*/
-void func_002d2a90(VO* o) asm("func_002d2a90");
-void func_002d2a90(VO* o) {
+void Ti__MGOarashiGimObj__start_tornado_attack(VO* o) asm("Ti__MGOarashiGimObj__start_tornado_attack");
+void Ti__MGOarashiGimObj__start_tornado_attack(VO* o) {
     s32 st = *(s32*)((u8*)o + 2924);
     if (st < 0) return;
     if (st == 0) {
@@ -405,7 +405,7 @@ void func_002d2a90(VO* o) {
     } else {
         o->vt[20](o, 1549, 0, o, 0);
         void* x = func_0016abf8(o, 1, 1, 0);
-        if (x) *func_001dc5f8(x) = func_0016bda8(o);
+        if (x) *func_001dc5f8(x) = YS__OBJ__get_target_pos(o);
     }
     *(u32*)((u8*)o + 2876) = 0;
 }
@@ -607,8 +607,8 @@ namespace n002d3128 {
 u8* func_002d1878(u32) asm("func_002d1878");
 extern u32 D_00361f60 asm("D_00361f60");
 /*TARGET 002d3128*/
-void func_002d3128(u8* p, s32 n) asm("func_002d3128");
-void func_002d3128(u8* p, s32 n)
+void Ti__MGOarashiGimObj__reserve_fall_prize(u8* p, s32 n) asm("Ti__MGOarashiGimObj__reserve_fall_prize");
+void Ti__MGOarashiGimObj__reserve_fall_prize(u8* p, s32 n)
 {
     f32 s = *(f32*)(func_002d1878(D_00361f60) + 80);
     for (s32 i = 0; i < 64 && n > 0; i++) {
@@ -688,7 +688,7 @@ void o2d31b0_set(void*, u32, s32) asm("_Z16wtarget_002cf280jjjj");
 s32 o2d31b0_is_attach(O2d31b0*) asm("_ZN2YS3OBJ9is_attachEv");
 V2d31b0* func_002d1f20(void*) asm("func_002d1f20");
 V2d31b0 func_002d2870(void*, O2d31b0*) asm("func_002d2870");
-void func_002d36f0(O2d31b0*) asm("func_002d36f0");
+void Ti__MGOarashiGimObj__appear_fall_prize(O2d31b0*) asm("Ti__MGOarashiGimObj__appear_fall_prize");
 f32 func_002d48b8(f32) asm("func_002d48b8");
 f32 cosf(f32) asm("cosf");
 f32 sinf(f32) asm("sinf");
@@ -736,7 +736,7 @@ void func_002d31b0(O2d31b0* o)
     for (s32 i = 0; i < 64; i++) {
         if (0.0f <= o->timer[i]) {
             o->timer[i] -= D_00349e10;
-            if (o->timer[i] < 0.0f) func_002d36f0(o);
+            if (o->timer[i] < 0.0f) Ti__MGOarashiGimObj__appear_fall_prize(o);
         }
     }
     if (0.0f < o->period) {
@@ -787,8 +787,8 @@ struct P1 { s32 n0; s32 n1; f32 f8; f32 f12; f32 f16; f32 f20; };
 QWord func_002d38e8(u32) asm("func_002d38e8");
 u8* func_001cbe30(QWord*, u32, s32) asm("func_001cbe30");
 /*TARGET 002d3568*/
-void func_002d3568(u32 a, P1* p, u32 c) asm("func_002d3568");
-void func_002d3568(u32 a, P1* p, u32 c)
+void Ti__MGOarashiGimObj__appear_rot_prize(u32 a, P1* p, u32 c) asm("Ti__MGOarashiGimObj__appear_rot_prize");
+void Ti__MGOarashiGimObj__appear_rot_prize(u32 a, P1* p, u32 c)
 {
     s32* pn1 = &p->n1;
     f32* pf12 = &p->f12;
@@ -859,8 +859,8 @@ W1986Obj* func_001cbe30(W1986Tmp*, s32, s32) asm("func_001cbe30");
 f32 sinf(f32) asm("sinf");
 f32 cosf(f32) asm("cosf");
 /*TARGET 002d36f0*/
-void func_002d36f0(void* a) asm("func_002d36f0");
-void func_002d36f0(void* a)
+void Ti__MGOarashiGimObj__appear_fall_prize(void* a) asm("Ti__MGOarashiGimObj__appear_fall_prize");
+void Ti__MGOarashiGimObj__appear_fall_prize(void* a)
 {
     W1986Tmp t;
     void* g = D_00361f60;
@@ -905,10 +905,10 @@ struct Q16 {
         return *this;
     }
 };
-Q16* func_0016c028(void*) asm("func_0016c028");
+Q16* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 // fabsf
 void func_00144450(f32*) asm("func_00144450");
-void func_001b7c80(void*, f32*) asm("func_001b7c80");
+void YS__OBJCLSN__calc_bounding_box(void*, f32*) asm("YS__OBJCLSN__calc_bounding_box");
 static inline void vu0_scaled(Q16& r, const Q16& v, f32 s) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tmfc1 $8, %2\n\tqmtc2 $8, $vf2\n\t"
                  "vmulx.xyzw $vf1, $vf1, $vf2x\n\tsqc2 $vf1, 0(%0)"
@@ -920,7 +920,7 @@ Q16* func_002d38e8(Q16* out, u8* o) {
     if (*(void**)(o + 1296) != 0) {
         f32 m[6];
         func_00144450(m);
-        func_001b7c80(*(void**)(o + 1296), m);
+        YS__OBJCLSN__calc_bounding_box(*(void**)(o + 1296), m);
         Q16 s;
         Q16 r;
         ((f32*)&s)[3] = 0.0f;
@@ -931,7 +931,7 @@ Q16* func_002d38e8(Q16* out, u8* o) {
         *out = r;
         ((s32*)out)[2] = 0;
     } else {
-        *out = *func_0016c028(o);
+        *out = *YS__OBJ__get_pos(o);
         ((s32*)out)[2] = 0;
     }
     return out;
@@ -952,13 +952,13 @@ struct Act2d3 {
 struct Hit2d3 { u8 pad[16]; Act2d3* other; };
 static inline u8 IsPos2d3(f32 v) { return v > 0.0f; }
 void func_001ad990(void*, f32, f32, f32) asm("_Z13func_001ad990Pvfff");
-void ctarget_0016bda8(QW2d3*, Act2d3*) asm("_Z16ctarget_0016bda8jjjj");
-void ctarget_00186a90(Act2d3*, QW2d3*, f32) asm("_Z16ctarget_00186a90jjjj");
+void YS__OBJ__get_target_pos(QW2d3*, Act2d3*) asm("_Z23YS__OBJ__get_target_posjjjj");
+void YS__BTLOBJ__set_hitback(Act2d3*, QW2d3*, f32) asm("_Z23YS__BTLOBJ__set_hitbackjjjj");
 void func_0016ac38(Act2d3*, s32, s32, s32, s32) asm("func_0016ac38");
 f32 fabsf(f32) asm("fabsf");
 /*TARGET 002d39c8*/
-void func_002d39c8(Act2d3* a, Hit2d3* h) asm("func_002d39c8");
-void func_002d39c8(Act2d3* a, Hit2d3* h) {
+void Ti__MGOarashiGimObj__exec_damage_self(Act2d3* a, Hit2d3* h) asm("Ti__MGOarashiGimObj__exec_damage_self");
+void Ti__MGOarashiGimObj__exec_damage_self(Act2d3* a, Hit2d3* h) {
     QW2d3 d, pa, pb;
     Act2d3* b = h->other;
     if (!(b->flags & 0x8000000)) return;
@@ -975,8 +975,8 @@ void func_002d39c8(Act2d3* a, Hit2d3* h) {
         ppa = &pa;
     func_0016ac38(a, 0, 1, 0, 0);
     a->bb80 = 1;
-    ctarget_0016bda8(ppa, a);
-    ctarget_0016bda8(&pb, h->other);
+    YS__OBJ__get_target_pos(ppa, a);
+    YS__OBJ__get_target_pos(&pb, h->other);
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvsub.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)" : : "r"(&d), "r"(ppa), "r"(&pb) : "memory");
     d.z = 0.0f;
     {
@@ -985,7 +985,7 @@ void func_002d39c8(Act2d3* a, Hit2d3* h) {
                      : "=f"(r) : "r"(&d) : "$8", "memory");
     }
     if (a->fb78 < 0.0f) asm volatile("vsub.wxyz $vf1, $vf0, $vf0\n\tsqc2 $vf1, 0(%0)" : : "r"(&d) : "memory");
-    ctarget_00186a90(a, &d, fabsf(a->fb78));
+    YS__BTLOBJ__set_hitback(a, &d, fabsf(a->fb78));
 }
 }  // namespace n002d39c8
 
@@ -1056,20 +1056,20 @@ struct O2d3b78 {
 struct Hit2d3b78 { u8 pad[16]; O2d3b78* other; u8 pad2[8]; s32 f28; };
 extern void* D_00361f60 asm("D_00361f60");
 extern V2d3b78 D_0034eef0 asm("D_0034eef0");
-void func_002d39c8(O2d3b78*, Hit2d3b78*) asm("func_002d39c8");
+void Ti__MGOarashiGimObj__exec_damage_self(O2d3b78*, Hit2d3b78*) asm("Ti__MGOarashiGimObj__exec_damage_self");
 void* o2d3b78_current(void) asm("_ZN2Ti8MGPlayer7currentEv");
 s32 func_002d5c40(void*) asm("func_002d5c40");
-void func_001b3e88(O2d3b78*, Hit2d3b78*) asm("func_001b3e88");
+void YS__PIERROT__damage_se(O2d3b78*, Hit2d3b78*) asm("YS__PIERROT__damage_se");
 void* o2d3b78_start_effect(O2d3b78*, s32, s32, s32) asm("_ZN2YS3OBJ12start_effectEiii");
 V2d3b78* o2d3b78_effect_pos(void*) asm("_ZN3ryj6EFFECT3posEv");
 s32 o2d3b78_appear_prize_ok(void*) asm("_ZN2Ti15MGOarashiPlayer15appear_prize_okEv");
 Cfg2d3b78* o2d3b78_config(void*) asm("_ZN2Ti9MGOarashi6configEv");
-void func_002d3128(O2d3b78*, s32) asm("func_002d3128");
-void func_002d3568(O2d3b78*, void*, s32) asm("func_002d3568");
+void Ti__MGOarashiGimObj__reserve_fall_prize(O2d3b78*, s32) asm("Ti__MGOarashiGimObj__reserve_fall_prize");
+void Ti__MGOarashiGimObj__appear_rot_prize(O2d3b78*, void*, s32) asm("Ti__MGOarashiGimObj__appear_rot_prize");
 void func_001ad990(void*, f32, f32, f32) asm("func_001ad990");
 s32 func_0016ac38(O2d3b78*, s32, s32, s32, s32) asm("func_0016ac38");
-void o2d3b78_00186a90(O2d3b78*, V2d3b78*, f32) asm("_Z16ctarget_00186a90jjjj");
-V2d3b78 o2d3b78_0016bda8(O2d3b78*) asm("_Z16ctarget_0016bda8jjjj");
+void o2d3b78_00186a90(O2d3b78*, V2d3b78*, f32) asm("_Z23YS__BTLOBJ__set_hitbackjjjj");
+V2d3b78 o2d3b78_0016bda8(O2d3b78*) asm("_Z23YS__OBJ__get_target_posjjjj");
 void func_0017f488(void*, s32, f32, f32) asm("func_0017f488");
 void o2d3b78_push(void*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
 f32 fabsf(f32) asm("fabsf");
@@ -1083,13 +1083,13 @@ void func_002d3b78(O2d3b78* o, Hit2d3b78* h)
     O2d3b78* t = h->other;
     if (t && !(t->flags & 0x80)) {
         if ((t->flags & 0x08000000) && t->f2924 < 0) {
-            func_002d39c8(o, h);
+            Ti__MGOarashiGimObj__exec_damage_self(o, h);
             return;
         }
     }
     s32 done = 0;
     s32 kind = func_002d5c40(o2d3b78_current());
-    func_001b3e88(o, h);
+    YS__PIERROT__damage_se(o, h);
     o->hits++;
     s32 eff = -1;
     s32 need;
@@ -1110,9 +1110,9 @@ void func_002d3b78(O2d3b78* o, Hit2d3b78* h)
         if (*o->kind == 1629 || (need > 0 && !(o->hits < need))) done = 1;
     }
     if (done) {
-        if (*o->kind == 1629) func_002d3128(o, o2d3b78_config(g)->f64);
-        else if (*o->kind == 1627) func_002d3568(o, o2d3b78_config(g)->tab216, 0);
-        else func_002d3568(o, o2d3b78_config(g)->tab40, 2);
+        if (*o->kind == 1629) Ti__MGOarashiGimObj__reserve_fall_prize(o, o2d3b78_config(g)->f64);
+        else if (*o->kind == 1627) Ti__MGOarashiGimObj__appear_rot_prize(o, o2d3b78_config(g)->tab216, 0);
+        else Ti__MGOarashiGimObj__appear_rot_prize(o, o2d3b78_config(g)->tab40, 2);
     }
     if (need > 0 && !(o->hits < need)) {
         if (!(o->f2040 & 0x10)) func_001ad990(o->f2092, 1.0f, 0.0f, 0.0f);
@@ -1146,8 +1146,8 @@ void func_002cf2b0(u8*, u32) asm("func_002cf2b0");
 void func_0016ac38(u8*, u32, u32, u32, u32) asm("func_0016ac38");
 void func_002cf280(u8*, u32, u32) asm("func_002cf280");
 /*TARGET 002d3f18*/
-void func_002d3f18(u8* p) asm("func_002d3f18");
-void func_002d3f18(u8* p) {
+void Ti__MGOarashiGimObj__force_destroy(u8* p) asm("Ti__MGOarashiGimObj__force_destroy");
+void Ti__MGOarashiGimObj__force_destroy(u8* p) {
     u8* s = p + 2800;
     if (*(s32*)(p + 2924) >= 0) return;
     if (!func_002cf270(s, 256)) return;
@@ -1195,7 +1195,7 @@ static inline QVW2037a mulSW2037a(const QVW2037a* d, const f32& s, f32 t) {
 extern f32 D_00349e10 asm("D_00349e10");
 s32 func_001c0cd8(void*) asm("func_001c0cd8");
 s32 func_002cf270(void*, s32) asm("func_002cf270");
-void func_0016bda8(QVW2037a*, void*) asm("func_0016bda8");
+void YS__OBJ__get_target_pos(QVW2037a*, void*) asm("YS__OBJ__get_target_pos");
 /*TARGET 002d3fa8*/
 QVW2037a func_002d3fa8(ObjW2037a* a, ObjW2037a* b) asm("func_002d3fa8");
 QVW2037a func_002d3fa8(ObjW2037a* a, ObjW2037a* b) {
@@ -1203,8 +1203,8 @@ QVW2037a func_002d3fa8(ObjW2037a* a, ObjW2037a* b) {
     if (b == a || (b->flags & 0x80) || func_001c0cd8(b) || ((b->flags & 0x08000000) && func_002cf270(b->sub, 0x400)))
         return QVW2037a(0.0f);
     QVW2037a pa, pb, d;
-    func_0016bda8(&pa, a);
-    func_0016bda8(&pb, b);
+    YS__OBJ__get_target_pos(&pa, a);
+    YS__OBJ__get_target_pos(&pb, b);
     vsubW2037a(&d, &pa, &pb);
     *(s32*)&d.z = 0;
     d.w = normalizeW2037a(&d);
@@ -1239,10 +1239,10 @@ extern u8 D_003621a0[] asm("D_003621a0");
 /*TARGET 002d4200*/
 // 0x002bf618: definition moved into src/anon/unit_002bebd0.cpp
 
-void func_002d4200(u8* p, void* a, void* b) asm("func_002d4200");
+void Ti__MGOarashiPiglet__MGOarashiPiglet(u8* p, void* a, void* b) asm("Ti__MGOarashiPiglet__MGOarashiPiglet");
 // 0x002bf618: definition moved into src/anon/unit_002bebd0.cpp
 
-void func_002d4200(u8* p, void* a, void* b) {
+void Ti__MGOarashiPiglet__MGOarashiPiglet(u8* p, void* a, void* b) {
     func_002d2948(p, a, 1, b);
     *(u8**)p = D_003621a0;
     func_002e7308(p + 3208);
@@ -1318,7 +1318,7 @@ extern u8* D_00361f60 asm("D_00361f60");
 extern f32 D_00349e10 asm("D_00349e10");
 extern u8 D_00362188[] asm("D_00362188");
 void func_0016a9a0(u8*) asm("func_0016a9a0");
-V* func_0016c028(u8*) asm("func_0016c028");
+V* YS__OBJ__get_pos(u8*) asm("YS__OBJ__get_pos");
 V func_002d1d30(u8*, const V&) asm("func_002d1d30");
 void func_002e7568(u8*, s32, u8*) asm("func_002e7568");
 u8* config(u8*) asm("_ZN2Ti9MGOarashi6configEv");
@@ -1334,7 +1334,7 @@ void func_002d42d0(u8* o)
     func_0016a9a0(o);
     u8* g = D_00361f60;
     if (!*(u32*)(o + 2808)) return;
-    V pos = *func_0016c028(o);
+    V pos = *YS__OBJ__get_pos(o);
     V r = func_002d1d30(g, pos);
     f32 t;
     if (!o[3204]) {

@@ -154,13 +154,13 @@ s32 func_0019f2a8(Cmd*, Sel*) asm("func_0019f2a8");
 Mem* func_001a8bd0(s32) asm("func_001a8bd0");
 void func_001a8d40(Mem*, s32) asm("func_001a8d40");
 void func_001d94f8(Mem, Mem*) asm("func_001d94f8");
-void func_001a60c8(void) asm("func_001a60c8");
+void YS__MAGIC__Reset(void) asm("YS__MAGIC__Reset");
 void func_002533e0(s32, const void*) asm("func_002533e0");
-void func_00104f58(Sel*, u32, s32, s32, s32) asm("func_00104f58");
-void func_001ada38(s32) asm("func_001ada38");
+void AREA__MapJump(Sel*, u32, s32, s32, s32) asm("AREA__MapJump");
+void YS__RECOV__Exec(s32) asm("YS__RECOV__Exec");
 void func_00149fe0(s32, u32) asm("func_00149fe0");
 void func_0014a138(s32) asm("func_0014a138");
-void func_00253180(s32, s32) asm("func_00253180");
+void Tz__CampMenu__Start(s32, s32) asm("Tz__CampMenu__Start");
 extern s8 D_01c62fa0 asm("D_01c62fa0");
 extern Mem D_01c62fa8 asm("D_01c62fa8") __attribute__((aligned(4)));
 extern s32 D_01c62f98 asm("D_01c62f98");
@@ -200,7 +200,7 @@ void func_0019f070(Cmd* o, u32 a1) {
         func_0014a138(0);
         break;
     case 5:
-        func_00253180(15, -1);
+        Tz__CampMenu__Start(15, -1);
         break;
     }
     if (o->f14 >= 0) {
@@ -216,16 +216,16 @@ void func_0019f070(Cmd* o, u32 a1) {
                 a = 2;
                 func_001d94f8(D_01c62fa8, m);
             blk:
-                func_001a60c8();
+                YS__MAGIC__Reset();
                 func_002533e0(a, ps);
             }
             mode = 2;
         }
     }
     if (v) {
-        func_00104f58(&s, fl, mode, 0, o->f18);
+        AREA__MapJump(&s, fl, mode, 0, o->f18);
     } else if (o->f18) {
-        func_001ada38(o->f18);
+        YS__RECOV__Exec(o->f18);
     }
 }
 }  // namespace n0019f070
@@ -497,13 +497,13 @@ namespace n0019f790 {
 extern u32 D_0033caf4 asm("D_0033caf4");
 extern u32 D_00350470 asm("D_00350470");
 extern u32 D_01c62fb0 asm("D_01c62fb0");
-u32 func_001b1490(...) asm("func_001b1490");
+u32 YS__DATABUFF__ReadBar(...) asm("YS__DATABUFF__ReadBar");
 u32 func_002fee78(...) asm("func_002fee78");
 void func_0019f790() asm("_Z13func_0019f790v");
 void func_0019f790() {
     u8 sp[48];
     func_002fee78(sp, D_00350470, D_0033caf4);
-    D_01c62fb0 = func_001b1490(sp);
+    D_01c62fb0 = YS__DATABUFF__ReadBar(sp);
 }
 }  // namespace n0019f790
 
@@ -585,8 +585,8 @@ struct W1753Pair { u32 a; u32 b; };
 struct W1753Sub { u32 w[16]; };
 struct W1753S1 { u32 x0; u32 x4; W1753Pair arr[8]; W1753Sub sub; };
 void func_001c0150(W1753Sub*, u32) asm("func_001c0150");
-void func_0019f950(W1753S1* p, u32 v) asm("func_0019f950");
-void func_0019f950(W1753S1* p, u32 v) {
+void YS__OBJ_ATTACK__OBJ_ATTACK(W1753S1* p, u32 v) asm("YS__OBJ_ATTACK__OBJ_ATTACK");
+void YS__OBJ_ATTACK__OBJ_ATTACK(W1753S1* p, u32 v) {
     p->x0 = v;
     p->x4 = 0;
     func_001c0150(&p->sub, v);
@@ -597,8 +597,8 @@ void func_0019f950(W1753S1* p, u32 v) {
 // ---- 0019f9a8 from src/anon/batch_w48.cpp
 namespace n0019f9a8 {
 void func_0018f028(void*) asm("func_0018f028");
-void func_0019f9a8(u8* o) asm("func_0019f9a8");
-void func_0019f9a8(u8* o) {
+void YS__OBJ_ATTACK__clear(u8* o) asm("YS__OBJ_ATTACK__clear");
+void YS__OBJ_ATTACK__clear(u8* o) {
     u8* p = o;
     for (s32 i = 7; i >= 0; i--) {
         if (*(void**)(p + 12)) {

@@ -24,6 +24,6 @@ void sceVu0SubVector(W1833Vec*, W1833Vec*, void*);
 void sceVu0Normalize(W1833Vec*, W1833Vec*);
 void sceVu0ScaleVector(W1833Vec*, W1833Vec*, f32);
 
-void func_001f5cc8(void* owner, W1833Prm* prm, s16* pos);  // 0x001f5cc8: definition moved into src/anon/unit_001f5978.cpp
-void func_001f6648(void* owner, W1833Prm* prm, s16* pos);  // 0x001f6648: definition moved into src/anon/unit_001f6298.cpp
+void pppKeBornRnd2_Born(void* owner, W1833Prm* prm, s16* pos);  // 0x001f5cc8: definition moved into src/anon/unit_001f5978.cpp
+void pppKeBornRnd5_Born(void* owner, W1833Prm* prm, s16* pos);  // 0x001f6648: definition moved into src/anon/unit_001f6298.cpp
 }

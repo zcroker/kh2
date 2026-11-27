@@ -12,12 +12,12 @@ extern "C" {
 Task_f* CreateTask_f(s32, s32, void (*)(Task_f*)) asm("_ZN5FIELD10CreateTaskEiiPFvP4TASKE");
 void* Alloc_f(u32) asm("_ZN4AREA5AllocEj");
 Obj_f* ComboStart_f(s32) asm("_ZN2sa13MUSICAL_COMBO5startEi");
-s32 func_002282f0(s32);
-s32 func_002282d8(void);
+s32 sa__EVENT__checkStart(s32);
+s32 sa__EVENT__getEventPriority(void);
 s32 func_002247d8(void);
 void func_00224f38(s32, Task_f**, Obj_f**, s32);
 void func_00224f08(Task_f*);
-void func_00229e58(Task_f*);
+void sa__MUSICAL_COMBO__printTask(Task_f*);
 
 // Spawns a task for a grid cell: picks the task kind from p->type, then fills its data block
 // with cell offsets (centre, up, left/right neighbours) relative to p->f4.

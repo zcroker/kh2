@@ -15,7 +15,7 @@ extern u32 D_0035f04c;
 static inline void set_0026a060(u8* q, s32 v) {
     if (func_00139d78(q) && *(s32*)(q + 0x184) != v) func_00138c10(q, v);
 }
-void func_0026a060(void);  // 0x0026a060: definition moved into src/anon/unit_00269a60.cpp
+void Tz__CmEquip__SetLoopList(void);  // 0x0026a060: definition moved into src/anon/unit_00269a60.cpp
 s32 func_00287cd0(void);
 s32 func_002576d0(void);
 void func_002575a8(void);
@@ -34,7 +34,7 @@ void func_00287c00(s32);
 extern u32 D_0035f024;
 extern u8 D_0035f128;
 extern u8 D_0035f130;
-void func_0026ff78(void);  // 0x0026ff78: definition moved into src/anon/unit_0026f0a0.cpp
+void Tz__CmCustom__CtrlAutoConfirm(void);  // 0x0026ff78: definition moved into src/anon/unit_0026f0a0.cpp
 s32 func_00276348(void);
 void func_0028d8c0(u8*, s32, u32, u32, u32, s32, s32, s32);
 void func_00139620(u8*);
@@ -45,5 +45,5 @@ extern u32 D_0035f210;
 extern s8* D_0035f1fc;
 extern u8* D_0035f21c;
 extern u16 D_00373d40[];
-void func_00276e78(void);  // 0x00276e78: definition moved into src/anon/unit_002748a0.cpp
+void Tz__Jiminy__CreateCover(void);  // 0x00276e78: definition moved into src/anon/unit_002748a0.cpp
 }

@@ -57,7 +57,7 @@ struct GItem { u32 f0, f4, f8; };
 extern char D_003741e8[];
 GInfo* func_001a80c8(u32);  // table24_find_by_id
 u32 func_001a3820(u32);
-GItem* func_001b8e88(u32);
+GItem* YS__COMMAND_ELEM__Get(u32);
 s32 func_001a6598(u32);
 void func_00259570(u32, char*, s32, s32);
 s32 func_002595e0(void);
@@ -113,7 +113,7 @@ static inline QWord MulV(const QMat& m, const QWord& v)
 extern "C" {
 extern f32 D_01d498c4;
 extern f32 D_00349e10;
-s32 func_0019ba60(u32);
+s32 YS__OBJ__is_exist(u32);
 void func_0011b6a8(QMat*);
 QMat* func_0011b720(QMat*, f32);
 QWord func_0016be98(u32);
@@ -193,8 +193,8 @@ extern "C" {
 extern u32 D_0035169c[];
 extern QWord D_00352a60;
 extern u32 D_0034e948;
-QWord func_0016af58(u32);
-void func_001c6900(u8*, QWord*);
-s32 func_001c5c60(u8* o);  // 0x001c5c60: definition moved into src/anon/unit_001c5b90.cpp
+QWord YS__OBJ__get_dir(u32);
+void YS__CROWD_M_EX760___Blow(u8*, QWord*);
+s32 YS__CROWD_M_EX760__CheckAttack(u8* o);  // 0x001c5c60: definition moved into src/anon/unit_001c5b90.cpp
 }
 }

@@ -28,7 +28,7 @@ void func_001069f8(s32);
 u8* func_00102c18(s32, s32, void (*)(void));
 void func_00161818(void);
 void func_001433e8(void);
-void func_00107888(void);
+void kn__camera_task(void);
 void func_001dd2b8(void);
 void func_00144250(void);
 void func_00161880(void);
@@ -55,7 +55,7 @@ extern Vec4 D_00341750[3];
 extern u8 D_00341700;
 extern u32 D_00341780;
 extern u8 D_003417b0[];
-void func_001123f0(void);  // 0x001123f0: definition moved into src/anon/unit_001117d8.cpp
+void kn__Friend__Init(void);  // 0x001123f0: definition moved into src/anon/unit_001117d8.cpp
 
 void func_001dc920(void*);
 void func_00117910(void*, s32);  // entry64_clear_fields
@@ -73,7 +73,7 @@ struct Obj123 { void* vtbl; u8* data; u8 pad[8]; s32 n; s32 a[3]; s32 b[3]; };
 // constructor: walks the part offset table, accumulating running sizes
 void func_001239d8(Obj123* o);  // 0x001239d8: definition moved into src/anon/unit_00123990.cpp
 
-void func_00188340(void*, s32, s32, s32);
+void YS__ACT__callback(void*, s32, s32, s32);
 void func_0016cce8(void*, s32, s32, s32, s32);
 struct Obj184;
 struct Obj184vt { u8 pad[44]; void (*f44)(Obj184*); };
@@ -83,8 +83,8 @@ struct Obj184 { Obj184vt* vt; u8 p4[8]; Sub184* f12; u8 p16[248]; u32 flags; u8 
 // 001841f0: moved to src/anon/unit_00183088.cpp
 
 u32 func_001a80c8(u32);  // table24_find_by_id
-u8* func_001a8190(u32);
-void func_001c3150(void*, u16);
+u8* YS__ITEM_TABLE__get_param(u32);
+void YS__ABILITY__set_item(void*, u16);
 struct St1a2 { u8 pad[392]; u16 s[4]; u8 p400[24]; u8 r[8]; u8 p432[28]; u8 f460[4]; };
 void func_001a24a0(St1a2* o, u32 id);  // 0x001a24a0: definition moved into src/anon/unit_0019fb70.cpp
 
@@ -103,17 +103,17 @@ extern u32 D_01d48c44;
 void func_00102448(void*, s32);
 void func_002fee78(char*, const char*, ...);
 void func_001688c8(char*);
-void func_00168388(char*, void*, s32, s32);
+void YS__FILE__ReadBack(char*, void*, s32, s32);
 s32 func_001688b8(void);
 // 001b1ee8: moved to src/anon/unit_001b1d20.cpp
 
 s32 func_001bb4a0(void);
 u8* func_001bbcb0(void);
-void func_001d1b60(void*, s32);
+void YS__MISSION_COUNT__set(void*, s32);
 struct Dig1d8 { u8 p0[12]; u32 flags; u8 p16[28]; s32 cur; };
 static inline u32 dig1d8_on(Dig1d8* e) { return e->flags & 1; }
 // replaces one decimal digit of an entry's value
-void func_001d89e8(s32 digit, s32 val, s32 idx);  // 0x001d89e8: definition moved into src/anon/unit_001d7458.cpp
+void YS__MISSION__SetCountFigureNum(s32 digit, s32 val, s32 idx);  // 0x001d89e8: definition moved into src/anon/unit_001d7458.cpp
 
 // 001e09d0: moved to src/rikeda/saveram_gumibattle.cpp
 
@@ -140,8 +140,8 @@ void* func_00225eb8(Heap225* h, u32 size, s32 mode);  // 0x00225eb8: definition 
 struct Obj22f;
 struct Obj22fvt { u8 pad[40]; void (*f40)(Obj22f*); };
 struct Obj22f { Obj22fvt* vt; };
-void func_001ba028(Obj22f*);  // list_contains_ptr
-void func_00232db0(u32);
+void YS__OBJ__is_valid(Obj22f*);  // list_contains_ptr
+void sa__EVENT__clearMotionCtrlWk(u32);
 struct Ent22f { s32 id; u32 f4; Obj22f* obj; u8 pad[28]; };
 union Tbl22f { Ent22f* p; u8 c; };
 extern Tbl22f D_0035dcfc;
@@ -166,18 +166,18 @@ void func_0023f070(void*, s32, s32);
 s32 func_0028acc8(void*);
 void func_0028ab20(void*);
 s32 func_002891e8(void*);
-void func_00248720(void);  // 0x00248720: definition moved into src/anon/unit_00247ff0.cpp
+void Tz__MUMI__LoopAll(void);  // 0x00248720: definition moved into src/anon/unit_00247ff0.cpp
 
 extern void* D_0035f01c;
 struct Ent273 { u16 id; u8 pad[6]; };
 extern Ent273 D_00373af8[];
 s32 func_00287bc0(void);
-s32 func_0028b160(void*, u8*);  // find_index_in_array
+s32 Tz__Select__GetPtr2Idx(void*, u8*);  // find_index_in_array
 u32 func_00192048(u16);
-void func_001a98e8(void*, s32, u32, u32, s32);
+void YS__MESSAGEDRAW__MESSAGEDRAW(void*, s32, u32, u32, s32);
 s32 func_0023aa98(void*);
 u32 func_0023a918(void*);
-void func_001a9ae8(void*, u8*, u32, u32);
+void YS__MESSAGEDRAW__draw(void*, u8*, u32, u32);
 void func_00273078(u8* base, u32 a1, u32 a2, u32 a3, u8* p);  // 0x00273078: definition moved into src/anon/unit_00271e08.cpp
 
 extern s16 D_00373d60[];
@@ -191,7 +191,7 @@ s32 func_00276368(void);
 void func_00138c10(void*, s32);
 void func_0028d8c0(void*, s32, u32, u32, u32, s32, s32, s32);
 // plays the selected entry's cue (mode picks the table)
-void func_00276220(s32 mode, s32 idx);  // 0x00276220: definition moved into src/anon/unit_002748a0.cpp
+void Tz__Jiminy__SetParentSeqNum(s32 mode, s32 idx);  // 0x00276220: definition moved into src/anon/unit_002748a0.cpp
 
 extern f32 D_0035f294;
 extern f32 D_00349e10;
@@ -218,7 +218,7 @@ void func_00192cc0(u8*, u8*, u8);
 void func_00282858(List282* l, s32 first, s32 count);  // 0x00282858: definition moved into src/anon/unit_00282620.cpp
 void func_0028af18(void*, s32);
 void func_0028b1b0(void*, s32);
-void func_0028b218(void*, s32);  // obj_set_flag39_bits3000
+void Tz__Select__SetPageMode(void*, s32);  // obj_set_flag39_bits3000
 void func_0028b248(void*, s32);  // set_field28_half
 union S16U { s16 s; u8 c; };
 union U32U { u32 w; u8 c; };
@@ -243,14 +243,14 @@ extern s8 D_00374590[][2];
 u32 func_00103570(void);
 void* func_001063f0(s32, u32);
 void func_002fde18(void*, s32, s32);
-void func_002926c0(s32 idx);  // 002926c0: moved to src/anon/unit_00292620.cpp
+void Tz__UnitLoad__Init(s32 idx);  // 002926c0: moved to src/anon/unit_00292620.cpp
 
 extern void* D_0035f200;
 s32 func_0028afa8(void*);
 s32 func_0028b040(void*);
 u8* func_002891b8(void*, s32);
 void func_00138c10(void*, s32);
-void func_002955a8(void);  // 0x002955a8: definition moved into src/anon/unit_00292e60.cpp
+void Tz__JmWorldSel__DrawUpdate(void);  // 0x002955a8: definition moved into src/anon/unit_00292e60.cpp
 
 struct Ev2ad { u8 p0[4]; u8 done; u8 p5[3]; u16 id; };
 Ev2ad* func_001a82b0(Ev2ad*);
@@ -260,7 +260,7 @@ extern s32 D_0035f628;
 extern s32 D_0035f62c;
 extern u8* D_0035f620;
 // counts unlocked entries and marks the ones that pass in the bitmask
-void func_002ad9f8(void);  // 0x002ad9f8: definition moved into src/anon/unit_002a99c8.cpp
+void Tz__JmComplete__CheckTreasure(void);  // 0x002ad9f8: definition moved into src/anon/unit_002a99c8.cpp
 s32 func_002d5578(u8*);  // is_field340_eq151
 void func_00178d28(u8*);
 void func_0017f488(u8*, s32, f32, f32);

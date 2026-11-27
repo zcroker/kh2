@@ -36,7 +36,7 @@ void func_002b9ab8(s32) asm("func_002b9ab8");
 void func_002ba298(s32) asm("func_002ba298");
 void func_002ba390(void) asm("func_002ba390");
 void func_002bce40(u8*) asm("func_002bce40");
-void func_002bce50(u8*) asm("func_002bce50");
+void SE_BANK__clearField(u8*) asm("SE_BANK__clearField");
 void func_002b9b78(void) asm("func_002b9b78");
 void func_002bd218(void) asm("func_002bd218");
 void u_tail0_002b9ad0(void) asm("_Z16u_tail0_002b9ad0v");
@@ -51,7 +51,7 @@ void u_tail0_002b9ad0(void)
     func_002ba298(1);
     func_002ba390();
     func_002bce40(D_01e2a410);
-    func_002bce50(D_01e2a410);
+    SE_BANK__clearField(D_01e2a410);
     func_002b9b78();
     func_002bd218();
     D_003616e0 = 0;
@@ -92,7 +92,7 @@ void func_002b691c(u32) asm("func_002b691c");
 void func_002bbde0(void) asm("func_002bbde0");
 void func_002bacc0(void) asm("func_002bacc0");
 void func_002b9ad0(void) asm("func_002b9ad0");
-void func_002b9c80(void) asm("func_002b9c80");
+void SOUND__initCommonSe(void) asm("SOUND__initCommonSe");
 void func_002bd538(void) asm("func_002bd538");
 void func_00102788(u32, u32, u32, void (*)(void)) asm("func_00102788");
 void func_002b9c60(void) asm("func_002b9c60");
@@ -104,7 +104,7 @@ void wtarget_002b9bd0(u32, u32, u32, u32) {
     func_002bbde0();
     func_002bacc0();
     func_002b9ad0();
-    func_002b9c80();
+    SOUND__initCommonSe();
     func_002bd538();
     func_00102788(D_0032b91c, 0, 0x7a12a, func_002b9c60);
 }
@@ -147,7 +147,7 @@ typedef signed int s32;
 s32 func_001688c8(void *) asm("func_001688c8");
 s32 func_00170b30(s32) asm("func_00170b30");
 void func_001682b8(void *, s32) asm("func_001682b8");
-void func_002ba1b8(s32, s32, s32) asm("func_002ba1b8");
+void SOUND__sebTransfer(s32, s32, s32) asm("SOUND__sebTransfer");
 void func_002ba188(s32, s32, s32) asm("func_002ba188");
 s32 func_002b6f78(void) asm("func_002b6f78");
 void func_002b6ab8(void) asm("func_002b6ab8");
@@ -157,8 +157,8 @@ extern u8 D_00374f40[] asm("D_00374f40");
 extern u8 D_00374f50[] asm("D_00374f50");
 extern u8 D_00374f60[] asm("D_00374f60");
 /*TARGET 002b9c80*/
-void func_002b9c80(void) asm("func_002b9c80");
-void func_002b9c80(void)
+void SOUND__initCommonSe(void) asm("SOUND__initCommonSe");
+void SOUND__initCommonSe(void)
 {
   s32 new_var;
   s32 size;
@@ -168,7 +168,7 @@ void func_002b9c80(void)
   buf = func_00170b30((size + 0x83f) & (~0x7ff));
   p = (buf + 0x3f) & (~0x3f);
   func_001682b8(D_00374f30, p);
-  func_002ba1b8(2, p, size);
+  SOUND__sebTransfer(2, p, size);
   while (func_002b6f78())
   {
     func_002b6ab8();
@@ -179,7 +179,7 @@ void func_002b9c80(void)
   buf = func_00170b30((size + 0x83f) & (~0x7ff));
   p = (buf + 0x3f) & (~0x3f);
   func_001682b8(D_00374f40, p);
-  func_002ba1b8(3, p, size);
+  SOUND__sebTransfer(3, p, size);
   while (func_002b6f78())
   {
     func_002b6ab8();
@@ -215,7 +215,7 @@ void func_002b9c80(void)
 namespace n002b9e80 {
 void func_002b7fbc(u32) asm("func_002b7fbc");
 void func_002bce40(void*) asm("func_002bce40");
-void func_002bce50(void*) asm("func_002bce50");
+void SE_BANK__clearField(void*) asm("SE_BANK__clearField");
 void func_002b9b78(void) asm("func_002b9b78");
 void func_002ba390(void) asm("func_002ba390");
 void func_002b9ed0(void) asm("func_002b9ed0");
@@ -229,7 +229,7 @@ void func_002b9e80(void) asm("func_002b9e80");
 void func_002b9e80(void) {
     func_002b7fbc(0);
     func_002bce40(D_01e2a410);
-    func_002bce50(D_01e2a410);
+    SE_BANK__clearField(D_01e2a410);
     func_002b9b78();
     func_002ba390();
     func_002b9ed0();
@@ -267,7 +267,7 @@ void func_002bc798(void) asm("func_002bc798");
 void func_002ba9c0(void) asm("func_002ba9c0");
 void func_002bc470(s32) asm("func_002bc470");
 void func_002bcf58(void*) asm("func_002bcf58");
-void func_002bcfa0(void*) asm("func_002bcfa0");
+void SE_BANK__objectDestroy(void*) asm("SE_BANK__objectDestroy");
 void func_002baa60(void) asm("func_002baa60");
 void func_002bc608(s32) asm("func_002bc608");
 void func_002bbf98(void) asm("func_002bbf98");
@@ -275,10 +275,10 @@ extern u8 D_01e2a410 asm("D_01e2a410");
 /*TARGET 002b9f28*/
 // 0x00298e48: definition moved into src/anon/unit_002982f0.cpp
 
-void func_002b9f28(u8 a) asm("func_002b9f28");
+void SOUND__areaInit(u8 a) asm("SOUND__areaInit");
 // 0x00298e48: definition moved into src/anon/unit_002982f0.cpp
 
-void func_002b9f28(u8 a) {
+void SOUND__areaInit(u8 a) {
     if (a) func_002b7fbc(1);
     else func_002b7fbc(0);
     func_002bc798();
@@ -286,7 +286,7 @@ void func_002b9f28(u8 a) {
     func_002bc470(2);
     func_002bc470(3);
     func_002bcf58(&D_01e2a410);
-    func_002bcfa0(&D_01e2a410);
+    SE_BANK__objectDestroy(&D_01e2a410);
     func_002baa60();
     func_002bc608(0);
     func_002bc608(1);
@@ -301,7 +301,7 @@ namespace n002b9fb0 {
 
 void func_002b7fbc(s32) asm("func_002b7fbc");
 void func_002bced8(void*) asm("func_002bced8");
-void func_002bcee8(void*) asm("func_002bcee8");
+void SE_BANK__clearGumi(void*) asm("SE_BANK__clearGumi");
 void func_002b9b78(void) asm("func_002b9b78");
 void func_002ba390(void) asm("func_002ba390");
 void func_002bc798(void) asm("func_002bc798");
@@ -316,7 +316,7 @@ void func_002b9fb0(void) asm("func_002b9fb0");
 void func_002b9fb0(void) {
     func_002b7fbc(1);
     func_002bced8(D_01e2a410);
-    func_002bcee8(D_01e2a410);
+    SE_BANK__clearGumi(D_01e2a410);
     func_002b9b78();
     func_002ba390();
     func_002bc798();
@@ -431,8 +431,8 @@ extern void (**D_0032b914)() asm("D_0032b914");
 void func_002bc470(u32) asm("func_002bc470");
 void func_002b6e24(u32, u32, u32) asm("func_002b6e24");
 /*TARGET 002ba1b8*/
-void func_002ba1b8(u32 a, u32 b, u32 c) asm("func_002ba1b8");
-void func_002ba1b8(u32 a, u32 b, u32 c) {
+void SOUND__sebTransfer(u32 a, u32 b, u32 c) asm("SOUND__sebTransfer");
+void SOUND__sebTransfer(u32 a, u32 b, u32 c) {
     func_002bc470(a);
     func_002b6e24(a, b, c);
 }

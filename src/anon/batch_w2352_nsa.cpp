@@ -32,22 +32,22 @@ void func_0016cbc8(s32, s32, void*, s32);
 s32 func_0016d080(s32, s32);
 s32 func_001708f8(s32, s32);
 void func_001b4c48(Obj*, void*, void*);
-void func_001b5708(Obj*, s32);
+void YS__LIMIT__set_special_command(Obj*, s32);
 void func_001d1698(void*, s32, s32, s32);
 void func_001d16e8(void*, s32, s32);
-void func_001d1a18(void*, s32, s32, s32);
+void YS__MISSION_COUNT__set_param(void*, s32, s32, s32);
 void func_001d1d00(void*);
-void func_001d1da0(void*, f32);
+void YS__MISSION_GAUGE__set(void*, f32);
 void func_001d20a8(void*);
 void func_001d2248(void*, s32);
 s32 func_001d3f98(Ent*);
 s32 func_001d4550(Ent*);
-void func_001dddd0(void*, s32);
+void ryj__PAX__init(void*, s32);
 
 static inline bool valid(Res* r) { return r && r->v; }
 
 /* 001b4a00: set-up step of an entity: reads its parameters (0x14, 0x12, 3, 0x22) and initialises the sub-objects. */
-void func_001b4a00(Obj* self, f32 f);  // 0x001b4a00: definition moved into src/anon/unit_001b2780.cpp
+void YS__LIMIT__setup(Obj* self, f32 f);  // 0x001b4a00: definition moved into src/anon/unit_001b2780.cpp
 }
 
 /* ---- 00222d40 ---- */

@@ -14,7 +14,7 @@ extern "C" u32 func_00292630(...);
 extern "C" u32 func_0016e920(...);
 extern "C" u32 func_0016f470(...);
 extern "C" void func_00170a90(...);
-extern "C" void func_0016ed50(...);
+extern "C" void YS__OBJENTRY__ReadRequest(...);
 extern "C" void func_00293cb8(...);
 extern "C" u32 func_002926a8(...);
 extern u8 D_0035f4b8 asm("D_0035f4b8");

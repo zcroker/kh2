@@ -305,9 +305,9 @@ u32 func_00233708(u32, s32) asm("func_00233708");
 u32 func_002338a8(f32, u32) asm("func_002338a8");
 /*TARGET 00238570*/
 /* Build a GIF packet of textured sprite quads (UV scroll, rotation, per-vertex colour) for a 2D layout object. */
-void func_00238570(W1699Obj* obj, s32 a1, s32 a2, s32 a3, s32 a4) asm("func_00238570");
+void YI__SPRITE___Draw(W1699Obj* obj, s32 a1, s32 a2, s32 a3, s32 a4) asm("YI__SPRITE___Draw");
 /* Build a GIF packet of textured sprite quads (UV scroll, rotation, per-vertex colour) for a 2D layout object. */
-void func_00238570(W1699Obj* obj, s32 a1, s32 a2, s32 a3, s32 a4)
+void YI__SPRITE___Draw(W1699Obj* obj, s32 a1, s32 a2, s32 a3, s32 a4)
 {
     s32 cx, cy, oy, ox;
     W1699Pkt pk;
@@ -507,8 +507,8 @@ void func_001b7f30(W1700Pkt*) asm("func_001b7f30");
 u32 func_00233708(u32, s32) asm("func_00233708");
 u32 func_002338a8(f32, u32) asm("func_002338a8");
 /*TARGET 00238c90*/
-void func_00238c90(W1700Sprite* s, s32 x, s32 y, s32 ox, s32 oy) asm("func_00238c90");
-void func_00238c90(W1700Sprite* s, s32 x, s32 y, s32 ox, s32 oy) {
+void YI__SPRITE___Draw2(W1700Sprite* s, s32 x, s32 y, s32 ox, s32 oy) asm("YI__SPRITE___Draw2");
+void YI__SPRITE___Draw2(W1700Sprite* s, s32 x, s32 y, s32 ox, s32 oy) {
     s32 sox, soy, bx, by;
     s->x = x;
     s->y = y;
@@ -733,10 +733,10 @@ namespace n00239558 {
 /*TARGET 00239558*/
 // 0x00233410: definition moved into src/anon/unit_00232f08.cpp
 
-void func_00239558(u8* p, u16* a, u16* b) asm("func_00239558");
+void YI__SPRITE__SetDirextUV(u8* p, u16* a, u16* b) asm("YI__SPRITE__SetDirextUV");
 // 0x00233410: definition moved into src/anon/unit_00232f08.cpp
 
-void func_00239558(u8* p, u16* a, u16* b) {  // copy_4halfwords_and_set_flag
+void YI__SPRITE__SetDirextUV(u8* p, u16* a, u16* b) {  // copy_4halfwords_and_set_flag
     *(u32*)(p + 16) |= 0x40;
     u8* q = p;
     for (s32 i = 0; i < 4; i++) {

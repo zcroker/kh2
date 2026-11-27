@@ -9,7 +9,7 @@ extern "C" {
 void func_0014b150(void*);
 void func_0014b300(void*);
 extern u8 D_00349b40[];
-void ctarget_0014b290(u32* self, u32, u32, u32) asm("_Z16ctarget_0014b290jjjj");
+void dk__RectBase__createPacket(u32* self, u32, u32, u32) asm("_Z26dk__RectBase__createPacketjjjj");
 // 0014b290: moved to src/anon/unit_0014b150.cpp
 // 0014b2c8: moved to src/anon/unit_0014b150.cpp
 

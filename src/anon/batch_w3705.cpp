@@ -11,12 +11,12 @@ extern Tbl27a6d8* D_0035f230;
 s32 func_002570a0(s32);
 void func_0027aed8(s32, s32*, s32*);
 s32 func_0028b040(s32);
-s32 func_00286d28(s32, s32);
+s32 Tz__CmNewFlg__isAbilityNewMember(s32, s32);
 s32 func_0027ae78(s32);
-s32 func_00286ec8(s32, s8);
-void func_00287358(s32, s8);
+s32 Tz__CmNewFlg__isAbilityNewForm(s32, s8);
+void Tz__CmNewFlg__SetAbilityFlgMember(s32, s8);
 void func_00287430(s32, s8);
 
-void func_0027a6d8(void);  // 0x0027a6d8: definition moved into src/anon/unit_0027a6d8.cpp
+void Tz__CmAbility__UpdateNew(void);  // 0x0027a6d8: definition moved into src/anon/unit_0027a6d8.cpp
 
 }

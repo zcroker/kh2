@@ -9,12 +9,12 @@ typedef s32 (*W1621Fn)(...);
 typedef void (*W1621VFn)(...);
 struct W1621Obj { W1621Fn* vt; };
 s32 func_00176868(u8*, W1621Msg*);
-void func_00176dd8(u8*, W1621Ent*, W1621Rec20*, s32);
+void YS__PARTY__exec_item(u8*, W1621Ent*, W1621Rec20*, s32);
 u8* p175c88_get_ability(u8*) asm("_ZN2YS5PARTY11get_abilityEv");
 s32 func_00177ab8(u8*, u8);
 void func_00178a50(u8*, W1621Ent*);
 void func_0017a590(u8*, u16);
-W1621Ent* p175c88_lookup(u16) asm("_Z16u_call4_001b8e88jjjj");
+W1621Ent* p175c88_lookup(u16) asm("_Z21YS__COMMAND_ELEM__Getjjjj");
 
 static inline u32 W1621A(u8* p) { return *(u32*)(p + 0x160) & 4; }
 static inline u32 W1621B(u8* p) { return *(u32*)(p + 0x160) & 8; }
@@ -68,13 +68,13 @@ extern f32 D_00349e10;
 s32 func_002ddbb8(void*);
 f32 func_002dd2b0(G2dff60*);
 s32 p2dff60_reset_stage(void*) asm("_ZN2Ti12MGJumpGimObj18get_reset_stage_idEv");
-void func_002dd530(G2dff60*, s32);
+void Ti__MGJump__start_special_mode(G2dff60*, s32);
 f32 func_002de6e8(void*);
 f32 func_002dd250(G2dff60*, s32);
 f32 func_002dd280(G2dff60*, s32);
 void func_002e0870(P2dff60*, f32*, f32*, f32*);
 void func_002de3e0(void*);
-void func_002dd4a8(G2dff60*, s32);
+void Ti__MGJump__add_combo_count(G2dff60*, s32);
 void p2dff60_AddCount(s32, s32) asm("_ZN2YS7MISSION8AddCountEii");
 void p2dff60_ready(P2dff60*, H2dff60*) asm("_ZN2Ti12MGJumpPlayer19ready_jump_reactionEv");
 void func_002dff60(P2dff60* p, H2dff60* h);  // 0x002dff60: definition moved into src/anon/unit_002de3c8.cpp
@@ -104,5 +104,5 @@ void func_0031b9e0(Hit165ad8*);
 Ent165ad8* func_00165ef0(Ent165ad8*);
 s32 func_00142b70(void*);
 s32 func_001424c0(void*, Hit165ad8*);
-s32 func_00165ad8(Hit165ad8* h, f32* minDist);  // 0x00165ad8: definition moved into src/anon/unit_001656b8.cpp
+s32 dk__ObjOcc__collisionDown(Hit165ad8* h, f32* minDist);  // 0x00165ad8: definition moved into src/anon/unit_001656b8.cpp
 }

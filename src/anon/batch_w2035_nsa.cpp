@@ -14,7 +14,7 @@ extern V1dbd68 D_01d5bae0;
 void func_001dbf80(void);
 void func_001dbf88(void);
 s32 func_002fd188(void (*)(void));
-void func_001a7790(Box1dbd68*);
+void YS__BG__IsCulling(Box1dbd68*);
 void Aabbox_1dbd68(Box1dbd68*, const V1dbd68*, const V1dbd68*) asm("_ZN2dk6AabboxC1ERKN2kn7FVectorES4_");
 /* Two function-local statics (guard byte + vector, destructor thunk registered
    with atexit), written out by hand so the thunks keep their own addresses. */
@@ -27,7 +27,7 @@ struct M2efe18 { u8 pad0[48]; f32 time; };
 struct O2efe18 { u8 pad0[320]; M2efe18 mot; };
 extern "C" {
 extern f32 D_00349e10;
-f32 func_001806f8(M2efe18*, s32);
+f32 YS__MOTION__get_length(M2efe18*, s32);
 f32 func_00180770(M2efe18*, s32);
 f32 func_002f8b00(f32, f32);
 // 002efe18: moved to src/anon/unit_002efd68.cpp

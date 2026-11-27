@@ -34,8 +34,8 @@ s32 func_001d9d48(E3440*) asm("func_001d9d48");
 s32 func_002b3ac8(s32) asm("func_002b3ac8");
 u32 func_001064a8(s32) asm("func_001064a8");
 /*TARGET 002b3440*/
-void func_002b3440(void) asm("func_002b3440");
-void func_002b3440(void) {
+void Tz__JmPuzzle__SetPiece(void) asm("Tz__JmPuzzle__SetPiece");
+void Tz__JmPuzzle__SetPiece(void) {
     B3440 rows[10];
     B3440 used;
     s32 list[48];

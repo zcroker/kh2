@@ -32,7 +32,7 @@ void func_001afaf0(void*);
 void ys_area_read(void* task);  // 0x00169148: definition moved into src/anon/unit_00168aa0.cpp
 
 void func_0017f488(u32, u32, f32, f32);
-void func_00171150(u32* p);  // 0x00171150: definition moved into src/anon/unit_00170f58.cpp
+void YS__trap_sysobj_motion_start(u32* p);  // 0x00171150: definition moved into src/anon/unit_00170f58.cpp
 
 void func_001cfac0(u32, f32, f32, f32, f32);
 struct S1a40 { u32* obj; f32 a, b, c, d; };
@@ -46,12 +46,12 @@ void func_00172f00(u32* p);  // 0x00172f00: definition moved into src/anon/unit_
 u32 func_001a6a20(u32, u32);
 void func_0018fd10(u32* p);  // 0x0018fd10: definition moved into src/anon/unit_0018f140.cpp
 
-void func_00187018(u32, u32, u32, u32, f32);
+void YS__BTLOBJ__exec_reflect_default(u32, u32, u32, u32, f32);
 void func_0018fd40(u32* p);  // 0x0018fd40: definition moved into src/anon/unit_0018f140.cpp
 
-void func_001b9db0(u32);
+void YS__OBJ__LeaveAll(u32);
 void func_00197c90(void);
-void func_001ada38(u32);
+void YS__RECOV__Exec(u32);
 void ys_prepare_scene(void);  // 0x00197738: definition moved into src/anon/unit_00195d00.cpp
 
 u32 func_0016bff0(void);
@@ -59,7 +59,7 @@ u8 func_00195700(void*, u32);
 extern u8 D_0034fa78;
 // 001a6c60: moved to src/anon/unit_001a6a10.cpp
 
-void func_0017c430(u32);
+void YS__OBJ__prepare_jump_height(u32);
 void func_0016bd60(u32, u32);
 void func_001b27c0(u32, u32 a);  // 0x001b27c0: definition moved into src/anon/unit_001b2780.cpp
 
@@ -88,12 +88,12 @@ u32 ys_can_end(void);  // 0x001c9d88: definition moved into src/yasui/libys/sacr
 extern u16 D_0032fafe[];
 void func_001d9820(s32 i);  // 0x001d9820: definition moved into src/anon/unit_001d7458.cpp
 
-u32 func_001b1448(u32);
+u32 YS__DATABUFF__Read(u32);
 extern u32 D_003528fc;
 extern u32 D_01d5baa8;
-void func_001d9d00(void);  // 0x001d9d00: definition moved into src/anon/unit_001d9d00.cpp
+void YS__JIGSAW__Init(void);  // 0x001d9d00: definition moved into src/anon/unit_001d9d00.cpp
 
-void func_00168388(u32, void*, void (*)(void), u32);
+void YS__FILE__ReadBack(u32, void*, void (*)(void), u32);
 extern u32 D_00352aec;
 extern u8 D_01d5bb40;
 void func_001dcd68(void);
@@ -113,7 +113,7 @@ u32 func_002fea18(void);
 void func_0020e138(void);  // 0x0020e138: definition moved into src/anon/unit_0020dde8.cpp
 
 void func_00228bd8(VObj*);
-void func_00228e28(VObj* o);  // 00228e28: moved to src/anon/unit_00228618.cpp (linked unit)
+void sa__MUSICAL_GAUGE3__update(VObj* o);  // 00228e28: moved to src/anon/unit_00228618.cpp (linked unit)
 
 void func_002344c0(u32, u32, u32, u32, u32);
 void func_00234720(u32 a, u32 b, u32 c, u32 d);  // 0x00234720: definition moved into src/anon/unit_002335e8.cpp

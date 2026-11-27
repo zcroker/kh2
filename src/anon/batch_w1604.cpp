@@ -24,7 +24,7 @@ void func_00287b08(s32);
 void func_00287da0(void);
 void func_00248b38(void);  // 0x00248b38: definition moved into src/anon/unit_00247ff0.cpp
 extern s32 D_0035f654;
-s32 func_0028db48(s32);
+s32 Tz__MenuUtil__SprtIsLoop(s32);
 s32 func_00287cd0(void);
 void func_00287cc0(s32);
 s32 func_00240ba0(void);
@@ -40,7 +40,7 @@ void func_00287d20(s32);
 void func_00240bb0(s32);
 void func_00287bd0(s32, s32);
 void func_00241450(s32);
-void func_002b4c88(s32);
+void Tz__CmSLBase__SetupWarningConfirm(s32);
 void func_00234570(s32, s32);
 s32 func_00288040(void);
 void func_00288018(void);
@@ -52,7 +52,7 @@ struct Obj { VFn* vt; u8 p4[8]; u32 flags; u8 p10[8]; s32 n; u8 p1c[16]; f32 f2c
 s32 func_00139d78(void*);
 s32 func_00239d10(s32);
 void func_00139570(Obj*);
-void func_00239f18(f32, Ent*);
+void YI__SEQUENCE__SetScaleX(f32, Ent*);
 void func_00239f78(f32, Ent*);
 void func_00239eb8(f32, Ent*);
 void func_0023acd8(Ent*);

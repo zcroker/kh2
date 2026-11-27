@@ -37,8 +37,8 @@ namespace n0011a6b0 {
 extern u8 D_003478b0 asm("D_003478b0");
 extern u8 D_00347880 asm("D_00347880");
 void func_00113628(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_00113628jjjjjjjj");
-u32 func_0011a6b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z13func_0011a6b0jjjjjjjj");
-u32 func_0011a6b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
+u32 kn__ChickenLittle__ChickenLittle(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) asm("_Z32kn__ChickenLittle__ChickenLittlejjjjjjjj");
+u32 kn__ChickenLittle__ChickenLittle(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7) {
     u32* p = (u32*)a0;
     u32 r = ((u32(*)(u32,u32,u32,u32,u32,u32,u32,u32))func_00113628)(a0, a1, a2, a3, a4, a5, a6, a7);
     p[0] = (u32)&D_003478b0;
@@ -53,7 +53,7 @@ u32 func_0011a6b0(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 // ---- 0011a700 from src/anon/tiny_auto80_queue.cpp
 namespace n0011a700 {
 u32 func_00113668(...) asm("func_00113668");
-u32 func_0013e4b8(...) asm("func_0013e4b8");
+u32 dk__LockOn__end(...) asm("dk__LockOn__end");
 extern u8 D_003478b0 asm("D_003478b0");
 u32 func_0011a700(u32 a0) asm("_Z13func_0011a700j");
 u32 func_0011a700(u32 a0) {
@@ -64,7 +64,7 @@ u32 func_0011a700(u32 a0) {
     r14 = ((u32*)(u32)r4)[12];
     r4 = r14;
     if (r14 != 0u) {
-    u32 (*fp_call4_0013e4b8)(u32) = (u32(*)(u32))func_0013e4b8;
+    u32 (*fp_call4_0013e4b8)(u32) = (u32(*)(u32))dk__LockOn__end;
         r2 = fp_call4_0013e4b8(r4);
         ((u32*)(u32)r16)[12] = 0u;
     }
@@ -78,7 +78,7 @@ u32 func_0011a700(u32 a0) {
 // ---- 0011a750 from src/anon/tiny_auto80_queue.cpp
 namespace n0011a750 {
 u32 func_00113668(...) asm("func_00113668");
-u32 func_0013e4b8(...) asm("func_0013e4b8");
+u32 dk__LockOn__end(...) asm("dk__LockOn__end");
 extern u8 D_003478b0 asm("D_003478b0");
 u32 func_0011a750(u32 a0) asm("_Z13func_0011a750j");
 u32 func_0011a750(u32 a0) {
@@ -89,7 +89,7 @@ u32 func_0011a750(u32 a0) {
     r14 = ((u32*)(u32)r4)[12];
     r4 = r14;
     if (r14 != 0u) {
-    u32 (*fp_call4_0013e4b8)(u32) = (u32(*)(u32))func_0013e4b8;
+    u32 (*fp_call4_0013e4b8)(u32) = (u32(*)(u32))dk__LockOn__end;
         r2 = fp_call4_0013e4b8(r4);
         ((u32*)(u32)r16)[12] = 0u;
     }
@@ -104,7 +104,7 @@ u32 func_0011a750(u32 a0) {
 namespace n0011a7a0 {
 u32 func_00105110(...) asm("func_00105110");
 u32 func_00113668(...) asm("func_00113668");
-u32 func_0013e4b8(...) asm("func_0013e4b8");
+u32 dk__LockOn__end(...) asm("dk__LockOn__end");
 extern u8 D_003478b0 asm("D_003478b0");
 u32 func_0011a7a0(u32 a0) asm("_Z13func_0011a7a0j");
 u32 func_0011a7a0(u32 a0) {
@@ -114,7 +114,7 @@ u32 func_0011a7a0(u32 a0) {
     u32 s0 = a0;
     u32 t6 = *(u32*)((u32)a0 + (s32)(48));
     if (t6 != 0u) {
-        func_0013e4b8(t6);
+        dk__LockOn__end(t6);
         *(u32*)((u32)s0 + (s32)(48)) = 0u;
     }
     func_00113668(s0);
@@ -254,16 +254,16 @@ s32 W1680_is_exist(W1680Tgt*) asm("_ZNK2YS6TARGET8is_existEv");
 s32 W1680_can_attack(W1680Tgt*) asm("_ZNK2YS6TARGET10can_attackEv");
 s32 W1680_is_culling(s32) asm("_ZN2YS3OBJ10is_cullingEv");
 f32 W1680_getScreenZ(void*) asm("_ZNK2kn10Projection10getScreenZEv");
-s32 func_00190730(W1680Tgt*, s32) asm("func_00190730");
+s32 YS__TARGET__each(W1680Tgt*, s32) asm("YS__TARGET__each");
 s32 func_00112d90(W1680Tgt*) asm("func_00112d90");
-void* func_00106a18(s32) asm("func_00106a18");
+void* kn__getProjection(s32) asm("kn__getProjection");
 W1680Cam* func_00106a60(s32) asm("func_00106a60");
 W1680QW func_00190388(W1680Tgt*) asm("func_00190388");
 f32 fabsf(f32) asm("fabsf");
 void func_0011a938(W1680Self2* self, W1680Tgt* out, f32 fx, f32 fy) asm("func_0011a938");
 void func_0011a938(W1680Self2* self, W1680Tgt* out, f32 fx, f32 fy) {
     out->clear();
-    f32 sz = W1680_getScreenZ(func_00106a18(0));
+    f32 sz = W1680_getScreenZ(kn__getProjection(0));
     W1680Cam* c = func_00106a60(0);
     W1680Mtx m(c ? c->m : *(W1680Mtx*)0);
 
@@ -278,7 +278,7 @@ void func_0011a938(W1680Self2* self, W1680Tgt* out, f32 fx, f32 fy) {
     f32 best = fx * fx + fy * fy;
     s32 k = 0;
     W1680Mtx* pm = &m;
-    while ((k = func_00190730(&it, k)) != 0) {
+    while ((k = YS__TARGET__each(&it, k)) != 0) {
         if (!func_00112d90(&it)) continue;
         if (!W1680_can_attack(&it)) continue;
         if (W1680_is_culling(it.a)) continue;
@@ -334,11 +334,11 @@ void W1650_systemSePlay(s32, s32) asm("_ZN5SOUND12systemSePlayEii");
 s32 W1650_IsExec() asm("_ZN2YS5EVENT6IsExecEv");
 void W1650_LockOn_show() asm("_ZN2dk6LockOn4showEv");
 void W1650_FPSCamera_adjust() asm("_ZN2dk9FPSCamera6adjustEv");
-s32 func_00190730(W1650Tgt*, s32) asm("func_00190730");
+s32 YS__TARGET__each(W1650Tgt*, s32) asm("YS__TARGET__each");
 s32 func_00135c88(void*, s32) asm("func_00135c88");
 s32 func_00135d00(void*, s32) asm("func_00135d00");
 void func_00135bd0(void*, s32) asm("func_00135bd0");
-void func_0013e4b8(W1650Lock*) asm("func_0013e4b8");
+void dk__LockOn__end(W1650Lock*) asm("dk__LockOn__end");
 W1650Lock* func_0013e610(s32) asm("func_0013e610");
 W1650QW func_00190388(W1650Tgt*) asm("func_00190388");
 W1650QW func_0011a858(W1650Fps*) asm("func_0011a858");
@@ -367,7 +367,7 @@ void func_0011ac10(W1650Fps* self) {
         W1650Tgt* cur = &self->fr->target;
         prev = cur->a;
         cur->clear();
-        while ((k = func_00190730(&it, k)) != 0) {
+        while ((k = YS__TARGET__each(&it, k)) != 0) {
             if (!W1650_can_attack(&it)) continue;
             if (W1650_is_culling(it.a)) continue;
             if (func_00135c88(obs, it.a) >= 0) continue;
@@ -385,7 +385,7 @@ void func_0011ac10(W1650Fps* self) {
                 it.clear();
                 W1650_set_obj(&it, o, 0);
                 s32 j = 0;
-                while ((j = func_00190730(&it, j)) != 0) {
+                while ((j = YS__TARGET__each(&it, j)) != 0) {
                     if (it.a != o) break;
                     if (!W1650_can_attack(&it)) continue;
                     self->fr->target = it;
@@ -415,14 +415,14 @@ void func_0011ac10(W1650Fps* self) {
     }
     if (!W1650_IsExec()) {
         if (self->lock == 0 || self->kind != kind) {
-            if (self->lock) func_0013e4b8(self->lock);
+            if (self->lock) dk__LockOn__end(self->lock);
             self->kind = kind;
             self->lock = func_0013e610(kind);
             self->lock->vt->setPos(self->lock, self->pos);
             W1650_LockOn_show();
         }
     } else if (self->lock) {
-        func_0013e4b8(self->lock);
+        dk__LockOn__end(self->lock);
         self->lock = 0;
     }
     if (fps) W1650_FPSCamera_adjust();
@@ -492,7 +492,7 @@ void func_001143d8(Ob_b0a8*) asm("func_001143d8");
 Ch_b0a8* func_00111e38(s32) asm("func_00111e38");
 void* func_0010c778(Ch_b0a8*) asm("func_0010c778");
 void func_00135aa0(void*) asm("func_00135aa0");
-void func_001c0d38(Ch_b0a8*, Ch_b0a8*, s32, s32) asm("func_001c0d38");
+void YS__OBJ__attach(Ch_b0a8*, Ch_b0a8*, s32, s32) asm("YS__OBJ__attach");
 void func_0016ace0(Ch_b0a8*, const QV_b0a8&) asm("func_0016ace0");
 void func_00198860(Ch_b0a8*, s32) asm("func_00198860");
 void func_001ad990(u8*, f32, f32, f32) asm("func_001ad990");
@@ -502,8 +502,8 @@ Fx_b0a8* func_0013e610(s32) asm("func_0013e610");
 void func_0013e890(void) asm("func_0013e890");
 void func_0016bd60(Ch_b0a8*, s32) asm("func_0016bd60");
 void func_0014eb48(Ch_b0a8*, QV_b0a8*, f32) asm("func_0014eb48");
-void func_0011b0a8(Ob_b0a8* o) asm("func_0011b0a8");
-void func_0011b0a8(Ob_b0a8* o) {
+void kn__ChickenLittle__start_limit(Ob_b0a8* o) asm("kn__ChickenLittle__start_limit");
+void kn__ChickenLittle__start_limit(Ob_b0a8* o) {
   func_001143d8(o);
   o->x28 = 0.0f;
   o->x24 = 100.0f;
@@ -513,7 +513,7 @@ void func_0011b0a8(Ob_b0a8* o) {
   c->x108 |= 0x100;
   c->x10c |= 0x4000;
   o->x4->x108 |= 0x100;
-  func_001c0d38(o->x4, c, 0x4000, 4);
+  YS__OBJ__attach(o->x4, c, 0x4000, 4);
   func_0016ace0(o->x4, QV_b0a8(0.0f, 0.0f, -o->x28, 0.0f));
   func_00198860(o->x4, 5);
   func_001ad990(c->x834, 1.0f, 0.0f, 0.0f);
@@ -536,15 +536,15 @@ void* func_0010c778(void*) asm("func_0010c778");
 void func_00135aa0(void*) asm("func_00135aa0");
 u8* func_00111e38(s32) asm("func_00111e38");
 void func_001c0e60(void*) asm("func_001c0e60");
-void func_00198970(void*) asm("func_00198970");
-void func_0013e4b8(void*) asm("func_0013e4b8");
+void YS__STDOBJ__reset_special_command(void*) asm("YS__STDOBJ__reset_special_command");
+void dk__LockOn__end(void*) asm("dk__LockOn__end");
 void func_0014ebd8(void) asm("func_0014ebd8");
 void func_001ad990(void*, f32, f32, f32) asm("func_001ad990");
 void func_00190128(void*) asm("func_00190128");
-void func_0019cc20(void*) asm("func_0019cc20");
+void YS__LOCKON__release(void*) asm("YS__LOCKON__release");
 void func_0016bd60(void*, s32) asm("func_0016bd60");
-void func_0011b250(u8* p) asm("func_0011b250");
-void func_0011b250(u8* p) {
+void kn__ChickenLittle__end_limit(u8* p) asm("kn__ChickenLittle__end_limit");
+void kn__ChickenLittle__end_limit(u8* p) {
     u8* c;
     func_00135aa0(func_0010c778((void*)*(u32*)(p + 4)));
     c = func_00111e38(0);
@@ -552,9 +552,9 @@ void func_0011b250(u8* p) {
     *(u32*)(c + 268) &= ~0x4000;
     *(u32*)((u8*)*(u32*)(p + 4) + 264) &= ~0x100;
     func_001c0e60((void*)*(u32*)(p + 4));
-    func_00198970((void*)*(u32*)(p + 4));
+    YS__STDOBJ__reset_special_command((void*)*(u32*)(p + 4));
     if (*(void**)(p + 48)) {
-        func_0013e4b8(*(void**)(p + 48));
+        dk__LockOn__end(*(void**)(p + 48));
         *(void**)(p + 48) = 0;
     }
     D_0034f240 &= ~0x4000;
@@ -563,7 +563,7 @@ void func_0011b250(u8* p) {
     func_001ad990((u8*)*(u32*)(p + 4) + 2100, 0.0f, 1.0f, 0.0f);
     *(u32*)(p + 32) &= ~1;
     func_00190128((u8*)*(u32*)(p + 4) + 2548);
-    if (*(void**)(c + 2880)) func_0019cc20(*(void**)(c + 2880));
+    if (*(void**)(c + 2880)) YS__LOCKON__release(*(void**)(c + 2880));
     if ((*(s32*)(*(u8**)(c + 12) + 4) ^ 0x3f) == 0) {
         func_0016bd60(c, 0);
         u8* o = *(u8**)(c + 12);

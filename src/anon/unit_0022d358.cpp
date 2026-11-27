@@ -18,7 +18,7 @@
 // 0022d358 (was src/anon/tiny_auto80_queue.cpp)
 namespace n0022d358 {
 extern u8  D_00360000 asm("D_00360000");
-void func_00226478(...) asm("func_00226478");
+void sa__EVENT__fixAlloc(...) asm("sa__EVENT__fixAlloc");
 // 0x0013f330: definition moved into src/anon/unit_0013ef70.cpp
 
 extern "C" u32 func_00102448(...) asm("func_00102448");
@@ -36,7 +36,7 @@ void func_0022d358(u32 a0) {
         func_00102448(s0, 0);
     }
     *(u8*)((u8*)&D_00360000 - 8636u) = 1;
-    func_00226478();
+    sa__EVENT__fixAlloc();
 }
 }  // namespace n0022d358
 
@@ -72,10 +72,10 @@ void func_0022d3c8(u32 a0) {
     f32 f14;
     f32 f20;
 
-    if (func_002282f0(*(u16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart(*(u16*)(a0 + 4)) != 0) {
         return;
     }
-    if (func_00225b00(*(u16*)(s17 + 4)) != 0) {  // flag_query_by_index
+    if (sa__EVENT__isJumpMode(*(u16*)(s17 + 4)) != 0) {  // flag_query_by_index
         return;
     }
     f0 = func_00227c78(s17 + 8);
@@ -99,18 +99,18 @@ struct W1781VObj {
 };
 struct W1781Ent40 { s32 a; s32 b; W1781VObj* obj; u8 pad[28]; };
 extern W1781Ent40* D_0035dcfc asm("D_0035dcfc");
-void func_001ba028(W1781VObj*) asm("func_001ba028");
-void func_00232db0(s32) asm("func_00232db0");
+void YS__OBJ__is_valid(W1781VObj*) asm("YS__OBJ__is_valid");
+void sa__EVENT__clearMotionCtrlWk(s32) asm("sa__EVENT__clearMotionCtrlWk");
 /*TARGET 0022d440*/
 void func_0022d440(void) asm("func_0022d440");
 void func_0022d440(void) {
     if (D_0035dcfc != 0) {
         for (s32 i = 0; i < 96; i++) {
             if (D_0035dcfc[i].obj != 0) {
-                func_001ba028(D_0035dcfc[i].obj);
+                YS__OBJ__is_valid(D_0035dcfc[i].obj);
                 D_0035dcfc[i].obj->v10();
                 D_0035dcfc[i].obj = 0;
-                func_00232db0(D_0035dcfc[i].b);
+                sa__EVENT__clearMotionCtrlWk(D_0035dcfc[i].b);
             }
         }
     }
@@ -123,8 +123,8 @@ extern void func_0022f5a0(void*, s32, s32) asm("func_0022f5a0");
 extern char* D_0035dcfc asm("D_0035dcfc");
 struct EE_22d4e8 { s32 a; s32 b; char pad[14]; u8 f; char z[17]; };
 /*TARGET 0022d4e8*/
-void func_0022d4e8(char* a) asm("func_0022d4e8");
-void func_0022d4e8(char* a) {
+void sa__EVENT__reloadActor(char* a) asm("sa__EVENT__reloadActor");
+void sa__EVENT__reloadActor(char* a) {
     if (D_0035dcfc) {
         for (s32 i = 0; i < 96; i++) {
             EE_22d4e8* e = (EE_22d4e8*)((u32)(i * 40) + (u32)D_0035dcfc);
@@ -149,14 +149,14 @@ void func_0022d598(u32 a0, u32 a1) {
     u32 s16v = a0;
     u32 s17 = a1;
 
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart(*(s16*)(a0 + 4)) != 0) {
         return;
     }
     func_0022d440();
-    func_00225a10();
+    sa__EVENT__waitMessageOn();
     func_00102448(s17, 2);
     func_00170320(-200);
-    func_0022d4e8(s16v);
+    sa__EVENT__reloadActor(s16v);
     func_00170888(s17);
     func_00225a20();
 }
@@ -170,7 +170,7 @@ void func_0022d618(u32 a0) {
     u32 s16v = a0;
     s32 a4;
 
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart(*(s16*)(a0 + 4)) != 0) {
         return;
     }
     if (*(s8*)(s16v + 7) == 0) {
@@ -223,14 +223,14 @@ void EVENT::wide_on() {
 
 // 0022d728 (was src/anon/tiny_auto80_queue.cpp)
 namespace n0022d728 {
-u32 func_002282f0(...) asm("func_002282f0");
+u32 sa__EVENT__checkStart(...) asm("sa__EVENT__checkStart");
 void func_0022d688() asm("_Z13func_0022d688v");
 void func_0022d6d8() asm("_ZN2sa5EVENT7wide_onEv");
 /*TARGET 0022d728*/
 void func_0022d728(u8* a0) asm("_Z13func_0022d728Ph");
 void func_0022d728(u8* a0) {
     u8* s0 = a0;
-    if (func_002282f0((u32)*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart((u32)*(s16*)(a0 + 4)) != 0) {
         return;
     }
     if (*(s16*)(s0 + 6) == 0) {
@@ -245,12 +245,12 @@ void func_0022d728(u8* a0) {
 namespace n0022d778 {
 void func_00143298(...) asm("func_00143298");
 void func_001432a8(...) asm("func_001432a8");
-u32 func_002282f0(...) asm("func_002282f0");
+u32 sa__EVENT__checkStart(...) asm("sa__EVENT__checkStart");
 /*TARGET 0022d778*/
-void func_0022d778(u8* a0) asm("_Z13func_0022d778Ph");
-void func_0022d778(u8* a0) {
+void sa__EVENT__set_bin_wall_clip(u8* a0) asm("_Z28sa__EVENT__set_bin_wall_clipPh");
+void sa__EVENT__set_bin_wall_clip(u8* a0) {
     u8* s0 = a0;
-    if (func_002282f0((u32)*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart((u32)*(s16*)(a0 + 4)) != 0) {
         return;
     }
     if (*(s16*)(s0 + 6) == 0) {
@@ -333,8 +333,8 @@ struct W1835VObj { W1835VTbl* vt; };
 struct W1835Slot { W1835VObj* p; s16 b; s16 a; };
 struct W1835Req { u8 pad[4]; s16 id; s16 a; s16 b; s16 mode; };
 extern W1835Slot D_01dad9c0[32] asm("D_01dad9c0");
-s32 func_002282f0(s16) asm("func_002282f0");
-s32 func_00225b00(s16) asm("func_00225b00");
+s32 sa__EVENT__checkStart(s16) asm("sa__EVENT__checkStart");
+s32 sa__EVENT__isJumpMode(s16) asm("sa__EVENT__isJumpMode");
 W1835VObj* func_001050d8(s32) asm("func_001050d8");
 void func_001ac8b0(W1835VObj*, s16) asm("func_001ac8b0");
 void func_001ac7c8(W1835VObj*, W1835VObj*) asm("func_001ac7c8");
@@ -346,8 +346,8 @@ void func_0022d880(W1835Req* a) asm("func_0022d880");
 
 void func_0022d880(W1835Req* a) {
     s32 i;
-    if (func_002282f0(a->id) != 0) return;
-    if (func_00225b00(a->id) != 0) return;
+    if (sa__EVENT__checkStart(a->id) != 0) return;
+    if (sa__EVENT__isJumpMode(a->id) != 0) return;
     if (a->mode == 0) {
         for (i = 0; i < 32; i++) {
             W1835Slot* s = &D_01dad9c0[i];
@@ -402,10 +402,10 @@ void W1688_obj2d_ctor(void *self, void *win) asm("_ZN2YS12WINDOW_OBJ2DC1EPNS_6WI
 void func_00102448(u32, s32) asm("_ZN2Tz9TaskYieldEz");
 void func_001ad0f8(void *, s32, s32) asm("func_001ad0f8");
 void func_001ad330(void *, s32) asm("func_001ad330");
-void func_00225a10(void) asm("func_00225a10");
+void sa__EVENT__waitMessageOn(void) asm("sa__EVENT__waitMessageOn");
 void func_00225a20(void) asm("func_00225a20");
-s32 func_00225b00(s32) asm("func_00225b00");
-s32 func_002282f0(s32) asm("func_002282f0");
+s32 sa__EVENT__isJumpMode(s32) asm("sa__EVENT__isJumpMode");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
 inline static bool W1688_busy(void **o)
 {
   return (*((s32 *) (((u8 *) o) + 0x70))) != 3;
@@ -415,11 +415,11 @@ void func_0022d9b0(WinReq *req, u32 task) asm("func_0022d9b0");
 void func_0022d9b0(WinReq *req, u32 task)
 {
   s32 i;
-  if (func_002282f0(req->idx) != 0)
+  if (sa__EVENT__checkStart(req->idx) != 0)
   {
     return;
   }
-  if (func_00225b00(req->idx) != 0)
+  if (sa__EVENT__isJumpMode(req->idx) != 0)
   {
     return;
   }
@@ -493,13 +493,13 @@ void func_0022d9b0(WinReq *req, u32 task)
     {
       if ((D_01dad9c0[i].obj && (D_01dad9c0[i].group == req->group)) && (D_01dad9c0[i].id == req->id))
       {
-        if (func_00225b00(req->idx) != 0)
+        if (sa__EVENT__isJumpMode(req->idx) != 0)
         {
           return;
         }
         while (W1688_busy(D_01dad9c0[i].obj))
         {
-          func_00225a10();
+          sa__EVENT__waitMessageOn();
           func_00102448(task, 0);
         }
 
@@ -541,7 +541,7 @@ void func_0022dc30(u8* t) {
 
 // 0022dd40 (was src/anon/batch_w13.cpp)
 namespace n0022dd40 {
-s32 func_002282f0(s32) asm("func_002282f0");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
 void func_00102c18(s32, s32, void*) asm("func_00102c18");
 void func_0022dc30(void) asm("func_0022dc30");
 extern void (*D_0035e380[])(void) asm("D_0035e380");
@@ -552,7 +552,7 @@ void func_0022dd40(u8* p) asm("func_0022dd40");
 // 0x001e27c0: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_0022dd40(u8* p) {
-    if (func_002282f0(*(s16*)(p + 4)) == 0) {
+    if (sa__EVENT__checkStart(*(s16*)(p + 4)) == 0) {
         func_00102c18(1, 0x17318, (void*)func_0022dc30);
     }
 }
@@ -574,15 +574,15 @@ struct Ent {
     s16 slot;
 };
 struct Cmd { u8 pad[4]; s16 h4; u8 p6[2]; s16 h8; s16 ha; s16 hc; s16 type; s16 h10; };
-s32 func_002282f0(s32) asm("func_002282f0");
-s32 func_00225b00(s32) asm("func_00225b00");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
+s32 sa__EVENT__isJumpMode(s32) asm("sa__EVENT__isJumpMode");
 Ent* func_0022e330(s32) asm("func_0022e330");
 s32 func_0022e0a8(Ent*) asm("func_0022e0a8");
 Res* func_00227bd8(s32, s32) asm("func_00227bd8");
-void func_001ba028(EffObj*) asm("func_001ba028");
-void* func_001de168(void*, s32, s32, s32, s32, EffObj*) asm("func_001de168");
+void YS__OBJ__is_valid(EffObj*) asm("YS__OBJ__is_valid");
+void* ryj__PAX__start(void*, s32, s32, s32, s32, EffObj*) asm("ryj__PAX__start");
 void func_0022e368(Cmd*) asm("func_0022e368");
-void eff_setup_1dddd0(void*, s32) asm("_Z16wtarget_001dddd0jjjj");
+void eff_setup_1dddd0(void*, s32) asm("_Z14ryj__PAX__initjjjj");
 s32 eff_is_loop(void*) asm("_ZN3ryj6EFFECT7is_loopEv");
 void eff_loop_end_kill(void*) asm("_ZN3ryj6EFFECT13loop_end_killEv");
 void eff_kill(void*) asm("_ZN3ryj6EFFECT4killEv");
@@ -590,23 +590,23 @@ void eff_fadeout_kill(void*, f32) asm("_ZN3ryj6EFFECT12fadeout_killEf");
 s32 eff_is_alive(void*) asm("_ZN3ryj6EFFECT8is_aliveEv");
 s32 eff_is_active(void*) asm("_ZN3ryj6EFFECT9is_activeEv");
 /*TARGET 0022dd80*/
-void func_0022dd80(Cmd* c) asm("func_0022dd80");
-void func_0022dd80(Cmd* c) {
-    if (func_002282f0(c->h4) || func_00225b00(c->h4)) return;
+void sa__EVENT__set_effect_seq(Cmd* c) asm("sa__EVENT__set_effect_seq");
+void sa__EVENT__set_effect_seq(Cmd* c) {
+    if (sa__EVENT__checkStart(c->h4) || sa__EVENT__isJumpMode(c->h4)) return;
     switch (c->type) {
     case 0: {
         Ent* e = func_0022e330(c->h8);
         Res* r = func_00227bd8(e->w0, 2);
         if (e->slot == -1) {
             eff_setup_1dddd0(e->sub, r->w14);
-            e->eff = func_001de168(e->sub, e->h8, 1, 3, 0, 0);
+            e->eff = ryj__PAX__start(e->sub, e->h8, 1, 3, 0, 0);
         } else {
             EffSlot* s = &D_0035dcfc[e->slot];
             eff_setup_1dddd0(e->sub, r->w14);
             EffObj* obj = s->obj;
-            func_001ba028(obj);
+            YS__OBJ__is_valid(obj);
             obj->owner = e->sub;
-            e->eff = func_001de168(e->sub, e->h8, 1, 3, 0, obj);
+            e->eff = ryj__PAX__start(e->sub, e->h8, 1, 3, 0, obj);
         }
         break;
     }
@@ -615,7 +615,7 @@ void func_0022dd80(Cmd* c) {
         eff_setup_1dddd0(e->sub, func_00227bd8(e->w0, 2)->w14);
         EffSlot* s = &D_0035dcfc[e->slot];
         EffObj* obj = s->obj;
-        func_001ba028(obj);
+        YS__OBJ__is_valid(obj);
         obj->owner = e->sub;
         break;
     }
@@ -740,11 +740,11 @@ u32* func_00227a28(u32) asm("func_00227a28");
 void func_002ff2e8(void*, u32) asm("func_002ff2e8");
 u32 func_0022e188(u32) asm("func_0022e188");
 u32 func_00227870(u32, void*, u32) asm("func_00227870");
-void func_00168388(u32, u32, void*, void*) asm("func_00168388");
+void YS__FILE__ReadBack(u32, u32, void*, void*) asm("YS__FILE__ReadBack");
 void func_0022e160(void) asm("func_0022e160");
 /*TARGET 0022e1f8*/
-void func_0022e1f8(u32 a0, u32 a1) asm("func_0022e1f8");
-void func_0022e1f8(u32 a0, u32 a1) {
+void sa__EVENT__effect_read_set(u32 a0, u32 a1) asm("sa__EVENT__effect_read_set");
+void sa__EVENT__effect_read_set(u32 a0, u32 a1) {
     u32* o = func_00227a28(a0);
     o[3] = a1;
     o[0] = 2;
@@ -753,7 +753,7 @@ void func_0022e1f8(u32 a0, u32 a1) {
     u32 s = func_0022e188(a0);
     u32 r = func_00227870(s, o, 0);
     o[5] = r;
-    func_00168388(s, r, (void*)func_0022e160, o);
+    YS__FILE__ReadBack(s, r, (void*)func_0022e160, o);
 }
 }  // namespace n0022e1f8
 
@@ -761,20 +761,20 @@ void func_0022e1f8(u32 a0, u32 a1) {
 namespace n0022e288 {
 /* ---- 001dde40: unlink n from the list ---- */
 struct LNode { u32 used; u32 pad[4]; LNode* next; };
-void func_001dde40(LNode* n) asm("func_001dde40");
+void ryj__PAX__ensure(LNode* n) asm("ryj__PAX__ensure");
 /* ---- 0022e288 ---- */
 struct E12 { u32 f0; s32 id; u32 f8; u32 fc; u8 node[36]; };
 union U12 { E12* p; s32 i; };
 extern U12 D_0035dcf4 asm("D_0035dcf4");
 s32 func_001de568(void*) asm("func_001de568");
 /*TARGET 0022e288*/
-void func_0022e288(void) asm("func_0022e288");
-void func_0022e288(void) {
+void sa__EVENT__leaveAllEffect(void) asm("sa__EVENT__leaveAllEffect");
+void sa__EVENT__leaveAllEffect(void) {
     s32 i;
     if (!D_0035dcf4.p) return;
     for (i = 0; i < 96; i++) {
         if (D_0035dcf4.p[i].id == -1) continue;
-        if (func_001de568(D_0035dcf4.p[i].node)) func_001dde40((LNode*)D_0035dcf4.p[i].node);
+        if (func_001de568(D_0035dcf4.p[i].node)) ryj__PAX__ensure((LNode*)D_0035dcf4.p[i].node);
         D_0035dcf4.p[i].fc = 0;
         D_0035dcf4.p[i].id = -1;
     }
@@ -837,18 +837,18 @@ void func_0022e368(UA_0022e368* a0) {
 // 0022e3e8 (was src/anon/auto80_199_queue.cpp)
 namespace n0022e3e8 {
 /*TARGET 0022e3e8*/
-void func_0022e3e8(u32 a0) asm("_Z13func_0022e3e8j");
-void func_0022e3e8(u32 a0) {
+void sa__EVENT__set_kage_seq(u32 a0) asm("_Z23sa__EVENT__set_kage_seqj");
+void sa__EVENT__set_kage_seq(u32 a0) {
     u32 s16v = a0;
     u32 s17;
     u32 p;
     u32 q;
 
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart(*(s16*)(a0 + 4)) != 0) {
         return;
     }
     s17 = func_00227d10(*(s16*)(s16v + 8));
-    func_001ba028(*(u32*)(s17 + 8));  // list_contains_ptr
+    YS__OBJ__is_valid(*(u32*)(s17 + 8));  // list_contains_ptr
     if (*(s16*)(s16v + 10) != 0) {
         func_00194468(*(u32*)(s17 + 8));
         return;
@@ -863,19 +863,19 @@ void func_0022e3e8(u32 a0) {
 // 0022e468 (was src/anon/auto80_199_queue.cpp)
 namespace n0022e468 {
 /*TARGET 0022e468*/
-void func_0022e468(u32 a0) asm("_Z13func_0022e468j");
-void func_0022e468(u32 a0) {
+void sa__EVENT__set_ik_seq(u32 a0) asm("_Z21sa__EVENT__set_ik_seqj");
+void sa__EVENT__set_ik_seq(u32 a0) {
     u32 s16v = a0;
     u32 s17;
     u32 p;
     u32 q;
     s32 d;
 
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart(*(s16*)(a0 + 4)) != 0) {
         return;
     }
     s17 = func_00227d10(*(s16*)(s16v + 8));
-    func_001ba028(*(u32*)(s17 + 8));  // list_contains_ptr
+    YS__OBJ__is_valid(*(u32*)(s17 + 8));  // list_contains_ptr
     d = 0xbfff0000;
     d = d | 0xffff;
     if (*(s16*)(s16v + 10) != 0) {
@@ -896,9 +896,9 @@ L0022e4c0:
 
 // 0022e4f0 (was src/anon/batch_w83.cpp)
 namespace n0022e4f0 {
-s32 func_002282f0(s32) asm("func_002282f0");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
 u8* func_00227d10(s32) asm("func_00227d10");
-void func_001ba028(void*) asm("func_001ba028");
+void YS__OBJ__is_valid(void*) asm("YS__OBJ__is_valid");
 // list_contains_ptr
 double func_00313b80(f32) asm("func_00313b80");
 // float_to_double
@@ -909,12 +909,12 @@ struct Rot { s16 pad0, pad1; s16 a, b, nx, ny, nz; };
 struct Hold { u8 pad[8]; f32* o; };
 /*TARGET 0022e4f0*/
 // Wrap each rotation component through double helpers, optionally negating it.
-void func_0022e4f0(Rot* r) asm("func_0022e4f0");
+void sa__EVENT__set_mirror_seq(Rot* r) asm("sa__EVENT__set_mirror_seq");
 // Wrap each rotation component through double helpers, optionally negating it.
-void func_0022e4f0(Rot* r) {
-    if (func_002282f0(r->a)) return;
+void sa__EVENT__set_mirror_seq(Rot* r) {
+    if (sa__EVENT__checkStart(r->a)) return;
     Hold* v = (Hold*)func_00227d10(r->b);
-    func_001ba028(v->o);  // list_contains_ptr
+    YS__OBJ__is_valid(v->o);  // list_contains_ptr
     f32* o = v->o;
     o[12] = __truncdfsf2(func_002f83f0(func_00313b80(o[12])));  // double_trunc
     if (r->nx) { v->o[12] = -v->o[12];  }
@@ -939,11 +939,11 @@ void func_0022e5f8(u32 a0) {
     f32 f20;
     f32 f21;
 
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart(*(s16*)(a0 + 4)) != 0) {
         return;
     }
     s16v = func_00227d10(*(s16*)(s18 + 6));
-    func_001ba028(*(u32*)(s16v + 8));  // list_contains_ptr
+    YS__OBJ__is_valid(*(u32*)(s16v + 8));  // list_contains_ptr
     s17 = *(u32*)(s16v + 8);
     f21 = func_00227c78(s18 + 8);
     s17 = s17 + 2248;
@@ -955,7 +955,7 @@ void func_0022e5f8(u32 a0) {
 
 // 0022e6b0 (was src/anon/batch_w45.cpp)
 namespace n0022e6b0 {
-void func_001ba028(u8*) asm("func_001ba028");
+void YS__OBJ__is_valid(u8*) asm("YS__OBJ__is_valid");
 /*TARGET 0022e6b0*/
 // 0022c758: moved to src/sasa/event_layout.cpp (linked unit)
 
@@ -963,7 +963,7 @@ void func_0022e6b0(s32 which, u8* a1, f32 f) asm("func_0022e6b0");
 // 0022c758: moved to src/sasa/event_layout.cpp (linked unit)
 
 void func_0022e6b0(s32 which, u8* a1, f32 f) {
-    func_001ba028(a1);  // list_contains_ptr
+    YS__OBJ__is_valid(a1);  // list_contains_ptr
     switch (which) {
     case 0: *(f32*)(a1 + 52) = f; break;
     case 1: *(f32*)(a1 + 56) = f; break;
@@ -974,7 +974,7 @@ void func_0022e6b0(s32 which, u8* a1, f32 f) {
 
 // 0022e728 (was gap)
 namespace n0022e728 {
-s32 func_001ba028(u32) asm("func_001ba028");
+s32 YS__OBJ__is_valid(u32) asm("YS__OBJ__is_valid");
 s32 func_0014f0e0(f32*) asm("func_0014f0e0");
 void func_0022e6b0(s32, u32, f32) asm("func_0022e6b0");
 void func_00106420(f32*) asm("func_00106420");
@@ -982,7 +982,7 @@ void func_001024a8(u8*) asm("func_001024a8");
 void func_0022e728(u8* t) asm("func_0022e728");
 void func_0022e728(u8* t) {
     u32 obj = *(u32*)(t + 4);
-    if (!func_001ba028(obj)) return;
+    if (!YS__OBJ__is_valid(obj)) return;
     f32* v = *(f32**)(t + 8);
     s32 which = *(s32*)(t + 12);
     if (func_0014f0e0(v) == 0) {
@@ -1014,14 +1014,14 @@ void func_0022e7e8(u32* a0) {
 namespace n0022e818 {
 // 00179718: moved to src/yasui/libys/player.cpp
 
-// ---- func_0022e818
-s32 func_002282f0(s32) asm("func_002282f0");
-s32 func_002282d8(void) asm("func_002282d8");
+// ---- sa__EVENT__set_scale_seq
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
+s32 sa__EVENT__getEventPriority(void) asm("sa__EVENT__getEventPriority");
 // limit_15000_or_25000
 u8* sa_entry_work_get(s32) asm("_ZN2sa5EVENT14entry_work_getEi");
-void func_001ba028(u32) asm("func_001ba028");
+void YS__OBJ__is_valid(u32) asm("YS__OBJ__is_valid");
 // list_contains_ptr
-s32 func_00225b00(s32) asm("func_00225b00");
+s32 sa__EVENT__isJumpMode(s32) asm("sa__EVENT__isJumpMode");
 // flag_query_by_index
 u8* field_create_task(s32, s32, void (*)(void*)) asm("_ZN5FIELD10CreateTaskEiiPFvP4TASKE");
 void* area_get_allocator(void) asm("_ZN4AREA12GetAllocatorEv");
@@ -1035,13 +1035,13 @@ void func_0022e728(void*) asm("func_0022e728");
 union W279H { s16 h; u8 c; };
 union W279P { f32* p; u8 c; };
 /*TARGET 0022e818*/
-void func_0022e818(u8* s) asm("func_0022e818");
-void func_0022e818(u8* s) {
-    if (func_002282f0(*(s16*)(s + 4))) return;
-    s32 a = func_002282d8();  // limit_15000_or_25000
+void sa__EVENT__set_scale_seq(u8* s) asm("sa__EVENT__set_scale_seq");
+void sa__EVENT__set_scale_seq(u8* s) {
+    if (sa__EVENT__checkStart(*(s16*)(s + 4))) return;
+    s32 a = sa__EVENT__getEventPriority();  // limit_15000_or_25000
     u8* b = sa_entry_work_get(*(s16*)(s + 6));
-    func_001ba028(*(u32*)(b + 8));  // list_contains_ptr
-    if (!func_00225b00(*(s16*)(s + 4))) {  // flag_query_by_index
+    YS__OBJ__is_valid(*(u32*)(b + 8));  // list_contains_ptr
+    if (!sa__EVENT__isJumpMode(*(s16*)(s + 4))) {  // flag_query_by_index
         u8* t = field_create_task(1, a, func_0022e728);
         *(u32*)(t + 48) = (u32)func_0022e7e8;
         *(u32*)(t + 4) = *(u32*)(b + 8);
@@ -1095,13 +1095,13 @@ void func_0022e9f8(u32* a0) {
 
 // 0022ea28 (was src/anon/batch_w94.cpp)
 namespace n0022ea28 {
-s32 func_002282f0(s32) asm("func_002282f0");
-u32 func_002282d8(void) asm("func_002282d8");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
+u32 sa__EVENT__getEventPriority(void) asm("sa__EVENT__getEventPriority");
 // limit_15000_or_25000
 u8* func_00227d10(s16) asm("func_00227d10");
-void func_001ba028(u32) asm("func_001ba028");
+void YS__OBJ__is_valid(u32) asm("YS__OBJ__is_valid");
 // list_contains_ptr
-s32 func_00225b00(s16) asm("func_00225b00");
+s32 sa__EVENT__isJumpMode(s16) asm("sa__EVENT__isJumpMode");
 // flag_query_by_index
 void func_0022e998(void) asm("func_0022e998");
 void func_0022e9f8(void) asm("func_0022e9f8");
@@ -1109,22 +1109,22 @@ u8* func_00102c18(s32, u32, void (*)(void)) asm("func_00102c18");
 u32 func_001050c8(void) asm("func_001050c8");
 u8* func_001063c0(s32, u32) asm("func_001063c0");
 f32 func_00227c78(u8*) asm("func_00227c78");
-void func_002f12b0(u8*, u32, s32, f32, f32) asm("func_002f12b0");
+void dk__Turn__start(u8*, u32, s32, f32, f32) asm("dk__Turn__start");
 void func_0016aeb8(u32, f32) asm("func_0016aeb8");
 union Slot { u8* p; s16 h; };
 /*TARGET 0022ea28*/
 void func_0022ea28(u8* p) asm("func_0022ea28");
 void func_0022ea28(u8* p) {
-    if (func_002282f0(*(s16*)(p + 4))) return;
-    u32 parent = func_002282d8();  // limit_15000_or_25000
+    if (sa__EVENT__checkStart(*(s16*)(p + 4))) return;
+    u32 parent = sa__EVENT__getEventPriority();  // limit_15000_or_25000
     u8* m = func_00227d10(*(s16*)(p + 6));
-    func_001ba028(*(u32*)(m + 8));  // list_contains_ptr
-    if (func_00225b00(*(s16*)(p + 4)) == 0) {  // flag_query_by_index
+    YS__OBJ__is_valid(*(u32*)(m + 8));  // list_contains_ptr
+    if (sa__EVENT__isJumpMode(*(s16*)(p + 4)) == 0) {  // flag_query_by_index
         u8* o = func_00102c18(1, parent, func_0022e998);
         *(void (**)(void))(o + 48) = func_0022e9f8;
         u8* n = func_001063c0(24, func_001050c8());
         ((Slot*)(o + 8))->p = n;
-        func_002f12b0(n, *(u32*)(m + 8), *(s16*)(p + 8), func_00227c78(p + 12), *(s16*)(p + 10) * 2.0f);
+        dk__Turn__start(n, *(u32*)(m + 8), *(s16*)(p + 8), func_00227c78(p + 12), *(s16*)(p + 10) * 2.0f);
     } else {
         func_0016aeb8(*(u32*)(m + 8), 3.1415927f - func_00227c78(p + 12) * 0.017453292f);
     }
@@ -1180,8 +1180,8 @@ W1975Work* W1975_Ev_entry_work_get(s32) asm("_ZN2sa5EVENT14entry_work_getEi");
 void W1975_LookAt_release(u8*, f32, W1975V*) asm("_ZN2YS6LOOKAT7releaseEf");
 extern s8 D_01dadaf0 asm("D_01dadaf0");
 extern W1975V D_01dadb00 asm("D_01dadb00");
-s32 func_002282f0(s32) asm("func_002282f0");
-void func_001ba028(u8*) asm("func_001ba028");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
+void YS__OBJ__is_valid(u8*) asm("YS__OBJ__is_valid");
 void func_002fd188(void (*)(void)) asm("func_002fd188");
 void func_0022f8e8(void) asm("func_0022f8e8");
 void func_001b0858(u8*, f32, W1975V*, s32) asm("func_001b0858");
@@ -1198,9 +1198,9 @@ void func_0022eb80(W1975Ev* self) {
     f32 rx, rz;
     W1975V v;
     W1975M m;
-    if (func_002282f0(self->h4) != 0) return;
+    if (sa__EVENT__checkStart(self->h4) != 0) return;
     w = W1975_Ev_entry_work_get(self->h6);
-    func_001ba028(w->p8);
+    YS__OBJ__is_valid(w->p8);
     if (!D_01dadaf0) {
         D_01dadaf0 = 1;
         new (&D_01dadb00) W1975V(0.0f, 1.0f, 0.0f, 1.0f);
@@ -1225,14 +1225,14 @@ void func_0022eb80(W1975Ev* self) {
 
 // 0022ed70 (was gap)
 namespace n0022ed70 {
-s32 func_001ba028(u8*) asm("func_001ba028");
+s32 YS__OBJ__is_valid(u8*) asm("YS__OBJ__is_valid");
 s32 func_0014f0e0(f32*) asm("func_0014f0e0");
 void func_00106420(f32*) asm("func_00106420");
 void func_001024a8(u8*) asm("func_001024a8");
 void func_0022ed70(u8* t) asm("func_0022ed70");
 void func_0022ed70(u8* t) {
     u8* obj = *(u8**)(t + 4);
-    if (!func_001ba028(obj)) return;
+    if (!YS__OBJ__is_valid(obj)) return;
     f32* v = *(f32**)(t + 8);
     if (func_0014f0e0(v) == 0) {
         *(f32*)(obj + 2472) = v[0];
@@ -1268,13 +1268,13 @@ struct W22e { u32 f0; u32 f4; f32 f8; };
 struct V22e { u32 f0; B22e* f4; union { W22e* p; u32 u; f32 f; } f8; u8 p[36]; B22e* f48; };
 // 0x00259e90: definition moved into src/anon/unit_002588e8.cpp
 
-s32 func_002282f0(s32) asm("func_002282f0");
-void* func_002282d8(void) asm("func_002282d8");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
+void* sa__EVENT__getEventPriority(void) asm("sa__EVENT__getEventPriority");
 // limit_15000_or_25000
 C22e* func_00227d10(s32) asm("func_00227d10");
-void func_001ba028(B22e*) asm("func_001ba028");
+void YS__OBJ__is_valid(B22e*) asm("YS__OBJ__is_valid");
 // list_contains_ptr
-s32 func_00225b00(s32) asm("func_00225b00");
+s32 sa__EVENT__isJumpMode(s32) asm("sa__EVENT__isJumpMode");
 // flag_query_by_index
 V22e* func_00102c18(s32, void*, void*) asm("func_00102c18");
 void* func_001050c8(void) asm("func_001050c8");
@@ -1284,13 +1284,13 @@ void func_0014f030(W22e*, f32, f32, f32) asm("func_0014f030");
 void func_0022ed70(void) asm("func_0022ed70");
 void func_0022ee00(void) asm("func_0022ee00");
 /*TARGET 0022ee30*/
-void func_0022ee30(A22e* a) asm("func_0022ee30");
-void func_0022ee30(A22e* a) {
-    if (func_002282f0(a->h4)) return;
-    void* s = func_002282d8();  // limit_15000_or_25000
+void sa__EVENT__set_shadow_alpha_seq(A22e* a) asm("sa__EVENT__set_shadow_alpha_seq");
+void sa__EVENT__set_shadow_alpha_seq(A22e* a) {
+    if (sa__EVENT__checkStart(a->h4)) return;
+    void* s = sa__EVENT__getEventPriority();  // limit_15000_or_25000
     C22e* c = func_00227d10(a->h6);
-    func_001ba028(c->f8);  // list_contains_ptr
-    if (!func_00225b00(a->h4)) {  // flag_query_by_index
+    YS__OBJ__is_valid(c->f8);  // list_contains_ptr
+    if (!sa__EVENT__isJumpMode(a->h4)) {  // flag_query_by_index
     V22e* v = func_00102c18(1, s, (void*)func_0022ed70);
     v->f48 = (B22e*)func_0022ee00;
     v->f4 = c->f8;
@@ -1309,17 +1309,17 @@ void func_0022ee30(A22e* a) {
 // 0022ef50 (was src/anon/auto80_199_queue.cpp)
 namespace n0022ef50 {
 /*TARGET 0022ef50*/
-void func_0022ef50(u32 a0) asm("_Z13func_0022ef50j");
-void func_0022ef50(u32 a0) {
+void sa__EVENT__set_part_seq(u32 a0) asm("_Z23sa__EVENT__set_part_seqj");
+void sa__EVENT__set_part_seq(u32 a0) {
     u32 s17 = a0;
     u32 s16v;
     u32 p;
 
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart(*(s16*)(a0 + 4)) != 0) {
         return;
     }
     s16v = func_00227d10(*(s16*)(s17 + 8));
-    func_001ba028(*(u32*)(s16v + 8));  // list_contains_ptr
+    YS__OBJ__is_valid(*(u32*)(s16v + 8));  // list_contains_ptr
     p = *(u32*)(s16v + 8);
     func_0011c798(*(u32*)(p + 1648), s17 + 10);
 }
@@ -1332,12 +1332,12 @@ namespace n0022efb8 {
 struct S22e { u8 pad[4]; s16 f4; u8 pad6[2]; u8 f8; u8 f9; s16 f10; s16 f12; };
 union U22 { s32 i; s16 h; };
 struct R22e { u8 pad[12]; U22 f12; U22 f16; u8 f20; u8 f21; };
-s32 func_002282f0(s32) asm("func_002282f0");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
 R22e* func_00227d10(s32) asm("func_00227d10");
 /*TARGET 0022efb8*/
-void func_0022efb8(S22e* p) asm("func_0022efb8");
-void func_0022efb8(S22e* p) {
-    if (func_002282f0(p->f4)) return;
+void sa__EVENT__set_alpha_seq(S22e* p) asm("sa__EVENT__set_alpha_seq");
+void sa__EVENT__set_alpha_seq(S22e* p) {
+    if (sa__EVENT__checkStart(p->f4)) return;
     R22e* r = func_00227d10(p->f12);
     r->f12.i = p->f4;
     r->f16.i = p->f4 + p->f10;
@@ -1353,14 +1353,14 @@ struct T52 { s32 w0; s32 w4; u8 pad[38]; s16 h46; s16 h48; u8 pad2[2]; };
 extern T40* D_0035dcfc asm("D_0035dcfc");
 extern T52* D_0035dcf4 asm("D_0035dcf4");
 extern s32 D_0035de20 asm("D_0035de20");
-s32 func_002282f0(s32) asm("func_002282f0");
-void ut_1c0d38(u32, u32, s32, s32) asm("_Z16u_tail4_001c0d38jjjj");
+s32 sa__EVENT__checkStart(s32) asm("sa__EVENT__checkStart");
+void ut_1c0d38(u32, u32, s32, s32) asm("_Z15YS__OBJ__attachjjjj");
 struct S { u8 pad[4]; s16 h4; u8 p6[2]; s16 h8; s16 h10; s16 h12; s16 h14; s16 h16; };
 /*TARGET 0022f018*/
 void func_0022f018(S* s) asm("func_0022f018");
 void func_0022f018(S* s) {
   s32 b, a, i;
-  if (func_002282f0(s->h4)) return;
+  if (sa__EVENT__checkStart(s->h4)) return;
   b = -1; a = -1;
   switch (s->h16) {
   case 1: {
@@ -1391,19 +1391,19 @@ void func_0022f018(S* s) {
 // 0022f200 (was src/anon/auto80_199_queue.cpp)
 namespace n0022f200 {
 /*TARGET 0022f200*/
-void func_0022f200(u32 a0) asm("_Z13func_0022f200j");
-void func_0022f200(u32 a0) {
+void sa__EVENT__set_bgcol_seq(u32 a0) asm("_Z24sa__EVENT__set_bgcol_seqj");
+void sa__EVENT__set_bgcol_seq(u32 a0) {
     u32 s16v = a0;
     u32 s17;
     u32 p;
     u32 q;
     s32 mask = -2;
 
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart(*(s16*)(a0 + 4)) != 0) {
         return;
     }
     s17 = func_00227d10(*(s16*)(s16v + 8));
-    func_001ba028(*(u32*)(s17 + 8));  // list_contains_ptr
+    YS__OBJ__is_valid(*(u32*)(s17 + 8));  // list_contains_ptr
     if (*(s16*)(s16v + 10) != 0) {
         u32 p1 = *(u32*)(s17 + 8);
         u32 q1 = *(u32*)(p1 + 264);
@@ -1428,11 +1428,11 @@ void func_0022f280(u32 a0) {
     u32 s16v = a0;
     u32 s17;
 
-    if (func_002282f0(*(s16*)(a0 + 4)) != 0) {
+    if (sa__EVENT__checkStart(*(s16*)(a0 + 4)) != 0) {
         return;
     }
     s17 = func_00227d10(*(s16*)(s16v + 6));
-    func_001ba028(*(u32*)(s17 + 8));  // list_contains_ptr
+    YS__OBJ__is_valid(*(u32*)(s17 + 8));  // list_contains_ptr
     if (*(s8*)(s16v + 10) == 1) {
         func_00194070(*(u32*)(s17 + 8), *(u16*)(s16v + 8));
     } else {
@@ -1445,13 +1445,13 @@ void func_0022f280(u32 a0) {
 namespace n0022f308 {
 typedef void (*VFn)(u8*);
 // 0x001ea100: definition moved into src/anon/unit_001e8ac8.cpp
-s32 func_002282f0(s16) asm("func_002282f0");
+s32 sa__EVENT__checkStart(s16) asm("sa__EVENT__checkStart");
 u8* func_00227d10(s16) asm("func_00227d10");
-void func_001ba028(u8*) asm("func_001ba028");
+void YS__OBJ__is_valid(u8*) asm("YS__OBJ__is_valid");
 // list_contains_ptr
 s32 func_001c0cd8(u8*) asm("func_001c0cd8");
 void func_001c0e60(u8*) asm("func_001c0e60");
-void func_00232db0(s16) asm("func_00232db0");
+void sa__EVENT__clearMotionCtrlWk(s16) asm("sa__EVENT__clearMotionCtrlWk");
 void func_00227950(void) asm("func_00227950");
 u8* func_00102c18(s32, s32, void (*)(void)) asm("func_00102c18");
 union HP { s16 h[4]; u8* q; };
@@ -1460,13 +1460,13 @@ void func_0022f308(HP* hp) asm("func_0022f308");
 void func_0022f308(HP* hp)
 {
     s16* p = hp->h;
-    if (func_002282f0(p[2])) return;
+    if (sa__EVENT__checkStart(p[2])) return;
     u8* e = func_00227d10(p[3]);
-    func_001ba028(*(u8**)(e + 8));  // list_contains_ptr
+    YS__OBJ__is_valid(*(u8**)(e + 8));  // list_contains_ptr
     if (func_001c0cd8(*(u8**)(e + 8))) func_001c0e60(*(u8**)(e + 8));
     (*(VFn*)(**(u8***)(e + 8) + 40))(*(u8**)(e + 8));
     *(u8**)(e + 8) = 0;
-    func_00232db0(hp->h[3]);
+    sa__EVENT__clearMotionCtrlWk(hp->h[3]);
     *(s32*)(func_00102c18(1, 0xa7ee, func_00227950) + 4) = hp->h[3];
 }
 }  // namespace n0022f308
@@ -1477,7 +1477,7 @@ struct Obj { u8 pad[943]; u8 a; };
 struct Ent { s32 id; s32 pad4; Obj* obj; s32 start; s32 end; u8 from; u8 to; u8 pad[18]; };
 extern Ent* D_0035dcfc asm("D_0035dcfc");
 extern s32 D_0035de20 asm("D_0035de20");
-void func_001ba028(Obj*) asm("func_001ba028");
+void YS__OBJ__is_valid(Obj*) asm("YS__OBJ__is_valid");
 /*TARGET 0022f3a8*/
 // Fade each live entry's object value from 'from' to 'to' over [start, end).
 // The FULL path is written in both arms so CSE shares one hi(D_0035dcfc) and
@@ -1500,14 +1500,14 @@ void func_0022f3a8(void)
         if (now < en) {
             if (st != en) {
                 u8 v = (s32)((f32)(now - st) * (f32)(e->to - e->from) / (f32)(en - st) + (f32)e->from);
-                func_001ba028(o);
+                YS__OBJ__is_valid(o);
                 D_0035dcfc[i].obj->a = v;
             } else {
-                func_001ba028(o);
+                YS__OBJ__is_valid(o);
                 D_0035dcfc[i].obj->a = D_0035dcfc[i].to;
             }
         } else {
-            func_001ba028(o);
+            YS__OBJ__is_valid(o);
             D_0035dcfc[i].obj->a = D_0035dcfc[i].to;
         }
     }
@@ -1549,12 +1549,12 @@ void func_0022f528(u8* o) {
 
 // 0022f5a0 (was src/anon/batch_w50.cpp)
 namespace n0022f5a0 {
-void func_0016ed50(u32, s32, s32) asm("func_0016ed50");
+void YS__OBJENTRY__ReadRequest(u32, s32, s32) asm("YS__OBJENTRY__ReadRequest");
 u8* func_00227d10(u32) asm("func_00227d10");
 /*TARGET 0022f5a0*/
 void func_0022f5a0(u32 a, u32 b, u32 c) asm("func_0022f5a0");
 void func_0022f5a0(u32 a, u32 b, u32 c) {
-    func_0016ed50(b | 0x40000000, -1, 30);
+    YS__OBJENTRY__ReadRequest(b | 0x40000000, -1, 30);
     func_00227d10(c)[22] = 1;
 }
 }  // namespace n0022f5a0
@@ -1564,9 +1564,9 @@ namespace n0022f5e8 {
 struct Obj22f;
 struct Obj22fvt { u8 pad[40]; void (*f40)(Obj22f*); };
 struct Obj22f { Obj22fvt* vt; };
-void func_001ba028(Obj22f*) asm("func_001ba028");
+void YS__OBJ__is_valid(Obj22f*) asm("YS__OBJ__is_valid");
 // list_contains_ptr
-void func_00232db0(u32) asm("func_00232db0");
+void sa__EVENT__clearMotionCtrlWk(u32) asm("sa__EVENT__clearMotionCtrlWk");
 struct Ent22f { s32 id; u32 f4; Obj22f* obj; u8 pad[28]; };
 union Tbl22f { Ent22f* p; u8 c; };
 extern Tbl22f D_0035dcfc asm("D_0035dcfc");
@@ -1580,10 +1580,10 @@ s32 func_0022f5e8(void) {
     if (!D_0035dcfc.p) return 0;
     for (i = 0; i < 96; i++) {
         if (D_0035dcfc.p[i].obj) {
-            func_001ba028(D_0035dcfc.p[i].obj);  // list_contains_ptr
+            YS__OBJ__is_valid(D_0035dcfc.p[i].obj);  // list_contains_ptr
             D_0035dcfc.p[i].obj->vt->f40(D_0035dcfc.p[i].obj);
             D_0035dcfc.p[i].obj = 0;
-            func_00232db0(D_0035dcfc.p[i].f4);
+            sa__EVENT__clearMotionCtrlWk(D_0035dcfc.p[i].f4);
             D_0035dcfc.p[i].id = -1;
             r = 1;
         }
@@ -1628,8 +1628,8 @@ struct V22f {
     V22f(const V22f& o) { asm volatile("lq $8, 0(%1)\n\tsq $8, 0(%0)" : : "r"(this), "r"(&o) : "$8", "memory"); }
 } __attribute__((aligned(16)));
 struct E22f { s32 f0; s32 id; void* obj; u32 pad[7]; };
-s32 func_002282f0(u16) asm("func_002282f0");
-void func_001ba028(void*) asm("func_001ba028");
+s32 sa__EVENT__checkStart(u16) asm("sa__EVENT__checkStart");
+void YS__OBJ__is_valid(void*) asm("YS__OBJ__is_valid");
 // list_contains_ptr
 f32 func_00227c78(u8*) asm("func_00227c78");
 void func_0016adc8(void*, V22f) asm("func_0016adc8");
@@ -1638,7 +1638,7 @@ extern E22f* D_0035dcfc asm("D_0035dcfc");
 /*TARGET 0022f7c0*/
 void func_0022f7c0(u8* s) asm("func_0022f7c0");
 void func_0022f7c0(u8* s) {
-    if (func_002282f0(*(u16*)(s + 38))) return;
+    if (sa__EVENT__checkStart(*(u16*)(s + 38))) return;
     if (*(s16*)(s + 4)) return;
     f32 one = 1.0f;
     for (s32 i = 0; i < 96; i++) {
@@ -1646,7 +1646,7 @@ void func_0022f7c0(u8* s) {
         if (e->f0 < 0) continue;
         if (*(s16*)(s + 36) != e->id) continue;
         void* o = e->obj;
-        func_001ba028(o);  // list_contains_ptr
+        YS__OBJ__is_valid(o);  // list_contains_ptr
         V22f a, unused, b;
         (void)&unused;
         a.x = func_00227c78(s + 8);

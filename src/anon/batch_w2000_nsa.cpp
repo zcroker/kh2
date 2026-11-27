@@ -27,9 +27,9 @@ extern ObjE* D_00361e50;
 extern f32 D_01e2be10;
 extern f32 D_01e2be14;
 void func_0031cc28(void*);
-void func_002c6420(ObjE*);
+void worldmap__Camera__initialize(ObjE*);
 void func_001903d0(s32*, PairE*);
-s32 func_00106a18(s32);
+s32 kn__getProjection(s32);
 f32 func_001070a0(s32);
 s32 func_0016a020(s32);
 void func_00162058(f32);
@@ -47,7 +47,7 @@ static inline void addE(VecE* d, const VecE* a, const VecE* b) {
     asm volatile("lqc2 $vf1, 0(%1)\n\tlqc2 $vf2, 0(%2)\n\tvadd.wxyz $vf1, $vf1, $vf2\n\tsqc2 $vf1, 0(%0)"
         : : "r"(d), "r"(a), "r"(b) : "memory");
 }
-void func_002cae60(ObjE* self, s32* a1, VecE* a2, f32 f);  // 0x2cae60: moved to src/anon/unit_002cac58.cpp
+void worldmap__CloseUpCamera__CloseUpCamera(ObjE* self, s32* a1, VecE* a2, f32 f);  // 0x2cae60: moved to src/anon/unit_002cac58.cpp
 
 
 struct EntI { s32 a; s32 b; u8 type; u8 arg; u8 pad[2]; };

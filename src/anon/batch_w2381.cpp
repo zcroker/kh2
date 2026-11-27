@@ -29,6 +29,6 @@ static inline void w2381_spring(W2381V4& cur, const W2381V4& goal, const W2381V4
     cur = func_0013f6e8(cur, goal, vel, dt, k, d, r);
 }
 
-void w2381_ctarget(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z16ctarget_0014fcd8jjjj");
+void w2381_ctarget(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z21dk__INFO_BASE__updatejjjj");
 void w2381_ctarget(u32 a0, u32, u32, u32);  // 0x0014fcd8: definition moved into src/anon/unit_0014ecb8.cpp
 }

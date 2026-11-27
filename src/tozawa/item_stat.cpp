@@ -10,10 +10,10 @@ extern "C" u32 wtarget_002fde18(u32, u32, u32) asm("_Z16wtarget_002fde18jjjj");
 
 // 00291370: moved to src/anon/unit_00290f78.cpp
 
-extern "C" void func_00290d68(...);
+extern "C" void Tz__ItemStat__CreateSeq(...);
 extern "C" void func_00290f78(...);
 extern "C" u32 func_00291380(...);
-extern "C" void func_00291510(...);
+extern "C" void Tz__ItemStat__Update(...);
 extern "C" void func_00291ba8(...);
 
 // 00291068: moved to src/anon/unit_00290f78.cpp

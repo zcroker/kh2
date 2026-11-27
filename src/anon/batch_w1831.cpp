@@ -53,14 +53,14 @@ u64 func_00313e80(u64, u64) __attribute__((const));
 f32 __truncdfsf2(u64) __attribute__((const));
 s32 func_003142e0(u64, u64) __attribute__((const));
 
-W1831QV* func_0016c028(W1831Obj*);
+W1831QV* YS__OBJ__get_pos(W1831Obj*);
 s32 func_00143b60(W1831Seg, W1831QV*, s32);
 
-f32 func_002edd20(W1831Obj* o);  // 0x002edd20: definition moved into src/anon/unit_002ecdb0.cpp
+f32 Ts__ACTION_LIB__HeightFromFloor(W1831Obj* o);  // 0x002edd20: definition moved into src/anon/unit_002ecdb0.cpp
 
 extern f32 D_00349e10;
-void func_0016b010(W1831Body*, W1831QC);
-W1831QC func_0016af58(W1831Body*);
+void YS__OBJ__set_wish_dir(W1831Body*, W1831QC);
+W1831QC YS__OBJ__get_dir(W1831Body*);
 
-W1831QC func_002ecef8(void* self, W1831Body* o);  // 0x002ecef8: definition moved into src/anon/unit_002ecdb0.cpp
+W1831QC Ts__ACTION_LIMIT_PETERPAN__calc_movement(void* self, W1831Body* o);  // 0x002ecef8: definition moved into src/anon/unit_002ecdb0.cpp
 }

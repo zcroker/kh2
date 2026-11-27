@@ -13,8 +13,8 @@ struct W2368Arg { u8 pad[0x10]; u16 id; };
 
 extern "C" {
 extern u8 D_0032e020;
-W2368Ent* func_00189200(void*, s32);
-W2368Info* func_001b8e88(u16);
+W2368Ent* YS__SAVERAM_BATTLE__get_formram(void*, s32);
+W2368Info* YS__COMMAND_ELEM__Get(u16);
 u16 func_001a3958(s32);
 
 // Advances the animation clock by 0x200; on reaching the frame's duration steps to the next

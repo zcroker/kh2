@@ -35,12 +35,12 @@ static inline void Area_init(Area* a, u32 v)
     a->btl = v;
 }
 void func_0019f070(Jumper*, s32);
-void func_0014ce60(void);
+void dk__Vsync__initGameSpeed(void);
 void func_00109140(void);
 void func_00169030(void*);
 s32 func_00105310(Area*, Jumper*);
 void func_0016fa98(s32, u32);
-void func_00105370(s32, s32);
+void AREA__CreateAllocator(s32, s32);
 void func_001de7d8(u32, u32, u32);
 s32 func_001a84f0(void);
 s32 func_001a8510(Jumper*);
@@ -52,7 +52,7 @@ void func_001053c0(void);
 void func_00182d80(void);
 void func_001052a8(Area*);
 s32 func_002283b0(void);
-void func_002b9f28(s32);
+void SOUND__areaInit(s32);
 void func_00149ca0(void);
 void func_001366b8(void*);
 void func_00136fd0(void);

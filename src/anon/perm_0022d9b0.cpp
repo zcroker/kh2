@@ -41,10 +41,10 @@ void W1688_obj2d_ctor(void *self, void *win) asm("_ZN2YS12WINDOW_OBJ2DC1EPNS_6WI
 void func_00102448(u32, s32) asm("_ZN2Tz9TaskYieldEz");
 void func_001ad0f8(void *, s32, s32);
 void func_001ad330(void *, s32);
-void func_00225a10(void);
+void sa__EVENT__waitMessageOn(void);
 void func_00225a20(void);
-s32 func_00225b00(s32);
-s32 func_002282f0(s32);
+s32 sa__EVENT__isJumpMode(s32);
+s32 sa__EVENT__checkStart(s32);
 inline static bool W1688_busy(void **o)
 {
   return (*((s32 *) (((u8 *) o) + 0x70))) != 3;

@@ -25,13 +25,13 @@ void func_001d0cb8(u8* p) { u8* t = *(u8**)(p + 12); (*(VF*)(*(u8**)t + 12))(t, 
 
 // ---- 001d0ce8 from src/anon/tiny_wrappers_imp.cpp
 namespace n001d0ce8 {
-u32 func_00178280(u32, u32, u32, u32) asm("_Z13func_00178280jjjj");
+u32 YS__PLAYER___OVR_leave_req(u32, u32, u32, u32) asm("_Z26YS__PLAYER___OVR_leave_reqjjjj");
 u32 func_001d0ce8(u32 a0, u32 a1, u32 a2, u32 a3) asm("_Z13func_001d0ce8jjjj");
 u32 func_001d0ce8(u32 a0, u32 a1, u32 a2, u32 a3) {
     u32 r4 = a0, r5 = a1, r6 = a2, r7 = a3, r15 = 0u;
     r15 = (u32)(0x0035u << 16);
     *(u32*)((u32)r15 + (s32)(9216)) = 0u;
-    return func_00178280(r4, r5, r6, r7);
+    return YS__PLAYER___OVR_leave_req(r4, r5, r6, r7);
 }
 }  // namespace n001d0ce8
 
@@ -69,10 +69,10 @@ extern W93UM D_0034f240 asm("D_0034f240");
 struct W93Pl { u8 pad[2896]; s32 state; };
 s32 func_001bb7f8(void) asm("func_001bb7f8");
 void func_00179e18(W93Pl*) asm("func_00179e18");
-s32 func_0017a538(W93Pl*) asm("func_0017a538");
+s32 YS__PLAYER__is_changing(W93Pl*) asm("YS__PLAYER__is_changing");
 void func_001d0eb8(W93Pl*) asm("func_001d0eb8");
 void func_001991a8(s32, s32) asm("func_001991a8");
-void func_001b6c60(W93Pl*) asm("func_001b6c60");
+void YS__CHANGEFORM__Dead(W93Pl*) asm("YS__CHANGEFORM__Dead");
 s32 func_001c8b48(void) asm("func_001c8b48");
 s32 func_001bbb50(void) asm("func_001bbb50");
 s32 func_001c8ab0(void) asm("func_001c8ab0");
@@ -90,8 +90,8 @@ void func_001d0d60(W93Pl* p)
             return;
         }
         func_00179e18(p);
-        if (func_0017a538(p) || W93Dead(p)) {
-            func_001b6c60(p);
+        if (YS__PLAYER__is_changing(p) || W93Dead(p)) {
+            YS__CHANGEFORM__Dead(p);
             return;
         }
         func_001d0eb8(p);
@@ -100,7 +100,7 @@ void func_001d0d60(W93Pl* p)
     }
     func_00179e18(p);
     if (func_001c8b48()) {
-        if (W93Dead(p)) { func_001b6c60(p); return; }
+        if (W93Dead(p)) { YS__CHANGEFORM__Dead(p); return; }
         func_001d0eb8(p);
         func_001af328(p);
         return;
@@ -110,8 +110,8 @@ void func_001d0d60(W93Pl* p)
         func_001af360(p);
         return;
     }
-    if (func_0017a538(p) || W93Dead(p)) {
-        func_001b6c60(p);
+    if (YS__PLAYER__is_changing(p) || W93Dead(p)) {
+        YS__CHANGEFORM__Dead(p);
         return;
     }
     if (func_001c8ab0() == 2) func_001d1408(p);
@@ -145,36 +145,36 @@ struct W8021A {
     u8 p0[0x160]; u32 m160; u8 p1[0x48c - 0x164]; W8021Q1* q48c; u8 p2[0x7f8 - 0x490]; u32 m7f8;
     u8 p3[0xaec - 0x7fc]; s32 maec; u8 p4[0xb50 - 0xaf0]; s32 mb50;
 };
-void func_001788b8() asm("func_001788b8");
+void YS__PLAYER___OVR_exec() asm("YS__PLAYER___OVR_exec");
 s32 func_00179c08(W8021A*, s32) asm("func_00179c08");
-s32 func_0017a538(W8021A*) asm("func_0017a538");
-s32 func_0019c218(W8021A*, s32) asm("func_0019c218");
+s32 YS__PLAYER__is_changing(W8021A*) asm("YS__PLAYER__is_changing");
+s32 YS__OBJ__can_decide(W8021A*, s32) asm("YS__OBJ__can_decide");
 void func_001b6b10(W8021A*, s32) asm("func_001b6b10");
-void func_001b6c20(W8021A*) asm("func_001b6c20");
-s32 func_001b8e88(s32) asm("func_001b8e88");
-s32 func_001bc2a8(s32, W8021A*, s32) asm("func_001bc2a8");
+void YS__CHANGEFORM__CaptureEnd(W8021A*) asm("YS__CHANGEFORM__CaptureEnd");
+s32 YS__COMMAND_ELEM__Get(s32) asm("YS__COMMAND_ELEM__Get");
+s32 YS__COMMAND_SLOT__GetStatus(s32, W8021A*, s32) asm("YS__COMMAND_SLOT__GetStatus");
 s32 func_001c8ab0() asm("func_001c8ab0");
 void func_001d1408(W8021A*) asm("func_001d1408");
-static inline u8 lt4(s32 id, W8021A* a) { return func_001bc2a8(id, a, 0) < 4; }
+static inline u8 lt4(s32 id, W8021A* a) { return YS__COMMAND_SLOT__GetStatus(id, a, 0) < 4; }
 static inline u32 is12(W8021A* a) { return a->mb50 == 12; }
 void func_001d0f08(W8021A* a) asm("func_001d0f08");
 void func_001d0f08(W8021A* a) {
-    func_001788b8();
+    YS__PLAYER___OVR_exec();
     if (a->m7f8 & 4) return;
     if (a->maec != 0) return;
     if (a->m160 & 0x4000) return;
     W8021Q1* q = a->q48c;
     if (q == 0) return;
     if (!(q->f1b4 <= 0.0f)) return;
-    if (func_0017a538(a)) {
-        s32 r = func_001b8e88(5);
+    if (YS__PLAYER__is_changing(a)) {
+        s32 r = YS__COMMAND_ELEM__Get(5);
         r = func_00179c08(a, r);
         if (r) func_001b6b10(a, 0);
     } else if (is12(a)) {
-        s32 id = func_001b8e88(5);
-        if (func_0019c218(a, id) && lt4(id, a)) func_001b6c20(a);
+        s32 id = YS__COMMAND_ELEM__Get(5);
+        if (YS__OBJ__can_decide(a, id) && lt4(id, a)) YS__CHANGEFORM__CaptureEnd(a);
     } else if (func_001c8ab0() == 2) {
-        s32 r = func_001b8e88(0x13c);
+        s32 r = YS__COMMAND_ELEM__Get(0x13c);
         r = func_00179c08(a, r);
         if (r) func_001d1408(a);
     }
@@ -189,25 +189,25 @@ namespace n001d1070 {
 inline void* operator new(unsigned int, void* p) { return p; }
 struct T1d1 { u16 f0, f2, bit; u16 pad[5]; u16 id; };
 struct B1d1 { u32 w[8]; };
-s32 func_0017a538(u8*) asm("func_0017a538");
+s32 YS__PLAYER__is_changing(u8*) asm("YS__PLAYER__is_changing");
 s32 func_001a2478(u32) asm("func_001a2478");
 u32* func_00177860(u8*) asm("func_00177860");
 T1d1* func_001a80c8(u16) asm("func_001a80c8");
-void* func_001b8e88(u16) asm("func_001b8e88");
-s32 func_001bc2a8(void*, u8*, s32) asm("func_001bc2a8");
+void* YS__COMMAND_ELEM__Get(u16) asm("YS__COMMAND_ELEM__Get");
+s32 YS__COMMAND_SLOT__GetStatus(void*, u8*, s32) asm("YS__COMMAND_SLOT__GetStatus");
 void func_00190128(B1d1*) asm("func_00190128");
 void func_001bd3e0(u32, s32, u16, B1d1*, s32, s32) asm("func_001bd3e0");
 extern u16 D_0036e390[] asm("D_0036e390");
 s32 func_001d1070(u8* self) asm("func_001d1070");
 s32 func_001d1070(u8* self) {
-    if (func_0017a538(self) || !func_001a2478(*(u32*)(self + 1164))) return 0;
+    if (YS__PLAYER__is_changing(self) || !func_001a2478(*(u32*)(self + 1164))) return 0;
     u32* bits = func_00177860(self);
     u16* ids = D_0036e390;
     for (u32 i = 0; i < 4; i++) {
         T1d1* t = func_001a80c8(*ids++);                       
         u32 k = t->bit;
         if (bits[k >> 5] & (1 << (k & 31))) {
-            if (func_001bc2a8(func_001b8e88(t->id), self, 0) < 4) {
+            if (YS__COMMAND_SLOT__GetStatus(YS__COMMAND_ELEM__Get(t->id), self, 0) < 4) {
             B1d1 b;
             func_00190128(&b);
             func_001bd3e0(*(u32*)(self + 2884), 1, t->id, &b, 1, 0);

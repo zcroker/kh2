@@ -20,13 +20,13 @@ s32 func_001a3570(u32) asm("func_001a3570");
 s32 func_001c99b0(u32) asm("func_001c99b0");
 s32 func_00181500(u32) asm("func_00181500");
 u8* func_001b90c8(u32) asm("func_001b90c8");
-u8* func_00189200(void *, u32) asm("func_00189200");
+u8* YS__SAVERAM_BATTLE__get_formram(void *, u32) asm("YS__SAVERAM_BATTLE__get_formram");
 f32 func_002f8b30(f32, f32) asm("func_002f8b30");
 extern u8 D_0032e020[] asm("D_0032e020");
 extern u8 *D_00352130 asm("D_00352130");
 extern u32 D_003638d0 asm("D_003638d0");
-s32 func_001d63a8(u8 *a0) asm("func_001d63a8");
-s32 func_001d63a8(u8 *a0)
+s32 YS__ANTI_FORM__IsFinal(u8 *a0) asm("YS__ANTI_FORM__IsFinal");
+s32 YS__ANTI_FORM__IsFinal(u8 *a0)
 {
   float new_var;
   u8 *q;
@@ -51,7 +51,7 @@ s32 func_001d63a8(u8 *a0)
   {
     return 0;
   }
-  q = func_00189200(D_0032e020, 5);
+  q = YS__SAVERAM_BATTLE__get_formram(D_0032e020, 5);
   g = D_00352130;
   new_var = 100.0f;
   f = (*((f32 *) (g + 152))) * func_002f8b30(*((f32 *) (g + 156)), (f32) (*((s32 *) (q + 4))));
@@ -137,7 +137,7 @@ static inline s32 rnd_1d65f8(s32 n) {
 }
 struct O1d65f8 { u8 p0[64]; V1d65f8 v40; u8 p50[4]; void* cb; void* owner; u8 p5c[4]; };
 struct T1d65f8 { u8 p0[2548]; T1d65f8* p9f4; };
-V1d65f8* func_0016c028(void*) asm("func_0016c028");
+V1d65f8* YS__OBJ__get_pos(void*) asm("YS__OBJ__get_pos");
 void func_001c2858(void*, V1d65f8*, void*, void*) asm("func_001c2858");
 s32 func_001c28f8(void*, V1d65f8*, s32) asm("func_001c28f8");
 O1d65f8* func_001db888(void*, s32, void*) asm("func_001db888");
@@ -145,11 +145,11 @@ void func_001dbc58(O1d65f8*, T1d65f8*, V1d65f8*, V1d65f8*) asm("func_001dbc58");
 void func_001ce618(void) asm("func_001ce618");
 extern V1d65f8 D_01d5ba78 asm("D_01d5ba78");
 extern V1d65f8 D_01d5ba88 asm("D_01d5ba88");
-void func_001d65f8(T1d65f8* self, void* a, void* b) asm("func_001d65f8");
-void func_001d65f8(T1d65f8* self, void* a, void* b) {
+void YS__CROWD_N_MU060___OVR_appear(T1d65f8* self, void* a, void* b) asm("YS__CROWD_N_MU060___OVR_appear");
+void YS__CROWD_N_MU060___OVR_appear(T1d65f8* self, void* a, void* b) {
     u8 obj[80];
     V1d65f8 v;
-    func_001c2858(obj, func_0016c028(self), a, b);
+    func_001c2858(obj, YS__OBJ__get_pos(self), a, b);
     T1d65f8* s = self->p9f4->p9f4;
     while (func_001c28f8(obj, &v, 1)) {
     V1d65f8* sel = rnd_1d65f8(2) == 0 ? &D_01d5ba78 : &D_01d5ba88;
@@ -157,7 +157,7 @@ void func_001d65f8(T1d65f8* self, void* a, void* b) {
     v.y -= sel->z;
     O1d65f8* o = func_001db888((u8*)s + 20, 96, __builtin_return_address(0));
     func_001dbc58(o, s, &v, sel);
-    o->v40 = sub_1d65f8(v, *func_0016c028(self));
+    o->v40 = sub_1d65f8(v, *YS__OBJ__get_pos(self));
     o->v40.w = 1.0f;
     o->owner = self;
     o->cb = (void*)func_001ce618;
@@ -171,8 +171,8 @@ struct Trig { f32 x, y, z; u8 pad[8]; u8 cnt; u8 pad2[2]; u8 flag; u8 pad3[68]; 
 void* func_0016e920(s32) asm("func_0016e920");
 u8* func_001dba18(void*) asm("func_001dba18");
 Trig* func_001c16f0(void*, Trig*) asm("func_001c16f0");
-void func_001d6790(f32* box) asm("func_001d6790");
-void func_001d6790(f32* box) {
+void YS__CROWD_N_MU060__MakeBow(f32* box) asm("YS__CROWD_N_MU060__MakeBow");
+void YS__CROWD_N_MU060__MakeBow(f32* box) {
     void* list = *(void**)(func_001dba18(func_0016e920(2120)) + 2548);
     Trig* it = 0;
     while ((it = func_001c16f0(list, it))) {

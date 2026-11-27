@@ -242,8 +242,8 @@ void Layout_init(Layout* self) {
 namespace n00153c80 {
 void func_0023ede8(void*) asm("_Z13func_0023ede8Pv");
 /*TARGET 00153c80*/
-void func_00153c80(BD_VALUE* bd) asm("_Z13func_00153c80P8BD_VALUE");
-void func_00153c80(BD_VALUE* bd) { func_0023ede8(bd); }
+void dk__Layout__exit(BD_VALUE* bd) asm("_Z16dk__Layout__exitP8BD_VALUE");
+void dk__Layout__exit(BD_VALUE* bd) { func_0023ede8(bd); }
 }  // namespace n00153c80
 
 // 00153c98 (was src/anon/batch_w1669.cpp)
@@ -251,8 +251,8 @@ namespace n00153c98 {
 // 0x001e7440: definition moved into src/anon/unit_001e0cb8.cpp
 struct W1669VObj { void** vt; };
 /*TARGET 00153c98*/
-void func_00153c98(W1669VObj* p) asm("func_00153c98");
-void func_00153c98(W1669VObj* p) {
+void dk__Layout__destroy(W1669VObj* p) asm("dk__Layout__destroy");
+void dk__Layout__destroy(W1669VObj* p) {
     if (p) ((void (*)(W1669VObj*))p->vt[4])(p);
 }
 }  // namespace n00153c98
@@ -276,7 +276,7 @@ void func_00153cc8(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4) {
     u32 s1 = func_0023f948(ctx, 0);
     u32 v = func_0023f908(ctx, 0);
 
-    func_0023eea0(s0, s2, s1, v, s3, s4);
+    Tz__Layout__create(s0, s2, s1, v, s3, s4);
     func_0023f848(ctx);
 }
 }  // namespace n00153cc8
@@ -286,9 +286,9 @@ namespace n00153d70 {
 extern u8 D_0035eb98[] asm("D_0035eb98");
 extern u8 D_0034a7c0[] asm("D_0034a7c0");
 u8* func_0023ee30(s32) asm("func_0023ee30");
-void func_002369a0(u8*) asm("func_002369a0");
+void YI__IMAGE_FREEZE__IMAGE_FREEZE(u8*) asm("YI__IMAGE_FREEZE__IMAGE_FREEZE");
 // obj_ctor_36eac8
-void func_0023c008(u8*) asm("func_0023c008");
+void YI__LAYOUT__LAYOUT(u8*) asm("YI__LAYOUT__LAYOUT");
 // obj_ctor_36eae8
 void func_00153cc8(u8*, u32, s32, u32, s32) asm("func_00153cc8");
 s32 func_0013a9d0(void) asm("func_0013a9d0");
@@ -300,8 +300,8 @@ u8* func_00153d70(u32 a, u32 b)
     u8* o = func_0023ee30(164);
     *(u32*)(o + 12) = 0;
     *(void**)o = D_0035eb98;
-    func_002369a0(o + 24);  // obj_ctor_36eac8
-    func_0023c008(o + 48);  // obj_ctor_36eae8
+    YI__IMAGE_FREEZE__IMAGE_FREEZE(o + 24);  // obj_ctor_36eac8
+    YI__LAYOUT__LAYOUT(o + 48);  // obj_ctor_36eae8
     *(void**)o = D_0034a7c0;
     func_00153cc8(o, a, 4800, b, 0);
     if (func_0013a9d0()) func_00236bb8(o + 24, 1.0f);
@@ -326,10 +326,10 @@ u32 func_00153e28(f32 a0, f32 a1) {
 // 00153e70 (was gap, never written)
 namespace n00153e70 {
 void func_00170950(u32) asm("func_00170950");
-void func_00153c98(u8*) asm("func_00153c98");
+void dk__Layout__destroy(u8*) asm("dk__Layout__destroy");
 void func_00153e70(u8* p) asm("func_00153e70");
 void func_00153e70(u8* p) {
     func_00170950(*(u32*)(p + 160));
-    func_00153c98(p);
+    dk__Layout__destroy(p);
 }
 }  // namespace

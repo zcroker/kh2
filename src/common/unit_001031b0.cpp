@@ -29,12 +29,12 @@ extern u8 D_0032ba1c__b1 asm("D_0032ba1c");
 extern s32 D_0032ba64__b1 asm("D_0032ba64");
 void func_00103a40__b1(void) asm("func_00103a40");
 s32 func_001033d8__b1(s32) asm("func_001033d8");
-void func_002530f0__b1(s32) asm("func_002530f0");
+void func_002530f0__b1(s32) asm("Tz__CampMenu__Exit");
 void func_00242fc8__b1(s32) asm("func_00242fc8");
 void func_00103748__b1(void) asm("func_00103748");
 s32 func_00103c90__b1(void) asm("func_00103c90");
 void func_00103ca0__b1(void) asm("func_00103ca0");
-void func_00253180__b1(s32, s32) asm("func_00253180");
+void func_00253180__b1(s32, s32) asm("Tz__CampMenu__Start");
 void func_00243020__b1(s32) asm("func_00243020");
 void func_0014c9f0__b1(s32) asm("func_0014c9f0");
 void func_00167ee0__b1(void) asm("func_00167ee0");
@@ -49,12 +49,12 @@ void func_00104108__b1(void) asm("func_00104108");
 #define D_0032ba64 D_0032ba64__b1
 #define func_00103a40 func_00103a40__b1
 #define func_001033d8 func_001033d8__b1
-#define func_002530f0 func_002530f0__b1
+#define Tz__CampMenu__Exit func_002530f0__b1
 #define func_00242fc8 func_00242fc8__b1
 #define func_00103748 func_00103748__b1
 #define func_00103c90 func_00103c90__b1
 #define func_00103ca0 func_00103ca0__b1
-#define func_00253180 func_00253180__b1
+#define Tz__CampMenu__Start func_00253180__b1
 #define func_00243020 func_00243020__b1
 #define func_0014c9f0 func_0014c9f0__b1
 #define func_00167ee0 func_00167ee0__b1
@@ -71,7 +71,7 @@ void func_001031d0(void)
     func_00103a40();
     cur = D_003a6a50;
     if ((u32)(cur - 100) >= 800) {
-        func_002530f0(func_001033d8(cur));
+        Tz__CampMenu__Exit(func_001033d8(cur));
     } else {
         func_00242fc8(func_001033d8(cur));
     }
@@ -93,7 +93,7 @@ void func_001031d0(void)
             D_003a6a50 = -1;
             v = func_001033d8(next);
             if ((u32)(next - 100) >= 800) {
-                func_00253180(v, -999);
+                Tz__CampMenu__Start(v, -999);
             } else {
                 func_00243020(v);
             }
@@ -135,12 +135,12 @@ void func_001031d0(void)
 #undef D_0032ba64
 #undef func_00103a40
 #undef func_001033d8
-#undef func_002530f0
+#undef Tz__CampMenu__Exit
 #undef func_00242fc8
 #undef func_00103748
 #undef func_00103c90
 #undef func_00103ca0
-#undef func_00253180
+#undef Tz__CampMenu__Start
 #undef func_00243020
 #undef func_0014c9f0
 #undef func_00167ee0
@@ -316,7 +316,7 @@ u32 func_00103580(u32 a0, u32 a1, u32 a2, u32 a3) {
 }
 
 extern "C" {
-void func_001036d0__b9(void*, u32) asm("func_001036d0");
+void func_001036d0__b9(void*, u32) asm("MENU__CreateAllocator_2");
 void* func_00106178__b9(void*, u32) asm("func_00106178");
 void* func_00104288__b9(void) asm("func_00104288");
 u8* func_00170b30__b9(u32) asm("func_00170b30");
@@ -327,7 +327,7 @@ extern u8 D_0032ba30__b9 asm("D_0032ba30");
 extern s32 D_003a6a50__b9 asm("D_003a6a50");
 extern u8 D_01f18014__b9[] asm("D_01f18014");
 extern u8 D_01f4a014__b9[] asm("D_01f4a014");
-#define func_001036d0 func_001036d0__b9
+#define MENU__CreateAllocator_2 func_001036d0__b9
 #define func_00106178 func_00106178__b9
 #define func_00104288 func_00104288__b9
 #define func_00170b30 func_00170b30__b9
@@ -339,7 +339,7 @@ extern u8 D_01f4a014__b9[] asm("D_01f4a014");
 #define D_01f18014 D_01f18014__b9
 #define D_01f4a014 D_01f4a014__b9
 // 0x103590: sets up the menu allocators: the given buffer, or one picked by the menu mode.
-void func_00103590(s32 lock, void* buf) {
+void MENU__CreateAllocator(s32 lock, void* buf) {
     if (buf) {
         D_0032ba14 = buf;
         D_0032ba30 = 1;
@@ -349,7 +349,7 @@ void func_00103590(s32 lock, void* buf) {
     u8* p;
     if ((m == 1 && D_003a6a50 != 6) || m == 6) {
         p = D_01f18014;
-        func_001036d0(p, 0xa0000);
+        MENU__CreateAllocator_2(p, 0xa0000);
     } else if (D_003a6a50 == 6) {
         p = D_01f4a014;
         D_0032ba14 = func_00106178(p, 0x40000);
@@ -365,7 +365,7 @@ void func_00103590(s32 lock, void* buf) {
     D_0032ba30 = lock != 0;
 }
 }
-#undef func_001036d0
+#undef MENU__CreateAllocator_2
 #undef func_00106178
 #undef func_00104288
 #undef func_00170b30
@@ -389,7 +389,7 @@ u32 func_00106178__b10(void *, int) asm("func_00106178");
 #define D_0032ba30 D_0032ba30__b10
 #define func_00106178 func_00106178__b10
 // 0x1036d0: splits a buffer into the two menu allocators.
-void func_001036d0(u8 *base, int size)
+void MENU__CreateAllocator_2(u8 *base, int size)
 {
   u8 *new_var;
   u8 *p;
@@ -453,21 +453,21 @@ extern "C" {
 extern u32 D_0032b91c__b12 asm("D_0032b91c");
 extern u8 D_0032ba28__b12 asm("D_0032ba28");
 void func_00102788__b12(u32, u32, u32, void*) asm("func_00102788");
-void func_001037f8__b12(void) asm("func_001037f8");
+void func_001037f8__b12(void) asm("MENU__pauseExecTask");
 #define D_0032b91c D_0032b91c__b12
 #define D_0032ba28 D_0032ba28__b12
 #define func_00102788 func_00102788__b12
-#define func_001037f8 func_001037f8__b12
+#define MENU__pauseExecTask func_001037f8__b12
 // 0x1037b8: starts the menu exit task.
 void func_001037b8(void) {
-    func_00102788(D_0032b91c, 0, 0x50910, (void*)func_001037f8);
+    func_00102788(D_0032b91c, 0, 0x50910, (void*)MENU__pauseExecTask);
     D_0032ba28 = 1;
 }
 }
 #undef D_0032b91c
 #undef D_0032ba28
 #undef func_00102788
-#undef func_001037f8
+#undef MENU__pauseExecTask
 
 extern "C" {
 void func_00103ea0__b13(s32) asm("func_00103ea0");
@@ -522,7 +522,7 @@ static inline bool Is984Two() { return D_0032b984 == 2; }
 static inline bool Is9bcTwo() { return D_0032b9bc == 2; }
 static inline bool Isa64Two() { return D_0032ba64 == 2; }
 // 0x1037f8: the menu exit task: mode-dependent clean-up, then back to the previous mode.
-void func_001037f8(void* a0)
+void MENU__pauseExecTask(void* a0)
 {
     s32 skip = 0;
     func_00103ea0(0);  // set_hook_ptr
@@ -707,16 +707,16 @@ u32 func_00103b48(u32 a0, u32 a1, u32 a2, u32 a3) {
 
 extern "C" {
 extern void* D_0032b9ec__b17 asm("D_0032b9ec");
-u32 func_00102818__b17(void*, u32, u32, u32, u32) asm("func_00102818");
+u32 func_00102818__b17(void*, u32, u32, u32, u32) asm("TASK_MANAGER__create_thread");
 #define D_0032b9ec D_0032b9ec__b17
-#define func_00102818 func_00102818__b17
+#define TASK_MANAGER__create_thread func_00102818__b17
 // 0x103b78: creates a coroutine task on the menu's manager.
 u32 func_00103b78(u32 a, u32 b, u32 c, u32 d) {
-    return func_00102818(D_0032b9ec, a, b, c, d);
+    return TASK_MANAGER__create_thread(D_0032b9ec, a, b, c, d);
 }
 }
 #undef D_0032b9ec
-#undef func_00102818
+#undef TASK_MANAGER__create_thread
 
 extern u32 D_0032ba24__b18 asm("D_0032ba24");
 u32 func_00102c80__b18(void) asm("func_00102c80");
@@ -819,7 +819,7 @@ void func_0014aa58__b20(s32, s32, s32) asm("func_0014aa58");
 void func_0014a138__b20(s32) asm("func_0014a138");
 Loc103ca0 func_001cd520__b20(void) asm("func_001cd520");
 Loc103ca0 func_00199718__b20(u8, s32) asm("func_00199718");
-void func_00104f58__b20(Loc103ca0*, s32, s32, s32, s32) asm("func_00104f58");
+void func_00104f58__b20(Loc103ca0*, s32, s32, s32, s32) asm("AREA__MapJump");
 #define D_0032ba2c D_0032ba2c__b20
 #define D_0032ba24 D_0032ba24__b20
 #define D_0032ba38 D_0032ba38__b20
@@ -831,7 +831,7 @@ void func_00104f58__b20(Loc103ca0*, s32, s32, s32, s32) asm("func_00104f58");
 #define func_0014a138 func_0014a138__b20
 #define func_001cd520 func_001cd520__b20
 #define func_00199718 func_00199718__b20
-#define func_00104f58 func_00104f58__b20
+#define AREA__MapJump func_00104f58__b20
 // 0x103ca0: the menu hook step: per-mode handling, then the warp to the pending location.
 void func_00103ca0(void)
 {
@@ -850,7 +850,7 @@ void func_00103ca0(void)
         if (D_0032ba24 == 1) {
             if (D_0032ba38.type == 0) {
                 l = func_001cd520();
-                func_00104f58(&l, 1, 0, 1, 0);
+                AREA__MapJump(&l, 1, 0, 1, 0);
             } else {
                 if (D_0032ba38.type == D_0032ba24) {
                     l.a = D_0032ba38.a;
@@ -861,7 +861,7 @@ void func_00103ca0(void)
                     l = func_00199718(D_0032ba38.f10, -1);
                     l.c = D_0032ba38.c;
                 }
-                func_00104f58(&l, 1, 0, 0, 0);
+                AREA__MapJump(&l, 1, 0, 0, 0);
             }
         }
         break;
@@ -898,7 +898,7 @@ void func_00103e58(s32 f10, s32 c) {
 #undef func_0014a138
 #undef func_001cd520
 #undef func_00199718
-#undef func_00104f58
+#undef AREA__MapJump
 
 u32 func_002fde18__b21(u32, u32, u32, u32) asm("func_002fde18");
 extern u8 D_0032ba38__b21 asm("D_0032ba38");

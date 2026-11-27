@@ -7,14 +7,14 @@ extern "C" {
 void wtarget_00103080(u32, u32, u32, u32) asm("_Z16wtarget_00103080jjjj");
 u8* wtarget_001337f0(u32, u32, u32, u32) asm("_Z16wtarget_001337f0jjjj");
 void wtarget_00167658(u32, u64, u32, u32) asm("_Z16wtarget_00167658jjjj");
-u32 ctarget_001d9148(u32, u32, u32, u32) asm("_Z16ctarget_001d9148jjjj");
+u32 YS__MISSION__GetMaxComboCounter(u32, u32, u32, u32) asm("_Z31YS__MISSION__GetMaxComboCounterjjjj");
 u32 cache_buff_alloc(const char*, s32) asm("_ZN2YS10CACHE_BUFF5AllocEPKci");
 
 void func_001398d0(u32);
 void func_001397d8(u32);
 void func_0014b5e8(u32, u32, u64);
 void func_001666d0(void*, u16, u32, u16, u16);
-Q16* func_0016c028(u32);  // obj_get_attach_or_alt
+Q16* YS__OBJ__get_pos(u32);  // obj_get_attach_or_alt
 u8* func_001ce328(u16);
 u8* func_00170240(const char*, s32);
 void func_00170e58(void);
@@ -34,17 +34,17 @@ void func_00102c18(u32, u32, void (*)(void));
 void func_00239700(void*);
 u32 func_001ab810(void);  // get_global_1c7cec0
 u32 func_001ab800(void);
-void func_00239988(void*, u32, u32);
-void* func_001b9bc8(void*);
+void YI__SEQUENCE__Init(void*, u32, u32);
+void* YS__OBJ__Each(void*);
 u32 func_001c0cd8(void*);
 void func_001c0e60(void*);
 void func_001d7cd0(void*);
 void func_002fee78(void*, const char*, u32, void*);
-void func_0016ed50(u32, s32, u32);
+void YS__OBJENTRY__ReadRequest(u32, s32, u32);
 u32 func_001bb4a0(void);
 u8* func_001bbcb0(void);
 u32 func_00321cb0(void*, void*);
-void func_001dde40(void*);
+void ryj__PAX__ensure(void*);
 u32 func_0022b688(u32);
 void func_001391a8(u32, Q16*);  // vec_copy_at416_if_diff
 void func_002251c8(u32);
@@ -52,7 +52,7 @@ u32 func_001058e8(void);
 void memcpy(u32, u32, u32);
 void func_0028d188(void*);
 u32 func_001a80c8(u32);  // table24_find_by_id
-u8* func_001a8190(u32);
+u8* YS__ITEM_TABLE__get_param(u32);
 u8* func_002a9d68(void);
 void func_00185ed8(void*, u32, u32, u32);
 void func_001c11a8(u32);
@@ -67,7 +67,7 @@ s32 func_002ffd00(void*, u32, u32);  // fprintf_stream_va
 void func_0023c098(void*);  // set_vtbl_36eae8_then_call
 void func_002369f0(void*);  // set_vtbl_36eac8_then_call
 void func_0023ee68(void*);
-void func_0019f9a8(void*);  // array8_free_slots
+void YS__OBJ_ATTACK__clear(void*);  // array8_free_slots
 void func_001c0248(void*);
 void func_00319fb0(void*);  // big_obj_dtor
 void func_00105110(void*);
@@ -113,7 +113,7 @@ struct Pk { u16 h0; u8 b2; u8 b3; u32 f4; u32 f8; u32 fc; };
 union PkCursor { Pk* p; u32 w; u16 h; };
 u8* wtarget_001337f0(u32 a, u32 n, u32 c, u32);  // 0x001337f0: definition moved into src/anon/unit_00131418.cpp
 
-void func_00138140(void);  // 0x00138140: definition moved into src/anon/unit_001374c8.cpp
+void dk__TREASURE_INFO__off(void);  // 0x00138140: definition moved into src/anon/unit_001374c8.cpp
 
 // 0014b468: moved to src/anon/unit_0014b150.cpp
 
@@ -140,16 +140,16 @@ void func_00196710(u32 i);  // 0x00196710: definition moved into src/anon/unit_0
 // Find the entry with the given id (any entry when id < 0) in a variable-size list.
 u8* func_0019b328(u8* p, s32 id);  // 0x0019b328: definition moved into src/anon/unit_00199688.cpp
 
-u32 func_0019c838(u8* p);  // 0x0019c838: definition moved into src/anon/unit_0019ba60.cpp
+u32 YS__OBJ__can_hitback(u8* p);  // 0x0019c838: definition moved into src/anon/unit_0019ba60.cpp
 
 void func_0019c920(u8* p);  // 0x0019c920: definition moved into src/anon/unit_0019ba60.cpp
 
-void func_0019ec20(void);  // 0x0019ec20: definition moved into src/anon/unit_0019ea10.cpp
+void YS__BLUR__Init(void);  // 0x0019ec20: definition moved into src/anon/unit_0019ea10.cpp
 
 // 001ac258: moved to src/anon/unit_001abb28.cpp
 
 // 001c1060: moved to src/anon/unit_001c0638.cpp
-void func_001c1060(void);
+void YS__OBJ__DetachAll(void);
 
 void func_001c2c98(u8* p);  // 0x001c2c98: definition moved into src/anon/unit_001c2b58.cpp
 
@@ -159,13 +159,13 @@ void func_001d6e08(u8* p);  // 0x001d6e08: definition moved into src/anon/unit_0
 
 struct E64 { u8 pad[0x26c]; u32 on : 1; u32 : 31; };
 static inline bool entry_on(u32 o) { return ((E64*)(func_001bbcb0() + o))->on; }
-u32 ctarget_001d9148(u32 i, u32, u32, u32);  // 0x001d9148: definition moved into src/anon/unit_001d7458.cpp
+u32 YS__MISSION__GetMaxComboCounter(u32 i, u32, u32, u32);  // 0x001d9148: definition moved into src/anon/unit_001d7458.cpp
 
 // ryj::PAX::~PAX() (D1), called by the static destructors of PAX members.
 void func_001ddd88(void* p) asm("_ZN3ryj3PAXD1Ev");
 void func_001ddd88(void* p);  // 0x001ddd88: definition moved into src/anon/unit_001ddcf0.cpp
 
-u32 func_0022ae98(Q16* v);  // 0022ae98: moved to src/sasa/musical_input.cpp (linked unit)
+u32 sa__MUSICAL_INPUT__ExcellentPrint(Q16* v);  // 0022ae98: moved to src/sasa/musical_input.cpp (linked unit)
 
 void func_00240b48(u32 a);  // 0x00240b48: definition moved into src/anon/unit_0023f5b8.cpp
 

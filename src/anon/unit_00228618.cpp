@@ -51,14 +51,14 @@ void func_0031a838(void*);
 void func_00239700(void*);
 void* func_00224930(void);
 void func_002294c8(void*, s32, void*, void*);
-void func_00229430(void*, s32);
+void sa__MUSICAL_SCORE_BASE__create(void*, s32);
 s32 func_0022b9e0(void);
 s32 func_0022b720(void);
-void func_001386e0(void*, s32, s32, s32, s32, s32);
+void dk__Sprite__create(void*, s32, s32, s32, s32, s32);
 void func_001396b0(void*);
 void func_0031a260(void*, s32);
 s32 func_00224910(void);
-void func_00239f18(void* p, f32 v);
+void YI__SEQUENCE__SetScaleX(void* p, f32 v);
 void func_00224920(s32);
 QV func_0013f6e8(QV, QV, QV, f32, f32, f32, f32);
 void func_00138c68(void*, s32, s32);
@@ -117,21 +117,21 @@ static inline void Upd_w(W_w* w) {
     }
 }
 
-void func_00228788(O_w3* o) {
-    func_00229430(o, 2800);
+void sa__MUSICAL_GAUGE4__create(O_w3* o) {
+    sa__MUSICAL_SCORE_BASE__create(o, 2800);
     W_w* w1 = &o->w[1];
     W_w* w2 = &o->w[2];
     s32 a = func_0022b9e0();
     s32 b = func_0022b720();
     W_w* w0 = &o->w[0];
-    func_001386e0(w0, 2800, a, b, 32, 11);
+    dk__Sprite__create(w0, 2800, a, b, 32, 11);
     w0->x188 = 33;
     w0->x18c = 0;
     Upd_w(w0);
-    func_001386e0(w1, 2800, a, b, 30, 11);
+    dk__Sprite__create(w1, 2800, a, b, 30, 11);
     w1->x18c = w0;
     Upd_w(w1);
-    func_001386e0(w2, 2800, a, b, 35, 11);
+    dk__Sprite__create(w2, 2800, a, b, 35, 11);
     w2->x188 = 36;
     w2->x18c = 0;
     Upd_w(w2);
@@ -150,7 +150,7 @@ void func_00228918(u8* self) {
     v = w1781_clamp(v, 0.0f, 1.0f);
     v = 1.0f - v;
     v = w1781_clamp(v, 0.0f, 1.0f);
-    func_00239f18(self + 0x1c8, v);
+    YI__SEQUENCE__SetScaleX(self + 0x1c8, v);
 }
 
 void func_002289c0(void** p) {
@@ -172,7 +172,7 @@ void func_002289f0(void) {
         func_00239700(it->m2);
         it++;
     } while (--i != -1);
-    func_00228788((O_w3*)v);
+    sa__MUSICAL_GAUGE4__create((O_w3*)v);
 }
 
 static inline void Settle228(u8* m) {
@@ -187,12 +187,12 @@ static inline void Settle228(u8* m) {
 void func_00228ab0(u8* o) {
     u8* m1 = o + 432;
     u8* m2 = o + 24;
-    func_00229430(o, 2800);
+    sa__MUSICAL_SCORE_BASE__create(o, 2800);
     u32 a = func_0022b9e0();
     u32 b = func_0022b720();
-    func_001386e0(m2, 2800, a, b, 28, 11);
+    dk__Sprite__create(m2, 2800, a, b, 28, 11);
     *(u32*)(m2 + 392) = 29;
-    func_001386e0(m1, 2800, a, b, 23, 11);
+    dk__Sprite__create(m1, 2800, a, b, 23, 11);
     *(u8**)(m1 + 396) = m2;
     Settle228(m1);
     *(u32*)(m2 + 396) = 0;
@@ -237,7 +237,7 @@ void func_00228bd8(C8BD8O* o) {
             if (!func_00139d78(s)) {
                 s32 r0 = func_0022b9e0();
                 s32 r1 = func_0022b720();
-                func_001386e0(s, 2800, r0, r1, 25, 11);
+                dk__Sprite__create(s, 2800, r0, r1, 25, 11);
                 c8bd8_setflag(s, s1);
                 func_00139580(s);
             } else {
@@ -251,7 +251,7 @@ void func_00228bd8(C8BD8O* o) {
     o->f4e8 = c;
 }
 
-void func_00228e28(void** o) {
+void sa__MUSICAL_GAUGE3__update(void** o) {
     ((void (*)(void**))(*(void***)o)[7])(o);
     func_00228bd8((C8BD8O*)o);
 }
@@ -261,7 +261,7 @@ static inline u8* alloc_obj(s32 size) {
     return (**(AF**)a)(a, size, 0);
 }
 
-void func_00228e58(void) {
+void sa__MUSICAL_GAUGE3__init(void) {
     u8* v = alloc_obj(1260);
     u8* e;
     s32 i;

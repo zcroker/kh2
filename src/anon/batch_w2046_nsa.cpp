@@ -36,8 +36,8 @@ struct Self {
 
 void mo488_w2046(Mot*, s32, f32, f32) asm("_Z13func_0017f488iiff");
 void mopush_w2046(Mot*, s32, f32, f32, void*) asm("_ZN2YS6MOTION4pushEiffPFvPNS_3OBJEE");
-void ct186a90_w2046(Self*, V*, f32) asm("_Z16ctarget_00186a90jjjj");
-s32 ct19ba60_w2046(s32) asm("_Z16ctarget_0019ba60jjjj");
+void ct186a90_w2046(Self*, V*, f32) asm("_Z23YS__BTLOBJ__set_hitbackjjjj");
+s32 ct19ba60_w2046(s32) asm("_Z17YS__OBJ__is_existjjjj");
 void f16ac38_w2046(s32, s32, s32, s32, s32) asm("_Z13func_0016ac38jjjjjjjj");
 
 extern "C" s32 D_0036e318;
@@ -45,9 +45,9 @@ extern "C" s32 D_0036e31c;
 static inline __attribute__((always_inline)) s32 motIdB(Mot* m) { if (m->id == 189) return D_0036e318; return D_0036e31c; }
 
 extern "C" {
-V func_0016af58(Self*);
-V func_0017d538(const V&, f32);
-f32 func_0018cb30(Tgt*);
+V YS__OBJ__get_dir(Self*);
+V YS__MATH__VectorRotY(const V&, f32);
+f32 YS__DAMAGE__get_hitback(Tgt*);
 
 void func_001cf0d8(Self* self, Tgt* t);  // 0x001cf0d8: definition moved into src/anon/unit_001cf0b0.cpp
 }

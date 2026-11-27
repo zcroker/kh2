@@ -47,7 +47,7 @@ void func_002bb950(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a
     u32 s16 = a0;
     u8 tmp;
 
-    u32 ok = func_0014ee28(*(u16*)(s16 + 46), s16, (u32)&tmp);
+    u32 ok = dk__POLYGONSE__calc(*(u16*)(s16 + 46), s16, (u32)&tmp);
     if (ok != 0) {
         func_002bb5f8(s16);
         if (tmp == 1) {
@@ -73,8 +73,8 @@ void func_002bb5f8(Snd9b8*) asm("func_002bb5f8");
 s32 func_002bb8b0(Snd9b8*) asm("func_002bb8b0");
 void func_002bb950(Snd9b8*) asm("func_002bb950");
 void StopBg9b8(s32, s32) asm("_ZN2Tz9MenuSound14StopBgSeHandleEz");
-void func_002bb9b8(Snd9b8* s) asm("func_002bb9b8");
-void func_002bb9b8(Snd9b8* s) {
+void SE3D__calcSe(Snd9b8* s) asm("SE3D__calcSe");
+void SE3D__calcSe(Snd9b8* s) {
     s32 r;
     switch (s->b30) {
     case 0:
@@ -191,7 +191,7 @@ void func_002bbc90(U20_Fade* f) {
 
 // 002bbd58 (from src/anon/batch_w26.cpp)
 namespace n002bbd58 {
-u8 func_002bb9b8(void*) asm("func_002bb9b8");
+u8 SE3D__calcSe(void*) asm("SE3D__calcSe");
 s32 func_002bbc90(void*) asm("func_002bbc90");
 s32 func_002bbbc8(void*) asm("func_002bbbc8");
 s32 func_002bbd58(u8* o) asm("func_002bbd58");
@@ -200,7 +200,7 @@ s32 func_002bbd58(u8* o) {
     case 5: return func_002bbbc8(o);
     case 6: return func_002bbc90(o);
     }
-    return func_002bb9b8(o);
+    return SE3D__calcSe(o);
 }
 } // n002bbd58
 
@@ -306,8 +306,8 @@ static inline W1746Node* w1746_next(W1746Node* p) {
     if (!p) return D_01e2aa80;
     return p->next;
 }
-void func_002bbf18(void) asm("func_002bbf18");
-void func_002bbf18(void) {
+void SOUND__silentBgSeOff(void) asm("SOUND__silentBgSeOff");
+void SOUND__silentBgSeOff(void) {
     W1746Node* p = 0;
     while ((p = w1746_next(p)) != 0) {
         if (p->type == 2) p->flags &= ~8;
@@ -403,8 +403,8 @@ Ent64* func_002bc0f0(void) {
 // 002bc158 (from src/anon/batch_w9.cpp)
 namespace n002bc158 {
 u32 func_002bc0f0(s32) asm("func_002bc0f0");
-u32 func_002bc158(s32 a) asm("func_002bc158");
-u32 func_002bc158(s32 a) {
+u32 SOUND__allocSe(s32 a) asm("SOUND__allocSe");
+u32 SOUND__allocSe(s32 a) {
     if (a == 0) return 0;
     if (a < 0) return 0;
     return func_002bc0f0(a);
@@ -413,7 +413,7 @@ u32 func_002bc158(s32 a) {
 
 // 002bc188 (from src/anon/batch_w38.cpp)
 namespace n002bc188 {
-u8* func_002bc158_0(void) asm("func_002bc158");
+u8* func_002bc158_0(void) asm("SOUND__allocSe");
 void func_002bb1c8(void*, u32, u32) asm("func_002bb1c8");
 u32 func_002bc188(u32 a, u32 b) asm("func_002bc188");
 u32 func_002bc188(u32 a, u32 b) {
@@ -427,12 +427,12 @@ u32 func_002bc188(u32 a, u32 b) {
 // 002bc1e8 (from src/anon/tiny_auto80_queue.cpp)
 namespace n002bc1e8 {
 u32 func_002bb228(...) asm("func_002bb228");
-u32 func_002bc158(...) asm("func_002bc158");
+u32 SOUND__allocSe(...) asm("SOUND__allocSe");
 u32 func_002bc1e8(u32 a0, u32 a1) asm("func_002bc1e8");
 u32 func_002bc1e8(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16, r17;
     r16 = r4;
-    r2 = ((u32(*)(u32,u32))func_002bc158)(r4, r5);
+    r2 = ((u32(*)(u32,u32))SOUND__allocSe)(r4, r5);
     r17 = r2;
     r4 = r2;
     r5 = r16;
@@ -448,12 +448,12 @@ u32 func_002bc1e8(u32 a0, u32 a1) {
 // 002bc238 (from src/anon/tiny_auto80_queue.cpp)
 namespace n002bc238 {
 u32 func_002bb270(...) asm("func_002bb270");
-u32 func_002bc158(...) asm("func_002bc158");
+u32 SOUND__allocSe(...) asm("SOUND__allocSe");
 u32 func_002bc238(u32 a0, u32 a1) asm("func_002bc238");
 u32 func_002bc238(u32 a0, u32 a1) {
     u32 r4 = a0, r5 = a1, r2, r16, r17;
     r16 = r4;
-    r2 = ((u32(*)(u32,u32))func_002bc158)(r4, r5);
+    r2 = ((u32(*)(u32,u32))SOUND__allocSe)(r4, r5);
     r17 = r2;
     r4 = r2;
     r5 = r16;
@@ -479,7 +479,7 @@ u32 func_002bc288(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 
     u32 s16 = a0;
     u32 s17 = a1;
-    u32 s18 = func_002bc158();
+    u32 s18 = SOUND__allocSe();
 
     if (s18 == 0) {
         return 0;
@@ -492,7 +492,7 @@ u32 func_002bc288(u32 a0, u32 a1, u32 a2, u32 a3, u32 a4, u32 a5, u32 a6, u32 a7
 
 // 002bc2e8 (from src/anon/batch_w38.cpp)
 namespace n002bc2e8 {
-u8* func_002bc158_1(u32) asm("func_002bc158");
+u8* func_002bc158_1(u32) asm("SOUND__allocSe");
 void func_002bb310(void*, u32, u32, u32) asm("func_002bb310");
 u32 func_002bc2e8(u32 a, u32 b, u32 c) asm("func_002bc2e8");
 u32 func_002bc2e8(u32 a, u32 b, u32 c) {

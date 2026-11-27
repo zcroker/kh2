@@ -12,7 +12,7 @@ void func_0010d2b8(void*);
 void func_001064a8(void*);  // int_to_float_scaled
 void func_00127a88(void*);
 void func_00136840(void*);
-void func_00138840(void*);
+void dk__Sprite__update(void*);
 extern "C" void dk_Aabbox_set_vectors(void*) asm("_ZN2dk6Aabbox3setERKN2kn7FVectorES4_");
 void func_00144860(void*);
 void func_00146ab0(void*);
@@ -20,8 +20,8 @@ void func_001491d8(void*);
 void func_0015b100(void*);
 void func_0014f300(void*);
 void func_0014f428(void*);
-void func_0014f4d8(void*);
-void func_0014f528(void*);
+void dk__INFORMATION__on(void*);
+void dk__INFORMATION__off(void*);
 void func_001505b0(void*);
 void func_0023ede8(void*);
 void func_00154b18(void*);
@@ -37,14 +37,14 @@ void func_00187868(void*);
 void func_0018c438(void*);
 void func_00192528(void*);
 void func_00195750(void*);
-void func_001ac700(void*);
-void func_0017c578(void*);
+void YS__WINDOW__close(void*);
+void YS__ACTION_JUMP__start(void*);
 void func_00105110(void*);
 void func_00198630(void*);
 void func_0017a8f8(void*);
 void func_0014ca38(void*);
 void func_001d5730(void*);
-void func_001bde88(void*);
+void YS__FIELD_COMMAND__init_field(void*);
 void func_001e4f40(void*);
 void func_001e7018(void*);
 void func_001e7698(void*);  // alloc_aligned16
@@ -56,8 +56,8 @@ void func_00226030(void*);
 void func_00236830(void*);
 void func_00236d10(void*);
 void func_00253978(void*);
-void func_0028f878(void*);
-void func_00257be0(void*);
+void Tz__SelHist__LeaveAll(void*);
+void Tz__CmTop__LeaveListSubWin(void*);
 void func_00267690(void*);
 void func_002817b8(void*);
 void func_00277070(void*);
@@ -92,8 +92,8 @@ void func_001397d8(s32);
 void func_002634c8(s32);
 namespace Tz {}
 void func_00257530(s32);
-void func_00258df0(s32);
-void func_00258eb8(s32);
+void Tz__CmComm__SetDrawMunnies(s32);
+void Tz__CmComm__SetDrawTime(s32);
 void func_0023f5b8(s32);
 void func_002b8274(s32);
 void func_001b84b8(s32);
@@ -131,7 +131,7 @@ void func_0010d900(BD_VALUE* bd);  // 0x0010d900: definition moved into src/anon
 void func_0010f648(BD_VALUE* bd);  // 0x0010f648: definition moved into src/anon/unit_0010f338.cpp
 void func_0011d710(BD_VALUE* bd);  // 0x0011d710: definition moved into src/anon/unit_0011c128.cpp
 // 001369b8: moved to src/harata/libdk/bgse.cpp
-void func_001390a8(BD_VALUE* bd);  // 0x001390a8: definition moved into src/anon/unit_00138480.cpp
+void dk__SpriteMessage__update(BD_VALUE* bd);  // 0x001390a8: definition moved into src/anon/unit_00138480.cpp
 void func_001444b0(BD_VALUE* bd);  // 0x001444b0: definition moved into src/anon/unit_00144450.cpp
 void func_001444f8(BD_VALUE* bd);  // 0x001444f8: definition moved into src/anon/unit_00144450.cpp
 void func_00146bd8(BD_VALUE* bd);  // 0x00146bd8: definition moved into src/anon/unit_00145600.cpp
@@ -142,7 +142,7 @@ void func_0014f220(BD_VALUE* bd);  // 0x0014f220: definition moved into src/anon
 void func_0014f238(BD_VALUE* bd);  // 0x0014f238: definition moved into src/anon/unit_0014ecb8.cpp
 void func_0014f250(BD_VALUE* bd);  // 0x0014f250: definition moved into src/anon/unit_0014ecb8.cpp
 void func_00150648(BD_VALUE* bd);  // 0x00150648: definition moved into src/anon/unit_0014ecb8.cpp
-void func_00153c80(BD_VALUE* bd);  // 0x00153c80: definition moved into src/anon/unit_00153678.cpp
+void dk__Layout__exit(BD_VALUE* bd);  // 0x00153c80: definition moved into src/anon/unit_00153678.cpp
 // 00154b80: moved to src/anon/unit_00153ea0.cpp
 void func_00154b80(BD_VALUE* bd);
 // 001554a8: moved to src/anon/unit_00153ea0.cpp
@@ -155,7 +155,7 @@ void func_001616d8(BD_VALUE* bd);  // 0x001616d8: definition moved into src/anon
 // 00186008: moved to src/anon/unit_00185d10.cpp
 void func_00186008(BD_VALUE* bd);
 // 00187850: moved to src/anon/unit_00185d10.cpp
-void func_00187850(BD_VALUE* bd);
+void YS__BTLOBJ___OVR__dead(BD_VALUE* bd);
 void func_0018c420(BD_VALUE* bd);  // 0x0018c420: definition moved into src/yasui/libys/npc.cpp
 // 00192800: moved to src/yasui/libys/message.cpp
 void func_00195738(BD_VALUE* bd);  // 0x00195738: definition moved into src/anon/unit_00194790.cpp
@@ -298,7 +298,7 @@ void func_0014a8d8(BD_VALUE* bd);  // 0014a8d8: moved to src/anon/unit_00149fa8.
 
 u32 func_0010aba8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0010aba8: moved to src/anon/unit_0010a918.cpp
 
-u32 func_00112740(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00112740: definition moved into src/anon/unit_001117d8.cpp
+u32 kn__Friend__getFlag(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00112740: definition moved into src/anon/unit_001117d8.cpp
 
 void func_001127b0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001127b0: definition moved into src/anon/unit_001117d8.cpp
 
@@ -318,7 +318,7 @@ u32 func_001341e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001341e8: definition mo
 
 extern "C" void func_00136a50(u32, u32, u32, u32) asm("_ZN2dk4BGSE8clearOffEv");
 
-void func_001391f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001391f0: definition moved into src/anon/unit_001391c8.cpp
+void dk__Obj2D__update(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001391f0: definition moved into src/anon/unit_001391c8.cpp
 
 void func_001396d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001396d0: definition moved into src/anon/unit_001393c8.cpp
 
@@ -566,7 +566,7 @@ u32 func_002347b8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002347b8: definition mo
 
 u32 func_002347c8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002347c8: definition moved into src/anon/unit_002335e8.cpp
 
-u32 func_002347d8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002347d8: definition moved into src/anon/unit_002335e8.cpp
+u32 YI__MCARD__GetResultRead(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002347d8: definition moved into src/anon/unit_002335e8.cpp
 
 u32 func_002347e8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002347e8: definition moved into src/anon/unit_002335e8.cpp
 
@@ -629,7 +629,7 @@ extern "C" void func_002bc798(u32, u32, u32, u32) asm("_ZN5SOUND10SE3DEnableEv")
 
 u32 func_002bd250(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bd250: definition moved into src/anon/unit_002bc978.cpp
 
-void func_002bea00(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bea00: definition moved into src/anon/unit_002be020.cpp
+void worldmap__Manager__readPackEnable(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002bea00: definition moved into src/anon/unit_002be020.cpp
 
 void func_002c22a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002c22a8: definition moved into src/anon/unit_002c2228.cpp
 
@@ -773,7 +773,7 @@ u32 func_0010f8d0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0010f8d0: definition mo
 
 u32 func_0010fa28(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0010fa28: definition moved into src/anon/unit_0010f338.cpp
 
-u32 func_0010fa58(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0010fa58: definition moved into src/anon/unit_0010f338.cpp
+u32 kn__Friend__getInertia(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x0010fa58: definition moved into src/anon/unit_0010f338.cpp
 
 void func_00113668(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00113668: definition moved into src/anon/unit_00113628.cpp
 
@@ -921,7 +921,7 @@ u32 func_002d51f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d51f0: definition mo
 
 u32 func_002d5578(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d5578: definition moved into src/anon/unit_002d4548.cpp
 
-u32 func_002d8110(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8110: definition moved into src/anon/unit_002d6f70.cpp
+u32 Ti__MGHachimitsu__get_current_center_matrix(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8110: definition moved into src/anon/unit_002d6f70.cpp
 
 u32 func_002d8900(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002d8900: definition moved into src/anon/unit_002d6f70.cpp
 
@@ -1198,7 +1198,7 @@ void func_001dcd58(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001dcd58: definition m
 
 void func_001ddb58(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001ddb58: definition moved into src/anon/unit_001dd920.cpp
 
-void func_001e2c80(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e2c80: definition moved into src/anon/unit_001e0cb8.cpp
+void pppLoopEnd(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e2c80: definition moved into src/anon/unit_001e0cb8.cpp
 
 void func_001e7008(f32 a0, u32 a1, u32 a2, u32 a3);  // 0x001e7008: definition moved into src/anon/unit_001e0cb8.cpp
 
@@ -1212,7 +1212,7 @@ void func_00225530(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00225530: definition m
 
 void func_002259f0(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002259f0: definition moved into src/anon/unit_00224780.cpp
 
-void func_00225a10(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00225a10: definition moved into src/anon/unit_00224780.cpp
+void sa__EVENT__waitMessageOn(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x00225a10: definition moved into src/anon/unit_00224780.cpp
 
 void func_002272a8(u32 a0, u32 a1, u32 a2, u32 a3);  // 0x002272a8: definition moved into src/anon/unit_00224780.cpp
 

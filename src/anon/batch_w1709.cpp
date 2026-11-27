@@ -38,11 +38,11 @@ void func_00290508(s32, s32);
 void func_002b6418(void);
 s32 func_0028d008(s32);
 void func_0028cdb8(s32);
-void func_0028cc78(s32, s32, s32, W1709Layout*, s32, s32);
-void func_0028cf28(s32, s32);
-void func_0028ce98(s32, s32);
+void Tz__MenuCursor__Create(s32, s32, s32, W1709Layout*, s32, s32);
+void Tz__MenuCursor__SetParent(s32, s32);
+void Tz__MenuCursor__SetType(s32, s32);
 s32 func_0028cf10(s32);
-void func_0028d1c0(W1709LightCur*, s32, s32, s32, W1709Layout*, u16*, s32);
+void Tz__LightCur__Create(W1709LightCur*, s32, s32, s32, W1709Layout*, u16*, s32);
 void func_0028d660(W1709LightCur*, s32);
 void func_0025d3c8(W1709Select*, u32, s32);
 
@@ -50,5 +50,5 @@ static inline s32 W1709_UseSubCursor(W1709Select* sel) {
     if (sel != D_0035f64c && sel_isCreated(D_0035f64c)) return 1;
     return 0;
 }
-void func_0025cde0(void);  // 0x0025cde0: definition moved into src/anon/unit_002588e8.cpp
+void Tz__CmSave__Draw(void);  // 0x0025cde0: definition moved into src/anon/unit_002588e8.cpp
 }

@@ -16,6 +16,6 @@ void func_001e2938(void);
 void func_001e2998(void);
 extern int D_00352bd0;
 
-void func_001e29e0(int a);  // 0x001e29e0: definition moved into src/anon/unit_001e0cb8.cpp
+void ryj__LAST_XEMNUS_LASER__Start(int a);  // 0x001e29e0: definition moved into src/anon/unit_001e0cb8.cpp
 
 }

@@ -72,8 +72,8 @@ struct W41VObj { void (**vt)(W41VObj*); };
 W41VObj* func_00102c80(void) asm("func_00102c80");
 struct W41S10 { u8 a, b, c; u16 d, e, f; };
 static inline void w41InitS10(W41S10* s, u16 v) { s->a = v; s->b = v; s->c = v; s->d = v; s->e = v; s->f = v; }
-void func_00105fc8(void) asm("func_00105fc8");
-void func_00105fc8(void) {
+void WORLDMAP__gumiToWorldMap(void) asm("WORLDMAP__gumiToWorldMap");
+void WORLDMAP__gumiToWorldMap(void) {
     W41S10 s;
     w41InitS10(&s, 0xffff);
     func_001058e8()[12] = 15;

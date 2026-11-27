@@ -4,7 +4,7 @@ extern "C" {
 struct Uc4Tgt { u8 pad[0x154]; s32 state; u8 pad2[0xa4c - 0x158]; u32 id; };
 struct Uc4 { s32 kind; u8 pad4[8]; Uc4Tgt* tgt; u8 pad10[0x20]; u8 on; u8 pad31[0x1f]; f32 time; };
 s32 func_0018bd50(u32, s32);
-s32 func_0019ba60(Uc4Tgt*);
+s32 YS__OBJ__is_exist(Uc4Tgt*);
 u32 u_call4_0018c598(u32 a, u32 b, u32 c, u32 d) asm("_Z16u_call4_0018c598jjjj");
 u32 u_call4_0018c598(u32 a, u32 b, u32 c, u32 d);  // 0x0018c598: definition moved into src/yasui/libys/npc.cpp
 
@@ -18,7 +18,7 @@ struct Ch {
     u8 snd[0x20];
     u32 flags;
 };
-void func_001d22e0(void* a, Ch* c);  // 0x001d22e0: definition moved into src/anon/unit_001d14e0.cpp
+void YS__ACTION_LM__control(void* a, Ch* c);  // 0x001d22e0: definition moved into src/anon/unit_001d14e0.cpp
 
 void puts(const char*);
 void func_002fd348(s32) __attribute__((noreturn));

@@ -63,8 +63,8 @@ extern u32 D_0035f410;
 Obj* func_0023f1b0(u8*);
 s32 func_0023c4b8(Obj*, s32);
 u8* func_00236ca8(s32, s32);
-void func_001386e0(Ent*, s32, s32, u8*, s32, s32);
+void dk__Sprite__create(Ent*, s32, s32, u8*, s32, s32);
 static inline void setf(Sub* s) { s->flags |= 8; }
-void func_0028cc78(s32 idx, s32 a1, s32 a2, u8* a3, s32 a4, s32 a5);  // 0028cc78: moved to src/anon/unit_0028c878.cpp
+void Tz__MenuCursor__Create(s32 idx, s32 a1, s32 a2, u8* a3, s32 a4, s32 a5);  // 0028cc78: moved to src/anon/unit_0028c878.cpp
 }
 }

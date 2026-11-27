@@ -20,11 +20,11 @@ s32 func_00181500(u32) asm("func_00181500");
 s32 func_001a6d08(u32) asm("func_001a6d08");
 Info* func_001d56c8(u32) asm("func_001d56c8");
 s32 func_00276c18(void) asm("func_00276c18");
-void func_0014ca80(u32, s32*, s32*, s32*, s32*) asm("func_0014ca80");
+void dk__Clock__vCountToHMSMS(u32, s32*, s32*, s32*, s32*) asm("dk__Clock__vCountToHMSMS");
 // Evaluates an entry's unlock condition: 0 = locked, 1 = available, 2 = cleared, 3 = forced.
-s32 func_002a99c8(LRec* r) asm("func_002a99c8");
+s32 Tz__JmQuest__GetQuestStat(LRec* r) asm("Tz__JmQuest__GetQuestStat");
 // Evaluates an entry's unlock condition: 0 = locked, 1 = available, 2 = cleared, 3 = forced.
-s32 func_002a99c8(LRec* r) {
+s32 Tz__JmQuest__GetQuestStat(LRec* r) {
     s32 st = 0;
     if (r->flags & 1) {
         if (func_00181500(r->h8)) st = 1;
@@ -51,7 +51,7 @@ s32 func_002a99c8(LRec* r) {
                     if (x->type != 4) v = x->value;
                     else {
                         s32 h, m, s, fr;
-                        func_0014ca80(x->value, &h, &m, &s, &fr);
+                        dk__Clock__vCountToHMSMS(x->value, &h, &m, &s, &fr);
                         v = h * 3600 + m * 60 + s;
                         if (fr != 0) v++;
                     }
@@ -73,11 +73,11 @@ namespace n002a9b88 {
 u8* func_00294000(s32) asm("func_00294000");
 s32 func_00276c18(void) asm("func_00276c18");
 struct Ent16 { u16 id; u8 pad[14]; };
-s32 func_002a99c8(Ent16*) asm("func_002a99c8");
+s32 Tz__JmQuest__GetQuestStat(Ent16*) asm("Tz__JmQuest__GetQuestStat");
 // 002a9b88: is there a matching table-8 entry (id < 0 = any) that accepts?
-s32 func_002a9b88(s32 id) asm("func_002a9b88");
+s32 Tz__JmQuest__isEnable(s32 id) asm("Tz__JmQuest__isEnable");
 // 002a9b88: is there a matching table-8 entry (id < 0 = any) that accepts?
-s32 func_002a9b88(s32 id)
+s32 Tz__JmQuest__isEnable(s32 id)
 {
     u8* t = func_00294000(8);
     Ent16* e = (Ent16*)(t + 16);
@@ -85,7 +85,7 @@ s32 func_002a9b88(s32 id)
     for (i = 0; i < *(s32*)(t + 8); i++) {
         if (id >= 0 && e[i].id != id) continue;
         if (func_00276c18()) break;
-        if (func_002a99c8(&e[i])) break;
+        if (Tz__JmQuest__GetQuestStat(&e[i])) break;
     }
     return i < *(s32*)(t + 8);
 }
@@ -110,7 +110,7 @@ static inline VA14 operator-(const VecD& a, const VecD& b)
 struct E2a9c40 { u16 a; u16 id; u8 pad[12]; };
 struct T2a9c40 { u8 pad[8]; s32 n; u8 pad2[4]; E2a9c40 e[1]; };
 T2a9c40* func_00294000_2a9c40(s32) asm("func_00294000");
-s32 func_002a99c8(E2a9c40*) asm("func_002a99c8");
+s32 Tz__JmQuest__GetQuestStat(E2a9c40*) asm("Tz__JmQuest__GetQuestStat");
 s32 func_002a9c40(u32 id) asm("func_002a9c40");
 s32 func_002a9c40(u32 id)
 {
@@ -120,7 +120,7 @@ s32 func_002a9c40(u32 id)
     E2a9c40* e = t->e;
     for (; i < t->n; i++) {
         if (id != e[i].id) continue;
-        s32 k = func_002a99c8(&e[i]);
+        s32 k = Tz__JmQuest__GetQuestStat(&e[i]);
         if (k == 1 || k == 2) {
             r = 1;
             break;
@@ -136,8 +136,8 @@ extern s32 D_0035f610 asm("D_0035f610");
 s32 func_00103570(void) asm("func_00103570");
 s32 func_001063c0(s32, s32) asm("func_001063c0");
 void func_00319a60(s32) asm("func_00319a60");
-void func_002a9ce8(void) asm("func_002a9ce8");
-void func_002a9ce8(void) {
+void Tz__JmNewInfo__Init(void) asm("Tz__JmNewInfo__Init");
+void Tz__JmNewInfo__Init(void) {
     s32 p = func_001063c0(0x968, func_00103570());
     func_00319a60(p);
     D_0035f610 = p;
@@ -175,7 +175,7 @@ void func_002aa4a8(...) asm("func_002aa4a8");
 void func_002aa960(...) asm("func_002aa960");
 void func_002aabe8(...) asm("func_002aabe8");
 void func_002ab020(...) asm("func_002ab020");
-void func_002ab448(...) asm("func_002ab448");
+void Tz__JmNewInfo__CheckTreasure(...) asm("Tz__JmNewInfo__CheckTreasure");
 void func_002ab818(...) asm("func_002ab818");
 void func_002abba8(...) asm("func_002abba8");
 void func_002abe28(...) asm("func_002abe28");
@@ -187,7 +187,7 @@ void JmNewInfo::CheckAll() {
     func_002aa960();
     func_002aabe8();
     func_002ab020();
-    func_002ab448();
+    Tz__JmNewInfo__CheckTreasure();
     func_002ab818();
     func_002abba8();
     func_002abe28();
@@ -225,8 +225,8 @@ void func_002a9df0(void)
 namespace n002a9e98 {
 u8* func_00294000(s32) asm("func_00294000");
 extern u32* D_0035f610 asm("D_0035f610");
-s32 func_002a9e98(s32 id) asm("func_002a9e98");
-s32 func_002a9e98(s32 id)
+s32 Tz__JmNewInfo__isCharaNew(s32 id) asm("Tz__JmNewInfo__isCharaNew");
+s32 Tz__JmNewInfo__isCharaNew(s32 id)
 {
     s32 r = 0;
     u8* t = func_00294000(3);
@@ -289,14 +289,14 @@ void func_002aa048(u32 n) {
 // 002aa098 (was src/anon/batch_wcx.cpp)
 namespace n002aa098 {
 extern u32* D_0035f610 asm("D_0035f610");
-s32 func_002a9e98(s32) asm("func_002a9e98");
+s32 Tz__JmNewInfo__isCharaNew(s32) asm("Tz__JmNewInfo__isCharaNew");
 u8* func_00294000(s32) asm("func_00294000");
 s32 func_002aa098(s32 id) asm("func_002aa098");
 s32 func_002aa098(s32 id)
 {
     s32 r = 0;
     if (id < 0) {
-        r = func_002a9e98(-1);
+        r = Tz__JmNewInfo__isCharaNew(-1);
     } else {
         u8* t = func_00294000(3);
         s32 n = *(s32*)(t + 8);
@@ -712,7 +712,7 @@ struct E2aabe8 { u8 d[16]; };
 struct T2aabe8 { u8 pad[8]; s32 n; u8 pad2[4]; E2aabe8 e[1]; };
 T2aabe8* func_00294000_2aabe8(s32) asm("func_00294000");
 u8* func_002a9d68_2aabe8() asm("func_002a9d68");
-s32 func_002a99c8_2aabe8(E2aabe8*) asm("func_002a99c8");
+s32 func_002a99c8_2aabe8(E2aabe8*) asm("Tz__JmQuest__GetQuestStat");
 extern u8* D_0035f610_2aabe8 asm("D_0035f610");
 void func_002aabe8() asm("func_002aabe8");
 void func_002aabe8()
@@ -1034,10 +1034,10 @@ struct Flags236 { u8 pad[236]; u32 bits[42]; };
 extern Flags236* D_0035f610 asm("D_0035f610");
 Flags236* func_002a9d68(void) asm("func_002a9d68");
 u8* func_001a82b0(u8*) asm("func_001a82b0");
-void* func_002764b0(u8) asm("func_002764b0");
+void* Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
 s32 func_002954e0(void*) asm("func_002954e0");
-void func_002ab448(void) asm("func_002ab448");
-void func_002ab448(void) {
+void Tz__JmNewInfo__CheckTreasure(void) asm("Tz__JmNewInfo__CheckTreasure");
+void Tz__JmNewInfo__CheckTreasure(void) {
     u32* bits = func_002a9d68()->bits;
     u8* it = 0;
     for (u32 i = 0;; i++) {
@@ -1048,7 +1048,7 @@ void func_002ab448(void) {
         if (!id) continue;
         if (id == 2048) continue;
         if (!func_00181500(id)) continue;
-        s32 v = func_002954e0(func_002764b0(it[5]));
+        s32 v = func_002954e0(Tz__Jiminy__AreaWorld2JmWorld(it[5]));
         u32 w = i >> 5;
         u32 bit = 1 << (i & 31);
         if (v) {
@@ -1068,9 +1068,9 @@ namespace n002ab540 {
 static inline bool tbit91(u32* a, u32 i) { return (a[i >> 5] & (1 << (i & 31))) != 0; }
 extern u8* D_0035f610 asm("D_0035f610");
 u8* func_001a82b0(u8*) asm("func_001a82b0");
-s32 func_002764b0(u8) asm("func_002764b0");
-u32 func_002ab540(s32 who) asm("func_002ab540");
-u32 func_002ab540(s32 who) {
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
+u32 Tz__JmNewInfo__isTreasureNew(s32 who) asm("Tz__JmNewInfo__isTreasureNew");
+u32 Tz__JmNewInfo__isTreasureNew(s32 who) {
     u8* p = 0;
     u32 r = 0;
     for (u32 i = 0;; i++) {
@@ -1079,7 +1079,7 @@ u32 func_002ab540(s32 who) {
         if (p[4]) continue;
         u16 t = *(u16*)(p + 8);
         if (t == 0 || t == 2048) continue;
-        s32 v = func_002764b0(p[5]);
+        s32 v = Tz__Jiminy__AreaWorld2JmWorld(p[5]);
         if (who >= 0 && v != who) continue;
         if (tbit91((u32*)(D_0035f610 + 236), i)) { r = 1; break; }
     }
@@ -1092,7 +1092,7 @@ namespace n002ab620 {
 u8* func_002a9d68() asm("func_002a9d68");
 extern u8* D_0035f610 asm("D_0035f610");
 u8* func_001a82b0(u8*) asm("func_001a82b0");
-s32 func_002764b0(u8) asm("func_002764b0");
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
 // Walks every entry and checks that each one selected (not hidden, kind not 0 or 0x800, matching key
 // when key >= 0) whose bit is set in the global flag set is also set in the save data's flag set.
 s32 func_002ab620(s32 key) asm("func_002ab620");
@@ -1109,7 +1109,7 @@ s32 func_002ab620(s32 key)
         e = func_001a82b0(e);
         if (e == 0) break;
         if (e[4] == 0 && *(u16*)(e + 8) != 0 && *(u16*)(e + 8) != 0x800
-            && (key < 0 || func_002764b0(e[5]) == key)) {
+            && (key < 0 || Tz__Jiminy__AreaWorld2JmWorld(e[5]) == key)) {
             u32* gb = (u32*)(D_0035f610 + 236);
             u32 m = 1 << (i & 31);
             if (gb[(u32)i >> 5] & m) {
@@ -1129,7 +1129,7 @@ void func_002ab728(s32) asm("func_002ab728");
 u8* func_002a9d68(s32) asm("func_002a9d68");
 extern u8* D_0035f610 asm("D_0035f610");
 u8* func_001a82b0(u8*) asm("func_001a82b0");
-s32 func_002764b0(u8) asm("func_002764b0");
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
 void func_002ab728(s32 id) asm("func_002ab728");
 void func_002ab728(s32 id) {
     u32* bits = (u32*)(func_002a9d68(id) + 236);
@@ -1141,7 +1141,7 @@ void func_002ab728(s32 id) {
         if (e[4]) continue;
         if (*(u16*)(e + 8) == 0) continue;
         if (*(u16*)(e + 8) == 0x800) continue;
-        if (func_002764b0(e[5]) != id) continue;
+        if (Tz__Jiminy__AreaWorld2JmWorld(e[5]) != id) continue;
         u32 m = 1 << (i & 31);
         u32 w4 = (i >> 5) * 4;
         if (*(u32*)(D_0035f610 + w4 + 236) & m) {
@@ -1190,12 +1190,12 @@ namespace n002ab8e8 {
 static inline bool TestBit(u32* bits, u32 i) { return (bits[i >> 5] & (1 << (i & 31))) != 0; }
 extern u8* D_0035f610 asm("D_0035f610");
 u8* func_001a82b0(u8*) asm("func_001a82b0");
-s32 func_002764b0(u8) asm("func_002764b0");
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
 u8* func_001a80c8(u16) asm("func_001a80c8");
 // table24_find_by_id
-bool func_002ab8e8(s32 who) asm("func_002ab8e8");
+bool Tz__JmNewInfo__isNaviNew(s32 who) asm("Tz__JmNewInfo__isNaviNew");
 // table24_find_by_id
-bool func_002ab8e8(s32 who)
+bool Tz__JmNewInfo__isNaviNew(s32 who)
 {
     u8* e = 0;
     u32 idx = 0;
@@ -1204,7 +1204,7 @@ bool func_002ab8e8(s32 who)
         e = func_001a82b0(e);
         if (!e) break;
         if (func_001a80c8(*(u16*)(e + 2))[2] != 22) continue;
-        if (who >= 0 && func_002764b0(e[5]) != who) { idx++; continue; }
+        if (who >= 0 && Tz__Jiminy__AreaWorld2JmWorld(e[5]) != who) { idx++; continue; }
         if (TestBit((u32*)(D_0035f610 + 300), idx)) { r = true; break; }
         idx++;
     }
@@ -1220,7 +1220,7 @@ u8* func_002a9d68_2ab9c8() asm("func_002a9d68");
 extern u8* D_0035f610_2ab9c8 asm("D_0035f610");
 u8* func_001a82b0_2ab9c8(u8*) asm("func_001a82b0");
 u8* func_001a80c8_2ab9c8(u16) asm("func_001a80c8");
-s32 func_002764b0_2ab9c8(u8) asm("func_002764b0");
+s32 func_002764b0_2ab9c8(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
 s32 func_002ab9c8(s32 key) asm("func_002ab9c8");
 s32 func_002ab9c8(s32 key)
 {
@@ -1252,7 +1252,7 @@ u8* func_002a9d68_2abac8() asm("func_002a9d68");
 extern u8* D_0035f610_2abac8 asm("D_0035f610");
 u8* func_001a82b0_2abac8(u8*) asm("func_001a82b0");
 u8* func_001a80c8_2abac8(u16) asm("func_001a80c8");
-s32 func_002764b0_2abac8(u8) asm("func_002764b0");
+s32 func_002764b0_2abac8(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
 void func_002abac8(s32 key) asm("func_002abac8");
 void func_002abac8(s32 key)
 {
@@ -1284,15 +1284,15 @@ struct W1790Sram { u8 pad[0x140]; u32 bits[4]; };
 static inline int w1790_bitTest(u32* p, u32 i) { return p[i >> 5] & (1 << (i & 0x1f)); }
 static inline void w1790_bitSet(u32* p, u32 i) { *(u32*)((u8*)p + ((i >> 5) << 2)) |= (1 << (i & 0x1f)); }
 W1790Sram* jm_GetSram(void) asm("_ZN2Tz9JmNewInfo7GetSramEv");
-s32 func_002a7490(void) asm("func_002a7490");
-s32 func_002a74c0(void) asm("func_002a74c0");
+s32 Tz__JmSynthe__isEnableRecipe(void) asm("Tz__JmSynthe__isEnableRecipe");
+s32 Tz__JmSynthe__isEnableMaterial(void) asm("Tz__JmSynthe__isEnableMaterial");
 extern W1790Sram* D_0035f610 asm("D_0035f610");
 void func_002abba8(void) asm("func_002abba8");
 void func_002abba8(void) {
     W1790Sram* p = jm_GetSram();
-    s32 a = func_002a7490();
+    s32 a = Tz__JmSynthe__isEnableRecipe();
     u32* bits = p->bits;
-    s32 b = func_002a74c0();
+    s32 b = Tz__JmSynthe__isEnableMaterial();
     u32 i;
     for (i = 0; (s32)i < 4; i++) {
         s32 f;
@@ -1469,8 +1469,8 @@ s32 func_002abf40(s32, s32) asm("func_002abf40");
 static inline s32 tst_002abff0(s32 a0, s32 b) {
     u32* p = (u32*)(D_0035f610 + a0 * 4) + 43; return (p[(u32)b >> 5] & (1 << (b & 31))) != 0;
 }
-s32 func_002abff0(s32 a0, s32 a1) asm("func_002abff0");
-s32 func_002abff0(s32 a0, s32 a1) {
+s32 Tz__JmNewInfo__isStoryNew(s32 a0, s32 a1) asm("Tz__JmNewInfo__isStoryNew");
+s32 Tz__JmNewInfo__isStoryNew(s32 a0, s32 a1) {
     s32 res = 0;
     u8* v = func_00294000(1);
     if (a1 < 0) {
@@ -1586,9 +1586,9 @@ Tbl2ac4* func_00294000_2ac420(s32) asm("func_00294000");
 s32 func_002b3ac8(s8) asm("func_002b3ac8");
 extern u8* D_0035f610 asm("D_0035f610");
 // Returns 1 if any flag bit is set for the matching entries of table 9.
-s32 func_002ac420(s32 id) asm("func_002ac420");
+s32 Tz__JmNewInfo__isPuzzlePieceNew(s32 id) asm("Tz__JmNewInfo__isPuzzlePieceNew");
 // Returns 1 if any flag bit is set for the matching entries of table 9.
-s32 func_002ac420(s32 id)
+s32 Tz__JmNewInfo__isPuzzlePieceNew(s32 id)
 {
     Tbl2ac4* t = func_00294000_2ac420(9);
     s32 found = 0;
@@ -1662,20 +1662,20 @@ void func_002ac678(s32 idx) {
 
 // 002ac748 (was src/anon/batch_wcx2.cpp)
 namespace n002ac748 {
-s32 func_002ac748(s32) asm("func_002ac748");
+s32 Tz__JmNewInfo__isPuzzleInfoNew(s32) asm("Tz__JmNewInfo__isPuzzleInfoNew");
 // --------------------
 extern u8* D_0035f610_2ac748 asm("D_0035f610");
 u8* func_001d9e30(u8*) asm("func_001d9e30");
-s32 func_002764b0(u8) asm("func_002764b0");
-s32 func_002ac748(s32 key) asm("func_002ac748");
-s32 func_002ac748(s32 key)
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
+s32 Tz__JmNewInfo__isPuzzleInfoNew(s32 key) asm("Tz__JmNewInfo__isPuzzleInfoNew");
+s32 Tz__JmNewInfo__isPuzzleInfoNew(s32 key)
 {
     u8* e = 0;
     s32 r = 0;
     for (;;) {
         e = func_001d9e30(e);
         if (e == 0) break;
-        if (key >= 0 && func_002764b0(e[4]) != key) continue;
+        if (key >= 0 && Tz__Jiminy__AreaWorld2JmWorld(e[4]) != key) continue;
         u8 b = e[1];
         u32* bits = (u32*)(D_0035f610_2ac748 + e[0] * 8 + 404);
         if (bits[b >> 5] & (1 << (b & 31))) {
@@ -1692,7 +1692,7 @@ namespace n002ac800 {
 // --- 002ab540
 static inline bool tbit91(u32* a, u32 i) { return (a[i >> 5] & (1 << (i & 31))) != 0; }
 extern u8* D_0035f610 asm("D_0035f610");
-s32 func_002764b0(u8) asm("func_002764b0");
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
 // --- 002ac800
 u8* func_002a9d68(void) asm("func_002a9d68");
 u8* func_001d9e30(u8*) asm("func_001d9e30");
@@ -1706,7 +1706,7 @@ u32 func_002ac800(s32 who) {
     for (;;) {
         p = func_001d9e30(p);  // record_range_check_or_first
         if (!p) break;
-        if (who >= 0 && func_002764b0(p[4]) != who) continue;
+        if (who >= 0 && Tz__Jiminy__AreaWorld2JmWorld(p[4]) != who) continue;
         if (!tbit91((u32*)(D_0035f610 + p[0] * 8 + 404), p[1])) continue;
         r = tbit91((u32*)(x + p[0] * 8 + 404), p[1]);
         if (!r) break;
@@ -1720,7 +1720,7 @@ namespace n002ac8e0 {
 // --------------------
 extern u8* D_0035f610_2ac8e0 asm("D_0035f610");
 u8* func_001d9e30_2ac8e0(u8*) asm("func_001d9e30");
-s32 func_002764b0_2ac8e0(u8) asm("func_002764b0");
+s32 func_002764b0_2ac8e0(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
 u8* func_002a9d68_2ac8e0() asm("func_002a9d68");
 void func_002ac8e0(s32 key) asm("func_002ac8e0");
 void func_002ac8e0(s32 key)
@@ -1764,16 +1764,16 @@ s32 func_002aaa38(s32) asm("func_002aaa38");
 // test_bit_global_a
 s32 func_002aae88(s32) asm("func_002aae88");
 s32 func_002ab2b0(s32) asm("func_002ab2b0");
-s32 func_002ab540(s32) asm("func_002ab540");
-s32 func_002ab8e8(s32) asm("func_002ab8e8");
+s32 Tz__JmNewInfo__isTreasureNew(s32) asm("Tz__JmNewInfo__isTreasureNew");
+s32 Tz__JmNewInfo__isNaviNew(s32) asm("Tz__JmNewInfo__isNaviNew");
 s32 func_002abc60(s32) asm("func_002abc60");
-s32 func_002ac420(s32) asm("func_002ac420");
-s32 func_002ac748(s32) asm("func_002ac748");
+s32 Tz__JmNewInfo__isPuzzlePieceNew(s32) asm("Tz__JmNewInfo__isPuzzlePieceNew");
+s32 Tz__JmNewInfo__isPuzzleInfoNew(s32) asm("Tz__JmNewInfo__isPuzzleInfoNew");
 s32 func_002aa668(s32, s32) asm("func_002aa668");
-s32 func_002abff0(s32, s32) asm("func_002abff0");
-s32 func_002a1b18(s32, s32) asm("func_002a1b18");
-s32 func_002ac9b0(s32 a) asm("func_002ac9b0");
-s32 func_002ac9b0(s32 a)
+s32 Tz__JmNewInfo__isStoryNew(s32, s32) asm("Tz__JmNewInfo__isStoryNew");
+s32 Tz__JmDiagram__GetNewInfo(s32, s32) asm("Tz__JmDiagram__GetNewInfo");
+s32 Tz__JmNewInfo__isWorldNew(s32 a) asm("Tz__JmNewInfo__isWorldNew");
+s32 Tz__JmNewInfo__isWorldNew(s32 a)
 {
     if (a == 15) {
         if (func_002aa098(-1)) return 1;
@@ -1781,21 +1781,21 @@ s32 func_002ac9b0(s32 a)
         if (func_002aaa38(-1)) return 1;
         if (func_002aae88(-1)) return 1;
         if (func_002ab2b0(-1)) return 1;
-        if (func_002ab540(-1)) return 1;
-        if (func_002ab8e8(-1)) return 1;
+        if (Tz__JmNewInfo__isTreasureNew(-1)) return 1;
+        if (Tz__JmNewInfo__isNaviNew(-1)) return 1;
         if (func_002abc60(-1)) return 1;
-        if (func_002ac420(-1)) return 1;
-        if (func_002ac748(-1)) return 1;
+        if (Tz__JmNewInfo__isPuzzlePieceNew(-1)) return 1;
+        if (Tz__JmNewInfo__isPuzzleInfoNew(-1)) return 1;
     } else {
         if (func_002aa668(a, -1)) return 1;
         if (func_002aae88(a)) return 1;
         if (func_002ab2b0(a)) return 1;
-        if (func_002ab540(a)) return 1;
-        if (func_002ab8e8(a)) return 1;
-        if (func_002abff0(a, -1)) return 1;
-        if (func_002a1b18(0, a)) return 1;
-        if (func_002a1b18(1, -1)) return 1;
-        if (func_002ac748(a)) return 1;
+        if (Tz__JmNewInfo__isTreasureNew(a)) return 1;
+        if (Tz__JmNewInfo__isNaviNew(a)) return 1;
+        if (Tz__JmNewInfo__isStoryNew(a, -1)) return 1;
+        if (Tz__JmDiagram__GetNewInfo(0, a)) return 1;
+        if (Tz__JmDiagram__GetNewInfo(1, -1)) return 1;
+        if (Tz__JmNewInfo__isPuzzleInfoNew(a)) return 1;
     }
     return 0;
 }
@@ -1828,7 +1828,7 @@ s32 func_002ac538(s32) asm("func_002ac538");
 s32 func_002ac800(s32) asm("func_002ac800");
 s32 func_002aa788(s32, s32) asm("func_002aa788");
 s32 func_002ac110(s32, s32) asm("func_002ac110");
-s32 func_002a1b18(s32, s32) asm("func_002a1b18");
+s32 Tz__JmDiagram__GetNewInfo(s32, s32) asm("Tz__JmDiagram__GetNewInfo");
 s32 func_002acb20(s32 a) asm("func_002acb20");
 s32 func_002acb20(s32 a)
 {
@@ -1850,8 +1850,8 @@ s32 func_002acb20(s32 a)
         if (!func_002ab620(a)) return 0;
         if (!func_002ab9c8(a)) return 0;
         if (!func_002ac110(a, -1)) return 0;
-        if (func_002a1b18(0, a) == 1) return 0;
-        if (func_002a1b18(1, -1) == 1) return 0;
+        if (Tz__JmDiagram__GetNewInfo(0, a) == 1) return 0;
+        if (Tz__JmDiagram__GetNewInfo(1, -1) == 1) return 0;
         if (!func_002ac800(a)) return 0;
     }
     return 1;
@@ -1867,14 +1867,14 @@ s32 func_002aa668(s32, s32) asm("func_002aa668");
 s32 func_002aaa38(s32) asm("func_002aaa38");
 s32 func_002aae88(s32) asm("func_002aae88");
 s32 func_002ab2b0(s32) asm("func_002ab2b0");
-s32 func_002ab540(s32) asm("func_002ab540");
-s32 func_002ab8e8(s32) asm("func_002ab8e8");
+s32 Tz__JmNewInfo__isTreasureNew(s32) asm("Tz__JmNewInfo__isTreasureNew");
+s32 Tz__JmNewInfo__isNaviNew(s32) asm("Tz__JmNewInfo__isNaviNew");
 s32 func_002abc60(s32) asm("func_002abc60");
-s32 func_002abff0(s32, s32) asm("func_002abff0");
-s32 func_002ac420(s32) asm("func_002ac420");
-s32 func_002ac748(s32) asm("func_002ac748");
-u8 func_002acc98(void) asm("func_002acc98");
-u8 func_002acc98(void) {
+s32 Tz__JmNewInfo__isStoryNew(s32, s32) asm("Tz__JmNewInfo__isStoryNew");
+s32 Tz__JmNewInfo__isPuzzlePieceNew(s32) asm("Tz__JmNewInfo__isPuzzlePieceNew");
+s32 Tz__JmNewInfo__isPuzzleInfoNew(s32) asm("Tz__JmNewInfo__isPuzzleInfoNew");
+u8 Tz__JmNewInfo__isAnyNew(void) asm("Tz__JmNewInfo__isAnyNew");
+u8 Tz__JmNewInfo__isAnyNew(void) {
     s32 i;
     func_002a9d88();
     if (func_002aa098(-1)) return 1;
@@ -1882,14 +1882,14 @@ u8 func_002acc98(void) {
     if (func_002aaa38(-1)) return 1;
     if (func_002aae88(-1)) return 1;
     if (func_002ab2b0(-1)) return 1;
-    if (func_002ab540(-1)) return 1;
-    if (func_002ab8e8(-1)) return 1;
+    if (Tz__JmNewInfo__isTreasureNew(-1)) return 1;
+    if (Tz__JmNewInfo__isNaviNew(-1)) return 1;
     if (func_002abc60(-1)) return 1;
-    if (func_002ac420(-1)) return 1;
-    if (func_002ac748(-1)) return 1;
+    if (Tz__JmNewInfo__isPuzzlePieceNew(-1)) return 1;
+    if (Tz__JmNewInfo__isPuzzleInfoNew(-1)) return 1;
     for (i = 0; i < 15; i++) {
         if (func_002aa668(i, -1)) return 1;
-        if (func_002abff0(i, -1)) return 1;
+        if (Tz__JmNewInfo__isStoryNew(i, -1)) return 1;
     }
     return 0;
 }
@@ -1902,8 +1902,8 @@ s32 func_00103b38(void) asm("func_00103b38");
 u32 func_00103570(void) asm("func_00103570");
 u32 func_00106178(u32, u32) asm("func_00106178");
 s32 func_00293fb0(void) asm("func_00293fb0");
-void func_00293e00(u32) asm("func_00293e00");
-void func_00293fc0(void) asm("func_00293fc0");
+void Tz__JmInfo__Init(u32) asm("Tz__JmInfo__Init");
+void Tz__JmInfo__SetLeadData(void) asm("Tz__JmInfo__SetLeadData");
 u8* func_001063c0(u32, u32) asm("func_001063c0");
 void func_00319a60(u8*) asm("func_00319a60");
 // clear_fixed_blocks
@@ -1931,8 +1931,8 @@ void func_002acda8(void) {
         D_0035f61c = v;
         D_0035f618 = func_00106178(v, 0x10000);
         if (!func_00293fb0()) {
-            func_00293e00(D_0035f618);
-            func_00293fc0();
+            Tz__JmInfo__Init(D_0035f618);
+            Tz__JmInfo__SetLeadData();
             D_0035f614 = 1;
         }
     }
@@ -1998,32 +1998,32 @@ namespace n002acf48 {
 extern s32 D_0035f62c asm("D_0035f62c");
 extern s32 D_0035f628 asm("D_0035f628");
 void func_002ad110(void) asm("func_002ad110");
-void func_002ad258(void) asm("func_002ad258");
-void func_002ad390(void) asm("func_002ad390");
-void func_002ad580(void) asm("func_002ad580");
-void func_002ad6e8(void) asm("func_002ad6e8");
+void Tz__JmComplete__CheckAnsem(void) asm("Tz__JmComplete__CheckAnsem");
+void Tz__JmComplete__CheckAlbum(void) asm("Tz__JmComplete__CheckAlbum");
+void Tz__JmComplete__CheckBattle(void) asm("Tz__JmComplete__CheckBattle");
+void Tz__JmComplete__CheckQuest(void) asm("Tz__JmComplete__CheckQuest");
 void func_002ad878(void) asm("func_002ad878");
-void func_002ad9f8(void) asm("func_002ad9f8");
+void Tz__JmComplete__CheckTreasure(void) asm("Tz__JmComplete__CheckTreasure");
 void func_002adbd0(void) asm("func_002adbd0");
-void func_002add90(void) asm("func_002add90");
-void func_002ae320(void) asm("func_002ae320");
-void func_002adfd0(void) asm("func_002adfd0");
+void Tz__JmComplete__CheckSynthesis(void) asm("Tz__JmComplete__CheckSynthesis");
+void Tz__JmComplete__CheckPuzzle(void) asm("Tz__JmComplete__CheckPuzzle");
+void Tz__JmComplete__CheckStory(void) asm("Tz__JmComplete__CheckStory");
 s32 func_002ae0c0(s32) asm("func_002ae0c0");
-void func_002acf48(void) asm("func_002acf48");
-void func_002acf48(void) {
+void Tz__JmComplete__CheckAll(void) asm("Tz__JmComplete__CheckAll");
+void Tz__JmComplete__CheckAll(void) {
     D_0035f62c = 0;
     D_0035f628 = 0;
     func_002ad110();
-    func_002ad258();
-    func_002ad390();
-    func_002ad580();
-    func_002ad6e8();
+    Tz__JmComplete__CheckAnsem();
+    Tz__JmComplete__CheckAlbum();
+    Tz__JmComplete__CheckBattle();
+    Tz__JmComplete__CheckQuest();
     func_002ad878();
-    func_002ad9f8();
+    Tz__JmComplete__CheckTreasure();
     func_002adbd0();
-    func_002add90();
-    func_002ae320();
-    func_002adfd0();
+    Tz__JmComplete__CheckSynthesis();
+    Tz__JmComplete__CheckPuzzle();
+    Tz__JmComplete__CheckStory();
     D_0035f628 += 15;
     for (s32 i = 0; i < 15; i++) {
         if (func_002ae0c0(i)) D_0035f62c++;
@@ -2037,7 +2037,7 @@ extern u32 D_0035f620 asm("D_0035f620");
 extern u32 D_0035f62c asm("D_0035f62c");
 extern u32 D_0035f628 asm("D_0035f628");
 void func_002acda8(void) asm("func_002acda8");
-void func_002acf48(void) asm("func_002acf48");
+void Tz__JmComplete__CheckAll(void) asm("Tz__JmComplete__CheckAll");
 void func_002ae280(u32*, u32*) asm("func_002ae280");
 void func_002aceb0(void) asm("func_002aceb0");
 // 002e9b58: moved to src/anon/unit_002e9a00.cpp
@@ -2049,7 +2049,7 @@ s32 wtarget_002ad018(u32, u32, u32, u32) asm("_Z16wtarget_002ad018jjjj");
 // Accumulates two counters and returns their ratio as a percentage.
 s32 wtarget_002ad018(u32, u32, u32, u32) {
     if (D_0035f620 == 0) func_002acda8();
-    func_002acf48();
+    Tz__JmComplete__CheckAll();
     u32 a, b;
     b = 0;
     a = 0;
@@ -2119,8 +2119,8 @@ extern u8* D_0035f620 asm("D_0035f620");
 union C2ad258 { s32 i; u32 u; };
 extern C2ad258 D_0035f628 asm("D_0035f628");
 extern s32 D_0035f62c asm("D_0035f62c");
-void func_002ad258() asm("func_002ad258");
-void func_002ad258()
+void Tz__JmComplete__CheckAnsem() asm("Tz__JmComplete__CheckAnsem");
+void Tz__JmComplete__CheckAnsem()
 {
     s32 i = 0;
     T2ad258* t = func_00294000_2ad258(4);
@@ -2169,8 +2169,8 @@ extern u8* D_0035f620_2ad390 asm("D_0035f620");
 union C2ad390 { s32 i; u32 u; };
 extern C2ad390 D_0035f628_2ad390 asm("D_0035f628");
 extern s32 D_0035f62c_2ad390 asm("D_0035f62c");
-void func_002ad390() asm("func_002ad390");
-void func_002ad390()
+void Tz__JmComplete__CheckAlbum() asm("Tz__JmComplete__CheckAlbum");
+void Tz__JmComplete__CheckAlbum()
 {
     s32 i = 0;
     s32 prev = -1;
@@ -2202,8 +2202,8 @@ struct w243_L4 { u8 pad[8]; s32 n; };
 w243_L4* func_00294000(s32) asm("func_00294000");
 s32 func_002aa5b8(s32, s32) asm("func_002aa5b8");
 extern u8* D_0035f620 asm("D_0035f620");
-s32 func_002ad4a8(s32 a) asm("func_002ad4a8");
-s32 func_002ad4a8(s32 a) {
+s32 Tz__JmComplete__isAlbumComp(s32 a) asm("Tz__JmComplete__isAlbumComp");
+s32 Tz__JmComplete__isAlbumComp(s32 a) {
     s32 i; s32 ok = 1;
     w243_L4* l = func_00294000(2);
     for (i = 0; i < l->n; i++) {
@@ -2228,8 +2228,8 @@ extern u8* D_0035f620_2ad580 asm("D_0035f620");
 union C2ad580 { s32 i; u32 u; };
 extern C2ad580 D_0035f628_2ad580 asm("D_0035f628");
 extern s32 D_0035f62c_2ad580 asm("D_0035f62c");
-void func_002ad580() asm("func_002ad580");
-void func_002ad580()
+void Tz__JmComplete__CheckBattle() asm("Tz__JmComplete__CheckBattle");
+void Tz__JmComplete__CheckBattle()
 {
     s32 i = 0;
     T2ad580* t = func_00294000_2ad580(6);
@@ -2272,13 +2272,13 @@ namespace n002ad6e8 {
 struct E2ad6e8 { u8 d[16]; };
 struct T2ad6e8 { u8 pad[8]; s32 n; u8 pad2[4]; E2ad6e8 e[1]; };
 T2ad6e8* func_00294000_2ad6e8(s32) asm("func_00294000");
-s32 func_002a99c8_2ad6e8(E2ad6e8*) asm("func_002a99c8");
+s32 func_002a99c8_2ad6e8(E2ad6e8*) asm("Tz__JmQuest__GetQuestStat");
 extern u8* D_0035f620_2ad6e8 asm("D_0035f620");
 union C2ad6e8 { s32 i; u32 u; };
 extern C2ad6e8 D_0035f628_2ad6e8 asm("D_0035f628");
 extern s32 D_0035f62c_2ad6e8 asm("D_0035f62c");
-void func_002ad6e8() asm("func_002ad6e8");
-void func_002ad6e8()
+void Tz__JmComplete__CheckQuest() asm("Tz__JmComplete__CheckQuest");
+void Tz__JmComplete__CheckQuest()
 {
     s32 i = 0;
     T2ad6e8* t = func_00294000_2ad6e8(8);
@@ -2328,14 +2328,14 @@ extern union { U17_GotBits* p; s32 v; } U17_D_0035f620_u asm("D_0035f620");
 #define U17_D_0035f620 U17_D_0035f620_u.p
 extern s32 D_0035f62c asm("D_0035f62c");
 U17_GotList* func_00294000(u32) asm("func_00294000");
-s32 func_002a8920(u32) asm("func_002a8920");
+s32 Tz__JmMiniGame__isPlay(u32) asm("Tz__JmMiniGame__isPlay");
 void func_002ad878(void) asm("func_002ad878");
 void func_002ad878(void) {
     s32 i;
     U17_GotList* l = func_00294000(7);
     U17_D_0035f628 += l->n;
     for (i = 0; i < l->n; i++) {
-        if (func_002a8920(l->e[i].id)) {
+        if (Tz__JmMiniGame__isPlay(l->e[i].id)) {
             u32* b = U17_D_0035f620->bits;
             u32* w = &b[(u32)i >> 5];
             *w |= 1 << (i & 31);
@@ -2377,9 +2377,9 @@ extern s32 D_0035f628 asm("D_0035f628");
 extern s32 D_0035f62c asm("D_0035f62c");
 extern u8* D_0035f620 asm("D_0035f620");
 // counts unlocked entries and marks the ones that pass in the bitmask
-void func_002ad9f8(void) asm("func_002ad9f8");
+void Tz__JmComplete__CheckTreasure(void) asm("Tz__JmComplete__CheckTreasure");
 // counts unlocked entries and marks the ones that pass in the bitmask
-void func_002ad9f8(void) {
+void Tz__JmComplete__CheckTreasure(void) {
     Ev2ad* p = 0;
     u32 idx = 0;
     for (;;) {
@@ -2402,9 +2402,9 @@ namespace n002adaf0 {
 static inline bool TestBit(u32* bits, u32 i) { return (bits[i >> 5] & (1 << (i & 31))) != 0; }
 extern u8* D_0035f620 asm("D_0035f620");
 u8* func_001a82b0(u8*) asm("func_001a82b0");
-s32 func_002764b0(u8) asm("func_002764b0");
-bool func_002adaf0(s32 who) asm("func_002adaf0");
-bool func_002adaf0(s32 who)
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
+bool Tz__JmComplete__isTreasureComp(s32 who) asm("Tz__JmComplete__isTreasureComp");
+bool Tz__JmComplete__isTreasureComp(s32 who)
 {
     u8* e = 0;
     u32 idx = 0;
@@ -2415,7 +2415,7 @@ bool func_002adaf0(s32 who)
         if (e[4] == 0) {
             u16 k = *(u16*)(e + 8);
             if (k != 0 && k != 2048) {
-                if (who < 0 || func_002764b0(e[5]) == who) {
+                if (who < 0 || Tz__Jiminy__AreaWorld2JmWorld(e[5]) == who) {
                     if (!TestBit((u32*)(D_0035f620 + 236), idx)) { r = false; break; }
                 }
             }
@@ -2468,9 +2468,9 @@ extern u8* D_0035f620 asm("D_0035f620");
 u8* func_001a82b0(u8*) asm("func_001a82b0");
 u8* func_001a80c8(u16) asm("func_001a80c8");
 // table24_find_by_id
-s32 func_002764b0(u8) asm("func_002764b0");
-s32 func_002adcb0(s32 id) asm("func_002adcb0");
-s32 func_002adcb0(s32 id) {
+s32 Tz__Jiminy__AreaWorld2JmWorld(u8) asm("Tz__Jiminy__AreaWorld2JmWorld");
+s32 Tz__JmComplete__isNaviComp(s32 id) asm("Tz__JmComplete__isNaviComp");
+s32 Tz__JmComplete__isNaviComp(s32 id) {
     u8* e = 0;
     u32 i = 0;
     s32 r = 1;
@@ -2478,7 +2478,7 @@ s32 func_002adcb0(s32 id) {
         e = func_001a82b0(e);
         if (!e) break;
         if (func_001a80c8(*(u16*)(e + 2))[2] != 22) continue;
-        if (id >= 0 && func_002764b0(e[5]) != id) { i++; continue; }
+        if (id >= 0 && Tz__Jiminy__AreaWorld2JmWorld(e[5]) != id) { i++; continue; }
         u32* f = (u32*)(D_0035f620 + 300);
         if (!(f[i >> 5] & (1 << (i & 31)))) { r = 0; break; }
         i++;
@@ -2497,8 +2497,8 @@ extern s32 D_0035f628 asm("D_0035f628");
 extern s32 D_0035f620 asm("D_0035f620");
 extern s32 D_0035f62c asm("D_0035f62c");
 u8* func_001058e8(void) asm("func_001058e8");
-s32 func_002a7490(void) asm("func_002a7490");
-s32 func_002a74c0(void) asm("func_002a74c0");
+s32 Tz__JmSynthe__isEnableRecipe(void) asm("Tz__JmSynthe__isEnableRecipe");
+s32 Tz__JmSynthe__isEnableMaterial(void) asm("Tz__JmSynthe__isEnableMaterial");
 static inline s32 tb2ad(u32* base, u32 n) { return base[n >> 5] & (1 << (n & 31)); }
 static inline void sb2ad(u32* base, u32 n) { u32 m = 1 << (n & 31); u32* p = base + (n >> 5); *p |= m; }
 static inline s32 cnt2ad(u8* s, s32 off, s32 n)
@@ -2508,14 +2508,14 @@ static inline s32 cnt2ad(u8* s, s32 off, s32 n)
     for (j = 0; j < n; j++) if (tb2ad((u32*)(s + off), j)) c++;
     return c;
 }
-void func_002add90(void) asm("func_002add90");
-void func_002add90(void)
+void Tz__JmComplete__CheckSynthesis(void) asm("Tz__JmComplete__CheckSynthesis");
+void Tz__JmComplete__CheckSynthesis(void)
 {
     u8* s;
     s32 a, b, i, ok;
     s = func_001058e8() + 18932;
-    a = func_002a7490();
-    b = func_002a74c0();
+    a = Tz__JmSynthe__isEnableRecipe();
+    b = Tz__JmSynthe__isEnableMaterial();
     D_0035f628 += 4;
     for (i = 0; i < 4; i++) {
         ok = (i == 0 || i == 3) ? a : b;
@@ -2559,8 +2559,8 @@ struct T2adfd0 { u8 pad[8]; s32 n; u8 pad2[4]; E2adfd0 e[1]; };
 T2adfd0* func_00294000_2adfd0(s32) asm("func_00294000");
 s32 func_00294268_2adfd0(E2adfd0*) asm("func_00294268");
 extern u8* D_0035f620_2adfd0 asm("D_0035f620");
-void func_002adfd0() asm("func_002adfd0");
-void func_002adfd0()
+void Tz__JmComplete__CheckStory() asm("Tz__JmComplete__CheckStory");
+void Tz__JmComplete__CheckStory()
 {
     s32 i = 0;
     s32 prev = -1;
@@ -2698,10 +2698,10 @@ static inline s32 TY(u8 a, u8 b) { return D_0035f620->y[a].Test(b); }
 static inline void SY(u8 a, u8 b) { D_0035f620->y[a].Set(b); }
 // Rebuilds the seen/collected bit tables and their counters (D_0035f628 total, D_0035f62c set).
 // The unused i++ in the second loop gives it one latch, which matches the original block frequencies.
-void func_002ae320(void) asm("func_002ae320");
+void Tz__JmComplete__CheckPuzzle(void) asm("Tz__JmComplete__CheckPuzzle");
 // Rebuilds the seen/collected bit tables and their counters (D_0035f628 total, D_0035f62c set).
 // The unused i++ in the second loop gives it one latch, which matches the original block frequencies.
-void func_002ae320(void) {
+void Tz__JmComplete__CheckPuzzle(void) {
     Ent* e = 0;
     s32 i = 0;
     Tbl* t = func_00294000(9);
@@ -2751,8 +2751,8 @@ extern Prog2ae* D_0035f620 asm("D_0035f620");
 List2ae* func_00294000(s32) asm("func_00294000");
 s32 func_002b3ac8(s8) asm("func_002b3ac8");
 static inline bool testb(u32* p, u32 n) { return p[n >> 5] & (1 << (n & 31)); }
-s32 func_002ae660(s32 sel) asm("func_002ae660");
-s32 func_002ae660(s32 sel) {
+s32 Tz__JmComplete__isPuzzlePieceComp(s32 sel) asm("Tz__JmComplete__isPuzzlePieceComp");
+s32 Tz__JmComplete__isPuzzlePieceComp(s32 sel) {
     s32 i = 0;
     s32 ok = 1;
     List2ae* l = func_00294000(9);
@@ -2784,8 +2784,8 @@ static inline u32 bt(u16* b, s32 i) { return b[(u32)i >> 4] & (1 << (i & 15)); }
 static inline void bs(u16* b, s32 i) {
     if (!bt(b, i)) b[(u32)i >> 4] |= 1 << (i & 15);
 }
-s32 func_002ae768(s32 a0) asm("func_002ae768");
-s32 func_002ae768(s32 a0) {
+s32 Tz__JmComplete__isPuzzleGameComp(s32 a0) asm("Tz__JmComplete__isPuzzleGameComp");
+s32 Tz__JmComplete__isPuzzleGameComp(s32 a0) {
     s32 ret = 1;
     G* p = func_002a9d68();
     T9* t = func_00294000(9);
@@ -2808,7 +2808,7 @@ s32 func_002ae768(s32 a0) {
 namespace Tz { // method 002ae890
 u32 func_001d9e30(u32) asm("func_001d9e30");
 // record_range_check_or_first
-extern "C" s32 func_002764b0(u32) asm("func_002764b0");
+extern "C" s32 Tz__Jiminy__AreaWorld2JmWorld(u32) asm("Tz__Jiminy__AreaWorld2JmWorld");
 u32 func_001d9d48(void*) asm("func_001d9d48");
 u32 JmComplete::isPuzzleInfoComp(s32 a0) {
     u32 s0 = 0;
@@ -2823,7 +2823,7 @@ L_loop:
         }
         s0 = v0;
 
-        v0 = (u32)func_002764b0(*(u8*)(s0 + 4));
+        v0 = (u32)Tz__Jiminy__AreaWorld2JmWorld(*(u8*)(s0 + 4));
         if (s1 >= 0) {
             if ((u32)s1 != v0) {
                 goto L_loop;
@@ -2847,17 +2847,17 @@ L_ret:
 namespace n002ae908 {
 s32 func_002ad1b0(s32) asm("func_002ad1b0");
 s32 func_002ad338(void) asm("func_002ad338");
-s32 func_002ad4a8(void) asm("func_002ad4a8");
+s32 Tz__JmComplete__isAlbumComp(void) asm("Tz__JmComplete__isAlbumComp");
 s32 func_002ad660(void) asm("func_002ad660");
 s32 func_002ad7d0(s32) asm("func_002ad7d0");
 s32 func_002ad950(s32) asm("func_002ad950");
-s32 func_002adaf0(s32) asm("func_002adaf0");
-s32 func_002adcb0(s32) asm("func_002adcb0");
+s32 Tz__JmComplete__isTreasureComp(s32) asm("Tz__JmComplete__isTreasureComp");
+s32 Tz__JmComplete__isNaviComp(s32) asm("Tz__JmComplete__isNaviComp");
 s32 func_002adf60(s32) asm("func_002adf60");
 s32 func_002ae0c0(s32) asm("func_002ae0c0");
 s32 func_002ae1b0(s32, s32) asm("func_002ae1b0");
-s32 func_002ae660(s32) asm("func_002ae660");
-s32 func_002ae768(s32) asm("func_002ae768");
+s32 Tz__JmComplete__isPuzzlePieceComp(s32) asm("Tz__JmComplete__isPuzzlePieceComp");
+s32 Tz__JmComplete__isPuzzleGameComp(s32) asm("Tz__JmComplete__isPuzzleGameComp");
 s32 func_002ae890(s32) asm("func_002ae890");
 static inline __attribute__((always_inline)) s32 h_002ae908(s32 x) {
     if (x == 15) {
@@ -2866,19 +2866,19 @@ static inline __attribute__((always_inline)) s32 h_002ae908(s32 x) {
         if (!func_002ad660()) return 0;
         if (!func_002ad7d0(-1)) return 0;
         if (!func_002ad950(-1)) return 0;
-        if (!func_002adaf0(-1)) return 0;
-        if (!func_002adcb0(-1)) return 0;
+        if (!Tz__JmComplete__isTreasureComp(-1)) return 0;
+        if (!Tz__JmComplete__isNaviComp(-1)) return 0;
         if (!func_002adf60(-1)) return 0;
-        if (!func_002ae660(-1)) return 0;
-        if (!func_002ae768(-1)) return 0;
+        if (!Tz__JmComplete__isPuzzlePieceComp(-1)) return 0;
+        if (!Tz__JmComplete__isPuzzleGameComp(-1)) return 0;
         if (!func_002ae890(-1)) return 0;
         if (!func_002ae1b0(1, x)) return 0;
     } else {
-        if (!func_002ad4a8()) return 0;
+        if (!Tz__JmComplete__isAlbumComp()) return 0;
         if (!func_002ad7d0(x)) return 0;
         if (!func_002ad950(x)) return 0;
-        if (!func_002adaf0(x)) return 0;
-        if (!func_002adcb0(x)) return 0;
+        if (!Tz__JmComplete__isTreasureComp(x)) return 0;
+        if (!Tz__JmComplete__isNaviComp(x)) return 0;
         if (!func_002ae0c0(x)) return 0;
         if (!func_002ae1b0(0, x)) return 0;
         if (!func_002ae1b0(1, x)) return 0;
@@ -2886,8 +2886,8 @@ static inline __attribute__((always_inline)) s32 h_002ae908(s32 x) {
     }
     return 1;
 }
-s32 func_002ae908(s32 x) asm("func_002ae908");
-s32 func_002ae908(s32 x) {
+s32 Tz__JmComplete__isWorldComp(s32 x) asm("Tz__JmComplete__isWorldComp");
+s32 Tz__JmComplete__isWorldComp(s32 x) {
     return h_002ae908(x);
 }
 }  // namespace n002ae908
@@ -2897,9 +2897,9 @@ namespace n002aea98 {
 s32 func_00103570() asm("func_00103570");
 s32 func_001063c0(s32, s32) asm("func_001063c0");
 s32 func_001063f0(s32, s32) asm("func_001063f0");
-void func_00324510(s32) asm("func_00324510");
+void sa__MUSICAL_SCORE5__init(s32) asm("sa__MUSICAL_SCORE5__init");
 void func_0023f800(s32) asm("func_0023f800");
-void func_002815d8() asm("func_002815d8");
+void Tz__ItemPicDraw__Init() asm("Tz__ItemPicDraw__Init");
 void func_002aeb28() asm("func_002aeb28");
 extern s32 D_0035f630 asm("D_0035f630");
 extern s32 D_0035f634 asm("D_0035f634");
@@ -2908,14 +2908,14 @@ void func_002aea98(void) asm("func_002aea98");
 void func_002aea98(void) {
     D_0035f630 = func_001063f0(0x168, func_00103570());
     s32 v = func_001063c0(0x6048, func_00103570());
-    func_00324510(v);
+    sa__MUSICAL_SCORE5__init(v);
     D_0035f634 = v;
     s32 w = func_001063c0(0x98, func_00103570());
     func_0023f800(w);
     *(s32*)(w + 0x2c) = 0;
     *(s32*)(w + 0x30) = 0;
     D_0035f638 = w;
-    func_002815d8();
+    Tz__ItemPicDraw__Init();
     func_002aeb28();
 }
 }  // namespace n002aea98
